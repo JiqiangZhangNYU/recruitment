@@ -6,6 +6,7 @@ const state = {
   experience: "all",
   salary: 0,
   risk: "all",
+  bonus: "all",
   sort: "score",
   savedOnly: false,
   saved: new Set(JSON.parse(localStorage.getItem("recruitment-saved") || "[]")),
@@ -29,6 +30,7 @@ const elements = {
   experienceSelect: document.querySelector("#experience-select"),
   salarySelect: document.querySelector("#salary-select"),
   riskSelect: document.querySelector("#risk-select"),
+  bonusSelect: document.querySelector("#bonus-select"),
   sortSelect: document.querySelector("#sort-select"),
   tierSegments: document.querySelector("#tier-segments"),
   savedOnly: document.querySelector("#saved-only"),
@@ -75,6 +77,10 @@ function filteredJobs() {
     if (state.risk === "direct" && job.agency) return false;
     if (state.risk === "no-english" && job.requiresEnglish) return false;
     if (state.risk === "low-risk" && (job.agency || job.requiresEnglish)) return false;
+    if (state.bonus === "payment" && !job.paymentBonus) return false;
+    if (state.bonus === "major" && !job.majorCompany) return false;
+    if (state.bonus === "both" && !(job.paymentBonus && job.majorCompany)) return false;
+    if (state.bonus === "reference" && !job.isReference) return false;
     if (state.savedOnly && !state.saved.has(job.id)) return false;
     return true;
   });
@@ -188,9 +194,15 @@ function makeJobCard(job) {
   fragment.querySelector(".job-title").textContent = job.title;
   fragment.querySelector(".company").textContent = job.company;
   fragment.querySelector(".score-value").textContent = job.score;
+  card.classList.toggle("closed", job.closed);
 
   const meta = fragment.querySelector(".meta-line");
   appendSpans(meta, [job.salary, job.city, job.experience, job.education]);
+  const bonuses = [];
+  if (job.isReference) bonuses.push("原始标杆");
+  if (job.paymentBonus) bonuses.push("支付业务 +14");
+  if (job.majorCompany) bonuses.push("大平台 +10");
+  appendSpans(fragment.querySelector(".bonus-list"), bonuses);
   appendSpans(fragment.querySelector(".dimension-list"), job.dimensions);
 
   const riskLine = fragment.querySelector(".risk-line");
@@ -241,6 +253,7 @@ function filterLabels() {
   if (state.experience !== "all") labels.push(state.experience);
   if (state.salary) labels.push(`${state.salary}K+`);
   if (state.risk !== "all") labels.push(elements.riskSelect.selectedOptions[0].textContent);
+  if (state.bonus !== "all") labels.push(elements.bonusSelect.selectedOptions[0].textContent);
   if (state.savedOnly) labels.push("已收藏");
   return labels;
 }
@@ -262,12 +275,13 @@ function render() {
 }
 
 function resetFilters() {
-  Object.assign(state, { query: "", tier: "all", direction: "all", experience: "all", salary: 0, risk: "all", sort: "score", savedOnly: false });
+  Object.assign(state, { query: "", tier: "all", direction: "all", experience: "all", salary: 0, risk: "all", bonus: "all", sort: "score", savedOnly: false });
   elements.searchInput.value = "";
   elements.directionSelect.value = "all";
   elements.experienceSelect.value = "all";
   elements.salarySelect.value = "0";
   elements.riskSelect.value = "all";
+  elements.bonusSelect.value = "all";
   elements.sortSelect.value = "score";
   elements.savedOnly.checked = false;
   render();
@@ -279,6 +293,7 @@ function bindControls() {
   elements.experienceSelect.addEventListener("change", (event) => { state.experience = event.target.value; renderJobs(); });
   elements.salarySelect.addEventListener("change", (event) => { state.salary = Number(event.target.value); renderJobs(); });
   elements.riskSelect.addEventListener("change", (event) => { state.risk = event.target.value; renderJobs(); });
+  elements.bonusSelect.addEventListener("change", (event) => { state.bonus = event.target.value; renderJobs(); });
   elements.sortSelect.addEventListener("change", (event) => { state.sort = event.target.value; renderJobs(); });
   elements.savedOnly.addEventListener("change", (event) => { state.savedOnly = event.target.checked; renderJobs(); });
   elements.resetButton.addEventListener("click", resetFilters);

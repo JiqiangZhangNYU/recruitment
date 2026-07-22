@@ -14,11 +14,17 @@ async function checkPage(browser, viewport, screenshotPath) {
 
   await page.goto(baseURL, { waitUntil: "networkidle" });
   await page.locator(".job-card").first().waitFor();
-  assert.equal(await page.locator(".job-card").count(), 30);
-  assert.equal(await page.locator("#displayed-stat").textContent(), "30");
+  assert.equal(await page.locator(".job-card").count(), 35);
+  assert.equal(await page.locator("#displayed-stat").textContent(), "35");
 
   await page.locator("#tier-segments button").filter({ hasText: "A ·" }).click();
-  assert.equal(await page.locator(".job-card").count(), 9);
+  assert.equal(await page.locator(".job-card").count(), 15);
+  await page.locator("#reset-button").click();
+
+  await page.locator("#bonus-select").selectOption("reference");
+  assert.equal(await page.locator(".job-card").count(), 5);
+  assert.equal(await page.locator(".job-card.closed").count(), 1);
+  assert.match(await page.locator(".job-card.closed").textContent(), /职位已关闭/);
   await page.locator("#reset-button").click();
 
   await page.locator("#search-input").fill("淘宝闪购");

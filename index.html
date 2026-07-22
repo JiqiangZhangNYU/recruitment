@@ -44,7 +44,7 @@
     <main class="main">
       <header class="page-header">
         <div class="header-copy">
-          <p class="eyebrow">上海 · BOSS 直聘</p>
+          <p class="eyebrow">上海硬性 · BOSS 直聘</p>
           <h1>增长运营岗位筛选</h1>
           <p id="profile-summary" class="subtitle">加载岗位数据中...</p>
         </div>
@@ -95,6 +95,15 @@
                 <option value="direct">仅直接招聘</option>
                 <option value="no-english">不要求英语</option>
                 <option value="low-risk">直接招聘且不要求英语</option>
+              </select>
+            </label>
+            <label>加分项
+              <select id="bonus-select">
+                <option value="all">全部岗位</option>
+                <option value="payment">支付业务</option>
+                <option value="major">大平台公司</option>
+                <option value="both">支付 + 大平台</option>
+                <option value="reference">原始标杆</option>
               </select>
             </label>
             <label>排序方式
@@ -163,6 +172,7 @@
             </div>
           </div>
           <div class="meta-line"></div>
+          <div class="bonus-list"></div>
           <div class="dimension-list"></div>
           <div class="risk-line"></div>
         </div>

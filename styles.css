@@ -248,7 +248,7 @@ h1 { margin: 0; font-size: 23px; line-height: 1.25; }
 }
 .secondary-button:hover, .empty-state button:hover { color: var(--ink); border-color: var(--accent); }
 
-.filters { display: grid; grid-template-columns: repeat(5, minmax(125px, 1fr)); gap: 10px; margin-top: 13px; }
+.filters { display: grid; grid-template-columns: repeat(6, minmax(115px, 1fr)); gap: 10px; margin-top: 13px; }
 .filters label { display: grid; gap: 5px; color: var(--muted); font-size: 10px; font-weight: 700; }
 select {
   width: 100%;
@@ -291,6 +291,7 @@ select {
   box-shadow: var(--shadow);
 }
 .job-card:hover { border-color: var(--line-strong); }
+.job-card.closed { border-color: color-mix(in srgb, var(--c) 50%, var(--line)); }
 .job-main { display: grid; grid-template-columns: 54px minmax(0, 1fr) 66px; gap: 15px; padding: 16px 17px 13px; }
 .rank-block { padding-top: 2px; text-align: center; }
 .rank-number { display: block; color: var(--muted); font: 700 16px var(--mono); }
@@ -333,6 +334,10 @@ select {
 .meta-line span { padding-right: 7px; color: var(--ink-soft); border-right: 1px solid var(--line-strong); font-size: 12px; }
 .meta-line span:first-child { color: var(--accent); font-weight: 700; }
 .meta-line span:last-child { padding-right: 0; border-right: 0; }
+.bonus-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.bonus-list:empty { display: none; }
+.bonus-list span { padding: 2px 7px; color: var(--accent); background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 4px; font-size: 10px; font-weight: 700; }
+.bonus-list span:first-child { color: var(--b); background: var(--b-soft); border-color: color-mix(in srgb, var(--b) 30%, transparent); }
 .dimension-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
 .dimension-list span { padding: 2px 7px; color: var(--ink-soft); background: var(--surface-muted); border: 1px solid var(--line); border-radius: 4px; font-size: 10px; }
 .risk-line { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
