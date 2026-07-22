@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T18:38:36+08:00",
+  "generatedAt": "2026-07-22T18:54:54+08:00",
   "sourceGeneratedAt": "2026-07-22T09:27:51.242Z",
   "poolSize": 346,
   "eligibleSize": 35,
@@ -21,6 +21,197 @@
       "策略设计、落地和持续迭代",
       "跨团队项目推动",
       "电商或国际化业务经验"
+    ]
+  },
+  "skills": {
+    "groups": [
+      {
+        "id": "core",
+        "label": "核心通用",
+        "description": "多数增长运营岗位都会反复使用，优先建立可独立完成分析和方案的能力。"
+      },
+      {
+        "id": "advanced",
+        "label": "进阶方法",
+        "description": "用于提高洞察质量和验证可信度，面试时需要能讲清方法与结论。"
+      },
+      {
+        "id": "specialized",
+        "label": "方向专项",
+        "description": "结合目标岗位选择学习，支付业务是当前清单的重点加分方向。"
+      }
+    ],
+    "items": [
+      {
+        "id": "sql-excel",
+        "group": "core",
+        "title": "SQL 与 Excel 数据分析",
+        "priority": "第一优先",
+        "description": "把业务问题转成可查询的指标，能够自己取数、核对口径并形成结论。",
+        "learningPoints": [
+          "SQL：SELECT、WHERE、GROUP BY、JOIN、CTE 与窗口函数",
+          "Excel：数据透视表、XLOOKUP、SUMIFS、图表和数据清洗",
+          "理解表粒度、指标口径、空值异常与数据质量检查"
+        ],
+        "practice": "用模拟用户行为表完成新增、激活、7 日留存和付费转化分析，输出一页结论。",
+        "jobCount": 2,
+        "totalJobs": 35,
+        "relatedCount": 31,
+        "evidence": "31/35 个岗位涉及数据分析；2 个明确点名 SQL/Excel"
+      },
+      {
+        "id": "metrics-funnel",
+        "group": "core",
+        "title": "指标体系、漏斗与归因",
+        "priority": "第一优先",
+        "description": "围绕业务目标拆指标，定位流失环节并判断增长来自哪里。",
+        "learningPoints": [
+          "北极星指标、过程指标和护栏指标的拆解方法",
+          "注册、激活、留存、付费漏斗与分群对比",
+          "渠道归因、ROI、CAC、LTV、GMV 和利润基础口径"
+        ],
+        "practice": "搭建一张增长指标树和转化漏斗，指出三个问题环节及对应运营动作。",
+        "jobCount": 21,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "21/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "lifecycle",
+        "group": "core",
+        "title": "用户分层与生命周期运营",
+        "priority": "第一优先",
+        "description": "针对不同阶段和价值层级设计差异化触达、权益与转化策略。",
+        "learningPoints": [
+          "新客、成长、成熟、沉默、流失阶段的识别规则",
+          "RFM、行为标签、价值分层和用户画像",
+          "拉新、激活、留存、复购、召回策略及效果指标"
+        ],
+        "practice": "为一个钱包或电商产品画出生命周期地图，并为每层用户设计策略和指标。",
+        "jobCount": 34,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "34/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "strategy",
+        "group": "core",
+        "title": "增长策略与方案设计",
+        "priority": "第一优先",
+        "description": "从目标、洞察到动作和验证形成完整方案，而不只执行单点活动。",
+        "learningPoints": [
+          "目标、现状、问题、假设、策略、动作、指标的方案结构",
+          "人群、场景、渠道、权益和节奏的组合设计",
+          "优先级、资源测算、风险预案和复盘迭代"
+        ],
+        "practice": "写一份 3 页增长方案：业务诊断、策略设计、执行排期与量化目标。",
+        "jobCount": 21,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "21/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "project",
+        "group": "core",
+        "title": "跨团队项目推进",
+        "priority": "第一优先",
+        "description": "协调产品、技术、数据、营销、合规和风控，把策略按期落地。",
+        "learningPoints": [
+          "项目目标、里程碑、负责人、依赖项和验收标准",
+          "RACI、会议纪要、风险清单和问题升级机制",
+          "面向不同团队表达收益、成本和优先级"
+        ],
+        "practice": "制作一份跨团队项目计划，包含 RACI、四周排期、风险清单和复盘模板。",
+        "jobCount": 28,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "28/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "insight",
+        "group": "advanced",
+        "title": "用户、商家与市场洞察",
+        "priority": "第二优先",
+        "description": "结合定量数据和定性研究识别真实需求、行为动机与增长机会。",
+        "learningPoints": [
+          "用户访谈、问卷、可用性测试和竞品研究",
+          "从行为数据定位人群，再用访谈解释原因",
+          "输出机会点、证据、影响范围和建议优先级"
+        ],
+        "practice": "访谈 5 名目标用户，结合一份行为数据写出洞察、证据和三项机会点。",
+        "jobCount": 14,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "14/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "experimentation",
+        "group": "advanced",
+        "title": "A/B 测试与效果验证",
+        "priority": "第二优先",
+        "description": "用受控实验验证运营策略，避免把自然波动误判为活动效果。",
+        "learningPoints": [
+          "实验假设、对照组、变量控制和随机分流",
+          "主指标、护栏指标、样本量、周期和显著性",
+          "实验污染、辛普森悖论及结果推广边界"
+        ],
+        "practice": "设计一次新客激励 A/B 测试，写清假设、分组、指标、周期和决策规则。",
+        "jobCount": 4,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "4/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "payments",
+        "group": "specialized",
+        "title": "支付与金融科技业务",
+        "priority": "重点加分",
+        "description": "理解支付链路和关键经营指标，是当前大平台目标岗位的明显加分项。",
+        "learningPoints": [
+          "账户、钱包、收单、支付渠道、清结算和跨境收付兑基础链路",
+          "开户率、绑卡率、首笔率、支付成功率、渗透率和交易规模",
+          "KYC、AML、合规、风控、拒付和用户体验之间的平衡"
+        ],
+        "practice": "拆解商家钱包从开户到首笔交易的漏斗，提出三项增长策略和风险控制点。",
+        "jobCount": 10,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "10/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "ecommerce",
+        "group": "specialized",
+        "title": "电商与商家经营",
+        "priority": "方向加分",
+        "description": "理解商家、供给、商品和交易的经营逻辑，能够把运营动作关联到 GMV。",
+        "learningPoints": [
+          "流量、转化率、客单价、复购率与 GMV 的关系",
+          "商家招募、入驻、成长、活跃、分层和流失召回",
+          "供给结构、品类运营、营销活动和商家激励"
+        ],
+        "practice": "为一个品类制定商家分层与供给增长方案，明确 GMV 拆解和周度指标。",
+        "jobCount": 18,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "18/35 个岗位正文明确涉及"
+      },
+      {
+        "id": "english",
+        "group": "specialized",
+        "title": "业务英语与跨文化沟通",
+        "priority": "按方向学习",
+        "description": "海外岗位需要阅读市场材料、撰写方案并参与跨区域会议。",
+        "learningPoints": [
+          "增长、支付、电商、数据分析常用业务词汇",
+          "英文邮件、项目更新、数据结论和方案摘要",
+          "用英语说明业务背景、个人贡献、结果和复盘"
+        ],
+        "practice": "准备一份英文项目复盘并完成 5 分钟口述，覆盖目标、动作、数据和结果。",
+        "jobCount": 9,
+        "totalJobs": 35,
+        "relatedCount": null,
+        "evidence": "9/35 个岗位正文明确涉及"
+      }
     ]
   },
   "jobs": [

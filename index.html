@@ -20,17 +20,26 @@
         </div>
       </div>
 
-      <section class="side-section" aria-labelledby="tier-heading">
+      <nav class="primary-nav" aria-label="主要视图">
+        <button type="button" data-view="jobs" class="active" aria-pressed="true">
+          <span aria-hidden="true">▤</span><span>岗位清单</span>
+        </button>
+        <button type="button" data-view="skills" aria-pressed="false">
+          <span aria-hidden="true">✓</span><span>求职技能</span>
+        </button>
+      </nav>
+
+      <section class="side-section job-navigation" aria-labelledby="tier-heading">
         <h2 id="tier-heading">推荐级别</h2>
         <div id="tier-nav" class="side-nav"></div>
       </section>
 
-      <section class="side-section" aria-labelledby="direction-heading">
+      <section class="side-section job-navigation" aria-labelledby="direction-heading">
         <h2 id="direction-heading">岗位方向</h2>
         <div id="direction-nav" class="side-nav compact"></div>
       </section>
 
-      <section class="side-section distribution" aria-labelledby="distribution-heading">
+      <section class="side-section distribution job-navigation" aria-labelledby="distribution-heading">
         <h2 id="distribution-heading">候选分布</h2>
         <div id="tier-bars"></div>
       </section>
@@ -58,6 +67,7 @@
       </header>
 
       <div class="workspace">
+        <section id="jobs-view" class="view-panel">
         <section class="filter-panel" aria-label="岗位筛选器">
           <div class="search-row">
             <label class="search-box" for="search-input">
@@ -137,6 +147,37 @@
           <strong>没有符合当前条件的岗位</strong>
           <button id="empty-reset" type="button">清除筛选</button>
         </div>
+        </section>
+
+        <section id="skills-view" class="view-panel skills-view" hidden>
+          <header class="skills-header">
+            <div>
+              <p class="eyebrow">基于当前 35 个上海岗位</p>
+              <h2>求职技能路线</h2>
+              <p>从通用分析能力开始，再补充支付、电商和海外方向专项，练习产出可直接整理为面试案例。</p>
+            </div>
+            <div class="skill-progress-summary">
+              <div><strong id="skill-progress-count">0 / 10</strong><span>已掌握</span></div>
+              <div class="skill-progress-track" role="progressbar" aria-label="技能学习进度" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+                <span id="skill-progress-fill"></span>
+              </div>
+            </div>
+          </header>
+
+          <div class="skill-toolbar">
+            <div id="skill-segments" class="segments" aria-label="按技能分组筛选"></div>
+            <label class="check-control">
+              <input id="hide-mastered" type="checkbox">
+              <span>隐藏已掌握</span>
+            </label>
+          </div>
+
+          <div id="skill-groups" class="skill-groups"></div>
+          <div id="skill-empty" class="empty-state" hidden>
+            <strong>当前分组的技能已全部掌握</strong>
+            <button id="show-mastered" type="button">显示已掌握</button>
+          </div>
+        </section>
       </div>
     </main>
   </div>
@@ -194,6 +235,31 @@
           <p class="requirements"></p>
         </section>
       </div>
+    </article>
+  </template>
+
+  <template id="skill-template">
+    <article class="skill-card">
+      <header>
+        <div class="skill-title-block">
+          <div class="skill-badges">
+            <span class="skill-priority"></span>
+            <span class="skill-coverage"></span>
+          </div>
+          <h3 class="skill-title"></h3>
+        </div>
+        <label class="mastery-control">
+          <input type="checkbox">
+          <span>已掌握</span>
+        </label>
+      </header>
+      <div class="coverage-track" aria-hidden="true"><span></span></div>
+      <p class="skill-description"></p>
+      <ul class="learning-points"></ul>
+      <footer>
+        <span>练习产出</span>
+        <p class="skill-practice"></p>
+      </footer>
     </article>
   </template>
 

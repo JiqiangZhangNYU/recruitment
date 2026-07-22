@@ -1,5 +1,6 @@
 const state = {
   data: null,
+  view: location.hash === "#skills" ? "skills" : "jobs",
   query: "",
   tier: "all",
   direction: "all",
@@ -10,9 +11,16 @@ const state = {
   sort: "score",
   savedOnly: false,
   saved: new Set(JSON.parse(localStorage.getItem("recruitment-saved") || "[]")),
+  skillGroup: "all",
+  hideMastered: false,
+  masteredSkills: new Set(JSON.parse(localStorage.getItem("recruitment-mastered-skills") || "[]")),
 };
 
 const elements = {
+  appShell: document.querySelector(".app-shell"),
+  viewButtons: [...document.querySelectorAll(".primary-nav button[data-view]")],
+  jobsView: document.querySelector("#jobs-view"),
+  skillsView: document.querySelector("#skills-view"),
   tierNav: document.querySelector("#tier-nav"),
   directionNav: document.querySelector("#direction-nav"),
   tierBars: document.querySelector("#tier-bars"),
@@ -44,12 +52,42 @@ const elements = {
   dialogSummary: document.querySelector("#dialog-summary"),
   criteriaList: document.querySelector("#criteria-list"),
   jobTemplate: document.querySelector("#job-template"),
+  skillSegments: document.querySelector("#skill-segments"),
+  hideMastered: document.querySelector("#hide-mastered"),
+  skillGroups: document.querySelector("#skill-groups"),
+  skillEmpty: document.querySelector("#skill-empty"),
+  showMastered: document.querySelector("#show-mastered"),
+  skillProgressCount: document.querySelector("#skill-progress-count"),
+  skillProgressTrack: document.querySelector(".skill-progress-track"),
+  skillProgressFill: document.querySelector("#skill-progress-fill"),
+  skillTemplate: document.querySelector("#skill-template"),
 };
 
 const tierNames = { all: "全部", A: "优先看", B: "条件匹配", C: "备选" };
 
 function persistSaved() {
   localStorage.setItem("recruitment-saved", JSON.stringify([...state.saved]));
+}
+
+function persistMasteredSkills() {
+  localStorage.setItem("recruitment-mastered-skills", JSON.stringify([...state.masteredSkills]));
+}
+
+function setView(view, updateURL = true) {
+  state.view = view === "skills" ? "skills" : "jobs";
+  elements.jobsView.hidden = state.view !== "jobs";
+  elements.skillsView.hidden = state.view !== "skills";
+  elements.appShell.dataset.view = state.view;
+  elements.viewButtons.forEach((button) => {
+    const active = button.dataset.view === state.view;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  if (updateURL) {
+    const url = new URL(location.href);
+    url.hash = state.view === "skills" ? "skills" : "";
+    history.replaceState(null, "", url);
+  }
 }
 
 function textIncludes(job, query) {
@@ -274,6 +312,119 @@ function render() {
   renderJobs();
 }
 
+function renderSkillProgress() {
+  const skillIds = new Set(state.data.skills.items.map((skill) => skill.id));
+  const completed = [...state.masteredSkills].filter((id) => skillIds.has(id)).length;
+  const total = skillIds.size;
+  elements.skillProgressCount.textContent = `${completed} / ${total}`;
+  elements.skillProgressFill.style.width = `${total ? completed / total * 100 : 0}%`;
+  elements.skillProgressTrack.setAttribute("aria-valuemax", String(total));
+  elements.skillProgressTrack.setAttribute("aria-valuenow", String(completed));
+}
+
+function renderSkillSegments() {
+  elements.skillSegments.replaceChildren();
+  const options = [
+    { id: "all", label: "全部" },
+    ...state.data.skills.groups.map((group) => ({ id: group.id, label: group.label })),
+  ];
+  options.forEach((option) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = option.label;
+    button.className = state.skillGroup === option.id ? "active" : "";
+    button.setAttribute("aria-pressed", String(state.skillGroup === option.id));
+    button.addEventListener("click", () => {
+      state.skillGroup = option.id;
+      renderSkills();
+    });
+    elements.skillSegments.append(button);
+  });
+}
+
+function makeSkillCard(skill) {
+  const fragment = elements.skillTemplate.content.cloneNode(true);
+  const card = fragment.querySelector(".skill-card");
+  card.dataset.skillId = skill.id;
+  card.classList.add(`skill-group-${skill.group}`);
+  const mastered = state.masteredSkills.has(skill.id);
+  card.classList.toggle("mastered", mastered);
+
+  const priority = fragment.querySelector(".skill-priority");
+  priority.textContent = skill.priority;
+  priority.classList.add(`priority-${skill.group}`);
+  fragment.querySelector(".skill-coverage").textContent = skill.evidence;
+  fragment.querySelector(".skill-title").textContent = skill.title;
+  fragment.querySelector(".skill-description").textContent = skill.description;
+  fragment.querySelector(".skill-practice").textContent = skill.practice;
+
+  const coverageValue = skill.relatedCount ?? skill.jobCount;
+  fragment.querySelector(".coverage-track span").style.width = `${coverageValue / skill.totalJobs * 100}%`;
+  const list = fragment.querySelector(".learning-points");
+  skill.learningPoints.forEach((point) => {
+    const item = document.createElement("li");
+    item.textContent = point;
+    list.append(item);
+  });
+
+  const checkbox = fragment.querySelector(".mastery-control input");
+  checkbox.checked = mastered;
+  checkbox.setAttribute("aria-label", `标记已掌握：${skill.title}`);
+  checkbox.addEventListener("change", () => {
+    checkbox.checked ? state.masteredSkills.add(skill.id) : state.masteredSkills.delete(skill.id);
+    persistMasteredSkills();
+    if (state.hideMastered) {
+      renderSkills();
+    } else {
+      card.classList.toggle("mastered", checkbox.checked);
+      renderSkillProgress();
+    }
+  });
+  return fragment;
+}
+
+function renderSkillGroups() {
+  elements.skillGroups.replaceChildren();
+  let visibleCount = 0;
+  state.data.skills.groups.forEach((group) => {
+    if (state.skillGroup !== "all" && state.skillGroup !== group.id) return;
+    const skills = state.data.skills.items.filter((skill) => (
+      skill.group === group.id
+      && (!state.hideMastered || !state.masteredSkills.has(skill.id))
+    ));
+    if (!skills.length) return;
+    visibleCount += skills.length;
+
+    const section = document.createElement("section");
+    section.className = "skill-group-section";
+    const header = document.createElement("header");
+    header.className = "skill-group-header";
+    const copy = document.createElement("div");
+    const title = document.createElement("h3");
+    title.textContent = group.label;
+    const description = document.createElement("p");
+    description.textContent = group.description;
+    copy.append(title, description);
+    const count = document.createElement("span");
+    count.textContent = `${skills.length} 项`;
+    header.append(copy, count);
+
+    const grid = document.createElement("div");
+    grid.className = "skill-grid";
+    grid.append(...skills.map(makeSkillCard));
+    section.append(header, grid);
+    elements.skillGroups.append(section);
+  });
+  elements.skillGroups.hidden = visibleCount === 0;
+  elements.skillEmpty.hidden = visibleCount !== 0;
+}
+
+function renderSkills() {
+  renderSkillSegments();
+  renderSkillGroups();
+  renderSkillProgress();
+}
+
 function resetFilters() {
   Object.assign(state, { query: "", tier: "all", direction: "all", experience: "all", salary: 0, risk: "all", bonus: "all", sort: "score", savedOnly: false });
   elements.searchInput.value = "";
@@ -288,6 +439,11 @@ function resetFilters() {
 }
 
 function bindControls() {
+  elements.viewButtons.forEach((button) => {
+    button.addEventListener("click", () => setView(button.dataset.view));
+  });
+  window.addEventListener("hashchange", () => setView(location.hash === "#skills" ? "skills" : "jobs", false));
+
   elements.searchInput.addEventListener("input", (event) => { state.query = event.target.value.trim(); renderJobs(); });
   elements.directionSelect.addEventListener("change", (event) => { state.direction = event.target.value; render(); });
   elements.experienceSelect.addEventListener("change", (event) => { state.experience = event.target.value; renderJobs(); });
@@ -296,6 +452,15 @@ function bindControls() {
   elements.bonusSelect.addEventListener("change", (event) => { state.bonus = event.target.value; renderJobs(); });
   elements.sortSelect.addEventListener("change", (event) => { state.sort = event.target.value; renderJobs(); });
   elements.savedOnly.addEventListener("change", (event) => { state.savedOnly = event.target.checked; renderJobs(); });
+  elements.hideMastered.addEventListener("change", (event) => {
+    state.hideMastered = event.target.checked;
+    renderSkills();
+  });
+  elements.showMastered.addEventListener("click", () => {
+    state.hideMastered = false;
+    elements.hideMastered.checked = false;
+    renderSkills();
+  });
   elements.resetButton.addEventListener("click", resetFilters);
   elements.emptyReset.addEventListener("click", resetFilters);
 
@@ -349,6 +514,8 @@ async function init() {
     });
     renderBars();
     render();
+    renderSkills();
+    setView(state.view, false);
   } catch (error) {
     elements.profileSummary.textContent = "岗位数据读取失败，请稍后刷新页面";
     elements.resultCaption.textContent = error.message;

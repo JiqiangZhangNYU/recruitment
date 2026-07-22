@@ -17,6 +17,20 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".job-card").count(), 35);
   assert.equal(await page.locator("#displayed-stat").textContent(), "35");
 
+  await page.locator('.primary-nav button[data-view="skills"]').click();
+  assert.equal(await page.locator(".skill-card").count(), 10);
+  assert.match(await page.locator("#skills-view").textContent(), /SQL 与 Excel 数据分析/);
+  await page.locator(".skill-card").first().locator('.mastery-control input').check();
+  assert.equal(await page.locator("#skill-progress-count").textContent(), "1 / 10");
+  await page.locator("#hide-mastered").check();
+  assert.equal(await page.locator(".skill-card").count(), 9);
+  await page.locator("#hide-mastered").uncheck();
+  assert.equal(await page.locator(".skill-card").count(), 10);
+  const skillOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  assert.ok(skillOverflow <= 1, `skills horizontal overflow: ${skillOverflow}px`);
+  await page.screenshot({ path: screenshotPath.replace(".png", "-skills.png"), fullPage: true });
+  await page.locator('.primary-nav button[data-view="jobs"]').click();
+
   await page.locator("#tier-segments button").filter({ hasText: "A ·" }).click();
   assert.equal(await page.locator(".job-card").count(), 15);
   await page.locator("#reset-button").click();
