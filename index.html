@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="上海增长运营岗位筛选清单，包含匹配度、岗位摘要、风险提示和 BOSS 直聘链接。">
+  <title>增长运营岗位筛选</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">R</div>
+        <div>
+          <strong>岗位筛选台</strong>
+          <span>RECRUITMENT SHORTLIST</span>
+        </div>
+      </div>
+
+      <section class="side-section" aria-labelledby="tier-heading">
+        <h2 id="tier-heading">推荐级别</h2>
+        <div id="tier-nav" class="side-nav"></div>
+      </section>
+
+      <section class="side-section" aria-labelledby="direction-heading">
+        <h2 id="direction-heading">岗位方向</h2>
+        <div id="direction-nav" class="side-nav compact"></div>
+      </section>
+
+      <section class="side-section distribution" aria-labelledby="distribution-heading">
+        <h2 id="distribution-heading">候选分布</h2>
+        <div id="tier-bars"></div>
+      </section>
+
+      <div class="sidebar-footer">
+        <button id="profile-button" class="profile-button" type="button">查看目标画像</button>
+        <span id="source-time">读取数据中</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="page-header">
+        <div class="header-copy">
+          <p class="eyebrow">上海 · BOSS 直聘</p>
+          <h1>增长运营岗位筛选</h1>
+          <p id="profile-summary" class="subtitle">加载岗位数据中...</p>
+        </div>
+        <button id="theme-button" class="icon-button" type="button" title="切换明暗主题" aria-label="切换明暗主题">◐</button>
+        <div class="stats" aria-label="岗位统计">
+          <div class="stat"><span>候选池</span><strong id="pool-stat">--</strong></div>
+          <div class="stat"><span>筛后合格</span><strong id="eligible-stat">--</strong></div>
+          <div class="stat accent"><span>推荐清单</span><strong id="displayed-stat">--</strong></div>
+          <div class="stat"><span>当前显示</span><strong id="visible-stat">--</strong></div>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <section class="filter-panel" aria-label="岗位筛选器">
+          <div class="search-row">
+            <label class="search-box" for="search-input">
+              <span aria-hidden="true">⌕</span>
+              <input id="search-input" type="search" placeholder="搜索岗位、公司、职责或要求" autocomplete="off">
+            </label>
+            <button id="reset-button" class="secondary-button" type="button">重置</button>
+          </div>
+
+          <div class="filters">
+            <label>岗位方向
+              <select id="direction-select"><option value="all">全部方向</option></select>
+            </label>
+            <label>经验要求
+              <select id="experience-select">
+                <option value="all">全部经验</option>
+                <option value="经验不限">经验不限</option>
+                <option value="1-3年">1-3 年</option>
+                <option value="3-5年">3-5 年</option>
+                <option value="5-10年">5-10 年</option>
+              </select>
+            </label>
+            <label>最低月薪
+              <select id="salary-select">
+                <option value="0">不限</option>
+                <option value="15">15K+</option>
+                <option value="20">20K+</option>
+                <option value="25">25K+</option>
+                <option value="30">30K+</option>
+              </select>
+            </label>
+            <label>风险偏好
+              <select id="risk-select">
+                <option value="all">全部岗位</option>
+                <option value="direct">仅直接招聘</option>
+                <option value="no-english">不要求英语</option>
+                <option value="low-risk">直接招聘且不要求英语</option>
+              </select>
+            </label>
+            <label>排序方式
+              <select id="sort-select">
+                <option value="score">匹配度优先</option>
+                <option value="salary">起薪优先</option>
+                <option value="rank">原始推荐顺序</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="filter-footer">
+            <div id="tier-segments" class="segments" aria-label="按推荐级别筛选"></div>
+            <label class="check-control">
+              <input id="saved-only" type="checkbox">
+              <span>只看收藏</span>
+            </label>
+          </div>
+        </section>
+
+        <div class="result-head">
+          <div>
+            <strong id="result-title">推荐岗位</strong>
+            <span id="result-caption">正在载入</span>
+          </div>
+          <span id="active-filters" class="active-filters"></span>
+        </div>
+
+        <section id="job-list" class="job-list" aria-live="polite"></section>
+        <div id="empty-state" class="empty-state" hidden>
+          <strong>没有符合当前条件的岗位</strong>
+          <button id="empty-reset" type="button">清除筛选</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="profile-dialog">
+    <div class="dialog-header">
+      <div>
+        <span>筛选基准</span>
+        <h2>目标岗位画像</h2>
+      </div>
+      <button id="dialog-close" class="icon-button" type="button" aria-label="关闭" title="关闭">×</button>
+    </div>
+    <p id="dialog-summary"></p>
+    <ol id="criteria-list"></ol>
+  </dialog>
+
+  <template id="job-template">
+    <article class="job-card">
+      <div class="job-main">
+        <div class="rank-block">
+          <span class="rank-number"></span>
+          <span class="tier-badge"></span>
+        </div>
+        <div class="job-copy">
+          <div class="title-line">
+            <div>
+              <h2 class="job-title"></h2>
+              <p class="company"></p>
+            </div>
+            <div class="job-actions">
+              <button class="save-button" type="button" aria-label="收藏岗位" title="收藏岗位">☆</button>
+              <a class="external-button" target="_blank" rel="noopener noreferrer">BOSS <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="meta-line"></div>
+          <div class="dimension-list"></div>
+          <div class="risk-line"></div>
+        </div>
+        <div class="score-block">
+          <strong class="score-value"></strong>
+          <span>匹配度</span>
+        </div>
+      </div>
+      <button class="detail-toggle" type="button" aria-expanded="false">
+        <span>岗位摘要</span><span class="chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="job-detail" hidden>
+        <section>
+          <h3>工作重点</h3>
+          <ul class="responsibility-list"></ul>
+        </section>
+        <section>
+          <h3>核心要求</h3>
+          <p class="requirements"></p>
+        </section>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
