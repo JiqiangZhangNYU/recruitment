@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-24",
+  "methodology": "机构规模优先采用中国证券投资基金业协会私募基金管理人公示信息；上海办公地点使用协会、机构官网或两者交叉核验。规模达标只说明机构层面满足百亿元门槛，不代表具体岗位的薪酬或职责达标。",
+  "institutions": [
+    {
+      "id": "yanfu",
+      "name": "衍复投资",
+      "legalName": "上海衍复投资管理有限公司",
+      "type": "私募证券基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100亿元以上", "asOf": "2025-09-04" },
+      "shanghai": { "status": "pass", "evidence": "协会登记办公地址位于上海市徐汇区。" },
+      "career": { "url": "https://yanfuinvestments.com/about", "status": "active", "note": "官网策略研究岗位全年开放。" },
+      "accessPolicy": { "mode": "manual", "reason": "仅人工浏览官网和雇主公开发布，不运行自动采集。" },
+      "sources": [
+        { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/1908041900102948.html", "supports": "机构类型、百亿以上规模、上海办公地址" },
+        { "label": "衍复官网加入我们", "url": "https://yanfuinvestments.com/about", "supports": "当前招聘方向与申请渠道" }
+      ]
+    },
+    {
+      "id": "minghong",
+      "name": "明汯投资",
+      "legalName": "上海明汯投资管理有限公司",
+      "type": "私募证券基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100亿元以上", "asOf": "2025-06-27" },
+      "shanghai": { "status": "pass", "evidence": "协会登记及招聘门户均显示上海办公或岗位。" },
+      "career": { "url": "https://join.mhfunds.com/index", "status": "active", "note": "公开招聘门户在本次核验时列出 24 个职位。" },
+      "accessPolicy": { "mode": "public-listing", "reason": "只低频读取公开职位列表的三页内容，不访问登录、申请或个人数据。" },
+      "sources": [
+        { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000006882.html", "supports": "机构类型、百亿以上规模、上海办公地址" },
+        { "label": "明汯公开招聘门户", "url": "https://join.mhfunds.com/index", "supports": "当前公开岗位、地点与要求" }
+      ]
+    },
+    {
+      "id": "lingjun",
+      "name": "灵均投资",
+      "legalName": "宁波灵均投资管理合伙企业（有限合伙）",
+      "type": "私募证券基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100亿元以上", "asOf": "2026-01-19" },
+      "shanghai": { "status": "pass", "evidence": "机构官网列示上海浦东办公室。" },
+      "career": { "url": "https://www.lingjuninvest.com/jiaruwomen", "status": "active", "note": "官网提供社会招聘入口和联系邮箱。" },
+      "accessPolicy": { "mode": "manual", "reason": "第三方招聘系统 robots.txt 禁止招聘路径，故不自动抓取，只人工核验公开页面。" },
+      "sources": [
+        { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000007089.html", "supports": "机构类型和百亿以上规模" },
+        { "label": "灵均官网", "url": "https://www.lingjuninvest.com/", "supports": "上海办公室" },
+        { "label": "灵均加入我们", "url": "https://www.lingjuninvest.com/jiaruwomen", "supports": "官方招聘入口" }
+      ]
+    },
+    {
+      "id": "century-frontier",
+      "name": "世纪前沿",
+      "legalName": "海南世纪前沿私募基金管理有限公司",
+      "type": "私募证券基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100亿元以上", "asOf": "2026-05-22" },
+      "shanghai": { "status": "pass", "evidence": "机构官网列示上海办公室及上海岗位。" },
+      "career": { "url": "https://www.centuryfrontier.com/contact", "status": "active", "note": "官网持续列示量化研究与机器学习岗位。" },
+      "accessPolicy": { "mode": "manual", "reason": "当前以官方岗位页人工核验为主。" },
+      "sources": [
+        { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/1711281746108062.html", "supports": "机构类型和百亿以上规模" },
+        { "label": "世纪前沿官网", "url": "https://www.centuryfrontier.com/", "supports": "百亿私募自述与上海办公室" },
+        { "label": "世纪前沿岗位页", "url": "https://www.centuryfrontier.com/contact", "supports": "当前公开岗位与要求" }
+      ]
+    },
+    {
+      "id": "jq-investments",
+      "name": "佳期投资",
+      "legalName": "上海佳期私募基金管理有限公司",
+      "type": "私募证券基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100亿元以上", "asOf": "2026-05-25" },
+      "shanghai": { "status": "pass", "evidence": "协会登记办公地址位于上海浦东，官网开放上海量化策略研究岗位。" },
+      "career": { "url": "https://www.jqinvestments.com/positions", "status": "active", "note": "官网当前列示量化策略研究员，工作地点上海/北京。" },
+      "accessPolicy": { "mode": "manual", "reason": "本轮人工核验官网职位页和雇主公开职位描述。" },
+      "sources": [
+        { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000073770.html", "supports": "机构类型、百亿以上规模、上海办公地址与更新时间" },
+        { "label": "佳期投资官方职位页", "url": "https://www.jqinvestments.com/positions", "supports": "当前开放岗位和上海地点" }
+      ]
+    },
+    {
+      "id": "tianyan",
+      "name": "天演资本",
+      "legalName": "上海天演私募基金管理有限公司",
+      "type": "私募证券基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100亿元以上", "asOf": "2026-06-10" },
+      "shanghai": { "status": "pass", "evidence": "协会登记办公地址位于上海浦东，官网当前资深量化研究员岗位位于上海。" },
+      "career": { "url": "https://www.tianyancapital.com/zh/join-us/jobs/index.html", "status": "active", "note": "官网当前列示资深量化研究员，并明确接受独立实盘商品期货策略经验。" },
+      "accessPolicy": { "mode": "manual", "reason": "本轮直接核验公开官网职位页，不访问外部投递系统。" },
+      "sources": [
+        { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000009631.html", "supports": "机构类型、百亿以上规模、上海办公地址与更新时间" },
+        { "label": "天演资本官方职位页", "url": "https://www.tianyancapital.com/zh/join-us/jobs/index.html", "supports": "资深量化研究员当前职责、要求和上海地点" }
+      ]
+    },
+    {
+      "id": "ubiquant",
+      "name": "九坤投资",
+      "legalName": "北京九坤投资（集团）有限公司",
+      "type": "私募证券基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100亿元以上", "asOf": "2025-09-30" },
+      "shanghai": { "status": "verify", "evidence": "公开招聘线索存在上海岗位，但本轮尚未核验到适合六年经验的官方在招职位。" },
+      "career": { "url": "https://www.ubiquant.com/website/home", "status": "watch", "note": "作为机构观察池，不计入当前职位样本。" },
+      "accessPolicy": { "mode": "manual-only", "reason": "官网使用条款明确禁止 crawler/spider，严格不运行自动抓取。" },
+      "sources": [
+        { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000004385.html", "supports": "机构类型和百亿以上规模" },
+        { "label": "九坤官网", "url": "https://www.ubiquant.com/website/home", "supports": "机构信息、访问条款与规模自述" }
+      ]
+    }
+  ]
+}

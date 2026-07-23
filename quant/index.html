@@ -30,6 +30,12 @@
         <button type="button" data-view="skills" aria-pressed="false">
           <span class="nav-icon" aria-hidden="true">◇</span><span>能力地图</span>
         </button>
+        <button type="button" data-view="compensation" aria-pressed="false">
+          <span class="nav-icon" aria-hidden="true">¥</span><span>薪酬换算</span>
+        </button>
+        <button type="button" data-view="jobs" aria-pressed="false">
+          <span class="nav-icon" aria-hidden="true">⌕</span><span>岗位雷达</span>
+        </button>
       </nav>
 
       <section class="side-section" aria-labelledby="positioning-heading">
@@ -83,6 +89,20 @@
         </div>
         <div id="skills-overview" hidden></div>
         <div id="skill-detail" hidden></div>
+      </section>
+
+      <section id="compensation-view" class="view-panel" hidden aria-labelledby="compensation-title">
+        <div id="compensation-loading" class="loading-state" role="status">
+          <span></span><strong>正在载入薪酬口径</strong>
+        </div>
+        <div id="compensation-content" hidden></div>
+      </section>
+
+      <section id="jobs-view" class="view-panel" hidden aria-labelledby="jobs-title">
+        <div id="jobs-loading" class="loading-state" role="status">
+          <span></span><strong>正在载入已核验岗位</strong>
+        </div>
+        <div id="jobs-content" hidden></div>
       </section>
 
       <div id="error-state" class="error-state" hidden role="alert">

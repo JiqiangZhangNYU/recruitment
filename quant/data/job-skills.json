@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-24",
+  "sample": {
+    "roleIds": [
+      "yanfu-quant-researcher",
+      "minghong-ai-quant-researcher",
+      "minghong-research-engineer",
+      "minghong-post-trading-data",
+      "lingjun-quant-developer",
+      "century-frontier-quant-researcher",
+      "century-frontier-portfolio-optimization",
+      "century-frontier-ml-researcher",
+      "tianyan-senior-quant-researcher",
+      "jq-quant-strategy-researcher"
+    ],
+    "size": 10,
+    "rule": "只统计当前、机构百亿以上、地点包含上海且为社招或可面向有经验候选人的已核验岗位；匿名客户和已关闭岗位排除。",
+    "warning": "这是定向岗位样本的描述性频率，不是上海量化招聘市场的总体估计。"
+  },
+  "skills": [
+    {
+      "id": "python",
+      "label": "Python 与可复现研究代码",
+      "count": 10,
+      "priority": "P0",
+      "interpretation": "不是会写脚本，而是能用同一套可测试代码完成数据、建模、回测、归因和交付。",
+      "evidenceToPrepare": "展示一个脱敏研究仓库的目录、测试、实验配置和结果追踪。"
+    },
+    {
+      "id": "research-rigor",
+      "label": "严谨验证与证据链",
+      "count": 8,
+      "priority": "P0",
+      "interpretation": "岗位共同关心数据质量、统计可靠性和从研究到实盘的偏差，而不只看回测 Sharpe。",
+      "evidenceToPrepare": "整理样本外划分、费用冲击、失败实验、实盘偏差和回撤复盘。"
+    },
+    {
+      "id": "statistical-modeling",
+      "label": "统计建模与预测",
+      "count": 7,
+      "priority": "P0",
+      "interpretation": "需要把经济假设、预测目标、损失函数、稳定性检验和组合使用方式连成闭环。",
+      "evidenceToPrepare": "准备一个信号从假设到 OOS、再到组合边际贡献的完整案例。"
+    },
+    {
+      "id": "machine-learning",
+      "label": "机器学习与非线性模型",
+      "count": 5,
+      "priority": "P1",
+      "interpretation": "头部机构普遍把 ML 作为模型工具，但真正门槛是金融样本下的稳定验证，不是框架 API。",
+      "evidenceToPrepare": "比较线性基线与非线性模型，说明增益、漂移、可解释性和上线成本。"
+    },
+    {
+      "id": "productionization",
+      "label": "研究到实盘的一致性",
+      "count": 7,
+      "priority": "P0",
+      "interpretation": "生产岗位和研究岗位都在追问实盘、回测、交易和数据之间能否对齐。",
+      "evidenceToPrepare": "量化 2024.03 至今预测、模拟与费后实盘的差异来源。"
+    },
+    {
+      "id": "signal-research",
+      "label": "数据到 Alpha 的研究能力",
+      "count": 6,
+      "priority": "P0",
+      "interpretation": "公开数据构造信号是强匹配项，需要进一步证明原创性、稳定性和增量价值。",
+      "evidenceToPrepare": "用脱敏方式展示数据生成机制、去泄漏、正交化和边际 IC。"
+    },
+    {
+      "id": "portfolio-risk",
+      "label": "组合优化、风险归因与容量",
+      "count": 1,
+      "priority": "P0",
+      "interpretation": "明确写进岗位的频率不高，但这是从高级研究员升级为研究型 PM 的决定性能力。",
+      "evidenceToPrepare": "把约 10 亿元现有配置、50 亿元以上容量、杠杆和回撤约束写成可审查案例。"
+    },
+    {
+      "id": "sql-data",
+      "label": "SQL、数据工程与质量控制",
+      "count": 1,
+      "priority": "P1",
+      "interpretation": "SQL 不是策略负责人的核心定价项，但数据审计、ETL 与可追溯性是研究可信度的底座。",
+      "evidenceToPrepare": "准备数据版本、异常检测、点时数据和重跑一致性的设计说明。"
+    },
+    {
+      "id": "transaction-costs",
+      "label": "交易成本与实盘偏差",
+      "count": 2,
+      "priority": "P0",
+      "interpretation": "当前不负责下单并不等于可以忽略执行；负责人必须解释成本、冲击和容量。",
+      "evidenceToPrepare": "展示换手、费率、滑点与规模扩张的敏感性分析。"
+    },
+    {
+      "id": "collaboration",
+      "label": "跨研究、交易与工程协作",
+      "count": 6,
+      "priority": "P1",
+      "interpretation": "IC 路线仍要求清楚定义接口、推动落地并指导年轻研究者，不等于人员管理。",
+      "evidenceToPrepare": "准备与 PM、交易、数据同事协作以及指导实习生的具体案例。"
+    }
+  ]
+}

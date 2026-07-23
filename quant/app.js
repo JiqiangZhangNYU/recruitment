@@ -2,8 +2,14 @@ const state = {
   profile: null,
   directions: null,
   skills: null,
+  compensation: null,
+  institutions: null,
+  jobs: null,
+  jobSkills: null,
   activeView: "overview",
   directionFilter: "all",
+  jobFilter: "strict-watch",
+  bonusTaxMode: "separate",
 };
 
 const viewMetadata = {
@@ -12,7 +18,7 @@ const viewMetadata = {
     title: "商品期货量化研究员",
   },
   directions: {
-    eyebrow: "初始岗位假设 · 尚未接入招聘数据",
+    eyebrow: "职业方向 · 已接入核验岗位样本",
     title: "目标岗位方向",
     subtitle: "以商品截面研究为主定价，按证据要求区分直接匹配、进阶目标与迁移方向。",
   },
@@ -20,6 +26,16 @@ const viewMetadata = {
     eyebrow: "去重能力框架 · 证据优先",
     title: "九项能力地图",
     subtitle: "P0 决定高级研究员与策略负责人定价，P1 用于形成差异化与扩大机会集。",
+  },
+  compensation: {
+    eyebrow: "上海税务口径 · 可复算估算",
+    title: "薪酬换算与谈判门槛",
+    subtitle: "固定税前保证收入和良好年份税后现金是两条独立条件；未披露固定薪酬的岗位必须人工核验。",
+  },
+  jobs: {
+    eyebrow: "真实岗位样本 · 三道硬门槛",
+    title: "上海量化岗位雷达",
+    subtitle: "机构规模有官方证据，职位状态有核验日期；薪酬未公开时只进入待沟通池，不推断达标。",
   },
 };
 
@@ -39,6 +55,10 @@ const elements = {
   skillDetail: document.querySelector("#skill-detail"),
   skillSideSection: document.querySelector("#skill-side-section"),
   skillSideNav: document.querySelector("#skill-side-nav"),
+  compensationLoading: document.querySelector("#compensation-loading"),
+  compensationContent: document.querySelector("#compensation-content"),
+  jobsLoading: document.querySelector("#jobs-loading"),
+  jobsContent: document.querySelector("#jobs-content"),
 };
 
 function escapeHTML(value) {
@@ -63,6 +83,14 @@ async function loadJSON(path) {
 function formatDate(date) {
   const [year, month, day] = date.split("-");
   return `${year}.${month}.${day}`;
+}
+
+function formatWan(value, digits = 2) {
+  return `${(Number(value) / 10_000).toFixed(digits)} 万`;
+}
+
+function formatPercent(value) {
+  return `${(Number(value) * 100).toFixed(1)}%`;
 }
 
 function renderOverview() {
@@ -396,6 +424,373 @@ function renderSkillDetail(skillId) {
   elements.skillsLoading.hidden = true;
 }
 
+function bracketForIncome(brackets, taxableIncome) {
+  return brackets.find((bracket) => bracket.upper === null || taxableIncome <= bracket.upper);
+}
+
+function calculateSalary(gross, dataset) {
+  const assumptions = dataset.assumptions;
+  const contributionBase = Math.min(gross, assumptions.monthlyContributionCap * 12);
+  const social = contributionBase * assumptions.employeeSocialRate;
+  const housingFund = contributionBase * assumptions.employeeHousingFundRate;
+  const taxableIncome = Math.max(0, gross
+    - assumptions.annualBasicDeduction
+    - social
+    - housingFund
+    - assumptions.specialAdditionalDeductions);
+  const bracket = bracketForIncome(dataset.taxBrackets, taxableIncome);
+  const tax = Math.max(0, taxableIncome * bracket.rate - bracket.quickDeduction);
+  return {
+    social,
+    housingFund,
+    taxableIncome,
+    tax,
+    cash: gross - social - housingFund - tax,
+  };
+}
+
+function calculateSeparateBonusTax(bonus) {
+  const monthly = bonus / 12;
+  const brackets = [
+    [3_000, 0.03, 0],
+    [12_000, 0.10, 210],
+    [25_000, 0.20, 1_410],
+    [35_000, 0.25, 2_660],
+    [55_000, 0.30, 4_410],
+    [80_000, 0.35, 7_160],
+    [Infinity, 0.45, 15_160],
+  ];
+  const bracket = brackets.find(([upper]) => monthly <= upper);
+  return Math.max(0, bonus * bracket[1] - bracket[2]);
+}
+
+function compensationInputs() {
+  const baseInput = document.querySelector("#guaranteed-income");
+  const bonusInput = document.querySelector("#performance-bonus");
+  return {
+    base: Math.max(0, Number(baseInput?.value || 0) * 10_000),
+    bonus: Math.max(0, Number(bonusInput?.value || 0) * 10_000),
+  };
+}
+
+function updateCompensationResults() {
+  if (!state.compensation) return;
+  const { base, bonus } = compensationInputs();
+  const dataset = state.compensation;
+  let baseResult;
+  let bonusTax;
+  let totalCash;
+  if (state.bonusTaxMode === "separate") {
+    baseResult = calculateSalary(base, dataset);
+    bonusTax = calculateSeparateBonusTax(bonus);
+    totalCash = baseResult.cash + bonus - bonusTax;
+  } else {
+    baseResult = calculateSalary(base + bonus, dataset);
+    const salaryOnly = calculateSalary(base, dataset);
+    bonusTax = baseResult.tax - salaryOnly.tax;
+    totalCash = baseResult.cash;
+  }
+  const guaranteePass = base >= dataset.objective.guaranteedGrossMinimum;
+  const cashPass = totalCash > dataset.objective.successfulYearCashMinimum;
+  const values = {
+    "result-base-cash": formatWan(calculateSalary(base, dataset).cash),
+    "result-bonus-tax": formatWan(bonusTax),
+    "result-total-cash": formatWan(totalCash),
+    "result-total-gross": formatWan(base + bonus),
+  };
+  Object.entries(values).forEach(([id, value]) => {
+    const element = document.querySelector(`#${id}`);
+    if (element) element.textContent = value;
+  });
+  const guaranteeStatus = document.querySelector("#guarantee-status");
+  const cashStatus = document.querySelector("#cash-status");
+  if (guaranteeStatus) {
+    guaranteeStatus.dataset.pass = String(guaranteePass);
+    guaranteeStatus.textContent = guaranteePass ? "达标" : `还差 ${formatWan(dataset.objective.guaranteedGrossMinimum - base)}`;
+  }
+  if (cashStatus) {
+    cashStatus.dataset.pass = String(cashPass);
+    cashStatus.textContent = cashPass ? "超过当前基线" : `还差 ${formatWan(dataset.objective.successfulYearCashMinimum - totalCash)}`;
+  }
+  document.querySelectorAll("[data-bonus-tax-mode]").forEach((button) => {
+    const active = button.dataset.bonusTaxMode === state.bonusTaxMode;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function renderCompensation() {
+  const dataset = state.compensation;
+  const base = dataset.scenarios.guaranteedBase;
+  const merged = dataset.scenarios.allComprehensiveIncome;
+  const separate = dataset.scenarios.separateAnnualBonus;
+  elements.compensationContent.innerHTML = `
+    <section class="view-intro compensation-intro">
+      <div>
+        <p class="section-index">COMPENSATION GATE</p>
+        <h2 id="compensation-title">两条条件，分别核验</h2>
+      </div>
+      <p>${escapeHTML(dataset.objective.interpretation)}</p>
+    </section>
+    <section class="compensation-summary" aria-label="薪酬门槛摘要">
+      <article>
+        <span>固定税前保证</span>
+        <strong>≥ ${formatWan(dataset.objective.guaranteedGrossMinimum, 0)}</strong>
+        <small>不能由不确定奖金补足</small>
+      </article>
+      <article>
+        <span>100 万固定收入现金到手</span>
+        <strong>约 ${formatWan(base.cashTakeHome)}</strong>
+        <small>7% 公积金、无专项附加扣除</small>
+      </article>
+      <article>
+        <span>单独计税奖金门槛</span>
+        <strong>约 ${formatWan(separate.conservativeScreeningBonus)}</strong>
+        <small>总税前约 ${formatWan(separate.conservativeScreeningTotalGross)}</small>
+      </article>
+      <article>
+        <span>并入综合所得奖金门槛</span>
+        <strong>约 ${formatWan(merged.conservativeScreeningBonus)}</strong>
+        <small>总税前约 ${formatWan(merged.conservativeScreeningTotalGross)}</small>
+      </article>
+    </section>
+    <section class="calculator-band section-band" aria-labelledby="calculator-title">
+      <header class="section-heading compact-heading">
+        <p class="section-index">OFFER CALCULATOR</p>
+        <h2 id="calculator-title">录用条件换算器</h2>
+      </header>
+      <div class="calculator-layout">
+        <form class="calculator-controls" onsubmit="return false">
+          <label for="guaranteed-income">
+            <span>固定税前保证收入</span>
+            <span class="money-input"><input id="guaranteed-income" type="number" min="0" step="1" value="100" inputmode="decimal"><small>万元 / 年</small></span>
+          </label>
+          <label for="performance-bonus">
+            <span>绩效良好时税前奖金</span>
+            <span class="money-input"><input id="performance-bonus" type="number" min="0" step="1" value="10.5" inputmode="decimal"><small>万元 / 年</small></span>
+          </label>
+          <fieldset>
+            <legend>奖金计税情景</legend>
+            <div class="segment-control compact-segments" role="group">
+              <button type="button" class="active" data-bonus-tax-mode="separate" aria-pressed="true">全年一次性奖金单独计税</button>
+              <button type="button" data-bonus-tax-mode="merged" aria-pressed="false">并入综合所得</button>
+            </div>
+          </fieldset>
+          <p>${escapeHTML(dataset.status)}</p>
+        </form>
+        <div class="calculator-results" aria-live="polite">
+          <div><span>固定收入现金到手</span><strong id="result-base-cash"></strong></div>
+          <div><span>奖金对应税额</span><strong id="result-bonus-tax"></strong></div>
+          <div><span>全年税前总额</span><strong id="result-total-gross"></strong></div>
+          <div class="primary-result"><span>全年工资现金到手</span><strong id="result-total-cash"></strong></div>
+          <div class="gate-result"><span>固定保证条件</span><strong id="guarantee-status"></strong></div>
+          <div class="gate-result"><span>税后现金条件</span><strong id="cash-status"></strong></div>
+        </div>
+      </div>
+    </section>
+    <section class="assumption-band section-band" aria-labelledby="assumption-title">
+      <header class="section-heading compact-heading">
+        <p class="section-index">ASSUMPTIONS & SOURCES</p>
+        <h2 id="assumption-title">计算口径与官方来源</h2>
+      </header>
+      <div class="assumption-grid">
+        <dl>
+          <div><dt>上海月缴费基数上限</dt><dd>${Number(dataset.assumptions.monthlyContributionCap).toLocaleString("zh-CN")} 元</dd></div>
+          <div><dt>个人社保比例</dt><dd>${formatPercent(dataset.assumptions.employeeSocialRate)}</dd></div>
+          <div><dt>个人公积金比例</dt><dd>${formatPercent(dataset.assumptions.employeeHousingFundRate)} 情景</dd></div>
+          <div><dt>专项附加扣除</dt><dd>未计入</dd></div>
+          <div><dt>现金到手定义</dt><dd>${escapeHTML(dataset.assumptions.cashDefinition)}</dd></div>
+        </dl>
+        <ol class="source-list">
+          ${dataset.sources.map((source) => `
+            <li>
+              <a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.label)}</a>
+              <span>${escapeHTML(source.publisher)} · ${escapeHTML(source.supports)}</span>
+            </li>
+          `).join("")}
+        </ol>
+      </div>
+    </section>
+  `;
+  elements.compensationLoading.hidden = true;
+  elements.compensationContent.hidden = false;
+  updateCompensationResults();
+}
+
+function institutionById(id) {
+  return state.institutions.institutions.find((institution) => institution.id === id);
+}
+
+function gateLabel(status) {
+  return {
+    pass: "已通过",
+    verify: "待核验",
+    unknown: "未知",
+    fail: "不符合",
+    "not-applicable": "不适用",
+  }[status] || status;
+}
+
+function renderGate(label, status) {
+  return `<span class="job-gate" data-status="${escapeHTML(status)}"><small>${escapeHTML(label)}</small><strong>${escapeHTML(gateLabel(status))}</strong></span>`;
+}
+
+function jobFilterOptions() {
+  return [
+    { id: "strict-watch", label: "重点待核" },
+    { id: "adjacent", label: "相邻岗位" },
+    { id: "boundary", label: "边界线索" },
+    { id: "historical", label: "历史参照" },
+    { id: "institutions", label: "机构库" },
+  ];
+}
+
+function renderInstitutionDirectory() {
+  return `
+    <section class="institution-list" aria-label="已核验机构">
+      ${state.institutions.institutions.map((institution) => `
+        <article class="institution-row">
+          <div class="institution-name">
+            <span>${escapeHTML(institution.priority)}关注</span>
+            <h3>${escapeHTML(institution.name)}</h3>
+            <p>${escapeHTML(institution.legalName)}</p>
+          </div>
+          <dl class="institution-facts">
+            <div><dt>机构类型</dt><dd>${escapeHTML(institution.type)}</dd></div>
+            <div><dt>管理规模</dt><dd>${escapeHTML(institution.scale.band)} · ${escapeHTML(institution.scale.asOf)}</dd></div>
+            <div><dt>上海证据</dt><dd>${escapeHTML(institution.shanghai.evidence)}</dd></div>
+          </dl>
+          <div class="institution-access">
+            <span data-mode="${escapeHTML(institution.accessPolicy.mode)}">${escapeHTML(institution.accessPolicy.mode)}</span>
+            <p>${escapeHTML(institution.accessPolicy.reason)}</p>
+            <div>${institution.sources.map((source) => `<a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.label)}</a>`).join("")}</div>
+          </div>
+        </article>
+      `).join("")}
+    </section>
+  `;
+}
+
+function renderJobCards(jobs) {
+  if (!jobs.length) return `<p class="empty-results">当前筛选下没有岗位。</p>`;
+  return `
+    <section class="job-list" aria-live="polite">
+      ${jobs.map((job) => {
+        const institution = job.institutionId ? institutionById(job.institutionId) : null;
+        return `
+          <article class="job-card">
+            <div class="job-fit">
+              <strong>${escapeHTML(job.fit.tier)}</strong>
+              <span>${escapeHTML(String(job.fit.score))}</span>
+              <small>匹配分</small>
+            </div>
+            <div class="job-body">
+              <header class="job-header">
+                <div>
+                  <span class="job-institution">${escapeHTML(institution?.name || job.institutionName || "匿名客户")}</span>
+                  <h3>${escapeHTML(job.title)}</h3>
+                  <p>${escapeHTML(job.location)} · ${escapeHTML(job.employment)} · 核验于 ${escapeHTML(job.checkedAt)}</p>
+                </div>
+                <a href="${escapeHTML(job.source.url)}" target="_blank" rel="noopener noreferrer">查看原职位</a>
+              </header>
+              <div class="job-gates" aria-label="岗位硬条件">
+                ${renderGate("上海", job.eligibility.location)}
+                ${renderGate("百亿机构", job.eligibility.institutionScale)}
+                ${renderGate("薪酬", job.eligibility.compensation)}
+                ${renderGate("职级", job.eligibility.seniority)}
+              </div>
+              <p class="job-verdict">${escapeHTML(job.fit.verdict)}</p>
+              <div class="job-tags">${job.skillTags.map((tag) => `<code>${escapeHTML(tag)}</code>`).join("")}</div>
+              <details class="job-details">
+                <summary>职责、要求与核验提醒</summary>
+                <div class="job-detail-grid">
+                  <section><span>核心职责</span>${list(job.responsibilities, "compact-boundary-list")}</section>
+                  <section><span>主要要求</span>${list(job.requirements, "compact-boundary-list")}</section>
+                </div>
+                <p><strong>薪酬：</strong>${escapeHTML(job.compensation.note)}</p>
+              </details>
+            </div>
+          </article>
+        `;
+      }).join("")}
+    </section>
+  `;
+}
+
+function renderJobSkills() {
+  const sample = state.jobSkills.sample;
+  return `
+    <section class="market-skills section-band" aria-labelledby="market-skills-title">
+      <header class="section-heading compact-heading market-skills-heading">
+        <div>
+          <p class="section-index">VERIFIED SAMPLE · N=${sample.size}</p>
+          <h2 id="market-skills-title">岗位样本共同技能</h2>
+        </div>
+        <p>${escapeHTML(sample.warning)}</p>
+      </header>
+      <div class="market-skill-list">
+        ${state.jobSkills.skills.map((skill) => `
+          <details class="market-skill-row">
+            <summary>
+              <span class="skill-frequency"><i style="--frequency: ${skill.count / sample.size}"></i></span>
+              <strong>${escapeHTML(skill.label)}</strong>
+              <span>${skill.count} / ${sample.size}</span>
+              <small>${escapeHTML(skill.priority)}</small>
+            </summary>
+            <div>
+              <p>${escapeHTML(skill.interpretation)}</p>
+              <p><strong>要准备的证据：</strong>${escapeHTML(skill.evidenceToPrepare)}</p>
+            </div>
+          </details>
+        `).join("")}
+      </div>
+      <p class="sample-rule">${escapeHTML(sample.rule)}</p>
+    </section>
+  `;
+}
+
+function renderJobs() {
+  const filters = jobFilterOptions();
+  const jobs = state.jobs.jobs.filter((job) => job.pool === state.jobFilter);
+  const activeJobs = state.jobs.jobs.filter((job) => job.status === "active");
+  const strictCount = state.jobs.jobs.filter((job) => job.pool === "strict-watch").length;
+  const compensationKnown = activeJobs.filter((job) => job.eligibility.compensation === "pass").length;
+  elements.jobsContent.innerHTML = `
+    <section class="view-intro jobs-intro">
+      <div>
+        <p class="section-index">JOB RADAR · ${escapeHTML(state.jobs.updatedAt)}</p>
+        <h2 id="jobs-title">先核验，再判断匹配</h2>
+      </div>
+      <p>${escapeHTML(state.jobs.methodology.scope)} ${escapeHTML(state.jobs.methodology.compensation)}</p>
+    </section>
+    <section class="radar-summary" aria-label="岗位雷达摘要">
+      <div><span>百亿机构</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>均有协会规模证据</small></div>
+      <div><span>当前职位</span><strong>${activeJobs.length}</strong><small>含相邻和边界线索</small></div>
+      <div><span>重点待核</span><strong>${strictCount}</strong><small>地点、规模已过闸</small></div>
+      <div><span>薪酬已达标</span><strong>${compensationKnown}</strong><small>未披露不推断</small></div>
+    </section>
+    ${renderJobSkills()}
+    <section class="radar-results section-band" aria-labelledby="radar-results-title">
+      <header class="section-heading compact-heading radar-results-header">
+        <div>
+          <p class="section-index">SCREENED OPPORTUNITIES</p>
+          <h2 id="radar-results-title">岗位与机构证据</h2>
+        </div>
+        <span>薪酬 0 条已通过，面试前必须先问固定现金</span>
+      </header>
+      <div class="segment-control job-filter" role="group" aria-label="岗位池筛选">
+        ${filters.map((filter) => `
+          <button type="button" data-job-filter="${escapeHTML(filter.id)}" class="${filter.id === state.jobFilter ? "active" : ""}">${escapeHTML(filter.label)}</button>
+        `).join("")}
+      </div>
+      ${state.jobFilter === "institutions" ? renderInstitutionDirectory() : renderJobCards(jobs)}
+    </section>
+    <p class="radar-methodology">${escapeHTML(state.institutions.methodology)} ${escapeHTML(state.jobs.methodology.freshness)}</p>
+  `;
+  elements.jobsLoading.hidden = true;
+  elements.jobsContent.hidden = false;
+}
+
 function updateHeader(view) {
   const metadata = viewMetadata[view];
   elements.eyebrow.textContent = metadata.eyebrow;
@@ -419,8 +814,24 @@ async function ensureSkills(skillId = "") {
   else renderSkillsOverview();
 }
 
+async function ensureCompensation() {
+  if (!state.compensation) state.compensation = await loadJSON("data/compensation.json");
+  renderCompensation();
+}
+
+async function ensureJobs() {
+  if (!state.institutions || !state.jobs || !state.jobSkills) {
+    [state.institutions, state.jobs, state.jobSkills] = await Promise.all([
+      loadJSON("data/institutions.json"),
+      loadJSON("data/jobs.json"),
+      loadJSON("data/job-skills.json"),
+    ]);
+  }
+  renderJobs();
+}
+
 async function showView(view, detailId = "") {
-  const safeView = ["overview", "directions", "skills"].includes(view) ? view : "overview";
+  const safeView = ["overview", "directions", "skills", "compensation", "jobs"].includes(view) ? view : "overview";
   state.activeView = safeView;
   document.querySelectorAll(".view-panel").forEach((panel) => {
     panel.hidden = panel.id !== `${safeView}-view`;
@@ -436,6 +847,8 @@ async function showView(view, detailId = "") {
   try {
     if (safeView === "directions") await ensureDirections();
     if (safeView === "skills") await ensureSkills(detailId);
+    if (safeView === "compensation") await ensureCompensation();
+    if (safeView === "jobs") await ensureJobs();
   } catch (error) {
     console.error(error);
     elements.errorState.hidden = false;
@@ -468,6 +881,22 @@ document.addEventListener("click", (event) => {
   if (skillButton && !skillButton.disabled) location.hash = `skills/${skillButton.dataset.skillId}`;
 
   if (event.target.closest("[data-back-skills]")) location.hash = "skills";
+
+  const taxModeButton = event.target.closest("[data-bonus-tax-mode]");
+  if (taxModeButton) {
+    state.bonusTaxMode = taxModeButton.dataset.bonusTaxMode;
+    updateCompensationResults();
+  }
+
+  const jobFilterButton = event.target.closest("[data-job-filter]");
+  if (jobFilterButton) {
+    state.jobFilter = jobFilterButton.dataset.jobFilter;
+    renderJobs();
+  }
+});
+
+document.addEventListener("input", (event) => {
+  if (event.target.matches("#guaranteed-income, #performance-bonus")) updateCompensationResults();
 });
 
 elements.themeButton.addEventListener("click", () => {

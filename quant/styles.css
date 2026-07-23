@@ -1372,6 +1372,649 @@ a:focus-visible {
   font-size: 13px;
 }
 
+.compensation-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 34px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+.compensation-summary article {
+  min-width: 0;
+  padding: 18px 20px;
+  border-right: 1px solid var(--line);
+}
+
+.compensation-summary article:last-child {
+  border-right: 0;
+}
+
+.compensation-summary span,
+.compensation-summary strong,
+.compensation-summary small {
+  display: block;
+}
+
+.compensation-summary span,
+.compensation-summary small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.compensation-summary strong {
+  margin: 4px 0;
+  font-family: Georgia, "Noto Serif SC", serif;
+  font-size: 21px;
+}
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+  gap: 36px;
+}
+
+.calculator-controls {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.calculator-controls label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.money-input {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 46px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+}
+
+.money-input:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.money-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 12px;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.money-input small {
+  padding: 0 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.calculator-controls fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.calculator-controls legend {
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.compact-segments {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+}
+
+.compact-segments button {
+  min-width: 0;
+  white-space: normal;
+}
+
+.calculator-controls > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.calculator-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.calculator-results > div {
+  min-width: 0;
+  min-height: 90px;
+  padding: 16px 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.calculator-results > div:nth-child(2n) {
+  border-right: 0;
+}
+
+.calculator-results > div:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.calculator-results span,
+.calculator-results strong {
+  display: block;
+}
+
+.calculator-results span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.calculator-results strong {
+  margin-top: 5px;
+  font-family: Georgia, "Noto Serif SC", serif;
+  font-size: 20px;
+}
+
+.calculator-results .primary-result {
+  background: var(--accent-soft);
+}
+
+.calculator-results .primary-result strong {
+  color: var(--accent-dark);
+  font-size: 24px;
+}
+
+.gate-result strong[data-pass="true"] {
+  color: var(--accent-dark);
+}
+
+.gate-result strong[data-pass="false"] {
+  color: var(--amber);
+}
+
+.assumption-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+  gap: 48px;
+}
+
+.assumption-grid dl {
+  margin: 0;
+}
+
+.assumption-grid dl div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.assumption-grid dt,
+.assumption-grid dd {
+  margin: 0;
+}
+
+.assumption-grid dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.assumption-grid dd {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.source-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.source-list li {
+  display: grid;
+  gap: 2px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.source-list a {
+  width: fit-content;
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.source-list span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.jobs-intro {
+  margin-bottom: 24px;
+}
+
+.radar-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.radar-summary > div {
+  display: grid;
+  min-width: 0;
+  padding: 18px 20px;
+  border-right: 1px solid var(--line);
+}
+
+.radar-summary > div:last-child {
+  border-right: 0;
+}
+
+.radar-summary span,
+.radar-summary small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.radar-summary strong {
+  margin: 2px 0;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.market-skills {
+  border-top: 0;
+}
+
+.market-skills-heading,
+.radar-results-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.market-skills-heading > p,
+.radar-results-header > span {
+  max-width: 480px;
+  margin: 0;
+  text-align: right;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.market-skill-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.market-skill-row {
+  border-bottom: 1px solid var(--line);
+}
+
+.market-skill-row summary {
+  display: grid;
+  grid-template-columns: 160px minmax(180px, 1fr) 50px 38px;
+  gap: 16px;
+  align-items: center;
+  min-height: 54px;
+  padding: 8px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.market-skill-row summary::-webkit-details-marker {
+  display: none;
+}
+
+.market-skill-row summary > span,
+.market-skill-row summary > small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.market-skill-row summary > small {
+  text-align: right;
+  font-weight: 800;
+}
+
+.skill-frequency {
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  background: var(--surface-muted);
+  border-radius: 3px;
+}
+
+.skill-frequency i {
+  display: block;
+  width: calc(var(--frequency) * 100%);
+  height: 100%;
+  background: var(--accent);
+}
+
+.market-skill-row > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  padding: 0 0 18px 176px;
+}
+
+.market-skill-row > div p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.market-skill-row > div strong {
+  color: var(--ink);
+}
+
+.sample-rule,
+.radar-methodology {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.job-filter {
+  margin: 18px 0 22px;
+}
+
+.job-list {
+  display: grid;
+  gap: 12px;
+}
+
+.job-card {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.job-fit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  padding: 16px 10px;
+  background: var(--surface-muted);
+  border-right: 1px solid var(--line);
+}
+
+.job-fit strong {
+  color: var(--accent-dark);
+  font-family: Georgia, serif;
+  font-size: 24px;
+}
+
+.job-fit span {
+  margin-top: 16px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.job-fit small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.job-body {
+  min-width: 0;
+  padding: 18px 20px;
+}
+
+.job-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.job-header h3,
+.job-header p {
+  margin: 0;
+}
+
+.job-header h3 {
+  margin: 2px 0 3px;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.job-header p,
+.job-institution {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.job-institution {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.job-header a {
+  flex: 0 0 auto;
+  padding: 5px 8px;
+  color: var(--accent-dark);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.job-gates {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 14px 0 12px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.job-gate {
+  display: grid;
+  padding: 8px 10px;
+  border-right: 1px solid var(--line);
+}
+
+.job-gate:last-child {
+  border-right: 0;
+}
+
+.job-gate small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.job-gate strong {
+  font-size: 11px;
+}
+
+.job-gate[data-status="pass"] strong {
+  color: var(--accent-dark);
+}
+
+.job-gate[data-status="verify"] strong,
+.job-gate[data-status="unknown"] strong {
+  color: var(--amber);
+}
+
+.job-gate[data-status="fail"] strong {
+  color: var(--danger);
+}
+
+.job-gate[data-status="not-applicable"] strong {
+  color: var(--muted);
+}
+
+.job-verdict {
+  margin: 0 0 10px;
+  font-size: 12px;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.job-tags code {
+  padding: 2px 6px;
+  color: var(--muted);
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-size: 9px;
+}
+
+.job-details {
+  margin-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+
+.job-details summary {
+  padding: 9px 0 0;
+  color: var(--accent-dark);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.job-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  padding: 12px 0;
+}
+
+.job-detail-grid section > span {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.job-details > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.empty-results {
+  padding: 24px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.institution-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.institution-row {
+  display: grid;
+  grid-template-columns: 190px minmax(300px, 1fr) minmax(240px, 0.8fr);
+  gap: 28px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.institution-name span,
+.institution-name p,
+.institution-access > span,
+.institution-access p {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.institution-name h3,
+.institution-name p,
+.institution-access p {
+  margin: 0;
+}
+
+.institution-name h3 {
+  margin: 3px 0;
+  font-size: 18px;
+}
+
+.institution-facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.institution-facts div {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.institution-facts dt,
+.institution-facts dd {
+  margin: 0;
+  font-size: 10px;
+}
+
+.institution-facts dt {
+  color: var(--muted);
+}
+
+.institution-access > span {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 2px 5px;
+  color: var(--ink);
+  background: var(--surface-muted);
+  border-radius: 3px;
+  font-weight: 800;
+}
+
+.institution-access div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.institution-access a {
+  color: var(--accent-dark);
+  font-size: 9px;
+  font-weight: 700;
+}
+
 @media (max-width: 980px) {
   :root {
     --sidebar-width: 220px;
@@ -1429,6 +2072,38 @@ a:focus-visible {
   .screening-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .compensation-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compensation-summary article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .compensation-summary article:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .radar-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .radar-summary > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .radar-summary > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .institution-row {
+    grid-template-columns: 160px minmax(260px, 1fr);
+  }
+
+  .institution-access {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1462,7 +2137,7 @@ a:focus-visible {
     position: sticky;
     top: 0;
     z-index: 8;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     padding: 6px 8px;
     background: var(--surface);
     border-top: 1px solid var(--line);
@@ -1479,7 +2154,7 @@ a:focus-visible {
   }
 
   .nav-icon {
-    font-size: 15px;
+    display: none;
   }
 
   .side-section,
@@ -1535,6 +2210,12 @@ a:focus-visible {
   .view-intro,
   .direction-evidence-grid,
   .skill-detail-columns {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .calculator-layout,
+  .assumption-grid {
     grid-template-columns: 1fr;
     gap: 26px;
   }
@@ -1652,6 +2333,82 @@ a:focus-visible {
     grid-template-columns: 1fr;
     gap: 5px;
   }
+
+  .compensation-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .compensation-summary article,
+  .compensation-summary article:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .compensation-summary article:last-child {
+    border-bottom: 0;
+  }
+
+  .market-skills-heading,
+  .radar-results-header {
+    display: grid;
+    align-items: start;
+  }
+
+  .market-skills-heading > p,
+  .radar-results-header > span {
+    text-align: left;
+  }
+
+  .market-skill-row summary {
+    grid-template-columns: 80px minmax(0, 1fr) 42px 30px;
+    gap: 8px;
+  }
+
+  .market-skill-row > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-left: 88px;
+  }
+
+  .job-filter {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .job-card {
+    grid-template-columns: 1fr;
+  }
+
+  .job-fit {
+    flex-direction: row;
+    gap: 8px;
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 8px 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .job-fit span {
+    margin: 0 0 0 auto;
+  }
+
+  .job-header {
+    display: grid;
+  }
+
+  .job-header a {
+    width: fit-content;
+  }
+
+  .job-detail-grid,
+  .institution-row {
+    grid-template-columns: 1fr;
+  }
+
+  .institution-access {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 420px) {
@@ -1710,6 +2467,30 @@ a:focus-visible {
     padding: 6px 4px;
   }
 
+  .compact-segments {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-results {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-results > div,
+  .calculator-results > div:nth-child(2n),
+  .calculator-results > div:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .calculator-results > div:last-child {
+    border-bottom: 0;
+  }
+
+  .assumption-grid dl div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
   .skill-group-header {
     grid-template-columns: 50px minmax(0, 1fr);
     gap: 10px;
@@ -1721,6 +2502,52 @@ a:focus-visible {
 
   .detail-pagination button:last-child {
     text-align: left;
+  }
+
+  .primary-nav button {
+    font-size: 11px;
+  }
+
+  .radar-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .radar-summary > div,
+  .radar-summary > div:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .radar-summary > div:last-child {
+    border-bottom: 0;
+  }
+
+  .market-skill-row summary {
+    grid-template-columns: minmax(0, 1fr) 38px 28px;
+  }
+
+  .skill-frequency {
+    grid-column: 1 / -1;
+  }
+
+  .market-skill-row > div {
+    padding-left: 0;
+  }
+
+  .job-filter {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .job-gates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .job-gate:nth-child(2) {
+    border-right: 0;
+  }
+
+  .job-gate:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
   }
 }
 
