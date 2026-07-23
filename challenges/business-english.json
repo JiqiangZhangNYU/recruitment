@@ -1,0 +1,446 @@
+{
+  "version": 1,
+  "skillId": "business-english",
+  "title": "业务英语闯关",
+  "summary": "围绕支付与策略运营的真实工作场景训练表达。每题先独立作答，再对照参考答案修正，目标不是背模板，而是形成可以在邮件、会议、汇报和面试中直接调用的表达结构。",
+  "levels": [
+    {
+      "id": "payment-basics",
+      "title": "支付术语基础",
+      "subtitle": "把支付链路和核心指标讲准确",
+      "objective": "能够用简洁英语解释支付参与方、资金流程、合规概念和商业指标。",
+      "questions": [
+        {
+          "id": "authorization-capture-settlement",
+          "title": "授权、请款与结算",
+          "type": "概念表达",
+          "prompt": "一位海外同事把 authorization、capture 和 settlement 当成同一个动作。你需要在会议中澄清三者的先后关系。",
+          "task": "用 3 至 5 句英文解释三个阶段，并说明授权成功不代表商户已经收到钱。",
+          "hint": "按“检查并预留额度 → 确认扣款 → 资金划转”的顺序组织。",
+          "answer": {
+            "sample": "Authorization checks whether the customer has sufficient funds or credit and temporarily reserves the amount. Capture confirms that the merchant wants to complete the charge. Settlement happens later, when funds are transferred through the payment chain to the merchant's account. Therefore, an approved authorization does not mean that the merchant has already received the money.",
+            "notes": ["先用动词说明每一步做什么，再交代资金是否真正移动。", "最后一句明确纠正常见误解。"],
+            "keywords": ["authorization", "capture", "settlement", "reserve funds"]
+          }
+        },
+        {
+          "id": "refund-chargeback",
+          "title": "退款与拒付",
+          "type": "差异说明",
+          "prompt": "客服团队询问 refund 和 chargeback 为什么不能使用同一套处理流程。",
+          "task": "用英文说明两者由谁发起、资金如何退回，以及商户面临的额外影响。",
+          "hint": "从 initiator、process 和 merchant impact 三个维度对比。",
+          "answer": {
+            "sample": "A refund is initiated by the merchant and sends money back through the original payment method. A chargeback is initiated by the cardholder through the issuing bank to dispute a transaction. The merchant may submit evidence, but can also face dispute fees and a higher chargeback ratio. That is why chargebacks require a separate investigation workflow.",
+            "notes": ["使用 is initiated by 清楚交代发起方。", "chargeback 还包括举证、费用和比率风险。"],
+            "keywords": ["refund", "chargeback", "issuing bank", "submit evidence"]
+          }
+        },
+        {
+          "id": "payment-participants",
+          "title": "支付链路参与方",
+          "type": "流程讲解",
+          "prompt": "新同事不清楚 issuer、acquirer、card network 和 PSP 分别服务谁。",
+          "task": "以一笔银行卡支付为例，用英文介绍四类参与方的职责。",
+          "hint": "从持卡人一侧讲到商户一侧，再补充 PSP 的连接作用。",
+          "answer": {
+            "sample": "The issuer provides the card to the customer and decides whether to approve the transaction. The card network routes messages between the issuing and acquiring sides. The acquirer provides card acceptance services to the merchant. A PSP connects the merchant to one or more acquirers and payment methods through a unified service.",
+            "notes": ["issuer 对应 customer，acquirer 对应 merchant。", "PSP 的价值用 unified service 概括，避免把它误说成银行。"],
+            "keywords": ["issuer", "acquirer", "card network", "PSP"]
+          }
+        },
+        {
+          "id": "kyc-kyb-aml",
+          "title": "KYC、KYB 与 AML",
+          "type": "合规表达",
+          "prompt": "产品团队想把商户入驻审核统称为 KYC，合规同事要求你说明术语边界。",
+          "task": "用英文区分 KYC、KYB 和 AML，并说明三者如何共同出现在商户入驻流程中。",
+          "hint": "先区分 customer 与 business，再说明 AML 是持续性的风险框架。",
+          "answer": {
+            "sample": "KYC verifies an individual customer's identity, while KYB verifies a business, including its registration and ownership. AML is the broader framework for preventing money laundering. During merchant onboarding, we perform KYB on the company, KYC on relevant beneficial owners, and AML screening and monitoring based on risk.",
+            "notes": ["beneficial owners 是商户审核中的高频表达。", "AML 不只是一次 screening，还可能包含持续 monitoring。"],
+            "keywords": ["KYC", "KYB", "AML", "beneficial owner"]
+          }
+        },
+        {
+          "id": "take-rate-net-revenue",
+          "title": "费率与净收入",
+          "type": "指标解释",
+          "prompt": "管理层看到 take rate 上升，认为净收入一定同比例增长，但支付通道成本也发生了变化。",
+          "task": "用英文解释 take rate、gross revenue 和 net revenue 的关系，并指出需要同时查看成本。",
+          "hint": "给出简短公式，再说明为什么单看费率不够。",
+          "answer": {
+            "sample": "Take rate is gross payment revenue divided by payment volume. Net revenue also depends on processing costs, network fees, incentives and losses. A higher take rate does not automatically produce the same increase in net revenue, so we should review both pricing and unit economics.",
+            "notes": ["用 divided by 直接给出指标定义。", "列出主要成本项，证明净收入不是只由费率决定。"],
+            "keywords": ["take rate", "payment volume", "net revenue", "unit economics"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-writing",
+      "title": "清晰商务写作",
+      "subtitle": "写出结论先行、动作明确的邮件",
+      "objective": "能够快速写出结构清楚、语气得体并带有负责人和截止时间的商务邮件。",
+      "questions": [
+        {
+          "id": "bluf-rewrite",
+          "title": "结论先行改写",
+          "type": "邮件改写",
+          "prompt": "你建议将巴西试点推迟一周，因为退款接口尚未通过回归测试。",
+          "task": "写一封不超过 90 词的英文邮件，第一句直接给出建议，再补充原因和下一步。",
+          "hint": "使用 recommendation → evidence → next step 的结构。",
+          "answer": {
+            "sample": "Subject: Recommendation to delay the Brazil pilot by one week\n\nI recommend moving the Brazil pilot from 12 August to 19 August. The refund API has failed two regression cases, so launching now could create manual refunds and a poor merchant experience. Engineering will complete the fixes by Friday, and Operations will rerun the checklist on Monday. Unless there are objections by Thursday 3 p.m., I will update the launch plan.",
+            "notes": ["标题和首句都直接写决策。", "最后给出负责人、动作和异议截止时间。"],
+            "keywords": ["I recommend", "launch risk", "unless there are objections", "update the plan"]
+          }
+        },
+        {
+          "id": "polite-data-request",
+          "title": "礼貌请求数据",
+          "type": "协作邮件",
+          "prompt": "你需要欧洲团队在周三前提供过去八周各支付方式的成功率数据，他们本周任务很多。",
+          "task": "用英文提出请求，说明用途、字段、截止时间，并给对方降低工作量的选项。",
+          "hint": "礼貌不等于模糊，deadline 和 minimum scope 都要清楚。",
+          "answer": {
+            "sample": "Hi Elena, could you please share the last eight weeks of payment success rates by country and payment method by Wednesday noon? We need the data for the Q3 recovery plan. A CSV with week, country, method, attempts and successful payments is sufficient; no slides are needed. If the full extract is not available, the top five markets would still let us begin.",
+            "notes": ["请求内容和用途都具体。", "给出 minimum viable scope，降低整体延误概率。"],
+            "keywords": ["could you please", "by Wednesday noon", "is sufficient", "if not available"]
+          }
+        },
+        {
+          "id": "delay-notice",
+          "title": "项目延期通知",
+          "type": "风险沟通",
+          "prompt": "风控规则配置比计划晚两天，商户试点将从周一推迟到周三。",
+          "task": "写一段英文延期通知，说明影响、原因、缓解措施和下次更新时间。",
+          "hint": "不要只说 sorry for the delay，要让对方知道如何安排客户预期。",
+          "answer": {
+            "sample": "The merchant pilot will start on Wednesday instead of Monday because the final risk rules need two additional days of validation. No merchant data has been affected, but Sales should pause launch confirmations. The risk team is running an expedited review, and I will send a go/no-go update by Tuesday at 4 p.m.",
+            "notes": ["第一句同时写清新旧时间和原因。", "明确影响边界、缓解动作和下一更新时间。"],
+            "keywords": ["instead of", "has been affected", "expedited review", "go/no-go"]
+          }
+        },
+        {
+          "id": "action-minutes",
+          "title": "行动型会议纪要",
+          "type": "会议跟进",
+          "prompt": "会议决定：数据团队周五给根因分析，产品团队下周二确认方案，运营团队下周三通知商户。",
+          "task": "写一封简短英文纪要，包含决定、行动项、负责人和日期。",
+          "hint": "重点不是复述讨论，而是固定 decision 和 action items。",
+          "answer": {
+            "sample": "Decision: We will keep the current routing rule until the root cause and fix are reviewed.\n\nActions:\n1. Data team — complete the root-cause analysis by Friday.\n2. Product team — confirm the preferred solution by next Tuesday.\n3. Operations — send the merchant notice by next Wednesday after approval.\n\nPlease reply by tomorrow noon if any owner or deadline is incorrect.",
+            "notes": ["把 decision 与 actions 分开，便于扫读。", "每个行动项使用 owner + verb + deadline。"],
+            "keywords": ["decision", "action items", "by Friday", "owner"]
+          }
+        },
+        {
+          "id": "executive-escalation",
+          "title": "向上升级问题",
+          "type": "升级邮件",
+          "prompt": "一个关键依赖连续两周没有负责人，已经威胁季度目标。你需要向总监升级，但不能显得在指责其他团队。",
+          "task": "写一段英文升级说明：事实、业务影响、已尝试动作，以及需要总监做的决定。",
+          "hint": "聚焦 unresolved dependency，不评价个人态度。",
+          "answer": {
+            "sample": "I am escalating an unresolved ownership gap in the payout reconciliation workstream. We requested an owner in the last two reviews, but the validation task remains unassigned. Without an owner by Friday, the Q3 migration is likely to slip by at least one week. The scope and effort are documented; could you help assign either the Finance Data or Payments Data team by Thursday?",
+            "notes": ["使用可核验事实，不描述某团队不配合。", "结尾提出二选一的明确决策请求。"],
+            "keywords": ["I am escalating", "remains unassigned", "is likely to slip", "ownership decision"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "data-reporting",
+      "title": "数据汇报",
+      "subtitle": "从数字走向判断和行动",
+      "objective": "能够用英文讲清指标变化、诊断证据、业务影响与后续动作。",
+      "questions": [
+        {
+          "id": "success-rate-drop",
+          "title": "支付成功率下降",
+          "type": "周报口径",
+          "prompt": "本周整体支付成功率从 92.4% 降至 90.8%，主要来自德国银行卡支付，下降发生在周二路由调整后。",
+          "task": "用 4 句英文汇报变化、定位、初步判断和行动。",
+          "hint": "回答 where、when 和 what next。",
+          "answer": {
+            "sample": "Overall payment success rate fell 1.6 percentage points week over week, from 92.4% to 90.8%. Germany card payments accounted for about 70% of the decline, which began after Tuesday's routing change. The pattern suggests a route-specific issue. We have rolled back the change and will compare issuer response codes before tomorrow's review.",
+            "notes": ["百分点使用 percentage points。", "用 suggests 表达初步判断，避免把猜测说成事实。"],
+            "keywords": ["percentage points", "week over week", "accounted for", "rolled back"]
+          }
+        },
+        {
+          "id": "gmv-up-revenue-down",
+          "title": "交易额涨、收入降",
+          "type": "指标诊断",
+          "prompt": "GMV 环比增长 12%，但支付净收入下降 3%。低费率大商户占比提高，通道成本也增加。",
+          "task": "用英文解释表面矛盾，并提出两个需要进一步验证的分析。",
+          "hint": "从 mix shift 和 unit economics 两条线展开。",
+          "answer": {
+            "sample": "GMV increased by 12% month over month, while net payment revenue declined by 3%. More volume came from large merchants on lower pricing tiers, and processing cost per transaction increased. We should separate the impact of merchant mix from cost inflation and review net revenue by merchant cohort to find deteriorating unit economics.",
+            "notes": ["while 适合对照两个方向相反的指标。", "提出可执行的分解方法，而不是停留在猜测。"],
+            "keywords": ["month over month", "mix shift", "pricing tier", "merchant cohort"]
+          }
+        },
+        {
+          "id": "incident-update",
+          "title": "事故状态更新",
+          "type": "即时汇报",
+          "prompt": "东南亚电子钱包从 10:20 起出现超时，影响约 8% 的请求；11:05 已切换备用通道，成功率恢复。根因还在调查。",
+          "task": "写一段英文事故更新，区分已知事实、恢复状态和待确认事项。",
+          "hint": "根因未确定时不要使用 was caused by。",
+          "answer": {
+            "sample": "From 10:20 to 11:05, wallet payment timeouts affected approximately 8% of requests in Southeast Asia. We switched traffic to the backup channel at 11:05, and success rates have returned to normal. Payments are currently processing normally while we investigate the root cause. The next update will be shared by 1 p.m.",
+            "notes": ["时间范围、影响比例和地区构成完整事实。", "continues to investigate 保留根因不确定性。"],
+            "keywords": ["affected", "switched traffic", "returned to normal", "root cause"]
+          }
+        },
+        {
+          "id": "experiment-result",
+          "title": "A/B 测试结论",
+          "type": "实验汇报",
+          "prompt": "新收银台使支付转化率提升 0.7 个百分点，95% 置信区间为 +0.2 至 +1.2 个百分点，退款率暂无显著变化。",
+          "task": "用英文汇报结果、统计不确定性和上线建议。",
+          "hint": "区分 no significant change 与 proven no impact。",
+          "answer": {
+            "sample": "The new checkout increased conversion by 0.7 percentage points, with a 95% confidence interval of 0.2 to 1.2 points. We did not detect a significant change in refunds, but the test was not designed to rule out small effects. I recommend a phased rollout with continued monitoring of conversion, refunds and support contacts.",
+            "notes": ["同时给点估计和区间。", "did not detect 不等于证明完全无影响。"],
+            "keywords": ["confidence interval", "statistically positive", "did not detect", "phased rollout"]
+          }
+        },
+        {
+          "id": "executive-summary",
+          "title": "高管一页摘要",
+          "type": "结论提炼",
+          "prompt": "活跃商户增长 18%，交易额增长 24%，但投诉率从 0.6% 升至 0.9%，主要是结算延迟。",
+          "task": "写一个不超过 100 词的英文 executive summary，包含成绩、风险和下一季度重点。",
+          "hint": "回答 so what，而不是罗列所有指标。",
+          "answer": {
+            "sample": "Q2 delivered strong growth: active merchants rose 18% and payment volume increased 24% quarter over quarter. However, complaints increased from 0.6% to 0.9%, mainly due to settlement delays. Growth is healthy, but the settlement experience may limit retention. In Q3, we will prioritize reliability, reduce delayed payouts by 50%, and add proactive merchant notifications.",
+            "notes": ["先承认增长，再说明体验风险。", "下一季度重点包含量化目标。"],
+            "keywords": ["quarter over quarter", "mainly due to", "limit retention", "prioritize"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "meetings-objections",
+      "title": "会议与异议",
+      "subtitle": "澄清、反对并推动会议形成决定",
+      "objective": "能够在英语会议中确认理解、表达不同意见、处理异议并锁定下一步。",
+      "questions": [
+        {
+          "id": "clarify-vague-request",
+          "title": "澄清模糊需求",
+          "type": "会议表达",
+          "prompt": "对方说“we need better payment performance”，但没有说明指标、市场或时间范围。",
+          "task": "用英文提出三项澄清问题，并复述你理解的决策目标。",
+          "hint": "围绕 metric、scope 和 decision。",
+          "answer": {
+            "sample": "To make sure we solve the right problem, could we clarify three points? Which outcome matters most: authorization rate, conversion or speed? Are we focusing on a specific market or method? What decision do we need to make, and by when? My current understanding is that we need to identify the largest recoverable conversion gap for the Q3 roadmap.",
+            "notes": ["提供具体选项比开放式追问更高效。", "最后复述目标以检验双方是否一致。"],
+            "keywords": ["could we clarify", "are we focusing on", "by when", "my current understanding"]
+          }
+        },
+        {
+          "id": "respectful-disagreement",
+          "title": "礼貌表达反对",
+          "type": "观点交锋",
+          "prompt": "产品负责人建议一次性向所有商户上线新路由，你认为风险过高，建议先灰度。",
+          "task": "用英文认可目标、陈述反对理由、给出替代方案，并邀请讨论。",
+          "hint": "反对方案，不反对人。",
+          "answer": {
+            "sample": "I agree that we should capture the conversion benefit quickly. My concern is the operational risk because our pilot covered only two markets. I recommend starting with 10% of eligible traffic, reviewing success and error codes for 48 hours, and expanding if the guardrails hold. Would that phased approach meet the commercial timeline?",
+            "notes": ["先确认共同目标，减少对立。", "替代方案包含流量、观察期和放量条件。"],
+            "keywords": ["I agree that", "my concern is", "I recommend", "guardrails"]
+          }
+        },
+        {
+          "id": "no-bandwidth",
+          "title": "回应“没有资源”",
+          "type": "协商推进",
+          "prompt": "工程团队说本季度没有 bandwidth 支持对账优化，但该问题每周造成 40 小时人工处理。",
+          "task": "用英文确认约束，量化价值，并提出最小范围或换优先级的选择。",
+          "hint": "先寻找 smallest valuable scope。",
+          "answer": {
+            "sample": "I understand that the team is fully allocated. The current gap, however, requires about 40 hours of manual work each week. Could we estimate a smaller first step, such as automating the top two mismatch types? If that is not feasible, I would like to compare this item with the lowest-priority committed project so leadership can make an explicit trade-off.",
+            "notes": ["先承认资源约束。", "量化机会成本，并要求明确取舍。"],
+            "keywords": ["fully allocated", "smaller first step", "estimate the effort", "explicit trade-off"]
+          }
+        },
+        {
+          "id": "confirm-owner-deadline",
+          "title": "锁定负责人和日期",
+          "type": "会议收口",
+          "prompt": "会议讨论很多，但结束前没人明确谁负责定价分析，截止时间也含糊。",
+          "task": "用英文总结决定，并确认 owner、deliverable 和 deadline。",
+          "hint": "直接点名确认，但给对方纠正空间。",
+          "answer": {
+            "sample": "Before we close, let me confirm the next step. We agreed to compare the current pricing model with a volume-based option. Maya, my understanding is that you will own the analysis and share a one-page recommendation by next Thursday. Is that scope and timing workable for you? I will document the dependencies today.",
+            "notes": ["用 before we close 自然切换到会议收口。", "确认产出是一页建议，而不是模糊的 analysis。"],
+            "keywords": ["before we close", "we agreed to", "you will own", "is that workable"]
+          }
+        },
+        {
+          "id": "regional-objection",
+          "title": "处理区域市场异议",
+          "type": "跨区会议",
+          "prompt": "总部希望统一商户激励政策，拉美团队认为当地现金流周期不同，统一政策会降低参与率。",
+          "task": "用英文回应区域团队：验证关切、追问证据，并提出可验证的折中方案。",
+          "hint": "不要立即否定，也不要无条件接受。",
+          "answer": {
+            "sample": "That concern makes sense if merchants operate on a longer cash-conversion cycle. Could you share the data showing where the standard policy creates the largest gap? We could keep the global eligibility rules but test a different payout schedule for a defined segment. If participation improves without higher loss, we would have evidence for a regional adjustment.",
+            "notes": ["先解释 why it makes sense。", "折中方案保持全球规则，只测试本地敏感变量。"],
+            "keywords": ["that concern makes sense", "could you share", "defined segment", "regional adjustment"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cross-region",
+      "title": "跨区域协作",
+      "subtitle": "在本地差异与全球一致性之间做取舍",
+      "objective": "能够讨论本地化、市场进入、时区协作和合规不确定性，并形成跨区域机制。",
+      "questions": [
+        {
+          "id": "localization-translation",
+          "title": "本地化不只是翻译",
+          "type": "策略表达",
+          "prompt": "总部认为把英文收银台翻译成西班牙语就完成了墨西哥本地化，你需要说明还缺什么。",
+          "task": "用英文解释 translation 与 localization 的差别，并给出至少三个需要验证的本地因素。",
+          "hint": "考虑支付方式、信任、格式、监管和客服。",
+          "answer": {
+            "sample": "Translation changes the language, while localization adapts the full experience to local behavior and requirements. For Mexico, we should validate preferred payment methods, installment expectations, address formats, trust messages, regulatory disclosures and support flows. We also need to test with local users rather than assume a translated global design will convert equally well.",
+            "notes": ["用 changes 与 adapts 形成清楚对比。", "列举因素覆盖产品、监管和运营。"],
+            "keywords": ["translation", "localization", "local requirements", "validate with users"]
+          }
+        },
+        {
+          "id": "market-entry-memo",
+          "title": "市场进入建议",
+          "type": "决策备忘录",
+          "prompt": "市场 A 规模大但合规复杂，市场 B 规模较小但已有支付伙伴。团队要选择先进入哪个。",
+          "task": "用英文写一段建议，交代评价标准、不确定性和分阶段决策。",
+          "hint": "建议也可以是先购买信息。",
+          "answer": {
+            "sample": "I recommend prioritizing Market B for the first launch while completing a regulatory feasibility assessment for Market A. Market A has greater long-term potential, but licensing uncertainty could change both cost and timing. Market B offers a faster path to validated demand through an existing partner. We can revisit Market A once the compliance estimate reaches decision quality.",
+            "notes": ["明确短期行动与长期机会不是互相排斥。", "建议体现速度、规模与不确定性的权衡。"],
+            "keywords": ["prioritize", "feasibility assessment", "validated demand", "revisit"]
+          }
+        },
+        {
+          "id": "timezone-agreement",
+          "title": "跨时区工作约定",
+          "type": "协作机制",
+          "prompt": "上海、伦敦和圣保罗团队共同上线项目，会议经常落在某一团队深夜，异步信息也不完整。",
+          "task": "用英文提出包含会议轮换、异步文档、响应时限和紧急升级的工作约定。",
+          "hint": "机制需要公平且可执行。",
+          "answer": {
+            "sample": "I propose a rotating meeting schedule so the same region does not always carry the late-hour burden. Decision topics should be posted at least 24 hours before the meeting, and each region should respond within one business day. Decisions and owners will be recorded after the call. Launch-critical incidents will use the on-call channel and named regional contacts.",
+            "notes": ["rotating schedule 体现时区负担公平。", "明确时间标准，并区分日常与紧急沟通。"],
+            "keywords": ["rotating schedule", "shared document", "one business day", "on-call"]
+          }
+        },
+        {
+          "id": "compliance-uncertainty",
+          "title": "表达合规不确定性",
+          "type": "风险判断",
+          "prompt": "新市场的促销返现是否构成受监管资金活动尚无结论，业务团队仍要求给上线日期。",
+          "task": "用英文说明已知、未知、决策门槛和当前可以并行推进的工作。",
+          "hint": "不要在未知时承诺日期。",
+          "answer": {
+            "sample": "We have not yet confirmed whether the cashback flow falls within the local regulated-funds perimeter. Legal expects an external opinion by 15 September, and that conclusion is a launch dependency. Until then, we should not commit to a public launch date. We can still complete product design, vendor due diligence and alternative fund-flow models.",
+            "notes": ["has not yet confirmed 精确表达当前状态。", "列出可并行工作，避免团队完全停滞。"],
+            "keywords": ["have not yet confirmed", "regulatory perimeter", "launch dependency", "due diligence"]
+          }
+        },
+        {
+          "id": "global-local-conflict",
+          "title": "总部与本地目标冲突",
+          "type": "利益协调",
+          "prompt": "总部要求统一提高支付费率以改善利润，本地团队担心头部商户流失。双方用不同指标证明自己正确。",
+          "task": "用英文重构争议，提出共同目标、分层分析和决策规则。",
+          "hint": "把“谁对”改成“什么情境下采取什么动作”。",
+          "answer": {
+            "sample": "Both teams are trying to improve sustainable net revenue, but Global emphasizes margin while the local team emphasizes retention. I suggest segmenting merchants by profitability, price sensitivity and strategic value, then estimating net revenue under several scenarios. We can raise prices where expected gains exceed churn risk, while using approved, time-limited exceptions for sensitive high-value merchants.",
+            "notes": ["先定义 sustainable net revenue 作为共同目标。", "例外需要批准和到期日期。"],
+            "keywords": ["sustainable net revenue", "segmenting", "churn risk", "time-limited exception"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "interview",
+      "title": "英文面试",
+      "subtitle": "把经历讲成可验证的业务能力",
+      "objective": "能够用结构化英文完成自我介绍、项目案例、失败复盘和岗位动机表达。",
+      "questions": [
+        {
+          "id": "self-introduction",
+          "title": "60 秒自我介绍",
+          "type": "开场表达",
+          "prompt": "你面试支付策略运营岗位，需要在一分钟内建立与岗位的相关性，不能逐年复述简历。",
+          "task": "写一个 90 至 120 词的英文自我介绍，包含定位、两项证据和求职方向。",
+          "hint": "使用 present → evidence → future。",
+          "answer": {
+            "sample": "I am a strategy and operations professional focused on turning customer and transaction data into scalable improvements. In my recent work, I used funnel analysis to identify high-impact experience gaps and led projects across product, data and frontline teams with clear owners and measurable outcomes. I am now looking to apply that combination of analytics and execution to payment growth and merchant operations, where reliability, economics and customer experience must be managed together.",
+            "notes": ["开头先给职业定位，而非学校和年份。", "结尾展示对支付工作的具体理解。"],
+            "keywords": ["focused on", "cross-functional", "measurable outcomes", "apply that combination"]
+          }
+        },
+        {
+          "id": "star-payment-project",
+          "title": "STAR-L 项目案例",
+          "type": "行为面试",
+          "prompt": "面试官问：Tell me about a project where you improved a payment or customer journey.",
+          "task": "写一个可替换数字的英文 STAR-L 答案，突出个人判断、行动、结果和复盘。",
+          "hint": "Situation 与 Task 要短，把篇幅留给 Action、Result 和 Learning。",
+          "answer": {
+            "sample": "Situation: We saw a [X%] drop between checkout and successful payment. Task: I was responsible for finding the main recoverable gap within six weeks. Action: I rebuilt the funnel by market, method and response code, found a weak routing rule, and aligned Product, Risk and Engineering on a guarded pilot. Result: Success improved by [X] points and recovered [amount] in monthly volume. Learning: I now define decision and rollback thresholds before launch.",
+            "notes": ["使用 I rebuilt、I aligned 明确个人贡献。", "Learning 是可复用的方法，而不是泛泛感想。"],
+            "keywords": ["I was responsible for", "recoverable gap", "rollback threshold", "I learned"]
+          }
+        },
+        {
+          "id": "failure-story",
+          "title": "失败经历",
+          "type": "复盘表达",
+          "prompt": "面试官问 Tell me about a failure. 不能把优点包装成缺点，也不能把责任推给协作方。",
+          "task": "写一个英文失败案例：真实错误、影响、补救、机制变化和后续证据。",
+          "hint": "重点是 ownership 和 changed behavior。",
+          "answer": {
+            "sample": "I once launched a policy after validating the average impact but not smaller regional segments. The overall metric improved, yet complaints rose sharply in one segment and we paused the rollout. I owned the gap, contacted affected customers and rebuilt the analysis. I then added segment guardrails and a pre-launch checklist. In the next two launches, all segment metrics stayed within the agreed thresholds.",
+            "notes": ["明确错误是自己验证维度不足。", "用后续项目证明行为真正改变。"],
+            "keywords": ["I owned the gap", "paused the rollout", "guardrails", "agreed thresholds"]
+          }
+        },
+        {
+          "id": "why-role",
+          "title": "为什么这个岗位",
+          "type": "动机表达",
+          "prompt": "面试官问 Why are you interested in this role? 需要避免只说平台大、发展好或对支付感兴趣。",
+          "task": "写一个三部分英文答案：工作内容匹配、已有证据、希望扩展的能力。",
+          "hint": "把 JD 中的具体问题与自己的经历连起来。",
+          "answer": {
+            "sample": "This role combines three types of work I do well: diagnosing performance with data, designing an operating strategy, and coordinating delivery across product and commercial teams. I have used funnel and cohort analysis to prioritize customer problems and translated findings into owned action plans. The role would let me apply those strengths to payment reliability and merchant growth while deepening my knowledge of payment economics and international operations.",
+            "notes": ["从实际工作内容切入，不用空泛公司赞美。", "用过去证据支持 fit，再说明能力延伸。"],
+            "keywords": ["combines", "translated findings", "deepen my knowledge", "owned action plan"]
+          }
+        },
+        {
+          "id": "project-recap-questions",
+          "title": "五分钟项目陈述",
+          "type": "综合模拟",
+          "prompt": "终面要求用五分钟介绍一个代表项目，然后接受追问。你需要控制结构，并主动暴露关键取舍。",
+          "task": "写出英文陈述提纲和结尾可向面试官提出的两个高质量问题。",
+          "hint": "使用 problem → insight → decision → execution → impact → reflection。",
+          "answer": {
+            "sample": "Opening: I will describe a project where we improved [journey] through data diagnosis and cross-functional delivery.\n1. Business problem and customer impact.\n2. Insight that changed our understanding.\n3. Options and the trade-off I recommended.\n4. Pilot, owners, risks and disagreement.\n5. Quantified impact and limitations.\n6. What I would repeat or change.\n\nQuestions:\n- Which payment or merchant metric is hardest for this team to improve today?\n- How are decisions divided between global product and local operations?",
+            "notes": ["主动讲 options 和 limitations，展示判断质量。", "反问聚焦真实难题和决策机制。"],
+            "keywords": ["trade-off", "quantified impact", "limitations", "decision ownership"]
+          }
+        }
+      ]
+    }
+  ]
+}

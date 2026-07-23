@@ -1,6 +1,7 @@
 const { chromium } = require("playwright-core");
 const assert = require("node:assert/strict");
 const guide = require("../learning-guide.json");
+const businessEnglish = require("../challenges/business-english.json");
 
 const executablePath = "/home/zjq/.cache/ms-playwright/chromium-1187/chrome-linux/chrome";
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
@@ -50,6 +51,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.locator('.primary-nav button[data-view="skills"]').click();
   await page.locator(".skill-overview-card").first().waitFor();
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 0);
   assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
   assert.equal(await page.locator(".skill-detail-page").count(), 0);
   assert.equal(await page.locator(".week-row").count(), 0);
@@ -68,6 +70,47 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.locator("#learning-skill-nav button").filter({ hasText: guide.skills[1].title }).click();
   assert.equal(await page.locator(".skill-detail-page").count(), 1);
   assert.equal(await page.locator(".skill-detail-page h2").textContent(), guide.skills[1].title);
+
+  await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).click();
+  await page.locator(".challenge-level-card").first().waitFor();
+  assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 1);
+  assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
+  assert.equal(await page.locator(".challenge-level-card:disabled").count(), businessEnglish.levels.length - 1);
+  assert.match(await page.locator(".challenge-hero").textContent(), /30/);
+
+  await page.locator(".challenge-level-card").first().click();
+  assert.equal(await page.locator(".challenge-question-row").count(), businessEnglish.levels[0].questions.length);
+  assert.equal(await page.locator(".challenge-question-row:disabled").count(), businessEnglish.levels[0].questions.length - 1);
+  await page.locator(".challenge-question-row").first().click();
+  assert.equal(await page.locator(".challenge-answer").isHidden(), true);
+  assert.equal(await page.locator(".challenge-complete-button").isDisabled(), true);
+  assert.match(page.url(), /#challenge\/business-english\/payment-basics\/authorization-capture-settlement$/);
+  await page.locator(".challenge-primary-button").click();
+  assert.equal(await page.locator(".challenge-answer").isVisible(), true);
+  assert.match(await page.locator(".challenge-answer-sample").textContent(), /Authorization checks/);
+  assert.equal(await page.locator(".challenge-complete-button").isEnabled(), true);
+  await page.locator(".challenge-complete-button").click();
+  assert.equal(await page.locator(".challenge-question-navigation button").last().isEnabled(), true);
+  assert.deepEqual(
+    await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-challenge-business-english"))),
+    ["payment-basics/authorization-capture-settlement"],
+  );
+  await page.locator(".challenge-question-navigation button").last().click();
+  assert.equal(await page.locator(".challenge-answer").isHidden(), true);
+  assert.match(await page.locator(".challenge-question-header h2").textContent(), /退款与拒付/);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.locator(".challenge-question-header h2").waitFor();
+  assert.match(await page.locator(".challenge-question-header h2").textContent(), /退款与拒付/);
+  assert.equal(await page.locator(".challenge-answer").isHidden(), true);
+  assert.deepEqual(
+    await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-challenge-business-english"))),
+    ["payment-basics/authorization-capture-settlement"],
+  );
+  await page.locator(".challenge-question-navigation button").nth(1).click();
+  assert.match(await page.locator(".challenge-question-header h2").textContent(), /授权、请款与结算/);
+  await page.locator(".challenge-home-button").click();
+  assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
+  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).textContent(), /1\/30/);
 
   await page.locator("#learning-view-nav button").filter({ hasText: "16 周路线" }).click();
   assert.equal(await page.locator(".week-row").count(), guide.weeks.length);
