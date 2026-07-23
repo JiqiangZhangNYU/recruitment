@@ -1,10 +1,11 @@
 const { chromium } = require("playwright-core");
 const assert = require("node:assert/strict");
+const path = require("node:path");
 const guide = require("../learning-guide.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
-const businessEnglish = require("../challenges/business-english.json");
 const businessEnglishManifest = require("../challenges/business-english/manifest.json");
 const businessEnglishLevels = businessEnglishManifest.levels.map((level) => require(`../${level.file}`));
+const businessEnglish = { ...businessEnglishManifest, levels: businessEnglishLevels };
 const lifecycleGrowth = require("../challenges/lifecycle-growth.json");
 const projectDelivery = require("../challenges/project-delivery.json");
 const paymentsFintech = require("../challenges/payments-fintech.json");
@@ -30,7 +31,6 @@ function checkChallengePackData(pack, expectedLevels, expectedQuestions) {
 
 checkChallengePackData(dataDiagnosis, 8, 48);
 checkChallengePackData(businessEnglish, 10, 500);
-checkChallengePackData({ ...businessEnglishManifest, levels: businessEnglishLevels }, 10, 500);
 const newP0ChallengePacks = [lifecycleGrowth, projectDelivery, paymentsFintech, internationalCollaboration];
 const challengePackBySkill = new Map([
   [dataDiagnosis.skillId, dataDiagnosis],
@@ -70,9 +70,8 @@ assert.deepEqual(
   guide.skills.filter((skill) => skill.priority === "P0").map((skill) => skill.id),
   [...challengePackBySkill.keys()],
 );
-assert.equal(Object.keys(businessEnglish.translations).length, 500);
 assert.ok(businessEnglish.levels.flatMap((level) => level.questions)
-  .every((question) => businessEnglish.translations[question.id]?.length >= 20));
+  .every((question) => question.answer.translation?.length >= 20));
 assert.ok(businessEnglish.levels.every((level) => level.questions.length === 50));
 assert.equal(businessEnglishManifest.chunked, true);
 assert.equal(businessEnglishManifest.ui.compact, true);
@@ -380,7 +379,9 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
   const skillOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(skillOverflow <= 1, `skills horizontal overflow: ${skillOverflow}px`);
-  await page.screenshot({ path: screenshotPath.replace(".png", "-skills.png"), fullPage: true });
+  if (screenshotPath) {
+    await page.screenshot({ path: screenshotPath.replace(".png", "-skills.png"), fullPage: true });
+  }
   await page.locator('.primary-nav button[data-view="jobs"]').click();
 
   await page.locator("#tier-segments button").filter({ hasText: "A+ ·" }).click();
@@ -428,7 +429,9 @@ async function checkPage(browser, viewport, screenshotPath) {
   }));
   assert.ok(layout.overflow <= 1, `horizontal overflow: ${layout.overflow}px (${layout.offenders.join(", ")})`);
   assert.deepEqual(errors, []);
-  await page.screenshot({ path: screenshotPath, fullPage: false });
+  if (screenshotPath) {
+    await page.screenshot({ path: screenshotPath, fullPage: false });
+  }
   await page.close();
 }
 
@@ -490,11 +493,20 @@ async function checkBusinessEnglishProgressMigration(browser) {
 
 (async () => {
   const browser = await chromium.launch({ executablePath, headless: true });
+  const screenshotDir = process.env.SCREENSHOT_DIR;
   try {
     await checkSkillLevelMigration(browser);
     await checkBusinessEnglishProgressMigration(browser);
-    await checkPage(browser, { width: 1440, height: 1000 }, "/tmp/recruitment-desktop.png");
-    await checkPage(browser, { width: 390, height: 844 }, "/tmp/recruitment-mobile.png");
+    await checkPage(
+      browser,
+      { width: 1440, height: 1000 },
+      screenshotDir ? path.join(screenshotDir, "recruitment-desktop.png") : null,
+    );
+    await checkPage(
+      browser,
+      { width: 390, height: 844 },
+      screenshotDir ? path.join(screenshotDir, "recruitment-mobile.png") : null,
+    );
     console.log("Site checks passed for desktop and mobile viewports.");
   } finally {
     await browser.close();

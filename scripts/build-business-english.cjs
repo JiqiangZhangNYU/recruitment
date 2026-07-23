@@ -1,8 +1,12 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const packPath = path.join(__dirname, "..", "challenges", "business-english.json");
-const source = JSON.parse(fs.readFileSync(packPath, "utf8"));
+const repoRoot = path.join(__dirname, "..");
+const challengeDir = path.join(repoRoot, "challenges", "business-english");
+const sourceManifest = JSON.parse(fs.readFileSync(path.join(challengeDir, "manifest.json"), "utf8"));
+const sourceLevels = sourceManifest.levels.map((level) => (
+  JSON.parse(fs.readFileSync(path.join(repoRoot, level.file), "utf8"))
+));
 
 const legacyQuestionIds = {
   "payment-basics": ["authorization-capture-settlement", "refund-chargeback", "payment-participants", "kyc-kyb-aml", "take-rate-net-revenue"],
@@ -13,7 +17,10 @@ const legacyQuestionIds = {
   interview: ["self-introduction", "star-payment-project", "failure-story", "why-role", "project-recap-questions"],
 };
 
-const sourceQuestions = source.levels.flatMap((level) => level.questions);
+const sourceQuestions = sourceLevels.flatMap((level) => level.questions);
+const sourceTranslations = Object.fromEntries(
+  sourceQuestions.map((question) => [question.id, question.answer.translation]),
+);
 const originalQuestions = new Map();
 Object.entries(legacyQuestionIds).forEach(([levelId, ids]) => {
   ids.forEach((id) => {
@@ -603,7 +610,7 @@ const topicQuestionGroups = topics.map((topic) => {
     .map((archetype, index) => makeGeneratedQuestion(topic, archetype, index));
   const questions = [...legacyQuestions, ...generatedQuestions];
   questions.forEach((question) => {
-    const translation = question.translation || source.translations?.[question.id];
+    const translation = question.translation || sourceTranslations[question.id];
     if (!translation) throw new Error(`Missing translation: ${topic.id}/${question.id}`);
     translations[question.id] = translation;
     delete question.translation;
@@ -658,12 +665,7 @@ const pack = {
   story: "从基础支付表达开始，逐步处理经营分析、商户运营、风险定价、市场策略与高层决策，在真实业务情境中建立可调用的英文表达。",
   ui: { compact: true, modeLabels: { warmup: "单选题", arrange: "句子排序" } },
   levels,
-  translations,
 };
-
-fs.writeFileSync(packPath, `${JSON.stringify(pack, null, 2)}\n`);
-
-const challengeDir = path.join(__dirname, "..", "challenges", "business-english");
 const levelDir = path.join(challengeDir, "levels");
 fs.mkdirSync(levelDir, { recursive: true });
 
