@@ -44,17 +44,35 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(cJobs.every((job) => !job.applicationRecommended && (job.closed || job.isReference)));
 
   await page.locator('.primary-nav button[data-view="skills"]').click();
-  assert.equal(await page.locator(".skill-card").count(), dataset.skills.items.length);
-  assert.match(await page.locator("#skills-view").textContent(), /SQL 与 Excel 数据分析/);
-  await page.locator(".skill-card").first().locator('.mastery-control input').check();
+  const guide = await page.evaluate(async () => (await fetch("./learning-guide.json")).json());
+  assert.equal(await page.locator(".skill-card").count(), guide.skills.length);
+  assert.equal(await page.locator("#skill-job-count").textContent(), String(guide.sample.totalJobs));
+  assert.match(await page.locator("#skills-view").textContent(), /数据分析与业务诊断/);
+  await page.locator(".skill-card").first().locator(".skill-level").selectOption("3");
   assert.equal(
     await page.locator("#skill-progress-count").textContent(),
-    `1 / ${dataset.skills.items.length}`,
+    `1 / ${guide.skills.length} 达到 ${guide.targetLevel} 级`,
   );
   await page.locator("#hide-mastered").check();
-  assert.equal(await page.locator(".skill-card").count(), dataset.skills.items.length - 1);
+  assert.equal(await page.locator(".skill-card").count(), guide.skills.length - 1);
   await page.locator("#hide-mastered").uncheck();
-  assert.equal(await page.locator(".skill-card").count(), dataset.skills.items.length);
+  assert.equal(await page.locator(".skill-card").count(), guide.skills.length);
+  await page.locator(".skill-toggle").first().click();
+  assert.equal(await page.locator(".skill-detail").first().isVisible(), true);
+  assert.ok(await page.locator(".skill-detail").first().locator(".exercise-list li").count() >= 4);
+
+  await page.locator('[data-learning-tab="roadmap"]').click();
+  assert.equal(await page.locator(".week-row").count(), guide.weeks.length);
+  await page.locator(".week-row").first().locator('input[type="checkbox"]').check();
+  assert.match(await page.locator("#week-progress-count").textContent(), /^1 \/ 17/);
+
+  await page.locator('[data-learning-tab="portfolio"]').click();
+  assert.equal(await page.locator("#portfolio-list .checklist-item").count(), guide.portfolio.length);
+  assert.equal(await page.locator("#readiness-groups .checklist-item").count(), guide.readiness.length);
+  await page.locator("#portfolio-list .checklist-item").first().click();
+  assert.equal(await page.locator("#portfolio-progress").textContent(), `1 / ${guide.portfolio.length}`);
+
+  await page.locator('[data-learning-tab="map"]').click();
   const skillOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(skillOverflow <= 1, `skills horizontal overflow: ${skillOverflow}px`);
   await page.screenshot({ path: screenshotPath.replace(".png", "-skills.png"), fullPage: true });

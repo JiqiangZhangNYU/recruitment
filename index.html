@@ -25,7 +25,7 @@
           <span aria-hidden="true">▤</span><span>岗位清单</span>
         </button>
         <button type="button" data-view="skills" aria-pressed="false">
-          <span aria-hidden="true">✓</span><span>求职技能</span>
+          <span aria-hidden="true">✓</span><span>提升计划</span>
         </button>
       </nav>
 
@@ -154,33 +154,102 @@
         </section>
 
         <section id="skills-view" class="view-panel skills-view" hidden>
-          <header class="skills-header">
-            <div>
-              <p class="eyebrow">基于当前 <span id="skill-job-count">--</span> 个上海岗位</p>
-              <h2>求职技能路线</h2>
-              <p>从通用分析能力开始，再补充支付、电商和海外方向专项，练习产出可直接整理为面试案例。</p>
+          <header class="learning-header">
+            <div class="learning-header-copy">
+              <p class="eyebrow">基于 <span id="skill-job-count">--</span> 个 A 档岗位 · 适合在职学习</p>
+              <h2>16 周能力提升工作台</h2>
+              <p>以国际支付经验为起点，补齐数据、策略、商家经营与跨区域协作，最终形成可验证的作品和面试案例。</p>
             </div>
-            <div class="skill-progress-summary">
-              <div><strong id="skill-progress-count">0 / 10</strong><span>已掌握</span></div>
-              <div class="skill-progress-track" role="progressbar" aria-label="技能学习进度" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+            <div class="learning-score" aria-label="总体能力进度">
+              <div class="learning-score-value"><strong id="skill-average-level">0.0</strong><span>/ 4 平均等级</span></div>
+              <div class="skill-progress-track" role="progressbar" aria-label="技能学习进度" aria-valuemin="0" aria-valuemax="52" aria-valuenow="0">
                 <span id="skill-progress-fill"></span>
+              </div>
+              <div class="learning-score-meta">
+                <span id="skill-progress-count">0 / 13 达到 3 级</span>
+                <span id="week-progress-count">0 / 17 周完成</span>
               </div>
             </div>
           </header>
 
-          <div class="skill-toolbar">
-            <div id="skill-segments" class="segments" aria-label="按技能分组筛选"></div>
-            <label class="check-control">
-              <input id="hide-mastered" type="checkbox">
-              <span>隐藏已掌握</span>
-            </label>
-          </div>
+          <section class="study-brief" aria-label="学习节奏与贯穿案例">
+            <div class="study-case">
+              <span class="section-kicker">贯穿案例</span>
+              <h3 id="case-title">跨境商家钱包</h3>
+              <p id="case-description"></p>
+              <div id="case-entities" class="case-entities"></div>
+            </div>
+            <div class="study-method">
+              <div class="method-heading">
+                <span class="section-kicker">每周 8-10 小时</span>
+                <strong>阅读少一些，作品做完整</strong>
+              </div>
+              <div id="method-split" class="method-split"></div>
+              <p id="next-action" class="next-action"></p>
+            </div>
+          </section>
 
-          <div id="skill-groups" class="skill-groups"></div>
-          <div id="skill-empty" class="empty-state" hidden>
-            <strong>当前分组的技能已全部掌握</strong>
-            <button id="show-mastered" type="button">显示已掌握</button>
-          </div>
+          <nav class="learning-tabs segments" aria-label="能力提升视图">
+            <button type="button" data-learning-tab="map" class="active" aria-pressed="true">能力地图</button>
+            <button type="button" data-learning-tab="roadmap" aria-pressed="false">16 周路线</button>
+            <button type="button" data-learning-tab="portfolio" aria-pressed="false">作品与验收</button>
+          </nav>
+
+          <section id="ability-panel" class="learning-panel">
+            <div class="skill-toolbar">
+              <div id="skill-segments" class="segments" aria-label="按优先级筛选"></div>
+              <label class="check-control">
+                <input id="hide-mastered" type="checkbox">
+                <span>隐藏已达 3 级</span>
+              </label>
+            </div>
+
+            <div id="skill-groups" class="skill-groups"></div>
+            <div id="skill-empty" class="empty-state" hidden>
+              <strong>当前分组的技能都已达到 3 级</strong>
+              <button id="show-mastered" type="button">显示全部能力</button>
+            </div>
+          </section>
+
+          <section id="roadmap-panel" class="learning-panel" hidden>
+            <header class="panel-heading">
+              <div>
+                <span class="section-kicker">从基线到求职转化</span>
+                <h3>16 周执行路线</h3>
+                <p>第 0 周先做基线评估；工作繁忙时可以把一周延长为两周，但每阶段产出不可跳过。</p>
+              </div>
+              <strong id="roadmap-progress">0%</strong>
+            </header>
+            <div id="phase-nav" class="phase-nav"></div>
+            <div id="roadmap-list" class="roadmap-list"></div>
+          </section>
+
+          <section id="portfolio-panel" class="learning-panel" hidden>
+            <header class="panel-heading">
+              <div>
+                <span class="section-kicker">投递前的能力证据</span>
+                <h3>作品集与岗位验收</h3>
+                <p>每份作品首页注明业务问题、数据是否模拟、个人角色、结论、公开边界和制作日期。</p>
+              </div>
+              <strong id="portfolio-progress">0 / 14</strong>
+            </header>
+            <div class="portfolio-layout">
+              <section class="portfolio-section" aria-labelledby="portfolio-heading">
+                <div class="section-title-line">
+                  <h4 id="portfolio-heading">作品清单</h4>
+                  <span>完成一项，留下一个证据</span>
+                </div>
+                <div id="portfolio-list" class="checklist-list"></div>
+              </section>
+              <section class="readiness-section" aria-labelledby="readiness-heading">
+                <div class="section-title-line">
+                  <h4 id="readiness-heading">投递验收</h4>
+                  <span id="readiness-progress">A- 0/7 · A+ 0/7</span>
+                </div>
+                <div id="readiness-groups"></div>
+              </section>
+            </div>
+          </section>
         </section>
       </div>
     </main>
@@ -245,25 +314,52 @@
   <template id="skill-template">
     <article class="skill-card">
       <header>
-        <div class="skill-title-block">
-          <div class="skill-badges">
-            <span class="skill-priority"></span>
-            <span class="skill-coverage"></span>
-          </div>
-          <h3 class="skill-title"></h3>
-        </div>
-        <label class="mastery-control">
-          <input type="checkbox">
-          <span>已掌握</span>
+        <button class="skill-toggle" type="button" aria-expanded="false">
+          <span class="skill-title-block">
+            <span class="skill-badges">
+              <span class="skill-priority"></span>
+              <span class="skill-coverage"></span>
+            </span>
+            <span class="skill-heading-line">
+              <strong class="skill-title"></strong>
+              <span class="skill-week"></span>
+            </span>
+          </span>
+          <span class="skill-chevron" aria-hidden="true">⌄</span>
+        </button>
+        <label class="skill-level-control">
+          <span>当前等级</span>
+          <select class="skill-level" aria-label="当前能力等级"></select>
         </label>
       </header>
       <div class="coverage-track" aria-hidden="true"><span></span></div>
-      <p class="skill-description"></p>
-      <ul class="learning-points"></ul>
-      <footer>
-        <span>练习产出</span>
-        <p class="skill-practice"></p>
-      </footer>
+      <div class="skill-summary-copy">
+        <p class="skill-description"></p>
+        <div class="skill-output-preview">
+          <span>必交产出</span>
+          <p class="skill-practice"></p>
+        </div>
+      </div>
+      <div class="skill-detail" hidden>
+        <div class="skill-detail-grid">
+          <section>
+            <h4>学习路径</h4>
+            <div class="learning-path"></div>
+          </section>
+          <section>
+            <h4>练习题</h4>
+            <ol class="exercise-list"></ol>
+          </section>
+        </div>
+        <section class="resource-section">
+          <h4>参考资料</h4>
+          <div class="resource-list"></div>
+        </section>
+        <section class="acceptance-section">
+          <h4>完成标准</h4>
+          <ul class="acceptance-list"></ul>
+        </section>
+      </div>
     </article>
   </template>
 
