@@ -7,11 +7,15 @@ function readStoredJSON(key, fallback) {
   }
 }
 
-const learningTabsByHash = {
-  "#skills": "map",
-  "#roadmap": "roadmap",
-  "#portfolio": "portfolio",
-};
+function learningRouteFromHash(hash) {
+  if (hash === "#skills") return { page: "overview", skillId: null };
+  if (hash === "#roadmap") return { page: "roadmap", skillId: null };
+  if (hash === "#portfolio") return { page: "portfolio", skillId: null };
+  if (hash.startsWith("#skill-")) return { page: "detail", skillId: decodeURIComponent(hash.slice(7)) };
+  return null;
+}
+
+const initialLearningRoute = learningRouteFromHash(location.hash);
 
 const legacySkillIds = {
   "sql-excel": "data-diagnosis",
@@ -44,7 +48,8 @@ function storedArray(key) {
 const state = {
   data: null,
   guide: null,
-  view: learningTabsByHash[location.hash] ? "skills" : "jobs",
+  guidePromise: null,
+  view: initialLearningRoute ? "skills" : "jobs",
   query: "",
   tier: "all",
   direction: "all",
@@ -55,11 +60,11 @@ const state = {
   sort: "score",
   savedOnly: false,
   saved: new Set(storedArray("recruitment-saved")),
-  learningTab: learningTabsByHash[location.hash] || "map",
-  skillGroup: "all",
-  hideMastered: false,
+  learningTab: initialLearningRoute?.page || "overview",
+  selectedSkill: initialLearningRoute?.skillId || null,
   skillLevels: storedSkillLevels,
   roadmapPhase: "all",
+  renderedLearningViews: new Set(),
   completedWeeks: new Set(storedArray("recruitment-completed-weeks").map(Number)),
   completedPortfolio: new Set(storedArray("recruitment-completed-portfolio")),
   completedReadiness: new Set(storedArray("recruitment-completed-readiness")),
@@ -101,20 +106,24 @@ const elements = {
   dialogSummary: document.querySelector("#dialog-summary"),
   criteriaList: document.querySelector("#criteria-list"),
   jobTemplate: document.querySelector("#job-template"),
-  skillSegments: document.querySelector("#skill-segments"),
-  hideMastered: document.querySelector("#hide-mastered"),
-  skillGroups: document.querySelector("#skill-groups"),
-  skillEmpty: document.querySelector("#skill-empty"),
-  showMastered: document.querySelector("#show-mastered"),
   skillProgressCount: document.querySelector("#skill-progress-count"),
   skillAverageLevel: document.querySelector("#skill-average-level"),
   weekProgressCount: document.querySelector("#week-progress-count"),
   skillJobCount: document.querySelector("#skill-job-count"),
   skillProgressTrack: document.querySelector(".skill-progress-track"),
   skillProgressFill: document.querySelector("#skill-progress-fill"),
-  skillTemplate: document.querySelector("#skill-template"),
-  learningTabButtons: [...document.querySelectorAll("[data-learning-tab]")],
+  guideLoading: document.querySelector("#guide-loading"),
+  learningViewNav: document.querySelector("#learning-view-nav"),
+  learningSkillNav: document.querySelector("#learning-skill-nav"),
+  learningRouteButtons: [...document.querySelectorAll("[data-learning-route]")],
   abilityPanel: document.querySelector("#ability-panel"),
+  skillDetailPanel: document.querySelector("#skill-detail-panel"),
+  skillOverviewGroups: document.querySelector("#skill-overview-groups"),
+  skillDetailContainer: document.querySelector("#skill-detail-container"),
+  backToOverview: document.querySelector("#back-to-overview"),
+  detailPosition: document.querySelector("#detail-position"),
+  previousSkill: document.querySelector("#previous-skill"),
+  nextSkill: document.querySelector("#next-skill"),
   roadmapPanel: document.querySelector("#roadmap-panel"),
   portfolioPanel: document.querySelector("#portfolio-panel"),
   caseTitle: document.querySelector("#case-title"),
@@ -182,23 +191,60 @@ function setView(view, updateURL = true) {
   });
   if (updateURL) {
     const url = new URL(location.href);
-    const hashes = { map: "skills", roadmap: "roadmap", portfolio: "portfolio" };
-    url.hash = state.view === "skills" ? hashes[state.learningTab] : "";
+    if (state.view === "skills") {
+      const hashes = { overview: "skills", roadmap: "roadmap", portfolio: "portfolio" };
+      url.hash = state.learningTab === "detail" && state.selectedSkill
+        ? `skill-${encodeURIComponent(state.selectedSkill)}`
+        : hashes[state.learningTab] || "skills";
+    } else {
+      url.hash = "";
+    }
     history.replaceState(null, "", url);
   }
 }
 
-function setLearningTab(tab, updateURL = true) {
-  state.learningTab = ["map", "roadmap", "portfolio"].includes(tab) ? tab : "map";
-  elements.abilityPanel.hidden = state.learningTab !== "map";
-  elements.roadmapPanel.hidden = state.learningTab !== "roadmap";
-  elements.portfolioPanel.hidden = state.learningTab !== "portfolio";
-  elements.learningTabButtons.forEach((button) => {
-    const active = button.dataset.learningTab === state.learningTab;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
-  if (updateURL && state.view === "skills") setView("skills");
+async function navigateLearning(page, skillId = null, updateURL = true) {
+  state.learningTab = ["overview", "detail", "roadmap", "portfolio"].includes(page) ? page : "overview";
+  state.selectedSkill = state.learningTab === "detail" ? skillId : null;
+  setView("skills", updateURL);
+  elements.guideLoading.hidden = Boolean(state.guide);
+  elements.abilityPanel.hidden = true;
+  elements.skillDetailPanel.hidden = true;
+  elements.roadmapPanel.hidden = true;
+  elements.portfolioPanel.hidden = true;
+
+  const requestedPage = state.learningTab;
+  const requestedSkill = state.selectedSkill;
+  try {
+    await ensureGuideLoaded();
+    if (requestedPage !== state.learningTab || requestedSkill !== state.selectedSkill) return;
+    if (state.learningTab === "detail" && !state.guide.skills.some((skill) => skill.id === state.selectedSkill)) {
+      state.learningTab = "overview";
+      state.selectedSkill = null;
+      if (updateURL) setView("skills");
+    }
+    elements.guideLoading.hidden = true;
+    elements.abilityPanel.hidden = state.learningTab !== "overview";
+    elements.skillDetailPanel.hidden = state.learningTab !== "detail";
+    elements.roadmapPanel.hidden = state.learningTab !== "roadmap";
+    elements.portfolioPanel.hidden = state.learningTab !== "portfolio";
+
+    if (state.learningTab === "overview") renderSkillOverview();
+    if (state.learningTab === "detail") renderSkillDetail(state.selectedSkill);
+    if (state.learningTab === "roadmap" && !state.renderedLearningViews.has("roadmap")) {
+      renderRoadmap();
+      state.renderedLearningViews.add("roadmap");
+    }
+    if (state.learningTab === "portfolio" && !state.renderedLearningViews.has("portfolio")) {
+      renderPortfolio();
+      state.renderedLearningViews.add("portfolio");
+    }
+    renderLearningSidebar();
+    if (updateURL) window.scrollTo({ top: 0, behavior: "auto" });
+  } catch (error) {
+    elements.guideLoading.hidden = false;
+    elements.guideLoading.querySelector("strong").textContent = `能力指南加载失败：${error.message}`;
+  }
 }
 
 function textIncludes(job, query) {
@@ -465,152 +511,85 @@ function renderSkillProgress() {
     : "路线已完成 · 开始按目标岗位定向修改作品与面试案例";
 }
 
-function renderSkillSegments() {
-  elements.skillSegments.replaceChildren();
-  const options = [
-    { id: "all", label: "全部" },
-    ...state.guide.groups.map((group) => ({ id: group.id, label: group.label })),
-  ];
-  options.forEach((option) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = option.label;
-    button.className = state.skillGroup === option.id ? "active" : "";
-    button.setAttribute("aria-pressed", String(state.skillGroup === option.id));
-    button.addEventListener("click", () => {
-      state.skillGroup = option.id;
-      renderSkills();
-    });
-    elements.skillSegments.append(button);
-  });
-}
-
-function makeSkillCard(skill) {
-  const fragment = elements.skillTemplate.content.cloneNode(true);
-  const card = fragment.querySelector(".skill-card");
-  card.dataset.skillId = skill.id;
-  card.classList.add(`skill-group-${skill.group}`);
-  const level = Number(state.skillLevels[skill.id]) || 0;
-  card.dataset.level = level;
-  card.classList.toggle("mastered", level >= state.guide.targetLevel);
-
-  const priority = fragment.querySelector(".skill-priority");
-  priority.textContent = skill.priority;
-  priority.classList.add(`priority-${skill.group}`);
-  fragment.querySelector(".skill-coverage").textContent = skill.coverageLabel;
-  fragment.querySelector(".skill-title").textContent = skill.title;
-  fragment.querySelector(".skill-week").textContent = skill.weeks;
-  fragment.querySelector(".skill-description").textContent = skill.goal;
-  fragment.querySelector(".skill-practice").textContent = skill.deliverable;
-
-  fragment.querySelector(".coverage-track span").style.width = `${skill.coverageCount / skill.coverageTotal * 100}%`;
-
-  const learningPath = fragment.querySelector(".learning-path");
-  skill.path.forEach((stage) => {
-    const block = document.createElement("div");
-    block.className = "path-stage";
-    const title = document.createElement("h5");
-    title.textContent = stage.title;
-    const list = document.createElement("ul");
-    stage.points.forEach((point) => {
-      const item = document.createElement("li");
-      item.textContent = point;
-      list.append(item);
-    });
-    block.append(title, list);
-    learningPath.append(block);
-  });
-
-  const exerciseList = fragment.querySelector(".exercise-list");
-  skill.exercises.forEach((exercise) => {
-    const item = document.createElement("li");
-    item.textContent = exercise;
-    exerciseList.append(item);
-  });
-
-  const resourceList = fragment.querySelector(".resource-list");
-  if (skill.resources.length) {
-    skill.resources.forEach((resource) => {
-      const link = document.createElement("a");
-      link.className = "resource-link";
-      link.href = resource.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      const type = document.createElement("span");
-      type.textContent = resource.type;
-      const title = document.createElement("strong");
-      title.textContent = resource.title;
-      const arrow = document.createElement("span");
-      arrow.setAttribute("aria-hidden", "true");
-      arrow.textContent = "↗";
-      link.append(type, title, arrow);
-      resourceList.append(link);
-    });
-  } else {
-    const note = document.createElement("p");
-    note.className = "resource-note";
-    note.textContent = "本项不增加书单，优先复盘真实项目并补齐可验证证据。";
-    resourceList.append(note);
-  }
-
-  const acceptanceList = fragment.querySelector(".acceptance-list");
-  skill.acceptance.forEach((criterion) => {
-    const item = document.createElement("li");
-    item.textContent = criterion;
-    acceptanceList.append(item);
-  });
-
-  const levelSelect = fragment.querySelector(".skill-level");
+function makeLevelSelect(skill, onChange) {
+  const select = document.createElement("select");
+  select.className = "skill-level";
+  select.setAttribute("aria-label", `${skill.title}当前能力等级`);
   state.guide.levelDefinitions.forEach((definition) => {
     const option = document.createElement("option");
     option.value = definition.level;
     option.textContent = `${definition.level} · ${definition.label}`;
     option.title = definition.description;
-    levelSelect.append(option);
+    select.append(option);
   });
-  levelSelect.value = String(level);
-  levelSelect.setAttribute("aria-label", `${skill.title}当前能力等级`);
-  levelSelect.addEventListener("change", () => {
-    state.skillLevels[skill.id] = Number(levelSelect.value);
+  select.value = String(Number(state.skillLevels[skill.id]) || 0);
+  select.addEventListener("change", () => {
+    state.skillLevels[skill.id] = Number(select.value);
     persistSkillLevels();
-    if (state.hideMastered) renderSkills();
-    else {
-      card.dataset.level = levelSelect.value;
-      card.classList.toggle("mastered", Number(levelSelect.value) >= state.guide.targetLevel);
-      renderSkillProgress();
-    }
+    renderSkillProgress();
+    renderLearningSidebar();
+    onChange?.(Number(select.value));
   });
-
-  const toggle = fragment.querySelector(".skill-toggle");
-  const detail = fragment.querySelector(".skill-detail");
-  toggle.setAttribute("aria-label", `展开${skill.title}的学习路径、习题和资料`);
-  toggle.addEventListener("click", () => {
-    const expanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!expanded));
-    detail.hidden = expanded;
-    card.classList.toggle("expanded", !expanded);
-  });
-  return fragment;
+  return select;
 }
 
-function renderSkillGroups() {
-  elements.skillGroups.replaceChildren();
-  let visibleCount = 0;
-  state.guide.groups.forEach((group) => {
-    if (state.skillGroup !== "all" && state.skillGroup !== group.id) return;
-    const skills = state.guide.skills.filter((skill) => (
-      skill.group === group.id
-      && (!state.hideMastered || (Number(state.skillLevels[skill.id]) || 0) < state.guide.targetLevel)
-    ));
-    if (!skills.length) return;
-    visibleCount += skills.length;
+function makePriorityBadge(skill) {
+  const badge = document.createElement("span");
+  badge.className = `skill-priority priority-${skill.group}`;
+  badge.textContent = skill.priority;
+  return badge;
+}
 
+function makeSkillOverviewCard(skill) {
+  const level = Number(state.skillLevels[skill.id]) || 0;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = `skill-overview-card skill-group-${skill.group}`;
+  button.dataset.skillId = skill.id;
+  button.classList.toggle("mastered", level >= state.guide.targetLevel);
+
+  const top = document.createElement("span");
+  top.className = "overview-card-top";
+  const badges = document.createElement("span");
+  badges.className = "skill-badges";
+  const coverage = document.createElement("span");
+  coverage.className = "skill-coverage";
+  coverage.textContent = skill.coverageLabel;
+  badges.append(makePriorityBadge(skill), coverage);
+  const levelLabel = document.createElement("span");
+  levelLabel.className = "overview-level";
+  levelLabel.textContent = `${level} 级`;
+  top.append(badges, levelLabel);
+
+  const title = document.createElement("strong");
+  title.textContent = skill.title;
+  const goal = document.createElement("span");
+  goal.className = "overview-goal";
+  goal.textContent = skill.goal;
+  const meta = document.createElement("span");
+  meta.className = "overview-meta";
+  const week = document.createElement("span");
+  week.textContent = skill.weeks;
+  const exerciseCount = document.createElement("span");
+  exerciseCount.textContent = `${skill.exercises.length} 道练习`;
+  const arrow = document.createElement("span");
+  arrow.setAttribute("aria-hidden", "true");
+  arrow.textContent = "→";
+  meta.append(week, exerciseCount, arrow);
+  button.append(top, title, goal, meta);
+  button.addEventListener("click", () => navigateLearning("detail", skill.id));
+  return button;
+}
+
+function renderSkillOverview() {
+  elements.skillOverviewGroups.replaceChildren();
+  state.guide.groups.forEach((group) => {
+    const skills = state.guide.skills.filter((skill) => skill.group === group.id);
     const section = document.createElement("section");
-    section.className = "skill-group-section";
+    section.className = "skill-overview-group";
     const header = document.createElement("header");
-    header.className = "skill-group-header";
     const copy = document.createElement("div");
-    const title = document.createElement("h3");
+    const title = document.createElement("h4");
     title.textContent = group.label;
     const description = document.createElement("p");
     description.textContent = group.description;
@@ -618,21 +597,216 @@ function renderSkillGroups() {
     const count = document.createElement("span");
     count.textContent = `${skills.length} 项`;
     header.append(copy, count);
-
     const grid = document.createElement("div");
-    grid.className = "skill-grid";
-    grid.append(...skills.map(makeSkillCard));
+    grid.className = "skill-overview-grid";
+    grid.append(...skills.map(makeSkillOverviewCard));
     section.append(header, grid);
-    elements.skillGroups.append(section);
+    elements.skillOverviewGroups.append(section);
   });
-  elements.skillGroups.hidden = visibleCount === 0;
-  elements.skillEmpty.hidden = visibleCount !== 0;
+  renderSkillProgress();
+  state.renderedLearningViews.add("overview");
 }
 
-function renderSkills() {
-  renderSkillSegments();
-  renderSkillGroups();
-  renderSkillProgress();
+function makeResourceLink(resource) {
+  const link = document.createElement("a");
+  link.className = "resource-link";
+  link.href = resource.url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  const type = document.createElement("span");
+  type.textContent = resource.type;
+  const title = document.createElement("strong");
+  title.textContent = resource.title;
+  const arrow = document.createElement("span");
+  arrow.setAttribute("aria-hidden", "true");
+  arrow.textContent = "↗";
+  link.append(type, title, arrow);
+  return link;
+}
+
+function appendList(list, values) {
+  values.forEach((value) => {
+    const item = document.createElement("li");
+    item.textContent = value;
+    list.append(item);
+  });
+}
+
+function renderSkillDetail(skillId) {
+  const skill = state.guide.skills.find((item) => item.id === skillId);
+  if (!skill) return;
+  const article = document.createElement("article");
+  article.className = `skill-detail-page skill-group-${skill.group}`;
+  article.dataset.skillId = skill.id;
+
+  const header = document.createElement("header");
+  header.className = "skill-detail-header";
+  const copy = document.createElement("div");
+  const badges = document.createElement("div");
+  badges.className = "skill-badges";
+  const coverage = document.createElement("span");
+  coverage.className = "skill-coverage";
+  coverage.textContent = skill.coverageLabel;
+  badges.append(makePriorityBadge(skill), coverage);
+  const title = document.createElement("h2");
+  title.textContent = skill.title;
+  const goal = document.createElement("p");
+  goal.textContent = skill.goal;
+  copy.append(badges, title, goal);
+  const levelControl = document.createElement("label");
+  levelControl.className = "detail-level-control";
+  const levelLabel = document.createElement("span");
+  levelLabel.textContent = "当前能力等级";
+  const levelSelect = makeLevelSelect(skill, (level) => {
+    article.classList.toggle("mastered", level >= state.guide.targetLevel);
+  });
+  levelControl.append(levelLabel, levelSelect);
+  header.append(copy, levelControl);
+
+  const facts = document.createElement("div");
+  facts.className = "skill-detail-facts";
+  [
+    ["岗位信号", skill.coverageLabel],
+    ["建议安排", skill.weeks],
+    ["训练规模", `${skill.path.length} 个阶段 · ${skill.exercises.length} 道练习`],
+  ].forEach(([label, value]) => {
+    const block = document.createElement("div");
+    const small = document.createElement("span");
+    small.textContent = label;
+    const strong = document.createElement("strong");
+    strong.textContent = value;
+    block.append(small, strong);
+    facts.append(block);
+  });
+
+  const progress = document.createElement("div");
+  progress.className = "coverage-track";
+  const fill = document.createElement("span");
+  fill.style.width = `${skill.coverageCount / skill.coverageTotal * 100}%`;
+  progress.append(fill);
+
+  const detailGrid = document.createElement("div");
+  detailGrid.className = "skill-detail-grid detail-content-grid";
+  const pathSection = document.createElement("section");
+  const pathTitle = document.createElement("h3");
+  pathTitle.textContent = "学习路径";
+  const path = document.createElement("div");
+  path.className = "learning-path";
+  skill.path.forEach((stage, index) => {
+    const block = document.createElement("div");
+    block.className = "path-stage";
+    const heading = document.createElement("h4");
+    const number = document.createElement("span");
+    number.textContent = String(index + 1).padStart(2, "0");
+    heading.append(number, document.createTextNode(stage.title));
+    const list = document.createElement("ul");
+    appendList(list, stage.points);
+    block.append(heading, list);
+    path.append(block);
+  });
+  pathSection.append(pathTitle, path);
+
+  const exerciseSection = document.createElement("section");
+  const exerciseTitle = document.createElement("h3");
+  exerciseTitle.textContent = "练习题";
+  const exercises = document.createElement("ol");
+  exercises.className = "exercise-list";
+  appendList(exercises, skill.exercises);
+  exerciseSection.append(exerciseTitle, exercises);
+  detailGrid.append(pathSection, exerciseSection);
+
+  const resourceSection = document.createElement("section");
+  resourceSection.className = "resource-section detail-section";
+  const resourceTitle = document.createElement("h3");
+  resourceTitle.textContent = "参考资料";
+  const resources = document.createElement("div");
+  resources.className = "resource-list";
+  if (skill.resources.length) resources.append(...skill.resources.map(makeResourceLink));
+  else {
+    const note = document.createElement("p");
+    note.className = "resource-note";
+    note.textContent = "本项不增加书单，优先复盘真实项目并补齐可验证证据。";
+    resources.append(note);
+  }
+  resourceSection.append(resourceTitle, resources);
+
+  const outputSection = document.createElement("section");
+  outputSection.className = "detail-output-section";
+  const outputCopy = document.createElement("div");
+  const outputKicker = document.createElement("span");
+  outputKicker.className = "section-kicker";
+  outputKicker.textContent = "必交产出";
+  const outputTitle = document.createElement("h3");
+  outputTitle.textContent = skill.deliverable;
+  outputCopy.append(outputKicker, outputTitle);
+  const acceptance = document.createElement("div");
+  const acceptanceTitle = document.createElement("h4");
+  acceptanceTitle.textContent = "完成标准";
+  const acceptanceList = document.createElement("ul");
+  acceptanceList.className = "acceptance-list";
+  appendList(acceptanceList, skill.acceptance);
+  acceptance.append(acceptanceTitle, acceptanceList);
+  outputSection.append(outputCopy, acceptance);
+
+  article.classList.toggle("mastered", (Number(state.skillLevels[skill.id]) || 0) >= state.guide.targetLevel);
+  article.append(header, facts, progress, detailGrid, resourceSection, outputSection);
+  elements.skillDetailContainer.replaceChildren(article);
+
+  const ordered = [...state.guide.skills].sort((left, right) => left.number - right.number);
+  const index = ordered.findIndex((item) => item.id === skill.id);
+  const previous = ordered[index - 1];
+  const next = ordered[index + 1];
+  elements.detailPosition.textContent = `${index + 1} / ${ordered.length}`;
+  elements.previousSkill.disabled = !previous;
+  elements.previousSkill.textContent = previous ? `← ${previous.title}` : "已经是第一项";
+  elements.nextSkill.disabled = !next;
+  elements.nextSkill.textContent = next ? `${next.title} →` : "已经是最后一项";
+  elements.previousSkill.onclick = () => previous && navigateLearning("detail", previous.id);
+  elements.nextSkill.onclick = () => next && navigateLearning("detail", next.id);
+  state.renderedLearningViews.add(`detail:${skill.id}`);
+}
+
+function makeLearningNavButton(label, meta, active, onClick) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = active ? "active" : "";
+  button.setAttribute("aria-pressed", String(active));
+  const text = document.createElement("span");
+  text.className = "nav-label";
+  text.textContent = label;
+  const count = document.createElement("span");
+  count.className = "nav-count";
+  count.textContent = meta;
+  button.append(text, count);
+  button.addEventListener("click", onClick);
+  return button;
+}
+
+function renderLearningSidebar() {
+  if (!state.guide) return;
+  elements.learningViewNav.replaceChildren(
+    makeLearningNavButton("能力体系", "13", state.learningTab === "overview", () => navigateLearning("overview")),
+    makeLearningNavButton("16 周路线", `${state.completedWeeks.size}/17`, state.learningTab === "roadmap", () => navigateLearning("roadmap")),
+    makeLearningNavButton("作品与验收", `${state.completedPortfolio.size}/14`, state.learningTab === "portfolio", () => navigateLearning("portfolio")),
+  );
+  elements.learningSkillNav.replaceChildren();
+  state.guide.groups.forEach((group) => {
+    const section = document.createElement("section");
+    section.className = "learning-side-group";
+    const title = document.createElement("h3");
+    title.textContent = group.label;
+    section.append(title);
+    state.guide.skills.filter((skill) => skill.group === group.id).forEach((skill) => {
+      const level = Number(state.skillLevels[skill.id]) || 0;
+      section.append(makeLearningNavButton(
+        skill.title,
+        `${level}级`,
+        state.learningTab === "detail" && state.selectedSkill === skill.id,
+        () => navigateLearning("detail", skill.id),
+      ));
+    });
+    elements.learningSkillNav.append(section);
+  });
 }
 
 function renderStudyBrief() {
@@ -655,6 +829,31 @@ function renderStudyBrief() {
     block.append(value, label);
     elements.methodSplit.append(block);
   });
+}
+
+async function ensureGuideLoaded() {
+  if (state.guide) return state.guide;
+  if (!state.guidePromise) {
+    state.guidePromise = fetch("learning-guide.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((guide) => {
+        state.guide = guide;
+        normalizeLearningProgress();
+        elements.skillJobCount.textContent = guide.sample.totalJobs;
+        renderStudyBrief();
+        renderSkillProgress();
+        renderLearningSidebar();
+        return guide;
+      })
+      .catch((error) => {
+        state.guidePromise = null;
+        throw error;
+      });
+  }
+  return state.guidePromise;
 }
 
 function renderPhaseNav() {
@@ -714,6 +913,7 @@ function makeWeekRow(week) {
     row.classList.toggle("completed", checkbox.checked);
     persistLearningChecklist("recruitment-completed-weeks", state.completedWeeks);
     renderSkillProgress();
+    renderLearningSidebar();
   });
   return row;
 }
@@ -786,6 +986,7 @@ function updatePortfolioProgress() {
   elements.readinessProgress.textContent = ["A-", "A+"]
     .map((tier) => `${tier} ${tierCounts[tier].completed}/${tierCounts[tier].total}`)
     .join(" · ");
+  renderLearningSidebar();
 }
 
 function renderPortfolio() {
@@ -836,19 +1037,19 @@ function resetFilters() {
 
 function bindControls() {
   elements.viewButtons.forEach((button) => {
-    button.addEventListener("click", () => setView(button.dataset.view));
+    button.addEventListener("click", () => {
+      if (button.dataset.view === "skills") navigateLearning("overview");
+      else setView("jobs");
+    });
   });
-  elements.learningTabButtons.forEach((button) => {
-    button.addEventListener("click", () => setLearningTab(button.dataset.learningTab));
+  elements.learningRouteButtons.forEach((button) => {
+    button.addEventListener("click", () => navigateLearning(button.dataset.learningRoute));
   });
+  elements.backToOverview.addEventListener("click", () => navigateLearning("overview"));
   window.addEventListener("hashchange", () => {
-    const learningTab = learningTabsByHash[location.hash];
-    if (learningTab) {
-      setLearningTab(learningTab, false);
-      setView("skills", false);
-    } else {
-      setView("jobs", false);
-    }
+    const route = learningRouteFromHash(location.hash);
+    if (route) navigateLearning(route.page, route.skillId, false);
+    else setView("jobs", false);
   });
 
   elements.searchInput.addEventListener("input", (event) => { state.query = event.target.value.trim(); renderJobs(); });
@@ -859,15 +1060,6 @@ function bindControls() {
   elements.bonusSelect.addEventListener("change", (event) => { state.bonus = event.target.value; renderJobs(); });
   elements.sortSelect.addEventListener("change", (event) => { state.sort = event.target.value; renderJobs(); });
   elements.savedOnly.addEventListener("change", (event) => { state.savedOnly = event.target.checked; renderJobs(); });
-  elements.hideMastered.addEventListener("change", (event) => {
-    state.hideMastered = event.target.checked;
-    renderSkills();
-  });
-  elements.showMastered.addEventListener("click", () => {
-    state.hideMastered = false;
-    elements.hideMastered.checked = false;
-    renderSkills();
-  });
   elements.resetButton.addEventListener("click", resetFilters);
   elements.emptyReset.addEventListener("click", resetFilters);
 
@@ -897,22 +1089,13 @@ async function init() {
   if (theme) document.documentElement.dataset.theme = theme;
   bindControls();
   try {
-    const [jobsResponse, guideResponse] = await Promise.all([
-      fetch("jobs.json"),
-      fetch("learning-guide.json"),
-    ]);
+    const jobsResponse = await fetch("jobs.json");
     if (!jobsResponse.ok) throw new Error(`岗位数据 HTTP ${jobsResponse.status}`);
-    if (!guideResponse.ok) throw new Error(`学习指南 HTTP ${guideResponse.status}`);
-    [state.data, state.guide] = await Promise.all([
-      jobsResponse.json(),
-      guideResponse.json(),
-    ]);
-    normalizeLearningProgress();
+    state.data = await jobsResponse.json();
     elements.profileSummary.textContent = state.data.profile.summary;
     elements.poolStat.textContent = state.data.poolSize;
     elements.eligibleStat.textContent = state.data.eligibleSize;
     elements.displayedStat.textContent = state.data.displayedSize;
-    elements.skillJobCount.textContent = state.guide.sample.totalJobs;
     elements.sourceTime.textContent = formatTime(
       state.data.officialSourceGeneratedAt
       || state.data.sourceGeneratedAt
@@ -934,12 +1117,10 @@ async function init() {
     });
     renderBars();
     render();
-    renderStudyBrief();
-    renderSkills();
-    renderRoadmap();
-    renderPortfolio();
-    setLearningTab(state.learningTab, false);
     setView(state.view, false);
+    if (initialLearningRoute) {
+      await navigateLearning(initialLearningRoute.page, initialLearningRoute.skillId, false);
+    }
   } catch (error) {
     elements.profileSummary.textContent = "岗位数据读取失败，请稍后刷新页面";
     elements.resultCaption.textContent = error.message;

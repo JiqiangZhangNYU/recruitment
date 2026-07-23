@@ -1,5 +1,6 @@
 const { chromium } = require("playwright-core");
 const assert = require("node:assert/strict");
+const guide = require("../learning-guide.json");
 
 const executablePath = "/home/zjq/.cache/ms-playwright/chromium-1187/chrome-linux/chrome";
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
@@ -7,6 +8,8 @@ const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
 async function checkPage(browser, viewport, screenshotPath) {
   const page = await browser.newPage({ viewport });
   const errors = [];
+  const requestedURLs = [];
+  page.on("request", (request) => requestedURLs.push(request.url()));
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
   });
@@ -14,6 +17,7 @@ async function checkPage(browser, viewport, screenshotPath) {
 
   await page.goto(baseURL, { waitUntil: "networkidle" });
   await page.locator(".job-card").first().waitFor();
+  assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
   const dataset = await page.evaluate(async () => (await fetch("./jobs.json")).json());
   assert.equal(await page.locator(".job-card").count(), dataset.displayedSize);
   assert.equal(await page.locator("#displayed-stat").textContent(), String(dataset.displayedSize));
@@ -44,35 +48,40 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(cJobs.every((job) => !job.applicationRecommended && (job.closed || job.isReference)));
 
   await page.locator('.primary-nav button[data-view="skills"]').click();
-  const guide = await page.evaluate(async () => (await fetch("./learning-guide.json")).json());
-  assert.equal(await page.locator(".skill-card").count(), guide.skills.length);
+  await page.locator(".skill-overview-card").first().waitFor();
+  assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 1);
+  assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
+  assert.equal(await page.locator(".skill-detail-page").count(), 0);
+  assert.equal(await page.locator(".week-row").count(), 0);
+  assert.equal(await page.locator("#portfolio-list .checklist-item").count(), 0);
   assert.equal(await page.locator("#skill-job-count").textContent(), String(guide.sample.totalJobs));
   assert.match(await page.locator("#skills-view").textContent(), /数据分析与业务诊断/);
-  await page.locator(".skill-card").first().locator(".skill-level").selectOption("3");
+  await page.locator(".skill-overview-card").first().click();
+  assert.equal(await page.locator(".skill-detail-page").count(), 1);
+  assert.equal(await page.locator(".skill-overview-card:visible").count(), 0);
+  assert.ok(await page.locator(".skill-detail-page .exercise-list li").count() >= 4);
+  await page.locator(".skill-detail-page .skill-level").selectOption("3");
   assert.equal(
     await page.locator("#skill-progress-count").textContent(),
     `1 / ${guide.skills.length} 达到 ${guide.targetLevel} 级`,
   );
-  await page.locator("#hide-mastered").check();
-  assert.equal(await page.locator(".skill-card").count(), guide.skills.length - 1);
-  await page.locator("#hide-mastered").uncheck();
-  assert.equal(await page.locator(".skill-card").count(), guide.skills.length);
-  await page.locator(".skill-toggle").first().click();
-  assert.equal(await page.locator(".skill-detail").first().isVisible(), true);
-  assert.ok(await page.locator(".skill-detail").first().locator(".exercise-list li").count() >= 4);
+  await page.locator("#learning-skill-nav button").filter({ hasText: guide.skills[1].title }).click();
+  assert.equal(await page.locator(".skill-detail-page").count(), 1);
+  assert.equal(await page.locator(".skill-detail-page h2").textContent(), guide.skills[1].title);
 
-  await page.locator('[data-learning-tab="roadmap"]').click();
+  await page.locator("#learning-view-nav button").filter({ hasText: "16 周路线" }).click();
   assert.equal(await page.locator(".week-row").count(), guide.weeks.length);
   await page.locator(".week-row").first().locator('input[type="checkbox"]').check();
   assert.match(await page.locator("#week-progress-count").textContent(), /^1 \/ 17/);
 
-  await page.locator('[data-learning-tab="portfolio"]').click();
+  await page.locator("#learning-view-nav button").filter({ hasText: "作品与验收" }).click();
   assert.equal(await page.locator("#portfolio-list .checklist-item").count(), guide.portfolio.length);
   assert.equal(await page.locator("#readiness-groups .checklist-item").count(), guide.readiness.length);
   await page.locator("#portfolio-list .checklist-item").first().click();
   assert.equal(await page.locator("#portfolio-progress").textContent(), `1 / ${guide.portfolio.length}`);
 
-  await page.locator('[data-learning-tab="map"]').click();
+  await page.locator("#learning-view-nav button").filter({ hasText: "能力体系" }).click();
+  assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
   const skillOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(skillOverflow <= 1, `skills horizontal overflow: ${skillOverflow}px`);
   await page.screenshot({ path: screenshotPath.replace(".png", "-skills.png"), fullPage: true });
