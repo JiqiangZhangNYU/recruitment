@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "updatedAt": "2026-07-23",
   "source": "A档岗位能力提升完整指南.md",
   "title": "A 档能力提升计划",
@@ -187,7 +187,7 @@
       "coverageLabel": "37/68；A+ 5/6",
       "goal": "围绕读 JD、写邮件、开会、汇报数据、解释策略和处理异议训练准确、简洁、可行动的工作英语。",
       "boundary": "训练英文工作表达，不重复国际市场分析、支付知识或项目管理方法。",
-      "challenge": { "levels": 50, "questions": 500, "label": "50 级 · 500 题闯关", "loadingLabel": "正在加载业务英语关卡" },
+      "challenge": { "levels": 10, "questions": 500, "label": "10 关 · 500 题闯关", "loadingLabel": "正在加载业务英语关卡目录", "manifest": "challenges/business-english/manifest.json" },
       "path": [
         { "title": "输入与写作", "points": ["每周精读一份英文 JD 与一篇支付官方资料", "建立增长、指标、支付、风险和项目术语库", "使用 BLUF 写背景、结论、请求、负责人和时间"] },
         { "title": "口语与会议", "points": ["每周录制 3-5 分钟项目更新", "练习澄清、不同意、追问、总结和行动确认", "用短句和清晰结构替代背稿"] }

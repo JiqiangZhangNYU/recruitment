@@ -1,25 +1,39 @@
 {
-  "version": 4,
+  "version": 5,
   "skillId": "business-english",
   "title": "业务英语闯关",
-  "summary": "500 道分级客观题，以支付业务策略运营为主线，并覆盖邮件、会议、汇报、谈判、跨区域协作和英文面试。每题都标记难度，可直接查看英文参考答案及中文翻译。",
+  "summary": "500 道分级客观题归入 10 个主题关卡，每关 50 题。内容以支付业务策略运营为主线，并覆盖邮件、会议、汇报、谈判、跨区域协作和英文面试。",
   "story": "从基础支付表达开始，逐步处理经营分析、商户运营、风险定价、市场策略与高层决策，在真实业务情境中建立可调用的英文表达。",
+  "ui": {
+    "compact": true,
+    "modeLabels": {
+      "warmup": "单选题",
+      "arrange": "句子排序"
+    }
+  },
   "levels": [
     {
       "id": "payment-basics",
-      "title": "支付术语基础",
-      "subtitle": "在支付术语基础场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付术语基础问题，并提出有证据、指标和护栏的行动建议。",
+      "title": "支付与商务表达基础",
+      "topicIds": [
+        "payment-basics",
+        "business-writing",
+        "meeting-essentials",
+        "metric-language",
+        "status-updates"
+      ],
+      "subtitle": "支付术语基础 · 清晰商务写作 · 会议澄清与确认 · 指标与数字表达 · 项目状态更新",
+      "objective": "能够围绕支付术语基础、清晰商务写作、会议澄清与确认、指标与数字表达、项目状态更新，用清晰英文完成事实解释、经营判断和行动建议。",
       "chapter": "第 1 关 · 基础表达",
-      "story": "你需要围绕支付术语基础完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 1,
       "reward": {
-        "title": "支付术语速查卡",
-        "description": "完成本章后，下面这些表达可以直接用于支付业务沟通。",
+        "title": "支付与商务表达基础表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
         "items": [
-          "Authorization reserves funds; settlement moves funds.",
-          "A chargeback is initiated through the issuing bank.",
-          "Review pricing together with unit economics."
+          "The primary metric is payment status accuracy.",
+          "I recommend that we close each agenda item with a verbal summary and written action log.",
+          "We should scale only if a green status has no unresolved critical-path dependency."
         ]
       },
       "questions": [
@@ -292,27 +306,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "business-writing",
-      "title": "清晰商务写作",
-      "subtitle": "在清晰商务写作场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释清晰商务写作问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 2 关 · 基础表达",
-      "story": "你需要围绕清晰商务写作完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "结论先行邮件卡",
-        "description": "三句话快速搭出一封行动明确的商务邮件。",
-        "items": [
-          "I recommend ... because ...",
-          "The owner will complete ... by ...",
-          "Unless there are objections by ..., I will ..."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "bluf-rewrite",
           "title": "结论先行改写",
@@ -582,27 +576,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "meeting-essentials",
-      "title": "会议澄清与确认",
-      "subtitle": "在会议澄清与确认场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释会议澄清与确认问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 3 关 · 基础表达",
-      "story": "你需要围绕会议澄清与确认完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "会议澄清与确认表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is action closure rate.",
-          "I recommend that we close each agenda item with a verbal summary and written action log.",
-          "We should scale only if every action has one accountable owner and a date."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "meeting-essentials-explain",
           "title": "会议澄清与确认：准确解释",
@@ -892,27 +866,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "metric-language",
-      "title": "指标与数字表达",
-      "subtitle": "在指标与数字表达场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释指标与数字表达问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 4 关 · 基础表达",
-      "story": "你需要围绕指标与数字表达完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "指标与数字表达表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is reporting accuracy.",
-          "I recommend that we standardize metric sentences and show both the numerator and denominator.",
-          "We should scale only if every reported change can be reproduced from the cited data."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "metric-language-explain",
           "title": "指标与数字表达：准确解释",
@@ -1202,27 +1156,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "status-updates",
-      "title": "项目状态更新",
-      "subtitle": "在项目状态更新场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释项目状态更新问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 5 关 · 基础表达",
-      "story": "你需要围绕项目状态更新完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "项目状态更新表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is milestone predictability.",
-          "I recommend that we use a red-amber-green update with evidence, owner and recovery date.",
-          "We should scale only if a green status has no unresolved critical-path dependency."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "status-updates-explain",
           "title": "项目状态更新：准确解释",
@@ -1516,20 +1450,27 @@
       ]
     },
     {
-      "id": "checkout-payments",
-      "title": "收银台与支付方式",
-      "subtitle": "在收银台与支付方式场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释收银台与支付方式问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 6 关 · 基础表达",
-      "story": "你需要围绕收银台与支付方式完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "payment-operations-foundations",
+      "title": "支付链路与商户基础",
+      "topicIds": [
+        "checkout-payments",
+        "card-payment-flow",
+        "refund-dispute-ops",
+        "merchant-onboarding",
+        "pricing-fees-basics"
+      ],
+      "subtitle": "收银台与支付方式 · 银行卡支付链路 · 退款与争议运营 · 商户入驻 · 费率与账单基础",
+      "objective": "能够围绕收银台与支付方式、银行卡支付链路、退款与争议运营、商户入驻、费率与账单基础，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 2 关 · 支付基础",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 1,
       "reward": {
-        "title": "收银台与支付方式表达卡",
+        "title": "支付链路与商户基础表达卡",
         "description": "完成本关后，可复用以下表达结构。",
         "items": [
           "The primary metric is checkout completion rate.",
-          "I recommend that we rank eligible methods by local usage while keeping fees and terms transparent.",
-          "We should scale only if complaints and payment-method errors do not increase."
+          "I recommend that we route cases by initiator, reason code, evidence deadline and financial exposure.",
+          "We should scale only if every charged item can be traced to the signed commercial terms."
         ]
       },
       "questions": [
@@ -1822,27 +1763,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "card-payment-flow",
-      "title": "银行卡支付链路",
-      "subtitle": "在银行卡支付链路场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释银行卡支付链路问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 7 关 · 基础表达",
-      "story": "你需要围绕银行卡支付链路完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "银行卡支付链路表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is end-to-end payment success.",
-          "I recommend that we map every response code to the exact payment stage and merchant-facing status.",
-          "We should scale only if no order is fulfilled before the required payment confirmation."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "card-payment-flow-explain",
           "title": "银行卡支付链路：准确解释",
@@ -2132,27 +2053,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "refund-dispute-ops",
-      "title": "退款与争议运营",
-      "subtitle": "在退款与争议运营场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释退款与争议运营问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 8 关 · 基础表达",
-      "story": "你需要围绕退款与争议运营完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "退款与争议运营表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is dispute resolution rate.",
-          "I recommend that we route cases by initiator, reason code, evidence deadline and financial exposure.",
-          "We should scale only if evidence is submitted before network deadlines and duplicate refunds are prevented."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "refund-dispute-ops-explain",
           "title": "退款与争议运营：准确解释",
@@ -2442,27 +2343,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "merchant-onboarding",
-      "title": "商户入驻",
-      "subtitle": "在商户入驻场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释商户入驻问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 9 关 · 基础表达",
-      "story": "你需要围绕商户入驻完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "商户入驻表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is onboarding completion rate.",
-          "I recommend that we tailor the checklist by entity and show examples before upload.",
-          "We should scale only if KYB completeness and beneficial-owner checks remain within policy."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "merchant-onboarding-explain",
           "title": "商户入驻：准确解释",
@@ -2752,27 +2633,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "pricing-fees-basics",
-      "title": "费率与账单基础",
-      "subtitle": "在费率与账单基础场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释费率与账单基础问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 10 关 · 基础表达",
-      "story": "你需要围绕费率与账单基础完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 1,
-      "reward": {
-        "title": "费率与账单基础表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is billing accuracy.",
-          "I recommend that we align the pricing glossary and add worked invoice examples.",
-          "We should scale only if every charged item can be traced to the signed commercial terms."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "pricing-fees-basics-explain",
           "title": "费率与账单基础：准确解释",
@@ -3066,20 +2927,27 @@
       ]
     },
     {
-      "id": "data-reporting",
-      "title": "数据汇报",
-      "subtitle": "在数据汇报场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释数据汇报问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 11 关 · 运营沟通",
-      "story": "你需要围绕数据汇报完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "business-analysis-communication",
+      "title": "数据汇报与商务协作",
+      "topicIds": [
+        "data-reporting",
+        "presentations",
+        "meeting-minutes",
+        "stakeholder-email",
+        "negotiation-basics"
+      ],
+      "subtitle": "数据汇报 · 商务演示与讲故事 · 纪要与行动跟进 · 利益相关方邮件 · 基础商务谈判",
+      "objective": "能够围绕数据汇报、商务演示与讲故事、纪要与行动跟进、利益相关方邮件、基础商务谈判，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 3 关 · 运营沟通",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 2,
       "reward": {
-        "title": "四句数据汇报卡",
-        "description": "用固定顺序把数字变成可行动的业务判断。",
+        "title": "数据汇报与商务协作表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
         "items": [
-          "Metric change: what changed and by how much.",
-          "Diagnosis: where and when the change happened.",
-          "Action: what we did and when we will update."
+          "The primary metric is payment success rate.",
+          "I recommend that we send a decision log within twenty-four hours and ask owners to confirm.",
+          "We should scale only if service levels, compliance rights and exit terms remain enforceable."
         ]
       },
       "questions": [
@@ -3352,27 +3220,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "presentations",
-      "title": "商务演示与讲故事",
-      "subtitle": "在商务演示与讲故事场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释商务演示与讲故事问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 12 关 · 运营沟通",
-      "story": "你需要围绕商务演示与讲故事完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "商务演示与讲故事表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is decision clarity.",
-          "I recommend that we rebuild the deck around one decision, three supporting facts and explicit trade-offs.",
-          "We should scale only if each chart answers a stated question and uses a visible source."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "presentations-explain",
           "title": "商务演示与讲故事：准确解释",
@@ -3662,27 +3510,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "meeting-minutes",
-      "title": "纪要与行动跟进",
-      "subtitle": "在纪要与行动跟进场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释纪要与行动跟进问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 13 关 · 运营沟通",
-      "story": "你需要围绕纪要与行动跟进完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "纪要与行动跟进表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is action completion rate.",
-          "I recommend that we send a decision log within twenty-four hours and ask owners to confirm.",
-          "We should scale only if open disagreements remain visible until explicitly resolved."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "meeting-minutes-explain",
           "title": "纪要与行动跟进：准确解释",
@@ -3972,27 +3800,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "stakeholder-email",
-      "title": "利益相关方邮件",
-      "subtitle": "在利益相关方邮件场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释利益相关方邮件问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 14 关 · 运营沟通",
-      "story": "你需要围绕利益相关方邮件完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "利益相关方邮件表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is response completion rate.",
-          "I recommend that we keep one source of truth and tailor the opening, detail and requested action.",
-          "We should scale only if all audience versions use the same metric definitions and decision status."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "stakeholder-email-explain",
           "title": "利益相关方邮件：准确解释",
@@ -4282,27 +4090,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "negotiation-basics",
-      "title": "基础商务谈判",
-      "subtitle": "在基础商务谈判场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释基础商务谈判问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 15 关 · 运营沟通",
-      "story": "你需要围绕基础商务谈判完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "基础商务谈判表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is commercial value retained.",
-          "I recommend that we trade volume commitment and term length for pricing while rejecting unconditional exclusivity.",
-          "We should scale only if service levels, compliance rights and exit terms remain enforceable."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "negotiation-basics-explain",
           "title": "基础商务谈判：准确解释",
@@ -4596,20 +4384,27 @@
       ]
     },
     {
-      "id": "authorization-declines",
-      "title": "授权与拒绝码",
-      "subtitle": "在授权与拒绝码场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释授权与拒绝码问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 16 关 · 运营沟通",
-      "story": "你需要围绕授权与拒绝码完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "payment-performance-operations",
+      "title": "支付成功率与日常运营",
+      "topicIds": [
+        "authorization-declines",
+        "retry-routing",
+        "local-payment-methods",
+        "reconciliation-settlement",
+        "merchant-support"
+      ],
+      "subtitle": "授权与拒绝码 · 重试与智能路由 · 本地支付方式运营 · 对账与结算运营 · 商户支持运营",
+      "objective": "能够围绕授权与拒绝码、重试与智能路由、本地支付方式运营、对账与结算运营、商户支持运营，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 4 关 · 支付运营",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 2,
       "reward": {
-        "title": "授权与拒绝码表达卡",
+        "title": "支付成功率与日常运营表达卡",
         "description": "完成本关后，可复用以下表达结构。",
         "items": [
           "The primary metric is authorization approval rate.",
-          "I recommend that we separate retryable failures and work with the acquirer on issuer-specific routing.",
-          "We should scale only if fraud loss and duplicate authorization attempts stay within threshold."
+          "I recommend that we fix status messaging and run a market-level pilot before expanding placement.",
+          "We should scale only if resolution time improves without hiding unresolved financial cases."
         ]
       },
       "questions": [
@@ -4902,27 +4697,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "retry-routing",
-      "title": "重试与智能路由",
-      "subtitle": "在重试与智能路由场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释重试与智能路由问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 17 关 · 运营沟通",
-      "story": "你需要围绕重试与智能路由完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "重试与智能路由表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is incremental recovered approvals.",
-          "I recommend that we retry only eligible response codes with capped attempts and idempotency controls.",
-          "We should scale only if duplicate-charge complaints and processing cost stay flat."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "retry-routing-explain",
           "title": "重试与智能路由：准确解释",
@@ -5212,27 +4987,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "local-payment-methods",
-      "title": "本地支付方式运营",
-      "subtitle": "在本地支付方式运营场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释本地支付方式运营问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 18 关 · 运营沟通",
-      "story": "你需要围绕本地支付方式运营完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "本地支付方式运营表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is incremental checkout conversion.",
-          "I recommend that we fix status messaging and run a market-level pilot before expanding placement.",
-          "We should scale only if net conversion improves after fees, failures and support cost."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "local-payment-methods-explain",
           "title": "本地支付方式运营：准确解释",
@@ -5522,27 +5277,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "reconciliation-settlement",
-      "title": "对账与结算运营",
-      "subtitle": "在对账与结算运营场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释对账与结算运营问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 19 关 · 运营沟通",
-      "story": "你需要围绕对账与结算运营完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "对账与结算运营表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is unreconciled transaction rate.",
-          "I recommend that we rebuild matching rules around stable identifiers, timing windows and fee records.",
-          "We should scale only if every manual adjustment has evidence, approval and an audit trail."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "reconciliation-settlement-explain",
           "title": "对账与结算运营：准确解释",
@@ -5832,27 +5567,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "merchant-support",
-      "title": "商户支持运营",
-      "subtitle": "在商户支持运营场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释商户支持运营问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 20 关 · 运营沟通",
-      "story": "你需要围绕商户支持运营完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 2,
-      "reward": {
-        "title": "商户支持运营表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is merchant contact rate.",
-          "I recommend that we restore clear status guidance and tag contacts by root cause for weekly review.",
-          "We should scale only if resolution time improves without hiding unresolved financial cases."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "merchant-support-explain",
           "title": "商户支持运营：准确解释",
@@ -6146,20 +5861,27 @@
       ]
     },
     {
-      "id": "meetings-objections",
-      "title": "会议与异议",
-      "subtitle": "在会议与异议场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释会议与异议问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 21 关 · 复杂协作",
-      "story": "你需要围绕会议与异议完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "cross-functional-risk-communication",
+      "title": "跨团队协作与客户沟通",
+      "topicIds": [
+        "meetings-objections",
+        "cross-region",
+        "executive-summary",
+        "project-update",
+        "customer-escalation"
+      ],
+      "subtitle": "会议与异议 · 跨区域协作 · 高管摘要 · 跨团队项目推进 · 客户升级处理",
+      "objective": "能够围绕会议与异议、跨区域协作、高管摘要、跨团队项目推进、客户升级处理，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 5 关 · 复杂协作",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 3,
       "reward": {
-        "title": "会议推进表达卡",
-        "description": "遇到模糊需求、不同意见和资源冲突时可以直接调用。",
+        "title": "跨团队协作与客户沟通表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
         "items": [
-          "Could we clarify which outcome matters most?",
-          "My concern is ...; I would recommend ...",
-          "Before we close, let me confirm the owner and deadline."
+          "The primary metric is decision closure rate.",
+          "I recommend that we place the recommendation and quantified consequence in the opening paragraph.",
+          "We should scale only if no customer is charged twice and remediation is independently verified."
         ]
       },
       "questions": [
@@ -6432,27 +6154,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "cross-region",
-      "title": "跨区域协作",
-      "subtitle": "在跨区域协作场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释跨区域协作问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 22 关 · 复杂协作",
-      "story": "你需要围绕跨区域协作完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "跨区域协作卡",
-        "description": "把本地关切转化为可验证、可治理的区域方案。",
-        "items": [
-          "Localization adapts the full experience, not only the language.",
-          "We have not yet confirmed whether ...",
-          "Use a defined segment and explicit decision rules."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "localization-translation",
           "title": "本地化不只是翻译",
@@ -6722,27 +6424,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "executive-summary",
-      "title": "高管摘要",
-      "subtitle": "在高管摘要场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释高管摘要问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 23 关 · 复杂协作",
-      "story": "你需要围绕高管摘要完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "高管摘要表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is executive decision time.",
-          "I recommend that we place the recommendation and quantified consequence in the opening paragraph.",
-          "We should scale only if material uncertainty and downside remain visible in the summary."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "executive-summary-explain",
           "title": "高管摘要：准确解释",
@@ -7032,27 +6714,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "project-update",
-      "title": "跨团队项目推进",
-      "subtitle": "在跨团队项目推进场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释跨团队项目推进问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 24 关 · 复杂协作",
-      "story": "你需要围绕跨团队项目推进完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "跨团队项目推进表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is on-time milestone rate.",
-          "I recommend that we rebuild the critical path and escalate the unowned certification decision.",
-          "We should scale only if no launch-critical dependency lacks an owner and fallback."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "project-update-explain",
           "title": "跨团队项目推进：准确解释",
@@ -7342,27 +7004,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "customer-escalation",
-      "title": "客户升级处理",
-      "subtitle": "在客户升级处理场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释客户升级处理问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 25 关 · 复杂协作",
-      "story": "你需要围绕客户升级处理完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "客户升级处理表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is escalation resolution time.",
-          "I recommend that we stop the faulty retry path, identify affected transactions and give the merchant timed updates.",
-          "We should scale only if no customer is charged twice and remediation is independently verified."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "customer-escalation-explain",
           "title": "客户升级处理：准确解释",
@@ -7656,20 +7298,27 @@
       ]
     },
     {
-      "id": "fraud-risk",
-      "title": "欺诈与风险策略",
-      "subtitle": "在欺诈与风险策略场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释欺诈与风险策略问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 26 关 · 复杂协作",
-      "story": "你需要围绕欺诈与风险策略完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "risk-economics-operations",
+      "title": "风控、验证与支付经济",
+      "topicIds": [
+        "fraud-risk",
+        "three-d-secure",
+        "subscription-payments",
+        "cross-border-fx",
+        "payment-costs"
+      ],
+      "subtitle": "欺诈与风险策略 · 3DS 与身份验证 · 订阅与周期扣款 · 跨境支付与外汇 · 支付成本分析",
+      "objective": "能够围绕欺诈与风险策略、3DS 与身份验证、订阅与周期扣款、跨境支付与外汇、支付成本分析，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 6 关 · 风险经营",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 3,
       "reward": {
-        "title": "欺诈与风险策略表达卡",
+        "title": "风控、验证与支付经济表达卡",
         "description": "完成本关后，可复用以下表达结构。",
         "items": [
           "The primary metric is fraud loss rate.",
-          "I recommend that we segment the rule by customer history and send uncertain cases to targeted review.",
-          "We should scale only if fraud savings exceed lost margin and manual-review cost."
+          "I recommend that we combine account updates with decline-specific retries and transparent reminders.",
+          "We should scale only if cost savings do not reduce approval, reliability or support quality."
         ]
       },
       "questions": [
@@ -7962,27 +7611,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "three-d-secure",
-      "title": "3DS 与身份验证",
-      "subtitle": "在3DS 与身份验证场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释3DS 与身份验证问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 27 关 · 复杂协作",
-      "story": "你需要围绕3DS 与身份验证完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "3DS 与身份验证表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is authenticated payment conversion.",
-          "I recommend that we apply risk-based exemptions where allowed and monitor issuer-level outcomes.",
-          "We should scale only if regulatory compliance and fraud liability remain clear."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "three-d-secure-explain",
           "title": "3DS 与身份验证：准确解释",
@@ -8272,27 +7901,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "subscription-payments",
-      "title": "订阅与周期扣款",
-      "subtitle": "在订阅与周期扣款场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释订阅与周期扣款问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 28 关 · 复杂协作",
-      "story": "你需要围绕订阅与周期扣款完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "订阅与周期扣款表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is renewal recovery rate.",
-          "I recommend that we combine account updates with decline-specific retries and transparent reminders.",
-          "We should scale only if complaints and opt-out failures do not increase."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "subscription-payments-explain",
           "title": "订阅与周期扣款：准确解释",
@@ -8582,27 +8191,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "cross-border-fx",
-      "title": "跨境支付与外汇",
-      "subtitle": "在跨境支付与外汇场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释跨境支付与外汇问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 29 关 · 复杂协作",
-      "story": "你需要围绕跨境支付与外汇完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "跨境支付与外汇表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is cross-border net margin.",
-          "I recommend that we measure corridor economics and offer local currency or settlement choices selectively.",
-          "We should scale only if currency disclosure is transparent and merchants understand settlement exposure."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "cross-border-fx-explain",
           "title": "跨境支付与外汇：准确解释",
@@ -8892,27 +8481,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "payment-costs",
-      "title": "支付成本分析",
-      "subtitle": "在支付成本分析场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付成本分析问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 30 关 · 复杂协作",
-      "story": "你需要围绕支付成本分析完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 3,
-      "reward": {
-        "title": "支付成本分析表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is cost per successful payment.",
-          "I recommend that we build a fully loaded cost model by method, market and success outcome.",
-          "We should scale only if cost savings do not reduce approval, reliability or support quality."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "payment-costs-explain",
           "title": "支付成本分析：准确解释",
@@ -9206,20 +8775,27 @@
       ]
     },
     {
-      "id": "market-entry",
-      "title": "支付市场进入",
-      "subtitle": "在支付市场进入场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付市场进入问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 31 关 · 策略设计",
-      "story": "你需要围绕支付市场进入完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "market-commercial-strategy",
+      "title": "市场进入与商业策略",
+      "topicIds": [
+        "market-entry",
+        "acquiring-strategy",
+        "payment-orchestration",
+        "pricing-strategy",
+        "enterprise-merchants"
+      ],
+      "subtitle": "支付市场进入 · 收单布局策略 · 支付编排与自建外购 · 支付定价策略 · 大型商户经营",
+      "objective": "能够围绕支付市场进入、收单布局策略、支付编排与自建外购、支付定价策略、大型商户经营，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 7 关 · 策略设计",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 4,
       "reward": {
-        "title": "支付市场进入表达卡",
+        "title": "市场进入与商业策略表达卡",
         "description": "完成本关后，可复用以下表达结构。",
         "items": [
           "The primary metric is validated market opportunity.",
-          "I recommend that we run regulatory and partner discovery before committing the full launch plan.",
-          "We should scale only if the pilot has a legal basis, viable economics and an accountable operator."
+          "I recommend that we score build, buy and hybrid options against explicit five-year scenarios.",
+          "We should scale only if custom work has reusable value or a funded commercial return."
         ]
       },
       "questions": [
@@ -9512,27 +9088,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "acquiring-strategy",
-      "title": "收单布局策略",
-      "subtitle": "在收单布局策略场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释收单布局策略问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 32 关 · 策略设计",
-      "story": "你需要围绕收单布局策略完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "收单布局策略表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is risk-adjusted acquiring value.",
-          "I recommend that we prioritize markets where incremental margin exceeds setup and control cost.",
-          "We should scale only if resilience and compliance do not depend on one untested partner."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "acquiring-strategy-explain",
           "title": "收单布局策略：准确解释",
@@ -9822,27 +9378,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "payment-orchestration",
-      "title": "支付编排与自建外购",
-      "subtitle": "在支付编排与自建外购场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付编排与自建外购问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 33 关 · 策略设计",
-      "story": "你需要围绕支付编排与自建外购完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "支付编排与自建外购表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is orchestration value realization.",
-          "I recommend that we score build, buy and hybrid options against explicit five-year scenarios.",
-          "We should scale only if transaction data, routing rules and exit rights remain usable."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "payment-orchestration-explain",
           "title": "支付编排与自建外购：准确解释",
@@ -10132,27 +9668,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "pricing-strategy",
-      "title": "支付定价策略",
-      "subtitle": "在支付定价策略场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付定价策略问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 34 关 · 策略设计",
-      "story": "你需要围绕支付定价策略完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "支付定价策略表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is risk-adjusted net revenue.",
-          "I recommend that we segment pricing by value and cost while keeping the offer understandable.",
-          "We should scale only if discounts have expiry dates, performance commitments and margin floors."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "pricing-strategy-explain",
           "title": "支付定价策略：准确解释",
@@ -10442,27 +9958,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "enterprise-merchants",
-      "title": "大型商户经营",
-      "subtitle": "在大型商户经营场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释大型商户经营问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 35 关 · 策略设计",
-      "story": "你需要围绕大型商户经营完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "大型商户经营表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is merchant lifetime value.",
-          "I recommend that we create a joint plan that ties roadmap investment to measurable adoption.",
-          "We should scale only if custom work has reusable value or a funded commercial return."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "enterprise-merchants-explain",
           "title": "大型商户经营：准确解释",
@@ -10756,20 +10252,27 @@
       ]
     },
     {
-      "id": "sme-segmentation",
-      "title": "中小商户分层运营",
-      "subtitle": "在中小商户分层运营场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释中小商户分层运营问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 36 关 · 策略设计",
-      "story": "你需要围绕中小商户分层运营完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "scaled-merchant-governance",
+      "title": "规模化经营与合规治理",
+      "topicIds": [
+        "sme-segmentation",
+        "platform-marketplaces",
+        "incident-management",
+        "regulatory-change",
+        "partner-management"
+      ],
+      "subtitle": "中小商户分层运营 · 平台与市场支付 · 支付事故管理 · 监管变化落地 · 支付合作方管理",
+      "objective": "能够围绕中小商户分层运营、平台与市场支付、支付事故管理、监管变化落地、支付合作方管理，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 8 关 · 经营治理",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 4,
       "reward": {
-        "title": "中小商户分层运营表达卡",
+        "title": "规模化经营与合规治理表达卡",
         "description": "完成本关后，可复用以下表达结构。",
         "items": [
           "The primary metric is cost-to-serve by segment.",
-          "I recommend that we combine self-service journeys with trigger-based specialist support.",
-          "We should scale only if vulnerable or high-risk merchants are not routed away from necessary help."
+          "I recommend that we contain affected traffic, open a command channel and publish timed fact-based updates.",
+          "We should scale only if traffic concentration does not prevent an orderly provider exit."
         ]
       },
       "questions": [
@@ -11062,27 +10565,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "platform-marketplaces",
-      "title": "平台与市场支付",
-      "subtitle": "在平台与市场支付场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释平台与市场支付问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 37 关 · 策略设计",
-      "story": "你需要围绕平台与市场支付完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "平台与市场支付表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is seller payout reliability.",
-          "I recommend that we tier payout controls by seller risk and explain hold reasons with release criteria.",
-          "We should scale only if fund flows and platform obligations remain legally and operationally clear."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "platform-marketplaces-explain",
           "title": "平台与市场支付：准确解释",
@@ -11372,27 +10855,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "incident-management",
-      "title": "支付事故管理",
-      "subtitle": "在支付事故管理场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付事故管理问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 38 关 · 策略设计",
-      "story": "你需要围绕支付事故管理完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "支付事故管理表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is customer-impact minutes.",
-          "I recommend that we contain affected traffic, open a command channel and publish timed fact-based updates.",
-          "We should scale only if recovery changes are reversible and do not create duplicate financial events."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "incident-management-explain",
           "title": "支付事故管理：准确解释",
@@ -11682,27 +11145,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "regulatory-change",
-      "title": "监管变化落地",
-      "subtitle": "在监管变化落地场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释监管变化落地问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 39 关 · 策略设计",
-      "story": "你需要围绕监管变化落地完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "监管变化落地表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is regulatory readiness.",
-          "I recommend that we create a requirement-to-control matrix with legal sign-off and launch evidence.",
-          "We should scale only if no mandatory obligation is treated as an optional product trade-off."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "regulatory-change-explain",
           "title": "监管变化落地：准确解释",
@@ -11992,27 +11435,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "partner-management",
-      "title": "支付合作方管理",
-      "subtitle": "在支付合作方管理场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付合作方管理问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 40 关 · 策略设计",
-      "story": "你需要围绕支付合作方管理完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 4,
-      "reward": {
-        "title": "支付合作方管理表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is partner service-level attainment.",
-          "I recommend that we issue a documented remediation plan with milestones, consequences and fallback capacity.",
-          "We should scale only if traffic concentration does not prevent an orderly provider exit."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "partner-management-explain",
           "title": "支付合作方管理：准确解释",
@@ -12306,20 +11729,27 @@
       ]
     },
     {
-      "id": "portfolio-strategy",
-      "title": "支付能力组合策略",
-      "subtitle": "在支付能力组合策略场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付能力组合策略问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 41 关 · 高阶决策",
-      "story": "你需要围绕支付能力组合策略完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "advanced-payment-strategy",
+      "title": "高阶支付与资金战略",
+      "topicIds": [
+        "portfolio-strategy",
+        "unit-economics",
+        "tokenization-updater",
+        "open-banking-rtp",
+        "treasury-liquidity"
+      ],
+      "subtitle": "支付能力组合策略 · 支付单位经济 · 令牌化与账户更新 · 开放银行与实时支付 · 资金与流动性运营",
+      "objective": "能够围绕支付能力组合策略、支付单位经济、令牌化与账户更新、开放银行与实时支付、资金与流动性运营，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 9 关 · 高阶策略",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 5,
       "reward": {
-        "title": "支付能力组合策略表达卡",
+        "title": "高阶支付与资金战略表达卡",
         "description": "完成本关后，可复用以下表达结构。",
         "items": [
           "The primary metric is portfolio risk-adjusted return.",
-          "I recommend that we group investments by capability and fund a balanced set of strategic outcomes.",
-          "We should scale only if mandatory resilience and compliance work cannot be displaced by short-term revenue."
+          "I recommend that we pilot network tokens and account updates by issuer and merchant cohort.",
+          "We should scale only if customer and merchant obligations remain funded under the approved stress case."
         ]
       },
       "questions": [
@@ -12612,27 +12042,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "unit-economics",
-      "title": "支付单位经济",
-      "subtitle": "在支付单位经济场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释支付单位经济问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 42 关 · 高阶决策",
-      "story": "你需要围绕支付单位经济完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "支付单位经济表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is contribution margin per successful payment.",
-          "I recommend that we reprice or redesign the segment offer using fully loaded marginal economics.",
-          "We should scale only if growth targets are measured after variable cost and expected loss."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "unit-economics-explain",
           "title": "支付单位经济：准确解释",
@@ -12922,27 +12332,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "tokenization-updater",
-      "title": "令牌化与账户更新",
-      "subtitle": "在令牌化与账户更新场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释令牌化与账户更新问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 43 关 · 高阶决策",
-      "story": "你需要围绕令牌化与账户更新完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "令牌化与账户更新表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is credential-related approval uplift.",
-          "I recommend that we pilot network tokens and account updates by issuer and merchant cohort.",
-          "We should scale only if consent, credential lifecycle and fallback behavior remain controlled."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "tokenization-updater-explain",
           "title": "令牌化与账户更新：准确解释",
@@ -13232,27 +12622,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "open-banking-rtp",
-      "title": "开放银行与实时支付",
-      "subtitle": "在开放银行与实时支付场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释开放银行与实时支付问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 44 关 · 高阶决策",
-      "story": "你需要围绕开放银行与实时支付完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "开放银行与实时支付表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is account-to-account completed conversion.",
-          "I recommend that we pilot the journey with explicit confirmation, support and return-payment design.",
-          "We should scale only if customers understand authorization and have a workable error-resolution path."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "open-banking-rtp-explain",
           "title": "开放银行与实时支付：准确解释",
@@ -13542,27 +12912,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "treasury-liquidity",
-      "title": "资金与流动性运营",
-      "subtitle": "在资金与流动性运营场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释资金与流动性运营问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 45 关 · 高阶决策",
-      "story": "你需要围绕资金与流动性运营完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "资金与流动性运营表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is liquidity buffer efficiency.",
-          "I recommend that we set corridor-level buffers using settlement forecasts and stress limits.",
-          "We should scale only if customer and merchant obligations remain funded under the approved stress case."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "treasury-liquidity-explain",
           "title": "资金与流动性运营：准确解释",
@@ -13856,20 +13206,27 @@
       ]
     },
     {
-      "id": "executive-governance",
-      "title": "高管治理与决策",
-      "subtitle": "在高管治理与决策场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释高管治理与决策问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 46 关 · 高阶决策",
-      "story": "你需要围绕高管治理与决策完成十次工作沟通，从理解事实推进到形成可执行决策。",
+      "id": "interview",
+      "title": "高管决策、谈判与英文面试",
+      "topicIds": [
+        "executive-governance",
+        "turnaround-case",
+        "strategic-negotiation",
+        "board-presentation",
+        "interview"
+      ],
+      "subtitle": "高管治理与决策 · 业务扭转与恢复 · 复杂合作谈判 · 董事会级英文汇报 · 英文面试",
+      "objective": "能够围绕高管治理与决策、业务扭转与恢复、复杂合作谈判、董事会级英文汇报、英文面试，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 10 关 · 综合实战",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
       "difficulty": 5,
       "reward": {
-        "title": "高管治理与决策表达卡",
+        "title": "高管决策、谈判与英文面试表达卡",
         "description": "完成本关后，可复用以下表达结构。",
         "items": [
           "The primary metric is strategic decision quality.",
-          "I recommend that we assign one decision owner and publish thresholds for escalation and exception.",
-          "We should scale only if material risk acceptance is explicit, time-bound and auditable."
+          "I recommend that we offer earned volume tiers while preserving performance remedies and exit options.",
+          "We should scale only if the claim can withstand follow-up questions about data, trade-offs and failure."
         ]
       },
       "questions": [
@@ -14162,27 +13519,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "turnaround-case",
-      "title": "业务扭转与恢复",
-      "subtitle": "在业务扭转与恢复场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释业务扭转与恢复问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 47 关 · 高阶决策",
-      "story": "你需要围绕业务扭转与恢复完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "业务扭转与恢复表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is ninety-day contribution recovery.",
-          "I recommend that we stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence.",
-          "We should scale only if recovery actions protect regulated obligations and avoid hidden future cost."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "turnaround-case-explain",
           "title": "业务扭转与恢复：准确解释",
@@ -14472,27 +13809,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "strategic-negotiation",
-      "title": "复杂合作谈判",
-      "subtitle": "在复杂合作谈判场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释复杂合作谈判问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 48 关 · 高阶决策",
-      "story": "你需要围绕复杂合作谈判完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "复杂合作谈判表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is risk-adjusted deal value.",
-          "I recommend that we offer earned volume tiers while preserving performance remedies and exit options.",
-          "We should scale only if no price concession removes operational resilience or regulatory access."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "strategic-negotiation-explain",
           "title": "复杂合作谈判：准确解释",
@@ -14782,27 +14099,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "board-presentation",
-      "title": "董事会级英文汇报",
-      "subtitle": "在董事会级英文汇报场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释董事会级英文汇报问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 49 关 · 高阶决策",
-      "story": "你需要围绕董事会级英文汇报完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "董事会级英文汇报表达卡",
-        "description": "完成本关后，可复用以下表达结构。",
-        "items": [
-          "The primary metric is board decision confidence.",
-          "I recommend that we present one integrated scenario with choices, downside and funded mitigations.",
-          "We should scale only if uncertainty is quantified and no material risk is buried in an appendix."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "board-presentation-explain",
           "title": "董事会级英文汇报：准确解释",
@@ -15092,27 +14389,7 @@
               "guardrail"
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "interview",
-      "title": "英文面试",
-      "subtitle": "在英文面试场景中练习准确表达与业务判断",
-      "objective": "能够用清晰英文解释英文面试问题，并提出有证据、指标和护栏的行动建议。",
-      "chapter": "第 50 关 · 高阶决策",
-      "story": "你需要围绕英文面试完成十次工作沟通，从理解事实推进到形成可执行决策。",
-      "difficulty": 5,
-      "reward": {
-        "title": "英文面试结构卡",
-        "description": "从开场到追问，用结构代替临场背诵。",
-        "items": [
-          "Introduction: present, evidence, future.",
-          "Project: situation, action, result, learning.",
-          "Failure: ownership, recovery, changed behavior."
-        ]
-      },
-      "questions": [
+        },
         {
           "id": "self-introduction",
           "title": "60 秒自我介绍",

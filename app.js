@@ -69,6 +69,8 @@ const state = {
   guidePromise: null,
   challengePacks: new Map(),
   challengePromises: new Map(),
+  challengeLevels: new Map(),
+  challengeLevelPromises: new Map(),
   challengeProgress: new Map(),
   challengeDrafts: new Map(),
   practiceDays: new Map(),
@@ -89,6 +91,7 @@ const state = {
   selectedQuestion: initialLearningRoute?.questionId || null,
   skillLevels: storedSkillLevels,
   renderedLearningViews: new Set(),
+  jobsPromise: null,
 };
 
 const elements = {
@@ -185,6 +188,7 @@ function setView(view, updateURL = true) {
   elements.profileSummary.textContent = isSkills
     ? "从九项技能总览或左侧目录进入训练，学习进度自动保存在当前浏览器。"
     : state.data?.profile.summary || "加载岗位数据中...";
+  if (isSkills && !state.data) elements.sourceTime.textContent = "岗位数据按需加载";
   elements.viewButtons.forEach((button) => {
     const active = button.dataset.view === state.view;
     button.classList.toggle("active", active);
@@ -256,6 +260,32 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
         || requestedLevel !== state.selectedLevel
         || requestedQuestion !== state.selectedQuestion
       ) return;
+      if (["challengeLevel", "challengeQuestion"].includes(state.learningTab)) {
+        let level = challengePack.levels.find((item) => item.id === state.selectedLevel);
+        if (!level) {
+          level = challengePack.levels.find((item) => (
+            item.topicIds?.includes(state.selectedLevel)
+            || (state.selectedQuestion && item.questions.some((question) => question.id === state.selectedQuestion))
+          ));
+          if (level) {
+            state.selectedLevel = level.id;
+            setView("skills");
+          }
+        }
+        if (level) {
+          const loadedLevel = await ensureChallengeLevel(state.selectedSkill, level.id, challengePack);
+          if (
+            requestedPage !== state.learningTab
+            || requestedSkill !== state.selectedSkill
+            || level.id !== state.selectedLevel
+            || requestedQuestion !== state.selectedQuestion
+          ) return;
+          challengePack = {
+            ...challengePack,
+            levels: challengePack.levels.map((item) => item.id === loadedLevel.id ? loadedLevel : item),
+          };
+        }
+      }
     }
     elements.guideLoading.hidden = true;
     elements.guideLoading.querySelector("strong").textContent = "正在加载能力指南";
@@ -690,7 +720,7 @@ function dailyMissionStorageKey(skillId) {
   return `recruitment-daily-mission-${skillId}`;
 }
 
-const DAILY_MISSION_VERSION = 2;
+const DAILY_MISSION_VERSION = 3;
 const DAILY_MISSION_SIZE = 5;
 
 function shuffledQuestionKeys(questions) {
@@ -1198,7 +1228,7 @@ function renderChallengeHub(pack) {
   header.className = "challenge-hero";
   const copy = document.createElement("div");
   copy.append(
-    makeTextElement("span", "section-kicker", `互动训练 · ${pack.levels.length} 个等级`),
+    makeTextElement("span", "section-kicker", `互动训练 · ${pack.levels.length} 个关卡`),
     makeTextElement("h2", "", pack.title),
     makeTextElement("p", "", pack.summary),
   );
@@ -1485,6 +1515,10 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     navigation,
   );
   elements.skillDetailContainer.replaceChildren(article);
+  if (next?.level.file && next.level.id !== level.id) {
+    const schedule = window.requestIdleCallback || ((callback) => window.setTimeout(callback, 0));
+    schedule(() => ensureChallengeLevel(pack.skillId, next.level.id, pack).catch(() => {}));
+  }
 }
 
 function renderSkillDetail(skillId) {
@@ -1693,17 +1727,24 @@ async function ensureGuideLoaded() {
 async function ensureChallengePack(skillId) {
   if (state.challengePacks.has(skillId)) return state.challengePacks.get(skillId);
   if (!state.challengePromises.has(skillId)) {
-    const request = fetch(`challenges/${encodeURIComponent(skillId)}.json`)
+    const challenge = state.guide?.skills.find((skill) => skill.id === skillId)?.challenge;
+    const source = challenge?.manifest || `challenges/${encodeURIComponent(skillId)}.json`;
+    const request = fetch(source)
       .then((response) => {
         if (!response.ok) throw new Error(`题库 HTTP ${response.status}`);
         return response.json();
       })
       .then((pack) => {
         if (pack.skillId !== skillId || !Array.isArray(pack.levels)) throw new Error("题库格式不正确");
-        const validKeys = new Set(challengeQuestions(pack).map((item) => item.key));
+        const questions = challengeQuestions(pack);
+        const validKeys = new Set(questions.map((item) => item.key));
+        const keyByQuestionId = new Map(questions.map((item) => [item.question.id, item.key]));
         const progress = getChallengeProgress(skillId);
         [...progress].forEach((key) => {
-          if (!validKeys.has(key)) progress.delete(key);
+          if (validKeys.has(key)) return;
+          progress.delete(key);
+          const migratedKey = keyByQuestionId.get(key.split("/").at(-1));
+          if (migratedKey) progress.add(migratedKey);
         });
         persistChallengeProgress(skillId);
         state.challengePacks.set(skillId, pack);
@@ -1717,6 +1758,35 @@ async function ensureChallengePack(skillId) {
     state.challengePromises.set(skillId, request);
   }
   return state.challengePromises.get(skillId);
+}
+
+async function ensureChallengeLevel(skillId, levelId, pack) {
+  const level = pack.levels.find((item) => item.id === levelId);
+  if (!level || !level.file) return level;
+  const cacheKey = `${skillId}/${levelId}`;
+  if (state.challengeLevels.has(cacheKey)) return state.challengeLevels.get(cacheKey);
+  if (!state.challengeLevelPromises.has(cacheKey)) {
+    const request = fetch(level.file)
+      .then((response) => {
+        if (!response.ok) throw new Error(`关卡 HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((loadedLevel) => {
+        if (
+          loadedLevel.skillId !== skillId
+          || loadedLevel.id !== levelId
+          || !Array.isArray(loadedLevel.questions)
+        ) throw new Error("关卡格式不正确");
+        state.challengeLevels.set(cacheKey, loadedLevel);
+        return loadedLevel;
+      })
+      .catch((error) => {
+        state.challengeLevelPromises.delete(cacheKey);
+        throw error;
+      });
+    state.challengeLevelPromises.set(cacheKey, request);
+  }
+  return state.challengeLevelPromises.get(cacheKey);
 }
 
 function resetFilters() {
@@ -1736,14 +1806,14 @@ function bindControls() {
   elements.viewButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (button.dataset.view === "skills") navigateLearning("overview");
-      else setView("jobs");
+      else navigateJobs();
     });
   });
   elements.backToOverview.addEventListener("click", () => navigateLearning("overview"));
   window.addEventListener("hashchange", () => {
     const route = learningRouteFromHash(location.hash);
     if (route) navigateLearning(route.page, route.skillId, false, route.levelId, route.questionId);
-    else setView("jobs", false);
+    else navigateJobs(false);
   });
 
   elements.searchInput.addEventListener("input", (event) => { state.query = event.target.value.trim(); renderJobs(); });
@@ -1778,54 +1848,83 @@ function formatTime(value) {
   return `数据更新 ${new Intl.DateTimeFormat("zh-CN", { dateStyle: "medium", timeStyle: "short" }).format(date)}`;
 }
 
-async function init() {
-  const theme = localStorage.getItem("recruitment-theme");
-  if (theme) document.documentElement.dataset.theme = theme;
-  bindControls();
-  try {
-    const jobsResponse = await fetch("jobs.json");
-    if (!jobsResponse.ok) throw new Error(`岗位数据 HTTP ${jobsResponse.status}`);
-    state.data = await jobsResponse.json();
-    elements.profileSummary.textContent = state.data.profile.summary;
-    elements.poolStat.textContent = state.data.poolSize;
-    elements.eligibleStat.textContent = state.data.eligibleSize;
-    elements.displayedStat.textContent = state.data.displayedSize;
-    elements.sourceTime.textContent = formatTime(
-      state.data.officialSourceGeneratedAt
-      || state.data.sourceGeneratedAt
-      || state.data.generatedAt,
-    );
-    elements.dialogSummary.textContent = state.data.profile.summary;
-    state.data.profile.criteria.forEach((criterion) => {
-      const li = document.createElement("li");
-      li.textContent = criterion;
-      elements.criteriaList.append(li);
-    });
+async function ensureJobsLoaded() {
+  if (state.data) return state.data;
+  if (!state.jobsPromise) {
+    state.jobsPromise = fetch("jobs.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`岗位数据 HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((data) => {
+        state.data = data;
+        elements.profileSummary.textContent = state.data.profile.summary;
+        elements.poolStat.textContent = state.data.poolSize;
+        elements.eligibleStat.textContent = state.data.eligibleSize;
+        elements.displayedStat.textContent = state.data.displayedSize;
+        elements.sourceTime.textContent = formatTime(
+          state.data.officialSourceGeneratedAt
+          || state.data.sourceGeneratedAt
+          || state.data.generatedAt,
+        );
+        elements.dialogSummary.textContent = state.data.profile.summary;
+        elements.criteriaList.replaceChildren();
+        state.data.profile.criteria.forEach((criterion) => {
+          const li = document.createElement("li");
+          li.textContent = criterion;
+          elements.criteriaList.append(li);
+        });
 
-    const directions = [...new Set(state.data.jobs.flatMap((job) => job.directions))].sort();
-    directions.forEach((direction) => {
-      const option = document.createElement("option");
-      option.value = direction;
-      option.textContent = direction;
-      elements.directionSelect.append(option);
-    });
-    renderBars();
-    render();
-    setView(state.view, false);
-    if (initialLearningRoute) {
-      await navigateLearning(
-        initialLearningRoute.page,
-        initialLearningRoute.skillId,
-        false,
-        initialLearningRoute.levelId,
-        initialLearningRoute.questionId,
-      );
-    }
+        const directions = [...new Set(state.data.jobs.flatMap((job) => job.directions))].sort();
+        elements.directionSelect.querySelectorAll("option:not([value='all'])").forEach((option) => option.remove());
+        directions.forEach((direction) => {
+          const option = document.createElement("option");
+          option.value = direction;
+          option.textContent = direction;
+          elements.directionSelect.append(option);
+        });
+        renderBars();
+        render();
+        return state.data;
+      })
+      .catch((error) => {
+        state.jobsPromise = null;
+        throw error;
+      });
+  }
+  return state.jobsPromise;
+}
+
+async function navigateJobs(updateURL = true) {
+  setView("jobs", updateURL);
+  if (state.data) return;
+  elements.resultCaption.textContent = "正在加载岗位数据";
+  try {
+    await ensureJobsLoaded();
+    if (state.view === "jobs") setView("jobs", false);
   } catch (error) {
     elements.profileSummary.textContent = "岗位数据读取失败，请稍后刷新页面";
     elements.resultCaption.textContent = error.message;
     elements.emptyState.hidden = false;
     elements.emptyState.querySelector("strong").textContent = "岗位数据暂时无法读取";
+  }
+}
+
+async function init() {
+  const theme = localStorage.getItem("recruitment-theme");
+  if (theme) document.documentElement.dataset.theme = theme;
+  bindControls();
+  if (initialLearningRoute) {
+    setView("skills", false);
+    await navigateLearning(
+      initialLearningRoute.page,
+      initialLearningRoute.skillId,
+      false,
+      initialLearningRoute.levelId,
+      initialLearningRoute.questionId,
+    );
+  } else {
+    await navigateJobs(false);
   }
 }
 

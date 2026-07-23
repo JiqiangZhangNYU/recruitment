@@ -1,0 +1,1509 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "business-analysis-communication",
+  "title": "数据汇报与商务协作",
+  "topicIds": [
+    "data-reporting",
+    "presentations",
+    "meeting-minutes",
+    "stakeholder-email",
+    "negotiation-basics"
+  ],
+  "subtitle": "数据汇报 · 商务演示与讲故事 · 纪要与行动跟进 · 利益相关方邮件 · 基础商务谈判",
+  "objective": "能够围绕数据汇报、商务演示与讲故事、纪要与行动跟进、利益相关方邮件、基础商务谈判，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 3 关 · 运营沟通",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 2,
+  "reward": {
+    "title": "数据汇报与商务协作表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is payment success rate.",
+      "I recommend that we send a decision log within twenty-four hours and ask owners to confirm.",
+      "We should scale only if service levels, compliance rights and exit terms remain enforceable."
+    ]
+  },
+  "questions": [
+    {
+      "id": "success-rate-drop",
+      "title": "支付成功率下降",
+      "type": "周报口径",
+      "activity": {
+        "mode": "choice",
+        "prompt": "成功率从 92.4% 降至 90.8%，哪一种说法准确？",
+        "choices": [
+          "It fell by 1.6 percent.",
+          "It fell by 1.6 percentage points.",
+          "It fell to 1.6 percentage points."
+        ],
+        "correctChoice": 1,
+        "feedback": "两个百分比相减得到百分点变化，因此应使用 percentage points。"
+      },
+      "prompt": "本周整体支付成功率从 92.4% 降至 90.8%，主要来自德国银行卡支付，下降发生在周二路由调整后。",
+      "task": "用 4 句英文汇报变化、定位、初步判断和行动。",
+      "hint": "回答 where、when 和 what next。",
+      "answer": {
+        "sample": "Overall payment success rate fell 1.6 percentage points week over week, from 92.4% to 90.8%. Germany card payments accounted for about 70% of the decline, which began after Tuesday's routing change. The pattern suggests a route-specific issue. We have rolled back the change and will compare issuer response codes before tomorrow's review.",
+        "notes": [
+          "百分点使用 percentage points。",
+          "用 suggests 表达初步判断，避免把猜测说成事实。"
+        ],
+        "keywords": [
+          "percentage points",
+          "week over week",
+          "accounted for",
+          "rolled back"
+        ],
+        "translation": "整体支付成功率环比下降 1.6 个百分点，从 92.4% 降至 90.8%。德国银行卡支付贡献了约 70% 的降幅，问题从周二路由变更后开始出现。这一模式表明问题可能与特定路由有关。我们已回滚变更，并将在明天评审前比较发卡行响应码。"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "gmv-up-revenue-down",
+      "title": "交易额涨、收入降",
+      "type": "指标诊断",
+      "prompt": "GMV 环比增长 12%，但支付净收入下降 3%。低费率大商户占比提高，通道成本也增加。",
+      "task": "用英文解释表面矛盾，并提出两个需要进一步验证的分析。",
+      "hint": "从 mix shift 和 unit economics 两条线展开。",
+      "answer": {
+        "sample": "GMV increased by 12% month over month, while net payment revenue declined by 3%. More volume came from large merchants on lower pricing tiers, and processing cost per transaction increased. We should separate the impact of merchant mix from cost inflation and review net revenue by merchant cohort to find deteriorating unit economics.",
+        "notes": [
+          "while 适合对照两个方向相反的指标。",
+          "提出可执行的分解方法，而不是停留在猜测。"
+        ],
+        "keywords": [
+          "month over month",
+          "mix shift",
+          "pricing tier",
+          "merchant cohort"
+        ],
+        "translation": "GMV 环比增长 12%，但支付净收入下降 3%。更多交易量来自定价较低的大型商户，同时单笔交易处理成本上升。我们应分别评估商户结构变化和成本上涨的影响，并按商户同期群检查净收入，以找出单位经济恶化的位置。"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "incident-update",
+      "title": "事故状态更新",
+      "type": "即时汇报",
+      "prompt": "东南亚电子钱包从 10:20 起出现超时，影响约 8% 的请求；11:05 已切换备用通道，成功率恢复。根因还在调查。",
+      "task": "写一段英文事故更新，区分已知事实、恢复状态和待确认事项。",
+      "hint": "根因未确定时不要使用 was caused by。",
+      "answer": {
+        "sample": "From 10:20 to 11:05, wallet payment timeouts affected approximately 8% of requests in Southeast Asia. We switched traffic to the backup channel at 11:05, and success rates have returned to normal. Payments are currently processing normally while we investigate the root cause. The next update will be shared by 1 p.m.",
+        "notes": [
+          "时间范围、影响比例和地区构成完整事实。",
+          "continues to investigate 保留根因不确定性。"
+        ],
+        "keywords": [
+          "affected",
+          "switched traffic",
+          "returned to normal",
+          "root cause"
+        ],
+        "translation": "10:20 至 11:05 期间，钱包支付超时影响了东南亚约 8% 的请求。我们在 11:05 将流量切换至备用渠道，成功率现已恢复正常。目前支付处理正常，同时我们正在调查根因。下一次更新将在下午 1 点前发布。"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "experiment-result",
+      "title": "A/B 测试结论",
+      "type": "实验汇报",
+      "prompt": "新收银台使支付转化率提升 0.7 个百分点，95% 置信区间为 +0.2 至 +1.2 个百分点，退款率暂无显著变化。",
+      "task": "用英文汇报结果、统计不确定性和上线建议。",
+      "hint": "区分 no significant change 与 proven no impact。",
+      "answer": {
+        "sample": "The new checkout increased conversion by 0.7 percentage points, with a 95% confidence interval of 0.2 to 1.2 points. We did not detect a significant change in refunds, but the test was not designed to rule out small effects. I recommend a phased rollout with continued monitoring of conversion, refunds and support contacts.",
+        "notes": [
+          "同时给点估计和区间。",
+          "did not detect 不等于证明完全无影响。"
+        ],
+        "keywords": [
+          "confidence interval",
+          "statistically positive",
+          "did not detect",
+          "phased rollout"
+        ],
+        "translation": "新版结账流程使转化率提高了 0.7 个百分点，95% 置信区间为 0.2 至 1.2 个百分点。我们没有发现退款率出现显著变化，但该实验并非为排除小幅影响而设计。我建议分阶段上线，并持续监控转化率、退款率和客服联系量。"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "executive-summary",
+      "title": "高管一页摘要",
+      "type": "结论提炼",
+      "prompt": "活跃商户增长 18%，交易额增长 24%，但投诉率从 0.6% 升至 0.9%，主要是结算延迟。",
+      "task": "写一个不超过 100 词的英文 executive summary，包含成绩、风险和下一季度重点。",
+      "hint": "回答 so what，而不是罗列所有指标。",
+      "answer": {
+        "sample": "Q2 delivered strong growth: active merchants rose 18% and payment volume increased 24% quarter over quarter. However, complaints increased from 0.6% to 0.9%, mainly due to settlement delays. Growth is healthy, but the settlement experience may limit retention. In Q3, we will prioritize reliability, reduce delayed payouts by 50%, and add proactive merchant notifications.",
+        "notes": [
+          "先承认增长，再说明体验风险。",
+          "下一季度重点包含量化目标。"
+        ],
+        "keywords": [
+          "quarter over quarter",
+          "mainly due to",
+          "limit retention",
+          "prioritize"
+        ],
+        "translation": "第二季度实现强劲增长：活跃商户环比增长 18%，支付交易规模增长 24%。但投诉率从 0.6% 上升至 0.9%，主要原因是结算延迟。增长总体健康，但结算体验可能限制留存。第三季度我们将优先提高可靠性，把延迟付款减少 50%，并增加主动商户通知。"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "data-reporting-explain",
+      "title": "数据汇报：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because payment success rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "A payment performance report connects metric movement to a tested business explanation."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“数据汇报”场景。已知总体成功率下降 2.4 个百分点，但最大市场保持稳定，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A payment performance report connects metric movement to a tested business explanation. The current signal is that overall success fell by 2.4 points even though the largest market remained stable. I recommend that we decompose the change by market, method, issuer and response code.",
+        "notes": [
+          "表达必须围绕支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment performance",
+          "payment success rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付表现汇报应把指标变化与经过验证的业务解释连接起来。当前信号是总体成功率下降 2.4 个百分点，但最大市场保持稳定。我建议按市场、支付方式、发卡行和响应码拆解变化。"
+      }
+    },
+    {
+      "id": "data-reporting-interpret",
+      "title": "数据汇报：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“数据汇报”场景。已知总体成功率下降 2.4 个百分点，但最大市场保持稳定，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline payment success rate needs context because overall success fell by 2.4 points even though the largest market remained stable. Evidence points to the aggregate hides a payment-method mix shift in two fast-growing markets. Before making a decision, we should segment the data and verify that the conclusion is supported by stable definitions and comparable cohorts.",
+        "notes": [
+          "表达必须围绕支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment performance",
+          "payment success rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付成功率这一核心指标需要结合背景解读，因为总体成功率下降 2.4 个百分点，但最大市场保持稳定。证据表明汇总数据掩盖了两个快速增长市场的支付方式结构变化。在做决定前，我们应细分数据，并确认结论由稳定口径和可比群组支持。"
+      }
+    },
+    {
+      "id": "data-reporting-incident",
+      "title": "数据汇报：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because payment success rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which overall success fell by 2."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“数据汇报”场景。已知总体成功率下降 2.4 个百分点，但最大市场保持稳定，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which overall success fell by 2.4 points even though the largest market remained stable. Current evidence points to the aggregate hides a payment-method mix shift in two fast-growing markets, but the root cause is not yet final. We will decompose the change by market, method, issuer and response code and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment performance",
+          "payment success rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：总体成功率下降 2.4 个百分点，但最大市场保持稳定。当前证据表明汇总数据掩盖了两个快速增长市场的支付方式结构变化，但根因尚未最终确认。我们将按市场、支付方式、发卡行和响应码拆解变化，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "data-reporting-recommend",
+      "title": "数据汇报：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“数据汇报”场景。已知总体成功率下降 2.4 个百分点，但最大市场保持稳定，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to decompose the change by market, method, issuer and response code. This directly addresses the evidence that the aggregate hides a payment-method mix shift in two fast-growing markets. We will track payment success rate and scale only if the conclusion is supported by stable definitions and comparable cohorts.",
+        "notes": [
+          "表达必须围绕支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment performance",
+          "payment success rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按市场、支付方式、发卡行和响应码拆解变化。这直接回应了“汇总数据掩盖了两个快速增长市场的支付方式结构变化”这一证据。我们将跟踪支付成功率，并且只有在结论由稳定口径和可比群组支持时才扩大实施。"
+      }
+    },
+    {
+      "id": "data-reporting-tradeoff",
+      "title": "数据汇报：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because payment success rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“数据汇报”场景。已知总体成功率下降 2.4 个百分点，但最大市场保持稳定，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve payment success rate, the evidence shows that the aggregate hides a payment-method mix shift in two fast-growing markets. We should decompose the change by market, method, issuer and response code, but proceed only if the conclusion is supported by stable definitions and comparable cohorts.",
+        "notes": [
+          "表达必须围绕支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment performance",
+          "payment success rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善支付成功率，但证据表明汇总数据掩盖了两个快速增长市场的支付方式结构变化。我们应按市场、支付方式、发卡行和响应码拆解变化，但只有在结论由稳定口径和可比群组支持时才继续推进。"
+      }
+    },
+    {
+      "id": "presentations-explain",
+      "title": "商务演示与讲故事：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because decision clarity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "A business presentation should move from decision context to evidence, recommendation and consequence."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、决策清晰度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A business presentation should move from decision context to evidence, recommendation and consequence. The current signal is that a twenty-slide payment review contains accurate analysis but ends without a decision. I recommend that we rebuild the deck around one decision, three supporting facts and explicit trade-offs.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "商务演示应从决策背景推进到证据、建议和后果。当前信号是一份二十页的支付复盘分析准确，却没有以决策结束。我建议围绕一个决策、三项支持事实和明确取舍重构材料。"
+      }
+    },
+    {
+      "id": "presentations-interpret",
+      "title": "商务演示与讲故事：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline decision clarity needs context because a twenty-slide payment review contains accurate analysis but ends without a decision. Evidence points to the deck follows the analyst's work sequence rather than the audience's decision path. Before making a decision, we should segment the data and verify that each chart answers a stated question and uses a visible source.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "决策清晰度这一核心指标需要结合背景解读，因为一份二十页的支付复盘分析准确，却没有以决策结束。证据表明材料按照分析者的工作顺序，而不是听众的决策路径组织。在做决定前，我们应细分数据，并确认每张图都回答一个明确问题并标注数据来源。"
+      }
+    },
+    {
+      "id": "presentations-incident",
+      "title": "商务演示与讲故事：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because decision clarity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a twenty-slide payment review contains accurate analysis but ends without a decision."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、决策清晰度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a twenty-slide payment review contains accurate analysis but ends without a decision. Current evidence points to the deck follows the analyst's work sequence rather than the audience's decision path, but the root cause is not yet final. We will rebuild the deck around one decision, three supporting facts and explicit trade-offs and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：一份二十页的支付复盘分析准确，却没有以决策结束。当前证据表明材料按照分析者的工作顺序，而不是听众的决策路径组织，但根因尚未最终确认。我们将围绕一个决策、三项支持事实和明确取舍重构材料，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "presentations-recommend",
+      "title": "商务演示与讲故事：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to rebuild the deck around one decision, three supporting facts and explicit trade-offs. This directly addresses the evidence that the deck follows the analyst's work sequence rather than the audience's decision path. We will track decision clarity and scale only if each chart answers a stated question and uses a visible source.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议围绕一个决策、三项支持事实和明确取舍重构材料。这直接回应了“材料按照分析者的工作顺序，而不是听众的决策路径组织”这一证据。我们将跟踪决策清晰度，并且只有在每张图都回答一个明确问题并标注数据来源时才扩大实施。"
+      }
+    },
+    {
+      "id": "presentations-tradeoff",
+      "title": "商务演示与讲故事：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because decision clarity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、决策清晰度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve decision clarity, the evidence shows that the deck follows the analyst's work sequence rather than the audience's decision path. We should rebuild the deck around one decision, three supporting facts and explicit trade-offs, but proceed only if each chart answers a stated question and uses a visible source.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善决策清晰度，但证据表明材料按照分析者的工作顺序，而不是听众的决策路径组织。我们应围绕一个决策、三项支持事实和明确取舍重构材料，但只有在每张图都回答一个明确问题并标注数据来源时才继续推进。"
+      }
+    },
+    {
+      "id": "presentations-disagree",
+      "title": "商务演示与讲故事：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a twenty-slide payment review contains accurate analysis but ends without a decision. I suggest that we rebuild the deck around one decision, three supporting facts and explicit trade-offs, using whether each chart answers a stated question and uses a visible source as our shared decision rule.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是一份二十页的支付复盘分析准确，却没有以决策结束。我建议围绕一个决策、三项支持事实和明确取舍重构材料，并把“每张图都回答一个明确问题并标注数据来源”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "presentations-pilot",
+      "title": "商务演示与讲故事：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because decision clarity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we rebuild the deck around one decision, three supporting facts and explicit trade-offs."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、决策清晰度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we rebuild the deck around one decision, three supporting facts and explicit trade-offs. The primary metric is decision clarity, and the guardrail is whether each chart answers a stated question and uses a visible source. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中围绕一个决策、三项支持事实和明确取舍重构材料。主要指标是决策清晰度，护栏是每张图都回答一个明确问题并标注数据来源。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "presentations-executive",
+      "title": "商务演示与讲故事：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a twenty-slide payment review contains accurate analysis but ends without a decision. The likely driver is that the deck follows the analyst's work sequence rather than the audience's decision path. I recommend that we rebuild the deck around one decision, three supporting facts and explicit trade-offs; the decision needed today is whether to proceed under the guardrail that each chart answers a stated question and uses a visible source.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：一份二十页的支付复盘分析准确，却没有以决策结束。可能的驱动因素是材料按照分析者的工作顺序，而不是听众的决策路径组织。我建议围绕一个决策、三项支持事实和明确取舍重构材料；今天需要决定是否在“每张图都回答一个明确问题并标注数据来源”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "presentations-negotiate",
+      "title": "商务演示与讲故事：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because decision clarity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve decision clarity."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、决策清晰度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve decision clarity. We can be flexible on rollout timing, but we should not compromise the requirement that each chart answers a stated question and uses a visible source. A workable package is to rebuild the deck around one decision, three supporting facts and explicit trade-offs and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善决策清晰度。我们可以在上线时间上灵活处理，但不能放弃“每张图都回答一个明确问题并标注数据来源”这一要求。可行的整体方案是围绕一个决策、三项支持事实和明确取舍重构材料，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "presentations-interview",
+      "title": "商务演示与讲故事：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商务演示与讲故事”场景。已知一份二十页的支付复盘分析准确，却没有以决策结束，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、决策清晰度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a twenty-slide payment review contains accurate analysis but ends without a decision. I analyzed the operating evidence, identified that the deck follows the analyst's work sequence rather than the audience's decision path, and recommended that we rebuild the deck around one decision, three supporting facts and explicit trade-offs. The result created a measurable basis for improving decision clarity, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕决策清晰度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A business presentation",
+          "decision clarity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是一份二十页的支付复盘分析准确，却没有以决策结束。我分析了运营证据，识别出材料按照分析者的工作顺序，而不是听众的决策路径组织，并建议围绕一个决策、三项支持事实和明确取舍重构材料。结果为改善决策清晰度建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "meeting-minutes-explain",
+      "title": "纪要与行动跟进：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Meeting minutes are an operating record of decisions, actions and unresolved risks.",
+          "Because action completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、行动完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Meeting minutes are an operating record of decisions, actions and unresolved risks. The current signal is that teams agree in the meeting but later dispute what was approved. I recommend that we send a decision log within twenty-four hours and ask owners to confirm.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "会议纪要是决策、行动和未解决风险的运营记录。当前信号是团队在会上表示同意，会后却对批准内容产生争议。我建议在二十四小时内发送决策日志并请负责人确认。"
+      }
+    },
+    {
+      "id": "meeting-minutes-interpret",
+      "title": "纪要与行动跟进：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline action completion rate needs context because teams agree in the meeting but later dispute what was approved. Evidence points to minutes summarize discussion but omit decision wording and dissent. Before making a decision, we should segment the data and verify that open disagreements remain visible until explicitly resolved.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "行动完成率这一核心指标需要结合背景解读，因为团队在会上表示同意，会后却对批准内容产生争议。证据表明纪要总结了讨论，却遗漏决策原文和异议。在做决定前，我们应细分数据，并确认未解决的分歧在明确解决前始终可见。"
+      }
+    },
+    {
+      "id": "meeting-minutes-incident",
+      "title": "纪要与行动跟进：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which teams agree in the meeting but later dispute what was approved.",
+          "Because action completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、行动完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which teams agree in the meeting but later dispute what was approved. Current evidence points to minutes summarize discussion but omit decision wording and dissent, but the root cause is not yet final. We will send a decision log within twenty-four hours and ask owners to confirm and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：团队在会上表示同意，会后却对批准内容产生争议。当前证据表明纪要总结了讨论，却遗漏决策原文和异议，但根因尚未最终确认。我们将在二十四小时内发送决策日志并请负责人确认，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "meeting-minutes-recommend",
+      "title": "纪要与行动跟进：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to send a decision log within twenty-four hours and ask owners to confirm. This directly addresses the evidence that minutes summarize discussion but omit decision wording and dissent. We will track action completion rate and scale only if open disagreements remain visible until explicitly resolved.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议在二十四小时内发送决策日志并请负责人确认。这直接回应了“纪要总结了讨论，却遗漏决策原文和异议”这一证据。我们将跟踪行动完成率，并且只有在未解决的分歧在明确解决前始终可见时才扩大实施。"
+      }
+    },
+    {
+      "id": "meeting-minutes-tradeoff",
+      "title": "纪要与行动跟进：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because action completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、行动完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve action completion rate, the evidence shows that minutes summarize discussion but omit decision wording and dissent. We should send a decision log within twenty-four hours and ask owners to confirm, but proceed only if open disagreements remain visible until explicitly resolved.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善行动完成率，但证据表明纪要总结了讨论，却遗漏决策原文和异议。我们应在二十四小时内发送决策日志并请负责人确认，但只有在未解决的分歧在明确解决前始终可见时才继续推进。"
+      }
+    },
+    {
+      "id": "meeting-minutes-disagree",
+      "title": "纪要与行动跟进：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that teams agree in the meeting but later dispute what was approved. I suggest that we send a decision log within twenty-four hours and ask owners to confirm, using whether open disagreements remain visible until explicitly resolved as our shared decision rule.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是团队在会上表示同意，会后却对批准内容产生争议。我建议在二十四小时内发送决策日志并请负责人确认，并把“未解决的分歧在明确解决前始终可见”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "meeting-minutes-pilot",
+      "title": "纪要与行动跟进：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we send a decision log within twenty-four hours and ask owners to confirm.",
+          "Because action completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、行动完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we send a decision log within twenty-four hours and ask owners to confirm. The primary metric is action completion rate, and the guardrail is whether open disagreements remain visible until explicitly resolved. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中在二十四小时内发送决策日志并请负责人确认。主要指标是行动完成率，护栏是未解决的分歧在明确解决前始终可见。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "meeting-minutes-executive",
+      "title": "纪要与行动跟进：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: teams agree in the meeting but later dispute what was approved. The likely driver is that minutes summarize discussion but omit decision wording and dissent. I recommend that we send a decision log within twenty-four hours and ask owners to confirm; the decision needed today is whether to proceed under the guardrail that open disagreements remain visible until explicitly resolved.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：团队在会上表示同意，会后却对批准内容产生争议。可能的驱动因素是纪要总结了讨论，却遗漏决策原文和异议。我建议在二十四小时内发送决策日志并请负责人确认；今天需要决定是否在“未解决的分歧在明确解决前始终可见”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "meeting-minutes-negotiate",
+      "title": "纪要与行动跟进：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve action completion rate.",
+          "Because action completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、行动完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve action completion rate. We can be flexible on rollout timing, but we should not compromise the requirement that open disagreements remain visible until explicitly resolved. A workable package is to send a decision log within twenty-four hours and ask owners to confirm and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善行动完成率。我们可以在上线时间上灵活处理，但不能放弃“未解决的分歧在明确解决前始终可见”这一要求。可行的整体方案是在二十四小时内发送决策日志并请负责人确认，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "meeting-minutes-interview",
+      "title": "纪要与行动跟进：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“纪要与行动跟进”场景。已知团队在会上表示同意，会后却对批准内容产生争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、行动完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that teams agree in the meeting but later dispute what was approved. I analyzed the operating evidence, identified that minutes summarize discussion but omit decision wording and dissent, and recommended that we send a decision log within twenty-four hours and ask owners to confirm. The result created a measurable basis for improving action completion rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕行动完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Meeting minutes are",
+          "action completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是团队在会上表示同意，会后却对批准内容产生争议。我分析了运营证据，识别出纪要总结了讨论，却遗漏决策原文和异议，并建议在二十四小时内发送决策日志并请负责人确认。结果为改善行动完成率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "stakeholder-email-explain",
+      "title": "利益相关方邮件：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Stakeholder emails should adapt detail and tone without changing the underlying facts.",
+          "Because response completion rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回复完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Stakeholder emails should adapt detail and tone without changing the underlying facts. The current signal is that engineering asks for exact evidence while executives ask for the business consequence. I recommend that we keep one source of truth and tailor the opening, detail and requested action.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "利益相关方邮件可以调整细节和语气，但不能改变底层事实。当前信号是工程团队要求精确证据，而管理层关注业务后果。我建议保留唯一事实源，并针对受众调整开头、细节和行动请求。"
+      }
+    },
+    {
+      "id": "stakeholder-email-interpret",
+      "title": "利益相关方邮件：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline response completion rate needs context because engineering asks for exact evidence while executives ask for the business consequence. Evidence points to one long update is being sent unchanged to every audience. Before making a decision, we should segment the data and verify that all audience versions use the same metric definitions and decision status.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "回复完成率这一核心指标需要结合背景解读，因为工程团队要求精确证据，而管理层关注业务后果。证据表明同一封冗长更新未经调整就发送给所有受众。在做决定前，我们应细分数据，并确认面向不同受众的版本使用相同指标定义和决策状态。"
+      }
+    },
+    {
+      "id": "stakeholder-email-incident",
+      "title": "利益相关方邮件：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which engineering asks for exact evidence while executives ask for the business consequence.",
+          "Because response completion rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回复完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which engineering asks for exact evidence while executives ask for the business consequence. Current evidence points to one long update is being sent unchanged to every audience, but the root cause is not yet final. We will keep one source of truth and tailor the opening, detail and requested action and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：工程团队要求精确证据，而管理层关注业务后果。当前证据表明同一封冗长更新未经调整就发送给所有受众，但根因尚未最终确认。我们将保留唯一事实源，并针对受众调整开头、细节和行动请求，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "stakeholder-email-recommend",
+      "title": "利益相关方邮件：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to keep one source of truth and tailor the opening, detail and requested action. This directly addresses the evidence that one long update is being sent unchanged to every audience. We will track response completion rate and scale only if all audience versions use the same metric definitions and decision status.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议保留唯一事实源，并针对受众调整开头、细节和行动请求。这直接回应了“同一封冗长更新未经调整就发送给所有受众”这一证据。我们将跟踪回复完成率，并且只有在面向不同受众的版本使用相同指标定义和决策状态时才扩大实施。"
+      }
+    },
+    {
+      "id": "stakeholder-email-tradeoff",
+      "title": "利益相关方邮件：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because response completion rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回复完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve response completion rate, the evidence shows that one long update is being sent unchanged to every audience. We should keep one source of truth and tailor the opening, detail and requested action, but proceed only if all audience versions use the same metric definitions and decision status.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善回复完成率，但证据表明同一封冗长更新未经调整就发送给所有受众。我们应保留唯一事实源，并针对受众调整开头、细节和行动请求，但只有在面向不同受众的版本使用相同指标定义和决策状态时才继续推进。"
+      }
+    },
+    {
+      "id": "stakeholder-email-disagree",
+      "title": "利益相关方邮件：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that engineering asks for exact evidence while executives ask for the business consequence. I suggest that we keep one source of truth and tailor the opening, detail and requested action, using whether all audience versions use the same metric definitions and decision status as our shared decision rule.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是工程团队要求精确证据，而管理层关注业务后果。我建议保留唯一事实源，并针对受众调整开头、细节和行动请求，并把“面向不同受众的版本使用相同指标定义和决策状态”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "stakeholder-email-pilot",
+      "title": "利益相关方邮件：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we keep one source of truth and tailor the opening, detail and requested action.",
+          "Because response completion rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回复完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we keep one source of truth and tailor the opening, detail and requested action. The primary metric is response completion rate, and the guardrail is whether all audience versions use the same metric definitions and decision status. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中保留唯一事实源，并针对受众调整开头、细节和行动请求。主要指标是回复完成率，护栏是面向不同受众的版本使用相同指标定义和决策状态。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "stakeholder-email-executive",
+      "title": "利益相关方邮件：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: engineering asks for exact evidence while executives ask for the business consequence. The likely driver is that one long update is being sent unchanged to every audience. I recommend that we keep one source of truth and tailor the opening, detail and requested action; the decision needed today is whether to proceed under the guardrail that all audience versions use the same metric definitions and decision status.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：工程团队要求精确证据，而管理层关注业务后果。可能的驱动因素是同一封冗长更新未经调整就发送给所有受众。我建议保留唯一事实源，并针对受众调整开头、细节和行动请求；今天需要决定是否在“面向不同受众的版本使用相同指标定义和决策状态”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "stakeholder-email-negotiate",
+      "title": "利益相关方邮件：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve response completion rate.",
+          "Because response completion rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回复完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve response completion rate. We can be flexible on rollout timing, but we should not compromise the requirement that all audience versions use the same metric definitions and decision status. A workable package is to keep one source of truth and tailor the opening, detail and requested action and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善回复完成率。我们可以在上线时间上灵活处理，但不能放弃“面向不同受众的版本使用相同指标定义和决策状态”这一要求。可行的整体方案是保留唯一事实源，并针对受众调整开头、细节和行动请求，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "stakeholder-email-interview",
+      "title": "利益相关方邮件：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“利益相关方邮件”场景。已知工程团队要求精确证据，而管理层关注业务后果，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、回复完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that engineering asks for exact evidence while executives ask for the business consequence. I analyzed the operating evidence, identified that one long update is being sent unchanged to every audience, and recommended that we keep one source of truth and tailor the opening, detail and requested action. The result created a measurable basis for improving response completion rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕回复完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Stakeholder emails should",
+          "response completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是工程团队要求精确证据，而管理层关注业务后果。我分析了运营证据，识别出同一封冗长更新未经调整就发送给所有受众，并建议保留唯一事实源，并针对受众调整开头、细节和行动请求。结果为改善回复完成率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "negotiation-basics-explain",
+      "title": "基础商务谈判：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "A sound negotiation separates interests, positions, tradable terms and non-negotiable controls.",
+          "Because commercial value retained matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、保留的商业价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A sound negotiation separates interests, positions, tradable terms and non-negotiable controls. The current signal is that a payment partner requests a lower fee and immediate exclusivity in the same proposal. I recommend that we trade volume commitment and term length for pricing while rejecting unconditional exclusivity.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "有效谈判应区分利益、立场、可交换条款和不可妥协的控制要求。当前信号是支付合作方在同一方案中要求更低费率和立即独家合作。我建议用交易量承诺和合同期限交换价格，同时拒绝无条件独家。"
+      }
+    },
+    {
+      "id": "negotiation-basics-interpret",
+      "title": "基础商务谈判：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline commercial value retained needs context because a payment partner requests a lower fee and immediate exclusivity in the same proposal. Evidence points to the discussion is treating each request independently rather than as a package. Before making a decision, we should segment the data and verify that service levels, compliance rights and exit terms remain enforceable.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "保留的商业价值这一核心指标需要结合背景解读，因为支付合作方在同一方案中要求更低费率和立即独家合作。证据表明讨论把每项要求孤立处理，而不是作为整体方案。在做决定前，我们应细分数据，并确认服务水平、合规权利和退出条款仍可执行。"
+      }
+    },
+    {
+      "id": "negotiation-basics-incident",
+      "title": "基础商务谈判：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a payment partner requests a lower fee and immediate exclusivity in the same proposal.",
+          "Because commercial value retained matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、保留的商业价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a payment partner requests a lower fee and immediate exclusivity in the same proposal. Current evidence points to the discussion is treating each request independently rather than as a package, but the root cause is not yet final. We will trade volume commitment and term length for pricing while rejecting unconditional exclusivity and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：支付合作方在同一方案中要求更低费率和立即独家合作。当前证据表明讨论把每项要求孤立处理，而不是作为整体方案，但根因尚未最终确认。我们将用交易量承诺和合同期限交换价格，同时拒绝无条件独家，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "negotiation-basics-recommend",
+      "title": "基础商务谈判：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to trade volume commitment and term length for pricing while rejecting unconditional exclusivity. This directly addresses the evidence that the discussion is treating each request independently rather than as a package. We will track commercial value retained and scale only if service levels, compliance rights and exit terms remain enforceable.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议用交易量承诺和合同期限交换价格，同时拒绝无条件独家。这直接回应了“讨论把每项要求孤立处理，而不是作为整体方案”这一证据。我们将跟踪保留的商业价值，并且只有在服务水平、合规权利和退出条款仍可执行时才扩大实施。"
+      }
+    },
+    {
+      "id": "negotiation-basics-tradeoff",
+      "title": "基础商务谈判：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because commercial value retained matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、保留的商业价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve commercial value retained, the evidence shows that the discussion is treating each request independently rather than as a package. We should trade volume commitment and term length for pricing while rejecting unconditional exclusivity, but proceed only if service levels, compliance rights and exit terms remain enforceable.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善保留的商业价值，但证据表明讨论把每项要求孤立处理，而不是作为整体方案。我们应用交易量承诺和合同期限交换价格，同时拒绝无条件独家，但只有在服务水平、合规权利和退出条款仍可执行时才继续推进。"
+      }
+    },
+    {
+      "id": "negotiation-basics-disagree",
+      "title": "基础商务谈判：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a payment partner requests a lower fee and immediate exclusivity in the same proposal. I suggest that we trade volume commitment and term length for pricing while rejecting unconditional exclusivity, using whether service levels, compliance rights and exit terms remain enforceable as our shared decision rule.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是支付合作方在同一方案中要求更低费率和立即独家合作。我建议用交易量承诺和合同期限交换价格，同时拒绝无条件独家，并把“服务水平、合规权利和退出条款仍可执行”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "negotiation-basics-pilot",
+      "title": "基础商务谈判：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we trade volume commitment and term length for pricing while rejecting unconditional exclusivity.",
+          "Because commercial value retained matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、保留的商业价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we trade volume commitment and term length for pricing while rejecting unconditional exclusivity. The primary metric is commercial value retained, and the guardrail is whether service levels, compliance rights and exit terms remain enforceable. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中用交易量承诺和合同期限交换价格，同时拒绝无条件独家。主要指标是保留的商业价值，护栏是服务水平、合规权利和退出条款仍可执行。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "negotiation-basics-executive",
+      "title": "基础商务谈判：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a payment partner requests a lower fee and immediate exclusivity in the same proposal. The likely driver is that the discussion is treating each request independently rather than as a package. I recommend that we trade volume commitment and term length for pricing while rejecting unconditional exclusivity; the decision needed today is whether to proceed under the guardrail that service levels, compliance rights and exit terms remain enforceable.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：支付合作方在同一方案中要求更低费率和立即独家合作。可能的驱动因素是讨论把每项要求孤立处理，而不是作为整体方案。我建议用交易量承诺和合同期限交换价格，同时拒绝无条件独家；今天需要决定是否在“服务水平、合规权利和退出条款仍可执行”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "negotiation-basics-negotiate",
+      "title": "基础商务谈判：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve commercial value retained.",
+          "Because commercial value retained matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、保留的商业价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve commercial value retained. We can be flexible on rollout timing, but we should not compromise the requirement that service levels, compliance rights and exit terms remain enforceable. A workable package is to trade volume commitment and term length for pricing while rejecting unconditional exclusivity and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善保留的商业价值。我们可以在上线时间上灵活处理，但不能放弃“服务水平、合规权利和退出条款仍可执行”这一要求。可行的整体方案是用交易量承诺和合同期限交换价格，同时拒绝无条件独家，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "negotiation-basics-interview",
+      "title": "基础商务谈判：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“基础商务谈判”场景。已知支付合作方在同一方案中要求更低费率和立即独家合作，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、保留的商业价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a payment partner requests a lower fee and immediate exclusivity in the same proposal. I analyzed the operating evidence, identified that the discussion is treating each request independently rather than as a package, and recommended that we trade volume commitment and term length for pricing while rejecting unconditional exclusivity. The result created a measurable basis for improving commercial value retained, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕保留的商业价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A sound negotiation",
+          "commercial value retained",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是支付合作方在同一方案中要求更低费率和立即独家合作。我分析了运营证据，识别出讨论把每项要求孤立处理，而不是作为整体方案，并建议用交易量承诺和合同期限交换价格，同时拒绝无条件独家。结果为改善保留的商业价值建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}

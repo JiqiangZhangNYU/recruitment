@@ -1,0 +1,4725 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "title": "业务英语闯关",
+  "summary": "500 道分级客观题归入 10 个主题关卡，每关 50 题。内容以支付业务策略运营为主线，并覆盖邮件、会议、汇报、谈判、跨区域协作和英文面试。",
+  "story": "从基础支付表达开始，逐步处理经营分析、商户运营、风险定价、市场策略与高层决策，在真实业务情境中建立可调用的英文表达。",
+  "ui": {
+    "compact": true,
+    "modeLabels": {
+      "warmup": "单选题",
+      "arrange": "句子排序"
+    }
+  },
+  "chunked": true,
+  "levels": [
+    {
+      "id": "payment-basics",
+      "title": "支付与商务表达基础",
+      "subtitle": "支付术语基础 · 清晰商务写作 · 会议澄清与确认 · 指标与数字表达 · 项目状态更新",
+      "objective": "能够围绕支付术语基础、清晰商务写作、会议澄清与确认、指标与数字表达、项目状态更新，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 1 关 · 基础表达",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 1,
+      "topicIds": [
+        "payment-basics",
+        "business-writing",
+        "meeting-essentials",
+        "metric-language",
+        "status-updates"
+      ],
+      "reward": {
+        "title": "支付与商务表达基础表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is payment status accuracy.",
+          "I recommend that we close each agenda item with a verbal summary and written action log.",
+          "We should scale only if a green status has no unresolved critical-path dependency."
+        ]
+      },
+      "file": "challenges/business-english/levels/payment-basics.json",
+      "questions": [
+        {
+          "id": "authorization-capture-settlement",
+          "title": "授权、请款与结算",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "refund-chargeback",
+          "title": "退款与拒付",
+          "type": "差异说明",
+          "difficulty": 1
+        },
+        {
+          "id": "payment-participants",
+          "title": "支付链路参与方",
+          "type": "流程讲解",
+          "difficulty": 1
+        },
+        {
+          "id": "kyc-kyb-aml",
+          "title": "KYC、KYB 与 AML",
+          "type": "合规表达",
+          "difficulty": 1
+        },
+        {
+          "id": "take-rate-net-revenue",
+          "title": "费率与净收入",
+          "type": "指标解释",
+          "difficulty": 1
+        },
+        {
+          "id": "payment-basics-explain",
+          "title": "支付术语基础：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-basics-interpret",
+          "title": "支付术语基础：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-basics-incident",
+          "title": "支付术语基础：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-basics-recommend",
+          "title": "支付术语基础：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-basics-tradeoff",
+          "title": "支付术语基础：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "bluf-rewrite",
+          "title": "结论先行改写",
+          "type": "邮件改写",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "polite-data-request",
+          "title": "礼貌请求数据",
+          "type": "协作邮件",
+          "difficulty": 1
+        },
+        {
+          "id": "delay-notice",
+          "title": "项目延期通知",
+          "type": "风险沟通",
+          "difficulty": 1
+        },
+        {
+          "id": "action-minutes",
+          "title": "行动型会议纪要",
+          "type": "会议跟进",
+          "difficulty": 1
+        },
+        {
+          "id": "executive-escalation",
+          "title": "向上升级问题",
+          "type": "升级邮件",
+          "difficulty": 1
+        },
+        {
+          "id": "business-writing-explain",
+          "title": "清晰商务写作：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "business-writing-interpret",
+          "title": "清晰商务写作：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "business-writing-incident",
+          "title": "清晰商务写作：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "business-writing-recommend",
+          "title": "清晰商务写作：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "business-writing-tradeoff",
+          "title": "清晰商务写作：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-essentials-explain",
+          "title": "会议澄清与确认：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-essentials-interpret",
+          "title": "会议澄清与确认：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-essentials-incident",
+          "title": "会议澄清与确认：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-essentials-recommend",
+          "title": "会议澄清与确认：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-essentials-tradeoff",
+          "title": "会议澄清与确认：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-essentials-disagree",
+          "title": "会议澄清与确认：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-essentials-pilot",
+          "title": "会议澄清与确认：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-essentials-executive",
+          "title": "会议澄清与确认：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-essentials-negotiate",
+          "title": "会议澄清与确认：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-essentials-interview",
+          "title": "会议澄清与确认：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "metric-language-explain",
+          "title": "指标与数字表达：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "metric-language-interpret",
+          "title": "指标与数字表达：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "metric-language-incident",
+          "title": "指标与数字表达：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "metric-language-recommend",
+          "title": "指标与数字表达：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "metric-language-tradeoff",
+          "title": "指标与数字表达：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "metric-language-disagree",
+          "title": "指标与数字表达：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "metric-language-pilot",
+          "title": "指标与数字表达：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "metric-language-executive",
+          "title": "指标与数字表达：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "metric-language-negotiate",
+          "title": "指标与数字表达：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "metric-language-interview",
+          "title": "指标与数字表达：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "status-updates-explain",
+          "title": "项目状态更新：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "status-updates-interpret",
+          "title": "项目状态更新：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "status-updates-incident",
+          "title": "项目状态更新：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "status-updates-recommend",
+          "title": "项目状态更新：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "status-updates-tradeoff",
+          "title": "项目状态更新：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "status-updates-disagree",
+          "title": "项目状态更新：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "status-updates-pilot",
+          "title": "项目状态更新：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "status-updates-executive",
+          "title": "项目状态更新：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "status-updates-negotiate",
+          "title": "项目状态更新：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "status-updates-interview",
+          "title": "项目状态更新：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "payment-operations-foundations",
+      "title": "支付链路与商户基础",
+      "subtitle": "收银台与支付方式 · 银行卡支付链路 · 退款与争议运营 · 商户入驻 · 费率与账单基础",
+      "objective": "能够围绕收银台与支付方式、银行卡支付链路、退款与争议运营、商户入驻、费率与账单基础，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 2 关 · 支付基础",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 1,
+      "topicIds": [
+        "checkout-payments",
+        "card-payment-flow",
+        "refund-dispute-ops",
+        "merchant-onboarding",
+        "pricing-fees-basics"
+      ],
+      "reward": {
+        "title": "支付链路与商户基础表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is checkout completion rate.",
+          "I recommend that we route cases by initiator, reason code, evidence deadline and financial exposure.",
+          "We should scale only if every charged item can be traced to the signed commercial terms."
+        ]
+      },
+      "file": "challenges/business-english/levels/payment-operations-foundations.json",
+      "questions": [
+        {
+          "id": "checkout-payments-explain",
+          "title": "收银台与支付方式：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "checkout-payments-interpret",
+          "title": "收银台与支付方式：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "checkout-payments-incident",
+          "title": "收银台与支付方式：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "checkout-payments-recommend",
+          "title": "收银台与支付方式：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "checkout-payments-tradeoff",
+          "title": "收银台与支付方式：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "checkout-payments-disagree",
+          "title": "收银台与支付方式：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "checkout-payments-pilot",
+          "title": "收银台与支付方式：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "checkout-payments-executive",
+          "title": "收银台与支付方式：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "checkout-payments-negotiate",
+          "title": "收银台与支付方式：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "checkout-payments-interview",
+          "title": "收银台与支付方式：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "card-payment-flow-explain",
+          "title": "银行卡支付链路：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "card-payment-flow-interpret",
+          "title": "银行卡支付链路：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "card-payment-flow-incident",
+          "title": "银行卡支付链路：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "card-payment-flow-recommend",
+          "title": "银行卡支付链路：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "card-payment-flow-tradeoff",
+          "title": "银行卡支付链路：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "card-payment-flow-disagree",
+          "title": "银行卡支付链路：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "card-payment-flow-pilot",
+          "title": "银行卡支付链路：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "card-payment-flow-executive",
+          "title": "银行卡支付链路：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "card-payment-flow-negotiate",
+          "title": "银行卡支付链路：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "card-payment-flow-interview",
+          "title": "银行卡支付链路：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-explain",
+          "title": "退款与争议运营：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-interpret",
+          "title": "退款与争议运营：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-incident",
+          "title": "退款与争议运营：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-recommend",
+          "title": "退款与争议运营：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-tradeoff",
+          "title": "退款与争议运营：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-disagree",
+          "title": "退款与争议运营：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-pilot",
+          "title": "退款与争议运营：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-executive",
+          "title": "退款与争议运营：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-negotiate",
+          "title": "退款与争议运营：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "refund-dispute-ops-interview",
+          "title": "退款与争议运营：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-onboarding-explain",
+          "title": "商户入驻：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-onboarding-interpret",
+          "title": "商户入驻：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-onboarding-incident",
+          "title": "商户入驻：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-onboarding-recommend",
+          "title": "商户入驻：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-onboarding-tradeoff",
+          "title": "商户入驻：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-onboarding-disagree",
+          "title": "商户入驻：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-onboarding-pilot",
+          "title": "商户入驻：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-onboarding-executive",
+          "title": "商户入驻：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-onboarding-negotiate",
+          "title": "商户入驻：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-onboarding-interview",
+          "title": "商户入驻：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-explain",
+          "title": "费率与账单基础：准确解释",
+          "type": "概念表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-interpret",
+          "title": "费率与账单基础：解读指标",
+          "type": "数据表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-incident",
+          "title": "费率与账单基础：事故更新",
+          "type": "状态沟通",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-recommend",
+          "title": "费率与账单基础：提出建议",
+          "type": "策略表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-tradeoff",
+          "title": "费率与账单基础：说明取舍",
+          "type": "决策表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-disagree",
+          "title": "费率与账单基础：回应异议",
+          "type": "会议表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-pilot",
+          "title": "费率与账单基础：设计试点",
+          "type": "实验表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-executive",
+          "title": "费率与账单基础：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-negotiate",
+          "title": "费率与账单基础：协商边界",
+          "type": "谈判表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-fees-basics-interview",
+          "title": "费率与账单基础：面试复盘",
+          "type": "案例表达",
+          "difficulty": 1,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-analysis-communication",
+      "title": "数据汇报与商务协作",
+      "subtitle": "数据汇报 · 商务演示与讲故事 · 纪要与行动跟进 · 利益相关方邮件 · 基础商务谈判",
+      "objective": "能够围绕数据汇报、商务演示与讲故事、纪要与行动跟进、利益相关方邮件、基础商务谈判，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 3 关 · 运营沟通",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 2,
+      "topicIds": [
+        "data-reporting",
+        "presentations",
+        "meeting-minutes",
+        "stakeholder-email",
+        "negotiation-basics"
+      ],
+      "reward": {
+        "title": "数据汇报与商务协作表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is payment success rate.",
+          "I recommend that we send a decision log within twenty-four hours and ask owners to confirm.",
+          "We should scale only if service levels, compliance rights and exit terms remain enforceable."
+        ]
+      },
+      "file": "challenges/business-english/levels/business-analysis-communication.json",
+      "questions": [
+        {
+          "id": "success-rate-drop",
+          "title": "支付成功率下降",
+          "type": "周报口径",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "gmv-up-revenue-down",
+          "title": "交易额涨、收入降",
+          "type": "指标诊断",
+          "difficulty": 2
+        },
+        {
+          "id": "incident-update",
+          "title": "事故状态更新",
+          "type": "即时汇报",
+          "difficulty": 2
+        },
+        {
+          "id": "experiment-result",
+          "title": "A/B 测试结论",
+          "type": "实验汇报",
+          "difficulty": 2
+        },
+        {
+          "id": "executive-summary",
+          "title": "高管一页摘要",
+          "type": "结论提炼",
+          "difficulty": 2
+        },
+        {
+          "id": "data-reporting-explain",
+          "title": "数据汇报：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "data-reporting-interpret",
+          "title": "数据汇报：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "data-reporting-incident",
+          "title": "数据汇报：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "data-reporting-recommend",
+          "title": "数据汇报：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "data-reporting-tradeoff",
+          "title": "数据汇报：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "presentations-explain",
+          "title": "商务演示与讲故事：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "presentations-interpret",
+          "title": "商务演示与讲故事：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "presentations-incident",
+          "title": "商务演示与讲故事：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "presentations-recommend",
+          "title": "商务演示与讲故事：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "presentations-tradeoff",
+          "title": "商务演示与讲故事：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "presentations-disagree",
+          "title": "商务演示与讲故事：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "presentations-pilot",
+          "title": "商务演示与讲故事：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "presentations-executive",
+          "title": "商务演示与讲故事：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "presentations-negotiate",
+          "title": "商务演示与讲故事：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "presentations-interview",
+          "title": "商务演示与讲故事：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-minutes-explain",
+          "title": "纪要与行动跟进：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-minutes-interpret",
+          "title": "纪要与行动跟进：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-minutes-incident",
+          "title": "纪要与行动跟进：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-minutes-recommend",
+          "title": "纪要与行动跟进：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-minutes-tradeoff",
+          "title": "纪要与行动跟进：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-minutes-disagree",
+          "title": "纪要与行动跟进：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-minutes-pilot",
+          "title": "纪要与行动跟进：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-minutes-executive",
+          "title": "纪要与行动跟进：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meeting-minutes-negotiate",
+          "title": "纪要与行动跟进：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meeting-minutes-interview",
+          "title": "纪要与行动跟进：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "stakeholder-email-explain",
+          "title": "利益相关方邮件：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "stakeholder-email-interpret",
+          "title": "利益相关方邮件：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "stakeholder-email-incident",
+          "title": "利益相关方邮件：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "stakeholder-email-recommend",
+          "title": "利益相关方邮件：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "stakeholder-email-tradeoff",
+          "title": "利益相关方邮件：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "stakeholder-email-disagree",
+          "title": "利益相关方邮件：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "stakeholder-email-pilot",
+          "title": "利益相关方邮件：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "stakeholder-email-executive",
+          "title": "利益相关方邮件：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "stakeholder-email-negotiate",
+          "title": "利益相关方邮件：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "stakeholder-email-interview",
+          "title": "利益相关方邮件：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "negotiation-basics-explain",
+          "title": "基础商务谈判：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "negotiation-basics-interpret",
+          "title": "基础商务谈判：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "negotiation-basics-incident",
+          "title": "基础商务谈判：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "negotiation-basics-recommend",
+          "title": "基础商务谈判：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "negotiation-basics-tradeoff",
+          "title": "基础商务谈判：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "negotiation-basics-disagree",
+          "title": "基础商务谈判：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "negotiation-basics-pilot",
+          "title": "基础商务谈判：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "negotiation-basics-executive",
+          "title": "基础商务谈判：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "negotiation-basics-negotiate",
+          "title": "基础商务谈判：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "negotiation-basics-interview",
+          "title": "基础商务谈判：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "payment-performance-operations",
+      "title": "支付成功率与日常运营",
+      "subtitle": "授权与拒绝码 · 重试与智能路由 · 本地支付方式运营 · 对账与结算运营 · 商户支持运营",
+      "objective": "能够围绕授权与拒绝码、重试与智能路由、本地支付方式运营、对账与结算运营、商户支持运营，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 4 关 · 支付运营",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 2,
+      "topicIds": [
+        "authorization-declines",
+        "retry-routing",
+        "local-payment-methods",
+        "reconciliation-settlement",
+        "merchant-support"
+      ],
+      "reward": {
+        "title": "支付成功率与日常运营表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is authorization approval rate.",
+          "I recommend that we fix status messaging and run a market-level pilot before expanding placement.",
+          "We should scale only if resolution time improves without hiding unresolved financial cases."
+        ]
+      },
+      "file": "challenges/business-english/levels/payment-performance-operations.json",
+      "questions": [
+        {
+          "id": "authorization-declines-explain",
+          "title": "授权与拒绝码：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "authorization-declines-interpret",
+          "title": "授权与拒绝码：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "authorization-declines-incident",
+          "title": "授权与拒绝码：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "authorization-declines-recommend",
+          "title": "授权与拒绝码：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "authorization-declines-tradeoff",
+          "title": "授权与拒绝码：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "authorization-declines-disagree",
+          "title": "授权与拒绝码：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "authorization-declines-pilot",
+          "title": "授权与拒绝码：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "authorization-declines-executive",
+          "title": "授权与拒绝码：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "authorization-declines-negotiate",
+          "title": "授权与拒绝码：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "authorization-declines-interview",
+          "title": "授权与拒绝码：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "retry-routing-explain",
+          "title": "重试与智能路由：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "retry-routing-interpret",
+          "title": "重试与智能路由：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "retry-routing-incident",
+          "title": "重试与智能路由：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "retry-routing-recommend",
+          "title": "重试与智能路由：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "retry-routing-tradeoff",
+          "title": "重试与智能路由：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "retry-routing-disagree",
+          "title": "重试与智能路由：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "retry-routing-pilot",
+          "title": "重试与智能路由：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "retry-routing-executive",
+          "title": "重试与智能路由：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "retry-routing-negotiate",
+          "title": "重试与智能路由：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "retry-routing-interview",
+          "title": "重试与智能路由：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "local-payment-methods-explain",
+          "title": "本地支付方式运营：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "local-payment-methods-interpret",
+          "title": "本地支付方式运营：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "local-payment-methods-incident",
+          "title": "本地支付方式运营：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "local-payment-methods-recommend",
+          "title": "本地支付方式运营：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "local-payment-methods-tradeoff",
+          "title": "本地支付方式运营：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "local-payment-methods-disagree",
+          "title": "本地支付方式运营：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "local-payment-methods-pilot",
+          "title": "本地支付方式运营：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "local-payment-methods-executive",
+          "title": "本地支付方式运营：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "local-payment-methods-negotiate",
+          "title": "本地支付方式运营：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "local-payment-methods-interview",
+          "title": "本地支付方式运营：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-explain",
+          "title": "对账与结算运营：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-interpret",
+          "title": "对账与结算运营：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-incident",
+          "title": "对账与结算运营：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-recommend",
+          "title": "对账与结算运营：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-tradeoff",
+          "title": "对账与结算运营：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-disagree",
+          "title": "对账与结算运营：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-pilot",
+          "title": "对账与结算运营：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-executive",
+          "title": "对账与结算运营：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-negotiate",
+          "title": "对账与结算运营：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "reconciliation-settlement-interview",
+          "title": "对账与结算运营：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-support-explain",
+          "title": "商户支持运营：准确解释",
+          "type": "概念表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-support-interpret",
+          "title": "商户支持运营：解读指标",
+          "type": "数据表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-support-incident",
+          "title": "商户支持运营：事故更新",
+          "type": "状态沟通",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-support-recommend",
+          "title": "商户支持运营：提出建议",
+          "type": "策略表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-support-tradeoff",
+          "title": "商户支持运营：说明取舍",
+          "type": "决策表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-support-disagree",
+          "title": "商户支持运营：回应异议",
+          "type": "会议表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-support-pilot",
+          "title": "商户支持运营：设计试点",
+          "type": "实验表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-support-executive",
+          "title": "商户支持运营：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "merchant-support-negotiate",
+          "title": "商户支持运营：协商边界",
+          "type": "谈判表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "merchant-support-interview",
+          "title": "商户支持运营：面试复盘",
+          "type": "案例表达",
+          "difficulty": 2,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cross-functional-risk-communication",
+      "title": "跨团队协作与客户沟通",
+      "subtitle": "会议与异议 · 跨区域协作 · 高管摘要 · 跨团队项目推进 · 客户升级处理",
+      "objective": "能够围绕会议与异议、跨区域协作、高管摘要、跨团队项目推进、客户升级处理，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 5 关 · 复杂协作",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 3,
+      "topicIds": [
+        "meetings-objections",
+        "cross-region",
+        "executive-summary",
+        "project-update",
+        "customer-escalation"
+      ],
+      "reward": {
+        "title": "跨团队协作与客户沟通表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is decision closure rate.",
+          "I recommend that we place the recommendation and quantified consequence in the opening paragraph.",
+          "We should scale only if no customer is charged twice and remediation is independently verified."
+        ]
+      },
+      "file": "challenges/business-english/levels/cross-functional-risk-communication.json",
+      "questions": [
+        {
+          "id": "clarify-vague-request",
+          "title": "澄清模糊需求",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "respectful-disagreement",
+          "title": "礼貌表达反对",
+          "type": "观点交锋",
+          "difficulty": 3
+        },
+        {
+          "id": "no-bandwidth",
+          "title": "回应“没有资源”",
+          "type": "协商推进",
+          "difficulty": 3
+        },
+        {
+          "id": "confirm-owner-deadline",
+          "title": "锁定负责人和日期",
+          "type": "会议收口",
+          "difficulty": 3
+        },
+        {
+          "id": "regional-objection",
+          "title": "处理区域市场异议",
+          "type": "跨区会议",
+          "difficulty": 3
+        },
+        {
+          "id": "meetings-objections-explain",
+          "title": "会议与异议：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meetings-objections-interpret",
+          "title": "会议与异议：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meetings-objections-incident",
+          "title": "会议与异议：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "meetings-objections-recommend",
+          "title": "会议与异议：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "meetings-objections-tradeoff",
+          "title": "会议与异议：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "localization-translation",
+          "title": "本地化不只是翻译",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "market-entry-memo",
+          "title": "市场进入建议",
+          "type": "决策备忘录",
+          "difficulty": 3
+        },
+        {
+          "id": "timezone-agreement",
+          "title": "跨时区工作约定",
+          "type": "协作机制",
+          "difficulty": 3
+        },
+        {
+          "id": "compliance-uncertainty",
+          "title": "表达合规不确定性",
+          "type": "风险判断",
+          "difficulty": 3
+        },
+        {
+          "id": "global-local-conflict",
+          "title": "总部与本地目标冲突",
+          "type": "利益协调",
+          "difficulty": 3
+        },
+        {
+          "id": "cross-region-explain",
+          "title": "跨区域协作：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "cross-region-interpret",
+          "title": "跨区域协作：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "cross-region-incident",
+          "title": "跨区域协作：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "cross-region-recommend",
+          "title": "跨区域协作：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "cross-region-tradeoff",
+          "title": "跨区域协作：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-summary-explain",
+          "title": "高管摘要：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-summary-interpret",
+          "title": "高管摘要：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-summary-incident",
+          "title": "高管摘要：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-summary-recommend",
+          "title": "高管摘要：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-summary-tradeoff",
+          "title": "高管摘要：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-summary-disagree",
+          "title": "高管摘要：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-summary-pilot",
+          "title": "高管摘要：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-summary-executive",
+          "title": "高管摘要：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-summary-negotiate",
+          "title": "高管摘要：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-summary-interview",
+          "title": "高管摘要：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "project-update-explain",
+          "title": "跨团队项目推进：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "project-update-interpret",
+          "title": "跨团队项目推进：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "project-update-incident",
+          "title": "跨团队项目推进：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "project-update-recommend",
+          "title": "跨团队项目推进：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "project-update-tradeoff",
+          "title": "跨团队项目推进：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "project-update-disagree",
+          "title": "跨团队项目推进：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "project-update-pilot",
+          "title": "跨团队项目推进：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "project-update-executive",
+          "title": "跨团队项目推进：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "project-update-negotiate",
+          "title": "跨团队项目推进：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "project-update-interview",
+          "title": "跨团队项目推进：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "customer-escalation-explain",
+          "title": "客户升级处理：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "customer-escalation-interpret",
+          "title": "客户升级处理：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "customer-escalation-incident",
+          "title": "客户升级处理：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "customer-escalation-recommend",
+          "title": "客户升级处理：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "customer-escalation-tradeoff",
+          "title": "客户升级处理：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "customer-escalation-disagree",
+          "title": "客户升级处理：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "customer-escalation-pilot",
+          "title": "客户升级处理：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "customer-escalation-executive",
+          "title": "客户升级处理：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "customer-escalation-negotiate",
+          "title": "客户升级处理：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "customer-escalation-interview",
+          "title": "客户升级处理：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "risk-economics-operations",
+      "title": "风控、验证与支付经济",
+      "subtitle": "欺诈与风险策略 · 3DS 与身份验证 · 订阅与周期扣款 · 跨境支付与外汇 · 支付成本分析",
+      "objective": "能够围绕欺诈与风险策略、3DS 与身份验证、订阅与周期扣款、跨境支付与外汇、支付成本分析，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 6 关 · 风险经营",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 3,
+      "topicIds": [
+        "fraud-risk",
+        "three-d-secure",
+        "subscription-payments",
+        "cross-border-fx",
+        "payment-costs"
+      ],
+      "reward": {
+        "title": "风控、验证与支付经济表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is fraud loss rate.",
+          "I recommend that we combine account updates with decline-specific retries and transparent reminders.",
+          "We should scale only if cost savings do not reduce approval, reliability or support quality."
+        ]
+      },
+      "file": "challenges/business-english/levels/risk-economics-operations.json",
+      "questions": [
+        {
+          "id": "fraud-risk-explain",
+          "title": "欺诈与风险策略：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "fraud-risk-interpret",
+          "title": "欺诈与风险策略：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "fraud-risk-incident",
+          "title": "欺诈与风险策略：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "fraud-risk-recommend",
+          "title": "欺诈与风险策略：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "fraud-risk-tradeoff",
+          "title": "欺诈与风险策略：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "fraud-risk-disagree",
+          "title": "欺诈与风险策略：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "fraud-risk-pilot",
+          "title": "欺诈与风险策略：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "fraud-risk-executive",
+          "title": "欺诈与风险策略：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "fraud-risk-negotiate",
+          "title": "欺诈与风险策略：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "fraud-risk-interview",
+          "title": "欺诈与风险策略：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "three-d-secure-explain",
+          "title": "3DS 与身份验证：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "three-d-secure-interpret",
+          "title": "3DS 与身份验证：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "three-d-secure-incident",
+          "title": "3DS 与身份验证：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "three-d-secure-recommend",
+          "title": "3DS 与身份验证：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "three-d-secure-tradeoff",
+          "title": "3DS 与身份验证：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "three-d-secure-disagree",
+          "title": "3DS 与身份验证：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "three-d-secure-pilot",
+          "title": "3DS 与身份验证：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "three-d-secure-executive",
+          "title": "3DS 与身份验证：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "three-d-secure-negotiate",
+          "title": "3DS 与身份验证：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "three-d-secure-interview",
+          "title": "3DS 与身份验证：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "subscription-payments-explain",
+          "title": "订阅与周期扣款：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "subscription-payments-interpret",
+          "title": "订阅与周期扣款：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "subscription-payments-incident",
+          "title": "订阅与周期扣款：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "subscription-payments-recommend",
+          "title": "订阅与周期扣款：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "subscription-payments-tradeoff",
+          "title": "订阅与周期扣款：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "subscription-payments-disagree",
+          "title": "订阅与周期扣款：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "subscription-payments-pilot",
+          "title": "订阅与周期扣款：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "subscription-payments-executive",
+          "title": "订阅与周期扣款：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "subscription-payments-negotiate",
+          "title": "订阅与周期扣款：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "subscription-payments-interview",
+          "title": "订阅与周期扣款：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "cross-border-fx-explain",
+          "title": "跨境支付与外汇：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "cross-border-fx-interpret",
+          "title": "跨境支付与外汇：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "cross-border-fx-incident",
+          "title": "跨境支付与外汇：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "cross-border-fx-recommend",
+          "title": "跨境支付与外汇：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "cross-border-fx-tradeoff",
+          "title": "跨境支付与外汇：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "cross-border-fx-disagree",
+          "title": "跨境支付与外汇：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "cross-border-fx-pilot",
+          "title": "跨境支付与外汇：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "cross-border-fx-executive",
+          "title": "跨境支付与外汇：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "cross-border-fx-negotiate",
+          "title": "跨境支付与外汇：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "cross-border-fx-interview",
+          "title": "跨境支付与外汇：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-costs-explain",
+          "title": "支付成本分析：准确解释",
+          "type": "概念表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-costs-interpret",
+          "title": "支付成本分析：解读指标",
+          "type": "数据表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-costs-incident",
+          "title": "支付成本分析：事故更新",
+          "type": "状态沟通",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-costs-recommend",
+          "title": "支付成本分析：提出建议",
+          "type": "策略表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-costs-tradeoff",
+          "title": "支付成本分析：说明取舍",
+          "type": "决策表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-costs-disagree",
+          "title": "支付成本分析：回应异议",
+          "type": "会议表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-costs-pilot",
+          "title": "支付成本分析：设计试点",
+          "type": "实验表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-costs-executive",
+          "title": "支付成本分析：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-costs-negotiate",
+          "title": "支付成本分析：协商边界",
+          "type": "谈判表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-costs-interview",
+          "title": "支付成本分析：面试复盘",
+          "type": "案例表达",
+          "difficulty": 3,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "market-commercial-strategy",
+      "title": "市场进入与商业策略",
+      "subtitle": "支付市场进入 · 收单布局策略 · 支付编排与自建外购 · 支付定价策略 · 大型商户经营",
+      "objective": "能够围绕支付市场进入、收单布局策略、支付编排与自建外购、支付定价策略、大型商户经营，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 7 关 · 策略设计",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 4,
+      "topicIds": [
+        "market-entry",
+        "acquiring-strategy",
+        "payment-orchestration",
+        "pricing-strategy",
+        "enterprise-merchants"
+      ],
+      "reward": {
+        "title": "市场进入与商业策略表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is validated market opportunity.",
+          "I recommend that we score build, buy and hybrid options against explicit five-year scenarios.",
+          "We should scale only if custom work has reusable value or a funded commercial return."
+        ]
+      },
+      "file": "challenges/business-english/levels/market-commercial-strategy.json",
+      "questions": [
+        {
+          "id": "market-entry-explain",
+          "title": "支付市场进入：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "market-entry-interpret",
+          "title": "支付市场进入：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "market-entry-incident",
+          "title": "支付市场进入：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "market-entry-recommend",
+          "title": "支付市场进入：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "market-entry-tradeoff",
+          "title": "支付市场进入：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "market-entry-disagree",
+          "title": "支付市场进入：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "market-entry-pilot",
+          "title": "支付市场进入：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "market-entry-executive",
+          "title": "支付市场进入：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "market-entry-negotiate",
+          "title": "支付市场进入：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "market-entry-interview",
+          "title": "支付市场进入：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "acquiring-strategy-explain",
+          "title": "收单布局策略：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "acquiring-strategy-interpret",
+          "title": "收单布局策略：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "acquiring-strategy-incident",
+          "title": "收单布局策略：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "acquiring-strategy-recommend",
+          "title": "收单布局策略：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "acquiring-strategy-tradeoff",
+          "title": "收单布局策略：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "acquiring-strategy-disagree",
+          "title": "收单布局策略：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "acquiring-strategy-pilot",
+          "title": "收单布局策略：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "acquiring-strategy-executive",
+          "title": "收单布局策略：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "acquiring-strategy-negotiate",
+          "title": "收单布局策略：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "acquiring-strategy-interview",
+          "title": "收单布局策略：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-orchestration-explain",
+          "title": "支付编排与自建外购：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-orchestration-interpret",
+          "title": "支付编排与自建外购：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-orchestration-incident",
+          "title": "支付编排与自建外购：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-orchestration-recommend",
+          "title": "支付编排与自建外购：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-orchestration-tradeoff",
+          "title": "支付编排与自建外购：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-orchestration-disagree",
+          "title": "支付编排与自建外购：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-orchestration-pilot",
+          "title": "支付编排与自建外购：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-orchestration-executive",
+          "title": "支付编排与自建外购：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "payment-orchestration-negotiate",
+          "title": "支付编排与自建外购：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "payment-orchestration-interview",
+          "title": "支付编排与自建外购：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-strategy-explain",
+          "title": "支付定价策略：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-strategy-interpret",
+          "title": "支付定价策略：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-strategy-incident",
+          "title": "支付定价策略：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-strategy-recommend",
+          "title": "支付定价策略：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-strategy-tradeoff",
+          "title": "支付定价策略：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-strategy-disagree",
+          "title": "支付定价策略：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-strategy-pilot",
+          "title": "支付定价策略：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-strategy-executive",
+          "title": "支付定价策略：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "pricing-strategy-negotiate",
+          "title": "支付定价策略：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "pricing-strategy-interview",
+          "title": "支付定价策略：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "enterprise-merchants-explain",
+          "title": "大型商户经营：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "enterprise-merchants-interpret",
+          "title": "大型商户经营：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "enterprise-merchants-incident",
+          "title": "大型商户经营：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "enterprise-merchants-recommend",
+          "title": "大型商户经营：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "enterprise-merchants-tradeoff",
+          "title": "大型商户经营：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "enterprise-merchants-disagree",
+          "title": "大型商户经营：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "enterprise-merchants-pilot",
+          "title": "大型商户经营：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "enterprise-merchants-executive",
+          "title": "大型商户经营：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "enterprise-merchants-negotiate",
+          "title": "大型商户经营：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "enterprise-merchants-interview",
+          "title": "大型商户经营：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scaled-merchant-governance",
+      "title": "规模化经营与合规治理",
+      "subtitle": "中小商户分层运营 · 平台与市场支付 · 支付事故管理 · 监管变化落地 · 支付合作方管理",
+      "objective": "能够围绕中小商户分层运营、平台与市场支付、支付事故管理、监管变化落地、支付合作方管理，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 8 关 · 经营治理",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 4,
+      "topicIds": [
+        "sme-segmentation",
+        "platform-marketplaces",
+        "incident-management",
+        "regulatory-change",
+        "partner-management"
+      ],
+      "reward": {
+        "title": "规模化经营与合规治理表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is cost-to-serve by segment.",
+          "I recommend that we contain affected traffic, open a command channel and publish timed fact-based updates.",
+          "We should scale only if traffic concentration does not prevent an orderly provider exit."
+        ]
+      },
+      "file": "challenges/business-english/levels/scaled-merchant-governance.json",
+      "questions": [
+        {
+          "id": "sme-segmentation-explain",
+          "title": "中小商户分层运营：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "sme-segmentation-interpret",
+          "title": "中小商户分层运营：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "sme-segmentation-incident",
+          "title": "中小商户分层运营：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "sme-segmentation-recommend",
+          "title": "中小商户分层运营：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "sme-segmentation-tradeoff",
+          "title": "中小商户分层运营：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "sme-segmentation-disagree",
+          "title": "中小商户分层运营：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "sme-segmentation-pilot",
+          "title": "中小商户分层运营：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "sme-segmentation-executive",
+          "title": "中小商户分层运营：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "sme-segmentation-negotiate",
+          "title": "中小商户分层运营：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "sme-segmentation-interview",
+          "title": "中小商户分层运营：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "platform-marketplaces-explain",
+          "title": "平台与市场支付：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "platform-marketplaces-interpret",
+          "title": "平台与市场支付：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "platform-marketplaces-incident",
+          "title": "平台与市场支付：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "platform-marketplaces-recommend",
+          "title": "平台与市场支付：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "platform-marketplaces-tradeoff",
+          "title": "平台与市场支付：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "platform-marketplaces-disagree",
+          "title": "平台与市场支付：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "platform-marketplaces-pilot",
+          "title": "平台与市场支付：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "platform-marketplaces-executive",
+          "title": "平台与市场支付：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "platform-marketplaces-negotiate",
+          "title": "平台与市场支付：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "platform-marketplaces-interview",
+          "title": "平台与市场支付：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "incident-management-explain",
+          "title": "支付事故管理：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "incident-management-interpret",
+          "title": "支付事故管理：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "incident-management-incident",
+          "title": "支付事故管理：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "incident-management-recommend",
+          "title": "支付事故管理：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "incident-management-tradeoff",
+          "title": "支付事故管理：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "incident-management-disagree",
+          "title": "支付事故管理：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "incident-management-pilot",
+          "title": "支付事故管理：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "incident-management-executive",
+          "title": "支付事故管理：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "incident-management-negotiate",
+          "title": "支付事故管理：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "incident-management-interview",
+          "title": "支付事故管理：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "regulatory-change-explain",
+          "title": "监管变化落地：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "regulatory-change-interpret",
+          "title": "监管变化落地：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "regulatory-change-incident",
+          "title": "监管变化落地：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "regulatory-change-recommend",
+          "title": "监管变化落地：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "regulatory-change-tradeoff",
+          "title": "监管变化落地：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "regulatory-change-disagree",
+          "title": "监管变化落地：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "regulatory-change-pilot",
+          "title": "监管变化落地：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "regulatory-change-executive",
+          "title": "监管变化落地：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "regulatory-change-negotiate",
+          "title": "监管变化落地：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "regulatory-change-interview",
+          "title": "监管变化落地：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "partner-management-explain",
+          "title": "支付合作方管理：准确解释",
+          "type": "概念表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "partner-management-interpret",
+          "title": "支付合作方管理：解读指标",
+          "type": "数据表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "partner-management-incident",
+          "title": "支付合作方管理：事故更新",
+          "type": "状态沟通",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "partner-management-recommend",
+          "title": "支付合作方管理：提出建议",
+          "type": "策略表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "partner-management-tradeoff",
+          "title": "支付合作方管理：说明取舍",
+          "type": "决策表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "partner-management-disagree",
+          "title": "支付合作方管理：回应异议",
+          "type": "会议表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "partner-management-pilot",
+          "title": "支付合作方管理：设计试点",
+          "type": "实验表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "partner-management-executive",
+          "title": "支付合作方管理：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "partner-management-negotiate",
+          "title": "支付合作方管理：协商边界",
+          "type": "谈判表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "partner-management-interview",
+          "title": "支付合作方管理：面试复盘",
+          "type": "案例表达",
+          "difficulty": 4,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-payment-strategy",
+      "title": "高阶支付与资金战略",
+      "subtitle": "支付能力组合策略 · 支付单位经济 · 令牌化与账户更新 · 开放银行与实时支付 · 资金与流动性运营",
+      "objective": "能够围绕支付能力组合策略、支付单位经济、令牌化与账户更新、开放银行与实时支付、资金与流动性运营，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 9 关 · 高阶策略",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 5,
+      "topicIds": [
+        "portfolio-strategy",
+        "unit-economics",
+        "tokenization-updater",
+        "open-banking-rtp",
+        "treasury-liquidity"
+      ],
+      "reward": {
+        "title": "高阶支付与资金战略表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is portfolio risk-adjusted return.",
+          "I recommend that we pilot network tokens and account updates by issuer and merchant cohort.",
+          "We should scale only if customer and merchant obligations remain funded under the approved stress case."
+        ]
+      },
+      "file": "challenges/business-english/levels/advanced-payment-strategy.json",
+      "questions": [
+        {
+          "id": "portfolio-strategy-explain",
+          "title": "支付能力组合策略：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "portfolio-strategy-interpret",
+          "title": "支付能力组合策略：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "portfolio-strategy-incident",
+          "title": "支付能力组合策略：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "portfolio-strategy-recommend",
+          "title": "支付能力组合策略：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "portfolio-strategy-tradeoff",
+          "title": "支付能力组合策略：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "portfolio-strategy-disagree",
+          "title": "支付能力组合策略：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "portfolio-strategy-pilot",
+          "title": "支付能力组合策略：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "portfolio-strategy-executive",
+          "title": "支付能力组合策略：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "portfolio-strategy-negotiate",
+          "title": "支付能力组合策略：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "portfolio-strategy-interview",
+          "title": "支付能力组合策略：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "unit-economics-explain",
+          "title": "支付单位经济：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "unit-economics-interpret",
+          "title": "支付单位经济：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "unit-economics-incident",
+          "title": "支付单位经济：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "unit-economics-recommend",
+          "title": "支付单位经济：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "unit-economics-tradeoff",
+          "title": "支付单位经济：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "unit-economics-disagree",
+          "title": "支付单位经济：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "unit-economics-pilot",
+          "title": "支付单位经济：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "unit-economics-executive",
+          "title": "支付单位经济：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "unit-economics-negotiate",
+          "title": "支付单位经济：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "unit-economics-interview",
+          "title": "支付单位经济：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "tokenization-updater-explain",
+          "title": "令牌化与账户更新：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "tokenization-updater-interpret",
+          "title": "令牌化与账户更新：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "tokenization-updater-incident",
+          "title": "令牌化与账户更新：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "tokenization-updater-recommend",
+          "title": "令牌化与账户更新：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "tokenization-updater-tradeoff",
+          "title": "令牌化与账户更新：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "tokenization-updater-disagree",
+          "title": "令牌化与账户更新：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "tokenization-updater-pilot",
+          "title": "令牌化与账户更新：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "tokenization-updater-executive",
+          "title": "令牌化与账户更新：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "tokenization-updater-negotiate",
+          "title": "令牌化与账户更新：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "tokenization-updater-interview",
+          "title": "令牌化与账户更新：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "open-banking-rtp-explain",
+          "title": "开放银行与实时支付：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "open-banking-rtp-interpret",
+          "title": "开放银行与实时支付：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "open-banking-rtp-incident",
+          "title": "开放银行与实时支付：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "open-banking-rtp-recommend",
+          "title": "开放银行与实时支付：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "open-banking-rtp-tradeoff",
+          "title": "开放银行与实时支付：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "open-banking-rtp-disagree",
+          "title": "开放银行与实时支付：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "open-banking-rtp-pilot",
+          "title": "开放银行与实时支付：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "open-banking-rtp-executive",
+          "title": "开放银行与实时支付：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "open-banking-rtp-negotiate",
+          "title": "开放银行与实时支付：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "open-banking-rtp-interview",
+          "title": "开放银行与实时支付：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "treasury-liquidity-explain",
+          "title": "资金与流动性运营：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "treasury-liquidity-interpret",
+          "title": "资金与流动性运营：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "treasury-liquidity-incident",
+          "title": "资金与流动性运营：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "treasury-liquidity-recommend",
+          "title": "资金与流动性运营：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "treasury-liquidity-tradeoff",
+          "title": "资金与流动性运营：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "treasury-liquidity-disagree",
+          "title": "资金与流动性运营：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "treasury-liquidity-pilot",
+          "title": "资金与流动性运营：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "treasury-liquidity-executive",
+          "title": "资金与流动性运营：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "treasury-liquidity-negotiate",
+          "title": "资金与流动性运营：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "treasury-liquidity-interview",
+          "title": "资金与流动性运营：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        }
+      ]
+    },
+    {
+      "id": "interview",
+      "title": "高管决策、谈判与英文面试",
+      "subtitle": "高管治理与决策 · 业务扭转与恢复 · 复杂合作谈判 · 董事会级英文汇报 · 英文面试",
+      "objective": "能够围绕高管治理与决策、业务扭转与恢复、复杂合作谈判、董事会级英文汇报、英文面试，用清晰英文完成事实解释、经营判断和行动建议。",
+      "chapter": "第 10 关 · 综合实战",
+      "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+      "difficulty": 5,
+      "topicIds": [
+        "executive-governance",
+        "turnaround-case",
+        "strategic-negotiation",
+        "board-presentation",
+        "interview"
+      ],
+      "reward": {
+        "title": "高管决策、谈判与英文面试表达卡",
+        "description": "完成本关后，可复用以下表达结构。",
+        "items": [
+          "The primary metric is strategic decision quality.",
+          "I recommend that we offer earned volume tiers while preserving performance remedies and exit options.",
+          "We should scale only if the claim can withstand follow-up questions about data, trade-offs and failure."
+        ]
+      },
+      "file": "challenges/business-english/levels/interview.json",
+      "questions": [
+        {
+          "id": "executive-governance-explain",
+          "title": "高管治理与决策：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-governance-interpret",
+          "title": "高管治理与决策：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-governance-incident",
+          "title": "高管治理与决策：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-governance-recommend",
+          "title": "高管治理与决策：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-governance-tradeoff",
+          "title": "高管治理与决策：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-governance-disagree",
+          "title": "高管治理与决策：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-governance-pilot",
+          "title": "高管治理与决策：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-governance-executive",
+          "title": "高管治理与决策：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "executive-governance-negotiate",
+          "title": "高管治理与决策：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "executive-governance-interview",
+          "title": "高管治理与决策：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "turnaround-case-explain",
+          "title": "业务扭转与恢复：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "turnaround-case-interpret",
+          "title": "业务扭转与恢复：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "turnaround-case-incident",
+          "title": "业务扭转与恢复：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "turnaround-case-recommend",
+          "title": "业务扭转与恢复：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "turnaround-case-tradeoff",
+          "title": "业务扭转与恢复：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "turnaround-case-disagree",
+          "title": "业务扭转与恢复：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "turnaround-case-pilot",
+          "title": "业务扭转与恢复：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "turnaround-case-executive",
+          "title": "业务扭转与恢复：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "turnaround-case-negotiate",
+          "title": "业务扭转与恢复：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "turnaround-case-interview",
+          "title": "业务扭转与恢复：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "strategic-negotiation-explain",
+          "title": "复杂合作谈判：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "strategic-negotiation-interpret",
+          "title": "复杂合作谈判：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "strategic-negotiation-incident",
+          "title": "复杂合作谈判：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "strategic-negotiation-recommend",
+          "title": "复杂合作谈判：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "strategic-negotiation-tradeoff",
+          "title": "复杂合作谈判：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "strategic-negotiation-disagree",
+          "title": "复杂合作谈判：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "strategic-negotiation-pilot",
+          "title": "复杂合作谈判：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "strategic-negotiation-executive",
+          "title": "复杂合作谈判：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "strategic-negotiation-negotiate",
+          "title": "复杂合作谈判：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "strategic-negotiation-interview",
+          "title": "复杂合作谈判：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "board-presentation-explain",
+          "title": "董事会级英文汇报：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "board-presentation-interpret",
+          "title": "董事会级英文汇报：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "board-presentation-incident",
+          "title": "董事会级英文汇报：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "board-presentation-recommend",
+          "title": "董事会级英文汇报：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "board-presentation-tradeoff",
+          "title": "董事会级英文汇报：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "board-presentation-disagree",
+          "title": "董事会级英文汇报：回应异议",
+          "type": "会议表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "board-presentation-pilot",
+          "title": "董事会级英文汇报：设计试点",
+          "type": "实验表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "board-presentation-executive",
+          "title": "董事会级英文汇报：高管摘要",
+          "type": "向上汇报",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "board-presentation-negotiate",
+          "title": "董事会级英文汇报：协商边界",
+          "type": "谈判表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "board-presentation-interview",
+          "title": "董事会级英文汇报：面试复盘",
+          "type": "案例表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "self-introduction",
+          "title": "60 秒自我介绍",
+          "type": "开场表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "star-payment-project",
+          "title": "STAR-L 项目案例",
+          "type": "行为面试",
+          "difficulty": 5
+        },
+        {
+          "id": "failure-story",
+          "title": "失败经历",
+          "type": "复盘表达",
+          "difficulty": 5
+        },
+        {
+          "id": "why-role",
+          "title": "为什么这个岗位",
+          "type": "动机表达",
+          "difficulty": 5
+        },
+        {
+          "id": "project-recap-questions",
+          "title": "五分钟项目陈述",
+          "type": "综合模拟",
+          "difficulty": 5
+        },
+        {
+          "id": "interview-explain",
+          "title": "英文面试：准确解释",
+          "type": "概念表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "interview-interpret",
+          "title": "英文面试：解读指标",
+          "type": "数据表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "interview-incident",
+          "title": "英文面试：事故更新",
+          "type": "状态沟通",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        },
+        {
+          "id": "interview-recommend",
+          "title": "英文面试：提出建议",
+          "type": "策略表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "arrange"
+          }
+        },
+        {
+          "id": "interview-tradeoff",
+          "title": "英文面试：说明取舍",
+          "type": "决策表达",
+          "difficulty": 5,
+          "activity": {
+            "mode": "choice"
+          }
+        }
+      ]
+    }
+  ]
+}

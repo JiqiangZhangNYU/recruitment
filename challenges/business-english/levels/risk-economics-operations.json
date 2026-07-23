@@ -1,0 +1,1529 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "risk-economics-operations",
+  "title": "风控、验证与支付经济",
+  "topicIds": [
+    "fraud-risk",
+    "three-d-secure",
+    "subscription-payments",
+    "cross-border-fx",
+    "payment-costs"
+  ],
+  "subtitle": "欺诈与风险策略 · 3DS 与身份验证 · 订阅与周期扣款 · 跨境支付与外汇 · 支付成本分析",
+  "objective": "能够围绕欺诈与风险策略、3DS 与身份验证、订阅与周期扣款、跨境支付与外汇、支付成本分析，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 6 关 · 风险经营",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 3,
+  "reward": {
+    "title": "风控、验证与支付经济表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is fraud loss rate.",
+      "I recommend that we combine account updates with decline-specific retries and transparent reminders.",
+      "We should scale only if cost savings do not reduce approval, reliability or support quality."
+    ]
+  },
+  "questions": [
+    {
+      "id": "fraud-risk-explain",
+      "title": "欺诈与风险策略：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment risk strategy balances fraud loss, approval, customer friction and review cost.",
+          "Because fraud loss rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、欺诈损失率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment risk strategy balances fraud loss, approval, customer friction and review cost. The current signal is that a stricter rule reduced fraud but rejected many long-standing low-risk customers. I recommend that we segment the rule by customer history and send uncertain cases to targeted review.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付风险策略需要平衡欺诈损失、批准率、客户摩擦和审核成本。当前信号是更严格的规则降低了欺诈，却拒绝了许多长期低风险客户。我建议按客户历史细分规则，并将不确定案件送入定向审核。"
+      }
+    },
+    {
+      "id": "fraud-risk-interpret",
+      "title": "欺诈与风险策略：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline fraud loss rate needs context because a stricter rule reduced fraud but rejected many long-standing low-risk customers. Evidence points to the rule uses one transaction threshold without customer-history features. Before making a decision, we should segment the data and verify that fraud savings exceed lost margin and manual-review cost.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "欺诈损失率这一核心指标需要结合背景解读，因为更严格的规则降低了欺诈，却拒绝了许多长期低风险客户。证据表明规则只使用单笔交易阈值，没有客户历史特征。在做决定前，我们应细分数据，并确认欺诈节省金额高于损失毛利和人工审核成本。"
+      }
+    },
+    {
+      "id": "fraud-risk-incident",
+      "title": "欺诈与风险策略：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a stricter rule reduced fraud but rejected many long-standing low-risk customers.",
+          "Because fraud loss rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、欺诈损失率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a stricter rule reduced fraud but rejected many long-standing low-risk customers. Current evidence points to the rule uses one transaction threshold without customer-history features, but the root cause is not yet final. We will segment the rule by customer history and send uncertain cases to targeted review and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：更严格的规则降低了欺诈，却拒绝了许多长期低风险客户。当前证据表明规则只使用单笔交易阈值，没有客户历史特征，但根因尚未最终确认。我们将按客户历史细分规则，并将不确定案件送入定向审核，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "fraud-risk-recommend",
+      "title": "欺诈与风险策略：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to segment the rule by customer history and send uncertain cases to targeted review. This directly addresses the evidence that the rule uses one transaction threshold without customer-history features. We will track fraud loss rate and scale only if fraud savings exceed lost margin and manual-review cost.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按客户历史细分规则，并将不确定案件送入定向审核。这直接回应了“规则只使用单笔交易阈值，没有客户历史特征”这一证据。我们将跟踪欺诈损失率，并且只有在欺诈节省金额高于损失毛利和人工审核成本时才扩大实施。"
+      }
+    },
+    {
+      "id": "fraud-risk-tradeoff",
+      "title": "欺诈与风险策略：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because fraud loss rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、欺诈损失率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve fraud loss rate, the evidence shows that the rule uses one transaction threshold without customer-history features. We should segment the rule by customer history and send uncertain cases to targeted review, but proceed only if fraud savings exceed lost margin and manual-review cost.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善欺诈损失率，但证据表明规则只使用单笔交易阈值，没有客户历史特征。我们应按客户历史细分规则，并将不确定案件送入定向审核，但只有在欺诈节省金额高于损失毛利和人工审核成本时才继续推进。"
+      }
+    },
+    {
+      "id": "fraud-risk-disagree",
+      "title": "欺诈与风险策略：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a stricter rule reduced fraud but rejected many long-standing low-risk customers. I suggest that we segment the rule by customer history and send uncertain cases to targeted review, using whether fraud savings exceed lost margin and manual-review cost as our shared decision rule.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是更严格的规则降低了欺诈，却拒绝了许多长期低风险客户。我建议按客户历史细分规则，并将不确定案件送入定向审核，并把“欺诈节省金额高于损失毛利和人工审核成本”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "fraud-risk-pilot",
+      "title": "欺诈与风险策略：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we segment the rule by customer history and send uncertain cases to targeted review.",
+          "Because fraud loss rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、欺诈损失率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we segment the rule by customer history and send uncertain cases to targeted review. The primary metric is fraud loss rate, and the guardrail is whether fraud savings exceed lost margin and manual-review cost. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按客户历史细分规则，并将不确定案件送入定向审核。主要指标是欺诈损失率，护栏是欺诈节省金额高于损失毛利和人工审核成本。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "fraud-risk-executive",
+      "title": "欺诈与风险策略：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a stricter rule reduced fraud but rejected many long-standing low-risk customers. The likely driver is that the rule uses one transaction threshold without customer-history features. I recommend that we segment the rule by customer history and send uncertain cases to targeted review; the decision needed today is whether to proceed under the guardrail that fraud savings exceed lost margin and manual-review cost.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：更严格的规则降低了欺诈，却拒绝了许多长期低风险客户。可能的驱动因素是规则只使用单笔交易阈值，没有客户历史特征。我建议按客户历史细分规则，并将不确定案件送入定向审核；今天需要决定是否在“欺诈节省金额高于损失毛利和人工审核成本”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "fraud-risk-negotiate",
+      "title": "欺诈与风险策略：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve fraud loss rate.",
+          "Because fraud loss rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、欺诈损失率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve fraud loss rate. We can be flexible on rollout timing, but we should not compromise the requirement that fraud savings exceed lost margin and manual-review cost. A workable package is to segment the rule by customer history and send uncertain cases to targeted review and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善欺诈损失率。我们可以在上线时间上灵活处理，但不能放弃“欺诈节省金额高于损失毛利和人工审核成本”这一要求。可行的整体方案是按客户历史细分规则，并将不确定案件送入定向审核，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "fraud-risk-interview",
+      "title": "欺诈与风险策略：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“欺诈与风险策略”场景。已知更严格的规则降低了欺诈，却拒绝了许多长期低风险客户，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、欺诈损失率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a stricter rule reduced fraud but rejected many long-standing low-risk customers. I analyzed the operating evidence, identified that the rule uses one transaction threshold without customer-history features, and recommended that we segment the rule by customer history and send uncertain cases to targeted review. The result created a measurable basis for improving fraud loss rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕欺诈损失率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment risk strategy",
+          "fraud loss rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是更严格的规则降低了欺诈，却拒绝了许多长期低风险客户。我分析了运营证据，识别出规则只使用单笔交易阈值，没有客户历史特征，并建议按客户历史细分规则，并将不确定案件送入定向审核。结果为改善欺诈损失率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "three-d-secure-explain",
+      "title": "3DS 与身份验证：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "3DS strategy should apply the right authentication path by regulation, risk and issuer behavior.",
+          "Because authenticated payment conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、验证支付转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "3DS strategy should apply the right authentication path by regulation, risk and issuer behavior. The current signal is that mandatory challenges reduced fraud but created a sharp mobile checkout drop. I recommend that we apply risk-based exemptions where allowed and monitor issuer-level outcomes.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "3DS 策略应根据监管、风险和发卡行行为选择合适的验证路径。当前信号是强制挑战降低了欺诈，却造成移动端收银台大幅流失。我建议在允许范围内使用基于风险的豁免，并监控发卡行层面的结果。"
+      }
+    },
+    {
+      "id": "three-d-secure-interpret",
+      "title": "3DS 与身份验证：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline authenticated payment conversion needs context because mandatory challenges reduced fraud but created a sharp mobile checkout drop. Evidence points to low-risk transactions are not using exemptions or frictionless authentication. Before making a decision, we should segment the data and verify that regulatory compliance and fraud liability remain clear.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "验证支付转化率这一核心指标需要结合背景解读，因为强制挑战降低了欺诈，却造成移动端收银台大幅流失。证据表明低风险交易没有使用豁免或无摩擦验证。在做决定前，我们应细分数据，并确认监管合规和欺诈责任归属保持清晰。"
+      }
+    },
+    {
+      "id": "three-d-secure-incident",
+      "title": "3DS 与身份验证：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which mandatory challenges reduced fraud but created a sharp mobile checkout drop.",
+          "Because authenticated payment conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、验证支付转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which mandatory challenges reduced fraud but created a sharp mobile checkout drop. Current evidence points to low-risk transactions are not using exemptions or frictionless authentication, but the root cause is not yet final. We will apply risk-based exemptions where allowed and monitor issuer-level outcomes and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：强制挑战降低了欺诈，却造成移动端收银台大幅流失。当前证据表明低风险交易没有使用豁免或无摩擦验证，但根因尚未最终确认。我们将在允许范围内使用基于风险的豁免，并监控发卡行层面的结果，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "three-d-secure-recommend",
+      "title": "3DS 与身份验证：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to apply risk-based exemptions where allowed and monitor issuer-level outcomes. This directly addresses the evidence that low-risk transactions are not using exemptions or frictionless authentication. We will track authenticated payment conversion and scale only if regulatory compliance and fraud liability remain clear.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议在允许范围内使用基于风险的豁免，并监控发卡行层面的结果。这直接回应了“低风险交易没有使用豁免或无摩擦验证”这一证据。我们将跟踪验证支付转化率，并且只有在监管合规和欺诈责任归属保持清晰时才扩大实施。"
+      }
+    },
+    {
+      "id": "three-d-secure-tradeoff",
+      "title": "3DS 与身份验证：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because authenticated payment conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、验证支付转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve authenticated payment conversion, the evidence shows that low-risk transactions are not using exemptions or frictionless authentication. We should apply risk-based exemptions where allowed and monitor issuer-level outcomes, but proceed only if regulatory compliance and fraud liability remain clear.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善验证支付转化率，但证据表明低风险交易没有使用豁免或无摩擦验证。我们应在允许范围内使用基于风险的豁免，并监控发卡行层面的结果，但只有在监管合规和欺诈责任归属保持清晰时才继续推进。"
+      }
+    },
+    {
+      "id": "three-d-secure-disagree",
+      "title": "3DS 与身份验证：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that mandatory challenges reduced fraud but created a sharp mobile checkout drop. I suggest that we apply risk-based exemptions where allowed and monitor issuer-level outcomes, using whether regulatory compliance and fraud liability remain clear as our shared decision rule.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是强制挑战降低了欺诈，却造成移动端收银台大幅流失。我建议在允许范围内使用基于风险的豁免，并监控发卡行层面的结果，并把“监管合规和欺诈责任归属保持清晰”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "three-d-secure-pilot",
+      "title": "3DS 与身份验证：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we apply risk-based exemptions where allowed and monitor issuer-level outcomes.",
+          "Because authenticated payment conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、验证支付转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we apply risk-based exemptions where allowed and monitor issuer-level outcomes. The primary metric is authenticated payment conversion, and the guardrail is whether regulatory compliance and fraud liability remain clear. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中在允许范围内使用基于风险的豁免，并监控发卡行层面的结果。主要指标是验证支付转化率，护栏是监管合规和欺诈责任归属保持清晰。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "three-d-secure-executive",
+      "title": "3DS 与身份验证：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: mandatory challenges reduced fraud but created a sharp mobile checkout drop. The likely driver is that low-risk transactions are not using exemptions or frictionless authentication. I recommend that we apply risk-based exemptions where allowed and monitor issuer-level outcomes; the decision needed today is whether to proceed under the guardrail that regulatory compliance and fraud liability remain clear.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：强制挑战降低了欺诈，却造成移动端收银台大幅流失。可能的驱动因素是低风险交易没有使用豁免或无摩擦验证。我建议在允许范围内使用基于风险的豁免，并监控发卡行层面的结果；今天需要决定是否在“监管合规和欺诈责任归属保持清晰”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "three-d-secure-negotiate",
+      "title": "3DS 与身份验证：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve authenticated payment conversion.",
+          "Because authenticated payment conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、验证支付转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve authenticated payment conversion. We can be flexible on rollout timing, but we should not compromise the requirement that regulatory compliance and fraud liability remain clear. A workable package is to apply risk-based exemptions where allowed and monitor issuer-level outcomes and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善验证支付转化率。我们可以在上线时间上灵活处理，但不能放弃“监管合规和欺诈责任归属保持清晰”这一要求。可行的整体方案是在允许范围内使用基于风险的豁免，并监控发卡行层面的结果，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "three-d-secure-interview",
+      "title": "3DS 与身份验证：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“3DS 与身份验证”场景。已知强制挑战降低了欺诈，却造成移动端收银台大幅流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、验证支付转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that mandatory challenges reduced fraud but created a sharp mobile checkout drop. I analyzed the operating evidence, identified that low-risk transactions are not using exemptions or frictionless authentication, and recommended that we apply risk-based exemptions where allowed and monitor issuer-level outcomes. The result created a measurable basis for improving authenticated payment conversion, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕验证支付转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "3DS strategy should",
+          "authenticated payment conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是强制挑战降低了欺诈，却造成移动端收银台大幅流失。我分析了运营证据，识别出低风险交易没有使用豁免或无摩擦验证，并建议在允许范围内使用基于风险的豁免，并监控发卡行层面的结果。结果为改善验证支付转化率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "subscription-payments-explain",
+      "title": "订阅与周期扣款：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Subscription payment operations combine mandate quality, renewal timing and recovery communication.",
+          "Because renewal recovery rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、续费挽回率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Subscription payment operations combine mandate quality, renewal timing and recovery communication. The current signal is that involuntary churn rose after expired cards became the largest decline reason. I recommend that we combine account updates with decline-specific retries and transparent reminders.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "订阅支付运营结合授权质量、续费时点和挽回沟通。当前信号是卡片过期成为最大拒绝原因后，非自愿流失上升。我建议结合账户更新、按拒绝原因重试和透明提醒。"
+      }
+    },
+    {
+      "id": "subscription-payments-interpret",
+      "title": "订阅与周期扣款：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline renewal recovery rate needs context because involuntary churn rose after expired cards became the largest decline reason. Evidence points to the recovery flow lacks account updates, smart timing and customer reminders. Before making a decision, we should segment the data and verify that complaints and opt-out failures do not increase.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "续费挽回率这一核心指标需要结合背景解读，因为卡片过期成为最大拒绝原因后，非自愿流失上升。证据表明挽回流程缺少账户更新、智能时点和客户提醒。在做决定前，我们应细分数据，并确认投诉和退订失败不增加。"
+      }
+    },
+    {
+      "id": "subscription-payments-incident",
+      "title": "订阅与周期扣款：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which involuntary churn rose after expired cards became the largest decline reason.",
+          "Because renewal recovery rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、续费挽回率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which involuntary churn rose after expired cards became the largest decline reason. Current evidence points to the recovery flow lacks account updates, smart timing and customer reminders, but the root cause is not yet final. We will combine account updates with decline-specific retries and transparent reminders and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：卡片过期成为最大拒绝原因后，非自愿流失上升。当前证据表明挽回流程缺少账户更新、智能时点和客户提醒，但根因尚未最终确认。我们将结合账户更新、按拒绝原因重试和透明提醒，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "subscription-payments-recommend",
+      "title": "订阅与周期扣款：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to combine account updates with decline-specific retries and transparent reminders. This directly addresses the evidence that the recovery flow lacks account updates, smart timing and customer reminders. We will track renewal recovery rate and scale only if complaints and opt-out failures do not increase.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议结合账户更新、按拒绝原因重试和透明提醒。这直接回应了“挽回流程缺少账户更新、智能时点和客户提醒”这一证据。我们将跟踪续费挽回率，并且只有在投诉和退订失败不增加时才扩大实施。"
+      }
+    },
+    {
+      "id": "subscription-payments-tradeoff",
+      "title": "订阅与周期扣款：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because renewal recovery rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、续费挽回率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve renewal recovery rate, the evidence shows that the recovery flow lacks account updates, smart timing and customer reminders. We should combine account updates with decline-specific retries and transparent reminders, but proceed only if complaints and opt-out failures do not increase.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善续费挽回率，但证据表明挽回流程缺少账户更新、智能时点和客户提醒。我们应结合账户更新、按拒绝原因重试和透明提醒，但只有在投诉和退订失败不增加时才继续推进。"
+      }
+    },
+    {
+      "id": "subscription-payments-disagree",
+      "title": "订阅与周期扣款：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that involuntary churn rose after expired cards became the largest decline reason. I suggest that we combine account updates with decline-specific retries and transparent reminders, using whether complaints and opt-out failures do not increase as our shared decision rule.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是卡片过期成为最大拒绝原因后，非自愿流失上升。我建议结合账户更新、按拒绝原因重试和透明提醒，并把“投诉和退订失败不增加”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "subscription-payments-pilot",
+      "title": "订阅与周期扣款：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we combine account updates with decline-specific retries and transparent reminders.",
+          "Because renewal recovery rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、续费挽回率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we combine account updates with decline-specific retries and transparent reminders. The primary metric is renewal recovery rate, and the guardrail is whether complaints and opt-out failures do not increase. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中结合账户更新、按拒绝原因重试和透明提醒。主要指标是续费挽回率，护栏是投诉和退订失败不增加。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "subscription-payments-executive",
+      "title": "订阅与周期扣款：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: involuntary churn rose after expired cards became the largest decline reason. The likely driver is that the recovery flow lacks account updates, smart timing and customer reminders. I recommend that we combine account updates with decline-specific retries and transparent reminders; the decision needed today is whether to proceed under the guardrail that complaints and opt-out failures do not increase.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：卡片过期成为最大拒绝原因后，非自愿流失上升。可能的驱动因素是挽回流程缺少账户更新、智能时点和客户提醒。我建议结合账户更新、按拒绝原因重试和透明提醒；今天需要决定是否在“投诉和退订失败不增加”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "subscription-payments-negotiate",
+      "title": "订阅与周期扣款：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve renewal recovery rate.",
+          "Because renewal recovery rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、续费挽回率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve renewal recovery rate. We can be flexible on rollout timing, but we should not compromise the requirement that complaints and opt-out failures do not increase. A workable package is to combine account updates with decline-specific retries and transparent reminders and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善续费挽回率。我们可以在上线时间上灵活处理，但不能放弃“投诉和退订失败不增加”这一要求。可行的整体方案是结合账户更新、按拒绝原因重试和透明提醒，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "subscription-payments-interview",
+      "title": "订阅与周期扣款：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“订阅与周期扣款”场景。已知卡片过期成为最大拒绝原因后，非自愿流失上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、续费挽回率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that involuntary churn rose after expired cards became the largest decline reason. I analyzed the operating evidence, identified that the recovery flow lacks account updates, smart timing and customer reminders, and recommended that we combine account updates with decline-specific retries and transparent reminders. The result created a measurable basis for improving renewal recovery rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕续费挽回率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Subscription payment operations",
+          "renewal recovery rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是卡片过期成为最大拒绝原因后，非自愿流失上升。我分析了运营证据，识别出挽回流程缺少账户更新、智能时点和客户提醒，并建议结合账户更新、按拒绝原因重试和透明提醒。结果为改善续费挽回率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "cross-border-fx-explain",
+      "title": "跨境支付与外汇：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because cross-border net margin matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Cross-border payment economics depend on currency, acquiring location, conversion and settlement design."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、跨境净利润率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Cross-border payment economics depend on currency, acquiring location, conversion and settlement design. The current signal is that volume is growing while margin falls in corridors with frequent currency conversion. I recommend that we measure corridor economics and offer local currency or settlement choices selectively.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "跨境支付经济性取决于币种、收单地点、换汇和结算设计。当前信号是频繁换汇的支付走廊交易量增长，但利润率下降。我建议衡量支付走廊经济性，并有选择地提供本币或结算选项。"
+      }
+    },
+    {
+      "id": "cross-border-fx-interpret",
+      "title": "跨境支付与外汇：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline cross-border net margin needs context because volume is growing while margin falls in corridors with frequent currency conversion. Evidence points to pricing does not recover FX spread, cross-border assessment and settlement cost. Before making a decision, we should segment the data and verify that currency disclosure is transparent and merchants understand settlement exposure.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "跨境净利润率这一核心指标需要结合背景解读，因为频繁换汇的支付走廊交易量增长，但利润率下降。证据表明定价没有覆盖外汇价差、跨境评估费和结算成本。在做决定前，我们应细分数据，并确认币种披露透明，商户理解结算风险。"
+      }
+    },
+    {
+      "id": "cross-border-fx-incident",
+      "title": "跨境支付与外汇：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because cross-border net margin matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which volume is growing while margin falls in corridors with frequent currency conversion."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、跨境净利润率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which volume is growing while margin falls in corridors with frequent currency conversion. Current evidence points to pricing does not recover FX spread, cross-border assessment and settlement cost, but the root cause is not yet final. We will measure corridor economics and offer local currency or settlement choices selectively and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：频繁换汇的支付走廊交易量增长，但利润率下降。当前证据表明定价没有覆盖外汇价差、跨境评估费和结算成本，但根因尚未最终确认。我们将衡量支付走廊经济性，并有选择地提供本币或结算选项，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "cross-border-fx-recommend",
+      "title": "跨境支付与外汇：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to measure corridor economics and offer local currency or settlement choices selectively. This directly addresses the evidence that pricing does not recover FX spread, cross-border assessment and settlement cost. We will track cross-border net margin and scale only if currency disclosure is transparent and merchants understand settlement exposure.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议衡量支付走廊经济性，并有选择地提供本币或结算选项。这直接回应了“定价没有覆盖外汇价差、跨境评估费和结算成本”这一证据。我们将跟踪跨境净利润率，并且只有在币种披露透明，商户理解结算风险时才扩大实施。"
+      }
+    },
+    {
+      "id": "cross-border-fx-tradeoff",
+      "title": "跨境支付与外汇：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because cross-border net margin matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、跨境净利润率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve cross-border net margin, the evidence shows that pricing does not recover FX spread, cross-border assessment and settlement cost. We should measure corridor economics and offer local currency or settlement choices selectively, but proceed only if currency disclosure is transparent and merchants understand settlement exposure.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善跨境净利润率，但证据表明定价没有覆盖外汇价差、跨境评估费和结算成本。我们应衡量支付走廊经济性，并有选择地提供本币或结算选项，但只有在币种披露透明，商户理解结算风险时才继续推进。"
+      }
+    },
+    {
+      "id": "cross-border-fx-disagree",
+      "title": "跨境支付与外汇：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that volume is growing while margin falls in corridors with frequent currency conversion. I suggest that we measure corridor economics and offer local currency or settlement choices selectively, using whether currency disclosure is transparent and merchants understand settlement exposure as our shared decision rule.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是频繁换汇的支付走廊交易量增长，但利润率下降。我建议衡量支付走廊经济性，并有选择地提供本币或结算选项，并把“币种披露透明，商户理解结算风险”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "cross-border-fx-pilot",
+      "title": "跨境支付与外汇：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because cross-border net margin matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we measure corridor economics and offer local currency or settlement choices selectively."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、跨境净利润率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we measure corridor economics and offer local currency or settlement choices selectively. The primary metric is cross-border net margin, and the guardrail is whether currency disclosure is transparent and merchants understand settlement exposure. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中衡量支付走廊经济性，并有选择地提供本币或结算选项。主要指标是跨境净利润率，护栏是币种披露透明，商户理解结算风险。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "cross-border-fx-executive",
+      "title": "跨境支付与外汇：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: volume is growing while margin falls in corridors with frequent currency conversion. The likely driver is that pricing does not recover FX spread, cross-border assessment and settlement cost. I recommend that we measure corridor economics and offer local currency or settlement choices selectively; the decision needed today is whether to proceed under the guardrail that currency disclosure is transparent and merchants understand settlement exposure.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：频繁换汇的支付走廊交易量增长，但利润率下降。可能的驱动因素是定价没有覆盖外汇价差、跨境评估费和结算成本。我建议衡量支付走廊经济性，并有选择地提供本币或结算选项；今天需要决定是否在“币种披露透明，商户理解结算风险”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "cross-border-fx-negotiate",
+      "title": "跨境支付与外汇：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because cross-border net margin matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve cross-border net margin."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、跨境净利润率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve cross-border net margin. We can be flexible on rollout timing, but we should not compromise the requirement that currency disclosure is transparent and merchants understand settlement exposure. A workable package is to measure corridor economics and offer local currency or settlement choices selectively and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善跨境净利润率。我们可以在上线时间上灵活处理，但不能放弃“币种披露透明，商户理解结算风险”这一要求。可行的整体方案是衡量支付走廊经济性，并有选择地提供本币或结算选项，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "cross-border-fx-interview",
+      "title": "跨境支付与外汇：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨境支付与外汇”场景。已知频繁换汇的支付走廊交易量增长，但利润率下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、跨境净利润率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that volume is growing while margin falls in corridors with frequent currency conversion. I analyzed the operating evidence, identified that pricing does not recover FX spread, cross-border assessment and settlement cost, and recommended that we measure corridor economics and offer local currency or settlement choices selectively. The result created a measurable basis for improving cross-border net margin, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕跨境净利润率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-border payment economics",
+          "cross-border net margin",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是频繁换汇的支付走廊交易量增长，但利润率下降。我分析了运营证据，识别出定价没有覆盖外汇价差、跨境评估费和结算成本，并建议衡量支付走廊经济性，并有选择地提供本币或结算选项。结果为改善跨境净利润率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "payment-costs-explain",
+      "title": "支付成本分析：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment cost analysis separates fixed, variable, network, provider and loss components.",
+          "Because cost per successful payment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment cost analysis separates fixed, variable, network, provider and loss components. The current signal is that a low headline processing fee produces higher total cost after failures and manual work. I recommend that we build a fully loaded cost model by method, market and success outcome.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付成本分析应区分固定、可变、卡组织、服务商和损失成本。当前信号是较低的名义处理费在计入失败和人工工作后产生了更高总成本。我建议按支付方式、市场和成功结果建立全口径成本模型。"
+      }
+    },
+    {
+      "id": "payment-costs-interpret",
+      "title": "支付成本分析：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline cost per successful payment needs context because a low headline processing fee produces higher total cost after failures and manual work. Evidence points to vendor comparison excludes retry traffic, minimum fees and operational exceptions. Before making a decision, we should segment the data and verify that cost savings do not reduce approval, reliability or support quality.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "每笔成功支付成本这一核心指标需要结合背景解读，因为较低的名义处理费在计入失败和人工工作后产生了更高总成本。证据表明供应商比较遗漏了重试流量、最低费用和运营例外。在做决定前，我们应细分数据，并确认成本节省不会降低批准率、可靠性或客服质量。"
+      }
+    },
+    {
+      "id": "payment-costs-incident",
+      "title": "支付成本分析：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a low headline processing fee produces higher total cost after failures and manual work.",
+          "Because cost per successful payment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a low headline processing fee produces higher total cost after failures and manual work. Current evidence points to vendor comparison excludes retry traffic, minimum fees and operational exceptions, but the root cause is not yet final. We will build a fully loaded cost model by method, market and success outcome and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：较低的名义处理费在计入失败和人工工作后产生了更高总成本。当前证据表明供应商比较遗漏了重试流量、最低费用和运营例外，但根因尚未最终确认。我们将按支付方式、市场和成功结果建立全口径成本模型，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "payment-costs-recommend",
+      "title": "支付成本分析：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to build a fully loaded cost model by method, market and success outcome. This directly addresses the evidence that vendor comparison excludes retry traffic, minimum fees and operational exceptions. We will track cost per successful payment and scale only if cost savings do not reduce approval, reliability or support quality.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按支付方式、市场和成功结果建立全口径成本模型。这直接回应了“供应商比较遗漏了重试流量、最低费用和运营例外”这一证据。我们将跟踪每笔成功支付成本，并且只有在成本节省不会降低批准率、可靠性或客服质量时才扩大实施。"
+      }
+    },
+    {
+      "id": "payment-costs-tradeoff",
+      "title": "支付成本分析：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because cost per successful payment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve cost per successful payment, the evidence shows that vendor comparison excludes retry traffic, minimum fees and operational exceptions. We should build a fully loaded cost model by method, market and success outcome, but proceed only if cost savings do not reduce approval, reliability or support quality.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善每笔成功支付成本，但证据表明供应商比较遗漏了重试流量、最低费用和运营例外。我们应按支付方式、市场和成功结果建立全口径成本模型，但只有在成本节省不会降低批准率、可靠性或客服质量时才继续推进。"
+      }
+    },
+    {
+      "id": "payment-costs-disagree",
+      "title": "支付成本分析：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a low headline processing fee produces higher total cost after failures and manual work. I suggest that we build a fully loaded cost model by method, market and success outcome, using whether cost savings do not reduce approval, reliability or support quality as our shared decision rule.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是较低的名义处理费在计入失败和人工工作后产生了更高总成本。我建议按支付方式、市场和成功结果建立全口径成本模型，并把“成本节省不会降低批准率、可靠性或客服质量”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "payment-costs-pilot",
+      "title": "支付成本分析：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we build a fully loaded cost model by method, market and success outcome.",
+          "Because cost per successful payment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we build a fully loaded cost model by method, market and success outcome. The primary metric is cost per successful payment, and the guardrail is whether cost savings do not reduce approval, reliability or support quality. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按支付方式、市场和成功结果建立全口径成本模型。主要指标是每笔成功支付成本，护栏是成本节省不会降低批准率、可靠性或客服质量。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "payment-costs-executive",
+      "title": "支付成本分析：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a low headline processing fee produces higher total cost after failures and manual work. The likely driver is that vendor comparison excludes retry traffic, minimum fees and operational exceptions. I recommend that we build a fully loaded cost model by method, market and success outcome; the decision needed today is whether to proceed under the guardrail that cost savings do not reduce approval, reliability or support quality.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：较低的名义处理费在计入失败和人工工作后产生了更高总成本。可能的驱动因素是供应商比较遗漏了重试流量、最低费用和运营例外。我建议按支付方式、市场和成功结果建立全口径成本模型；今天需要决定是否在“成本节省不会降低批准率、可靠性或客服质量”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "payment-costs-negotiate",
+      "title": "支付成本分析：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve cost per successful payment.",
+          "Because cost per successful payment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve cost per successful payment. We can be flexible on rollout timing, but we should not compromise the requirement that cost savings do not reduce approval, reliability or support quality. A workable package is to build a fully loaded cost model by method, market and success outcome and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善每笔成功支付成本。我们可以在上线时间上灵活处理，但不能放弃“成本节省不会降低批准率、可靠性或客服质量”这一要求。可行的整体方案是按支付方式、市场和成功结果建立全口径成本模型，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "payment-costs-interview",
+      "title": "支付成本分析：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付成本分析”场景。已知较低的名义处理费在计入失败和人工工作后产生了更高总成本，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a low headline processing fee produces higher total cost after failures and manual work. I analyzed the operating evidence, identified that vendor comparison excludes retry traffic, minimum fees and operational exceptions, and recommended that we build a fully loaded cost model by method, market and success outcome. The result created a measurable basis for improving cost per successful payment, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕每笔成功支付成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment cost analysis",
+          "cost per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是较低的名义处理费在计入失败和人工工作后产生了更高总成本。我分析了运营证据，识别出供应商比较遗漏了重试流量、最低费用和运营例外，并建议按支付方式、市场和成功结果建立全口径成本模型。结果为改善每笔成功支付成本建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}

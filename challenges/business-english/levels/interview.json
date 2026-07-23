@@ -1,0 +1,1509 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "interview",
+  "title": "高管决策、谈判与英文面试",
+  "topicIds": [
+    "executive-governance",
+    "turnaround-case",
+    "strategic-negotiation",
+    "board-presentation",
+    "interview"
+  ],
+  "subtitle": "高管治理与决策 · 业务扭转与恢复 · 复杂合作谈判 · 董事会级英文汇报 · 英文面试",
+  "objective": "能够围绕高管治理与决策、业务扭转与恢复、复杂合作谈判、董事会级英文汇报、英文面试，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 10 关 · 综合实战",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 5,
+  "reward": {
+    "title": "高管决策、谈判与英文面试表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is strategic decision quality.",
+      "I recommend that we offer earned volume tiers while preserving performance remedies and exit options.",
+      "We should scale only if the claim can withstand follow-up questions about data, trade-offs and failure."
+    ]
+  },
+  "questions": [
+    {
+      "id": "executive-governance-explain",
+      "title": "高管治理与决策：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Executive governance assigns decision rights, risk appetite, evidence standards and escalation paths.",
+          "Because strategic decision quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、战略决策质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Executive governance assigns decision rights, risk appetite, evidence standards and escalation paths. The current signal is that three committees review the same payment risk but none owns the final trade-off. I recommend that we assign one decision owner and publish thresholds for escalation and exception.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "高管治理明确决策权、风险偏好、证据标准和升级路径。当前信号是三个委员会审查同一支付风险，却没有任何一个负责最终取舍。我建议指定唯一决策负责人，并发布升级及例外阈值。"
+      }
+    },
+    {
+      "id": "executive-governance-interpret",
+      "title": "高管治理与决策：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline strategic decision quality needs context because three committees review the same payment risk but none owns the final trade-off. Evidence points to governance defines attendance and reporting but not decision authority. Before making a decision, we should segment the data and verify that material risk acceptance is explicit, time-bound and auditable.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "战略决策质量这一核心指标需要结合背景解读，因为三个委员会审查同一支付风险，却没有任何一个负责最终取舍。证据表明治理机制定义了参会和汇报，却没有定义决策权。在做决定前，我们应细分数据，并确认重大风险接受是明确、有时限且可审计的。"
+      }
+    },
+    {
+      "id": "executive-governance-incident",
+      "title": "高管治理与决策：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which three committees review the same payment risk but none owns the final trade-off.",
+          "Because strategic decision quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、战略决策质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which three committees review the same payment risk but none owns the final trade-off. Current evidence points to governance defines attendance and reporting but not decision authority, but the root cause is not yet final. We will assign one decision owner and publish thresholds for escalation and exception and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：三个委员会审查同一支付风险，却没有任何一个负责最终取舍。当前证据表明治理机制定义了参会和汇报，却没有定义决策权，但根因尚未最终确认。我们将指定唯一决策负责人，并发布升级及例外阈值，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "executive-governance-recommend",
+      "title": "高管治理与决策：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to assign one decision owner and publish thresholds for escalation and exception. This directly addresses the evidence that governance defines attendance and reporting but not decision authority. We will track strategic decision quality and scale only if material risk acceptance is explicit, time-bound and auditable.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议指定唯一决策负责人，并发布升级及例外阈值。这直接回应了“治理机制定义了参会和汇报，却没有定义决策权”这一证据。我们将跟踪战略决策质量，并且只有在重大风险接受是明确、有时限且可审计的时才扩大实施。"
+      }
+    },
+    {
+      "id": "executive-governance-tradeoff",
+      "title": "高管治理与决策：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because strategic decision quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、战略决策质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve strategic decision quality, the evidence shows that governance defines attendance and reporting but not decision authority. We should assign one decision owner and publish thresholds for escalation and exception, but proceed only if material risk acceptance is explicit, time-bound and auditable.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善战略决策质量，但证据表明治理机制定义了参会和汇报，却没有定义决策权。我们应指定唯一决策负责人，并发布升级及例外阈值，但只有在重大风险接受是明确、有时限且可审计的时才继续推进。"
+      }
+    },
+    {
+      "id": "executive-governance-disagree",
+      "title": "高管治理与决策：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that three committees review the same payment risk but none owns the final trade-off. I suggest that we assign one decision owner and publish thresholds for escalation and exception, using whether material risk acceptance is explicit, time-bound and auditable as our shared decision rule.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是三个委员会审查同一支付风险，却没有任何一个负责最终取舍。我建议指定唯一决策负责人，并发布升级及例外阈值，并把“重大风险接受是明确、有时限且可审计的”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "executive-governance-pilot",
+      "title": "高管治理与决策：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we assign one decision owner and publish thresholds for escalation and exception.",
+          "Because strategic decision quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、战略决策质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we assign one decision owner and publish thresholds for escalation and exception. The primary metric is strategic decision quality, and the guardrail is whether material risk acceptance is explicit, time-bound and auditable. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中指定唯一决策负责人，并发布升级及例外阈值。主要指标是战略决策质量，护栏是重大风险接受是明确、有时限且可审计的。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "executive-governance-executive",
+      "title": "高管治理与决策：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: three committees review the same payment risk but none owns the final trade-off. The likely driver is that governance defines attendance and reporting but not decision authority. I recommend that we assign one decision owner and publish thresholds for escalation and exception; the decision needed today is whether to proceed under the guardrail that material risk acceptance is explicit, time-bound and auditable.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：三个委员会审查同一支付风险，却没有任何一个负责最终取舍。可能的驱动因素是治理机制定义了参会和汇报，却没有定义决策权。我建议指定唯一决策负责人，并发布升级及例外阈值；今天需要决定是否在“重大风险接受是明确、有时限且可审计的”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "executive-governance-negotiate",
+      "title": "高管治理与决策：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve strategic decision quality.",
+          "Because strategic decision quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、战略决策质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve strategic decision quality. We can be flexible on rollout timing, but we should not compromise the requirement that material risk acceptance is explicit, time-bound and auditable. A workable package is to assign one decision owner and publish thresholds for escalation and exception and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善战略决策质量。我们可以在上线时间上灵活处理，但不能放弃“重大风险接受是明确、有时限且可审计的”这一要求。可行的整体方案是指定唯一决策负责人，并发布升级及例外阈值，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "executive-governance-interview",
+      "title": "高管治理与决策：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管治理与决策”场景。已知三个委员会审查同一支付风险，却没有任何一个负责最终取舍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、战略决策质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that three committees review the same payment risk but none owns the final trade-off. I analyzed the operating evidence, identified that governance defines attendance and reporting but not decision authority, and recommended that we assign one decision owner and publish thresholds for escalation and exception. The result created a measurable basis for improving strategic decision quality, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕战略决策质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Executive governance assigns",
+          "strategic decision quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是三个委员会审查同一支付风险，却没有任何一个负责最终取舍。我分析了运营证据，识别出治理机制定义了参会和汇报，却没有定义决策权，并建议指定唯一决策负责人，并发布升级及例外阈值。结果为改善战略决策质量建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "turnaround-case-explain",
+      "title": "业务扭转与恢复：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "A payment turnaround begins with fact-based triage, cash protection and a small number of owned moves.",
+          "Because ninety-day contribution recovery matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、九十天贡献利润恢复和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A payment turnaround begins with fact-based triage, cash protection and a small number of owned moves. The current signal is that approval, merchant trust and margin are declining at the same time. I recommend that we stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付业务扭转始于基于事实的分诊、现金保护和少量有负责人的行动。当前信号是批准率、商户信任和利润率同时下降。我建议稳定关键流量、停止破坏价值的优惠并重建商户信心。"
+      }
+    },
+    {
+      "id": "turnaround-case-interpret",
+      "title": "业务扭转与恢复：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline ninety-day contribution recovery needs context because approval, merchant trust and margin are declining at the same time. Evidence points to routing instability, unfunded discounts and slow incident communication reinforce one another. Before making a decision, we should segment the data and verify that recovery actions protect regulated obligations and avoid hidden future cost.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "九十天贡献利润恢复这一核心指标需要结合背景解读，因为批准率、商户信任和利润率同时下降。证据表明路由不稳定、无资金支持的折扣和缓慢事故沟通相互强化。在做决定前，我们应细分数据，并确认恢复行动保护监管义务，并避免隐藏的未来成本。"
+      }
+    },
+    {
+      "id": "turnaround-case-incident",
+      "title": "业务扭转与恢复：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which approval, merchant trust and margin are declining at the same time.",
+          "Because ninety-day contribution recovery matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、九十天贡献利润恢复和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which approval, merchant trust and margin are declining at the same time. Current evidence points to routing instability, unfunded discounts and slow incident communication reinforce one another, but the root cause is not yet final. We will stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：批准率、商户信任和利润率同时下降。当前证据表明路由不稳定、无资金支持的折扣和缓慢事故沟通相互强化，但根因尚未最终确认。我们将稳定关键流量、停止破坏价值的优惠并重建商户信心，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "turnaround-case-recommend",
+      "title": "业务扭转与恢复：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence. This directly addresses the evidence that routing instability, unfunded discounts and slow incident communication reinforce one another. We will track ninety-day contribution recovery and scale only if recovery actions protect regulated obligations and avoid hidden future cost.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议稳定关键流量、停止破坏价值的优惠并重建商户信心。这直接回应了“路由不稳定、无资金支持的折扣和缓慢事故沟通相互强化”这一证据。我们将跟踪九十天贡献利润恢复，并且只有在恢复行动保护监管义务，并避免隐藏的未来成本时才扩大实施。"
+      }
+    },
+    {
+      "id": "turnaround-case-tradeoff",
+      "title": "业务扭转与恢复：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because ninety-day contribution recovery matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、九十天贡献利润恢复和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve ninety-day contribution recovery, the evidence shows that routing instability, unfunded discounts and slow incident communication reinforce one another. We should stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence, but proceed only if recovery actions protect regulated obligations and avoid hidden future cost.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善九十天贡献利润恢复，但证据表明路由不稳定、无资金支持的折扣和缓慢事故沟通相互强化。我们应稳定关键流量、停止破坏价值的优惠并重建商户信心，但只有在恢复行动保护监管义务，并避免隐藏的未来成本时才继续推进。"
+      }
+    },
+    {
+      "id": "turnaround-case-disagree",
+      "title": "业务扭转与恢复：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that approval, merchant trust and margin are declining at the same time. I suggest that we stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence, using whether recovery actions protect regulated obligations and avoid hidden future cost as our shared decision rule.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是批准率、商户信任和利润率同时下降。我建议稳定关键流量、停止破坏价值的优惠并重建商户信心，并把“恢复行动保护监管义务，并避免隐藏的未来成本”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "turnaround-case-pilot",
+      "title": "业务扭转与恢复：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence.",
+          "Because ninety-day contribution recovery matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、九十天贡献利润恢复和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence. The primary metric is ninety-day contribution recovery, and the guardrail is whether recovery actions protect regulated obligations and avoid hidden future cost. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中稳定关键流量、停止破坏价值的优惠并重建商户信心。主要指标是九十天贡献利润恢复，护栏是恢复行动保护监管义务，并避免隐藏的未来成本。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "turnaround-case-executive",
+      "title": "业务扭转与恢复：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: approval, merchant trust and margin are declining at the same time. The likely driver is that routing instability, unfunded discounts and slow incident communication reinforce one another. I recommend that we stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence; the decision needed today is whether to proceed under the guardrail that recovery actions protect regulated obligations and avoid hidden future cost.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：批准率、商户信任和利润率同时下降。可能的驱动因素是路由不稳定、无资金支持的折扣和缓慢事故沟通相互强化。我建议稳定关键流量、停止破坏价值的优惠并重建商户信心；今天需要决定是否在“恢复行动保护监管义务，并避免隐藏的未来成本”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "turnaround-case-negotiate",
+      "title": "业务扭转与恢复：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve ninety-day contribution recovery.",
+          "Because ninety-day contribution recovery matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、九十天贡献利润恢复和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve ninety-day contribution recovery. We can be flexible on rollout timing, but we should not compromise the requirement that recovery actions protect regulated obligations and avoid hidden future cost. A workable package is to stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善九十天贡献利润恢复。我们可以在上线时间上灵活处理，但不能放弃“恢复行动保护监管义务，并避免隐藏的未来成本”这一要求。可行的整体方案是稳定关键流量、停止破坏价值的优惠并重建商户信心，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "turnaround-case-interview",
+      "title": "业务扭转与恢复：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“业务扭转与恢复”场景。已知批准率、商户信任和利润率同时下降，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、九十天贡献利润恢复、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that approval, merchant trust and margin are declining at the same time. I analyzed the operating evidence, identified that routing instability, unfunded discounts and slow incident communication reinforce one another, and recommended that we stabilize critical traffic, stop value-destructive offers and rebuild merchant confidence. The result created a measurable basis for improving ninety-day contribution recovery, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕九十天贡献利润恢复说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment turnaround",
+          "ninety-day contribution recovery",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是批准率、商户信任和利润率同时下降。我分析了运营证据，识别出路由不稳定、无资金支持的折扣和缓慢事故沟通相互强化，并建议稳定关键流量、停止破坏价值的优惠并重建商户信心。结果为改善九十天贡献利润恢复建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-explain",
+      "title": "复杂合作谈判：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Strategic negotiation creates packages across economics, performance, data, risk and duration.",
+          "Because risk-adjusted deal value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的交易价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Strategic negotiation creates packages across economics, performance, data, risk and duration. The current signal is that a critical processor offers a discount in exchange for five-year exclusivity and weaker remedies. I recommend that we offer earned volume tiers while preserving performance remedies and exit options.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "复杂谈判需要围绕经济性、绩效、数据、风险和期限设计整体方案。当前信号是一家关键处理商以五年独家和削弱补救条款换取折扣。我建议提供按业绩获得的交易量分层，同时保留绩效补救和退出选项。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-interpret",
+      "title": "复杂合作谈判：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline risk-adjusted deal value needs context because a critical processor offers a discount in exchange for five-year exclusivity and weaker remedies. Evidence points to the headline saving is being compared without concentration and exit risk. Before making a decision, we should segment the data and verify that no price concession removes operational resilience or regulatory access.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "风险调整后的交易价值这一核心指标需要结合背景解读，因为一家关键处理商以五年独家和削弱补救条款换取折扣。证据表明名义节省没有与集中度和退出风险一同比较。在做决定前，我们应细分数据，并确认任何价格让步都不会削弱运营韧性或监管访问权。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-incident",
+      "title": "复杂合作谈判：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which a critical processor offers a discount in exchange for five-year exclusivity and weaker remedies.",
+          "Because risk-adjusted deal value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的交易价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a critical processor offers a discount in exchange for five-year exclusivity and weaker remedies. Current evidence points to the headline saving is being compared without concentration and exit risk, but the root cause is not yet final. We will offer earned volume tiers while preserving performance remedies and exit options and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：一家关键处理商以五年独家和削弱补救条款换取折扣。当前证据表明名义节省没有与集中度和退出风险一同比较，但根因尚未最终确认。我们将提供按业绩获得的交易量分层，同时保留绩效补救和退出选项，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-recommend",
+      "title": "复杂合作谈判：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to offer earned volume tiers while preserving performance remedies and exit options. This directly addresses the evidence that the headline saving is being compared without concentration and exit risk. We will track risk-adjusted deal value and scale only if no price concession removes operational resilience or regulatory access.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议提供按业绩获得的交易量分层，同时保留绩效补救和退出选项。这直接回应了“名义节省没有与集中度和退出风险一同比较”这一证据。我们将跟踪风险调整后的交易价值，并且只有在任何价格让步都不会削弱运营韧性或监管访问权时才扩大实施。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-tradeoff",
+      "title": "复杂合作谈判：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because risk-adjusted deal value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的交易价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve risk-adjusted deal value, the evidence shows that the headline saving is being compared without concentration and exit risk. We should offer earned volume tiers while preserving performance remedies and exit options, but proceed only if no price concession removes operational resilience or regulatory access.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善风险调整后的交易价值，但证据表明名义节省没有与集中度和退出风险一同比较。我们应提供按业绩获得的交易量分层，同时保留绩效补救和退出选项，但只有在任何价格让步都不会削弱运营韧性或监管访问权时才继续推进。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-disagree",
+      "title": "复杂合作谈判：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a critical processor offers a discount in exchange for five-year exclusivity and weaker remedies. I suggest that we offer earned volume tiers while preserving performance remedies and exit options, using whether no price concession removes operational resilience or regulatory access as our shared decision rule.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是一家关键处理商以五年独家和削弱补救条款换取折扣。我建议提供按业绩获得的交易量分层，同时保留绩效补救和退出选项，并把“任何价格让步都不会削弱运营韧性或监管访问权”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-pilot",
+      "title": "复杂合作谈判：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we offer earned volume tiers while preserving performance remedies and exit options.",
+          "Because risk-adjusted deal value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的交易价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we offer earned volume tiers while preserving performance remedies and exit options. The primary metric is risk-adjusted deal value, and the guardrail is whether no price concession removes operational resilience or regulatory access. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中提供按业绩获得的交易量分层，同时保留绩效补救和退出选项。主要指标是风险调整后的交易价值，护栏是任何价格让步都不会削弱运营韧性或监管访问权。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-executive",
+      "title": "复杂合作谈判：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a critical processor offers a discount in exchange for five-year exclusivity and weaker remedies. The likely driver is that the headline saving is being compared without concentration and exit risk. I recommend that we offer earned volume tiers while preserving performance remedies and exit options; the decision needed today is whether to proceed under the guardrail that no price concession removes operational resilience or regulatory access.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：一家关键处理商以五年独家和削弱补救条款换取折扣。可能的驱动因素是名义节省没有与集中度和退出风险一同比较。我建议提供按业绩获得的交易量分层，同时保留绩效补救和退出选项；今天需要决定是否在“任何价格让步都不会削弱运营韧性或监管访问权”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-negotiate",
+      "title": "复杂合作谈判：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve risk-adjusted deal value.",
+          "Because risk-adjusted deal value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的交易价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve risk-adjusted deal value. We can be flexible on rollout timing, but we should not compromise the requirement that no price concession removes operational resilience or regulatory access. A workable package is to offer earned volume tiers while preserving performance remedies and exit options and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善风险调整后的交易价值。我们可以在上线时间上灵活处理，但不能放弃“任何价格让步都不会削弱运营韧性或监管访问权”这一要求。可行的整体方案是提供按业绩获得的交易量分层，同时保留绩效补救和退出选项，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "strategic-negotiation-interview",
+      "title": "复杂合作谈判：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“复杂合作谈判”场景。已知一家关键处理商以五年独家和削弱补救条款换取折扣，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的交易价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a critical processor offers a discount in exchange for five-year exclusivity and weaker remedies. I analyzed the operating evidence, identified that the headline saving is being compared without concentration and exit risk, and recommended that we offer earned volume tiers while preserving performance remedies and exit options. The result created a measurable basis for improving risk-adjusted deal value, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕风险调整后的交易价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Strategic negotiation creates",
+          "risk-adjusted deal value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是一家关键处理商以五年独家和削弱补救条款换取折扣。我分析了运营证据，识别出名义节省没有与集中度和退出风险一同比较，并建议提供按业绩获得的交易量分层，同时保留绩效补救和退出选项。结果为改善风险调整后的交易价值建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "board-presentation-explain",
+      "title": "董事会级英文汇报：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because board decision confidence matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "A board-level payment narrative links strategic choice, financial consequence, risk and management action."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、董事会决策信心和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A board-level payment narrative links strategic choice, financial consequence, risk and management action. The current signal is that directors see strong payment growth but question margin quality and operational concentration. I recommend that we present one integrated scenario with choices, downside and funded mitigations.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "董事会级支付叙事连接战略选择、财务后果、风险和管理行动。当前信号是董事看到支付业务强劲增长，却质疑利润质量和运营集中度。我建议呈现一个包含选择、下行风险和已落实缓解措施的综合情景。"
+      }
+    },
+    {
+      "id": "board-presentation-interpret",
+      "title": "董事会级英文汇报：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline board decision confidence needs context because directors see strong payment growth but question margin quality and operational concentration. Evidence points to management reporting separates growth, economics and resilience into unrelated sections. Before making a decision, we should segment the data and verify that uncertainty is quantified and no material risk is buried in an appendix.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "董事会决策信心这一核心指标需要结合背景解读，因为董事看到支付业务强劲增长，却质疑利润质量和运营集中度。证据表明管理层汇报把增长、经济性和韧性拆成互不关联的部分。在做决定前，我们应细分数据，并确认不确定性被量化，且重大风险不会埋在附录中。"
+      }
+    },
+    {
+      "id": "board-presentation-incident",
+      "title": "董事会级英文汇报：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because board decision confidence matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which directors see strong payment growth but question margin quality and operational concentration."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、董事会决策信心和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which directors see strong payment growth but question margin quality and operational concentration. Current evidence points to management reporting separates growth, economics and resilience into unrelated sections, but the root cause is not yet final. We will present one integrated scenario with choices, downside and funded mitigations and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：董事看到支付业务强劲增长，却质疑利润质量和运营集中度。当前证据表明管理层汇报把增长、经济性和韧性拆成互不关联的部分，但根因尚未最终确认。我们将呈现一个包含选择、下行风险和已落实缓解措施的综合情景，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "board-presentation-recommend",
+      "title": "董事会级英文汇报：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to present one integrated scenario with choices, downside and funded mitigations. This directly addresses the evidence that management reporting separates growth, economics and resilience into unrelated sections. We will track board decision confidence and scale only if uncertainty is quantified and no material risk is buried in an appendix.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议呈现一个包含选择、下行风险和已落实缓解措施的综合情景。这直接回应了“管理层汇报把增长、经济性和韧性拆成互不关联的部分”这一证据。我们将跟踪董事会决策信心，并且只有在不确定性被量化，且重大风险不会埋在附录中时才扩大实施。"
+      }
+    },
+    {
+      "id": "board-presentation-tradeoff",
+      "title": "董事会级英文汇报：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because board decision confidence matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、董事会决策信心和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve board decision confidence, the evidence shows that management reporting separates growth, economics and resilience into unrelated sections. We should present one integrated scenario with choices, downside and funded mitigations, but proceed only if uncertainty is quantified and no material risk is buried in an appendix.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善董事会决策信心，但证据表明管理层汇报把增长、经济性和韧性拆成互不关联的部分。我们应呈现一个包含选择、下行风险和已落实缓解措施的综合情景，但只有在不确定性被量化，且重大风险不会埋在附录中时才继续推进。"
+      }
+    },
+    {
+      "id": "board-presentation-disagree",
+      "title": "董事会级英文汇报：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that directors see strong payment growth but question margin quality and operational concentration. I suggest that we present one integrated scenario with choices, downside and funded mitigations, using whether uncertainty is quantified and no material risk is buried in an appendix as our shared decision rule.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是董事看到支付业务强劲增长，却质疑利润质量和运营集中度。我建议呈现一个包含选择、下行风险和已落实缓解措施的综合情景，并把“不确定性被量化，且重大风险不会埋在附录中”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "board-presentation-pilot",
+      "title": "董事会级英文汇报：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because board decision confidence matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we present one integrated scenario with choices, downside and funded mitigations."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、董事会决策信心和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we present one integrated scenario with choices, downside and funded mitigations. The primary metric is board decision confidence, and the guardrail is whether uncertainty is quantified and no material risk is buried in an appendix. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中呈现一个包含选择、下行风险和已落实缓解措施的综合情景。主要指标是董事会决策信心，护栏是不确定性被量化，且重大风险不会埋在附录中。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "board-presentation-executive",
+      "title": "董事会级英文汇报：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: directors see strong payment growth but question margin quality and operational concentration. The likely driver is that management reporting separates growth, economics and resilience into unrelated sections. I recommend that we present one integrated scenario with choices, downside and funded mitigations; the decision needed today is whether to proceed under the guardrail that uncertainty is quantified and no material risk is buried in an appendix.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：董事看到支付业务强劲增长，却质疑利润质量和运营集中度。可能的驱动因素是管理层汇报把增长、经济性和韧性拆成互不关联的部分。我建议呈现一个包含选择、下行风险和已落实缓解措施的综合情景；今天需要决定是否在“不确定性被量化，且重大风险不会埋在附录中”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "board-presentation-negotiate",
+      "title": "董事会级英文汇报：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because board decision confidence matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve board decision confidence."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、董事会决策信心和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve board decision confidence. We can be flexible on rollout timing, but we should not compromise the requirement that uncertainty is quantified and no material risk is buried in an appendix. A workable package is to present one integrated scenario with choices, downside and funded mitigations and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善董事会决策信心。我们可以在上线时间上灵活处理，但不能放弃“不确定性被量化，且重大风险不会埋在附录中”这一要求。可行的整体方案是呈现一个包含选择、下行风险和已落实缓解措施的综合情景，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "board-presentation-interview",
+      "title": "董事会级英文汇报：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“董事会级英文汇报”场景。已知董事看到支付业务强劲增长，却质疑利润质量和运营集中度，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、董事会决策信心、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that directors see strong payment growth but question margin quality and operational concentration. I analyzed the operating evidence, identified that management reporting separates growth, economics and resilience into unrelated sections, and recommended that we present one integrated scenario with choices, downside and funded mitigations. The result created a measurable basis for improving board decision confidence, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕董事会决策信心说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A board-level payment",
+          "board decision confidence",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是董事看到支付业务强劲增长，却质疑利润质量和运营集中度。我分析了运营证据，识别出管理层汇报把增长、经济性和韧性拆成互不关联的部分，并建议呈现一个包含选择、下行风险和已落实缓解措施的综合情景。结果为改善董事会决策信心建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "self-introduction",
+      "title": "60 秒自我介绍",
+      "type": "开场表达",
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一种自我介绍开场最容易建立岗位相关性？",
+        "choices": [
+          "I graduated several years ago and then worked at three companies.",
+          "Let me walk you through every position on my resume.",
+          "I am a strategy and operations professional focused on turning data into scalable improvements."
+        ],
+        "correctChoice": 2,
+        "feedback": "先给职业定位和价值，再用项目证据支撑，比逐年复述简历更有效。"
+      },
+      "prompt": "你面试支付策略运营岗位，需要在一分钟内建立与岗位的相关性，不能逐年复述简历。",
+      "task": "写一个 90 至 120 词的英文自我介绍，包含定位、两项证据和求职方向。",
+      "hint": "使用 present → evidence → future。",
+      "answer": {
+        "sample": "I am a strategy and operations professional focused on turning customer and transaction data into scalable improvements. In my recent work, I used funnel analysis to identify high-impact experience gaps and led projects across product, data and frontline teams with clear owners and measurable outcomes. I am now looking to apply that combination of analytics and execution to payment growth and merchant operations, where reliability, economics and customer experience must be managed together.",
+        "notes": [
+          "开头先给职业定位，而非学校和年份。",
+          "结尾展示对支付工作的具体理解。"
+        ],
+        "keywords": [
+          "focused on",
+          "cross-functional",
+          "measurable outcomes",
+          "apply that combination"
+        ],
+        "translation": "我是一名战略与运营专业人士，擅长把客户和交易数据转化为可规模化的改进。在最近的工作中，我使用漏斗分析识别高影响的体验缺口，并通过明确负责人和量化结果，推动产品、数据及一线团队共同交付项目。我希望将数据分析与执行落地的组合能力用于支付增长和商户运营，在可靠性、单位经济和客户体验之间取得平衡。"
+      },
+      "difficulty": 5
+    },
+    {
+      "id": "star-payment-project",
+      "title": "STAR-L 项目案例",
+      "type": "行为面试",
+      "prompt": "面试官问：Tell me about a project where you improved a payment or customer journey.",
+      "task": "写一个可替换数字的英文 STAR-L 答案，突出个人判断、行动、结果和复盘。",
+      "hint": "Situation 与 Task 要短，把篇幅留给 Action、Result 和 Learning。",
+      "answer": {
+        "sample": "Situation: We saw a [X%] drop between checkout and successful payment. Task: I was responsible for finding the main recoverable gap within six weeks. Action: I rebuilt the funnel by market, method and response code, found a weak routing rule, and aligned Product, Risk and Engineering on a guarded pilot. Result: Success improved by [X] points and recovered [amount] in monthly volume. Learning: I now define decision and rollback thresholds before launch.",
+        "notes": [
+          "使用 I rebuilt、I aligned 明确个人贡献。",
+          "Learning 是可复用的方法，而不是泛泛感想。"
+        ],
+        "keywords": [
+          "I was responsible for",
+          "recoverable gap",
+          "rollback threshold",
+          "I learned"
+        ],
+        "translation": "情境：从结账到支付成功的转化下降了 [X%]。任务：我负责在六周内找出最主要且可恢复的缺口。行动：我按市场、支付方式和响应码重建漏斗，发现一条效果较差的路由规则，并协调产品、风险和工程团队开展带护栏的试点。结果：成功率提高了 [X] 个百分点，每月恢复了 [金额] 的交易规模。复盘：现在我会在上线前明确决策和回滚阈值。"
+      },
+      "difficulty": 5
+    },
+    {
+      "id": "failure-story",
+      "title": "失败经历",
+      "type": "复盘表达",
+      "prompt": "面试官问 Tell me about a failure. 不能把优点包装成缺点，也不能把责任推给协作方。",
+      "task": "写一个英文失败案例：真实错误、影响、补救、机制变化和后续证据。",
+      "hint": "重点是 ownership 和 changed behavior。",
+      "answer": {
+        "sample": "I once launched a policy after validating the average impact but not smaller regional segments. The overall metric improved, yet complaints rose sharply in one segment and we paused the rollout. I owned the gap, contacted affected customers and rebuilt the analysis. I then added segment guardrails and a pre-launch checklist. In the next two launches, all segment metrics stayed within the agreed thresholds.",
+        "notes": [
+          "明确错误是自己验证维度不足。",
+          "用后续项目证明行为真正改变。"
+        ],
+        "keywords": [
+          "I owned the gap",
+          "paused the rollout",
+          "guardrails",
+          "agreed thresholds"
+        ],
+        "translation": "我曾在只验证平均影响、没有检查较小区域分群的情况下上线一项政策。整体指标有所改善，但某个分群的投诉大幅增加，我们因此暂停上线。我承担了这一疏漏，联系受影响客户并重新分析数据。随后，我增加了分群护栏和上线前检查清单。在接下来的两次上线中，所有分群指标都保持在约定阈值内。"
+      },
+      "difficulty": 5
+    },
+    {
+      "id": "why-role",
+      "title": "为什么这个岗位",
+      "type": "动机表达",
+      "prompt": "面试官问 Why are you interested in this role? 需要避免只说平台大、发展好或对支付感兴趣。",
+      "task": "写一个三部分英文答案：工作内容匹配、已有证据、希望扩展的能力。",
+      "hint": "把 JD 中的具体问题与自己的经历连起来。",
+      "answer": {
+        "sample": "This role combines three types of work I do well: diagnosing performance with data, designing an operating strategy, and coordinating delivery across product and commercial teams. I have used funnel and cohort analysis to prioritize customer problems and translated findings into owned action plans. The role would let me apply those strengths to payment reliability and merchant growth while deepening my knowledge of payment economics and international operations.",
+        "notes": [
+          "从实际工作内容切入，不用空泛公司赞美。",
+          "用过去证据支持 fit，再说明能力延伸。"
+        ],
+        "keywords": [
+          "combines",
+          "translated findings",
+          "deepen my knowledge",
+          "owned action plan"
+        ],
+        "translation": "这个岗位结合了三类我擅长的工作：用数据诊断表现、设计运营策略，以及协调产品和商业团队完成交付。我曾使用漏斗和同期群分析确定客户问题的优先级，并将发现转化为有明确负责人的行动计划。这个岗位能让我把这些优势应用于支付可靠性和商户增长，同时深入学习支付单位经济和国际化运营。"
+      },
+      "difficulty": 5
+    },
+    {
+      "id": "project-recap-questions",
+      "title": "五分钟项目陈述",
+      "type": "综合模拟",
+      "prompt": "终面要求用五分钟介绍一个代表项目，然后接受追问。你需要控制结构，并主动暴露关键取舍。",
+      "task": "写出英文陈述提纲和结尾可向面试官提出的两个高质量问题。",
+      "hint": "使用 problem → insight → decision → execution → impact → reflection。",
+      "answer": {
+        "sample": "Opening: I will describe a project where we improved [journey] through data diagnosis and cross-functional delivery.\n1. Business problem and customer impact.\n2. Insight that changed our understanding.\n3. Options and the trade-off I recommended.\n4. Pilot, owners, risks and disagreement.\n5. Quantified impact and limitations.\n6. What I would repeat or change.\n\nQuestions:\n- Which payment or merchant metric is hardest for this team to improve today?\n- How are decisions divided between global product and local operations?",
+        "notes": [
+          "主动讲 options 和 limitations，展示判断质量。",
+          "反问聚焦真实难题和决策机制。"
+        ],
+        "keywords": [
+          "trade-off",
+          "quantified impact",
+          "limitations",
+          "decision ownership"
+        ],
+        "translation": "开场：我会介绍一个通过数据诊断和跨职能交付改善 [用户旅程] 的项目。\n1. 业务问题和客户影响。\n2. 改变我们认知的关键洞察。\n3. 备选方案以及我建议的取舍。\n4. 试点、负责人、风险与分歧。\n5. 量化影响和局限。\n6. 我会保留或改变的做法。\n\n提问：\n- 当前团队最难改善的支付或商户指标是什么？\n- 全球产品团队与本地运营团队如何划分决策权？"
+      },
+      "difficulty": 5
+    },
+    {
+      "id": "interview-explain",
+      "title": "英文面试：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "A strong payment strategy interview answer connects personal judgment, action, evidence and learning.",
+          "Because answer evidence quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回答证据质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“英文面试”场景。已知候选人描述了团队活动，但面试官无法识别候选人的个人决策，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回答证据质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A strong payment strategy interview answer connects personal judgment, action, evidence and learning. The current signal is that a candidate describes team activity but the interviewer cannot identify the candidate's decision. I recommend that we use a concise STAR-L structure with explicit personal choices and quantified limits.",
+        "notes": [
+          "表达必须围绕回答证据质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong payment",
+          "answer evidence quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "高质量支付策略面试回答连接个人判断、行动、证据和复盘。当前信号是候选人描述了团队活动，但面试官无法识别候选人的个人决策。我建议使用简洁的 STAR-L 结构，明确个人选择和量化限制。"
+      }
+    },
+    {
+      "id": "interview-interpret",
+      "title": "英文面试：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“英文面试”场景。已知候选人描述了团队活动，但面试官无法识别候选人的个人决策，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、回答证据质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline answer evidence quality needs context because a candidate describes team activity but the interviewer cannot identify the candidate's decision. Evidence points to the story spends too long on context and uses we for every important action. Before making a decision, we should segment the data and verify that the claim can withstand follow-up questions about data, trade-offs and failure.",
+        "notes": [
+          "表达必须围绕回答证据质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong payment",
+          "answer evidence quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "回答证据质量这一核心指标需要结合背景解读，因为候选人描述了团队活动，但面试官无法识别候选人的个人决策。证据表明案例在背景上花费过多时间，并对所有关键行动都使用“我们”。在做决定前，我们应细分数据，并确认陈述能够经受关于数据、取舍和失败的追问。"
+      }
+    },
+    {
+      "id": "interview-incident",
+      "title": "英文面试：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a candidate describes team activity but the interviewer cannot identify the candidate's decision.",
+          "Because answer evidence quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回答证据质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“英文面试”场景。已知候选人描述了团队活动，但面试官无法识别候选人的个人决策，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回答证据质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a candidate describes team activity but the interviewer cannot identify the candidate's decision. Current evidence points to the story spends too long on context and uses we for every important action, but the root cause is not yet final. We will use a concise STAR-L structure with explicit personal choices and quantified limits and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕回答证据质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong payment",
+          "answer evidence quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：候选人描述了团队活动，但面试官无法识别候选人的个人决策。当前证据表明案例在背景上花费过多时间，并对所有关键行动都使用“我们”，但根因尚未最终确认。我们将使用简洁的 STAR-L 结构，明确个人选择和量化限制，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "interview-recommend",
+      "title": "英文面试：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“英文面试”场景。已知候选人描述了团队活动，但面试官无法识别候选人的个人决策，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、回答证据质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to use a concise STAR-L structure with explicit personal choices and quantified limits. This directly addresses the evidence that the story spends too long on context and uses we for every important action. We will track answer evidence quality and scale only if the claim can withstand follow-up questions about data, trade-offs and failure.",
+        "notes": [
+          "表达必须围绕回答证据质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong payment",
+          "answer evidence quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议使用简洁的 STAR-L 结构，明确个人选择和量化限制。这直接回应了“案例在背景上花费过多时间，并对所有关键行动都使用“我们””这一证据。我们将跟踪回答证据质量，并且只有在陈述能够经受关于数据、取舍和失败的追问时才扩大实施。"
+      }
+    },
+    {
+      "id": "interview-tradeoff",
+      "title": "英文面试：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because answer evidence quality matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、回答证据质量和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“英文面试”场景。已知候选人描述了团队活动，但面试官无法识别候选人的个人决策，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、回答证据质量、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve answer evidence quality, the evidence shows that the story spends too long on context and uses we for every important action. We should use a concise STAR-L structure with explicit personal choices and quantified limits, but proceed only if the claim can withstand follow-up questions about data, trade-offs and failure.",
+        "notes": [
+          "表达必须围绕回答证据质量说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong payment",
+          "answer evidence quality",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善回答证据质量，但证据表明案例在背景上花费过多时间，并对所有关键行动都使用“我们”。我们应使用简洁的 STAR-L 结构，明确个人选择和量化限制，但只有在陈述能够经受关于数据、取舍和失败的追问时才继续推进。"
+      }
+    }
+  ]
+}

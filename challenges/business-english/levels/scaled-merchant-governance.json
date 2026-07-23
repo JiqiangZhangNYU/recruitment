@@ -1,0 +1,1529 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "scaled-merchant-governance",
+  "title": "规模化经营与合规治理",
+  "topicIds": [
+    "sme-segmentation",
+    "platform-marketplaces",
+    "incident-management",
+    "regulatory-change",
+    "partner-management"
+  ],
+  "subtitle": "中小商户分层运营 · 平台与市场支付 · 支付事故管理 · 监管变化落地 · 支付合作方管理",
+  "objective": "能够围绕中小商户分层运营、平台与市场支付、支付事故管理、监管变化落地、支付合作方管理，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 8 关 · 经营治理",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 4,
+  "reward": {
+    "title": "规模化经营与合规治理表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is cost-to-serve by segment.",
+      "I recommend that we contain affected traffic, open a command channel and publish timed fact-based updates.",
+      "We should scale only if traffic concentration does not prevent an orderly provider exit."
+    ]
+  },
+  "questions": [
+    {
+      "id": "sme-segmentation-explain",
+      "title": "中小商户分层运营：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "SME payment operations scale by matching service intensity to need, value and risk.",
+          "Because cost-to-serve by segment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、分层服务成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "SME payment operations scale by matching service intensity to need, value and risk. The current signal is that high-touch support is applied uniformly while many merchants need the same basic guidance. I recommend that we combine self-service journeys with trigger-based specialist support.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "中小商户支付运营通过让服务强度匹配需求、价值和风险实现规模化。当前信号是高接触服务被统一使用，而许多商户需要的是相同基础指引。我建议结合自助服务流程和基于触发器的专家支持。"
+      }
+    },
+    {
+      "id": "sme-segmentation-interpret",
+      "title": "中小商户分层运营：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline cost-to-serve by segment needs context because high-touch support is applied uniformly while many merchants need the same basic guidance. Evidence points to segmentation reflects sales size but not lifecycle stage or operational need. Before making a decision, we should segment the data and verify that vulnerable or high-risk merchants are not routed away from necessary help.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "分层服务成本这一核心指标需要结合背景解读，因为高接触服务被统一使用，而许多商户需要的是相同基础指引。证据表明分层反映销售规模，却没有反映生命周期阶段或运营需求。在做决定前，我们应细分数据，并确认脆弱或高风险商户不会被排除在必要帮助之外。"
+      }
+    },
+    {
+      "id": "sme-segmentation-incident",
+      "title": "中小商户分层运营：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which high-touch support is applied uniformly while many merchants need the same basic guidance.",
+          "Because cost-to-serve by segment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、分层服务成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which high-touch support is applied uniformly while many merchants need the same basic guidance. Current evidence points to segmentation reflects sales size but not lifecycle stage or operational need, but the root cause is not yet final. We will combine self-service journeys with trigger-based specialist support and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：高接触服务被统一使用，而许多商户需要的是相同基础指引。当前证据表明分层反映销售规模，却没有反映生命周期阶段或运营需求，但根因尚未最终确认。我们将结合自助服务流程和基于触发器的专家支持，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "sme-segmentation-recommend",
+      "title": "中小商户分层运营：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to combine self-service journeys with trigger-based specialist support. This directly addresses the evidence that segmentation reflects sales size but not lifecycle stage or operational need. We will track cost-to-serve by segment and scale only if vulnerable or high-risk merchants are not routed away from necessary help.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议结合自助服务流程和基于触发器的专家支持。这直接回应了“分层反映销售规模，却没有反映生命周期阶段或运营需求”这一证据。我们将跟踪分层服务成本，并且只有在脆弱或高风险商户不会被排除在必要帮助之外时才扩大实施。"
+      }
+    },
+    {
+      "id": "sme-segmentation-tradeoff",
+      "title": "中小商户分层运营：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because cost-to-serve by segment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、分层服务成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve cost-to-serve by segment, the evidence shows that segmentation reflects sales size but not lifecycle stage or operational need. We should combine self-service journeys with trigger-based specialist support, but proceed only if vulnerable or high-risk merchants are not routed away from necessary help.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善分层服务成本，但证据表明分层反映销售规模，却没有反映生命周期阶段或运营需求。我们应结合自助服务流程和基于触发器的专家支持，但只有在脆弱或高风险商户不会被排除在必要帮助之外时才继续推进。"
+      }
+    },
+    {
+      "id": "sme-segmentation-disagree",
+      "title": "中小商户分层运营：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that high-touch support is applied uniformly while many merchants need the same basic guidance. I suggest that we combine self-service journeys with trigger-based specialist support, using whether vulnerable or high-risk merchants are not routed away from necessary help as our shared decision rule.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是高接触服务被统一使用，而许多商户需要的是相同基础指引。我建议结合自助服务流程和基于触发器的专家支持，并把“脆弱或高风险商户不会被排除在必要帮助之外”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "sme-segmentation-pilot",
+      "title": "中小商户分层运营：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we combine self-service journeys with trigger-based specialist support.",
+          "Because cost-to-serve by segment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、分层服务成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we combine self-service journeys with trigger-based specialist support. The primary metric is cost-to-serve by segment, and the guardrail is whether vulnerable or high-risk merchants are not routed away from necessary help. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中结合自助服务流程和基于触发器的专家支持。主要指标是分层服务成本，护栏是脆弱或高风险商户不会被排除在必要帮助之外。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "sme-segmentation-executive",
+      "title": "中小商户分层运营：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: high-touch support is applied uniformly while many merchants need the same basic guidance. The likely driver is that segmentation reflects sales size but not lifecycle stage or operational need. I recommend that we combine self-service journeys with trigger-based specialist support; the decision needed today is whether to proceed under the guardrail that vulnerable or high-risk merchants are not routed away from necessary help.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：高接触服务被统一使用，而许多商户需要的是相同基础指引。可能的驱动因素是分层反映销售规模，却没有反映生命周期阶段或运营需求。我建议结合自助服务流程和基于触发器的专家支持；今天需要决定是否在“脆弱或高风险商户不会被排除在必要帮助之外”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "sme-segmentation-negotiate",
+      "title": "中小商户分层运营：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve cost-to-serve by segment.",
+          "Because cost-to-serve by segment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、分层服务成本和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve cost-to-serve by segment. We can be flexible on rollout timing, but we should not compromise the requirement that vulnerable or high-risk merchants are not routed away from necessary help. A workable package is to combine self-service journeys with trigger-based specialist support and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善分层服务成本。我们可以在上线时间上灵活处理，但不能放弃“脆弱或高风险商户不会被排除在必要帮助之外”这一要求。可行的整体方案是结合自助服务流程和基于触发器的专家支持，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "sme-segmentation-interview",
+      "title": "中小商户分层运营：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“中小商户分层运营”场景。已知高接触服务被统一使用，而许多商户需要的是相同基础指引，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、分层服务成本、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that high-touch support is applied uniformly while many merchants need the same basic guidance. I analyzed the operating evidence, identified that segmentation reflects sales size but not lifecycle stage or operational need, and recommended that we combine self-service journeys with trigger-based specialist support. The result created a measurable basis for improving cost-to-serve by segment, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕分层服务成本说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "SME payment operations",
+          "cost-to-serve by segment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是高接触服务被统一使用，而许多商户需要的是相同基础指引。我分析了运营证据，识别出分层反映销售规模，却没有反映生命周期阶段或运营需求，并建议结合自助服务流程和基于触发器的专家支持。结果为改善分层服务成本建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-explain",
+      "title": "平台与市场支付：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Marketplace payments require clear responsibility for onboarding, split funds, refunds, reserves and payouts.",
+          "Because seller payout reliability matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、卖家付款可靠性和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Marketplace payments require clear responsibility for onboarding, split funds, refunds, reserves and payouts. The current signal is that seller growth is accelerating while payout holds and support contacts rise. I recommend that we tier payout controls by seller risk and explain hold reasons with release criteria.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "平台支付需要明确入驻、分账、退款、准备金和付款责任。当前信号是卖家增长加速，但付款冻结和客服咨询同步上升。我建议按卖家风险分层付款控制，并说明冻结原因和释放标准。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-interpret",
+      "title": "平台与市场支付：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline seller payout reliability needs context because seller growth is accelerating while payout holds and support contacts rise. Evidence points to risk rules and payout communication do not reflect seller maturity. Before making a decision, we should segment the data and verify that fund flows and platform obligations remain legally and operationally clear.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "卖家付款可靠性这一核心指标需要结合背景解读，因为卖家增长加速，但付款冻结和客服咨询同步上升。证据表明风险规则和付款沟通没有反映卖家成熟度。在做决定前，我们应细分数据，并确认资金流和平台义务在法律及运营上保持清晰。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-incident",
+      "title": "平台与市场支付：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which seller growth is accelerating while payout holds and support contacts rise.",
+          "Because seller payout reliability matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、卖家付款可靠性和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which seller growth is accelerating while payout holds and support contacts rise. Current evidence points to risk rules and payout communication do not reflect seller maturity, but the root cause is not yet final. We will tier payout controls by seller risk and explain hold reasons with release criteria and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：卖家增长加速，但付款冻结和客服咨询同步上升。当前证据表明风险规则和付款沟通没有反映卖家成熟度，但根因尚未最终确认。我们将按卖家风险分层付款控制，并说明冻结原因和释放标准，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-recommend",
+      "title": "平台与市场支付：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to tier payout controls by seller risk and explain hold reasons with release criteria. This directly addresses the evidence that risk rules and payout communication do not reflect seller maturity. We will track seller payout reliability and scale only if fund flows and platform obligations remain legally and operationally clear.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按卖家风险分层付款控制，并说明冻结原因和释放标准。这直接回应了“风险规则和付款沟通没有反映卖家成熟度”这一证据。我们将跟踪卖家付款可靠性，并且只有在资金流和平台义务在法律及运营上保持清晰时才扩大实施。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-tradeoff",
+      "title": "平台与市场支付：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because seller payout reliability matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、卖家付款可靠性和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve seller payout reliability, the evidence shows that risk rules and payout communication do not reflect seller maturity. We should tier payout controls by seller risk and explain hold reasons with release criteria, but proceed only if fund flows and platform obligations remain legally and operationally clear.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善卖家付款可靠性，但证据表明风险规则和付款沟通没有反映卖家成熟度。我们应按卖家风险分层付款控制，并说明冻结原因和释放标准，但只有在资金流和平台义务在法律及运营上保持清晰时才继续推进。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-disagree",
+      "title": "平台与市场支付：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that seller growth is accelerating while payout holds and support contacts rise. I suggest that we tier payout controls by seller risk and explain hold reasons with release criteria, using whether fund flows and platform obligations remain legally and operationally clear as our shared decision rule.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是卖家增长加速，但付款冻结和客服咨询同步上升。我建议按卖家风险分层付款控制，并说明冻结原因和释放标准，并把“资金流和平台义务在法律及运营上保持清晰”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-pilot",
+      "title": "平台与市场支付：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we tier payout controls by seller risk and explain hold reasons with release criteria.",
+          "Because seller payout reliability matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、卖家付款可靠性和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we tier payout controls by seller risk and explain hold reasons with release criteria. The primary metric is seller payout reliability, and the guardrail is whether fund flows and platform obligations remain legally and operationally clear. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按卖家风险分层付款控制，并说明冻结原因和释放标准。主要指标是卖家付款可靠性，护栏是资金流和平台义务在法律及运营上保持清晰。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-executive",
+      "title": "平台与市场支付：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: seller growth is accelerating while payout holds and support contacts rise. The likely driver is that risk rules and payout communication do not reflect seller maturity. I recommend that we tier payout controls by seller risk and explain hold reasons with release criteria; the decision needed today is whether to proceed under the guardrail that fund flows and platform obligations remain legally and operationally clear.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：卖家增长加速，但付款冻结和客服咨询同步上升。可能的驱动因素是风险规则和付款沟通没有反映卖家成熟度。我建议按卖家风险分层付款控制，并说明冻结原因和释放标准；今天需要决定是否在“资金流和平台义务在法律及运营上保持清晰”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-negotiate",
+      "title": "平台与市场支付：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve seller payout reliability.",
+          "Because seller payout reliability matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、卖家付款可靠性和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve seller payout reliability. We can be flexible on rollout timing, but we should not compromise the requirement that fund flows and platform obligations remain legally and operationally clear. A workable package is to tier payout controls by seller risk and explain hold reasons with release criteria and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善卖家付款可靠性。我们可以在上线时间上灵活处理，但不能放弃“资金流和平台义务在法律及运营上保持清晰”这一要求。可行的整体方案是按卖家风险分层付款控制，并说明冻结原因和释放标准，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "platform-marketplaces-interview",
+      "title": "平台与市场支付：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“平台与市场支付”场景。已知卖家增长加速，但付款冻结和客服咨询同步上升，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、卖家付款可靠性、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that seller growth is accelerating while payout holds and support contacts rise. I analyzed the operating evidence, identified that risk rules and payout communication do not reflect seller maturity, and recommended that we tier payout controls by seller risk and explain hold reasons with release criteria. The result created a measurable basis for improving seller payout reliability, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕卖家付款可靠性说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Marketplace payments require",
+          "seller payout reliability",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是卖家增长加速，但付款冻结和客服咨询同步上升。我分析了运营证据，识别出风险规则和付款沟通没有反映卖家成熟度，并建议按卖家风险分层付款控制，并说明冻结原因和释放标准。结果为改善卖家付款可靠性建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "incident-management-explain",
+      "title": "支付事故管理：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Payment incident management prioritizes customer containment, truthful communication and controlled recovery.",
+          "Because customer-impact minutes matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、客户受影响分钟数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment incident management prioritizes customer containment, truthful communication and controlled recovery. The current signal is that payment failures are rising across two providers and the root cause is not yet confirmed. I recommend that we contain affected traffic, open a command channel and publish timed fact-based updates.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付事故管理优先考虑客户止损、真实沟通和受控恢复。当前信号是两家服务商的支付失败正在上升，根因尚未确认。我建议隔离受影响流量、建立指挥频道并定时发布基于事实的更新。"
+      }
+    },
+    {
+      "id": "incident-management-interpret",
+      "title": "支付事故管理：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline customer-impact minutes needs context because payment failures are rising across two providers and the root cause is not yet confirmed. Evidence points to a shared dependency is suspected but provider-specific evidence is incomplete. Before making a decision, we should segment the data and verify that recovery changes are reversible and do not create duplicate financial events.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "客户受影响分钟数这一核心指标需要结合背景解读，因为两家服务商的支付失败正在上升，根因尚未确认。证据表明疑似共同依赖出现问题，但服务商层面的证据不完整。在做决定前，我们应细分数据，并确认恢复变更可回退，且不会造成重复资金事件。"
+      }
+    },
+    {
+      "id": "incident-management-incident",
+      "title": "支付事故管理：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which payment failures are rising across two providers and the root cause is not yet confirmed.",
+          "Because customer-impact minutes matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、客户受影响分钟数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which payment failures are rising across two providers and the root cause is not yet confirmed. Current evidence points to a shared dependency is suspected but provider-specific evidence is incomplete, but the root cause is not yet final. We will contain affected traffic, open a command channel and publish timed fact-based updates and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：两家服务商的支付失败正在上升，根因尚未确认。当前证据表明疑似共同依赖出现问题，但服务商层面的证据不完整，但根因尚未最终确认。我们将隔离受影响流量、建立指挥频道并定时发布基于事实的更新，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "incident-management-recommend",
+      "title": "支付事故管理：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to contain affected traffic, open a command channel and publish timed fact-based updates. This directly addresses the evidence that a shared dependency is suspected but provider-specific evidence is incomplete. We will track customer-impact minutes and scale only if recovery changes are reversible and do not create duplicate financial events.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议隔离受影响流量、建立指挥频道并定时发布基于事实的更新。这直接回应了“疑似共同依赖出现问题，但服务商层面的证据不完整”这一证据。我们将跟踪客户受影响分钟数，并且只有在恢复变更可回退，且不会造成重复资金事件时才扩大实施。"
+      }
+    },
+    {
+      "id": "incident-management-tradeoff",
+      "title": "支付事故管理：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because customer-impact minutes matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、客户受影响分钟数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve customer-impact minutes, the evidence shows that a shared dependency is suspected but provider-specific evidence is incomplete. We should contain affected traffic, open a command channel and publish timed fact-based updates, but proceed only if recovery changes are reversible and do not create duplicate financial events.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善客户受影响分钟数，但证据表明疑似共同依赖出现问题，但服务商层面的证据不完整。我们应隔离受影响流量、建立指挥频道并定时发布基于事实的更新，但只有在恢复变更可回退，且不会造成重复资金事件时才继续推进。"
+      }
+    },
+    {
+      "id": "incident-management-disagree",
+      "title": "支付事故管理：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that payment failures are rising across two providers and the root cause is not yet confirmed. I suggest that we contain affected traffic, open a command channel and publish timed fact-based updates, using whether recovery changes are reversible and do not create duplicate financial events as our shared decision rule.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是两家服务商的支付失败正在上升，根因尚未确认。我建议隔离受影响流量、建立指挥频道并定时发布基于事实的更新，并把“恢复变更可回退，且不会造成重复资金事件”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "incident-management-pilot",
+      "title": "支付事故管理：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we contain affected traffic, open a command channel and publish timed fact-based updates.",
+          "Because customer-impact minutes matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、客户受影响分钟数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we contain affected traffic, open a command channel and publish timed fact-based updates. The primary metric is customer-impact minutes, and the guardrail is whether recovery changes are reversible and do not create duplicate financial events. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中隔离受影响流量、建立指挥频道并定时发布基于事实的更新。主要指标是客户受影响分钟数，护栏是恢复变更可回退，且不会造成重复资金事件。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "incident-management-executive",
+      "title": "支付事故管理：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: payment failures are rising across two providers and the root cause is not yet confirmed. The likely driver is that a shared dependency is suspected but provider-specific evidence is incomplete. I recommend that we contain affected traffic, open a command channel and publish timed fact-based updates; the decision needed today is whether to proceed under the guardrail that recovery changes are reversible and do not create duplicate financial events.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：两家服务商的支付失败正在上升，根因尚未确认。可能的驱动因素是疑似共同依赖出现问题，但服务商层面的证据不完整。我建议隔离受影响流量、建立指挥频道并定时发布基于事实的更新；今天需要决定是否在“恢复变更可回退，且不会造成重复资金事件”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "incident-management-negotiate",
+      "title": "支付事故管理：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve customer-impact minutes.",
+          "Because customer-impact minutes matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、客户受影响分钟数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve customer-impact minutes. We can be flexible on rollout timing, but we should not compromise the requirement that recovery changes are reversible and do not create duplicate financial events. A workable package is to contain affected traffic, open a command channel and publish timed fact-based updates and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善客户受影响分钟数。我们可以在上线时间上灵活处理，但不能放弃“恢复变更可回退，且不会造成重复资金事件”这一要求。可行的整体方案是隔离受影响流量、建立指挥频道并定时发布基于事实的更新，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "incident-management-interview",
+      "title": "支付事故管理：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付事故管理”场景。已知两家服务商的支付失败正在上升，根因尚未确认，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、客户受影响分钟数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that payment failures are rising across two providers and the root cause is not yet confirmed. I analyzed the operating evidence, identified that a shared dependency is suspected but provider-specific evidence is incomplete, and recommended that we contain affected traffic, open a command channel and publish timed fact-based updates. The result created a measurable basis for improving customer-impact minutes, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕客户受影响分钟数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment incident management",
+          "customer-impact minutes",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是两家服务商的支付失败正在上升，根因尚未确认。我分析了运营证据，识别出疑似共同依赖出现问题，但服务商层面的证据不完整，并建议隔离受影响流量、建立指挥频道并定时发布基于事实的更新。结果为改善客户受影响分钟数建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "regulatory-change-explain",
+      "title": "监管变化落地：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Regulatory implementation translates legal interpretation into owned product and operating controls.",
+          "Because regulatory readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、监管准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Regulatory implementation translates legal interpretation into owned product and operating controls. The current signal is that a new authentication rule takes effect in ninety days but product scope remains disputed. I recommend that we create a requirement-to-control matrix with legal sign-off and launch evidence.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "监管落地需要把法律解释转化为有负责人的产品和运营控制。当前信号是新的身份验证规则将在九十天后生效，但产品范围仍有争议。我建议建立从要求到控制的矩阵，并包含法务签字和上线证据。"
+      }
+    },
+    {
+      "id": "regulatory-change-interpret",
+      "title": "监管变化落地：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline regulatory readiness needs context because a new authentication rule takes effect in ninety days but product scope remains disputed. Evidence points to legal requirements have not been converted into testable business scenarios. Before making a decision, we should segment the data and verify that no mandatory obligation is treated as an optional product trade-off.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "监管准备度这一核心指标需要结合背景解读，因为新的身份验证规则将在九十天后生效，但产品范围仍有争议。证据表明法律要求尚未转化为可测试的业务场景。在做决定前，我们应细分数据，并确认任何强制义务都不会被当作可选产品取舍。"
+      }
+    },
+    {
+      "id": "regulatory-change-incident",
+      "title": "监管变化落地：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which a new authentication rule takes effect in ninety days but product scope remains disputed.",
+          "Because regulatory readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、监管准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a new authentication rule takes effect in ninety days but product scope remains disputed. Current evidence points to legal requirements have not been converted into testable business scenarios, but the root cause is not yet final. We will create a requirement-to-control matrix with legal sign-off and launch evidence and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：新的身份验证规则将在九十天后生效，但产品范围仍有争议。当前证据表明法律要求尚未转化为可测试的业务场景，但根因尚未最终确认。我们将建立从要求到控制的矩阵，并包含法务签字和上线证据，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "regulatory-change-recommend",
+      "title": "监管变化落地：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to create a requirement-to-control matrix with legal sign-off and launch evidence. This directly addresses the evidence that legal requirements have not been converted into testable business scenarios. We will track regulatory readiness and scale only if no mandatory obligation is treated as an optional product trade-off.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议建立从要求到控制的矩阵，并包含法务签字和上线证据。这直接回应了“法律要求尚未转化为可测试的业务场景”这一证据。我们将跟踪监管准备度，并且只有在任何强制义务都不会被当作可选产品取舍时才扩大实施。"
+      }
+    },
+    {
+      "id": "regulatory-change-tradeoff",
+      "title": "监管变化落地：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because regulatory readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、监管准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve regulatory readiness, the evidence shows that legal requirements have not been converted into testable business scenarios. We should create a requirement-to-control matrix with legal sign-off and launch evidence, but proceed only if no mandatory obligation is treated as an optional product trade-off.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善监管准备度，但证据表明法律要求尚未转化为可测试的业务场景。我们应建立从要求到控制的矩阵，并包含法务签字和上线证据，但只有在任何强制义务都不会被当作可选产品取舍时才继续推进。"
+      }
+    },
+    {
+      "id": "regulatory-change-disagree",
+      "title": "监管变化落地：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a new authentication rule takes effect in ninety days but product scope remains disputed. I suggest that we create a requirement-to-control matrix with legal sign-off and launch evidence, using whether no mandatory obligation is treated as an optional product trade-off as our shared decision rule.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是新的身份验证规则将在九十天后生效，但产品范围仍有争议。我建议建立从要求到控制的矩阵，并包含法务签字和上线证据，并把“任何强制义务都不会被当作可选产品取舍”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "regulatory-change-pilot",
+      "title": "监管变化落地：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we create a requirement-to-control matrix with legal sign-off and launch evidence.",
+          "Because regulatory readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、监管准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we create a requirement-to-control matrix with legal sign-off and launch evidence. The primary metric is regulatory readiness, and the guardrail is whether no mandatory obligation is treated as an optional product trade-off. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中建立从要求到控制的矩阵，并包含法务签字和上线证据。主要指标是监管准备度，护栏是任何强制义务都不会被当作可选产品取舍。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "regulatory-change-executive",
+      "title": "监管变化落地：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a new authentication rule takes effect in ninety days but product scope remains disputed. The likely driver is that legal requirements have not been converted into testable business scenarios. I recommend that we create a requirement-to-control matrix with legal sign-off and launch evidence; the decision needed today is whether to proceed under the guardrail that no mandatory obligation is treated as an optional product trade-off.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：新的身份验证规则将在九十天后生效，但产品范围仍有争议。可能的驱动因素是法律要求尚未转化为可测试的业务场景。我建议建立从要求到控制的矩阵，并包含法务签字和上线证据；今天需要决定是否在“任何强制义务都不会被当作可选产品取舍”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "regulatory-change-negotiate",
+      "title": "监管变化落地：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve regulatory readiness.",
+          "Because regulatory readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、监管准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve regulatory readiness. We can be flexible on rollout timing, but we should not compromise the requirement that no mandatory obligation is treated as an optional product trade-off. A workable package is to create a requirement-to-control matrix with legal sign-off and launch evidence and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善监管准备度。我们可以在上线时间上灵活处理，但不能放弃“任何强制义务都不会被当作可选产品取舍”这一要求。可行的整体方案是建立从要求到控制的矩阵，并包含法务签字和上线证据，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "regulatory-change-interview",
+      "title": "监管变化落地：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“监管变化落地”场景。已知新的身份验证规则将在九十天后生效，但产品范围仍有争议，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、监管准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a new authentication rule takes effect in ninety days but product scope remains disputed. I analyzed the operating evidence, identified that legal requirements have not been converted into testable business scenarios, and recommended that we create a requirement-to-control matrix with legal sign-off and launch evidence. The result created a measurable basis for improving regulatory readiness, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕监管准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Regulatory implementation translates",
+          "regulatory readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是新的身份验证规则将在九十天后生效，但产品范围仍有争议。我分析了运营证据，识别出法律要求尚未转化为可测试的业务场景，并建议建立从要求到控制的矩阵，并包含法务签字和上线证据。结果为改善监管准备度建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "partner-management-explain",
+      "title": "支付合作方管理：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment partner management combines performance evidence, governance, incentives and credible alternatives.",
+          "Because partner service-level attainment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、合作方服务水平达成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment partner management combines performance evidence, governance, incentives and credible alternatives. The current signal is that a provider misses latency targets repeatedly but offers only informal recovery promises. I recommend that we issue a documented remediation plan with milestones, consequences and fallback capacity.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付合作方管理结合绩效证据、治理、激励和可信替代方案。当前信号是一家服务商多次未达到延迟目标，却只提供非正式恢复承诺。我建议发布包含里程碑、后果和备选容量的书面整改计划。"
+      }
+    },
+    {
+      "id": "partner-management-interpret",
+      "title": "支付合作方管理：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline partner service-level attainment needs context because a provider misses latency targets repeatedly but offers only informal recovery promises. Evidence points to reviews discuss incidents individually without enforcing the contracted improvement process. Before making a decision, we should segment the data and verify that traffic concentration does not prevent an orderly provider exit.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "合作方服务水平达成率这一核心指标需要结合背景解读，因为一家服务商多次未达到延迟目标，却只提供非正式恢复承诺。证据表明复盘逐个讨论事故，却没有执行合同约定的改进流程。在做决定前，我们应细分数据，并确认流量集中不会阻碍有序退出服务商。"
+      }
+    },
+    {
+      "id": "partner-management-incident",
+      "title": "支付合作方管理：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a provider misses latency targets repeatedly but offers only informal recovery promises.",
+          "Because partner service-level attainment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、合作方服务水平达成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a provider misses latency targets repeatedly but offers only informal recovery promises. Current evidence points to reviews discuss incidents individually without enforcing the contracted improvement process, but the root cause is not yet final. We will issue a documented remediation plan with milestones, consequences and fallback capacity and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：一家服务商多次未达到延迟目标，却只提供非正式恢复承诺。当前证据表明复盘逐个讨论事故，却没有执行合同约定的改进流程，但根因尚未最终确认。我们将发布包含里程碑、后果和备选容量的书面整改计划，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "partner-management-recommend",
+      "title": "支付合作方管理：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to issue a documented remediation plan with milestones, consequences and fallback capacity. This directly addresses the evidence that reviews discuss incidents individually without enforcing the contracted improvement process. We will track partner service-level attainment and scale only if traffic concentration does not prevent an orderly provider exit.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议发布包含里程碑、后果和备选容量的书面整改计划。这直接回应了“复盘逐个讨论事故，却没有执行合同约定的改进流程”这一证据。我们将跟踪合作方服务水平达成率，并且只有在流量集中不会阻碍有序退出服务商时才扩大实施。"
+      }
+    },
+    {
+      "id": "partner-management-tradeoff",
+      "title": "支付合作方管理：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because partner service-level attainment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、合作方服务水平达成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve partner service-level attainment, the evidence shows that reviews discuss incidents individually without enforcing the contracted improvement process. We should issue a documented remediation plan with milestones, consequences and fallback capacity, but proceed only if traffic concentration does not prevent an orderly provider exit.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善合作方服务水平达成率，但证据表明复盘逐个讨论事故，却没有执行合同约定的改进流程。我们应发布包含里程碑、后果和备选容量的书面整改计划，但只有在流量集中不会阻碍有序退出服务商时才继续推进。"
+      }
+    },
+    {
+      "id": "partner-management-disagree",
+      "title": "支付合作方管理：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a provider misses latency targets repeatedly but offers only informal recovery promises. I suggest that we issue a documented remediation plan with milestones, consequences and fallback capacity, using whether traffic concentration does not prevent an orderly provider exit as our shared decision rule.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是一家服务商多次未达到延迟目标，却只提供非正式恢复承诺。我建议发布包含里程碑、后果和备选容量的书面整改计划，并把“流量集中不会阻碍有序退出服务商”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "partner-management-pilot",
+      "title": "支付合作方管理：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we issue a documented remediation plan with milestones, consequences and fallback capacity.",
+          "Because partner service-level attainment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、合作方服务水平达成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we issue a documented remediation plan with milestones, consequences and fallback capacity. The primary metric is partner service-level attainment, and the guardrail is whether traffic concentration does not prevent an orderly provider exit. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中发布包含里程碑、后果和备选容量的书面整改计划。主要指标是合作方服务水平达成率，护栏是流量集中不会阻碍有序退出服务商。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "partner-management-executive",
+      "title": "支付合作方管理：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a provider misses latency targets repeatedly but offers only informal recovery promises. The likely driver is that reviews discuss incidents individually without enforcing the contracted improvement process. I recommend that we issue a documented remediation plan with milestones, consequences and fallback capacity; the decision needed today is whether to proceed under the guardrail that traffic concentration does not prevent an orderly provider exit.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：一家服务商多次未达到延迟目标，却只提供非正式恢复承诺。可能的驱动因素是复盘逐个讨论事故，却没有执行合同约定的改进流程。我建议发布包含里程碑、后果和备选容量的书面整改计划；今天需要决定是否在“流量集中不会阻碍有序退出服务商”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "partner-management-negotiate",
+      "title": "支付合作方管理：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve partner service-level attainment.",
+          "Because partner service-level attainment matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、合作方服务水平达成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve partner service-level attainment. We can be flexible on rollout timing, but we should not compromise the requirement that traffic concentration does not prevent an orderly provider exit. A workable package is to issue a documented remediation plan with milestones, consequences and fallback capacity and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善合作方服务水平达成率。我们可以在上线时间上灵活处理，但不能放弃“流量集中不会阻碍有序退出服务商”这一要求。可行的整体方案是发布包含里程碑、后果和备选容量的书面整改计划，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "partner-management-interview",
+      "title": "支付合作方管理：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付合作方管理”场景。已知一家服务商多次未达到延迟目标，却只提供非正式恢复承诺，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、合作方服务水平达成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a provider misses latency targets repeatedly but offers only informal recovery promises. I analyzed the operating evidence, identified that reviews discuss incidents individually without enforcing the contracted improvement process, and recommended that we issue a documented remediation plan with milestones, consequences and fallback capacity. The result created a measurable basis for improving partner service-level attainment, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕合作方服务水平达成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment partner management",
+          "partner service-level attainment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是一家服务商多次未达到延迟目标，却只提供非正式恢复承诺。我分析了运营证据，识别出复盘逐个讨论事故，却没有执行合同约定的改进流程，并建议发布包含里程碑、后果和备选容量的书面整改计划。结果为改善合作方服务水平达成率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}

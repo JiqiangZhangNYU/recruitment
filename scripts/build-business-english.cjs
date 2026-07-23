@@ -13,12 +13,11 @@ const legacyQuestionIds = {
   interview: ["self-introduction", "star-payment-project", "failure-story", "why-role", "project-recap-questions"],
 };
 
-const originalLevels = new Map(source.levels.map((level) => [level.id, level]));
+const sourceQuestions = source.levels.flatMap((level) => level.questions);
 const originalQuestions = new Map();
 Object.entries(legacyQuestionIds).forEach(([levelId, ids]) => {
-  const level = originalLevels.get(levelId);
   ids.forEach((id) => {
-    const question = level?.questions.find((item) => item.id === id);
+    const question = sourceQuestions.find((item) => item.id === id);
     if (!question) throw new Error(`Missing legacy question: ${levelId}/${id}`);
     originalQuestions.set(id, question);
   });
@@ -595,16 +594,8 @@ function makeGeneratedQuestion(topic, archetype, index) {
   };
 }
 
-const trackByDifficulty = {
-  1: "基础表达",
-  2: "运营沟通",
-  3: "复杂协作",
-  4: "策略设计",
-  5: "高阶决策",
-};
-
 const translations = {};
-const levels = topics.map((topic, levelIndex) => {
+const topicQuestionGroups = topics.map((topic) => {
   const legacyIds = legacyQuestionIds[topic.id] || [];
   const legacyQuestions = legacyIds.map((id) => ({ ...originalQuestions.get(id), difficulty: topic.difficulty }));
   const generatedCount = 10 - legacyQuestions.length;
@@ -617,22 +608,42 @@ const levels = topics.map((topic, levelIndex) => {
     translations[question.id] = translation;
     delete question.translation;
   });
-  const original = originalLevels.get(topic.id);
+  return { topic, questions };
+});
+
+const themes = [
+  { id: "payment-basics", title: "支付与商务表达基础", track: "基础表达", difficulty: 1 },
+  { id: "payment-operations-foundations", title: "支付链路与商户基础", track: "支付基础", difficulty: 1 },
+  { id: "business-analysis-communication", title: "数据汇报与商务协作", track: "运营沟通", difficulty: 2 },
+  { id: "payment-performance-operations", title: "支付成功率与日常运营", track: "支付运营", difficulty: 2 },
+  { id: "cross-functional-risk-communication", title: "跨团队协作与客户沟通", track: "复杂协作", difficulty: 3 },
+  { id: "risk-economics-operations", title: "风控、验证与支付经济", track: "风险经营", difficulty: 3 },
+  { id: "market-commercial-strategy", title: "市场进入与商业策略", track: "策略设计", difficulty: 4 },
+  { id: "scaled-merchant-governance", title: "规模化经营与合规治理", track: "经营治理", difficulty: 4 },
+  { id: "advanced-payment-strategy", title: "高阶支付与资金战略", track: "高阶策略", difficulty: 5 },
+  { id: "interview", title: "高管决策、谈判与英文面试", track: "综合实战", difficulty: 5 },
+];
+
+const levels = themes.map((theme, themeIndex) => {
+  const groups = topicQuestionGroups.slice(themeIndex * 5, themeIndex * 5 + 5);
+  const topicTitles = groups.map(({ topic }) => topic.title);
+  const questions = groups.flatMap((group) => group.questions);
   return {
-    id: topic.id,
-    title: topic.title,
-    subtitle: `在${topic.title}场景中练习准确表达与业务判断`,
-    objective: `能够用清晰英文解释${topic.title}问题，并提出有证据、指标和护栏的行动建议。`,
-    chapter: `第 ${levelIndex + 1} 关 · ${trackByDifficulty[topic.difficulty]}`,
-    story: `你需要围绕${topic.title}完成十次工作沟通，从理解事实推进到形成可执行决策。`,
-    difficulty: topic.difficulty,
-    reward: original?.reward || {
-      title: `${topic.title}表达卡`,
+    id: theme.id,
+    title: theme.title,
+    topicIds: groups.map(({ topic }) => topic.id),
+    subtitle: topicTitles.join(" · "),
+    objective: `能够围绕${topicTitles.join("、")}，用清晰英文完成事实解释、经营判断和行动建议。`,
+    chapter: `第 ${themeIndex + 1} 关 · ${theme.track}`,
+    story: `本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。`,
+    difficulty: theme.difficulty,
+    reward: {
+      title: `${theme.title}表达卡`,
       description: "完成本关后，可复用以下表达结构。",
       items: [
-        `The primary metric is ${topic.metric[0]}.`,
-        `I recommend that we ${topic.action[0]}.`,
-        `We should scale only if ${topic.guardrail[0]}.`,
+        `The primary metric is ${groups[0].topic.metric[0]}.`,
+        `I recommend that we ${groups[2].topic.action[0]}.`,
+        `We should scale only if ${groups[4].topic.guardrail[0]}.`,
       ],
     },
     questions,
@@ -640,14 +651,65 @@ const levels = topics.map((topic, levelIndex) => {
 });
 
 const pack = {
-  version: 4,
+  version: 5,
   skillId: "business-english",
   title: "业务英语闯关",
-  summary: "500 道分级客观题，以支付业务策略运营为主线，并覆盖邮件、会议、汇报、谈判、跨区域协作和英文面试。每题都标记难度，可直接查看英文参考答案及中文翻译。",
+  summary: "500 道分级客观题归入 10 个主题关卡，每关 50 题。内容以支付业务策略运营为主线，并覆盖邮件、会议、汇报、谈判、跨区域协作和英文面试。",
   story: "从基础支付表达开始，逐步处理经营分析、商户运营、风险定价、市场策略与高层决策，在真实业务情境中建立可调用的英文表达。",
+  ui: { compact: true, modeLabels: { warmup: "单选题", arrange: "句子排序" } },
   levels,
   translations,
 };
 
 fs.writeFileSync(packPath, `${JSON.stringify(pack, null, 2)}\n`);
+
+const challengeDir = path.join(__dirname, "..", "challenges", "business-english");
+const levelDir = path.join(challengeDir, "levels");
+fs.mkdirSync(levelDir, { recursive: true });
+
+const runtimeLevels = levels.map((level) => ({
+  ...level,
+  questions: level.questions.map((question) => ({
+    ...question,
+    answer: { ...question.answer, translation: translations[question.id] },
+  })),
+}));
+runtimeLevels.forEach((level) => {
+  fs.writeFileSync(path.join(levelDir, `${level.id}.json`), `${JSON.stringify({
+    version: pack.version,
+    skillId: pack.skillId,
+    ...level,
+  }, null, 2)}\n`);
+});
+
+const manifest = {
+  version: pack.version,
+  skillId: pack.skillId,
+  title: pack.title,
+  summary: pack.summary,
+  story: pack.story,
+  ui: pack.ui,
+  chunked: true,
+  levels: runtimeLevels.map((level) => ({
+    id: level.id,
+    title: level.title,
+    subtitle: level.subtitle,
+    objective: level.objective,
+    chapter: level.chapter,
+    story: level.story,
+    difficulty: level.difficulty,
+    topicIds: level.topicIds,
+    reward: level.reward,
+    file: `challenges/business-english/levels/${level.id}.json`,
+    questions: level.questions.map((question) => ({
+      id: question.id,
+      title: question.title,
+      type: question.type,
+      difficulty: question.difficulty,
+      activity: question.activity?.mode ? { mode: question.activity.mode } : undefined,
+    })),
+  })),
+};
+fs.writeFileSync(path.join(challengeDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+
 console.log(`Generated ${levels.length} levels and ${levels.flatMap((level) => level.questions).length} questions.`);

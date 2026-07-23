@@ -1,0 +1,1529 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "payment-operations-foundations",
+  "title": "支付链路与商户基础",
+  "topicIds": [
+    "checkout-payments",
+    "card-payment-flow",
+    "refund-dispute-ops",
+    "merchant-onboarding",
+    "pricing-fees-basics"
+  ],
+  "subtitle": "收银台与支付方式 · 银行卡支付链路 · 退款与争议运营 · 商户入驻 · 费率与账单基础",
+  "objective": "能够围绕收银台与支付方式、银行卡支付链路、退款与争议运营、商户入驻、费率与账单基础，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 2 关 · 支付基础",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 1,
+  "reward": {
+    "title": "支付链路与商户基础表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is checkout completion rate.",
+      "I recommend that we route cases by initiator, reason code, evidence deadline and financial exposure.",
+      "We should scale only if every charged item can be traced to the signed commercial terms."
+    ]
+  },
+  "questions": [
+    {
+      "id": "checkout-payments-explain",
+      "title": "收银台与支付方式：准确解释",
+      "type": "概念表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because checkout completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Checkout design balances payment-method relevance, speed and customer trust."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、收银台完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Checkout design balances payment-method relevance, speed and customer trust. The current signal is that mobile customers abandon after seeing a long unranked list of payment methods. I recommend that we rank eligible methods by local usage while keeping fees and terms transparent.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "收银台设计需要平衡支付方式相关性、速度和客户信任。当前信号是移动端客户看到冗长且未排序的支付方式列表后流失。我建议按本地使用情况排列可用支付方式，同时透明展示费用和条款。"
+      }
+    },
+    {
+      "id": "checkout-payments-interpret",
+      "title": "收银台与支付方式：解读指标",
+      "type": "数据表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline checkout completion rate needs context because mobile customers abandon after seeing a long unranked list of payment methods. Evidence points to the same payment-method order is shown to every market and device. Before making a decision, we should segment the data and verify that complaints and payment-method errors do not increase.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "收银台完成率这一核心指标需要结合背景解读，因为移动端客户看到冗长且未排序的支付方式列表后流失。证据表明所有市场和设备使用相同的支付方式排序。在做决定前，我们应细分数据，并确认投诉和支付方式错误不增加。"
+      }
+    },
+    {
+      "id": "checkout-payments-incident",
+      "title": "收银台与支付方式：事故更新",
+      "type": "状态沟通",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because checkout completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which mobile customers abandon after seeing a long unranked list of payment methods."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、收银台完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which mobile customers abandon after seeing a long unranked list of payment methods. Current evidence points to the same payment-method order is shown to every market and device, but the root cause is not yet final. We will rank eligible methods by local usage while keeping fees and terms transparent and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：移动端客户看到冗长且未排序的支付方式列表后流失。当前证据表明所有市场和设备使用相同的支付方式排序，但根因尚未最终确认。我们将按本地使用情况排列可用支付方式，同时透明展示费用和条款，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "checkout-payments-recommend",
+      "title": "收银台与支付方式：提出建议",
+      "type": "策略表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to rank eligible methods by local usage while keeping fees and terms transparent. This directly addresses the evidence that the same payment-method order is shown to every market and device. We will track checkout completion rate and scale only if complaints and payment-method errors do not increase.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按本地使用情况排列可用支付方式，同时透明展示费用和条款。这直接回应了“所有市场和设备使用相同的支付方式排序”这一证据。我们将跟踪收银台完成率，并且只有在投诉和支付方式错误不增加时才扩大实施。"
+      }
+    },
+    {
+      "id": "checkout-payments-tradeoff",
+      "title": "收银台与支付方式：说明取舍",
+      "type": "决策表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because checkout completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、收银台完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve checkout completion rate, the evidence shows that the same payment-method order is shown to every market and device. We should rank eligible methods by local usage while keeping fees and terms transparent, but proceed only if complaints and payment-method errors do not increase.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善收银台完成率，但证据表明所有市场和设备使用相同的支付方式排序。我们应按本地使用情况排列可用支付方式，同时透明展示费用和条款，但只有在投诉和支付方式错误不增加时才继续推进。"
+      }
+    },
+    {
+      "id": "checkout-payments-disagree",
+      "title": "收银台与支付方式：回应异议",
+      "type": "会议表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that mobile customers abandon after seeing a long unranked list of payment methods. I suggest that we rank eligible methods by local usage while keeping fees and terms transparent, using whether complaints and payment-method errors do not increase as our shared decision rule.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是移动端客户看到冗长且未排序的支付方式列表后流失。我建议按本地使用情况排列可用支付方式，同时透明展示费用和条款，并把“投诉和支付方式错误不增加”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "checkout-payments-pilot",
+      "title": "收银台与支付方式：设计试点",
+      "type": "实验表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because checkout completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we rank eligible methods by local usage while keeping fees and terms transparent."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、收银台完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we rank eligible methods by local usage while keeping fees and terms transparent. The primary metric is checkout completion rate, and the guardrail is whether complaints and payment-method errors do not increase. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按本地使用情况排列可用支付方式，同时透明展示费用和条款。主要指标是收银台完成率，护栏是投诉和支付方式错误不增加。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "checkout-payments-executive",
+      "title": "收银台与支付方式：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: mobile customers abandon after seeing a long unranked list of payment methods. The likely driver is that the same payment-method order is shown to every market and device. I recommend that we rank eligible methods by local usage while keeping fees and terms transparent; the decision needed today is whether to proceed under the guardrail that complaints and payment-method errors do not increase.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：移动端客户看到冗长且未排序的支付方式列表后流失。可能的驱动因素是所有市场和设备使用相同的支付方式排序。我建议按本地使用情况排列可用支付方式，同时透明展示费用和条款；今天需要决定是否在“投诉和支付方式错误不增加”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "checkout-payments-negotiate",
+      "title": "收银台与支付方式：协商边界",
+      "type": "谈判表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because checkout completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve checkout completion rate."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、收银台完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve checkout completion rate. We can be flexible on rollout timing, but we should not compromise the requirement that complaints and payment-method errors do not increase. A workable package is to rank eligible methods by local usage while keeping fees and terms transparent and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善收银台完成率。我们可以在上线时间上灵活处理，但不能放弃“投诉和支付方式错误不增加”这一要求。可行的整体方案是按本地使用情况排列可用支付方式，同时透明展示费用和条款，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "checkout-payments-interview",
+      "title": "收银台与支付方式：面试复盘",
+      "type": "案例表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收银台与支付方式”场景。已知移动端客户看到冗长且未排序的支付方式列表后流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、收银台完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that mobile customers abandon after seeing a long unranked list of payment methods. I analyzed the operating evidence, identified that the same payment-method order is shown to every market and device, and recommended that we rank eligible methods by local usage while keeping fees and terms transparent. The result created a measurable basis for improving checkout completion rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕收银台完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Checkout design balances",
+          "checkout completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是移动端客户看到冗长且未排序的支付方式列表后流失。我分析了运营证据，识别出所有市场和设备使用相同的支付方式排序，并建议按本地使用情况排列可用支付方式，同时透明展示费用和条款。结果为改善收银台完成率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "card-payment-flow-explain",
+      "title": "银行卡支付链路：准确解释",
+      "type": "概念表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Card payments depend on coordinated messages across the merchant, PSP, acquirer, network and issuer.",
+          "Because end-to-end payment success matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、端到端支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Card payments depend on coordinated messages across the merchant, PSP, acquirer, network and issuer. The current signal is that the PSP reports successful submission while merchants still see an unusual number of failed orders. I recommend that we map every response code to the exact payment stage and merchant-facing status.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "银行卡支付依赖商户、支付服务商、收单行、卡组织和发卡行之间的协同信息流。当前信号是支付服务商报告提交成功，但商户仍看到异常多的失败订单。我建议把每个响应码映射到准确的支付阶段和商户状态。"
+      }
+    },
+    {
+      "id": "card-payment-flow-interpret",
+      "title": "银行卡支付链路：解读指标",
+      "type": "数据表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline end-to-end payment success needs context because the PSP reports successful submission while merchants still see an unusual number of failed orders. Evidence points to technical receipt is being confused with issuer approval and final order confirmation. Before making a decision, we should segment the data and verify that no order is fulfilled before the required payment confirmation.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "端到端支付成功率这一核心指标需要结合背景解读，因为支付服务商报告提交成功，但商户仍看到异常多的失败订单。证据表明技术接收被误当成发卡行批准和最终订单确认。在做决定前，我们应细分数据，并确认任何订单都不会在获得所需支付确认前履约。"
+      }
+    },
+    {
+      "id": "card-payment-flow-incident",
+      "title": "银行卡支付链路：事故更新",
+      "type": "状态沟通",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which the PSP reports successful submission while merchants still see an unusual number of failed orders.",
+          "Because end-to-end payment success matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、端到端支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which the PSP reports successful submission while merchants still see an unusual number of failed orders. Current evidence points to technical receipt is being confused with issuer approval and final order confirmation, but the root cause is not yet final. We will map every response code to the exact payment stage and merchant-facing status and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：支付服务商报告提交成功，但商户仍看到异常多的失败订单。当前证据表明技术接收被误当成发卡行批准和最终订单确认，但根因尚未最终确认。我们将把每个响应码映射到准确的支付阶段和商户状态，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "card-payment-flow-recommend",
+      "title": "银行卡支付链路：提出建议",
+      "type": "策略表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to map every response code to the exact payment stage and merchant-facing status. This directly addresses the evidence that technical receipt is being confused with issuer approval and final order confirmation. We will track end-to-end payment success and scale only if no order is fulfilled before the required payment confirmation.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议把每个响应码映射到准确的支付阶段和商户状态。这直接回应了“技术接收被误当成发卡行批准和最终订单确认”这一证据。我们将跟踪端到端支付成功率，并且只有在任何订单都不会在获得所需支付确认前履约时才扩大实施。"
+      }
+    },
+    {
+      "id": "card-payment-flow-tradeoff",
+      "title": "银行卡支付链路：说明取舍",
+      "type": "决策表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because end-to-end payment success matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、端到端支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve end-to-end payment success, the evidence shows that technical receipt is being confused with issuer approval and final order confirmation. We should map every response code to the exact payment stage and merchant-facing status, but proceed only if no order is fulfilled before the required payment confirmation.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善端到端支付成功率，但证据表明技术接收被误当成发卡行批准和最终订单确认。我们应把每个响应码映射到准确的支付阶段和商户状态，但只有在任何订单都不会在获得所需支付确认前履约时才继续推进。"
+      }
+    },
+    {
+      "id": "card-payment-flow-disagree",
+      "title": "银行卡支付链路：回应异议",
+      "type": "会议表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that the PSP reports successful submission while merchants still see an unusual number of failed orders. I suggest that we map every response code to the exact payment stage and merchant-facing status, using whether no order is fulfilled before the required payment confirmation as our shared decision rule.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是支付服务商报告提交成功，但商户仍看到异常多的失败订单。我建议把每个响应码映射到准确的支付阶段和商户状态，并把“任何订单都不会在获得所需支付确认前履约”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "card-payment-flow-pilot",
+      "title": "银行卡支付链路：设计试点",
+      "type": "实验表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we map every response code to the exact payment stage and merchant-facing status.",
+          "Because end-to-end payment success matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、端到端支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we map every response code to the exact payment stage and merchant-facing status. The primary metric is end-to-end payment success, and the guardrail is whether no order is fulfilled before the required payment confirmation. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中把每个响应码映射到准确的支付阶段和商户状态。主要指标是端到端支付成功率，护栏是任何订单都不会在获得所需支付确认前履约。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "card-payment-flow-executive",
+      "title": "银行卡支付链路：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: the PSP reports successful submission while merchants still see an unusual number of failed orders. The likely driver is that technical receipt is being confused with issuer approval and final order confirmation. I recommend that we map every response code to the exact payment stage and merchant-facing status; the decision needed today is whether to proceed under the guardrail that no order is fulfilled before the required payment confirmation.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：支付服务商报告提交成功，但商户仍看到异常多的失败订单。可能的驱动因素是技术接收被误当成发卡行批准和最终订单确认。我建议把每个响应码映射到准确的支付阶段和商户状态；今天需要决定是否在“任何订单都不会在获得所需支付确认前履约”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "card-payment-flow-negotiate",
+      "title": "银行卡支付链路：协商边界",
+      "type": "谈判表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve end-to-end payment success.",
+          "Because end-to-end payment success matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、端到端支付成功率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve end-to-end payment success. We can be flexible on rollout timing, but we should not compromise the requirement that no order is fulfilled before the required payment confirmation. A workable package is to map every response code to the exact payment stage and merchant-facing status and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善端到端支付成功率。我们可以在上线时间上灵活处理，但不能放弃“任何订单都不会在获得所需支付确认前履约”这一要求。可行的整体方案是把每个响应码映射到准确的支付阶段和商户状态，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "card-payment-flow-interview",
+      "title": "银行卡支付链路：面试复盘",
+      "type": "案例表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“银行卡支付链路”场景。已知支付服务商报告提交成功，但商户仍看到异常多的失败订单，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、端到端支付成功率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that the PSP reports successful submission while merchants still see an unusual number of failed orders. I analyzed the operating evidence, identified that technical receipt is being confused with issuer approval and final order confirmation, and recommended that we map every response code to the exact payment stage and merchant-facing status. The result created a measurable basis for improving end-to-end payment success, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕端到端支付成功率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Card payments depend",
+          "end-to-end payment success",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是支付服务商报告提交成功，但商户仍看到异常多的失败订单。我分析了运营证据，识别出技术接收被误当成发卡行批准和最终订单确认，并建议把每个响应码映射到准确的支付阶段和商户状态。结果为改善端到端支付成功率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-explain",
+      "title": "退款与争议运营：准确解释",
+      "type": "概念表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Refunds and chargebacks have different initiators, evidence paths and merchant impacts.",
+          "Because dispute resolution rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、争议解决率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Refunds and chargebacks have different initiators, evidence paths and merchant impacts. The current signal is that support agents are sending refund instructions to merchants facing formal chargebacks. I recommend that we route cases by initiator, reason code, evidence deadline and financial exposure.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "退款和拒付拥有不同的发起方、证据路径和商户影响。当前信号是客服向面临正式拒付的商户发送了退款操作说明。我建议根据发起方、原因码、举证期限和财务风险分流案件。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-interpret",
+      "title": "退款与争议运营：解读指标",
+      "type": "数据表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline dispute resolution rate needs context because support agents are sending refund instructions to merchants facing formal chargebacks. Evidence points to case intake does not distinguish merchant refunds from issuer-led disputes. Before making a decision, we should segment the data and verify that evidence is submitted before network deadlines and duplicate refunds are prevented.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "争议解决率这一核心指标需要结合背景解读，因为客服向面临正式拒付的商户发送了退款操作说明。证据表明案件受理没有区分商户退款和发卡行主导的争议。在做决定前，我们应细分数据，并确认证据在卡组织截止日前提交，且避免重复退款。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-incident",
+      "title": "退款与争议运营：事故更新",
+      "type": "状态沟通",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which support agents are sending refund instructions to merchants facing formal chargebacks.",
+          "Because dispute resolution rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、争议解决率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which support agents are sending refund instructions to merchants facing formal chargebacks. Current evidence points to case intake does not distinguish merchant refunds from issuer-led disputes, but the root cause is not yet final. We will route cases by initiator, reason code, evidence deadline and financial exposure and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：客服向面临正式拒付的商户发送了退款操作说明。当前证据表明案件受理没有区分商户退款和发卡行主导的争议，但根因尚未最终确认。我们将根据发起方、原因码、举证期限和财务风险分流案件，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-recommend",
+      "title": "退款与争议运营：提出建议",
+      "type": "策略表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to route cases by initiator, reason code, evidence deadline and financial exposure. This directly addresses the evidence that case intake does not distinguish merchant refunds from issuer-led disputes. We will track dispute resolution rate and scale only if evidence is submitted before network deadlines and duplicate refunds are prevented.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议根据发起方、原因码、举证期限和财务风险分流案件。这直接回应了“案件受理没有区分商户退款和发卡行主导的争议”这一证据。我们将跟踪争议解决率，并且只有在证据在卡组织截止日前提交，且避免重复退款时才扩大实施。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-tradeoff",
+      "title": "退款与争议运营：说明取舍",
+      "type": "决策表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because dispute resolution rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、争议解决率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve dispute resolution rate, the evidence shows that case intake does not distinguish merchant refunds from issuer-led disputes. We should route cases by initiator, reason code, evidence deadline and financial exposure, but proceed only if evidence is submitted before network deadlines and duplicate refunds are prevented.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善争议解决率，但证据表明案件受理没有区分商户退款和发卡行主导的争议。我们应根据发起方、原因码、举证期限和财务风险分流案件，但只有在证据在卡组织截止日前提交，且避免重复退款时才继续推进。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-disagree",
+      "title": "退款与争议运营：回应异议",
+      "type": "会议表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that support agents are sending refund instructions to merchants facing formal chargebacks. I suggest that we route cases by initiator, reason code, evidence deadline and financial exposure, using whether evidence is submitted before network deadlines and duplicate refunds are prevented as our shared decision rule.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是客服向面临正式拒付的商户发送了退款操作说明。我建议根据发起方、原因码、举证期限和财务风险分流案件，并把“证据在卡组织截止日前提交，且避免重复退款”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-pilot",
+      "title": "退款与争议运营：设计试点",
+      "type": "实验表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we route cases by initiator, reason code, evidence deadline and financial exposure.",
+          "Because dispute resolution rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、争议解决率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we route cases by initiator, reason code, evidence deadline and financial exposure. The primary metric is dispute resolution rate, and the guardrail is whether evidence is submitted before network deadlines and duplicate refunds are prevented. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中根据发起方、原因码、举证期限和财务风险分流案件。主要指标是争议解决率，护栏是证据在卡组织截止日前提交，且避免重复退款。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-executive",
+      "title": "退款与争议运营：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: support agents are sending refund instructions to merchants facing formal chargebacks. The likely driver is that case intake does not distinguish merchant refunds from issuer-led disputes. I recommend that we route cases by initiator, reason code, evidence deadline and financial exposure; the decision needed today is whether to proceed under the guardrail that evidence is submitted before network deadlines and duplicate refunds are prevented.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：客服向面临正式拒付的商户发送了退款操作说明。可能的驱动因素是案件受理没有区分商户退款和发卡行主导的争议。我建议根据发起方、原因码、举证期限和财务风险分流案件；今天需要决定是否在“证据在卡组织截止日前提交，且避免重复退款”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-negotiate",
+      "title": "退款与争议运营：协商边界",
+      "type": "谈判表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve dispute resolution rate.",
+          "Because dispute resolution rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、争议解决率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve dispute resolution rate. We can be flexible on rollout timing, but we should not compromise the requirement that evidence is submitted before network deadlines and duplicate refunds are prevented. A workable package is to route cases by initiator, reason code, evidence deadline and financial exposure and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善争议解决率。我们可以在上线时间上灵活处理，但不能放弃“证据在卡组织截止日前提交，且避免重复退款”这一要求。可行的整体方案是根据发起方、原因码、举证期限和财务风险分流案件，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "refund-dispute-ops-interview",
+      "title": "退款与争议运营：面试复盘",
+      "type": "案例表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“退款与争议运营”场景。已知客服向面临正式拒付的商户发送了退款操作说明，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、争议解决率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that support agents are sending refund instructions to merchants facing formal chargebacks. I analyzed the operating evidence, identified that case intake does not distinguish merchant refunds from issuer-led disputes, and recommended that we route cases by initiator, reason code, evidence deadline and financial exposure. The result created a measurable basis for improving dispute resolution rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕争议解决率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Refunds and chargebacks",
+          "dispute resolution rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是客服向面临正式拒付的商户发送了退款操作说明。我分析了运营证据，识别出案件受理没有区分商户退款和发卡行主导的争议，并建议根据发起方、原因码、举证期限和财务风险分流案件。结果为改善争议解决率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-explain",
+      "title": "商户入驻：准确解释",
+      "type": "概念表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because onboarding completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Merchant onboarding must balance conversion, compliance quality and time to first transaction."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、入驻完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Merchant onboarding must balance conversion, compliance quality and time to first transaction. The current signal is that small merchants abandon at the ownership-document step while manual reviews keep rising. I recommend that we tailor the checklist by entity and show examples before upload.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "商户入驻需要平衡转化率、合规质量和首笔交易时间。当前信号是小商户在所有权文件环节流失，同时人工审核不断增加。我建议按企业类型定制清单，并在上传前展示示例。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-interpret",
+      "title": "商户入驻：解读指标",
+      "type": "数据表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline onboarding completion rate needs context because small merchants abandon at the ownership-document step while manual reviews keep rising. Evidence points to document requirements are not explained by entity type or risk tier. Before making a decision, we should segment the data and verify that KYB completeness and beneficial-owner checks remain within policy.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "入驻完成率这一核心指标需要结合背景解读，因为小商户在所有权文件环节流失，同时人工审核不断增加。证据表明文件要求没有按企业类型和风险等级解释。在做决定前，我们应细分数据，并确认KYB 完整性和受益所有人核验仍符合政策。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-incident",
+      "title": "商户入驻：事故更新",
+      "type": "状态沟通",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because onboarding completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which small merchants abandon at the ownership-document step while manual reviews keep rising."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、入驻完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which small merchants abandon at the ownership-document step while manual reviews keep rising. Current evidence points to document requirements are not explained by entity type or risk tier, but the root cause is not yet final. We will tailor the checklist by entity and show examples before upload and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：小商户在所有权文件环节流失，同时人工审核不断增加。当前证据表明文件要求没有按企业类型和风险等级解释，但根因尚未最终确认。我们将按企业类型定制清单，并在上传前展示示例，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-recommend",
+      "title": "商户入驻：提出建议",
+      "type": "策略表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to tailor the checklist by entity and show examples before upload. This directly addresses the evidence that document requirements are not explained by entity type or risk tier. We will track onboarding completion rate and scale only if KYB completeness and beneficial-owner checks remain within policy.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按企业类型定制清单，并在上传前展示示例。这直接回应了“文件要求没有按企业类型和风险等级解释”这一证据。我们将跟踪入驻完成率，并且只有在KYB 完整性和受益所有人核验仍符合政策时才扩大实施。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-tradeoff",
+      "title": "商户入驻：说明取舍",
+      "type": "决策表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because onboarding completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、入驻完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve onboarding completion rate, the evidence shows that document requirements are not explained by entity type or risk tier. We should tailor the checklist by entity and show examples before upload, but proceed only if KYB completeness and beneficial-owner checks remain within policy.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善入驻完成率，但证据表明文件要求没有按企业类型和风险等级解释。我们应按企业类型定制清单，并在上传前展示示例，但只有在KYB 完整性和受益所有人核验仍符合政策时才继续推进。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-disagree",
+      "title": "商户入驻：回应异议",
+      "type": "会议表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that small merchants abandon at the ownership-document step while manual reviews keep rising. I suggest that we tailor the checklist by entity and show examples before upload, using whether KYB completeness and beneficial-owner checks remain within policy as our shared decision rule.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是小商户在所有权文件环节流失，同时人工审核不断增加。我建议按企业类型定制清单，并在上传前展示示例，并把“KYB 完整性和受益所有人核验仍符合政策”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-pilot",
+      "title": "商户入驻：设计试点",
+      "type": "实验表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because onboarding completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we tailor the checklist by entity and show examples before upload."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、入驻完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we tailor the checklist by entity and show examples before upload. The primary metric is onboarding completion rate, and the guardrail is whether KYB completeness and beneficial-owner checks remain within policy. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按企业类型定制清单，并在上传前展示示例。主要指标是入驻完成率，护栏是KYB 完整性和受益所有人核验仍符合政策。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-executive",
+      "title": "商户入驻：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: small merchants abandon at the ownership-document step while manual reviews keep rising. The likely driver is that document requirements are not explained by entity type or risk tier. I recommend that we tailor the checklist by entity and show examples before upload; the decision needed today is whether to proceed under the guardrail that KYB completeness and beneficial-owner checks remain within policy.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：小商户在所有权文件环节流失，同时人工审核不断增加。可能的驱动因素是文件要求没有按企业类型和风险等级解释。我建议按企业类型定制清单，并在上传前展示示例；今天需要决定是否在“KYB 完整性和受益所有人核验仍符合政策”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-negotiate",
+      "title": "商户入驻：协商边界",
+      "type": "谈判表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because onboarding completion rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve onboarding completion rate."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、入驻完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve onboarding completion rate. We can be flexible on rollout timing, but we should not compromise the requirement that KYB completeness and beneficial-owner checks remain within policy. A workable package is to tailor the checklist by entity and show examples before upload and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善入驻完成率。我们可以在上线时间上灵活处理，但不能放弃“KYB 完整性和受益所有人核验仍符合政策”这一要求。可行的整体方案是按企业类型定制清单，并在上传前展示示例，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "merchant-onboarding-interview",
+      "title": "商户入驻：面试复盘",
+      "type": "案例表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户入驻”场景。已知小商户在所有权文件环节流失，同时人工审核不断增加，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、入驻完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that small merchants abandon at the ownership-document step while manual reviews keep rising. I analyzed the operating evidence, identified that document requirements are not explained by entity type or risk tier, and recommended that we tailor the checklist by entity and show examples before upload. The result created a measurable basis for improving onboarding completion rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕入驻完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant onboarding must",
+          "onboarding completion rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是小商户在所有权文件环节流失，同时人工审核不断增加。我分析了运营证据，识别出文件要求没有按企业类型和风险等级解释，并建议按企业类型定制清单，并在上传前展示示例。结果为改善入驻完成率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-explain",
+      "title": "费率与账单基础：准确解释",
+      "type": "概念表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment pricing should distinguish merchant fees, network costs, processing costs and taxes.",
+          "Because billing accuracy matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、账单准确率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment pricing should distinguish merchant fees, network costs, processing costs and taxes. The current signal is that merchants dispute invoices because blended pricing does not explain cross-border and refund fees. I recommend that we align the pricing glossary and add worked invoice examples.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付定价应区分商户费用、卡组织成本、处理成本和税费。当前信号是商户质疑账单，因为综合费率没有解释跨境费和退款费。我建议统一定价术语，并增加账单计算示例。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-interpret",
+      "title": "费率与账单基础：解读指标",
+      "type": "数据表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline billing accuracy needs context because merchants dispute invoices because blended pricing does not explain cross-border and refund fees. Evidence points to commercial terms and invoice line items use different definitions. Before making a decision, we should segment the data and verify that every charged item can be traced to the signed commercial terms.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "账单准确率这一核心指标需要结合背景解读，因为商户质疑账单，因为综合费率没有解释跨境费和退款费。证据表明商务条款与账单明细使用了不同定义。在做决定前，我们应细分数据，并确认每项收费都能追溯到已签署的商务条款。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-incident",
+      "title": "费率与账单基础：事故更新",
+      "type": "状态沟通",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which merchants dispute invoices because blended pricing does not explain cross-border and refund fees.",
+          "Because billing accuracy matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、账单准确率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which merchants dispute invoices because blended pricing does not explain cross-border and refund fees. Current evidence points to commercial terms and invoice line items use different definitions, but the root cause is not yet final. We will align the pricing glossary and add worked invoice examples and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：商户质疑账单，因为综合费率没有解释跨境费和退款费。当前证据表明商务条款与账单明细使用了不同定义，但根因尚未最终确认。我们将统一定价术语，并增加账单计算示例，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-recommend",
+      "title": "费率与账单基础：提出建议",
+      "type": "策略表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to align the pricing glossary and add worked invoice examples. This directly addresses the evidence that commercial terms and invoice line items use different definitions. We will track billing accuracy and scale only if every charged item can be traced to the signed commercial terms.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议统一定价术语，并增加账单计算示例。这直接回应了“商务条款与账单明细使用了不同定义”这一证据。我们将跟踪账单准确率，并且只有在每项收费都能追溯到已签署的商务条款时才扩大实施。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-tradeoff",
+      "title": "费率与账单基础：说明取舍",
+      "type": "决策表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because billing accuracy matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、账单准确率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve billing accuracy, the evidence shows that commercial terms and invoice line items use different definitions. We should align the pricing glossary and add worked invoice examples, but proceed only if every charged item can be traced to the signed commercial terms.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善账单准确率，但证据表明商务条款与账单明细使用了不同定义。我们应统一定价术语，并增加账单计算示例，但只有在每项收费都能追溯到已签署的商务条款时才继续推进。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-disagree",
+      "title": "费率与账单基础：回应异议",
+      "type": "会议表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that merchants dispute invoices because blended pricing does not explain cross-border and refund fees. I suggest that we align the pricing glossary and add worked invoice examples, using whether every charged item can be traced to the signed commercial terms as our shared decision rule.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是商户质疑账单，因为综合费率没有解释跨境费和退款费。我建议统一定价术语，并增加账单计算示例，并把“每项收费都能追溯到已签署的商务条款”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-pilot",
+      "title": "费率与账单基础：设计试点",
+      "type": "实验表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we align the pricing glossary and add worked invoice examples.",
+          "Because billing accuracy matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、账单准确率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we align the pricing glossary and add worked invoice examples. The primary metric is billing accuracy, and the guardrail is whether every charged item can be traced to the signed commercial terms. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中统一定价术语，并增加账单计算示例。主要指标是账单准确率，护栏是每项收费都能追溯到已签署的商务条款。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-executive",
+      "title": "费率与账单基础：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: merchants dispute invoices because blended pricing does not explain cross-border and refund fees. The likely driver is that commercial terms and invoice line items use different definitions. I recommend that we align the pricing glossary and add worked invoice examples; the decision needed today is whether to proceed under the guardrail that every charged item can be traced to the signed commercial terms.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：商户质疑账单，因为综合费率没有解释跨境费和退款费。可能的驱动因素是商务条款与账单明细使用了不同定义。我建议统一定价术语，并增加账单计算示例；今天需要决定是否在“每项收费都能追溯到已签署的商务条款”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-negotiate",
+      "title": "费率与账单基础：协商边界",
+      "type": "谈判表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve billing accuracy.",
+          "Because billing accuracy matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、账单准确率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve billing accuracy. We can be flexible on rollout timing, but we should not compromise the requirement that every charged item can be traced to the signed commercial terms. A workable package is to align the pricing glossary and add worked invoice examples and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善账单准确率。我们可以在上线时间上灵活处理，但不能放弃“每项收费都能追溯到已签署的商务条款”这一要求。可行的整体方案是统一定价术语，并增加账单计算示例，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "pricing-fees-basics-interview",
+      "title": "费率与账单基础：面试复盘",
+      "type": "案例表达",
+      "difficulty": 1,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“费率与账单基础”场景。已知商户质疑账单，因为综合费率没有解释跨境费和退款费，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账单准确率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that merchants dispute invoices because blended pricing does not explain cross-border and refund fees. I analyzed the operating evidence, identified that commercial terms and invoice line items use different definitions, and recommended that we align the pricing glossary and add worked invoice examples. The result created a measurable basis for improving billing accuracy, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕账单准确率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing should",
+          "billing accuracy",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是商户质疑账单，因为综合费率没有解释跨境费和退款费。我分析了运营证据，识别出商务条款与账单明细使用了不同定义，并建议统一定价术语，并增加账单计算示例。结果为改善账单准确率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1529 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "payment-performance-operations",
+  "title": "支付成功率与日常运营",
+  "topicIds": [
+    "authorization-declines",
+    "retry-routing",
+    "local-payment-methods",
+    "reconciliation-settlement",
+    "merchant-support"
+  ],
+  "subtitle": "授权与拒绝码 · 重试与智能路由 · 本地支付方式运营 · 对账与结算运营 · 商户支持运营",
+  "objective": "能够围绕授权与拒绝码、重试与智能路由、本地支付方式运营、对账与结算运营、商户支持运营，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 4 关 · 支付运营",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 2,
+  "reward": {
+    "title": "支付成功率与日常运营表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is authorization approval rate.",
+      "I recommend that we fix status messaging and run a market-level pilot before expanding placement.",
+      "We should scale only if resolution time improves without hiding unresolved financial cases."
+    ]
+  },
+  "questions": [
+    {
+      "id": "authorization-declines-explain",
+      "title": "授权与拒绝码：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Authorization optimization requires separating issuer decisions, technical failures and merchant errors.",
+          "Because authorization approval rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、授权批准率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Authorization optimization requires separating issuer decisions, technical failures and merchant errors. The current signal is that approval fell from 84.2% to 80.9% in Brazil after an issuer-mix shift. I recommend that we separate retryable failures and work with the acquirer on issuer-specific routing.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "授权优化需要区分发卡行决策、技术失败和商户错误。当前信号是巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%。我建议区分可重试失败，并与收单行制定针对发卡行的路由方案。"
+      }
+    },
+    {
+      "id": "authorization-declines-interpret",
+      "title": "授权与拒绝码：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline authorization approval rate needs context because approval fell from 84.2% to 80.9% in Brazil after an issuer-mix shift. Evidence points to timeouts and generic declines are concentrated in two issuers rather than the whole market. Before making a decision, we should segment the data and verify that fraud loss and duplicate authorization attempts stay within threshold.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "授权批准率这一核心指标需要结合背景解读，因为巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%。证据表明超时和通用拒绝集中在两家发卡行，而非整个市场。在做决定前，我们应细分数据，并确认欺诈损失和重复授权尝试保持在阈值内。"
+      }
+    },
+    {
+      "id": "authorization-declines-incident",
+      "title": "授权与拒绝码：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which approval fell from 84.",
+          "Because authorization approval rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、授权批准率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which approval fell from 84.2% to 80.9% in Brazil after an issuer-mix shift. Current evidence points to timeouts and generic declines are concentrated in two issuers rather than the whole market, but the root cause is not yet final. We will separate retryable failures and work with the acquirer on issuer-specific routing and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%。当前证据表明超时和通用拒绝集中在两家发卡行，而非整个市场，但根因尚未最终确认。我们将区分可重试失败，并与收单行制定针对发卡行的路由方案，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "authorization-declines-recommend",
+      "title": "授权与拒绝码：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to separate retryable failures and work with the acquirer on issuer-specific routing. This directly addresses the evidence that timeouts and generic declines are concentrated in two issuers rather than the whole market. We will track authorization approval rate and scale only if fraud loss and duplicate authorization attempts stay within threshold.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议区分可重试失败，并与收单行制定针对发卡行的路由方案。这直接回应了“超时和通用拒绝集中在两家发卡行，而非整个市场”这一证据。我们将跟踪授权批准率，并且只有在欺诈损失和重复授权尝试保持在阈值内时才扩大实施。"
+      }
+    },
+    {
+      "id": "authorization-declines-tradeoff",
+      "title": "授权与拒绝码：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because authorization approval rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、授权批准率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve authorization approval rate, the evidence shows that timeouts and generic declines are concentrated in two issuers rather than the whole market. We should separate retryable failures and work with the acquirer on issuer-specific routing, but proceed only if fraud loss and duplicate authorization attempts stay within threshold.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善授权批准率，但证据表明超时和通用拒绝集中在两家发卡行，而非整个市场。我们应区分可重试失败，并与收单行制定针对发卡行的路由方案，但只有在欺诈损失和重复授权尝试保持在阈值内时才继续推进。"
+      }
+    },
+    {
+      "id": "authorization-declines-disagree",
+      "title": "授权与拒绝码：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that approval fell from 84.2% to 80.9% in Brazil after an issuer-mix shift. I suggest that we separate retryable failures and work with the acquirer on issuer-specific routing, using whether fraud loss and duplicate authorization attempts stay within threshold as our shared decision rule.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%。我建议区分可重试失败，并与收单行制定针对发卡行的路由方案，并把“欺诈损失和重复授权尝试保持在阈值内”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "authorization-declines-pilot",
+      "title": "授权与拒绝码：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we separate retryable failures and work with the acquirer on issuer-specific routing.",
+          "Because authorization approval rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、授权批准率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we separate retryable failures and work with the acquirer on issuer-specific routing. The primary metric is authorization approval rate, and the guardrail is whether fraud loss and duplicate authorization attempts stay within threshold. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中区分可重试失败，并与收单行制定针对发卡行的路由方案。主要指标是授权批准率，护栏是欺诈损失和重复授权尝试保持在阈值内。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "authorization-declines-executive",
+      "title": "授权与拒绝码：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: approval fell from 84.2% to 80.9% in Brazil after an issuer-mix shift. The likely driver is that timeouts and generic declines are concentrated in two issuers rather than the whole market. I recommend that we separate retryable failures and work with the acquirer on issuer-specific routing; the decision needed today is whether to proceed under the guardrail that fraud loss and duplicate authorization attempts stay within threshold.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%。可能的驱动因素是超时和通用拒绝集中在两家发卡行，而非整个市场。我建议区分可重试失败，并与收单行制定针对发卡行的路由方案；今天需要决定是否在“欺诈损失和重复授权尝试保持在阈值内”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "authorization-declines-negotiate",
+      "title": "授权与拒绝码：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve authorization approval rate.",
+          "Because authorization approval rate matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、授权批准率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve authorization approval rate. We can be flexible on rollout timing, but we should not compromise the requirement that fraud loss and duplicate authorization attempts stay within threshold. A workable package is to separate retryable failures and work with the acquirer on issuer-specific routing and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善授权批准率。我们可以在上线时间上灵活处理，但不能放弃“欺诈损失和重复授权尝试保持在阈值内”这一要求。可行的整体方案是区分可重试失败，并与收单行制定针对发卡行的路由方案，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "authorization-declines-interview",
+      "title": "授权与拒绝码：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“授权与拒绝码”场景。已知巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、授权批准率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that approval fell from 84.2% to 80.9% in Brazil after an issuer-mix shift. I analyzed the operating evidence, identified that timeouts and generic declines are concentrated in two issuers rather than the whole market, and recommended that we separate retryable failures and work with the acquirer on issuer-specific routing. The result created a measurable basis for improving authorization approval rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕授权批准率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Authorization optimization requires",
+          "authorization approval rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是巴西授权批准率在发卡行结构变化后从 84.2% 降至 80.9%。我分析了运营证据，识别出超时和通用拒绝集中在两家发卡行，而非整个市场，并建议区分可重试失败，并与收单行制定针对发卡行的路由方案。结果为改善授权批准率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "retry-routing-explain",
+      "title": "重试与智能路由：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because incremental recovered approvals matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Retry and routing rules should recover legitimate payments without creating duplicate charges or excess cost."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、增量挽回批准数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Retry and routing rules should recover legitimate payments without creating duplicate charges or excess cost. The current signal is that unconditional retries add traffic and fees but recover very few approved payments. I recommend that we retry only eligible response codes with capped attempts and idempotency controls.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "重试和路由规则应在不造成重复扣款或额外成本的前提下挽回正常支付。当前信号是无条件重试增加了流量和费用，却只挽回很少的批准交易。我建议仅对符合条件的响应码重试，并限制次数和实施幂等控制。"
+      }
+    },
+    {
+      "id": "retry-routing-interpret",
+      "title": "重试与智能路由：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline incremental recovered approvals needs context because unconditional retries add traffic and fees but recover very few approved payments. Evidence points to hard declines, soft declines and technical errors follow the same retry rule. Before making a decision, we should segment the data and verify that duplicate-charge complaints and processing cost stay flat.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "增量挽回批准数这一核心指标需要结合背景解读，因为无条件重试增加了流量和费用，却只挽回很少的批准交易。证据表明硬拒绝、软拒绝和技术错误使用了相同重试规则。在做决定前，我们应细分数据，并确认重复扣款投诉和处理成本保持稳定。"
+      }
+    },
+    {
+      "id": "retry-routing-incident",
+      "title": "重试与智能路由：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because incremental recovered approvals matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which unconditional retries add traffic and fees but recover very few approved payments."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、增量挽回批准数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which unconditional retries add traffic and fees but recover very few approved payments. Current evidence points to hard declines, soft declines and technical errors follow the same retry rule, but the root cause is not yet final. We will retry only eligible response codes with capped attempts and idempotency controls and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：无条件重试增加了流量和费用，却只挽回很少的批准交易。当前证据表明硬拒绝、软拒绝和技术错误使用了相同重试规则，但根因尚未最终确认。我们将仅对符合条件的响应码重试，并限制次数和实施幂等控制，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "retry-routing-recommend",
+      "title": "重试与智能路由：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to retry only eligible response codes with capped attempts and idempotency controls. This directly addresses the evidence that hard declines, soft declines and technical errors follow the same retry rule. We will track incremental recovered approvals and scale only if duplicate-charge complaints and processing cost stay flat.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议仅对符合条件的响应码重试，并限制次数和实施幂等控制。这直接回应了“硬拒绝、软拒绝和技术错误使用了相同重试规则”这一证据。我们将跟踪增量挽回批准数，并且只有在重复扣款投诉和处理成本保持稳定时才扩大实施。"
+      }
+    },
+    {
+      "id": "retry-routing-tradeoff",
+      "title": "重试与智能路由：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because incremental recovered approvals matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、增量挽回批准数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve incremental recovered approvals, the evidence shows that hard declines, soft declines and technical errors follow the same retry rule. We should retry only eligible response codes with capped attempts and idempotency controls, but proceed only if duplicate-charge complaints and processing cost stay flat.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善增量挽回批准数，但证据表明硬拒绝、软拒绝和技术错误使用了相同重试规则。我们应仅对符合条件的响应码重试，并限制次数和实施幂等控制，但只有在重复扣款投诉和处理成本保持稳定时才继续推进。"
+      }
+    },
+    {
+      "id": "retry-routing-disagree",
+      "title": "重试与智能路由：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that unconditional retries add traffic and fees but recover very few approved payments. I suggest that we retry only eligible response codes with capped attempts and idempotency controls, using whether duplicate-charge complaints and processing cost stay flat as our shared decision rule.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是无条件重试增加了流量和费用，却只挽回很少的批准交易。我建议仅对符合条件的响应码重试，并限制次数和实施幂等控制，并把“重复扣款投诉和处理成本保持稳定”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "retry-routing-pilot",
+      "title": "重试与智能路由：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because incremental recovered approvals matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we retry only eligible response codes with capped attempts and idempotency controls."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、增量挽回批准数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we retry only eligible response codes with capped attempts and idempotency controls. The primary metric is incremental recovered approvals, and the guardrail is whether duplicate-charge complaints and processing cost stay flat. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中仅对符合条件的响应码重试，并限制次数和实施幂等控制。主要指标是增量挽回批准数，护栏是重复扣款投诉和处理成本保持稳定。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "retry-routing-executive",
+      "title": "重试与智能路由：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: unconditional retries add traffic and fees but recover very few approved payments. The likely driver is that hard declines, soft declines and technical errors follow the same retry rule. I recommend that we retry only eligible response codes with capped attempts and idempotency controls; the decision needed today is whether to proceed under the guardrail that duplicate-charge complaints and processing cost stay flat.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：无条件重试增加了流量和费用，却只挽回很少的批准交易。可能的驱动因素是硬拒绝、软拒绝和技术错误使用了相同重试规则。我建议仅对符合条件的响应码重试，并限制次数和实施幂等控制；今天需要决定是否在“重复扣款投诉和处理成本保持稳定”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "retry-routing-negotiate",
+      "title": "重试与智能路由：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because incremental recovered approvals matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve incremental recovered approvals."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、增量挽回批准数和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve incremental recovered approvals. We can be flexible on rollout timing, but we should not compromise the requirement that duplicate-charge complaints and processing cost stay flat. A workable package is to retry only eligible response codes with capped attempts and idempotency controls and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善增量挽回批准数。我们可以在上线时间上灵活处理，但不能放弃“重复扣款投诉和处理成本保持稳定”这一要求。可行的整体方案是仅对符合条件的响应码重试，并限制次数和实施幂等控制，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "retry-routing-interview",
+      "title": "重试与智能路由：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“重试与智能路由”场景。已知无条件重试增加了流量和费用，却只挽回很少的批准交易，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量挽回批准数、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that unconditional retries add traffic and fees but recover very few approved payments. I analyzed the operating evidence, identified that hard declines, soft declines and technical errors follow the same retry rule, and recommended that we retry only eligible response codes with capped attempts and idempotency controls. The result created a measurable basis for improving incremental recovered approvals, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕增量挽回批准数说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Retry and routing",
+          "incremental recovered approvals",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是无条件重试增加了流量和费用，却只挽回很少的批准交易。我分析了运营证据，识别出硬拒绝、软拒绝和技术错误使用了相同重试规则，并建议仅对符合条件的响应码重试，并限制次数和实施幂等控制。结果为改善增量挽回批准数建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "local-payment-methods-explain",
+      "title": "本地支付方式运营：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Local payment methods should be evaluated by customer reach, economics, reliability and operational fit.",
+          "Because incremental checkout conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、增量收银台转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Local payment methods should be evaluated by customer reach, economics, reliability and operational fit. The current signal is that a popular wallet attracts clicks but has low completion and high support contacts. I recommend that we fix status messaging and run a market-level pilot before expanding placement.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "本地支付方式应从客户覆盖、经济性、可靠性和运营适配度评估。当前信号是一种热门钱包点击量高，但完成率低且客服咨询多。我建议修复状态提示，并在扩大展示前进行市场级试点。"
+      }
+    },
+    {
+      "id": "local-payment-methods-interpret",
+      "title": "本地支付方式运营：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline incremental checkout conversion needs context because a popular wallet attracts clicks but has low completion and high support contacts. Evidence points to the integration lacks clear pending-state communication and refund expectations. Before making a decision, we should segment the data and verify that net conversion improves after fees, failures and support cost.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "增量收银台转化率这一核心指标需要结合背景解读，因为一种热门钱包点击量高，但完成率低且客服咨询多。证据表明集成缺少清晰的处理中状态说明和退款预期。在做决定前，我们应细分数据，并确认扣除费用、失败和客服成本后净转化有所提升。"
+      }
+    },
+    {
+      "id": "local-payment-methods-incident",
+      "title": "本地支付方式运营：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a popular wallet attracts clicks but has low completion and high support contacts.",
+          "Because incremental checkout conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、增量收银台转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a popular wallet attracts clicks but has low completion and high support contacts. Current evidence points to the integration lacks clear pending-state communication and refund expectations, but the root cause is not yet final. We will fix status messaging and run a market-level pilot before expanding placement and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：一种热门钱包点击量高，但完成率低且客服咨询多。当前证据表明集成缺少清晰的处理中状态说明和退款预期，但根因尚未最终确认。我们将修复状态提示，并在扩大展示前进行市场级试点，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "local-payment-methods-recommend",
+      "title": "本地支付方式运营：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to fix status messaging and run a market-level pilot before expanding placement. This directly addresses the evidence that the integration lacks clear pending-state communication and refund expectations. We will track incremental checkout conversion and scale only if net conversion improves after fees, failures and support cost.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议修复状态提示，并在扩大展示前进行市场级试点。这直接回应了“集成缺少清晰的处理中状态说明和退款预期”这一证据。我们将跟踪增量收银台转化率，并且只有在扣除费用、失败和客服成本后净转化有所提升时才扩大实施。"
+      }
+    },
+    {
+      "id": "local-payment-methods-tradeoff",
+      "title": "本地支付方式运营：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because incremental checkout conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、增量收银台转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve incremental checkout conversion, the evidence shows that the integration lacks clear pending-state communication and refund expectations. We should fix status messaging and run a market-level pilot before expanding placement, but proceed only if net conversion improves after fees, failures and support cost.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善增量收银台转化率，但证据表明集成缺少清晰的处理中状态说明和退款预期。我们应修复状态提示，并在扩大展示前进行市场级试点，但只有在扣除费用、失败和客服成本后净转化有所提升时才继续推进。"
+      }
+    },
+    {
+      "id": "local-payment-methods-disagree",
+      "title": "本地支付方式运营：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a popular wallet attracts clicks but has low completion and high support contacts. I suggest that we fix status messaging and run a market-level pilot before expanding placement, using whether net conversion improves after fees, failures and support cost as our shared decision rule.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是一种热门钱包点击量高，但完成率低且客服咨询多。我建议修复状态提示，并在扩大展示前进行市场级试点，并把“扣除费用、失败和客服成本后净转化有所提升”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "local-payment-methods-pilot",
+      "title": "本地支付方式运营：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we fix status messaging and run a market-level pilot before expanding placement.",
+          "Because incremental checkout conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、增量收银台转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we fix status messaging and run a market-level pilot before expanding placement. The primary metric is incremental checkout conversion, and the guardrail is whether net conversion improves after fees, failures and support cost. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中修复状态提示，并在扩大展示前进行市场级试点。主要指标是增量收银台转化率，护栏是扣除费用、失败和客服成本后净转化有所提升。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "local-payment-methods-executive",
+      "title": "本地支付方式运营：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a popular wallet attracts clicks but has low completion and high support contacts. The likely driver is that the integration lacks clear pending-state communication and refund expectations. I recommend that we fix status messaging and run a market-level pilot before expanding placement; the decision needed today is whether to proceed under the guardrail that net conversion improves after fees, failures and support cost.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：一种热门钱包点击量高，但完成率低且客服咨询多。可能的驱动因素是集成缺少清晰的处理中状态说明和退款预期。我建议修复状态提示，并在扩大展示前进行市场级试点；今天需要决定是否在“扣除费用、失败和客服成本后净转化有所提升”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "local-payment-methods-negotiate",
+      "title": "本地支付方式运营：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve incremental checkout conversion.",
+          "Because incremental checkout conversion matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、增量收银台转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve incremental checkout conversion. We can be flexible on rollout timing, but we should not compromise the requirement that net conversion improves after fees, failures and support cost. A workable package is to fix status messaging and run a market-level pilot before expanding placement and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善增量收银台转化率。我们可以在上线时间上灵活处理，但不能放弃“扣除费用、失败和客服成本后净转化有所提升”这一要求。可行的整体方案是修复状态提示，并在扩大展示前进行市场级试点，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "local-payment-methods-interview",
+      "title": "本地支付方式运营：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“本地支付方式运营”场景。已知一种热门钱包点击量高，但完成率低且客服咨询多，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、增量收银台转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a popular wallet attracts clicks but has low completion and high support contacts. I analyzed the operating evidence, identified that the integration lacks clear pending-state communication and refund expectations, and recommended that we fix status messaging and run a market-level pilot before expanding placement. The result created a measurable basis for improving incremental checkout conversion, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕增量收银台转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Local payment methods",
+          "incremental checkout conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是一种热门钱包点击量高，但完成率低且客服咨询多。我分析了运营证据，识别出集成缺少清晰的处理中状态说明和退款预期，并建议修复状态提示，并在扩大展示前进行市场级试点。结果为改善增量收银台转化率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-explain",
+      "title": "对账与结算运营：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because unreconciled transaction rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Reconciliation matches internal orders, provider transactions, fees and bank movements."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、未对账交易率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Reconciliation matches internal orders, provider transactions, fees and bank movements. The current signal is that finance sees a growing settlement difference after a provider changed file timing. I recommend that we rebuild matching rules around stable identifiers, timing windows and fee records.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "对账需要匹配内部订单、服务商交易、费用和银行资金流。当前信号是服务商调整文件时间后，财务看到结算差异持续扩大。我建议围绕稳定标识、时间窗口和费用记录重建匹配规则。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-interpret",
+      "title": "对账与结算运营：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline unreconciled transaction rate needs context because finance sees a growing settlement difference after a provider changed file timing. Evidence points to transaction dates, settlement dates and time zones are being joined as if they were identical. Before making a decision, we should segment the data and verify that every manual adjustment has evidence, approval and an audit trail.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "未对账交易率这一核心指标需要结合背景解读，因为服务商调整文件时间后，财务看到结算差异持续扩大。证据表明交易日期、结算日期和时区被当作相同字段关联。在做决定前，我们应细分数据，并确认每项人工调整都有证据、审批和审计记录。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-incident",
+      "title": "对账与结算运营：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because unreconciled transaction rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which finance sees a growing settlement difference after a provider changed file timing."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、未对账交易率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which finance sees a growing settlement difference after a provider changed file timing. Current evidence points to transaction dates, settlement dates and time zones are being joined as if they were identical, but the root cause is not yet final. We will rebuild matching rules around stable identifiers, timing windows and fee records and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：服务商调整文件时间后，财务看到结算差异持续扩大。当前证据表明交易日期、结算日期和时区被当作相同字段关联，但根因尚未最终确认。我们将围绕稳定标识、时间窗口和费用记录重建匹配规则，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-recommend",
+      "title": "对账与结算运营：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to rebuild matching rules around stable identifiers, timing windows and fee records. This directly addresses the evidence that transaction dates, settlement dates and time zones are being joined as if they were identical. We will track unreconciled transaction rate and scale only if every manual adjustment has evidence, approval and an audit trail.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议围绕稳定标识、时间窗口和费用记录重建匹配规则。这直接回应了“交易日期、结算日期和时区被当作相同字段关联”这一证据。我们将跟踪未对账交易率，并且只有在每项人工调整都有证据、审批和审计记录时才扩大实施。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-tradeoff",
+      "title": "对账与结算运营：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because unreconciled transaction rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、未对账交易率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve unreconciled transaction rate, the evidence shows that transaction dates, settlement dates and time zones are being joined as if they were identical. We should rebuild matching rules around stable identifiers, timing windows and fee records, but proceed only if every manual adjustment has evidence, approval and an audit trail.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善未对账交易率，但证据表明交易日期、结算日期和时区被当作相同字段关联。我们应围绕稳定标识、时间窗口和费用记录重建匹配规则，但只有在每项人工调整都有证据、审批和审计记录时才继续推进。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-disagree",
+      "title": "对账与结算运营：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that finance sees a growing settlement difference after a provider changed file timing. I suggest that we rebuild matching rules around stable identifiers, timing windows and fee records, using whether every manual adjustment has evidence, approval and an audit trail as our shared decision rule.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是服务商调整文件时间后，财务看到结算差异持续扩大。我建议围绕稳定标识、时间窗口和费用记录重建匹配规则，并把“每项人工调整都有证据、审批和审计记录”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-pilot",
+      "title": "对账与结算运营：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because unreconciled transaction rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we rebuild matching rules around stable identifiers, timing windows and fee records."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、未对账交易率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we rebuild matching rules around stable identifiers, timing windows and fee records. The primary metric is unreconciled transaction rate, and the guardrail is whether every manual adjustment has evidence, approval and an audit trail. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中围绕稳定标识、时间窗口和费用记录重建匹配规则。主要指标是未对账交易率，护栏是每项人工调整都有证据、审批和审计记录。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-executive",
+      "title": "对账与结算运营：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: finance sees a growing settlement difference after a provider changed file timing. The likely driver is that transaction dates, settlement dates and time zones are being joined as if they were identical. I recommend that we rebuild matching rules around stable identifiers, timing windows and fee records; the decision needed today is whether to proceed under the guardrail that every manual adjustment has evidence, approval and an audit trail.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：服务商调整文件时间后，财务看到结算差异持续扩大。可能的驱动因素是交易日期、结算日期和时区被当作相同字段关联。我建议围绕稳定标识、时间窗口和费用记录重建匹配规则；今天需要决定是否在“每项人工调整都有证据、审批和审计记录”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-negotiate",
+      "title": "对账与结算运营：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because unreconciled transaction rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve unreconciled transaction rate."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、未对账交易率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve unreconciled transaction rate. We can be flexible on rollout timing, but we should not compromise the requirement that every manual adjustment has evidence, approval and an audit trail. A workable package is to rebuild matching rules around stable identifiers, timing windows and fee records and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善未对账交易率。我们可以在上线时间上灵活处理，但不能放弃“每项人工调整都有证据、审批和审计记录”这一要求。可行的整体方案是围绕稳定标识、时间窗口和费用记录重建匹配规则，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "reconciliation-settlement-interview",
+      "title": "对账与结算运营：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“对账与结算运营”场景。已知服务商调整文件时间后，财务看到结算差异持续扩大，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、未对账交易率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that finance sees a growing settlement difference after a provider changed file timing. I analyzed the operating evidence, identified that transaction dates, settlement dates and time zones are being joined as if they were identical, and recommended that we rebuild matching rules around stable identifiers, timing windows and fee records. The result created a measurable basis for improving unreconciled transaction rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕未对账交易率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Reconciliation matches internal",
+          "unreconciled transaction rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是服务商调整文件时间后，财务看到结算差异持续扩大。我分析了运营证据，识别出交易日期、结算日期和时区被当作相同字段关联，并建议围绕稳定标识、时间窗口和费用记录重建匹配规则。结果为改善未对账交易率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "merchant-support-explain",
+      "title": "商户支持运营：准确解释",
+      "type": "概念表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Merchant support should resolve individual cases while converting repeated contacts into product fixes.",
+          "Because merchant contact rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、商户咨询率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Merchant support should resolve individual cases while converting repeated contacts into product fixes. The current signal is that contacts about pending payouts doubled after a dashboard change. I recommend that we restore clear status guidance and tag contacts by root cause for weekly review.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "商户支持既要解决个案，也要把重复咨询转化为产品修复。当前信号是看板改版后，关于待处理付款的咨询量翻倍。我建议恢复清晰的状态指引，并按根因标记咨询以供每周复盘。"
+      }
+    },
+    {
+      "id": "merchant-support-interpret",
+      "title": "商户支持运营：解读指标",
+      "type": "数据表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline merchant contact rate needs context because contacts about pending payouts doubled after a dashboard change. Evidence points to the new status label does not explain the expected date or required merchant action. Before making a decision, we should segment the data and verify that resolution time improves without hiding unresolved financial cases.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "商户咨询率这一核心指标需要结合背景解读，因为看板改版后，关于待处理付款的咨询量翻倍。证据表明新状态标签没有解释预计日期或商户需要采取的行动。在做决定前，我们应细分数据，并确认解决时长改善，同时不会掩盖未解决的资金案件。"
+      }
+    },
+    {
+      "id": "merchant-support-incident",
+      "title": "商户支持运营：事故更新",
+      "type": "状态沟通",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which contacts about pending payouts doubled after a dashboard change.",
+          "Because merchant contact rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、商户咨询率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which contacts about pending payouts doubled after a dashboard change. Current evidence points to the new status label does not explain the expected date or required merchant action, but the root cause is not yet final. We will restore clear status guidance and tag contacts by root cause for weekly review and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：看板改版后，关于待处理付款的咨询量翻倍。当前证据表明新状态标签没有解释预计日期或商户需要采取的行动，但根因尚未最终确认。我们将恢复清晰的状态指引，并按根因标记咨询以供每周复盘，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "merchant-support-recommend",
+      "title": "商户支持运营：提出建议",
+      "type": "策略表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to restore clear status guidance and tag contacts by root cause for weekly review. This directly addresses the evidence that the new status label does not explain the expected date or required merchant action. We will track merchant contact rate and scale only if resolution time improves without hiding unresolved financial cases.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议恢复清晰的状态指引，并按根因标记咨询以供每周复盘。这直接回应了“新状态标签没有解释预计日期或商户需要采取的行动”这一证据。我们将跟踪商户咨询率，并且只有在解决时长改善，同时不会掩盖未解决的资金案件时才扩大实施。"
+      }
+    },
+    {
+      "id": "merchant-support-tradeoff",
+      "title": "商户支持运营：说明取舍",
+      "type": "决策表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because merchant contact rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、商户咨询率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve merchant contact rate, the evidence shows that the new status label does not explain the expected date or required merchant action. We should restore clear status guidance and tag contacts by root cause for weekly review, but proceed only if resolution time improves without hiding unresolved financial cases.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善商户咨询率，但证据表明新状态标签没有解释预计日期或商户需要采取的行动。我们应恢复清晰的状态指引，并按根因标记咨询以供每周复盘，但只有在解决时长改善，同时不会掩盖未解决的资金案件时才继续推进。"
+      }
+    },
+    {
+      "id": "merchant-support-disagree",
+      "title": "商户支持运营：回应异议",
+      "type": "会议表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that contacts about pending payouts doubled after a dashboard change. I suggest that we restore clear status guidance and tag contacts by root cause for weekly review, using whether resolution time improves without hiding unresolved financial cases as our shared decision rule.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是看板改版后，关于待处理付款的咨询量翻倍。我建议恢复清晰的状态指引，并按根因标记咨询以供每周复盘，并把“解决时长改善，同时不会掩盖未解决的资金案件”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "merchant-support-pilot",
+      "title": "商户支持运营：设计试点",
+      "type": "实验表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we restore clear status guidance and tag contacts by root cause for weekly review.",
+          "Because merchant contact rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、商户咨询率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we restore clear status guidance and tag contacts by root cause for weekly review. The primary metric is merchant contact rate, and the guardrail is whether resolution time improves without hiding unresolved financial cases. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中恢复清晰的状态指引，并按根因标记咨询以供每周复盘。主要指标是商户咨询率，护栏是解决时长改善，同时不会掩盖未解决的资金案件。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "merchant-support-executive",
+      "title": "商户支持运营：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: contacts about pending payouts doubled after a dashboard change. The likely driver is that the new status label does not explain the expected date or required merchant action. I recommend that we restore clear status guidance and tag contacts by root cause for weekly review; the decision needed today is whether to proceed under the guardrail that resolution time improves without hiding unresolved financial cases.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：看板改版后，关于待处理付款的咨询量翻倍。可能的驱动因素是新状态标签没有解释预计日期或商户需要采取的行动。我建议恢复清晰的状态指引，并按根因标记咨询以供每周复盘；今天需要决定是否在“解决时长改善，同时不会掩盖未解决的资金案件”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "merchant-support-negotiate",
+      "title": "商户支持运营：协商边界",
+      "type": "谈判表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve merchant contact rate.",
+          "Because merchant contact rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、商户咨询率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve merchant contact rate. We can be flexible on rollout timing, but we should not compromise the requirement that resolution time improves without hiding unresolved financial cases. A workable package is to restore clear status guidance and tag contacts by root cause for weekly review and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善商户咨询率。我们可以在上线时间上灵活处理，但不能放弃“解决时长改善，同时不会掩盖未解决的资金案件”这一要求。可行的整体方案是恢复清晰的状态指引，并按根因标记咨询以供每周复盘，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "merchant-support-interview",
+      "title": "商户支持运营：面试复盘",
+      "type": "案例表达",
+      "difficulty": 2,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“商户支持运营”场景。已知看板改版后，关于待处理付款的咨询量翻倍，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户咨询率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that contacts about pending payouts doubled after a dashboard change. I analyzed the operating evidence, identified that the new status label does not explain the expected date or required merchant action, and recommended that we restore clear status guidance and tag contacts by root cause for weekly review. The result created a measurable basis for improving merchant contact rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕商户咨询率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Merchant support should",
+          "merchant contact rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是看板改版后，关于待处理付款的咨询量翻倍。我分析了运营证据，识别出新状态标签没有解释预计日期或商户需要采取的行动，并建议恢复清晰的状态指引，并按根因标记咨询以供每周复盘。结果为改善商户咨询率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}

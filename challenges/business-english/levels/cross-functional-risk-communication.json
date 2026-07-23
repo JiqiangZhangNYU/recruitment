@@ -1,0 +1,1489 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "cross-functional-risk-communication",
+  "title": "跨团队协作与客户沟通",
+  "topicIds": [
+    "meetings-objections",
+    "cross-region",
+    "executive-summary",
+    "project-update",
+    "customer-escalation"
+  ],
+  "subtitle": "会议与异议 · 跨区域协作 · 高管摘要 · 跨团队项目推进 · 客户升级处理",
+  "objective": "能够围绕会议与异议、跨区域协作、高管摘要、跨团队项目推进、客户升级处理，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 5 关 · 复杂协作",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 3,
+  "reward": {
+    "title": "跨团队协作与客户沟通表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is decision closure rate.",
+      "I recommend that we place the recommendation and quantified consequence in the opening paragraph.",
+      "We should scale only if no customer is charged twice and remediation is independently verified."
+    ]
+  },
+  "questions": [
+    {
+      "id": "clarify-vague-request",
+      "title": "澄清模糊需求",
+      "type": "会议表达",
+      "activity": {
+        "mode": "choice",
+        "prompt": "对方只说“we need better performance”，最佳回应是什么？",
+        "choices": [
+          "Sure, we will improve it as soon as possible.",
+          "Could we clarify the target metric, scope and decision deadline?",
+          "Why was the requirement not defined before the meeting?"
+        ],
+        "correctChoice": 1,
+        "feedback": "先澄清指标、范围和决策时间，才能把抽象要求转成可执行问题。"
+      },
+      "prompt": "对方说“we need better payment performance”，但没有说明指标、市场或时间范围。",
+      "task": "用英文提出三项澄清问题，并复述你理解的决策目标。",
+      "hint": "围绕 metric、scope 和 decision。",
+      "answer": {
+        "sample": "To make sure we solve the right problem, could we clarify three points? Which outcome matters most: authorization rate, conversion or speed? Are we focusing on a specific market or method? What decision do we need to make, and by when? My current understanding is that we need to identify the largest recoverable conversion gap for the Q3 roadmap.",
+        "notes": [
+          "提供具体选项比开放式追问更高效。",
+          "最后复述目标以检验双方是否一致。"
+        ],
+        "keywords": [
+          "could we clarify",
+          "are we focusing on",
+          "by when",
+          "my current understanding"
+        ],
+        "translation": "为了确保我们解决的是正确问题，可以先澄清三点吗？最重要的结果是授权率、转化率还是速度？我们是否聚焦特定市场或支付方式？需要在什么时间前做出什么决定？我目前的理解是，我们要为第三季度路线图找出最大且可恢复的转化缺口。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "respectful-disagreement",
+      "title": "礼貌表达反对",
+      "type": "观点交锋",
+      "prompt": "产品负责人建议一次性向所有商户上线新路由，你认为风险过高，建议先灰度。",
+      "task": "用英文认可目标、陈述反对理由、给出替代方案，并邀请讨论。",
+      "hint": "反对方案，不反对人。",
+      "answer": {
+        "sample": "I agree that we should capture the conversion benefit quickly. My concern is the operational risk because our pilot covered only two markets. I recommend starting with 10% of eligible traffic, reviewing success and error codes for 48 hours, and expanding if the guardrails hold. Would that phased approach meet the commercial timeline?",
+        "notes": [
+          "先确认共同目标，减少对立。",
+          "替代方案包含流量、观察期和放量条件。"
+        ],
+        "keywords": [
+          "I agree that",
+          "my concern is",
+          "I recommend",
+          "guardrails"
+        ],
+        "translation": "我同意应该尽快获得转化收益。我的顾虑是运营风险，因为试点只覆盖了两个市场。我建议先向 10% 的合格流量开放，观察 48 小时的成功率和错误码；如果护栏指标正常，再继续扩大。这样的分阶段方案能否满足商业时间要求？"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "no-bandwidth",
+      "title": "回应“没有资源”",
+      "type": "协商推进",
+      "prompt": "工程团队说本季度没有 bandwidth 支持对账优化，但该问题每周造成 40 小时人工处理。",
+      "task": "用英文确认约束，量化价值，并提出最小范围或换优先级的选择。",
+      "hint": "先寻找 smallest valuable scope。",
+      "answer": {
+        "sample": "I understand that the team is fully allocated. The current gap, however, requires about 40 hours of manual work each week. Could we estimate a smaller first step, such as automating the top two mismatch types? If that is not feasible, I would like to compare this item with the lowest-priority committed project so leadership can make an explicit trade-off.",
+        "notes": [
+          "先承认资源约束。",
+          "量化机会成本，并要求明确取舍。"
+        ],
+        "keywords": [
+          "fully allocated",
+          "smaller first step",
+          "estimate the effort",
+          "explicit trade-off"
+        ],
+        "translation": "我理解团队资源已经排满。不过，当前缺口每周需要约 40 小时人工处理。我们能否评估一个更小的第一步，例如先自动化处理最主要的两类不匹配？如果仍不可行，我希望把此事项与当前优先级最低的已承诺项目进行比较，由管理层明确做出取舍。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "confirm-owner-deadline",
+      "title": "锁定负责人和日期",
+      "type": "会议收口",
+      "prompt": "会议讨论很多，但结束前没人明确谁负责定价分析，截止时间也含糊。",
+      "task": "用英文总结决定，并确认 owner、deliverable 和 deadline。",
+      "hint": "直接点名确认，但给对方纠正空间。",
+      "answer": {
+        "sample": "Before we close, let me confirm the next step. We agreed to compare the current pricing model with a volume-based option. Maya, my understanding is that you will own the analysis and share a one-page recommendation by next Thursday. Is that scope and timing workable for you? I will document the dependencies today.",
+        "notes": [
+          "用 before we close 自然切换到会议收口。",
+          "确认产出是一页建议，而不是模糊的 analysis。"
+        ],
+        "keywords": [
+          "before we close",
+          "we agreed to",
+          "you will own",
+          "is that workable"
+        ],
+        "translation": "在会议结束前，我确认一下下一步。我们同意比较当前定价模式与按交易量定价的方案。Maya，我的理解是由你负责分析，并在下周四前提交一页建议。这个范围和时间对你是否可行？我今天会记录相关依赖。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "regional-objection",
+      "title": "处理区域市场异议",
+      "type": "跨区会议",
+      "prompt": "总部希望统一商户激励政策，拉美团队认为当地现金流周期不同，统一政策会降低参与率。",
+      "task": "用英文回应区域团队：验证关切、追问证据，并提出可验证的折中方案。",
+      "hint": "不要立即否定，也不要无条件接受。",
+      "answer": {
+        "sample": "That concern makes sense if merchants operate on a longer cash-conversion cycle. Could you share the data showing where the standard policy creates the largest gap? We could keep the global eligibility rules but test a different payout schedule for a defined segment. If participation improves without higher loss, we would have evidence for a regional adjustment.",
+        "notes": [
+          "先解释 why it makes sense。",
+          "折中方案保持全球规则，只测试本地敏感变量。"
+        ],
+        "keywords": [
+          "that concern makes sense",
+          "could you share",
+          "defined segment",
+          "regional adjustment"
+        ],
+        "translation": "如果商户的现金周转周期较长，这个顾虑是合理的。你能否提供数据显示标准政策在哪些地方造成了最大缺口？我们可以保留全球统一的准入规则，同时针对明确人群测试不同的付款周期。如果参与度提高且损失没有增加，就能形成支持区域调整的证据。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "meetings-objections-explain",
+      "title": "会议与异议：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Constructive disagreement acknowledges the concern, tests the evidence and proposes a decision path.",
+          "Because decision closure rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、决策关闭率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“会议与异议”场景。已知区域和全球团队反复表达相反立场，却未就证据达成一致，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策关闭率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Constructive disagreement acknowledges the concern, tests the evidence and proposes a decision path. The current signal is that regional and global teams repeat opposing positions without agreeing on evidence. I recommend that we state the shared goal, isolate the disputed assumption and agree on a test.",
+        "notes": [
+          "表达必须围绕决策关闭率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Constructive disagreement acknowledges",
+          "decision closure rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "建设性异议应承认对方顾虑、检验证据并提出决策路径。当前信号是区域和全球团队反复表达相反立场，却未就证据达成一致。我建议说明共同目标、隔离争议假设并商定验证方式。"
+      }
+    },
+    {
+      "id": "meetings-objections-interpret",
+      "title": "会议与异议：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“会议与异议”场景。已知区域和全球团队反复表达相反立场，却未就证据达成一致，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、决策关闭率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline decision closure rate needs context because regional and global teams repeat opposing positions without agreeing on evidence. Evidence points to the meeting is debating preferences rather than assumptions and thresholds. Before making a decision, we should segment the data and verify that the final decision and remaining dissent are both documented.",
+        "notes": [
+          "表达必须围绕决策关闭率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Constructive disagreement acknowledges",
+          "decision closure rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "决策关闭率这一核心指标需要结合背景解读，因为区域和全球团队反复表达相反立场，却未就证据达成一致。证据表明会议争论的是偏好，而不是假设和阈值。在做决定前，我们应细分数据，并确认最终决策和仍然存在的异议都被记录。"
+      }
+    },
+    {
+      "id": "meetings-objections-incident",
+      "title": "会议与异议：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which regional and global teams repeat opposing positions without agreeing on evidence.",
+          "Because decision closure rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、决策关闭率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“会议与异议”场景。已知区域和全球团队反复表达相反立场，却未就证据达成一致，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策关闭率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which regional and global teams repeat opposing positions without agreeing on evidence. Current evidence points to the meeting is debating preferences rather than assumptions and thresholds, but the root cause is not yet final. We will state the shared goal, isolate the disputed assumption and agree on a test and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕决策关闭率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Constructive disagreement acknowledges",
+          "decision closure rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：区域和全球团队反复表达相反立场，却未就证据达成一致。当前证据表明会议争论的是偏好，而不是假设和阈值，但根因尚未最终确认。我们将说明共同目标、隔离争议假设并商定验证方式，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "meetings-objections-recommend",
+      "title": "会议与异议：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“会议与异议”场景。已知区域和全球团队反复表达相反立场，却未就证据达成一致，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、决策关闭率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to state the shared goal, isolate the disputed assumption and agree on a test. This directly addresses the evidence that the meeting is debating preferences rather than assumptions and thresholds. We will track decision closure rate and scale only if the final decision and remaining dissent are both documented.",
+        "notes": [
+          "表达必须围绕决策关闭率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Constructive disagreement acknowledges",
+          "decision closure rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议说明共同目标、隔离争议假设并商定验证方式。这直接回应了“会议争论的是偏好，而不是假设和阈值”这一证据。我们将跟踪决策关闭率，并且只有在最终决策和仍然存在的异议都被记录时才扩大实施。"
+      }
+    },
+    {
+      "id": "meetings-objections-tradeoff",
+      "title": "会议与异议：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because decision closure rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、决策关闭率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“会议与异议”场景。已知区域和全球团队反复表达相反立场，却未就证据达成一致，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、决策关闭率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve decision closure rate, the evidence shows that the meeting is debating preferences rather than assumptions and thresholds. We should state the shared goal, isolate the disputed assumption and agree on a test, but proceed only if the final decision and remaining dissent are both documented.",
+        "notes": [
+          "表达必须围绕决策关闭率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Constructive disagreement acknowledges",
+          "decision closure rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善决策关闭率，但证据表明会议争论的是偏好，而不是假设和阈值。我们应说明共同目标、隔离争议假设并商定验证方式，但只有在最终决策和仍然存在的异议都被记录时才继续推进。"
+      }
+    },
+    {
+      "id": "localization-translation",
+      "title": "本地化不只是翻译",
+      "type": "策略表达",
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最准确地区分 translation 和 localization？",
+        "choices": [
+          "Localization adapts the full experience to local behavior and requirements.",
+          "Localization means translating every sentence into the local language.",
+          "Translation includes regulation, payment methods and support operations."
+        ],
+        "correctChoice": 0,
+        "feedback": "本地化覆盖行为、产品、监管和运营，翻译只是其中一个语言环节。"
+      },
+      "prompt": "总部认为把英文收银台翻译成西班牙语就完成了墨西哥本地化，你需要说明还缺什么。",
+      "task": "用英文解释 translation 与 localization 的差别，并给出至少三个需要验证的本地因素。",
+      "hint": "考虑支付方式、信任、格式、监管和客服。",
+      "answer": {
+        "sample": "Translation changes the language, while localization adapts the full experience to local behavior and requirements. For Mexico, we should validate preferred payment methods, installment expectations, address formats, trust messages, regulatory disclosures and support flows. We also need to test with local users rather than assume a translated global design will convert equally well.",
+        "notes": [
+          "用 changes 与 adapts 形成清楚对比。",
+          "列举因素覆盖产品、监管和运营。"
+        ],
+        "keywords": [
+          "translation",
+          "localization",
+          "local requirements",
+          "validate with users"
+        ],
+        "translation": "翻译只是改变语言，本地化则是根据当地行为和要求调整完整体验。针对墨西哥，我们应验证当地偏好的支付方式、分期习惯、地址格式、信任信息、监管披露和客服流程。还需要与本地用户测试，而不能假设翻译后的全球设计会有同样的转化表现。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "market-entry-memo",
+      "title": "市场进入建议",
+      "type": "决策备忘录",
+      "prompt": "市场 A 规模大但合规复杂，市场 B 规模较小但已有支付伙伴。团队要选择先进入哪个。",
+      "task": "用英文写一段建议，交代评价标准、不确定性和分阶段决策。",
+      "hint": "建议也可以是先购买信息。",
+      "answer": {
+        "sample": "I recommend prioritizing Market B for the first launch while completing a regulatory feasibility assessment for Market A. Market A has greater long-term potential, but licensing uncertainty could change both cost and timing. Market B offers a faster path to validated demand through an existing partner. We can revisit Market A once the compliance estimate reaches decision quality.",
+        "notes": [
+          "明确短期行动与长期机会不是互相排斥。",
+          "建议体现速度、规模与不确定性的权衡。"
+        ],
+        "keywords": [
+          "prioritize",
+          "feasibility assessment",
+          "validated demand",
+          "revisit"
+        ],
+        "translation": "我建议首次上线优先选择市场 B，同时完成市场 A 的监管可行性评估。市场 A 的长期潜力更大，但牌照不确定性可能同时改变成本和时间。市场 B 可以借助现有合作伙伴，更快验证真实需求。当合规成本估算达到决策所需质量后，我们可以重新评估市场 A。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "timezone-agreement",
+      "title": "跨时区工作约定",
+      "type": "协作机制",
+      "prompt": "上海、伦敦和圣保罗团队共同上线项目，会议经常落在某一团队深夜，异步信息也不完整。",
+      "task": "用英文提出包含会议轮换、异步文档、响应时限和紧急升级的工作约定。",
+      "hint": "机制需要公平且可执行。",
+      "answer": {
+        "sample": "I propose a rotating meeting schedule so the same region does not always carry the late-hour burden. Decision topics should be posted at least 24 hours before the meeting, and each region should respond within one business day. Decisions and owners will be recorded after the call. Launch-critical incidents will use the on-call channel and named regional contacts.",
+        "notes": [
+          "rotating schedule 体现时区负担公平。",
+          "明确时间标准，并区分日常与紧急沟通。"
+        ],
+        "keywords": [
+          "rotating schedule",
+          "shared document",
+          "one business day",
+          "on-call"
+        ],
+        "translation": "我建议采用轮换会议时间，避免总是由同一区域承担深夜会议。决策议题应至少提前 24 小时发布，每个区域应在一个工作日内回复。会后记录决定和负责人。影响上线的紧急事件则使用值班渠道和明确的区域联系人。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "compliance-uncertainty",
+      "title": "表达合规不确定性",
+      "type": "风险判断",
+      "prompt": "新市场的促销返现是否构成受监管资金活动尚无结论，业务团队仍要求给上线日期。",
+      "task": "用英文说明已知、未知、决策门槛和当前可以并行推进的工作。",
+      "hint": "不要在未知时承诺日期。",
+      "answer": {
+        "sample": "We have not yet confirmed whether the cashback flow falls within the local regulated-funds perimeter. Legal expects an external opinion by 15 September, and that conclusion is a launch dependency. Until then, we should not commit to a public launch date. We can still complete product design, vendor due diligence and alternative fund-flow models.",
+        "notes": [
+          "has not yet confirmed 精确表达当前状态。",
+          "列出可并行工作，避免团队完全停滞。"
+        ],
+        "keywords": [
+          "have not yet confirmed",
+          "regulatory perimeter",
+          "launch dependency",
+          "due diligence"
+        ],
+        "translation": "我们尚未确认返现流程是否属于当地受监管资金的范围。法务预计在 9 月 15 日前取得外部法律意见，该结论是上线的前置条件。在此之前，我们不应承诺公开上线日期，但仍可完成产品设计、供应商尽职调查和备选资金流方案。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "global-local-conflict",
+      "title": "总部与本地目标冲突",
+      "type": "利益协调",
+      "prompt": "总部要求统一提高支付费率以改善利润，本地团队担心头部商户流失。双方用不同指标证明自己正确。",
+      "task": "用英文重构争议，提出共同目标、分层分析和决策规则。",
+      "hint": "把“谁对”改成“什么情境下采取什么动作”。",
+      "answer": {
+        "sample": "Both teams are trying to improve sustainable net revenue, but Global emphasizes margin while the local team emphasizes retention. I suggest segmenting merchants by profitability, price sensitivity and strategic value, then estimating net revenue under several scenarios. We can raise prices where expected gains exceed churn risk, while using approved, time-limited exceptions for sensitive high-value merchants.",
+        "notes": [
+          "先定义 sustainable net revenue 作为共同目标。",
+          "例外需要批准和到期日期。"
+        ],
+        "keywords": [
+          "sustainable net revenue",
+          "segmenting",
+          "churn risk",
+          "time-limited exception"
+        ],
+        "translation": "双方团队都希望提高可持续净收入，但全球团队更重视利润率，本地团队更重视留存。我建议按盈利能力、价格敏感度和战略价值对商户分层，再估算不同情景下的净收入。对于预期收益高于流失风险的人群可以提价；对于价格敏感的高价值商户，则使用经过审批且有期限的例外方案。"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "cross-region-explain",
+      "title": "跨区域协作：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because regional launch readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Cross-region execution distinguishes global principles from evidence-based local exceptions."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、区域上线准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨区域协作”场景。已知全球支付流程在欧洲表现良好，却在东南亚造成流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、区域上线准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Cross-region execution distinguishes global principles from evidence-based local exceptions. The current signal is that a global payment flow performs well in Europe but creates abandonment in Southeast Asia. I recommend that we define non-negotiable controls and pilot localized journey changes.",
+        "notes": [
+          "表达必须围绕区域上线准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-region execution distinguishes",
+          "regional launch readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "跨区域执行需要区分全球原则和有证据支持的本地例外。当前信号是全球支付流程在欧洲表现良好，却在东南亚造成流失。我建议明确不可妥协的控制要求，并试点本地化流程变更。"
+      }
+    },
+    {
+      "id": "cross-region-interpret",
+      "title": "跨区域协作：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨区域协作”场景。已知全球支付流程在欧洲表现良好，却在东南亚造成流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、区域上线准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline regional launch readiness needs context because a global payment flow performs well in Europe but creates abandonment in Southeast Asia. Evidence points to local language, payment habits and regulatory steps were treated as translation details. Before making a decision, we should segment the data and verify that local exceptions have an owner, expiry date and measurable rationale.",
+        "notes": [
+          "表达必须围绕区域上线准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-region execution distinguishes",
+          "regional launch readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "区域上线准备度这一核心指标需要结合背景解读，因为全球支付流程在欧洲表现良好，却在东南亚造成流失。证据表明本地语言、支付习惯和监管步骤被当作翻译细节。在做决定前，我们应细分数据，并确认本地例外拥有负责人、到期日和可衡量的依据。"
+      }
+    },
+    {
+      "id": "cross-region-incident",
+      "title": "跨区域协作：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because regional launch readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a global payment flow performs well in Europe but creates abandonment in Southeast Asia."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、区域上线准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨区域协作”场景。已知全球支付流程在欧洲表现良好，却在东南亚造成流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、区域上线准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a global payment flow performs well in Europe but creates abandonment in Southeast Asia. Current evidence points to local language, payment habits and regulatory steps were treated as translation details, but the root cause is not yet final. We will define non-negotiable controls and pilot localized journey changes and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕区域上线准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-region execution distinguishes",
+          "regional launch readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：全球支付流程在欧洲表现良好，却在东南亚造成流失。当前证据表明本地语言、支付习惯和监管步骤被当作翻译细节，但根因尚未最终确认。我们将明确不可妥协的控制要求，并试点本地化流程变更，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "cross-region-recommend",
+      "title": "跨区域协作：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨区域协作”场景。已知全球支付流程在欧洲表现良好，却在东南亚造成流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、区域上线准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to define non-negotiable controls and pilot localized journey changes. This directly addresses the evidence that local language, payment habits and regulatory steps were treated as translation details. We will track regional launch readiness and scale only if local exceptions have an owner, expiry date and measurable rationale.",
+        "notes": [
+          "表达必须围绕区域上线准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-region execution distinguishes",
+          "regional launch readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议明确不可妥协的控制要求，并试点本地化流程变更。这直接回应了“本地语言、支付习惯和监管步骤被当作翻译细节”这一证据。我们将跟踪区域上线准备度，并且只有在本地例外拥有负责人、到期日和可衡量的依据时才扩大实施。"
+      }
+    },
+    {
+      "id": "cross-region-tradeoff",
+      "title": "跨区域协作：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because regional launch readiness matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、区域上线准备度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨区域协作”场景。已知全球支付流程在欧洲表现良好，却在东南亚造成流失，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、区域上线准备度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve regional launch readiness, the evidence shows that local language, payment habits and regulatory steps were treated as translation details. We should define non-negotiable controls and pilot localized journey changes, but proceed only if local exceptions have an owner, expiry date and measurable rationale.",
+        "notes": [
+          "表达必须围绕区域上线准备度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-region execution distinguishes",
+          "regional launch readiness",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善区域上线准备度，但证据表明本地语言、支付习惯和监管步骤被当作翻译细节。我们应明确不可妥协的控制要求，并试点本地化流程变更，但只有在本地例外拥有负责人、到期日和可衡量的依据时才继续推进。"
+      }
+    },
+    {
+      "id": "executive-summary-explain",
+      "title": "高管摘要：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "An executive summary states the implication, recommendation, evidence and decision needed.",
+          "Because executive decision time matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、管理层决策时间和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "An executive summary states the implication, recommendation, evidence and decision needed. The current signal is that a payment strategy paper contains detailed analysis but its recommendation appears on page twelve. I recommend that we place the recommendation and quantified consequence in the opening paragraph.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "高管摘要应说明业务影响、建议、证据和所需决策。当前信号是支付策略文件分析详尽，但建议直到第十二页才出现。我建议在开头段落放置建议和量化后果。"
+      }
+    },
+    {
+      "id": "executive-summary-interpret",
+      "title": "高管摘要：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline executive decision time needs context because a payment strategy paper contains detailed analysis but its recommendation appears on page twelve. Evidence points to the document is optimized for completeness rather than decision usefulness. Before making a decision, we should segment the data and verify that material uncertainty and downside remain visible in the summary.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "管理层决策时间这一核心指标需要结合背景解读，因为支付策略文件分析详尽，但建议直到第十二页才出现。证据表明文件追求完整性，而不是决策价值。在做决定前，我们应细分数据，并确认重大不确定性和下行风险仍在摘要中清晰可见。"
+      }
+    },
+    {
+      "id": "executive-summary-incident",
+      "title": "高管摘要：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a payment strategy paper contains detailed analysis but its recommendation appears on page twelve.",
+          "Because executive decision time matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、管理层决策时间和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a payment strategy paper contains detailed analysis but its recommendation appears on page twelve. Current evidence points to the document is optimized for completeness rather than decision usefulness, but the root cause is not yet final. We will place the recommendation and quantified consequence in the opening paragraph and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：支付策略文件分析详尽，但建议直到第十二页才出现。当前证据表明文件追求完整性，而不是决策价值，但根因尚未最终确认。我们将在开头段落放置建议和量化后果，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "executive-summary-recommend",
+      "title": "高管摘要：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to place the recommendation and quantified consequence in the opening paragraph. This directly addresses the evidence that the document is optimized for completeness rather than decision usefulness. We will track executive decision time and scale only if material uncertainty and downside remain visible in the summary.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议在开头段落放置建议和量化后果。这直接回应了“文件追求完整性，而不是决策价值”这一证据。我们将跟踪管理层决策时间，并且只有在重大不确定性和下行风险仍在摘要中清晰可见时才扩大实施。"
+      }
+    },
+    {
+      "id": "executive-summary-tradeoff",
+      "title": "高管摘要：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because executive decision time matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、管理层决策时间和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve executive decision time, the evidence shows that the document is optimized for completeness rather than decision usefulness. We should place the recommendation and quantified consequence in the opening paragraph, but proceed only if material uncertainty and downside remain visible in the summary.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善管理层决策时间，但证据表明文件追求完整性，而不是决策价值。我们应在开头段落放置建议和量化后果，但只有在重大不确定性和下行风险仍在摘要中清晰可见时才继续推进。"
+      }
+    },
+    {
+      "id": "executive-summary-disagree",
+      "title": "高管摘要：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a payment strategy paper contains detailed analysis but its recommendation appears on page twelve. I suggest that we place the recommendation and quantified consequence in the opening paragraph, using whether material uncertainty and downside remain visible in the summary as our shared decision rule.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是支付策略文件分析详尽，但建议直到第十二页才出现。我建议在开头段落放置建议和量化后果，并把“重大不确定性和下行风险仍在摘要中清晰可见”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "executive-summary-pilot",
+      "title": "高管摘要：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we place the recommendation and quantified consequence in the opening paragraph.",
+          "Because executive decision time matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、管理层决策时间和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we place the recommendation and quantified consequence in the opening paragraph. The primary metric is executive decision time, and the guardrail is whether material uncertainty and downside remain visible in the summary. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中在开头段落放置建议和量化后果。主要指标是管理层决策时间，护栏是重大不确定性和下行风险仍在摘要中清晰可见。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "executive-summary-executive",
+      "title": "高管摘要：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a payment strategy paper contains detailed analysis but its recommendation appears on page twelve. The likely driver is that the document is optimized for completeness rather than decision usefulness. I recommend that we place the recommendation and quantified consequence in the opening paragraph; the decision needed today is whether to proceed under the guardrail that material uncertainty and downside remain visible in the summary.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：支付策略文件分析详尽，但建议直到第十二页才出现。可能的驱动因素是文件追求完整性，而不是决策价值。我建议在开头段落放置建议和量化后果；今天需要决定是否在“重大不确定性和下行风险仍在摘要中清晰可见”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "executive-summary-negotiate",
+      "title": "高管摘要：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve executive decision time.",
+          "Because executive decision time matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、管理层决策时间和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve executive decision time. We can be flexible on rollout timing, but we should not compromise the requirement that material uncertainty and downside remain visible in the summary. A workable package is to place the recommendation and quantified consequence in the opening paragraph and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善管理层决策时间。我们可以在上线时间上灵活处理，但不能放弃“重大不确定性和下行风险仍在摘要中清晰可见”这一要求。可行的整体方案是在开头段落放置建议和量化后果，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "executive-summary-interview",
+      "title": "高管摘要：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“高管摘要”场景。已知支付策略文件分析详尽，但建议直到第十二页才出现，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、管理层决策时间、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a payment strategy paper contains detailed analysis but its recommendation appears on page twelve. I analyzed the operating evidence, identified that the document is optimized for completeness rather than decision usefulness, and recommended that we place the recommendation and quantified consequence in the opening paragraph. The result created a measurable basis for improving executive decision time, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕管理层决策时间说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "An executive summary",
+          "executive decision time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是支付策略文件分析详尽，但建议直到第十二页才出现。我分析了运营证据，识别出文件追求完整性，而不是决策价值，并建议在开头段落放置建议和量化后果。结果为改善管理层决策时间建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "project-update-explain",
+      "title": "跨团队项目推进：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because on-time milestone rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Cross-functional delivery requires explicit dependencies, decision rights and escalation triggers."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、里程碑按时完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Cross-functional delivery requires explicit dependencies, decision rights and escalation triggers. The current signal is that a payment launch is two weeks from release but certification ownership remains unclear. I recommend that we rebuild the critical path and escalate the unowned certification decision.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "跨团队交付需要明确依赖关系、决策权和升级触发条件。当前信号是支付上线距离发布只剩两周，但认证责任仍不清晰。我建议重建关键路径，并升级无人负责的认证决策。"
+      }
+    },
+    {
+      "id": "project-update-interpret",
+      "title": "跨团队项目推进：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline on-time milestone rate needs context because a payment launch is two weeks from release but certification ownership remains unclear. Evidence points to the plan lists tasks without mapping dependencies or a single accountable owner. Before making a decision, we should segment the data and verify that no launch-critical dependency lacks an owner and fallback.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "里程碑按时完成率这一核心指标需要结合背景解读，因为支付上线距离发布只剩两周，但认证责任仍不清晰。证据表明计划列出了任务，却没有映射依赖或唯一责任人。在做决定前，我们应细分数据，并确认所有影响上线的关键依赖都有负责人和备选方案。"
+      }
+    },
+    {
+      "id": "project-update-incident",
+      "title": "跨团队项目推进：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because on-time milestone rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a payment launch is two weeks from release but certification ownership remains unclear."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、里程碑按时完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a payment launch is two weeks from release but certification ownership remains unclear. Current evidence points to the plan lists tasks without mapping dependencies or a single accountable owner, but the root cause is not yet final. We will rebuild the critical path and escalate the unowned certification decision and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：支付上线距离发布只剩两周，但认证责任仍不清晰。当前证据表明计划列出了任务，却没有映射依赖或唯一责任人，但根因尚未最终确认。我们将重建关键路径，并升级无人负责的认证决策，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "project-update-recommend",
+      "title": "跨团队项目推进：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to rebuild the critical path and escalate the unowned certification decision. This directly addresses the evidence that the plan lists tasks without mapping dependencies or a single accountable owner. We will track on-time milestone rate and scale only if no launch-critical dependency lacks an owner and fallback.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议重建关键路径，并升级无人负责的认证决策。这直接回应了“计划列出了任务，却没有映射依赖或唯一责任人”这一证据。我们将跟踪里程碑按时完成率，并且只有在所有影响上线的关键依赖都有负责人和备选方案时才扩大实施。"
+      }
+    },
+    {
+      "id": "project-update-tradeoff",
+      "title": "跨团队项目推进：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because on-time milestone rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、里程碑按时完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve on-time milestone rate, the evidence shows that the plan lists tasks without mapping dependencies or a single accountable owner. We should rebuild the critical path and escalate the unowned certification decision, but proceed only if no launch-critical dependency lacks an owner and fallback.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善里程碑按时完成率，但证据表明计划列出了任务，却没有映射依赖或唯一责任人。我们应重建关键路径，并升级无人负责的认证决策，但只有在所有影响上线的关键依赖都有负责人和备选方案时才继续推进。"
+      }
+    },
+    {
+      "id": "project-update-disagree",
+      "title": "跨团队项目推进：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a payment launch is two weeks from release but certification ownership remains unclear. I suggest that we rebuild the critical path and escalate the unowned certification decision, using whether no launch-critical dependency lacks an owner and fallback as our shared decision rule.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是支付上线距离发布只剩两周，但认证责任仍不清晰。我建议重建关键路径，并升级无人负责的认证决策，并把“所有影响上线的关键依赖都有负责人和备选方案”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "project-update-pilot",
+      "title": "跨团队项目推进：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because on-time milestone rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we rebuild the critical path and escalate the unowned certification decision."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、里程碑按时完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we rebuild the critical path and escalate the unowned certification decision. The primary metric is on-time milestone rate, and the guardrail is whether no launch-critical dependency lacks an owner and fallback. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中重建关键路径，并升级无人负责的认证决策。主要指标是里程碑按时完成率，护栏是所有影响上线的关键依赖都有负责人和备选方案。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "project-update-executive",
+      "title": "跨团队项目推进：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a payment launch is two weeks from release but certification ownership remains unclear. The likely driver is that the plan lists tasks without mapping dependencies or a single accountable owner. I recommend that we rebuild the critical path and escalate the unowned certification decision; the decision needed today is whether to proceed under the guardrail that no launch-critical dependency lacks an owner and fallback.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：支付上线距离发布只剩两周，但认证责任仍不清晰。可能的驱动因素是计划列出了任务，却没有映射依赖或唯一责任人。我建议重建关键路径，并升级无人负责的认证决策；今天需要决定是否在“所有影响上线的关键依赖都有负责人和备选方案”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "project-update-negotiate",
+      "title": "跨团队项目推进：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because on-time milestone rate matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve on-time milestone rate."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、里程碑按时完成率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve on-time milestone rate. We can be flexible on rollout timing, but we should not compromise the requirement that no launch-critical dependency lacks an owner and fallback. A workable package is to rebuild the critical path and escalate the unowned certification decision and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善里程碑按时完成率。我们可以在上线时间上灵活处理，但不能放弃“所有影响上线的关键依赖都有负责人和备选方案”这一要求。可行的整体方案是重建关键路径，并升级无人负责的认证决策，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "project-update-interview",
+      "title": "跨团队项目推进：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“跨团队项目推进”场景。已知支付上线距离发布只剩两周，但认证责任仍不清晰，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、里程碑按时完成率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a payment launch is two weeks from release but certification ownership remains unclear. I analyzed the operating evidence, identified that the plan lists tasks without mapping dependencies or a single accountable owner, and recommended that we rebuild the critical path and escalate the unowned certification decision. The result created a measurable basis for improving on-time milestone rate, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕里程碑按时完成率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Cross-functional delivery requires",
+          "on-time milestone rate",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是支付上线距离发布只剩两周，但认证责任仍不清晰。我分析了运营证据，识别出计划列出了任务，却没有映射依赖或唯一责任人，并建议重建关键路径，并升级无人负责的认证决策。结果为改善里程碑按时完成率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "customer-escalation-explain",
+      "title": "客户升级处理：准确解释",
+      "type": "概念表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "A strong escalation response combines empathy, verified facts, containment and a timed update.",
+          "Because escalation resolution time matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、升级案件解决时长和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A strong escalation response combines empathy, verified facts, containment and a timed update. The current signal is that a strategic merchant reports duplicate charges and threatens to pause payment traffic. I recommend that we stop the faulty retry path, identify affected transactions and give the merchant timed updates.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "高质量升级响应需要结合共情、已核实事实、止损措施和定时更新。当前信号是一家战略商户报告重复扣款，并威胁暂停支付流量。我建议停止错误重试路径、识别受影响交易并定时向商户更新。"
+      }
+    },
+    {
+      "id": "customer-escalation-interpret",
+      "title": "客户升级处理：解读指标",
+      "type": "数据表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline escalation resolution time needs context because a strategic merchant reports duplicate charges and threatens to pause payment traffic. Evidence points to a timeout retry bypassed one idempotency check during a provider incident. Before making a decision, we should segment the data and verify that no customer is charged twice and remediation is independently verified.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "升级案件解决时长这一核心指标需要结合背景解读，因为一家战略商户报告重复扣款，并威胁暂停支付流量。证据表明服务商事故期间，一次超时重试绕过了幂等检查。在做决定前，我们应细分数据，并确认任何客户都不会被重复扣款，且补救结果经过独立核验。"
+      }
+    },
+    {
+      "id": "customer-escalation-incident",
+      "title": "客户升级处理：事故更新",
+      "type": "状态沟通",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which a strategic merchant reports duplicate charges and threatens to pause payment traffic.",
+          "Because escalation resolution time matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、升级案件解决时长和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a strategic merchant reports duplicate charges and threatens to pause payment traffic. Current evidence points to a timeout retry bypassed one idempotency check during a provider incident, but the root cause is not yet final. We will stop the faulty retry path, identify affected transactions and give the merchant timed updates and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：一家战略商户报告重复扣款，并威胁暂停支付流量。当前证据表明服务商事故期间，一次超时重试绕过了幂等检查，但根因尚未最终确认。我们将停止错误重试路径、识别受影响交易并定时向商户更新，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "customer-escalation-recommend",
+      "title": "客户升级处理：提出建议",
+      "type": "策略表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to stop the faulty retry path, identify affected transactions and give the merchant timed updates. This directly addresses the evidence that a timeout retry bypassed one idempotency check during a provider incident. We will track escalation resolution time and scale only if no customer is charged twice and remediation is independently verified.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议停止错误重试路径、识别受影响交易并定时向商户更新。这直接回应了“服务商事故期间，一次超时重试绕过了幂等检查”这一证据。我们将跟踪升级案件解决时长，并且只有在任何客户都不会被重复扣款，且补救结果经过独立核验时才扩大实施。"
+      }
+    },
+    {
+      "id": "customer-escalation-tradeoff",
+      "title": "客户升级处理：说明取舍",
+      "type": "决策表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because escalation resolution time matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、升级案件解决时长和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve escalation resolution time, the evidence shows that a timeout retry bypassed one idempotency check during a provider incident. We should stop the faulty retry path, identify affected transactions and give the merchant timed updates, but proceed only if no customer is charged twice and remediation is independently verified.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善升级案件解决时长，但证据表明服务商事故期间，一次超时重试绕过了幂等检查。我们应停止错误重试路径、识别受影响交易并定时向商户更新，但只有在任何客户都不会被重复扣款，且补救结果经过独立核验时才继续推进。"
+      }
+    },
+    {
+      "id": "customer-escalation-disagree",
+      "title": "客户升级处理：回应异议",
+      "type": "会议表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a strategic merchant reports duplicate charges and threatens to pause payment traffic. I suggest that we stop the faulty retry path, identify affected transactions and give the merchant timed updates, using whether no customer is charged twice and remediation is independently verified as our shared decision rule.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是一家战略商户报告重复扣款，并威胁暂停支付流量。我建议停止错误重试路径、识别受影响交易并定时向商户更新，并把“任何客户都不会被重复扣款，且补救结果经过独立核验”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "customer-escalation-pilot",
+      "title": "客户升级处理：设计试点",
+      "type": "实验表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we stop the faulty retry path, identify affected transactions and give the merchant timed updates.",
+          "Because escalation resolution time matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、升级案件解决时长和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we stop the faulty retry path, identify affected transactions and give the merchant timed updates. The primary metric is escalation resolution time, and the guardrail is whether no customer is charged twice and remediation is independently verified. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中停止错误重试路径、识别受影响交易并定时向商户更新。主要指标是升级案件解决时长，护栏是任何客户都不会被重复扣款，且补救结果经过独立核验。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "customer-escalation-executive",
+      "title": "客户升级处理：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a strategic merchant reports duplicate charges and threatens to pause payment traffic. The likely driver is that a timeout retry bypassed one idempotency check during a provider incident. I recommend that we stop the faulty retry path, identify affected transactions and give the merchant timed updates; the decision needed today is whether to proceed under the guardrail that no customer is charged twice and remediation is independently verified.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：一家战略商户报告重复扣款，并威胁暂停支付流量。可能的驱动因素是服务商事故期间，一次超时重试绕过了幂等检查。我建议停止错误重试路径、识别受影响交易并定时向商户更新；今天需要决定是否在“任何客户都不会被重复扣款，且补救结果经过独立核验”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "customer-escalation-negotiate",
+      "title": "客户升级处理：协商边界",
+      "type": "谈判表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve escalation resolution time.",
+          "Because escalation resolution time matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、升级案件解决时长和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve escalation resolution time. We can be flexible on rollout timing, but we should not compromise the requirement that no customer is charged twice and remediation is independently verified. A workable package is to stop the faulty retry path, identify affected transactions and give the merchant timed updates and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善升级案件解决时长。我们可以在上线时间上灵活处理，但不能放弃“任何客户都不会被重复扣款，且补救结果经过独立核验”这一要求。可行的整体方案是停止错误重试路径、识别受影响交易并定时向商户更新，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "customer-escalation-interview",
+      "title": "客户升级处理：面试复盘",
+      "type": "案例表达",
+      "difficulty": 3,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“客户升级处理”场景。已知一家战略商户报告重复扣款，并威胁暂停支付流量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、升级案件解决时长、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a strategic merchant reports duplicate charges and threatens to pause payment traffic. I analyzed the operating evidence, identified that a timeout retry bypassed one idempotency check during a provider incident, and recommended that we stop the faulty retry path, identify affected transactions and give the merchant timed updates. The result created a measurable basis for improving escalation resolution time, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕升级案件解决时长说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A strong escalation",
+          "escalation resolution time",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是一家战略商户报告重复扣款，并威胁暂停支付流量。我分析了运营证据，识别出服务商事故期间，一次超时重试绕过了幂等检查，并建议停止错误重试路径、识别受影响交易并定时向商户更新。结果为改善升级案件解决时长建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}

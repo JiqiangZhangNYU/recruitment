@@ -1,0 +1,1529 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "advanced-payment-strategy",
+  "title": "高阶支付与资金战略",
+  "topicIds": [
+    "portfolio-strategy",
+    "unit-economics",
+    "tokenization-updater",
+    "open-banking-rtp",
+    "treasury-liquidity"
+  ],
+  "subtitle": "支付能力组合策略 · 支付单位经济 · 令牌化与账户更新 · 开放银行与实时支付 · 资金与流动性运营",
+  "objective": "能够围绕支付能力组合策略、支付单位经济、令牌化与账户更新、开放银行与实时支付、资金与流动性运营，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 9 关 · 高阶策略",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 5,
+  "reward": {
+    "title": "高阶支付与资金战略表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is portfolio risk-adjusted return.",
+      "I recommend that we pilot network tokens and account updates by issuer and merchant cohort.",
+      "We should scale only if customer and merchant obligations remain funded under the approved stress case."
+    ]
+  },
+  "questions": [
+    {
+      "id": "portfolio-strategy-explain",
+      "title": "支付能力组合策略：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because portfolio risk-adjusted return matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "A payment portfolio allocates investment across growth, resilience, compliance and efficiency."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、能力组合风险调整后回报和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "A payment portfolio allocates investment across growth, resilience, compliance and efficiency. The current signal is that the roadmap contains many local requests but no view of shared strategic capabilities. I recommend that we group investments by capability and fund a balanced set of strategic outcomes.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付能力组合需要在增长、韧性、合规和效率之间分配投入。当前信号是路线图包含大量本地请求，却没有共同战略能力视角。我建议按能力对投入分组，并资助一组平衡的战略结果。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-interpret",
+      "title": "支付能力组合策略：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline portfolio risk-adjusted return needs context because the roadmap contains many local requests but no view of shared strategic capabilities. Evidence points to initiatives are ranked by sponsor urgency rather than enterprise value and dependency. Before making a decision, we should segment the data and verify that mandatory resilience and compliance work cannot be displaced by short-term revenue.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "能力组合风险调整后回报这一核心指标需要结合背景解读，因为路线图包含大量本地请求，却没有共同战略能力视角。证据表明项目按发起人紧迫性，而不是企业价值和依赖关系排序。在做决定前，我们应细分数据，并确认强制韧性和合规工作不会被短期收入挤占。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-incident",
+      "title": "支付能力组合策略：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because portfolio risk-adjusted return matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which the roadmap contains many local requests but no view of shared strategic capabilities."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、能力组合风险调整后回报和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which the roadmap contains many local requests but no view of shared strategic capabilities. Current evidence points to initiatives are ranked by sponsor urgency rather than enterprise value and dependency, but the root cause is not yet final. We will group investments by capability and fund a balanced set of strategic outcomes and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：路线图包含大量本地请求，却没有共同战略能力视角。当前证据表明项目按发起人紧迫性，而不是企业价值和依赖关系排序，但根因尚未最终确认。我们将按能力对投入分组，并资助一组平衡的战略结果，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-recommend",
+      "title": "支付能力组合策略：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to group investments by capability and fund a balanced set of strategic outcomes. This directly addresses the evidence that initiatives are ranked by sponsor urgency rather than enterprise value and dependency. We will track portfolio risk-adjusted return and scale only if mandatory resilience and compliance work cannot be displaced by short-term revenue.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按能力对投入分组，并资助一组平衡的战略结果。这直接回应了“项目按发起人紧迫性，而不是企业价值和依赖关系排序”这一证据。我们将跟踪能力组合风险调整后回报，并且只有在强制韧性和合规工作不会被短期收入挤占时才扩大实施。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-tradeoff",
+      "title": "支付能力组合策略：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because portfolio risk-adjusted return matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、能力组合风险调整后回报和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve portfolio risk-adjusted return, the evidence shows that initiatives are ranked by sponsor urgency rather than enterprise value and dependency. We should group investments by capability and fund a balanced set of strategic outcomes, but proceed only if mandatory resilience and compliance work cannot be displaced by short-term revenue.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善能力组合风险调整后回报，但证据表明项目按发起人紧迫性，而不是企业价值和依赖关系排序。我们应按能力对投入分组，并资助一组平衡的战略结果，但只有在强制韧性和合规工作不会被短期收入挤占时才继续推进。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-disagree",
+      "title": "支付能力组合策略：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that the roadmap contains many local requests but no view of shared strategic capabilities. I suggest that we group investments by capability and fund a balanced set of strategic outcomes, using whether mandatory resilience and compliance work cannot be displaced by short-term revenue as our shared decision rule.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是路线图包含大量本地请求，却没有共同战略能力视角。我建议按能力对投入分组，并资助一组平衡的战略结果，并把“强制韧性和合规工作不会被短期收入挤占”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-pilot",
+      "title": "支付能力组合策略：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because portfolio risk-adjusted return matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we group investments by capability and fund a balanced set of strategic outcomes."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、能力组合风险调整后回报和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we group investments by capability and fund a balanced set of strategic outcomes. The primary metric is portfolio risk-adjusted return, and the guardrail is whether mandatory resilience and compliance work cannot be displaced by short-term revenue. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按能力对投入分组，并资助一组平衡的战略结果。主要指标是能力组合风险调整后回报，护栏是强制韧性和合规工作不会被短期收入挤占。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-executive",
+      "title": "支付能力组合策略：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: the roadmap contains many local requests but no view of shared strategic capabilities. The likely driver is that initiatives are ranked by sponsor urgency rather than enterprise value and dependency. I recommend that we group investments by capability and fund a balanced set of strategic outcomes; the decision needed today is whether to proceed under the guardrail that mandatory resilience and compliance work cannot be displaced by short-term revenue.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：路线图包含大量本地请求，却没有共同战略能力视角。可能的驱动因素是项目按发起人紧迫性，而不是企业价值和依赖关系排序。我建议按能力对投入分组，并资助一组平衡的战略结果；今天需要决定是否在“强制韧性和合规工作不会被短期收入挤占”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-negotiate",
+      "title": "支付能力组合策略：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because portfolio risk-adjusted return matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve portfolio risk-adjusted return."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、能力组合风险调整后回报和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve portfolio risk-adjusted return. We can be flexible on rollout timing, but we should not compromise the requirement that mandatory resilience and compliance work cannot be displaced by short-term revenue. A workable package is to group investments by capability and fund a balanced set of strategic outcomes and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善能力组合风险调整后回报。我们可以在上线时间上灵活处理，但不能放弃“强制韧性和合规工作不会被短期收入挤占”这一要求。可行的整体方案是按能力对投入分组，并资助一组平衡的战略结果，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "portfolio-strategy-interview",
+      "title": "支付能力组合策略：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付能力组合策略”场景。已知路线图包含大量本地请求，却没有共同战略能力视角，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、能力组合风险调整后回报、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that the roadmap contains many local requests but no view of shared strategic capabilities. I analyzed the operating evidence, identified that initiatives are ranked by sponsor urgency rather than enterprise value and dependency, and recommended that we group investments by capability and fund a balanced set of strategic outcomes. The result created a measurable basis for improving portfolio risk-adjusted return, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕能力组合风险调整后回报说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "A payment portfolio",
+          "portfolio risk-adjusted return",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是路线图包含大量本地请求，却没有共同战略能力视角。我分析了运营证据，识别出项目按发起人紧迫性，而不是企业价值和依赖关系排序，并建议按能力对投入分组，并资助一组平衡的战略结果。结果为改善能力组合风险调整后回报建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "unit-economics-explain",
+      "title": "支付单位经济：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because contribution margin per successful payment matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment unit economics connect revenue, processing cost, losses, incentives and service cost."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付贡献利润和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment unit economics connect revenue, processing cost, losses, incentives and service cost. The current signal is that gross revenue rises with volume while contribution margin turns negative in one segment. I recommend that we reprice or redesign the segment offer using fully loaded marginal economics.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付单位经济连接收入、处理成本、损失、激励和服务成本。当前信号是总收入随交易量上升，但一个客群的贡献利润转为负值。我建议使用全口径边际经济重新定价或设计该客群方案。"
+      }
+    },
+    {
+      "id": "unit-economics-interpret",
+      "title": "支付单位经济：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline contribution margin per successful payment needs context because gross revenue rises with volume while contribution margin turns negative in one segment. Evidence points to pricing does not cover fraud loss, premium support and expensive payment methods. Before making a decision, we should segment the data and verify that growth targets are measured after variable cost and expected loss.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "每笔成功支付贡献利润这一核心指标需要结合背景解读，因为总收入随交易量上升，但一个客群的贡献利润转为负值。证据表明定价无法覆盖欺诈损失、高级支持和高成本支付方式。在做决定前，我们应细分数据，并确认增长目标在扣除可变成本和预期损失后衡量。"
+      }
+    },
+    {
+      "id": "unit-economics-incident",
+      "title": "支付单位经济：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because contribution margin per successful payment matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which gross revenue rises with volume while contribution margin turns negative in one segment."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付贡献利润和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which gross revenue rises with volume while contribution margin turns negative in one segment. Current evidence points to pricing does not cover fraud loss, premium support and expensive payment methods, but the root cause is not yet final. We will reprice or redesign the segment offer using fully loaded marginal economics and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：总收入随交易量上升，但一个客群的贡献利润转为负值。当前证据表明定价无法覆盖欺诈损失、高级支持和高成本支付方式，但根因尚未最终确认。我们将使用全口径边际经济重新定价或设计该客群方案，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "unit-economics-recommend",
+      "title": "支付单位经济：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to reprice or redesign the segment offer using fully loaded marginal economics. This directly addresses the evidence that pricing does not cover fraud loss, premium support and expensive payment methods. We will track contribution margin per successful payment and scale only if growth targets are measured after variable cost and expected loss.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议使用全口径边际经济重新定价或设计该客群方案。这直接回应了“定价无法覆盖欺诈损失、高级支持和高成本支付方式”这一证据。我们将跟踪每笔成功支付贡献利润，并且只有在增长目标在扣除可变成本和预期损失后衡量时才扩大实施。"
+      }
+    },
+    {
+      "id": "unit-economics-tradeoff",
+      "title": "支付单位经济：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because contribution margin per successful payment matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付贡献利润和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve contribution margin per successful payment, the evidence shows that pricing does not cover fraud loss, premium support and expensive payment methods. We should reprice or redesign the segment offer using fully loaded marginal economics, but proceed only if growth targets are measured after variable cost and expected loss.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善每笔成功支付贡献利润，但证据表明定价无法覆盖欺诈损失、高级支持和高成本支付方式。我们应使用全口径边际经济重新定价或设计该客群方案，但只有在增长目标在扣除可变成本和预期损失后衡量时才继续推进。"
+      }
+    },
+    {
+      "id": "unit-economics-disagree",
+      "title": "支付单位经济：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that gross revenue rises with volume while contribution margin turns negative in one segment. I suggest that we reprice or redesign the segment offer using fully loaded marginal economics, using whether growth targets are measured after variable cost and expected loss as our shared decision rule.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是总收入随交易量上升，但一个客群的贡献利润转为负值。我建议使用全口径边际经济重新定价或设计该客群方案，并把“增长目标在扣除可变成本和预期损失后衡量”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "unit-economics-pilot",
+      "title": "支付单位经济：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because contribution margin per successful payment matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we reprice or redesign the segment offer using fully loaded marginal economics."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付贡献利润和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we reprice or redesign the segment offer using fully loaded marginal economics. The primary metric is contribution margin per successful payment, and the guardrail is whether growth targets are measured after variable cost and expected loss. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中使用全口径边际经济重新定价或设计该客群方案。主要指标是每笔成功支付贡献利润，护栏是增长目标在扣除可变成本和预期损失后衡量。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "unit-economics-executive",
+      "title": "支付单位经济：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: gross revenue rises with volume while contribution margin turns negative in one segment. The likely driver is that pricing does not cover fraud loss, premium support and expensive payment methods. I recommend that we reprice or redesign the segment offer using fully loaded marginal economics; the decision needed today is whether to proceed under the guardrail that growth targets are measured after variable cost and expected loss.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：总收入随交易量上升，但一个客群的贡献利润转为负值。可能的驱动因素是定价无法覆盖欺诈损失、高级支持和高成本支付方式。我建议使用全口径边际经济重新定价或设计该客群方案；今天需要决定是否在“增长目标在扣除可变成本和预期损失后衡量”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "unit-economics-negotiate",
+      "title": "支付单位经济：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because contribution margin per successful payment matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve contribution margin per successful payment."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、每笔成功支付贡献利润和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve contribution margin per successful payment. We can be flexible on rollout timing, but we should not compromise the requirement that growth targets are measured after variable cost and expected loss. A workable package is to reprice or redesign the segment offer using fully loaded marginal economics and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善每笔成功支付贡献利润。我们可以在上线时间上灵活处理，但不能放弃“增长目标在扣除可变成本和预期损失后衡量”这一要求。可行的整体方案是使用全口径边际经济重新定价或设计该客群方案，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "unit-economics-interview",
+      "title": "支付单位经济：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付单位经济”场景。已知总收入随交易量上升，但一个客群的贡献利润转为负值，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、每笔成功支付贡献利润、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that gross revenue rises with volume while contribution margin turns negative in one segment. I analyzed the operating evidence, identified that pricing does not cover fraud loss, premium support and expensive payment methods, and recommended that we reprice or redesign the segment offer using fully loaded marginal economics. The result created a measurable basis for improving contribution margin per successful payment, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕每笔成功支付贡献利润说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment unit economics",
+          "contribution margin per successful payment",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是总收入随交易量上升，但一个客群的贡献利润转为负值。我分析了运营证据，识别出定价无法覆盖欺诈损失、高级支持和高成本支付方式，并建议使用全口径边际经济重新定价或设计该客群方案。结果为改善每笔成功支付贡献利润建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "tokenization-updater-explain",
+      "title": "令牌化与账户更新：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because credential-related approval uplift matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Network tokens and account updater services can improve security and credential continuity."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、凭证相关批准率提升和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Network tokens and account updater services can improve security and credential continuity. The current signal is that expired and replaced cards drive recurring-payment failures in valuable cohorts. I recommend that we pilot network tokens and account updates by issuer and merchant cohort.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "网络令牌和账户更新服务可以提升安全性及支付凭证连续性。当前信号是过期和换卡导致高价值群体的周期支付失败。我建议按发卡行和商户群体试点网络令牌与账户更新。"
+      }
+    },
+    {
+      "id": "tokenization-updater-interpret",
+      "title": "令牌化与账户更新：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline credential-related approval uplift needs context because expired and replaced cards drive recurring-payment failures in valuable cohorts. Evidence points to stored credentials are not consistently tokenized or refreshed before billing. Before making a decision, we should segment the data and verify that consent, credential lifecycle and fallback behavior remain controlled.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "凭证相关批准率提升这一核心指标需要结合背景解读，因为过期和换卡导致高价值群体的周期支付失败。证据表明存储凭证没有在扣款前被一致令牌化或更新。在做决定前，我们应细分数据，并确认同意管理、凭证生命周期和回退行为保持受控。"
+      }
+    },
+    {
+      "id": "tokenization-updater-incident",
+      "title": "令牌化与账户更新：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because credential-related approval uplift matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which expired and replaced cards drive recurring-payment failures in valuable cohorts."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、凭证相关批准率提升和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which expired and replaced cards drive recurring-payment failures in valuable cohorts. Current evidence points to stored credentials are not consistently tokenized or refreshed before billing, but the root cause is not yet final. We will pilot network tokens and account updates by issuer and merchant cohort and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：过期和换卡导致高价值群体的周期支付失败。当前证据表明存储凭证没有在扣款前被一致令牌化或更新，但根因尚未最终确认。我们将按发卡行和商户群体试点网络令牌与账户更新，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "tokenization-updater-recommend",
+      "title": "令牌化与账户更新：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to pilot network tokens and account updates by issuer and merchant cohort. This directly addresses the evidence that stored credentials are not consistently tokenized or refreshed before billing. We will track credential-related approval uplift and scale only if consent, credential lifecycle and fallback behavior remain controlled.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按发卡行和商户群体试点网络令牌与账户更新。这直接回应了“存储凭证没有在扣款前被一致令牌化或更新”这一证据。我们将跟踪凭证相关批准率提升，并且只有在同意管理、凭证生命周期和回退行为保持受控时才扩大实施。"
+      }
+    },
+    {
+      "id": "tokenization-updater-tradeoff",
+      "title": "令牌化与账户更新：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because credential-related approval uplift matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、凭证相关批准率提升和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve credential-related approval uplift, the evidence shows that stored credentials are not consistently tokenized or refreshed before billing. We should pilot network tokens and account updates by issuer and merchant cohort, but proceed only if consent, credential lifecycle and fallback behavior remain controlled.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善凭证相关批准率提升，但证据表明存储凭证没有在扣款前被一致令牌化或更新。我们应按发卡行和商户群体试点网络令牌与账户更新，但只有在同意管理、凭证生命周期和回退行为保持受控时才继续推进。"
+      }
+    },
+    {
+      "id": "tokenization-updater-disagree",
+      "title": "令牌化与账户更新：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that expired and replaced cards drive recurring-payment failures in valuable cohorts. I suggest that we pilot network tokens and account updates by issuer and merchant cohort, using whether consent, credential lifecycle and fallback behavior remain controlled as our shared decision rule.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是过期和换卡导致高价值群体的周期支付失败。我建议按发卡行和商户群体试点网络令牌与账户更新，并把“同意管理、凭证生命周期和回退行为保持受控”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "tokenization-updater-pilot",
+      "title": "令牌化与账户更新：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because credential-related approval uplift matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we pilot network tokens and account updates by issuer and merchant cohort."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、凭证相关批准率提升和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we pilot network tokens and account updates by issuer and merchant cohort. The primary metric is credential-related approval uplift, and the guardrail is whether consent, credential lifecycle and fallback behavior remain controlled. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按发卡行和商户群体试点网络令牌与账户更新。主要指标是凭证相关批准率提升，护栏是同意管理、凭证生命周期和回退行为保持受控。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "tokenization-updater-executive",
+      "title": "令牌化与账户更新：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: expired and replaced cards drive recurring-payment failures in valuable cohorts. The likely driver is that stored credentials are not consistently tokenized or refreshed before billing. I recommend that we pilot network tokens and account updates by issuer and merchant cohort; the decision needed today is whether to proceed under the guardrail that consent, credential lifecycle and fallback behavior remain controlled.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：过期和换卡导致高价值群体的周期支付失败。可能的驱动因素是存储凭证没有在扣款前被一致令牌化或更新。我建议按发卡行和商户群体试点网络令牌与账户更新；今天需要决定是否在“同意管理、凭证生命周期和回退行为保持受控”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "tokenization-updater-negotiate",
+      "title": "令牌化与账户更新：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because credential-related approval uplift matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve credential-related approval uplift."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、凭证相关批准率提升和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve credential-related approval uplift. We can be flexible on rollout timing, but we should not compromise the requirement that consent, credential lifecycle and fallback behavior remain controlled. A workable package is to pilot network tokens and account updates by issuer and merchant cohort and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善凭证相关批准率提升。我们可以在上线时间上灵活处理，但不能放弃“同意管理、凭证生命周期和回退行为保持受控”这一要求。可行的整体方案是按发卡行和商户群体试点网络令牌与账户更新，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "tokenization-updater-interview",
+      "title": "令牌化与账户更新：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“令牌化与账户更新”场景。已知过期和换卡导致高价值群体的周期支付失败，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、凭证相关批准率提升、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that expired and replaced cards drive recurring-payment failures in valuable cohorts. I analyzed the operating evidence, identified that stored credentials are not consistently tokenized or refreshed before billing, and recommended that we pilot network tokens and account updates by issuer and merchant cohort. The result created a measurable basis for improving credential-related approval uplift, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕凭证相关批准率提升说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Network tokens and",
+          "credential-related approval uplift",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是过期和换卡导致高价值群体的周期支付失败。我分析了运营证据，识别出存储凭证没有在扣款前被一致令牌化或更新，并建议按发卡行和商户群体试点网络令牌与账户更新。结果为改善凭证相关批准率提升建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-explain",
+      "title": "开放银行与实时支付：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Account-to-account payments require a complete view of consent, confirmation, refunds and fraud liability.",
+          "Because account-to-account completed conversion matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、账户到账户支付完成转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Account-to-account payments require a complete view of consent, confirmation, refunds and fraud liability. The current signal is that lower processing cost is offset by abandonment during bank selection and authentication. I recommend that we pilot the journey with explicit confirmation, support and return-payment design.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "账户到账户支付需要完整考虑授权、确认、退款和欺诈责任。当前信号是较低处理成本被银行选择和验证环节的流失抵消。我建议通过明确的确认、客服和退款设计试点该流程。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-interpret",
+      "title": "开放银行与实时支付：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline account-to-account completed conversion needs context because lower processing cost is offset by abandonment during bank selection and authentication. Evidence points to the business case assumes card-like customer behavior and dispute handling. Before making a decision, we should segment the data and verify that customers understand authorization and have a workable error-resolution path.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "账户到账户支付完成转化率这一核心指标需要结合背景解读，因为较低处理成本被银行选择和验证环节的流失抵消。证据表明商业论证假设客户行为和争议处理与银行卡相同。在做决定前，我们应细分数据，并确认客户理解授权含义并拥有可行的问题解决路径。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-incident",
+      "title": "开放银行与实时支付：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which lower processing cost is offset by abandonment during bank selection and authentication.",
+          "Because account-to-account completed conversion matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、账户到账户支付完成转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which lower processing cost is offset by abandonment during bank selection and authentication. Current evidence points to the business case assumes card-like customer behavior and dispute handling, but the root cause is not yet final. We will pilot the journey with explicit confirmation, support and return-payment design and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：较低处理成本被银行选择和验证环节的流失抵消。当前证据表明商业论证假设客户行为和争议处理与银行卡相同，但根因尚未最终确认。我们将通过明确的确认、客服和退款设计试点该流程，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-recommend",
+      "title": "开放银行与实时支付：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to pilot the journey with explicit confirmation, support and return-payment design. This directly addresses the evidence that the business case assumes card-like customer behavior and dispute handling. We will track account-to-account completed conversion and scale only if customers understand authorization and have a workable error-resolution path.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议通过明确的确认、客服和退款设计试点该流程。这直接回应了“商业论证假设客户行为和争议处理与银行卡相同”这一证据。我们将跟踪账户到账户支付完成转化率，并且只有在客户理解授权含义并拥有可行的问题解决路径时才扩大实施。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-tradeoff",
+      "title": "开放银行与实时支付：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because account-to-account completed conversion matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、账户到账户支付完成转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve account-to-account completed conversion, the evidence shows that the business case assumes card-like customer behavior and dispute handling. We should pilot the journey with explicit confirmation, support and return-payment design, but proceed only if customers understand authorization and have a workable error-resolution path.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善账户到账户支付完成转化率，但证据表明商业论证假设客户行为和争议处理与银行卡相同。我们应通过明确的确认、客服和退款设计试点该流程，但只有在客户理解授权含义并拥有可行的问题解决路径时才继续推进。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-disagree",
+      "title": "开放银行与实时支付：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that lower processing cost is offset by abandonment during bank selection and authentication. I suggest that we pilot the journey with explicit confirmation, support and return-payment design, using whether customers understand authorization and have a workable error-resolution path as our shared decision rule.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是较低处理成本被银行选择和验证环节的流失抵消。我建议通过明确的确认、客服和退款设计试点该流程，并把“客户理解授权含义并拥有可行的问题解决路径”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-pilot",
+      "title": "开放银行与实时支付：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we pilot the journey with explicit confirmation, support and return-payment design.",
+          "Because account-to-account completed conversion matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、账户到账户支付完成转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we pilot the journey with explicit confirmation, support and return-payment design. The primary metric is account-to-account completed conversion, and the guardrail is whether customers understand authorization and have a workable error-resolution path. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中通过明确的确认、客服和退款设计试点该流程。主要指标是账户到账户支付完成转化率，护栏是客户理解授权含义并拥有可行的问题解决路径。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-executive",
+      "title": "开放银行与实时支付：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: lower processing cost is offset by abandonment during bank selection and authentication. The likely driver is that the business case assumes card-like customer behavior and dispute handling. I recommend that we pilot the journey with explicit confirmation, support and return-payment design; the decision needed today is whether to proceed under the guardrail that customers understand authorization and have a workable error-resolution path.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：较低处理成本被银行选择和验证环节的流失抵消。可能的驱动因素是商业论证假设客户行为和争议处理与银行卡相同。我建议通过明确的确认、客服和退款设计试点该流程；今天需要决定是否在“客户理解授权含义并拥有可行的问题解决路径”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-negotiate",
+      "title": "开放银行与实时支付：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve account-to-account completed conversion.",
+          "Because account-to-account completed conversion matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、账户到账户支付完成转化率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve account-to-account completed conversion. We can be flexible on rollout timing, but we should not compromise the requirement that customers understand authorization and have a workable error-resolution path. A workable package is to pilot the journey with explicit confirmation, support and return-payment design and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善账户到账户支付完成转化率。我们可以在上线时间上灵活处理，但不能放弃“客户理解授权含义并拥有可行的问题解决路径”这一要求。可行的整体方案是通过明确的确认、客服和退款设计试点该流程，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "open-banking-rtp-interview",
+      "title": "开放银行与实时支付：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“开放银行与实时支付”场景。已知较低处理成本被银行选择和验证环节的流失抵消，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、账户到账户支付完成转化率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that lower processing cost is offset by abandonment during bank selection and authentication. I analyzed the operating evidence, identified that the business case assumes card-like customer behavior and dispute handling, and recommended that we pilot the journey with explicit confirmation, support and return-payment design. The result created a measurable basis for improving account-to-account completed conversion, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕账户到账户支付完成转化率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Account-to-account payments require",
+          "account-to-account completed conversion",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是较低处理成本被银行选择和验证环节的流失抵消。我分析了运营证据，识别出商业论证假设客户行为和争议处理与银行卡相同，并建议通过明确的确认、客服和退款设计试点该流程。结果为改善账户到账户支付完成转化率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-explain",
+      "title": "资金与流动性运营：准确解释",
+      "type": "概念表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because liquidity buffer efficiency matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment treasury manages settlement timing, currency exposure, prefunding and liquidity concentration."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、流动性缓冲效率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment treasury manages settlement timing, currency exposure, prefunding and liquidity concentration. The current signal is that prefunding requirements grow faster than volume in volatile cross-border corridors. I recommend that we set corridor-level buffers using settlement forecasts and stress limits.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付资金管理涵盖结算时点、币种风险、预存资金和流动性集中。当前信号是波动较大的跨境走廊中，预存资金要求增长快于交易量。我建议使用结算预测和压力限额设置走廊级缓冲。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-interpret",
+      "title": "资金与流动性运营：解读指标",
+      "type": "数据表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline liquidity buffer efficiency needs context because prefunding requirements grow faster than volume in volatile cross-border corridors. Evidence points to settlement calendars and stress scenarios are not reflected in daily funding rules. Before making a decision, we should segment the data and verify that customer and merchant obligations remain funded under the approved stress case.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "流动性缓冲效率这一核心指标需要结合背景解读，因为波动较大的跨境走廊中，预存资金要求增长快于交易量。证据表明日常资金规则没有反映结算日历和压力情景。在做决定前，我们应细分数据，并确认在批准的压力情景下，客户和商户义务仍有资金保障。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-incident",
+      "title": "资金与流动性运营：事故更新",
+      "type": "状态沟通",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because liquidity buffer efficiency matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which prefunding requirements grow faster than volume in volatile cross-border corridors."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、流动性缓冲效率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which prefunding requirements grow faster than volume in volatile cross-border corridors. Current evidence points to settlement calendars and stress scenarios are not reflected in daily funding rules, but the root cause is not yet final. We will set corridor-level buffers using settlement forecasts and stress limits and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：波动较大的跨境走廊中，预存资金要求增长快于交易量。当前证据表明日常资金规则没有反映结算日历和压力情景，但根因尚未最终确认。我们将使用结算预测和压力限额设置走廊级缓冲，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-recommend",
+      "title": "资金与流动性运营：提出建议",
+      "type": "策略表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to set corridor-level buffers using settlement forecasts and stress limits. This directly addresses the evidence that settlement calendars and stress scenarios are not reflected in daily funding rules. We will track liquidity buffer efficiency and scale only if customer and merchant obligations remain funded under the approved stress case.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议使用结算预测和压力限额设置走廊级缓冲。这直接回应了“日常资金规则没有反映结算日历和压力情景”这一证据。我们将跟踪流动性缓冲效率，并且只有在在批准的压力情景下，客户和商户义务仍有资金保障时才扩大实施。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-tradeoff",
+      "title": "资金与流动性运营：说明取舍",
+      "type": "决策表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because liquidity buffer efficiency matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、流动性缓冲效率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve liquidity buffer efficiency, the evidence shows that settlement calendars and stress scenarios are not reflected in daily funding rules. We should set corridor-level buffers using settlement forecasts and stress limits, but proceed only if customer and merchant obligations remain funded under the approved stress case.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善流动性缓冲效率，但证据表明日常资金规则没有反映结算日历和压力情景。我们应使用结算预测和压力限额设置走廊级缓冲，但只有在在批准的压力情景下，客户和商户义务仍有资金保障时才继续推进。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-disagree",
+      "title": "资金与流动性运营：回应异议",
+      "type": "会议表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that prefunding requirements grow faster than volume in volatile cross-border corridors. I suggest that we set corridor-level buffers using settlement forecasts and stress limits, using whether customer and merchant obligations remain funded under the approved stress case as our shared decision rule.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是波动较大的跨境走廊中，预存资金要求增长快于交易量。我建议使用结算预测和压力限额设置走廊级缓冲，并把“在批准的压力情景下，客户和商户义务仍有资金保障”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-pilot",
+      "title": "资金与流动性运营：设计试点",
+      "type": "实验表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because liquidity buffer efficiency matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we set corridor-level buffers using settlement forecasts and stress limits."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、流动性缓冲效率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we set corridor-level buffers using settlement forecasts and stress limits. The primary metric is liquidity buffer efficiency, and the guardrail is whether customer and merchant obligations remain funded under the approved stress case. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中使用结算预测和压力限额设置走廊级缓冲。主要指标是流动性缓冲效率，护栏是在批准的压力情景下，客户和商户义务仍有资金保障。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-executive",
+      "title": "资金与流动性运营：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: prefunding requirements grow faster than volume in volatile cross-border corridors. The likely driver is that settlement calendars and stress scenarios are not reflected in daily funding rules. I recommend that we set corridor-level buffers using settlement forecasts and stress limits; the decision needed today is whether to proceed under the guardrail that customer and merchant obligations remain funded under the approved stress case.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：波动较大的跨境走廊中，预存资金要求增长快于交易量。可能的驱动因素是日常资金规则没有反映结算日历和压力情景。我建议使用结算预测和压力限额设置走廊级缓冲；今天需要决定是否在“在批准的压力情景下，客户和商户义务仍有资金保障”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-negotiate",
+      "title": "资金与流动性运营：协商边界",
+      "type": "谈判表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because liquidity buffer efficiency matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve liquidity buffer efficiency."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、流动性缓冲效率和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve liquidity buffer efficiency. We can be flexible on rollout timing, but we should not compromise the requirement that customer and merchant obligations remain funded under the approved stress case. A workable package is to set corridor-level buffers using settlement forecasts and stress limits and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善流动性缓冲效率。我们可以在上线时间上灵活处理，但不能放弃“在批准的压力情景下，客户和商户义务仍有资金保障”这一要求。可行的整体方案是使用结算预测和压力限额设置走廊级缓冲，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "treasury-liquidity-interview",
+      "title": "资金与流动性运营：面试复盘",
+      "type": "案例表达",
+      "difficulty": 5,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“资金与流动性运营”场景。已知波动较大的跨境走廊中，预存资金要求增长快于交易量，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、流动性缓冲效率、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that prefunding requirements grow faster than volume in volatile cross-border corridors. I analyzed the operating evidence, identified that settlement calendars and stress scenarios are not reflected in daily funding rules, and recommended that we set corridor-level buffers using settlement forecasts and stress limits. The result created a measurable basis for improving liquidity buffer efficiency, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕流动性缓冲效率说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment treasury manages",
+          "liquidity buffer efficiency",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是波动较大的跨境走廊中，预存资金要求增长快于交易量。我分析了运营证据，识别出日常资金规则没有反映结算日历和压力情景，并建议使用结算预测和压力限额设置走廊级缓冲。结果为改善流动性缓冲效率建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}

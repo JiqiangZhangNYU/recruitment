@@ -3,6 +3,8 @@ const assert = require("node:assert/strict");
 const guide = require("../learning-guide.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
 const businessEnglish = require("../challenges/business-english.json");
+const businessEnglishManifest = require("../challenges/business-english/manifest.json");
+const businessEnglishLevels = businessEnglishManifest.levels.map((level) => require(`../${level.file}`));
 const lifecycleGrowth = require("../challenges/lifecycle-growth.json");
 const projectDelivery = require("../challenges/project-delivery.json");
 const paymentsFintech = require("../challenges/payments-fintech.json");
@@ -27,7 +29,8 @@ function checkChallengePackData(pack, expectedLevels, expectedQuestions) {
 }
 
 checkChallengePackData(dataDiagnosis, 8, 48);
-checkChallengePackData(businessEnglish, 50, 500);
+checkChallengePackData(businessEnglish, 10, 500);
+checkChallengePackData({ ...businessEnglishManifest, levels: businessEnglishLevels }, 10, 500);
 const newP0ChallengePacks = [lifecycleGrowth, projectDelivery, paymentsFintech, internationalCollaboration];
 const challengePackBySkill = new Map([
   [dataDiagnosis.skillId, dataDiagnosis],
@@ -70,7 +73,17 @@ assert.deepEqual(
 assert.equal(Object.keys(businessEnglish.translations).length, 500);
 assert.ok(businessEnglish.levels.flatMap((level) => level.questions)
   .every((question) => businessEnglish.translations[question.id]?.length >= 20));
-assert.ok(businessEnglish.levels.every((level) => level.questions.length === 10));
+assert.ok(businessEnglish.levels.every((level) => level.questions.length === 50));
+assert.equal(businessEnglishManifest.chunked, true);
+assert.equal(businessEnglishManifest.ui.compact, true);
+assert.ok(businessEnglishManifest.levels.every((level, index) => (
+  level.questions.length === 50
+  && level.file === `challenges/business-english/levels/${level.id}.json`
+  && businessEnglishLevels[index].id === level.id
+  && businessEnglishLevels[index].questions.length === 50
+  && businessEnglishLevels[index].questions.every((question) => question.answer.translation?.length >= 20)
+  && level.questions.every((question, questionIndex) => question.id === businessEnglishLevels[index].questions[questionIndex].id)
+)));
 const businessEnglishQuestions = businessEnglish.levels.flatMap((level) => level.questions);
 assert.equal(new Set(businessEnglishQuestions.map((question) => question.id)).size, 500);
 assert.equal(new Set(businessEnglishQuestions.map((question) => question.answer.sample)).size, 500);
@@ -181,7 +194,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.match(await page.locator(".challenge-hero").textContent(), /48/);
   assert.equal(await page.locator(".daily-mission-step").count(), 5);
   const initialDataMission = await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-daily-mission-data-diagnosis")));
-  assert.equal(initialDataMission.version, 2);
+  assert.equal(initialDataMission.version, 3);
   assert.equal(initialDataMission.keys.length, 5);
   assert.equal(new Set(initialDataMission.keys).size, 5);
   assert.equal(await page.locator(".challenge-reference").count(), 1);
@@ -278,7 +291,11 @@ async function checkPage(browser, viewport, screenshotPath) {
 
   await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).click();
   await page.locator(".challenge-level-card").first().waitFor();
-  assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english/manifest.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 0);
+  businessEnglishManifest.levels.forEach((level) => {
+    assert.equal(requestedURLs.filter((url) => url.includes(level.file)).length, 0);
+  });
   assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
   assert.equal(await page.locator(".challenge-level-card:disabled").count(), 0);
   assert.match(await page.locator(".challenge-hero").textContent(), /500/);
@@ -286,6 +303,11 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.match(await page.locator(".weekly-practice").textContent(), /0 \/ 3 天/);
 
   await page.locator(".challenge-level-card").first().click();
+  await page.locator(".challenge-question-row").first().waitFor();
+  assert.equal(requestedURLs.filter((url) => url.includes(businessEnglishManifest.levels[0].file)).length, 1);
+  businessEnglishManifest.levels.slice(1).forEach((level) => {
+    assert.equal(requestedURLs.filter((url) => url.includes(level.file)).length, 0);
+  });
   assert.equal(await page.locator(".challenge-question-row").count(), businessEnglish.levels[0].questions.length);
   assert.equal(await page.locator(".challenge-question-row:disabled").count(), 0);
   await page.locator(".challenge-question-row").first().click();
@@ -351,7 +373,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".challenge-draft-input").count(), 0);
   await page.locator(".challenge-primary-button").click();
   assert.equal(await page.locator(".challenge-reward").isVisible(), true);
-  assert.match(await page.locator(".challenge-reward h3").textContent(), /支付术语速查卡/);
+  assert.match(await page.locator(".challenge-reward h3").textContent(), /支付与商务表达基础表达卡/);
   assert.match(await page.locator(".challenge-answer-translation").textContent(), /费率等于支付总收入/);
 
   await page.locator('.primary-nav button[data-view="skills"]').click();
@@ -412,6 +434,8 @@ async function checkPage(browser, viewport, screenshotPath) {
 
 async function checkSkillLevelMigration(browser) {
   const page = await browser.newPage();
+  const requestedURLs = [];
+  page.on("request", (request) => requestedURLs.push(request.url()));
   await page.addInitScript(() => {
     localStorage.setItem("recruitment-skill-levels", JSON.stringify({
       "data-diagnosis": 1,
@@ -425,6 +449,7 @@ async function checkSkillLevelMigration(browser) {
   });
   await page.goto(`${baseURL}/#skills`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator(".skill-overview-card").first().waitFor();
+  assert.equal(requestedURLs.filter((url) => url.includes("jobs.json")).length, 0);
   const levels = await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-skill-levels")));
   assert.equal(levels["data-diagnosis"], 3);
   assert.equal(levels["lifecycle-growth"], 4);
@@ -433,6 +458,33 @@ async function checkSkillLevelMigration(browser) {
   assert.equal(levels["strategy-design"], undefined);
   assert.equal(levels["product-data-ml"], undefined);
   assert.equal(levels["experience-assets"], undefined);
+  await page.locator('.primary-nav button[data-view="jobs"]').click();
+  await page.locator(".job-card").first().waitFor();
+  assert.equal(requestedURLs.filter((url) => url.includes("jobs.json")).length, 1);
+  await page.close();
+}
+
+async function checkBusinessEnglishProgressMigration(browser) {
+  const page = await browser.newPage();
+  await page.addInitScript(() => {
+    localStorage.setItem("recruitment-challenge-business-english", JSON.stringify([
+      "business-writing/bluf-rewrite",
+      "authorization-declines/authorization-declines-explain",
+    ]));
+  });
+  await page.goto(
+    `${baseURL}/#challenge/business-english/business-writing/bluf-rewrite`,
+    { waitUntil: "domcontentloaded", timeout: 60000 },
+  );
+  await page.locator(".challenge-question-header").waitFor();
+  assert.match(page.url(), /#challenge\/business-english\/payment-basics\/bluf-rewrite$/);
+  assert.deepEqual(
+    await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-challenge-business-english"))),
+    [
+      "payment-basics/bluf-rewrite",
+      "payment-performance-operations/authorization-declines-explain",
+    ],
+  );
   await page.close();
 }
 
@@ -440,6 +492,7 @@ async function checkSkillLevelMigration(browser) {
   const browser = await chromium.launch({ executablePath, headless: true });
   try {
     await checkSkillLevelMigration(browser);
+    await checkBusinessEnglishProgressMigration(browser);
     await checkPage(browser, { width: 1440, height: 1000 }, "/tmp/recruitment-desktop.png");
     await checkPage(browser, { width: 390, height: 844 }, "/tmp/recruitment-mobile.png");
     console.log("Site checks passed for desktop and mobile viewports.");

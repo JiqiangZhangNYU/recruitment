@@ -1,0 +1,1529 @@
+{
+  "version": 5,
+  "skillId": "business-english",
+  "id": "market-commercial-strategy",
+  "title": "市场进入与商业策略",
+  "topicIds": [
+    "market-entry",
+    "acquiring-strategy",
+    "payment-orchestration",
+    "pricing-strategy",
+    "enterprise-merchants"
+  ],
+  "subtitle": "支付市场进入 · 收单布局策略 · 支付编排与自建外购 · 支付定价策略 · 大型商户经营",
+  "objective": "能够围绕支付市场进入、收单布局策略、支付编排与自建外购、支付定价策略、大型商户经营，用清晰英文完成事实解释、经营判断和行动建议。",
+  "chapter": "第 7 关 · 策略设计",
+  "story": "本关包含 5 个子主题、50 道题，从概念理解逐步推进到数据、协作与决策表达。",
+  "difficulty": 4,
+  "reward": {
+    "title": "市场进入与商业策略表达卡",
+    "description": "完成本关后，可复用以下表达结构。",
+    "items": [
+      "The primary metric is validated market opportunity.",
+      "I recommend that we score build, buy and hybrid options against explicit five-year scenarios.",
+      "We should scale only if custom work has reusable value or a funded commercial return."
+    ]
+  },
+  "questions": [
+    {
+      "id": "market-entry-explain",
+      "title": "支付市场进入：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Payment market entry requires a sequenced view of demand, regulation, partners, economics and operations.",
+          "Because validated market opportunity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、经验证的市场机会和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment market entry requires a sequenced view of demand, regulation, partners, economics and operations. The current signal is that a high-volume market looks attractive but licensing and settlement ownership are unresolved. I recommend that we run regulatory and partner discovery before committing the full launch plan.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付市场进入需要按顺序评估需求、监管、合作方、经济性和运营。当前信号是一个高交易量市场很有吸引力，但牌照和结算责任尚未解决。我建议在承诺完整上线计划前完成监管和合作方调研。"
+      }
+    },
+    {
+      "id": "market-entry-interpret",
+      "title": "支付市场进入：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline validated market opportunity needs context because a high-volume market looks attractive but licensing and settlement ownership are unresolved. Evidence points to the business case assumes global capabilities transfer without local constraints. Before making a decision, we should segment the data and verify that the pilot has a legal basis, viable economics and an accountable operator.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "经验证的市场机会这一核心指标需要结合背景解读，因为一个高交易量市场很有吸引力，但牌照和结算责任尚未解决。证据表明商业论证假设全球能力可以不受本地约束地迁移。在做决定前，我们应细分数据，并确认试点具备法律依据、可行经济性和明确运营主体。"
+      }
+    },
+    {
+      "id": "market-entry-incident",
+      "title": "支付市场进入：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "We are investigating a situation in which a high-volume market looks attractive but licensing and settlement ownership are unresolved.",
+          "Because validated market opportunity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、经验证的市场机会和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a high-volume market looks attractive but licensing and settlement ownership are unresolved. Current evidence points to the business case assumes global capabilities transfer without local constraints, but the root cause is not yet final. We will run regulatory and partner discovery before committing the full launch plan and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：一个高交易量市场很有吸引力，但牌照和结算责任尚未解决。当前证据表明商业论证假设全球能力可以不受本地约束地迁移，但根因尚未最终确认。我们将在承诺完整上线计划前完成监管和合作方调研，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "market-entry-recommend",
+      "title": "支付市场进入：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to run regulatory and partner discovery before committing the full launch plan. This directly addresses the evidence that the business case assumes global capabilities transfer without local constraints. We will track validated market opportunity and scale only if the pilot has a legal basis, viable economics and an accountable operator.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议在承诺完整上线计划前完成监管和合作方调研。这直接回应了“商业论证假设全球能力可以不受本地约束地迁移”这一证据。我们将跟踪经验证的市场机会，并且只有在试点具备法律依据、可行经济性和明确运营主体时才扩大实施。"
+      }
+    },
+    {
+      "id": "market-entry-tradeoff",
+      "title": "支付市场进入：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The decision should balance speed with control.",
+          "Because validated market opportunity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、经验证的市场机会和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve validated market opportunity, the evidence shows that the business case assumes global capabilities transfer without local constraints. We should run regulatory and partner discovery before committing the full launch plan, but proceed only if the pilot has a legal basis, viable economics and an accountable operator.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善经验证的市场机会，但证据表明商业论证假设全球能力可以不受本地约束地迁移。我们应在承诺完整上线计划前完成监管和合作方调研，但只有在试点具备法律依据、可行经济性和明确运营主体时才继续推进。"
+      }
+    },
+    {
+      "id": "market-entry-disagree",
+      "title": "支付市场进入：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a high-volume market looks attractive but licensing and settlement ownership are unresolved. I suggest that we run regulatory and partner discovery before committing the full launch plan, using whether the pilot has a legal basis, viable economics and an accountable operator as our shared decision rule.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是一个高交易量市场很有吸引力，但牌照和结算责任尚未解决。我建议在承诺完整上线计划前完成监管和合作方调研，并把“试点具备法律依据、可行经济性和明确运营主体”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "market-entry-pilot",
+      "title": "支付市场进入：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "We propose a controlled pilot in which we run regulatory and partner discovery before committing the full launch plan.",
+          "Because validated market opportunity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、经验证的市场机会和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we run regulatory and partner discovery before committing the full launch plan. The primary metric is validated market opportunity, and the guardrail is whether the pilot has a legal basis, viable economics and an accountable operator. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中在承诺完整上线计划前完成监管和合作方调研。主要指标是经验证的市场机会，护栏是试点具备法律依据、可行经济性和明确运营主体。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "market-entry-executive",
+      "title": "支付市场进入：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a high-volume market looks attractive but licensing and settlement ownership are unresolved. The likely driver is that the business case assumes global capabilities transfer without local constraints. I recommend that we run regulatory and partner discovery before committing the full launch plan; the decision needed today is whether to proceed under the guardrail that the pilot has a legal basis, viable economics and an accountable operator.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：一个高交易量市场很有吸引力，但牌照和结算责任尚未解决。可能的驱动因素是商业论证假设全球能力可以不受本地约束地迁移。我建议在承诺完整上线计划前完成监管和合作方调研；今天需要决定是否在“试点具备法律依据、可行经济性和明确运营主体”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "market-entry-negotiate",
+      "title": "支付市场进入：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Our shared goal is to improve validated market opportunity.",
+          "Because validated market opportunity matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline."
+        ],
+        "correctChoice": 0,
+        "feedback": "正确表达同时保留了业务事实、经验证的市场机会和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve validated market opportunity. We can be flexible on rollout timing, but we should not compromise the requirement that the pilot has a legal basis, viable economics and an accountable operator. A workable package is to run regulatory and partner discovery before committing the full launch plan and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善经验证的市场机会。我们可以在上线时间上灵活处理，但不能放弃“试点具备法律依据、可行经济性和明确运营主体”这一要求。可行的整体方案是在承诺完整上线计划前完成监管和合作方调研，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "market-entry-interview",
+      "title": "支付市场进入：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付市场进入”场景。已知一个高交易量市场很有吸引力，但牌照和结算责任尚未解决，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、经验证的市场机会、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a high-volume market looks attractive but licensing and settlement ownership are unresolved. I analyzed the operating evidence, identified that the business case assumes global capabilities transfer without local constraints, and recommended that we run regulatory and partner discovery before committing the full launch plan. The result created a measurable basis for improving validated market opportunity, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕经验证的市场机会说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment market entry",
+          "validated market opportunity",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是一个高交易量市场很有吸引力，但牌照和结算责任尚未解决。我分析了运营证据，识别出商业论证假设全球能力可以不受本地约束地迁移，并建议在承诺完整上线计划前完成监管和合作方调研。结果为改善经验证的市场机会建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-explain",
+      "title": "收单布局策略：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because risk-adjusted acquiring value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Acquiring strategy balances local approval, resilience, cost and operational complexity."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的收单价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Acquiring strategy balances local approval, resilience, cost and operational complexity. The current signal is that local acquiring may improve approval but requires new entities, reserves and reconciliation. I recommend that we prioritize markets where incremental margin exceeds setup and control cost.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "收单策略需要平衡本地批准率、韧性、成本和运营复杂度。当前信号是本地收单可能提高批准率，却需要新实体、准备金和对账能力。我建议优先选择增量利润高于建设和控制成本的市场。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-interpret",
+      "title": "收单布局策略：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline risk-adjusted acquiring value needs context because local acquiring may improve approval but requires new entities, reserves and reconciliation. Evidence points to the proposal compares approval uplift without the full operating model. Before making a decision, we should segment the data and verify that resilience and compliance do not depend on one untested partner.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "风险调整后的收单价值这一核心指标需要结合背景解读，因为本地收单可能提高批准率，却需要新实体、准备金和对账能力。证据表明方案只比较批准率提升，没有纳入完整运营模式。在做决定前，我们应细分数据，并确认韧性和合规不依赖单一未经验证的合作方。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-incident",
+      "title": "收单布局策略：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because risk-adjusted acquiring value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which local acquiring may improve approval but requires new entities, reserves and reconciliation."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的收单价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which local acquiring may improve approval but requires new entities, reserves and reconciliation. Current evidence points to the proposal compares approval uplift without the full operating model, but the root cause is not yet final. We will prioritize markets where incremental margin exceeds setup and control cost and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：本地收单可能提高批准率，却需要新实体、准备金和对账能力。当前证据表明方案只比较批准率提升，没有纳入完整运营模式，但根因尚未最终确认。我们将优先选择增量利润高于建设和控制成本的市场，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-recommend",
+      "title": "收单布局策略：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to prioritize markets where incremental margin exceeds setup and control cost. This directly addresses the evidence that the proposal compares approval uplift without the full operating model. We will track risk-adjusted acquiring value and scale only if resilience and compliance do not depend on one untested partner.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议优先选择增量利润高于建设和控制成本的市场。这直接回应了“方案只比较批准率提升，没有纳入完整运营模式”这一证据。我们将跟踪风险调整后的收单价值，并且只有在韧性和合规不依赖单一未经验证的合作方时才扩大实施。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-tradeoff",
+      "title": "收单布局策略：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because risk-adjusted acquiring value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的收单价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve risk-adjusted acquiring value, the evidence shows that the proposal compares approval uplift without the full operating model. We should prioritize markets where incremental margin exceeds setup and control cost, but proceed only if resilience and compliance do not depend on one untested partner.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善风险调整后的收单价值，但证据表明方案只比较批准率提升，没有纳入完整运营模式。我们应优先选择增量利润高于建设和控制成本的市场，但只有在韧性和合规不依赖单一未经验证的合作方时才继续推进。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-disagree",
+      "title": "收单布局策略：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that local acquiring may improve approval but requires new entities, reserves and reconciliation. I suggest that we prioritize markets where incremental margin exceeds setup and control cost, using whether resilience and compliance do not depend on one untested partner as our shared decision rule.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是本地收单可能提高批准率，却需要新实体、准备金和对账能力。我建议优先选择增量利润高于建设和控制成本的市场，并把“韧性和合规不依赖单一未经验证的合作方”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-pilot",
+      "title": "收单布局策略：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because risk-adjusted acquiring value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we prioritize markets where incremental margin exceeds setup and control cost."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的收单价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we prioritize markets where incremental margin exceeds setup and control cost. The primary metric is risk-adjusted acquiring value, and the guardrail is whether resilience and compliance do not depend on one untested partner. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中优先选择增量利润高于建设和控制成本的市场。主要指标是风险调整后的收单价值，护栏是韧性和合规不依赖单一未经验证的合作方。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-executive",
+      "title": "收单布局策略：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: local acquiring may improve approval but requires new entities, reserves and reconciliation. The likely driver is that the proposal compares approval uplift without the full operating model. I recommend that we prioritize markets where incremental margin exceeds setup and control cost; the decision needed today is whether to proceed under the guardrail that resilience and compliance do not depend on one untested partner.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：本地收单可能提高批准率，却需要新实体、准备金和对账能力。可能的驱动因素是方案只比较批准率提升，没有纳入完整运营模式。我建议优先选择增量利润高于建设和控制成本的市场；今天需要决定是否在“韧性和合规不依赖单一未经验证的合作方”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-negotiate",
+      "title": "收单布局策略：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because risk-adjusted acquiring value matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve risk-adjusted acquiring value."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、风险调整后的收单价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve risk-adjusted acquiring value. We can be flexible on rollout timing, but we should not compromise the requirement that resilience and compliance do not depend on one untested partner. A workable package is to prioritize markets where incremental margin exceeds setup and control cost and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善风险调整后的收单价值。我们可以在上线时间上灵活处理，但不能放弃“韧性和合规不依赖单一未经验证的合作方”这一要求。可行的整体方案是优先选择增量利润高于建设和控制成本的市场，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "acquiring-strategy-interview",
+      "title": "收单布局策略：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“收单布局策略”场景。已知本地收单可能提高批准率，却需要新实体、准备金和对账能力，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后的收单价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that local acquiring may improve approval but requires new entities, reserves and reconciliation. I analyzed the operating evidence, identified that the proposal compares approval uplift without the full operating model, and recommended that we prioritize markets where incremental margin exceeds setup and control cost. The result created a measurable basis for improving risk-adjusted acquiring value, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕风险调整后的收单价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Acquiring strategy balances",
+          "risk-adjusted acquiring value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是本地收单可能提高批准率，却需要新实体、准备金和对账能力。我分析了运营证据，识别出方案只比较批准率提升，没有纳入完整运营模式，并建议优先选择增量利润高于建设和控制成本的市场。结果为改善风险调整后的收单价值建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "payment-orchestration-explain",
+      "title": "支付编排与自建外购：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "Because orchestration value realization matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment orchestration decisions compare control, speed, coverage, data quality and lifetime cost."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付编排价值实现度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment orchestration decisions compare control, speed, coverage, data quality and lifetime cost. The current signal is that a vendor promises rapid routing gains but key data and failover logic remain proprietary. I recommend that we score build, buy and hybrid options against explicit five-year scenarios.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付编排决策应比较控制力、速度、覆盖、数据质量和全生命周期成本。当前信号是供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的。我建议根据明确的五年情景评估自建、外购和混合方案。"
+      }
+    },
+    {
+      "id": "payment-orchestration-interpret",
+      "title": "支付编排与自建外购：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline orchestration value realization needs context because a vendor promises rapid routing gains but key data and failover logic remain proprietary. Evidence points to the selection process weights launch speed but not switching cost or decision control. Before making a decision, we should segment the data and verify that transaction data, routing rules and exit rights remain usable.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付编排价值实现度这一核心指标需要结合背景解读，因为供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的。证据表明选型过程重视上线速度，却忽略切换成本和决策控制权。在做决定前，我们应细分数据，并确认交易数据、路由规则和退出权保持可用。"
+      }
+    },
+    {
+      "id": "payment-orchestration-incident",
+      "title": "支付编排与自建外购：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "Because orchestration value realization matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a vendor promises rapid routing gains but key data and failover logic remain proprietary."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付编排价值实现度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a vendor promises rapid routing gains but key data and failover logic remain proprietary. Current evidence points to the selection process weights launch speed but not switching cost or decision control, but the root cause is not yet final. We will score build, buy and hybrid options against explicit five-year scenarios and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的。当前证据表明选型过程重视上线速度，却忽略切换成本和决策控制权，但根因尚未最终确认。我们将根据明确的五年情景评估自建、外购和混合方案，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "payment-orchestration-recommend",
+      "title": "支付编排与自建外购：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to score build, buy and hybrid options against explicit five-year scenarios. This directly addresses the evidence that the selection process weights launch speed but not switching cost or decision control. We will track orchestration value realization and scale only if transaction data, routing rules and exit rights remain usable.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议根据明确的五年情景评估自建、外购和混合方案。这直接回应了“选型过程重视上线速度，却忽略切换成本和决策控制权”这一证据。我们将跟踪支付编排价值实现度，并且只有在交易数据、路由规则和退出权保持可用时才扩大实施。"
+      }
+    },
+    {
+      "id": "payment-orchestration-tradeoff",
+      "title": "支付编排与自建外购：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "Because orchestration value realization matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付编排价值实现度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve orchestration value realization, the evidence shows that the selection process weights launch speed but not switching cost or decision control. We should score build, buy and hybrid options against explicit five-year scenarios, but proceed only if transaction data, routing rules and exit rights remain usable.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善支付编排价值实现度，但证据表明选型过程重视上线速度，却忽略切换成本和决策控制权。我们应根据明确的五年情景评估自建、外购和混合方案，但只有在交易数据、路由规则和退出权保持可用时才继续推进。"
+      }
+    },
+    {
+      "id": "payment-orchestration-disagree",
+      "title": "支付编排与自建外购：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a vendor promises rapid routing gains but key data and failover logic remain proprietary. I suggest that we score build, buy and hybrid options against explicit five-year scenarios, using whether transaction data, routing rules and exit rights remain usable as our shared decision rule.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的。我建议根据明确的五年情景评估自建、外购和混合方案，并把“交易数据、路由规则和退出权保持可用”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "payment-orchestration-pilot",
+      "title": "支付编排与自建外购：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "Because orchestration value realization matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we score build, buy and hybrid options against explicit five-year scenarios."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付编排价值实现度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we score build, buy and hybrid options against explicit five-year scenarios. The primary metric is orchestration value realization, and the guardrail is whether transaction data, routing rules and exit rights remain usable. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中根据明确的五年情景评估自建、外购和混合方案。主要指标是支付编排价值实现度，护栏是交易数据、路由规则和退出权保持可用。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "payment-orchestration-executive",
+      "title": "支付编排与自建外购：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a vendor promises rapid routing gains but key data and failover logic remain proprietary. The likely driver is that the selection process weights launch speed but not switching cost or decision control. I recommend that we score build, buy and hybrid options against explicit five-year scenarios; the decision needed today is whether to proceed under the guardrail that transaction data, routing rules and exit rights remain usable.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的。可能的驱动因素是选型过程重视上线速度，却忽略切换成本和决策控制权。我建议根据明确的五年情景评估自建、外购和混合方案；今天需要决定是否在“交易数据、路由规则和退出权保持可用”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "payment-orchestration-negotiate",
+      "title": "支付编排与自建外购：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "Because orchestration value realization matters, we should launch globally before checking segments, evidence or controls.",
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve orchestration value realization."
+        ],
+        "correctChoice": 2,
+        "feedback": "正确表达同时保留了业务事实、支付编排价值实现度和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve orchestration value realization. We can be flexible on rollout timing, but we should not compromise the requirement that transaction data, routing rules and exit rights remain usable. A workable package is to score build, buy and hybrid options against explicit five-year scenarios and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善支付编排价值实现度。我们可以在上线时间上灵活处理，但不能放弃“交易数据、路由规则和退出权保持可用”这一要求。可行的整体方案是根据明确的五年情景评估自建、外购和混合方案，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "payment-orchestration-interview",
+      "title": "支付编排与自建外购：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付编排与自建外购”场景。已知供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、支付编排价值实现度、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a vendor promises rapid routing gains but key data and failover logic remain proprietary. I analyzed the operating evidence, identified that the selection process weights launch speed but not switching cost or decision control, and recommended that we score build, buy and hybrid options against explicit five-year scenarios. The result created a measurable basis for improving orchestration value realization, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕支付编排价值实现度说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment orchestration decisions",
+          "orchestration value realization",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是供应商承诺快速获得路由收益，但关键数据和故障切换逻辑仍是专有的。我分析了运营证据，识别出选型过程重视上线速度，却忽略切换成本和决策控制权，并建议根据明确的五年情景评估自建、外购和混合方案。结果为改善支付编排价值实现度建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "pricing-strategy-explain",
+      "title": "支付定价策略：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Payment pricing converts customer value, willingness to pay, cost and risk into coherent terms.",
+          "Because risk-adjusted net revenue matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、风险调整后净收入和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Payment pricing converts customer value, willingness to pay, cost and risk into coherent terms. The current signal is that a uniform price wins volume but destroys margin in high-cost payment mixes. I recommend that we segment pricing by value and cost while keeping the offer understandable.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "支付定价把客户价值、支付意愿、成本和风险转化为一致条款。当前信号是统一价格赢得了交易量，却在高成本支付结构中损害利润。我建议按价值和成本细分定价，同时保持报价易于理解。"
+      }
+    },
+    {
+      "id": "pricing-strategy-interpret",
+      "title": "支付定价策略：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline risk-adjusted net revenue needs context because a uniform price wins volume but destroys margin in high-cost payment mixes. Evidence points to pricing tiers use volume alone and ignore method, market and service intensity. Before making a decision, we should segment the data and verify that discounts have expiry dates, performance commitments and margin floors.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "风险调整后净收入这一核心指标需要结合背景解读，因为统一价格赢得了交易量，却在高成本支付结构中损害利润。证据表明定价分层只使用交易量，忽略支付方式、市场和服务强度。在做决定前，我们应细分数据，并确认折扣包含到期日、业绩承诺和利润底线。"
+      }
+    },
+    {
+      "id": "pricing-strategy-incident",
+      "title": "支付定价策略：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a uniform price wins volume but destroys margin in high-cost payment mixes.",
+          "Because risk-adjusted net revenue matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、风险调整后净收入和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a uniform price wins volume but destroys margin in high-cost payment mixes. Current evidence points to pricing tiers use volume alone and ignore method, market and service intensity, but the root cause is not yet final. We will segment pricing by value and cost while keeping the offer understandable and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：统一价格赢得了交易量，却在高成本支付结构中损害利润。当前证据表明定价分层只使用交易量，忽略支付方式、市场和服务强度，但根因尚未最终确认。我们将按价值和成本细分定价，同时保持报价易于理解，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "pricing-strategy-recommend",
+      "title": "支付定价策略：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to segment pricing by value and cost while keeping the offer understandable. This directly addresses the evidence that pricing tiers use volume alone and ignore method, market and service intensity. We will track risk-adjusted net revenue and scale only if discounts have expiry dates, performance commitments and margin floors.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议按价值和成本细分定价，同时保持报价易于理解。这直接回应了“定价分层只使用交易量，忽略支付方式、市场和服务强度”这一证据。我们将跟踪风险调整后净收入，并且只有在折扣包含到期日、业绩承诺和利润底线时才扩大实施。"
+      }
+    },
+    {
+      "id": "pricing-strategy-tradeoff",
+      "title": "支付定价策略：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because risk-adjusted net revenue matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、风险调整后净收入和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve risk-adjusted net revenue, the evidence shows that pricing tiers use volume alone and ignore method, market and service intensity. We should segment pricing by value and cost while keeping the offer understandable, but proceed only if discounts have expiry dates, performance commitments and margin floors.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善风险调整后净收入，但证据表明定价分层只使用交易量，忽略支付方式、市场和服务强度。我们应按价值和成本细分定价，同时保持报价易于理解，但只有在折扣包含到期日、业绩承诺和利润底线时才继续推进。"
+      }
+    },
+    {
+      "id": "pricing-strategy-disagree",
+      "title": "支付定价策略：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a uniform price wins volume but destroys margin in high-cost payment mixes. I suggest that we segment pricing by value and cost while keeping the offer understandable, using whether discounts have expiry dates, performance commitments and margin floors as our shared decision rule.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是统一价格赢得了交易量，却在高成本支付结构中损害利润。我建议按价值和成本细分定价，同时保持报价易于理解，并把“折扣包含到期日、业绩承诺和利润底线”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "pricing-strategy-pilot",
+      "title": "支付定价策略：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we segment pricing by value and cost while keeping the offer understandable.",
+          "Because risk-adjusted net revenue matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、风险调整后净收入和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we segment pricing by value and cost while keeping the offer understandable. The primary metric is risk-adjusted net revenue, and the guardrail is whether discounts have expiry dates, performance commitments and margin floors. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中按价值和成本细分定价，同时保持报价易于理解。主要指标是风险调整后净收入，护栏是折扣包含到期日、业绩承诺和利润底线。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "pricing-strategy-executive",
+      "title": "支付定价策略：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a uniform price wins volume but destroys margin in high-cost payment mixes. The likely driver is that pricing tiers use volume alone and ignore method, market and service intensity. I recommend that we segment pricing by value and cost while keeping the offer understandable; the decision needed today is whether to proceed under the guardrail that discounts have expiry dates, performance commitments and margin floors.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：统一价格赢得了交易量，却在高成本支付结构中损害利润。可能的驱动因素是定价分层只使用交易量，忽略支付方式、市场和服务强度。我建议按价值和成本细分定价，同时保持报价易于理解；今天需要决定是否在“折扣包含到期日、业绩承诺和利润底线”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "pricing-strategy-negotiate",
+      "title": "支付定价策略：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve risk-adjusted net revenue.",
+          "Because risk-adjusted net revenue matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、风险调整后净收入和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve risk-adjusted net revenue. We can be flexible on rollout timing, but we should not compromise the requirement that discounts have expiry dates, performance commitments and margin floors. A workable package is to segment pricing by value and cost while keeping the offer understandable and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善风险调整后净收入。我们可以在上线时间上灵活处理，但不能放弃“折扣包含到期日、业绩承诺和利润底线”这一要求。可行的整体方案是按价值和成本细分定价，同时保持报价易于理解，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "pricing-strategy-interview",
+      "title": "支付定价策略：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“支付定价策略”场景。已知统一价格赢得了交易量，却在高成本支付结构中损害利润，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、风险调整后净收入、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a uniform price wins volume but destroys margin in high-cost payment mixes. I analyzed the operating evidence, identified that pricing tiers use volume alone and ignore method, market and service intensity, and recommended that we segment pricing by value and cost while keeping the offer understandable. The result created a measurable basis for improving risk-adjusted net revenue, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕风险调整后净收入说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Payment pricing converts",
+          "risk-adjusted net revenue",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是统一价格赢得了交易量，却在高成本支付结构中损害利润。我分析了运营证据，识别出定价分层只使用交易量，忽略支付方式、市场和服务强度，并建议按价值和成本细分定价，同时保持报价易于理解。结果为改善风险调整后净收入建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-explain",
+      "title": "大型商户经营：准确解释",
+      "type": "概念表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“准确解释”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Enterprise merchant strategy combines account economics, product gaps, service commitments and growth potential.",
+          "Because merchant lifetime value matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、商户生命周期价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Enterprise merchant strategy combines account economics, product gaps, service commitments and growth potential. The current signal is that a large merchant requests custom features after moving only a small share of promised volume. I recommend that we create a joint plan that ties roadmap investment to measurable adoption.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "大型商户策略结合账户经济性、产品差距、服务承诺和增长潜力。当前信号是一家大型商户仅迁移少量承诺交易量后就要求定制功能。我建议制定联合计划，把产品路线投入与可衡量的采用情况关联。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-interpret",
+      "title": "大型商户经营：解读指标",
+      "type": "数据表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The headline merchant lifetime value needs context because a large merchant requests custom features after moving only a small share of promised volume. Evidence points to commercial commitments are not linked to delivery priority or realized value. Before making a decision, we should segment the data and verify that custom work has reusable value or a funded commercial return.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "商户生命周期价值这一核心指标需要结合背景解读，因为一家大型商户仅迁移少量承诺交易量后就要求定制功能。证据表明商务承诺没有与交付优先级或已实现价值关联。在做决定前，我们应细分数据，并确认定制工作具有可复用价值或有资金支持的商业回报。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-incident",
+      "title": "大型商户经营：事故更新",
+      "type": "状态沟通",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“事故更新”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We are investigating a situation in which a large merchant requests custom features after moving only a small share of promised volume.",
+          "Because merchant lifetime value matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、商户生命周期价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We are investigating a situation in which a large merchant requests custom features after moving only a small share of promised volume. Current evidence points to commercial commitments are not linked to delivery priority or realized value, but the root cause is not yet final. We will create a joint plan that ties roadmap investment to measurable adoption and provide the next fact-based update at the agreed time.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们正在调查以下情况：一家大型商户仅迁移少量承诺交易量后就要求定制功能。当前证据表明商务承诺没有与交付优先级或已实现价值关联，但根因尚未最终确认。我们将制定联合计划，把产品路线投入与可衡量的采用情况关联，并在约定时间提供下一次基于事实的更新。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-recommend",
+      "title": "大型商户经营：提出建议",
+      "type": "策略表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "My recommendation is to create a joint plan that ties roadmap investment to measurable adoption. This directly addresses the evidence that commercial commitments are not linked to delivery priority or realized value. We will track merchant lifetime value and scale only if custom work has reusable value or a funded commercial return.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我建议制定联合计划，把产品路线投入与可衡量的采用情况关联。这直接回应了“商务承诺没有与交付优先级或已实现价值关联”这一证据。我们将跟踪商户生命周期价值，并且只有在定制工作具有可复用价值或有资金支持的商业回报时才扩大实施。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-tradeoff",
+      "title": "大型商户经营：说明取舍",
+      "type": "决策表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“说明取舍”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "The decision should balance speed with control.",
+          "Because merchant lifetime value matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、商户生命周期价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The decision should balance speed with control. Although the proposal may improve merchant lifetime value, the evidence shows that commercial commitments are not linked to delivery priority or realized value. We should create a joint plan that ties roadmap investment to measurable adoption, but proceed only if custom work has reusable value or a funded commercial return.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "该决策应平衡速度与控制。虽然方案可能改善商户生命周期价值，但证据表明商务承诺没有与交付优先级或已实现价值关联。我们应制定联合计划，把产品路线投入与可衡量的采用情况关联，但只有在定制工作具有可复用价值或有资金支持的商业回报时才继续推进。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-disagree",
+      "title": "大型商户经营：回应异议",
+      "type": "会议表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "I understand the concern about adding operational complexity. However, the current signal is that a large merchant requests custom features after moving only a small share of promised volume. I suggest that we create a joint plan that ties roadmap investment to measurable adoption, using whether custom work has reusable value or a funded commercial return as our shared decision rule.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我理解对增加运营复杂度的担忧。然而，当前信号是一家大型商户仅迁移少量承诺交易量后就要求定制功能。我建议制定联合计划，把产品路线投入与可衡量的采用情况关联，并把“定制工作具有可复用价值或有资金支持的商业回报”作为共同决策规则。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-pilot",
+      "title": "大型商户经营：设计试点",
+      "type": "实验表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“设计试点”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "We propose a controlled pilot in which we create a joint plan that ties roadmap investment to measurable adoption.",
+          "Because merchant lifetime value matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、商户生命周期价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "We propose a controlled pilot in which we create a joint plan that ties roadmap investment to measurable adoption. The primary metric is merchant lifetime value, and the guardrail is whether custom work has reusable value or a funded commercial return. We will compare the pilot with a stable baseline before deciding whether to scale.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们建议开展受控试点，在试点中制定联合计划，把产品路线投入与可衡量的采用情况关联。主要指标是商户生命周期价值，护栏是定制工作具有可复用价值或有资金支持的商业回报。在决定是否扩大前，我们会把试点结果与稳定基线比较。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-executive",
+      "title": "大型商户经营：高管摘要",
+      "type": "向上汇报",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Bottom line: a large merchant requests custom features after moving only a small share of promised volume. The likely driver is that commercial commitments are not linked to delivery priority or realized value. I recommend that we create a joint plan that ties roadmap investment to measurable adoption; the decision needed today is whether to proceed under the guardrail that custom work has reusable value or a funded commercial return.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "结论是：一家大型商户仅迁移少量承诺交易量后就要求定制功能。可能的驱动因素是商务承诺没有与交付优先级或已实现价值关联。我建议制定联合计划，把产品路线投入与可衡量的采用情况关联；今天需要决定是否在“定制工作具有可复用价值或有资金支持的商业回报”这一护栏下推进。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-negotiate",
+      "title": "大型商户经营：协商边界",
+      "type": "谈判表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "choice",
+        "prompt": "哪一句最适合用于“协商边界”？",
+        "choices": [
+          "The safest response is to wait until every uncertainty disappears and avoid naming an owner or deadline.",
+          "Our shared goal is to improve merchant lifetime value.",
+          "Because merchant lifetime value matters, we should launch globally before checking segments, evidence or controls."
+        ],
+        "correctChoice": 1,
+        "feedback": "正确表达同时保留了业务事实、商户生命周期价值和可执行判断，没有跳过证据或护栏。"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击最符合业务事实、策略逻辑和专业语气的英文表达。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "Our shared goal is to improve merchant lifetime value. We can be flexible on rollout timing, but we should not compromise the requirement that custom work has reusable value or a funded commercial return. A workable package is to create a joint plan that ties roadmap investment to measurable adoption and review the result against agreed evidence.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "我们的共同目标是改善商户生命周期价值。我们可以在上线时间上灵活处理，但不能放弃“定制工作具有可复用价值或有资金支持的商业回报”这一要求。可行的整体方案是制定联合计划，把产品路线投入与可衡量的采用情况关联，并根据商定证据复盘结果。"
+      }
+    },
+    {
+      "id": "enterprise-merchants-interview",
+      "title": "大型商户经营：面试复盘",
+      "type": "案例表达",
+      "difficulty": 4,
+      "activity": {
+        "mode": "arrange"
+      },
+      "prompt": "你正在处理“大型商户经营”场景。已知一家大型商户仅迁移少量承诺交易量后就要求定制功能，需要用英文向跨团队同事说明判断并推动下一步。",
+      "task": "点击句子片段，将其排列成结论、证据和行动清晰的英文回答。",
+      "hint": "优先保留结论、证据、商户生命周期价值、行动和护栏，不要只复述背景。",
+      "answer": {
+        "sample": "The problem was that a large merchant requests custom features after moving only a small share of promised volume. I analyzed the operating evidence, identified that commercial commitments are not linked to delivery priority or realized value, and recommended that we create a joint plan that ties roadmap investment to measurable adoption. The result created a measurable basis for improving merchant lifetime value, and I learned to define the guardrail before execution.",
+        "notes": [
+          "表达必须围绕商户生命周期价值说明业务影响，避免只有语言形式而没有判断。",
+          "参考答案使用结论、证据、行动和护栏结构，可直接迁移到邮件、会议或面试。"
+        ],
+        "keywords": [
+          "Enterprise merchant strategy",
+          "merchant lifetime value",
+          "recommendation",
+          "guardrail"
+        ],
+        "translation": "当时的问题是一家大型商户仅迁移少量承诺交易量后就要求定制功能。我分析了运营证据，识别出商务承诺没有与交付优先级或已实现价值关联，并建议制定联合计划，把产品路线投入与可衡量的采用情况关联。结果为改善商户生命周期价值建立了可衡量基础，我也学会了在执行前先定义护栏。"
+      }
+    }
+  ]
+}
