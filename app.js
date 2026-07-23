@@ -9,8 +9,7 @@ function readStoredJSON(key, fallback) {
 
 function learningRouteFromHash(hash) {
   if (hash === "#skills") return { page: "overview", skillId: null };
-  if (hash === "#roadmap") return { page: "roadmap", skillId: null };
-  if (hash === "#portfolio") return { page: "portfolio", skillId: null };
+  if (hash === "#roadmap" || hash === "#portfolio") return { page: "overview", skillId: null };
   if (hash.startsWith("#challenge/")) {
     const [skillId, levelId, questionId] = hash.slice(11).split("/").map((part) => decodeURIComponent(part || ""));
     if (skillId && levelId && questionId) return { page: "challengeQuestion", skillId, levelId, questionId };
@@ -89,11 +88,7 @@ const state = {
   selectedLevel: initialLearningRoute?.levelId || null,
   selectedQuestion: initialLearningRoute?.questionId || null,
   skillLevels: storedSkillLevels,
-  roadmapPhase: "all",
   renderedLearningViews: new Set(),
-  completedWeeks: new Set(storedArray("recruitment-completed-weeks").map(Number)),
-  completedPortfolio: new Set(storedArray("recruitment-completed-portfolio")),
-  completedReadiness: new Set(storedArray("recruitment-completed-readiness")),
 };
 
 const elements = {
@@ -134,16 +129,9 @@ const elements = {
   dialogSummary: document.querySelector("#dialog-summary"),
   criteriaList: document.querySelector("#criteria-list"),
   jobTemplate: document.querySelector("#job-template"),
-  skillProgressCount: document.querySelector("#skill-progress-count"),
-  skillAverageLevel: document.querySelector("#skill-average-level"),
-  weekProgressCount: document.querySelector("#week-progress-count"),
   skillJobCount: document.querySelector("#skill-job-count"),
-  skillProgressTrack: document.querySelector(".skill-progress-track"),
-  skillProgressFill: document.querySelector("#skill-progress-fill"),
   guideLoading: document.querySelector("#guide-loading"),
-  learningViewNav: document.querySelector("#learning-view-nav"),
   learningSkillNav: document.querySelector("#learning-skill-nav"),
-  learningRouteButtons: [...document.querySelectorAll("[data-learning-route]")],
   abilityPanel: document.querySelector("#ability-panel"),
   skillDetailPanel: document.querySelector("#skill-detail-panel"),
   detailBreadcrumb: document.querySelector(".detail-breadcrumb"),
@@ -154,20 +142,6 @@ const elements = {
   detailPosition: document.querySelector("#detail-position"),
   previousSkill: document.querySelector("#previous-skill"),
   nextSkill: document.querySelector("#next-skill"),
-  roadmapPanel: document.querySelector("#roadmap-panel"),
-  portfolioPanel: document.querySelector("#portfolio-panel"),
-  caseTitle: document.querySelector("#case-title"),
-  caseDescription: document.querySelector("#case-description"),
-  caseEntities: document.querySelector("#case-entities"),
-  methodSplit: document.querySelector("#method-split"),
-  nextAction: document.querySelector("#next-action"),
-  phaseNav: document.querySelector("#phase-nav"),
-  roadmapList: document.querySelector("#roadmap-list"),
-  roadmapProgress: document.querySelector("#roadmap-progress"),
-  portfolioList: document.querySelector("#portfolio-list"),
-  portfolioProgress: document.querySelector("#portfolio-progress"),
-  readinessGroups: document.querySelector("#readiness-groups"),
-  readinessProgress: document.querySelector("#readiness-progress"),
 };
 
 const tierNames = {
@@ -193,20 +167,11 @@ function persistLearningChecklist(key, values) {
 
 function normalizeLearningProgress() {
   const validSkills = new Set(state.guide.skills.map((skill) => skill.id));
-  const validWeeks = new Set(state.guide.weeks.map((week) => week.week));
-  const validPortfolio = new Set(state.guide.portfolio.map((item) => item.id));
-  const validReadiness = new Set(state.guide.readiness.map((item) => item.id));
   Object.keys(state.skillLevels).forEach((id) => {
     if (!validSkills.has(id)) delete state.skillLevels[id];
     else state.skillLevels[id] = Math.max(0, Math.min(4, Math.round(Number(state.skillLevels[id]) || 0)));
   });
-  state.completedWeeks = new Set([...state.completedWeeks].filter((week) => validWeeks.has(week)));
-  state.completedPortfolio = new Set([...state.completedPortfolio].filter((id) => validPortfolio.has(id)));
-  state.completedReadiness = new Set([...state.completedReadiness].filter((id) => validReadiness.has(id)));
   persistSkillLevels();
-  persistLearningChecklist("recruitment-completed-weeks", state.completedWeeks);
-  persistLearningChecklist("recruitment-completed-portfolio", state.completedPortfolio);
-  persistLearningChecklist("recruitment-completed-readiness", state.completedReadiness);
 }
 
 function setView(view, updateURL = true) {
@@ -215,10 +180,10 @@ function setView(view, updateURL = true) {
   elements.skillsView.hidden = state.view !== "skills";
   elements.appShell.dataset.view = state.view;
   const isSkills = state.view === "skills";
-  elements.pageEyebrow.textContent = isSkills ? "A 档岗位共性能力 · 互动训练" : "上海硬性 · 大厂/支付官网 + BOSS";
-  elements.pageTitle.textContent = isSkills ? "能力提升工作台" : "支付与策略运营岗位筛选";
+  elements.pageEyebrow.textContent = isSkills ? "A 档岗位共性技能 · 互动训练" : "上海硬性 · 大厂/支付官网 + BOSS";
+  elements.pageTitle.textContent = isSkills ? "九项技能提升" : "支付与策略运营岗位筛选";
   elements.profileSummary.textContent = isSkills
-    ? "从能力地图进入单项训练，学习进度自动保存在当前浏览器。"
+    ? "从九项技能总览或左侧目录进入训练，学习进度自动保存在当前浏览器。"
     : state.data?.profile.summary || "加载岗位数据中...";
   elements.viewButtons.forEach((button) => {
     const active = button.dataset.view === state.view;
@@ -228,7 +193,6 @@ function setView(view, updateURL = true) {
   if (updateURL) {
     const url = new URL(location.href);
     if (state.view === "skills") {
-      const hashes = { overview: "skills", roadmap: "roadmap", portfolio: "portfolio" };
       if (state.learningTab === "challengeQuestion" && state.selectedSkill && state.selectedLevel && state.selectedQuestion) {
         url.hash = `challenge/${encodeURIComponent(state.selectedSkill)}/${encodeURIComponent(state.selectedLevel)}/${encodeURIComponent(state.selectedQuestion)}`;
       } else if (state.learningTab === "challengeLevel" && state.selectedSkill && state.selectedLevel) {
@@ -236,7 +200,7 @@ function setView(view, updateURL = true) {
       } else if (state.learningTab === "detail" && state.selectedSkill) {
         url.hash = `skill-${encodeURIComponent(state.selectedSkill)}`;
       } else {
-        url.hash = hashes[state.learningTab] || "skills";
+        url.hash = "skills";
       }
     } else {
       url.hash = "";
@@ -247,7 +211,7 @@ function setView(view, updateURL = true) {
 
 async function navigateLearning(page, skillId = null, updateURL = true, levelId = null, questionId = null) {
   const detailPages = ["detail", "challengeLevel", "challengeQuestion"];
-  state.learningTab = ["overview", ...detailPages, "roadmap", "portfolio"].includes(page) ? page : "overview";
+  state.learningTab = ["overview", ...detailPages].includes(page) ? page : "overview";
   state.selectedSkill = detailPages.includes(state.learningTab) ? skillId : null;
   state.selectedLevel = ["challengeLevel", "challengeQuestion"].includes(state.learningTab) ? levelId : null;
   state.selectedQuestion = state.learningTab === "challengeQuestion" ? questionId : null;
@@ -258,8 +222,6 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
   elements.guideLoading.hidden = Boolean(state.guide);
   elements.abilityPanel.hidden = true;
   elements.skillDetailPanel.hidden = true;
-  elements.roadmapPanel.hidden = true;
-  elements.portfolioPanel.hidden = true;
 
   const requestedPage = state.learningTab;
   const requestedSkill = state.selectedSkill;
@@ -299,22 +261,12 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
     elements.guideLoading.querySelector("strong").textContent = "正在加载能力指南";
     elements.abilityPanel.hidden = state.learningTab !== "overview";
     elements.skillDetailPanel.hidden = !detailPages.includes(state.learningTab);
-    elements.roadmapPanel.hidden = state.learningTab !== "roadmap";
-    elements.portfolioPanel.hidden = state.learningTab !== "portfolio";
 
     if (state.learningTab === "overview") renderSkillOverview();
     if (state.learningTab === "detail" && isChallenge) renderChallengeHub(challengePack);
     else if (state.learningTab === "detail") renderSkillDetail(state.selectedSkill);
     if (state.learningTab === "challengeLevel") renderChallengeLevel(challengePack, state.selectedLevel);
     if (state.learningTab === "challengeQuestion") renderChallengeQuestion(challengePack, state.selectedLevel, state.selectedQuestion);
-    if (state.learningTab === "roadmap" && !state.renderedLearningViews.has("roadmap")) {
-      renderRoadmap();
-      state.renderedLearningViews.add("roadmap");
-    }
-    if (state.learningTab === "portfolio" && !state.renderedLearningViews.has("portfolio")) {
-      renderPortfolio();
-      state.renderedLearningViews.add("portfolio");
-    }
     renderLearningSidebar();
     if (updateURL) window.scrollTo({ top: 0, behavior: "auto" });
   } catch (error) {
@@ -565,28 +517,6 @@ function render() {
   renderJobs();
 }
 
-function renderSkillProgress() {
-  const skills = state.guide.skills;
-  const maxLevel = Math.max(...state.guide.levelDefinitions.map((item) => item.level));
-  const levels = skills.map((skill) => Number(state.skillLevels[skill.id]) || 0);
-  const totalLevel = levels.reduce((sum, level) => sum + level, 0);
-  const reached = levels.filter((level) => level >= state.guide.targetLevel).length;
-  const average = skills.length ? totalLevel / skills.length : 0;
-  const maxTotal = skills.length * maxLevel;
-  elements.skillAverageLevel.textContent = average.toFixed(1);
-  elements.skillProgressCount.textContent = `${reached} / ${skills.length} 达到 ${state.guide.targetLevel} 级`;
-  elements.skillProgressFill.style.width = `${maxTotal ? totalLevel / maxTotal * 100 : 0}%`;
-  elements.skillProgressTrack.setAttribute("aria-valuemax", String(maxTotal));
-  elements.skillProgressTrack.setAttribute("aria-valuenow", String(totalLevel));
-  elements.weekProgressCount.textContent = `${state.completedWeeks.size} / ${state.guide.weeks.length} 周完成`;
-  elements.roadmapProgress.textContent = `${Math.round(state.completedWeeks.size / state.guide.weeks.length * 100)}%`;
-
-  const nextWeek = state.guide.weeks.find((week) => !state.completedWeeks.has(week.week));
-  elements.nextAction.textContent = nextWeek
-    ? `下一步 · 第 ${nextWeek.week} 周 ${nextWeek.theme}：${nextWeek.outputs.join("、")}`
-    : "路线已完成 · 开始按目标岗位定向修改作品与面试案例";
-}
-
 function makeLevelSelect(skill, onChange) {
   const select = document.createElement("select");
   select.className = "skill-level";
@@ -602,7 +532,6 @@ function makeLevelSelect(skill, onChange) {
   select.addEventListener("change", () => {
     state.skillLevels[skill.id] = Number(select.value);
     persistSkillLevels();
-    renderSkillProgress();
     renderLearningSidebar();
     onChange?.(Number(select.value));
   });
@@ -645,14 +574,12 @@ function makeSkillOverviewCard(skill) {
   goal.textContent = skill.goal;
   const meta = document.createElement("span");
   meta.className = "overview-meta";
-  const week = document.createElement("span");
-  week.textContent = skill.weeks;
   const exerciseCount = document.createElement("span");
   exerciseCount.textContent = skill.challenge?.label || `${skill.exercises.length} 道练习`;
   const arrow = document.createElement("span");
   arrow.setAttribute("aria-hidden", "true");
   arrow.textContent = "→";
-  meta.append(week, exerciseCount, arrow);
+  meta.append(exerciseCount, arrow);
   button.append(top, title, goal, meta);
   button.addEventListener("click", () => navigateLearning("detail", skill.id));
   return button;
@@ -680,7 +607,6 @@ function renderSkillOverview() {
     section.append(header, grid);
     elements.skillOverviewGroups.append(section);
   });
-  renderSkillProgress();
   state.renderedLearningViews.add("overview");
 }
 
@@ -906,7 +832,6 @@ function updateChallengeSkillLevel(pack) {
   const earnedLevel = completed === total ? 4 : Math.floor((completed / total) * 4);
   state.skillLevels[pack.skillId] = Math.max(Number(state.skillLevels[pack.skillId]) || 0, earnedLevel);
   persistSkillLevels();
-  renderSkillProgress();
   renderLearningSidebar();
 }
 
@@ -935,7 +860,7 @@ function makeChallengeBreadcrumb(pack, level = null) {
   nav.setAttribute("aria-label", `${pack.title}导航`);
   const overview = document.createElement("button");
   overview.type = "button";
-  overview.textContent = "能力体系";
+  overview.textContent = "九项技能";
   overview.addEventListener("click", () => navigateLearning("overview"));
   const hub = document.createElement("button");
   hub.type = "button";
@@ -1035,7 +960,8 @@ function makeLevelReward(level, newlyUnlocked = false) {
 
 function answerChunks(sample) {
   const normalized = sample.replace(/\n+/g, " ").replace(/\s+/g, " ").trim();
-  return (normalized.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [normalized]).map((item) => item.trim());
+  return (normalized.match(/[^.!?。！？；;]+[.!?。！？；;]+|[^.!?。！？；;]+$/g) || [normalized])
+    .map((item) => item.trim());
 }
 
 function makeChallengeReference(pack) {
@@ -1587,7 +1513,6 @@ function renderSkillDetail(skillId) {
   facts.className = "skill-detail-facts";
   [
     ["岗位信号", skill.coverageLabel],
-    ["建议安排", skill.weeks],
     ["训练规模", `${skill.path.length} 个阶段 · ${skill.exercises.length} 道练习`],
   ].forEach(([label, value]) => {
     const block = document.createElement("div");
@@ -1704,11 +1629,6 @@ function makeLearningNavButton(label, meta, active, onClick) {
 
 function renderLearningSidebar() {
   if (!state.guide) return;
-  elements.learningViewNav.replaceChildren(
-    makeLearningNavButton("能力体系", String(state.guide.skills.length), state.learningTab === "overview", () => navigateLearning("overview")),
-    makeLearningNavButton("16 周路线", `${state.completedWeeks.size}/17`, state.learningTab === "roadmap", () => navigateLearning("roadmap")),
-    makeLearningNavButton("作品与验收", `${state.completedPortfolio.size}/14`, state.learningTab === "portfolio", () => navigateLearning("portfolio")),
-  );
   elements.learningSkillNav.replaceChildren();
   state.guide.groups.forEach((group) => {
     const section = document.createElement("section");
@@ -1733,28 +1653,6 @@ function renderLearningSidebar() {
   });
 }
 
-function renderStudyBrief() {
-  const { caseStudy, method } = state.guide;
-  elements.caseTitle.textContent = caseStudy.title;
-  elements.caseDescription.textContent = caseStudy.description;
-  elements.caseEntities.replaceChildren();
-  caseStudy.entities.forEach((entity) => {
-    const span = document.createElement("span");
-    span.textContent = entity;
-    elements.caseEntities.append(span);
-  });
-  elements.methodSplit.replaceChildren();
-  method.forEach((item) => {
-    const block = document.createElement("div");
-    const value = document.createElement("strong");
-    value.textContent = item.value;
-    const label = document.createElement("span");
-    label.textContent = item.label;
-    block.append(value, label);
-    elements.methodSplit.append(block);
-  });
-}
-
 async function ensureGuideLoaded() {
   if (state.guide) return state.guide;
   if (!state.guidePromise) {
@@ -1767,8 +1665,6 @@ async function ensureGuideLoaded() {
         state.guide = guide;
         normalizeLearningProgress();
         elements.skillJobCount.textContent = guide.sample.totalJobs;
-        renderStudyBrief();
-        renderSkillProgress();
         renderLearningSidebar();
         return guide;
       })
@@ -1809,172 +1705,6 @@ async function ensureChallengePack(skillId) {
   return state.challengePromises.get(skillId);
 }
 
-function renderPhaseNav() {
-  const options = [
-    { id: "all", label: "全部阶段" },
-    ...state.guide.phases.map((phase) => ({ id: phase.id, label: phase.label })),
-  ];
-  elements.phaseNav.replaceChildren();
-  options.forEach((option) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = option.label;
-    button.className = state.roadmapPhase === option.id ? "active" : "";
-    button.setAttribute("aria-pressed", String(state.roadmapPhase === option.id));
-    button.addEventListener("click", () => {
-      state.roadmapPhase = option.id;
-      renderRoadmap();
-    });
-    elements.phaseNav.append(button);
-  });
-}
-
-function makeWeekRow(week) {
-  const row = document.createElement("article");
-  row.className = "week-row";
-  row.classList.toggle("completed", state.completedWeeks.has(week.week));
-
-  const control = document.createElement("label");
-  control.className = "week-control";
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.checked = state.completedWeeks.has(week.week);
-  checkbox.setAttribute("aria-label", `标记第 ${week.week} 周${week.theme}完成`);
-  const number = document.createElement("span");
-  number.textContent = `W${String(week.week).padStart(2, "0")}`;
-  control.append(checkbox, number);
-
-  const copy = document.createElement("div");
-  copy.className = "week-copy";
-  const title = document.createElement("h4");
-  title.textContent = week.theme;
-  const study = document.createElement("p");
-  study.textContent = week.study;
-  copy.append(title, study);
-
-  const outputs = document.createElement("div");
-  outputs.className = "week-outputs";
-  week.outputs.forEach((output) => {
-    const span = document.createElement("span");
-    span.textContent = output;
-    outputs.append(span);
-  });
-  row.append(control, copy, outputs);
-
-  checkbox.addEventListener("change", () => {
-    checkbox.checked ? state.completedWeeks.add(week.week) : state.completedWeeks.delete(week.week);
-    row.classList.toggle("completed", checkbox.checked);
-    persistLearningChecklist("recruitment-completed-weeks", state.completedWeeks);
-    renderSkillProgress();
-    renderLearningSidebar();
-  });
-  return row;
-}
-
-function renderRoadmap() {
-  renderPhaseNav();
-  elements.roadmapList.replaceChildren();
-  state.guide.phases.forEach((phase) => {
-    if (state.roadmapPhase !== "all" && state.roadmapPhase !== phase.id) return;
-    const weeks = state.guide.weeks.filter((week) => week.phase === phase.id);
-    const section = document.createElement("section");
-    section.className = "roadmap-phase";
-    const header = document.createElement("header");
-    const copy = document.createElement("div");
-    const title = document.createElement("h3");
-    title.textContent = phase.label;
-    const description = document.createElement("p");
-    description.textContent = phase.description;
-    copy.append(title, description);
-    const range = document.createElement("span");
-    range.textContent = phase.range;
-    header.append(copy, range);
-    const list = document.createElement("div");
-    list.className = "week-list";
-    list.append(...weeks.map(makeWeekRow));
-    section.append(header, list);
-    elements.roadmapList.append(section);
-  });
-  renderSkillProgress();
-}
-
-function makeChecklistItem(item, checkedSet, storageKey, onUpdate, badgeText = "") {
-  const label = document.createElement("label");
-  label.className = "checklist-item";
-  label.classList.toggle("completed", checkedSet.has(item.id));
-  const input = document.createElement("input");
-  input.type = "checkbox";
-  input.checked = checkedSet.has(item.id);
-  const checkmark = document.createElement("span");
-  checkmark.className = "check-mark";
-  checkmark.setAttribute("aria-hidden", "true");
-  checkmark.textContent = "✓";
-  const text = document.createElement("span");
-  text.className = "check-text";
-  text.textContent = item.title || item.text;
-  label.append(input, checkmark, text);
-  if (badgeText) {
-    const badge = document.createElement("span");
-    badge.className = "check-badge";
-    badge.textContent = badgeText;
-    label.append(badge);
-  }
-  input.addEventListener("change", () => {
-    input.checked ? checkedSet.add(item.id) : checkedSet.delete(item.id);
-    label.classList.toggle("completed", input.checked);
-    persistLearningChecklist(storageKey, checkedSet);
-    onUpdate();
-  });
-  return label;
-}
-
-function updatePortfolioProgress() {
-  elements.portfolioProgress.textContent = `${state.completedPortfolio.size} / ${state.guide.portfolio.length}`;
-  const tierCounts = {};
-  state.guide.readiness.forEach((item) => {
-    tierCounts[item.tier] ??= { completed: 0, total: 0 };
-    tierCounts[item.tier].total += 1;
-    if (state.completedReadiness.has(item.id)) tierCounts[item.tier].completed += 1;
-  });
-  elements.readinessProgress.textContent = ["A-", "A+"]
-    .map((tier) => `${tier} ${tierCounts[tier].completed}/${tierCounts[tier].total}`)
-    .join(" · ");
-  renderLearningSidebar();
-}
-
-function renderPortfolio() {
-  elements.portfolioList.replaceChildren();
-  state.guide.portfolio.forEach((item) => {
-    elements.portfolioList.append(makeChecklistItem(
-      item,
-      state.completedPortfolio,
-      "recruitment-completed-portfolio",
-      updatePortfolioProgress,
-      item.phase,
-    ));
-  });
-
-  elements.readinessGroups.replaceChildren();
-  ["A-", "A+"].forEach((tier) => {
-    const section = document.createElement("section");
-    section.className = "readiness-tier";
-    const title = document.createElement("h5");
-    title.textContent = `${tier} 最低标准`;
-    const list = document.createElement("div");
-    state.guide.readiness.filter((item) => item.tier === tier).forEach((item) => {
-      list.append(makeChecklistItem(
-        item,
-        state.completedReadiness,
-        "recruitment-completed-readiness",
-        updatePortfolioProgress,
-      ));
-    });
-    section.append(title, list);
-    elements.readinessGroups.append(section);
-  });
-  updatePortfolioProgress();
-}
-
 function resetFilters() {
   Object.assign(state, { query: "", tier: "all", direction: "all", experience: "all", salary: 0, risk: "all", bonus: "all", sort: "score", savedOnly: false });
   elements.searchInput.value = "";
@@ -1994,9 +1724,6 @@ function bindControls() {
       if (button.dataset.view === "skills") navigateLearning("overview");
       else setView("jobs");
     });
-  });
-  elements.learningRouteButtons.forEach((button) => {
-    button.addEventListener("click", () => navigateLearning(button.dataset.learningRoute));
   });
   elements.backToOverview.addEventListener("click", () => navigateLearning("overview"));
   window.addEventListener("hashchange", () => {

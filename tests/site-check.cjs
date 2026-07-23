@@ -3,6 +3,10 @@ const assert = require("node:assert/strict");
 const guide = require("../learning-guide.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
 const businessEnglish = require("../challenges/business-english.json");
+const lifecycleGrowth = require("../challenges/lifecycle-growth.json");
+const projectDelivery = require("../challenges/project-delivery.json");
+const paymentsFintech = require("../challenges/payments-fintech.json");
+const internationalCollaboration = require("../challenges/international-collaboration.json");
 
 const executablePath = "/home/zjq/.cache/ms-playwright/chromium-1187/chrome-linux/chrome";
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
@@ -24,6 +28,45 @@ function checkChallengePackData(pack, expectedLevels, expectedQuestions) {
 
 checkChallengePackData(dataDiagnosis, 8, 48);
 checkChallengePackData(businessEnglish, 6, 30);
+const newP0ChallengePacks = [lifecycleGrowth, projectDelivery, paymentsFintech, internationalCollaboration];
+const challengePackBySkill = new Map([
+  [dataDiagnosis.skillId, dataDiagnosis],
+  [lifecycleGrowth.skillId, lifecycleGrowth],
+  [projectDelivery.skillId, projectDelivery],
+  [paymentsFintech.skillId, paymentsFintech],
+  [businessEnglish.skillId, businessEnglish],
+  [internationalCollaboration.skillId, internationalCollaboration],
+]);
+newP0ChallengePacks.forEach((pack) => {
+  checkChallengePackData(pack, 6, 30);
+  assert.equal(pack.ui?.compact, true);
+  assert.ok(pack.levels.every((level) => level.questions.length === 5 && level.reward?.items?.length >= 3));
+  const difficulties = pack.levels.flatMap((level) => level.questions.map(() => level.difficulty));
+  assert.deepEqual(difficulties, [...difficulties].sort((left, right) => left - right));
+  assert.ok(difficulties.every((difficulty) => difficulty >= 1 && difficulty <= 5));
+  const questions = pack.levels.flatMap((level) => level.questions);
+  assert.ok(questions.every((question) => (
+    question.activity?.mode
+    && question.prompt.length >= 25
+    && question.task.length >= 12
+    && question.hint.length >= 8
+    && question.answer.sample.length >= 35
+    && question.answer.notes.length >= 2
+    && question.answer.keywords.length >= 3
+  )));
+  questions.filter((question) => question.activity.mode === "arrange").forEach((question) => {
+    assert.ok(question.answer.sample.match(/[^.!?。！？；;]+[.!?。！？；;]+/g)?.length >= 2);
+  });
+  questions.filter((question) => question.activity.mode === "choice").forEach((question) => {
+    assert.ok(question.activity.choices.length >= 3);
+    assert.ok(question.activity.correctChoice >= 0 && question.activity.correctChoice < question.activity.choices.length);
+    assert.ok(question.activity.feedback);
+  });
+});
+assert.deepEqual(
+  guide.skills.filter((skill) => skill.priority === "P0").map((skill) => skill.id),
+  [...challengePackBySkill.keys()],
+);
 assert.equal(Object.keys(businessEnglish.translations).length, 30);
 assert.ok(businessEnglish.levels.flatMap((level) => level.questions)
   .every((question) => businessEnglish.translations[question.id]?.length >= 20));
@@ -90,24 +133,31 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.locator('.primary-nav button[data-view="skills"]').click();
   await page.locator(".skill-overview-card").first().waitFor();
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 1);
-  assert.equal(requestedURLs.filter((url) => url.includes("challenges/data-diagnosis.json")).length, 0);
-  assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 0);
+  challengePackBySkill.forEach((pack) => {
+    assert.equal(requestedURLs.filter((url) => url.includes(`challenges/${pack.skillId}.json`)).length, 0);
+  });
   assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
   assert.equal(await page.locator(".skill-overview-group").count(), guide.groups.length);
   assert.equal(await page.locator(".skill-overview-group").nth(0).locator(".skill-overview-card").count(), 6);
   assert.equal(await page.locator(".skill-overview-group").nth(1).locator(".skill-overview-card").count(), 3);
+  assert.equal(await page.locator("#learning-skill-nav button").count(), guide.skills.length);
+  assert.match(await page.locator("#ability-panel h2").textContent(), /九项技能/);
+  assert.equal(await page.locator("#learning-view-nav").count(), 0);
+  assert.equal(await page.locator("#roadmap-panel").count(), 0);
+  assert.equal(await page.locator("#portfolio-panel").count(), 0);
   assert.equal(await page.locator(".skill-detail-page").count(), 0);
   assert.equal(await page.locator(".week-row").count(), 0);
   assert.equal(await page.locator("#portfolio-list .checklist-item").count(), 0);
   assert.equal(await page.locator("#skill-job-count").textContent(), String(guide.sample.totalJobs));
   assert.match(await page.locator("#skills-view").textContent(), new RegExp(guide.skills[0].title));
-  assert.match(await page.locator("#learning-view-nav button").first().textContent(), /9/);
-  assert.equal(await page.locator(".skill-overview-card.challenge-enabled").count(), 2);
+  assert.equal(await page.locator(".skill-overview-card.challenge-enabled").count(), 6);
 
   await page.locator(".skill-overview-card").first().click();
   await page.locator(".challenge-level-card").first().waitFor();
   assert.equal(requestedURLs.filter((url) => url.includes("challenges/data-diagnosis.json")).length, 1);
-  assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 0);
+  [...challengePackBySkill.values()].filter((pack) => pack.skillId !== dataDiagnosis.skillId).forEach((pack) => {
+    assert.equal(requestedURLs.filter((url) => url.includes(`challenges/${pack.skillId}.json`)).length, 0);
+  });
   assert.equal(await page.locator(".challenge-level-card").count(), dataDiagnosis.levels.length);
   assert.equal(await page.locator(".challenge-level-card:disabled").count(), 0);
   assert.match(await page.locator(".challenge-hero").textContent(), /48/);
@@ -153,16 +203,38 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(sqlOverflow <= 1, `SQL challenge horizontal overflow: ${sqlOverflow}px`);
   assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: dataDiagnosis.title.replace("闯关", "") }).textContent(), /2\/48/);
 
-  await page.locator("#learning-skill-nav button").filter({ hasText: guide.skills[1].title }).click();
+  const standardSkill = guide.skills.find((skill) => skill.id === "ecommerce-merchants");
+  await page.locator("#learning-skill-nav button").filter({ hasText: standardSkill.title }).click();
   assert.equal(await page.locator(".skill-detail-page").count(), 1);
   assert.match(await page.locator(".skill-boundary").textContent(), /能力边界/);
-  assert.equal(await page.locator(".skill-detail-page h2").textContent(), guide.skills[1].title);
+  assert.equal(await page.locator(".skill-detail-page h2").textContent(), standardSkill.title);
   assert.ok(await page.locator(".skill-detail-page .exercise-list li").count() >= 4);
   await page.locator(".skill-detail-page .skill-level").selectOption("3");
-  assert.equal(
-    await page.locator("#skill-progress-count").textContent(),
-    `1 / ${guide.skills.length} 达到 ${guide.targetLevel} 级`,
-  );
+  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: standardSkill.title }).textContent(), /3级/);
+
+  for (const pack of newP0ChallengePacks) {
+    const skill = guide.skills.find((item) => item.id === pack.skillId);
+    await page.locator("#learning-skill-nav button").filter({ hasText: skill.title }).click();
+    await page.locator(".challenge-level-card").first().waitFor();
+    assert.equal(requestedURLs.filter((url) => url.includes(`challenges/${pack.skillId}.json`)).length, 1);
+    assert.equal(await page.locator(".challenge-level-card").count(), pack.levels.length);
+    assert.equal(await page.locator(".challenge-level-card:disabled").count(), 0);
+    assert.equal(await page.locator(".challenge-level-difficulty").count(), pack.levels.length);
+    await page.locator(".challenge-level-card").last().click();
+    assert.equal(await page.locator(".challenge-question-row").count(), 5);
+    assert.equal(await page.locator(".challenge-question-row:disabled").count(), 0);
+    await page.locator(".challenge-question-row").first().click();
+    assert.equal(await page.locator(".challenge-draft-input").count(), 0);
+    assert.equal(await page.locator(".challenge-choice").count(), 3);
+    assert.equal(await page.locator(".challenge-primary-button").isEnabled(), true);
+    assert.equal(await page.locator(".challenge-question-navigation button").last().isEnabled(), true);
+    await page.locator(".challenge-primary-button").click();
+    assert.equal(await page.locator(".challenge-answer").isVisible(), true);
+    await page.locator(".challenge-question-navigation button").last().click();
+    assert.ok(await page.locator(".challenge-chunk").count() >= 2);
+    assert.equal(await page.locator(".challenge-draft-input").count(), 0);
+    assert.equal(await page.locator(".challenge-primary-button").isEnabled(), true);
+  }
 
   await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).click();
   await page.locator(".challenge-level-card").first().waitFor();
@@ -236,18 +308,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.match(await page.locator(".challenge-reward h3").textContent(), /支付术语速查卡/);
   assert.match(await page.locator(".challenge-answer-translation").textContent(), /费率等于支付总收入/);
 
-  await page.locator("#learning-view-nav button").filter({ hasText: "16 周路线" }).click();
-  assert.equal(await page.locator(".week-row").count(), guide.weeks.length);
-  await page.locator(".week-row").first().locator('input[type="checkbox"]').check();
-  assert.match(await page.locator("#week-progress-count").textContent(), /^1 \/ 17/);
-
-  await page.locator("#learning-view-nav button").filter({ hasText: "作品与验收" }).click();
-  assert.equal(await page.locator("#portfolio-list .checklist-item").count(), guide.portfolio.length);
-  assert.equal(await page.locator("#readiness-groups .checklist-item").count(), guide.readiness.length);
-  await page.locator("#portfolio-list .checklist-item").first().click();
-  assert.equal(await page.locator("#portfolio-progress").textContent(), `1 / ${guide.portfolio.length}`);
-
-  await page.locator("#learning-view-nav button").filter({ hasText: "能力体系" }).click();
+  await page.locator('.primary-nav button[data-view="skills"]').click();
   assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
   const skillOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(skillOverflow <= 1, `skills horizontal overflow: ${skillOverflow}px`);

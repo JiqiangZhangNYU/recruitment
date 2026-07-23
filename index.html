@@ -44,13 +44,8 @@
         <div id="tier-bars"></div>
       </section>
 
-      <section class="side-section learning-navigation" aria-labelledby="learning-nav-heading">
-        <h2 id="learning-nav-heading">学习工作台</h2>
-        <div id="learning-view-nav" class="side-nav compact"></div>
-      </section>
-
       <section class="side-section learning-navigation learning-skill-navigation" aria-labelledby="learning-skill-heading">
-        <h2 id="learning-skill-heading">能力目录</h2>
+        <h2 id="learning-skill-heading">九项技能</h2>
         <div id="learning-skill-nav" class="learning-skill-nav">
           <span class="side-loading">进入提升计划后加载</span>
         </div>
@@ -172,65 +167,19 @@
           </div>
 
           <section id="ability-panel" class="learning-panel" hidden>
-            <header class="learning-header">
+            <header class="learning-header skill-overview-header">
               <div class="learning-header-copy">
-                <p class="eyebrow">基于 <span id="skill-job-count">--</span> 个 A 档岗位 · 适合在职学习</p>
-                <h2>增长与支付运营能力体系</h2>
-                <p>9 项能力按工作问题去重：P0 覆盖诊断、策略、交付与核心业务，P1 按岗位方向补充专项。</p>
-              </div>
-              <div class="learning-score" aria-label="总体能力进度">
-                <div class="learning-score-value"><strong id="skill-average-level">0.0</strong><span>/ 4 平均等级</span></div>
-                <div class="skill-progress-track" role="progressbar" aria-label="技能学习进度" aria-valuemin="0" aria-valuemax="52" aria-valuenow="0">
-                  <span id="skill-progress-fill"></span>
-                </div>
-                <div class="learning-score-meta">
-                  <span id="skill-progress-count">0 / 9 达到 3 级</span>
-                  <span id="week-progress-count">0 / 17 周完成</span>
-                </div>
+                <p class="eyebrow">基于 <span id="skill-job-count">--</span> 个 A 档岗位</p>
+                <h2>九项技能</h2>
+                <p>P0 是核心训练题库，P1 是按岗位方向选修的专项。点击卡片或左侧技能名称进入。</p>
               </div>
             </header>
-
-            <section class="study-brief" aria-label="学习节奏与贯穿案例">
-              <div class="study-case">
-                <span class="section-kicker">贯穿案例</span>
-                <h3 id="case-title">跨境商家钱包</h3>
-                <p id="case-description"></p>
-                <div id="case-entities" class="case-entities"></div>
-              </div>
-              <div class="study-method">
-                <div class="method-heading">
-                  <span class="section-kicker">每周 8-10 小时</span>
-                  <strong>阅读少一些，作品做完整</strong>
-                </div>
-                <div id="method-split" class="method-split"></div>
-                <p id="next-action" class="next-action"></p>
-              </div>
-            </section>
-
-            <nav class="overview-actions" aria-label="学习计划快捷入口">
-              <button type="button" data-learning-route="roadmap">
-                <span>执行路线</span><strong>16 周逐周推进</strong><span aria-hidden="true">→</span>
-              </button>
-              <button type="button" data-learning-route="portfolio">
-                <span>求职转化</span><strong>14 份作品与投递验收</strong><span aria-hidden="true">→</span>
-              </button>
-            </nav>
-
-            <section class="ability-introduction" aria-labelledby="ability-intro-heading">
-              <header class="panel-heading">
-                <div>
-                  <span class="section-kicker">先看全貌，再进入单项训练</span>
-                  <h3 id="ability-intro-heading">9 项目标能力</h3>
-                  <p>P0 合并通用底盘与支付、英语、国际市场核心专项；P1 仅保留边界清晰的电商经营、研究和实验方向。</p>
-                </div>
-              </header>
-              <div id="skill-overview-groups" class="skill-overview-groups"></div>
-            </section>
+            <div id="skill-overview-groups" class="skill-overview-groups"></div>
           </section>
 
           <section id="skill-detail-panel" class="learning-panel" hidden>
             <nav class="detail-breadcrumb" aria-label="技能详情导航">
-              <button id="back-to-overview" type="button"><span aria-hidden="true">←</span> 能力体系</button>
+              <button id="back-to-overview" type="button"><span aria-hidden="true">←</span> 九项技能</button>
               <span id="detail-position"></span>
             </nav>
             <div id="skill-detail-container"></div>
@@ -240,45 +189,6 @@
             </nav>
           </section>
 
-          <section id="roadmap-panel" class="learning-panel" hidden>
-            <header class="panel-heading">
-              <div>
-                <span class="section-kicker">从基线到求职转化</span>
-                <h3>16 周执行路线</h3>
-                <p>第 0 周先做基线评估；工作繁忙时可以把一周延长为两周，但每阶段产出不可跳过。</p>
-              </div>
-              <strong id="roadmap-progress">0%</strong>
-            </header>
-            <div id="phase-nav" class="phase-nav"></div>
-            <div id="roadmap-list" class="roadmap-list"></div>
-          </section>
-
-          <section id="portfolio-panel" class="learning-panel" hidden>
-            <header class="panel-heading">
-              <div>
-                <span class="section-kicker">投递前的能力证据</span>
-                <h3>作品集与岗位验收</h3>
-                <p>每份作品首页注明业务问题、数据是否模拟、个人角色、结论、公开边界和制作日期。</p>
-              </div>
-              <strong id="portfolio-progress">0 / 14</strong>
-            </header>
-            <div class="portfolio-layout">
-              <section class="portfolio-section" aria-labelledby="portfolio-heading">
-                <div class="section-title-line">
-                  <h4 id="portfolio-heading">作品清单</h4>
-                  <span>完成一项，留下一个证据</span>
-                </div>
-                <div id="portfolio-list" class="checklist-list"></div>
-              </section>
-              <section class="readiness-section" aria-labelledby="readiness-heading">
-                <div class="section-title-line">
-                  <h4 id="readiness-heading">投递验收</h4>
-                  <span id="readiness-progress">A- 0/7 · A+ 0/7</span>
-                </div>
-                <div id="readiness-groups"></div>
-              </section>
-            </div>
-          </section>
         </section>
       </div>
     </main>
