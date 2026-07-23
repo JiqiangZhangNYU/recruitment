@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-07-23T10:53:59+08:00",
+  "generatedAt": "2026-07-23T11:10:07+08:00",
   "sourceGeneratedAt": "2026-07-22T14:31:20.529Z",
   "poolSize": 502,
   "eligibleSize": 42,
   "displayedSize": 42,
   "counts": {
-    "A": 4,
-    "B": 37,
+    "A+": 4,
+    "A-": 13,
+    "B": 24,
     "C": 1
   },
   "profile": {
-    "summary": "A 档仅限上海支付大厂且无需频繁出差；B 档为数据驱动的相关策略运营；C 档仅供方向参考",
+    "summary": "A+ 为上海支付大厂；A- 为至少满足支付或大平台之一的接近标准岗位；B 为相关策略运营；C 仅供参考",
     "criteria": [
       "工作地点必须为上海（硬性标准）",
-      "A 档必须同时属于明确支付业务和大平台公司",
-      "A 档不得要求频繁、长期或高频出差",
-      "A 档排除猎头代招、劳务派遣、外包及敏感交易业务",
-      "B 档必须是数据驱动的增长或策略运营岗位",
-      "B 档可以只满足支付或大平台一项，也可以均不满足",
+      "A+ 必须同时属于明确支付业务和大平台公司",
+      "A+ 与 A- 均不得要求频繁出差，且排除代招、派遣、外包及敏感交易业务",
+      "A- 必须是相关策略运营，并至少满足支付业务或大平台之一",
+      "B 必须是数据驱动的增长或策略运营，但可以不满足支付和大平台",
       "C 档最多 10 个，优先保留关闭岗位和原始标杆，仅供方向参考"
     ]
   },
@@ -224,8 +224,8 @@
       "experience": "3-5年",
       "education": "本科",
       "score": 100,
-      "tier": "A",
-      "tierLabel": "A 支付大厂优先",
+      "tier": "A+",
+      "tierLabel": "A+ 支付大厂优先",
       "isReference": true,
       "closed": false,
       "paymentBonus": true,
@@ -275,8 +275,8 @@
       "experience": "3-5年",
       "education": "本科",
       "score": 100,
-      "tier": "A",
-      "tierLabel": "A 支付大厂优先",
+      "tier": "A+",
+      "tierLabel": "A+ 支付大厂优先",
       "isReference": true,
       "closed": false,
       "paymentBonus": true,
@@ -326,8 +326,8 @@
       "experience": "3-5年",
       "education": "本科",
       "score": 100,
-      "tier": "A",
-      "tierLabel": "A 支付大厂优先",
+      "tier": "A+",
+      "tierLabel": "A+ 支付大厂优先",
       "isReference": true,
       "closed": false,
       "paymentBonus": true,
@@ -376,8 +376,8 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 100,
-      "tier": "A",
-      "tierLabel": "A 支付大厂优先",
+      "tier": "A+",
+      "tierLabel": "A+ 支付大厂优先",
       "isReference": false,
       "closed": false,
       "paymentBonus": true,
@@ -426,8 +426,8 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 100,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
       "isReference": true,
       "closed": false,
       "paymentBonus": false,
@@ -477,8 +477,8 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 100,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
@@ -524,8 +524,8 @@
       "experience": "1-3年",
       "education": "本科",
       "score": 94,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
@@ -562,6 +562,449 @@
     {
       "id": "job-08",
       "rank": 8,
+      "title": "用户增长-广告投放策略产品运营",
+      "company": "拼多多集团-PDD",
+      "salary": "20-40K·16薪",
+      "salaryFloor": 20,
+      "city": "上海",
+      "experience": "经验不限",
+      "education": "本科",
+      "score": 84,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责拼多多APP在各个广告平台的广告投放与用户增长，对用户数量与质量指标负责",
+        "关注实时表现，研究竞争与边际，结合市场竞争环境，调整⼴告投放策略，提升投放效率",
+        "研究不同⼴告平台的流量拍卖机制，优化⾃身的投放策略。通过定向、出价等策略调整提升买量竞争力"
+      ],
+      "requirements": "本科及以上学历，经济学、心理学、市场营销、数理专业优先。；有一年及以上用户增长、商业化经验优先，有电商、游戏、应用内付费经验优先。",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/c60468d6ea97a5fc0nB-39m5FVRR.html"
+    },
+    {
+      "id": "job-09",
+      "rank": 9,
+      "title": "商城频道用户增长运营-抖音电商",
+      "company": "字节跳动",
+      "salary": "20-40K",
+      "salaryFloor": 20,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 84,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责抖音电商供给玩法频道运营，对频道内认知用户规模、用户活跃分层、有行为率等指标负责",
+        "建⽴并维护频道的⽤户分层运营体系，结合频道特⾊供给与补贴策略，设计用户成长路径，提升用户活跃度、访问深度及长期价值",
+        "协同产品推动频道整体运营框架的设计与迭代，提升频道内有⾏为率及优化用户体验；主导制定长期的资源（流量、预算、产品）使用规划，并推动落地提升效率"
+      ],
+      "requirements": "具备电商平台频道运营、互动玩法运营经验者优先",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/986032ab89abd3d50nF-2du-GFJR.html"
+    },
+    {
+      "id": "job-10",
+      "rank": 10,
+      "title": "用户运营-运动户外",
+      "company": "阿里巴巴集团",
+      "salary": "30-55K·16薪",
+      "salaryFloor": 30,
+      "city": "上海",
+      "experience": "5-10年",
+      "education": "本科",
+      "score": 81,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责运动户外行业的用户增长运营，包含行业用户⼈群运营、新客拉新、⽼客复购、品牌会员等",
+        "根据分⼈群的消费需求，结合渠道特征/数据分析找到用户增长空间，产出分人群的增长策略与推动落地，实现⾏业AAC/MAC增长",
+        "通过合理的用户分层设计，结合用户周期和用户权益设计，提升用户复购和用户价值"
+      ],
+      "requirements": "5年以上电商领域用户增长/用户运营经验，熟悉用户分层运营方法，具备平台经验优先",
+      "notes": [
+        "资深岗位，对年限和项目体量要求较高"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/6d09ba90bc52e4390nV42dq4FVNS.html"
+    },
+    {
+      "id": "job-11",
+      "rank": 11,
+      "title": "供给运营—抖音生服（北/上）",
+      "company": "字节跳动",
+      "salary": "20-40K·15薪",
+      "salaryFloor": 20,
+      "city": "上海",
+      "experience": "1-3年",
+      "education": "本科",
+      "score": 80,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责生活服务独立端/品类营销活动/团购tab的商品策略及招商运营，为支付GMV和订单量负责",
+        "理解货架场的经营逻辑，根据独立端/团购tab/营销活动的定位和⽬标做相应的供给策略并推进招商引⼊⼯作",
+        "熟悉生活服务行业的商家和商品，搭建并落地业务对接机制，为供给的规模和质量负责"
+      ],
+      "requirements": "本科及以上学历，具有生活服务行业商家商品运营经验，有生活服务、电商相关经验者优先",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/2690e11f5f3a82140nBy2Nq7FFtR.html"
+    },
+    {
+      "id": "job-12",
+      "rank": 12,
+      "title": "作者增长运营（上海）",
+      "company": "字节跳动",
+      "salary": "17-25K",
+      "salaryFloor": 17,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 76,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "策略设计",
+        "跨团队推进"
+      ],
+      "responsibilities": [
+        "借助社群渠道，促成作者与平台的内容创作方向的交互，提高用户粘性和精选内容投稿活跃度，助力更多⾼潜⼒创作者跃迁为平台精选创作者",
+        "可以独⽴根据各垂类精选内容标准、及时捕捉热门话题和流行趋势，在不同的垂类上针对作者投稿视频、账号制定内容调优策略，并与协同团队合作落地，协助作者成长，实现平台精选内容/作者增长",
+        "组织并实施线上线下活动，如创作者成长训练营、挑战赛、直播活动、作者访谈等，提高作者参与度，牵引更多创作者跃迁为平台精选作者"
+      ],
+      "requirements": "本科及以上学历，3年以上相关短视频平台运营经验，拥有相关服务产品运营/项目经验为加分项",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/4f2d687853b417fb0nF42d29EFtW.html"
+    },
+    {
+      "id": "job-13",
+      "rank": 13,
+      "title": "用户增长策略运营",
+      "company": "字节跳动",
+      "salary": "30-60K·15薪",
+      "salaryFloor": 30,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 76,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "策略设计",
+        "跨团队推进"
+      ],
+      "responsibilities": [
+        "负责抖音生活服务用户增长团队的策略运营，依托抖音推荐流量体系，与市场营销团队和各⼤区业务资源结合，运⽤流量和⼀线活动等结合的方式，提升支付⽤户，对交易用户数负责",
+        "基于用户、渠道特点等持续挖掘商品、内容供给撬动用户增长的机会，并通过流量和补贴资源引入增量供给和商家资源带动增长",
+        "结合供给特点制定差异化补贴运营策略以及钱效优化，完成从预算申请、策略制定与配置、实验数据分析与评估的完整工作"
+      ],
+      "requirements": "本科及以上学历，3年及以上用户增长、用户运营相关经验",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/2f2bc92a2778409b0nF_3N29E1pQ.html"
+    },
+    {
+      "id": "job-14",
+      "rank": 14,
+      "title": "用户增长产品运营-抖音生活服务",
+      "company": "字节跳动",
+      "salary": "30-60K·15薪",
+      "salaryFloor": 30,
+      "city": "上海",
+      "experience": "经验不限",
+      "education": "本科",
+      "score": 74,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责抖音生活服务整体用户增长，对生活服务交易⽤户规模与交易频次的持续快速增长负责",
+        "负责互动玩法的⽇常运营、包括但不限于激励、积分等互动玩法，⽇常负责人群、品类、权益等数值策略的制定与迭代，为收益与经济效益负责",
+        "横向对接其他合作团队的沟通与协作，通过产品迭代、权益设计、招商引资等方式扩⼤互动玩法的覆盖规模与收益，实现业务的收益增长与经济效益优化"
+      ],
+      "requirements": "本科及以上学历，3年及以上营销玩法产品或运营相关经验，有本地生活服务/电商等交易场景背景优先",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/9cbf350714c66b9a0nF63N-8GVVW.html"
+    },
+    {
+      "id": "job-15",
+      "rank": 15,
+      "title": "商家广告产品运营（增长）-上海",
+      "company": "百度",
+      "salary": "30-60K·13薪",
+      "salaryFloor": 30,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 72,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计"
+      ],
+      "responsibilities": [
+        "充分理解广告业务形态，对广告产品有敏锐洞察力，结合客户需求，输出产品策略及建议，强化客户投放广告的心智、提升投放意愿，实现客户拉新、留存、ARPU提升，为客户数及收入目标负责",
+        "对中小商家的生意增长模式和营销诉求有理解和同理心，能够利用各类广告产品的优势，充分挖掘客户开启广告投放的机会点，结合客户投放效果和满意度反哺投放产品优化，提升广告产品和客户需求的适配度，实现广告业务规模增长",
+        "围绕业务目标进行指标拆解及规划设计，结合预算激励、营销活动、产品推广、投放指导等手段，落地分行业客户增长策略，达成业务目标。 【"
+      ],
+      "requirements": "对互联网广告产品运营有强烈的好奇心和热情；熟悉客户增长运营方法论，有一线互联网公司客户增长实战经验，勇于突破和创新",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/c51c337964e9b5ac031_0tu5FVRS.html"
+    },
+    {
+      "id": "job-16",
+      "rank": 16,
+      "title": "资深产品运营（支付业务）",
+      "company": "光子易",
+      "salary": "12-24K·14薪",
+      "salaryFloor": 12,
+      "city": "上海",
+      "experience": "经验不限",
+      "education": "学历不限",
+      "score": 68,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": true,
+      "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "海外跨境",
+        "支付金融"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "跨团队推进",
+        "国际化",
+        "支付业务"
+      ],
+      "responsibilities": [
+        "负责跨境收款、付款、汇兑业务在客户侧的实施落地,解决客户在产品使用中的各种问题,为客户提供最佳使用实践",
+        "通过帮助客户有效使用我方产品和服务,促进客户完成其业绩⽬标",
+        "负责整体运营⽅案及⽇常工作流程的制定和执行,随业务发展不断完善,搭建标准化的运营体系"
+      ],
+      "requirements": "本科及以上学历,有跨境支付行业收付兑业务从业经验者优先，需要有涉外英语能力",
+      "notes": [
+        "需要英语能力",
+        "支付业务经验更有优势"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/7944c391539b9d760nFz2tW_FFNT.html"
+    },
+    {
+      "id": "job-17",
+      "rank": 17,
+      "title": "产品运营-地理位置中台",
+      "company": "字节跳动",
+      "salary": "20-40K",
+      "salaryFloor": 20,
+      "city": "上海",
+      "experience": "经验不限",
+      "education": "本科",
+      "score": 68,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "策略设计",
+        "跨团队推进"
+      ],
+      "responsibilities": [
+        "负责众包用户运营体系建设，制定并落地用户增长策略，对众包用户规模负责",
+        "设计并迭代众包用户分层和激励体系，提升用户的活跃度与人均产能",
+        "通过调研问卷、访谈调研等形式，持续挖掘用户体验问题并推进产品能力迭代"
+      ],
+      "requirements": "本科及以上学历，3年及以上用户运营相关工作经验，熟悉众包、UGC或任务型产品/运营逻辑优先；具备较强的数据分析能力，能独立用户行为数据分析、完成目标拆解、策略制定及效果归因",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/3ec8eb0ffb8a0e810nR50ti5GFNY.html"
+    },
+    {
+      "id": "job-18",
+      "rank": 18,
       "title": "海外用户增长运营",
       "company": "井英科技",
       "salary": "30-50K·13薪",
@@ -608,188 +1051,8 @@
       "url": "https://www.zhipin.com/job_detail/883aa5bd0aba912a0nF40ty9ElFX.html"
     },
     {
-      "id": "job-09",
-      "rank": 9,
-      "title": "用户增长-广告投放策略产品运营",
-      "company": "拼多多集团-PDD",
-      "salary": "20-40K·16薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "本科",
-      "score": 84,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责拼多多APP在各个广告平台的广告投放与用户增长，对用户数量与质量指标负责",
-        "关注实时表现，研究竞争与边际，结合市场竞争环境，调整⼴告投放策略，提升投放效率",
-        "研究不同⼴告平台的流量拍卖机制，优化⾃身的投放策略。通过定向、出价等策略调整提升买量竞争力"
-      ],
-      "requirements": "本科及以上学历，经济学、心理学、市场营销、数理专业优先。；有一年及以上用户增长、商业化经验优先，有电商、游戏、应用内付费经验优先。",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/c60468d6ea97a5fc0nB-39m5FVRR.html"
-    },
-    {
-      "id": "job-10",
-      "rank": 10,
-      "title": "商城频道用户增长运营-抖音电商",
-      "company": "字节跳动",
-      "salary": "20-40K",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 84,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责抖音电商供给玩法频道运营，对频道内认知用户规模、用户活跃分层、有行为率等指标负责",
-        "建⽴并维护频道的⽤户分层运营体系，结合频道特⾊供给与补贴策略，设计用户成长路径，提升用户活跃度、访问深度及长期价值",
-        "协同产品推动频道整体运营框架的设计与迭代，提升频道内有⾏为率及优化用户体验；主导制定长期的资源（流量、预算、产品）使用规划，并推动落地提升效率"
-      ],
-      "requirements": "具备电商平台频道运营、互动玩法运营经验者优先",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/986032ab89abd3d50nF-2du-GFJR.html"
-    },
-    {
-      "id": "job-11",
-      "rank": 11,
-      "title": "用户运营-运动户外",
-      "company": "阿里巴巴集团",
-      "salary": "30-55K·16薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 81,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责运动户外行业的用户增长运营，包含行业用户⼈群运营、新客拉新、⽼客复购、品牌会员等",
-        "根据分⼈群的消费需求，结合渠道特征/数据分析找到用户增长空间，产出分人群的增长策略与推动落地，实现⾏业AAC/MAC增长",
-        "通过合理的用户分层设计，结合用户周期和用户权益设计，提升用户复购和用户价值"
-      ],
-      "requirements": "5年以上电商领域用户增长/用户运营经验，熟悉用户分层运营方法，具备平台经验优先",
-      "notes": [
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/6d09ba90bc52e4390nV42dq4FVNS.html"
-    },
-    {
-      "id": "job-12",
-      "rank": 12,
-      "title": "供给运营—抖音生服（北/上）",
-      "company": "字节跳动",
-      "salary": "20-40K·15薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 80,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责生活服务独立端/品类营销活动/团购tab的商品策略及招商运营，为支付GMV和订单量负责",
-        "理解货架场的经营逻辑，根据独立端/团购tab/营销活动的定位和⽬标做相应的供给策略并推进招商引⼊⼯作",
-        "熟悉生活服务行业的商家和商品，搭建并落地业务对接机制，为供给的规模和质量负责"
-      ],
-      "requirements": "本科及以上学历，具有生活服务行业商家商品运营经验，有生活服务、电商相关经验者优先",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/2690e11f5f3a82140nBy2Nq7FFtR.html"
-    },
-    {
-      "id": "job-13",
-      "rank": 13,
+      "id": "job-19",
+      "rank": 19,
       "title": "商家及策略运营（美团渠道）",
       "company": "哈啰普惠",
       "salary": "25-35K·15薪",
@@ -834,8 +1097,8 @@
       "url": "https://www.zhipin.com/job_detail/94913ab3d909118c0nF509-4E1tU.html"
     },
     {
-      "id": "job-14",
-      "rank": 14,
+      "id": "job-20",
+      "rank": 20,
       "title": "运营（用户增长与营收增长方向）",
       "company": "中至数据集团",
       "salary": "15-20K",
@@ -878,8 +1141,8 @@
       "url": "https://www.zhipin.com/job_detail/e22a9ad19ca37df80nB43N25F1FT.html"
     },
     {
-      "id": "job-15",
-      "rank": 15,
+      "id": "job-21",
+      "rank": 21,
       "title": "高级用户运营",
       "company": "数佑文化",
       "salary": "20-40K",
@@ -924,8 +1187,8 @@
       "url": "https://www.zhipin.com/job_detail/67ffcc2433e519150nV-2dy6F1RY.html"
     },
     {
-      "id": "job-16",
-      "rank": 16,
+      "id": "job-22",
+      "rank": 22,
       "title": "增长运营经理（卡支付产品）",
       "company": "北京中利博冠网络科技",
       "salary": "25-50K",
@@ -972,94 +1235,8 @@
       "url": "https://www.zhipin.com/job_detail/1579e983bd02adea0nF73N29EFRU.html"
     },
     {
-      "id": "job-17",
-      "rank": 17,
-      "title": "作者增长运营（上海）",
-      "company": "字节跳动",
-      "salary": "17-25K",
-      "salaryFloor": 17,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 76,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "借助社群渠道，促成作者与平台的内容创作方向的交互，提高用户粘性和精选内容投稿活跃度，助力更多⾼潜⼒创作者跃迁为平台精选创作者",
-        "可以独⽴根据各垂类精选内容标准、及时捕捉热门话题和流行趋势，在不同的垂类上针对作者投稿视频、账号制定内容调优策略，并与协同团队合作落地，协助作者成长，实现平台精选内容/作者增长",
-        "组织并实施线上线下活动，如创作者成长训练营、挑战赛、直播活动、作者访谈等，提高作者参与度，牵引更多创作者跃迁为平台精选作者"
-      ],
-      "requirements": "本科及以上学历，3年以上相关短视频平台运营经验，拥有相关服务产品运营/项目经验为加分项",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/4f2d687853b417fb0nF42d29EFtW.html"
-    },
-    {
-      "id": "job-18",
-      "rank": 18,
-      "title": "用户增长策略运营",
-      "company": "字节跳动",
-      "salary": "30-60K·15薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 76,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "负责抖音生活服务用户增长团队的策略运营，依托抖音推荐流量体系，与市场营销团队和各⼤区业务资源结合，运⽤流量和⼀线活动等结合的方式，提升支付⽤户，对交易用户数负责",
-        "基于用户、渠道特点等持续挖掘商品、内容供给撬动用户增长的机会，并通过流量和补贴资源引入增量供给和商家资源带动增长",
-        "结合供给特点制定差异化补贴运营策略以及钱效优化，完成从预算申请、策略制定与配置、实验数据分析与评估的完整工作"
-      ],
-      "requirements": "本科及以上学历，3年及以上用户增长、用户运营相关经验",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/2f2bc92a2778409b0nF_3N29E1pQ.html"
-    },
-    {
-      "id": "job-19",
-      "rank": 19,
+      "id": "job-23",
+      "rank": 23,
       "title": "海外APP用户运营（金融交易）",
       "company": "点涨科技",
       "salary": "25-35K",
@@ -1105,52 +1282,8 @@
       "url": "https://www.zhipin.com/job_detail/114fe33797f69f6d0nFy2N61FFBW.html"
     },
     {
-      "id": "job-20",
-      "rank": 20,
-      "title": "用户增长产品运营-抖音生活服务",
-      "company": "字节跳动",
-      "salary": "30-60K·15薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "本科",
-      "score": 74,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责抖音生活服务整体用户增长，对生活服务交易⽤户规模与交易频次的持续快速增长负责",
-        "负责互动玩法的⽇常运营、包括但不限于激励、积分等互动玩法，⽇常负责人群、品类、权益等数值策略的制定与迭代，为收益与经济效益负责",
-        "横向对接其他合作团队的沟通与协作，通过产品迭代、权益设计、招商引资等方式扩⼤互动玩法的覆盖规模与收益，实现业务的收益增长与经济效益优化"
-      ],
-      "requirements": "本科及以上学历，3年及以上营销玩法产品或运营相关经验，有本地生活服务/电商等交易场景背景优先",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/9cbf350714c66b9a0nF63N-8GVVW.html"
-    },
-    {
-      "id": "job-21",
-      "rank": 21,
+      "id": "job-24",
+      "rank": 24,
       "title": "海外用户增长运营专家（AI产品）",
       "company": "群核科技",
       "salary": "25-45K·14薪",
@@ -1195,8 +1328,8 @@
       "url": "https://www.zhipin.com/job_detail/350924083bbf93e40nB-09i-FVVZ.html"
     },
     {
-      "id": "job-22",
-      "rank": 22,
+      "id": "job-25",
+      "rank": 25,
       "title": "Global User Growth 海外用户增长",
       "company": "上海天码形空科技",
       "salary": "17-26K·15薪",
@@ -1240,8 +1373,8 @@
       "url": "https://www.zhipin.com/job_detail/da564a64e4e4581c0nF909W4EFJX.html"
     },
     {
-      "id": "job-23",
-      "rank": 23,
+      "id": "job-26",
+      "rank": 26,
       "title": "用户运营专家（拉新）",
       "company": "某知名互联网公司",
       "salary": "35-60K",
@@ -1287,8 +1420,8 @@
       "url": "https://www.zhipin.com/job_detail/186bd36d239d42ff0nBz2926EVNU.html"
     },
     {
-      "id": "job-24",
-      "rank": 24,
+      "id": "job-27",
+      "rank": 27,
       "title": "用户运营",
       "company": "杭州某大型互联网电商平台上市公司",
       "salary": "35-60K·16薪",
@@ -1334,8 +1467,8 @@
       "url": "https://www.zhipin.com/job_detail/6c4d9437529034910nZ-0967FVRS.html"
     },
     {
-      "id": "job-25",
-      "rank": 25,
+      "id": "job-28",
+      "rank": 28,
       "title": "用户运营",
       "company": "杭州某大型互联网上市公司",
       "salary": "35-60K·15薪",
@@ -1381,8 +1514,8 @@
       "url": "https://www.zhipin.com/job_detail/1484dfc4d8bc840e0nZ72dS0ElpS.html"
     },
     {
-      "id": "job-26",
-      "rank": 26,
+      "id": "job-29",
+      "rank": 29,
       "title": "用户运营",
       "company": "杭州某大型互联网上市公司",
       "salary": "35-60K·15薪",
@@ -1428,8 +1561,8 @@
       "url": "https://www.zhipin.com/job_detail/22d52878e8a062b80nZ72N28F1dT.html"
     },
     {
-      "id": "job-27",
-      "rank": 27,
+      "id": "job-30",
+      "rank": 30,
       "title": "用户运营",
       "company": "某大型知名互联网上市公司",
       "salary": "40-60K·15薪",
@@ -1474,51 +1607,8 @@
       "url": "https://www.zhipin.com/job_detail/d76bca7795376c4803N_09S-GVZR.html"
     },
     {
-      "id": "job-28",
-      "rank": 28,
-      "title": "商家广告产品运营（增长）-上海",
-      "company": "百度",
-      "salary": "30-60K·13薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 72,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "策略设计"
-      ],
-      "responsibilities": [
-        "充分理解广告业务形态，对广告产品有敏锐洞察力，结合客户需求，输出产品策略及建议，强化客户投放广告的心智、提升投放意愿，实现客户拉新、留存、ARPU提升，为客户数及收入目标负责",
-        "对中小商家的生意增长模式和营销诉求有理解和同理心，能够利用各类广告产品的优势，充分挖掘客户开启广告投放的机会点，结合客户投放效果和满意度反哺投放产品优化，提升广告产品和客户需求的适配度，实现广告业务规模增长",
-        "围绕业务目标进行指标拆解及规划设计，结合预算激励、营销活动、产品推广、投放指导等手段，落地分行业客户增长策略，达成业务目标。 【"
-      ],
-      "requirements": "对互联网广告产品运营有强烈的好奇心和热情；熟悉客户增长运营方法论，有一线互联网公司客户增长实战经验，勇于突破和创新",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/c51c337964e9b5ac031_0tu5FVRS.html"
-    },
-    {
-      "id": "job-29",
-      "rank": 29,
+      "id": "job-31",
+      "rank": 31,
       "title": "海外用户增长运营（CRO专家）",
       "company": "微盟",
       "salary": "25-35K·13薪",
@@ -1563,8 +1653,8 @@
       "url": "https://www.zhipin.com/job_detail/ee0f6b272d5534cc0nZ82dm4FFtZ.html"
     },
     {
-      "id": "job-30",
-      "rank": 30,
+      "id": "job-32",
+      "rank": 32,
       "title": "策略运营",
       "company": "JCtrans",
       "salary": "12-15K",
@@ -1606,96 +1696,6 @@
       "agency": false,
       "sensitive": false,
       "url": "https://www.zhipin.com/job_detail/a1cb82a358d8e00a0nF73dq0EVdV.html"
-    },
-    {
-      "id": "job-31",
-      "rank": 31,
-      "title": "资深产品运营（支付业务）",
-      "company": "光子易",
-      "salary": "12-24K·14薪",
-      "salaryFloor": 12,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "学历不限",
-      "score": 68,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "海外跨境",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "跨团队推进",
-        "国际化",
-        "支付业务"
-      ],
-      "responsibilities": [
-        "负责跨境收款、付款、汇兑业务在客户侧的实施落地,解决客户在产品使用中的各种问题,为客户提供最佳使用实践",
-        "通过帮助客户有效使用我方产品和服务,促进客户完成其业绩⽬标",
-        "负责整体运营⽅案及⽇常工作流程的制定和执行,随业务发展不断完善,搭建标准化的运营体系"
-      ],
-      "requirements": "本科及以上学历,有跨境支付行业收付兑业务从业经验者优先，需要有涉外英语能力",
-      "notes": [
-        "需要英语能力",
-        "支付业务经验更有优势"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/7944c391539b9d760nFz2tW_FFNT.html"
-    },
-    {
-      "id": "job-32",
-      "rank": 32,
-      "title": "产品运营-地理位置中台",
-      "company": "字节跳动",
-      "salary": "20-40K",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "本科",
-      "score": 68,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "负责众包用户运营体系建设，制定并落地用户增长策略，对众包用户规模负责",
-        "设计并迭代众包用户分层和激励体系，提升用户的活跃度与人均产能",
-        "通过调研问卷、访谈调研等形式，持续挖掘用户体验问题并推进产品能力迭代"
-      ],
-      "requirements": "本科及以上学历，3年及以上用户运营相关工作经验，熟悉众包、UGC或任务型产品/运营逻辑优先；具备较强的数据分析能力，能独立用户行为数据分析、完成目标拆解、策略制定及效果归因",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/3ec8eb0ffb8a0e810nR50ti5GFNY.html"
     },
     {
       "id": "job-33",

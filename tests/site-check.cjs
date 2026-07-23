@@ -17,15 +17,26 @@ async function checkPage(browser, viewport, screenshotPath) {
   const dataset = await page.evaluate(async () => (await fetch("./jobs.json")).json());
   assert.equal(await page.locator(".job-card").count(), dataset.displayedSize);
   assert.equal(await page.locator("#displayed-stat").textContent(), String(dataset.displayedSize));
-  const aJobs = dataset.jobs.filter((job) => job.tier === "A");
+  const aPlusJobs = dataset.jobs.filter((job) => job.tier === "A+");
+  const aMinusJobs = dataset.jobs.filter((job) => job.tier === "A-");
   const bJobs = dataset.jobs.filter((job) => job.tier === "B");
   const cJobs = dataset.jobs.filter((job) => job.tier === "C");
-  assert.ok(aJobs.length > 0);
-  assert.ok(aJobs.every((job) => (
+  assert.ok(aPlusJobs.length > 0);
+  assert.ok(aPlusJobs.every((job) => (
     job.city === "上海"
     && job.paymentBonus
     && job.majorCompany
     && !job.frequentTravel
+    && job.applicationRecommended
+  )));
+  assert.ok(aMinusJobs.length > 0);
+  assert.ok(aMinusJobs.every((job) => (
+    job.city === "上海"
+    && job.strategyRelevant
+    && (job.paymentBonus || job.majorCompany)
+    && !job.frequentTravel
+    && !job.agency
+    && !job.sensitive
     && job.applicationRecommended
   )));
   assert.ok(bJobs.every((job) => job.strategyRelevant && job.applicationRecommended));
@@ -49,8 +60,12 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.screenshot({ path: screenshotPath.replace(".png", "-skills.png"), fullPage: true });
   await page.locator('.primary-nav button[data-view="jobs"]').click();
 
-  await page.locator("#tier-segments button").filter({ hasText: "A ·" }).click();
-  assert.equal(await page.locator(".job-card").count(), dataset.counts.A);
+  await page.locator("#tier-segments button").filter({ hasText: "A+ ·" }).click();
+  assert.equal(await page.locator(".job-card").count(), dataset.counts["A+"]);
+  await page.locator("#reset-button").click();
+
+  await page.locator("#tier-segments button").filter({ hasText: "A- ·" }).click();
+  assert.equal(await page.locator(".job-card").count(), dataset.counts["A-"]);
   await page.locator("#reset-button").click();
 
   await page.locator("#tier-segments button").filter({ hasText: "C ·" }).click();

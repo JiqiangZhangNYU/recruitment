@@ -184,8 +184,9 @@ a:focus-visible {
 .tier-bar-label { display: flex; justify-content: space-between; color: var(--nav-muted); font: 10px var(--mono); }
 .tier-bar-track { height: 4px; margin-top: 5px; overflow: hidden; background: #2c3d49; border-radius: 2px; }
 .tier-bar-fill { display: block; height: 100%; background: #54b7a8; border-radius: inherit; }
-.tier-bar:nth-child(2) .tier-bar-fill { background: #c79545; }
-.tier-bar:nth-child(3) .tier-bar-fill { background: #b86a6a; }
+.tier-bar:nth-child(2) .tier-bar-fill { background: #78a99c; }
+.tier-bar:nth-child(3) .tier-bar-fill { background: #c79545; }
+.tier-bar:nth-child(4) .tier-bar-fill { background: #b86a6a; }
 
 .sidebar-footer {
   display: grid;
@@ -322,7 +323,8 @@ select {
 .rank-block { padding-top: 2px; text-align: center; }
 .rank-number { display: block; color: var(--muted); font: 700 16px var(--mono); }
 .tier-badge { display: inline-block; min-width: 28px; margin-top: 7px; padding: 2px 5px; border-radius: 4px; font: 700 10px var(--mono); }
-.tier-A { color: var(--a); background: var(--a-soft); }
+.tier-A-plus { color: var(--a); background: var(--a-soft); }
+.tier-A-minus { color: var(--accent); background: var(--accent-soft); }
 .tier-B { color: var(--b); background: var(--b-soft); }
 .tier-C { color: var(--c); background: var(--c-soft); }
 .job-copy { min-width: 0; }

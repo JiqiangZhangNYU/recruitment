@@ -64,7 +64,14 @@ const elements = {
   skillTemplate: document.querySelector("#skill-template"),
 };
 
-const tierNames = { all: "全部", A: "支付大厂", B: "策略匹配", C: "仅供参考" };
+const tierNames = {
+  all: "全部",
+  "A+": "支付大厂",
+  "A-": "接近标准",
+  B: "策略匹配",
+  C: "仅供参考",
+};
+const tierClasses = { "A+": "tier-A-plus", "A-": "tier-A-minus", B: "tier-B", C: "tier-C" };
 
 function persistSaved() {
   localStorage.setItem("recruitment-saved", JSON.stringify([...state.saved]));
@@ -158,7 +165,7 @@ function renderNavigation() {
   elements.tierNav.replaceChildren();
   const tiers = [
     { key: "ALL", value: "all", label: "全部岗位", count: total },
-    ...["A", "B", "C"].map((tier) => ({ key: tier, value: tier, label: tierNames[tier], count: state.data.counts[tier] })),
+    ...["A+", "A-", "B", "C"].map((tier) => ({ key: tier, value: tier, label: tierNames[tier], count: state.data.counts[tier] })),
   ];
   tiers.forEach((item) => {
     elements.tierNav.append(makeNavButton({
@@ -191,7 +198,7 @@ function renderNavigation() {
 
 function renderTierControls() {
   elements.tierSegments.replaceChildren();
-  ["all", "A", "B", "C"].forEach((tier) => {
+  ["all", "A+", "A-", "B", "C"].forEach((tier) => {
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = tier === "all" ? "全部" : `${tier} · ${state.data.counts[tier]}`;
@@ -205,7 +212,7 @@ function renderTierControls() {
 function renderBars() {
   elements.tierBars.replaceChildren();
   const max = Math.max(...Object.values(state.data.counts));
-  ["A", "B", "C"].forEach((tier) => {
+  ["A+", "A-", "B", "C"].forEach((tier) => {
     const row = document.createElement("div");
     row.className = "tier-bar";
     row.innerHTML = `<div class="tier-bar-label"><span>${tier} · ${tierNames[tier]}</span><span>${state.data.counts[tier]}</span></div><div class="tier-bar-track"><span class="tier-bar-fill" style="width:${state.data.counts[tier] / max * 100}%"></span></div>`;
@@ -229,7 +236,7 @@ function makeJobCard(job) {
   fragment.querySelector(".rank-number").textContent = String(job.rank).padStart(2, "0");
   const tierBadge = fragment.querySelector(".tier-badge");
   tierBadge.textContent = job.tier;
-  tierBadge.classList.add(`tier-${job.tier}`);
+  tierBadge.classList.add(tierClasses[job.tier]);
   fragment.querySelector(".job-title").textContent = job.title;
   fragment.querySelector(".company").textContent = job.company;
   fragment.querySelector(".score-value").textContent = job.score;
