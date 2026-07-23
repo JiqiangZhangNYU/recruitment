@@ -1,14 +1,155 @@
 {
-  "generatedAt": "2026-07-23T11:10:07+08:00",
+  "generatedAt": "2026-07-23T11:59:42+08:00",
   "sourceGeneratedAt": "2026-07-22T14:31:20.529Z",
-  "poolSize": 502,
-  "eligibleSize": 42,
-  "displayedSize": 42,
+  "officialSourceGeneratedAt": "2026-07-23T03:45:29.612Z",
+  "officialSources": [
+    {
+      "id": "bytedance",
+      "label": "字节跳动官网",
+      "company": "字节跳动",
+      "status": "ok",
+      "queries": [
+        "支付运营",
+        "钱包运营",
+        "用户增长运营",
+        "增长策略运营",
+        "商家运营",
+        "商户运营",
+        "策略运营",
+        "行业运营"
+      ],
+      "candidate_count": 745,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:44:46.532Z"
+    },
+    {
+      "id": "ant",
+      "label": "蚂蚁集团官网",
+      "company": "蚂蚁集团",
+      "status": "ok",
+      "queries": [
+        "支付运营",
+        "钱包运营",
+        "跨境支付",
+        "用户增长",
+        "增长运营",
+        "策略运营",
+        "商家运营"
+      ],
+      "candidate_count": 12,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:44:55.320Z"
+    },
+    {
+      "id": "alibaba",
+      "label": "阿里巴巴官网",
+      "company": "阿里巴巴",
+      "status": "ok",
+      "queries": [
+        "支付运营",
+        "用户增长",
+        "增长运营",
+        "策略运营",
+        "商家运营",
+        "行业运营"
+      ],
+      "candidate_count": 31,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:45:07.974Z"
+    },
+    {
+      "id": "tencent",
+      "label": "腾讯官网",
+      "company": "腾讯",
+      "status": "ok",
+      "queries": [
+        "支付运营",
+        "用户增长",
+        "增长运营",
+        "策略运营",
+        "商家运营"
+      ],
+      "candidate_count": 2,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:45:13.056Z"
+    },
+    {
+      "id": "meituan",
+      "label": "美团官网",
+      "company": "美团",
+      "status": "ok",
+      "queries": [
+        "支付运营",
+        "用户增长",
+        "增长运营",
+        "策略运营",
+        "商家运营",
+        "会员运营"
+      ],
+      "candidate_count": 222,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:45:20.182Z"
+    },
+    {
+      "id": "jd",
+      "label": "京东官网",
+      "company": "京东",
+      "status": "ok",
+      "queries": [
+        "支付",
+        "用户运营",
+        "用户增长",
+        "增长运营",
+        "策略运营",
+        "商家运营"
+      ],
+      "candidate_count": 2,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:45:20.798Z"
+    },
+    {
+      "id": "xiaohongshu",
+      "label": "小红书官网",
+      "company": "小红书",
+      "status": "ok",
+      "queries": [
+        "支付运营",
+        "用户增长",
+        "增长运营",
+        "策略运营",
+        "商家运营",
+        "行业运营"
+      ],
+      "candidate_count": 94,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:45:25.087Z"
+    },
+    {
+      "id": "ctrip",
+      "label": "携程官网",
+      "company": "携程",
+      "status": "ok",
+      "queries": [
+        "支付运营",
+        "用户增长",
+        "增长运营",
+        "策略运营",
+        "商家运营",
+        "会员运营"
+      ],
+      "candidate_count": 38,
+      "previous_count": 0,
+      "fetched_at": "2026-07-23T03:45:29.610Z"
+    }
+  ],
+  "poolSize": 1648,
+  "eligibleSize": 343,
+  "displayedSize": 60,
   "counts": {
-    "A+": 4,
-    "A-": 13,
-    "B": 24,
-    "C": 1
+    "A+": 6,
+    "A-": 39,
+    "B": 15,
+    "C": 0
   },
   "profile": {
     "summary": "A+ 为上海支付大厂；A- 为至少满足支付或大平台之一的接近标准岗位；B 为相关策略运营；C 仅供参考",
@@ -53,9 +194,9 @@
         ],
         "practice": "用模拟用户行为表完成新增、激活、7 日留存和付费转化分析，输出一页结论。",
         "jobCount": 2,
-        "totalJobs": 42,
-        "relatedCount": 42,
-        "evidence": "42/42 个岗位涉及数据分析；2 个明确点名 SQL/Excel"
+        "totalJobs": 60,
+        "relatedCount": 60,
+        "evidence": "60/60 个岗位涉及数据分析；2 个明确点名 SQL/Excel"
       },
       {
         "id": "metrics-funnel",
@@ -69,10 +210,10 @@
           "渠道归因、ROI、CAC、LTV、GMV 和利润基础口径"
         ],
         "practice": "搭建一张增长指标树和转化漏斗，指出三个问题环节及对应运营动作。",
-        "jobCount": 25,
-        "totalJobs": 42,
+        "jobCount": 44,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "25/42 个岗位正文明确涉及"
+        "evidence": "44/60 个岗位正文明确涉及"
       },
       {
         "id": "lifecycle",
@@ -86,10 +227,10 @@
           "拉新、激活、留存、复购、召回策略及效果指标"
         ],
         "practice": "为一个钱包或电商产品画出生命周期地图，并为每层用户设计策略和指标。",
-        "jobCount": 42,
-        "totalJobs": 42,
+        "jobCount": 60,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "42/42 个岗位正文明确涉及"
+        "evidence": "60/60 个岗位正文明确涉及"
       },
       {
         "id": "strategy",
@@ -103,10 +244,10 @@
           "优先级、资源测算、风险预案和复盘迭代"
         ],
         "practice": "写一份 3 页增长方案：业务诊断、策略设计、执行排期与量化目标。",
-        "jobCount": 32,
-        "totalJobs": 42,
+        "jobCount": 50,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "32/42 个岗位正文明确涉及"
+        "evidence": "50/60 个岗位正文明确涉及"
       },
       {
         "id": "project",
@@ -120,10 +261,10 @@
           "面向不同团队表达收益、成本和优先级"
         ],
         "practice": "制作一份跨团队项目计划，包含 RACI、四周排期、风险清单和复盘模板。",
-        "jobCount": 37,
-        "totalJobs": 42,
+        "jobCount": 52,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "37/42 个岗位正文明确涉及"
+        "evidence": "52/60 个岗位正文明确涉及"
       },
       {
         "id": "insight",
@@ -137,10 +278,10 @@
           "输出机会点、证据、影响范围和建议优先级"
         ],
         "practice": "访谈 5 名目标用户，结合一份行为数据写出洞察、证据和三项机会点。",
-        "jobCount": 17,
-        "totalJobs": 42,
+        "jobCount": 44,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "17/42 个岗位正文明确涉及"
+        "evidence": "44/60 个岗位正文明确涉及"
       },
       {
         "id": "experimentation",
@@ -154,10 +295,10 @@
           "实验污染、辛普森悖论及结果推广边界"
         ],
         "practice": "设计一次新客激励 A/B 测试，写清假设、分组、指标、周期和决策规则。",
-        "jobCount": 3,
-        "totalJobs": 42,
+        "jobCount": 11,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "3/42 个岗位正文明确涉及"
+        "evidence": "11/60 个岗位正文明确涉及"
       },
       {
         "id": "payments",
@@ -171,10 +312,10 @@
           "KYC、AML、合规、风控、拒付和用户体验之间的平衡"
         ],
         "practice": "拆解商家钱包从开户到首笔交易的漏斗，提出三项增长策略和风险控制点。",
-        "jobCount": 6,
-        "totalJobs": 42,
+        "jobCount": 8,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "6/42 个岗位正文明确涉及"
+        "evidence": "8/60 个岗位正文明确涉及"
       },
       {
         "id": "ecommerce",
@@ -188,10 +329,10 @@
           "供给结构、品类运营、营销活动和商家激励"
         ],
         "practice": "为一个品类制定商家分层与供给增长方案，明确 GMV 拆解和周度指标。",
-        "jobCount": 26,
-        "totalJobs": 42,
+        "jobCount": 52,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "26/42 个岗位正文明确涉及"
+        "evidence": "52/60 个岗位正文明确涉及"
       },
       {
         "id": "english",
@@ -205,17 +346,73 @@
           "用英语说明业务背景、个人贡献、结果和复盘"
         ],
         "practice": "准备一份英文项目复盘并完成 5 分钟口述，覆盖目标、动作、数据和结果。",
-        "jobCount": 8,
-        "totalJobs": 42,
+        "jobCount": 12,
+        "totalJobs": 60,
         "relatedCount": null,
-        "evidence": "8/42 个岗位正文明确涉及"
+        "evidence": "12/60 个岗位正文明确涉及"
       }
     ]
   },
   "jobs": [
     {
-      "id": "job-01",
+      "id": "job-072b86e00dea82c2",
       "rank": 1,
+      "title": "商家/达人增长运营-国际支付",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A+",
+      "tierLabel": "A+ 支付大厂优先",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": true,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1704888723023,
+      "sourceJobId": "7322439245611272498",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境",
+        "支付金融"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家",
+        "支付业务"
+      ],
+      "responsibilities": [
+        "负责国际信用支付业务（BNPL）的商家和达人运营，包括但不限于行业合作、商家合作、达人/机构合作，跨部门对接，输出有效方案并高效推动整体项目顺利落地，为BNPL的GMV增长指标负责，为预算引入的金额负责",
+        "能够对所负责项目运营情况独立完成分析和监控，并根据各渠道的转化情况、用户画像等数据，提出产品迭代改进方案及策略优化落地",
+        "根据行业及品类趋势，持续引入优势达人、商家及品牌的合作与预算，提升合作项目的产出效果，完成标杆案例/方法论的挖掘与建立。"
+      ],
+      "requirements": "本科及以上学历，3年及以上工作经验，有信用支付或电商行业的商家运营、达人运营经验优先；可用英语处理日常部分工作沟通，流畅使用于合作方的对接交流。",
+      "notes": [
+        "需要英语能力",
+        "支付业务经验更有优势"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7322439245611272498/detail"
+    },
+    {
+      "id": "job-d09d70ff49743f8e",
+      "rank": 2,
       "title": "商家钱包增长运营",
       "company": "字节跳动",
       "salary": "30-60K",
@@ -233,6 +430,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "商家电商",
@@ -265,58 +467,7 @@
       "url": "https://www.zhipin.com/job_detail/56fbbeed3d667f780nd839i7FFBS.html"
     },
     {
-      "id": "job-02",
-      "rank": 2,
-      "title": "整合营销运营-国际支付（北/上）",
-      "company": "字节跳动",
-      "salary": "30-60K·15薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 100,
-      "tier": "A+",
-      "tierLabel": "A+ 支付大厂优先",
-      "isReference": true,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "海外跨境",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "用户/行业洞察",
-        "跨团队推进",
-        "国际化",
-        "电商/商家",
-        "支付业务"
-      ],
-      "responsibilities": [
-        "基于行业/市场/用户需求洞察进行分析，结合国际化电商业务的特点，制定设计短、中、长期的活动计划，包含节点、热点、大促等活动，设计国际信⽤⽀付业务（BNPL）的整合营销活动⽅案和玩法，负责BNPL的GMV和用户量等核心指标的提升",
-        "结合细分场景特点， 搭建服务于BNPL的拉新、促活等⽣命周期人群的运营体系，推动建立流量触点、营销工具、营销权益库，提升业务转化效率",
-        "洞察用户，对已有流量触点、日常运营活动数据进度效果监测、归因，拓展内外部合作场景，获取更多的合作流量，配合营销产品落地新的增长玩法。"
-      ],
-      "requirements": "本科及以上学历，3年及以上工作经验，有信用支付或电商行业的用户增长运营、整合营销活动经验优先；能够独立操盘项目，有较强的方案设计能力和数据敏感度，资源整合能力佳",
-      "notes": [
-        "需要英语能力",
-        "支付业务经验更有优势"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/e59ecc060dc8ce250nZ82tW-EFZZ.html"
-    },
-    {
-      "id": "job-03",
+      "id": "job-f831866af047e06a",
       "rank": 3,
       "title": "蚂蚁国际-海外用户运营专家（跨境汇款）",
       "company": "蚂蚁集团",
@@ -335,6 +486,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "海外跨境",
@@ -366,25 +522,30 @@
       "url": "https://www.zhipin.com/job_detail/1d14b3ef16efcd040nF92t2-FlVV.html"
     },
     {
-      "id": "job-04",
+      "id": "job-8cfbe1ab32a42148",
       "rank": 4,
-      "title": "外汇用户增长运营专家",
+      "title": "整合营销运营-国际支付",
       "company": "字节跳动",
       "salary": "30-60K·15薪",
       "salaryFloor": 30,
       "city": "上海",
-      "experience": "5-10年",
+      "experience": "未提取",
       "education": "本科",
       "score": 100,
       "tier": "A+",
       "tierLabel": "A+ 支付大厂优先",
-      "isReference": false,
+      "isReference": true,
       "closed": false,
       "paymentBonus": true,
       "majorCompany": true,
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1780641805366,
+      "sourceJobId": "7647798075012925701",
       "directions": [
         "用户增长",
         "商家电商",
@@ -401,40 +562,147 @@
         "支付业务"
       ],
       "responsibilities": [
-        "该岗位为以用户增长为导向、兼顾外汇解决方案的复合型角色，重点聚焦中小客户的规模化增长，通过营销策略规模化获取并转化中⼩商家、创作者/达⼈及C端⽤户，将外汇服务转化为可规模化触达的增长举措，达成交易量、渗透率与收入的增长目标",
-        "中⼩客户规模化增长与产品渗透 1）面向中小商家、创作者/达人及C端用户，推广外汇产品与服务，以线上线下结合的方式规模化获客与转化，提升产品的渗透率与交易量； 2）依托数据分析工具深度剖析产品运营与用户行为数据，识别客户需求与市场机会，输出优化建议并推动落地；整合多元化运营资源与渠道，系统性提升外汇产品渗透率",
-        "营销增长策划与执行 1）为新上线外汇产品设计并执行端到端GTM，覆盖目标客群定义、价值主张提炼、渠道与投放策略、上线节奏及冷启动与规模化放量，快速验证并规模化推广；"
+        "基于行业/市场/需求洞察进行分析，结合国际化电商业务的特点，制定设计短、中、长期的活动计划，包含节点、热点、大促等活动，设计国际信用支付业务（BNPL）的整合营销活动方案和玩法，负责BNPL的GMV和用户量等核心指标的提升",
+        "结合细分场景特点，搭建服务于BNPL的拉新、促活等生命周期人群的运营体系，推动建立流量触点、营销工具、营销权益库，提升业务转化效率",
+        "进行数据洞察，对已有流量触点、日常运营活动数据进行效果监测与归因，拓展内外部合作场景，获取更多的合作流量，配合营销产品落地新的增长玩法。"
       ],
-      "requirements": "行业经验：3年以上金融科技、全球支付、跨境电商领域工作经验，具备支付/外汇/金融产品的增长或解决方案背景者优先；市场营销、财经、金融、经济或相关专业本科及以上学历；解决方案与客户能力：能够独立完成客户需求调研，将外汇产品能力转化为解决方案与价值主张并推进落地；有跨区域、跨团队协作项目经验者优先；能够以中英双语作为工作语言",
+      "requirements": "本科及以上学历，3年及以上信用支付或电商行业用户增长运营、整合营销活动相关工作经验，有信用支付或电商行业的用户增长运营、整合营销活动经验优先；有拉美相关经验优先；能够独立操盘项目，有较强的方案设计能力和数据敏感度，资源整合能力佳",
       "notes": [
-        "资深岗位，对年限和项目体量要求较高",
+        "需要英语能力",
+        "支付业务经验更有优势"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7647798075012925701/detail"
+    },
+    {
+      "id": "job-183cad8d9a55cc63",
+      "rank": 5,
+      "title": "增长策略运营（国际BNPL业务）-国际支付",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 98,
+      "tier": "A+",
+      "tierLabel": "A+ 支付大厂优先",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": true,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1783411724148,
+      "sourceJobId": "7659694348188485941",
+      "directions": [
+        "用户增长",
+        "海外跨境",
+        "支付金融"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "国际化",
+        "支付业务"
+      ],
+      "responsibilities": [
+        "负责欧美市场BNPL业务用户增长（准入授信、促支用、复购）运营，基于市场洞察、数据分析进行运营策略设计并落地，达成增长目标，并持续探寻和落地新的增长手段及增长渠道",
+        "适配不同市场的产品阶段、用户生命周期，制定差异化的运营策略或创新产品方案，手段包括但不限于补贴、流量拓展、投放、营销玩法",
+        "通过市场研究和数据分析，制定合理补贴和投放标准，通过策略实验及A/B测试设计，验证策略对核心指标的提升作用和商业影响，优化运营能力和经营效率、ROI；具备基础算法理解能力，可推动算法策略的优化与落地"
+      ],
+      "requirements": "本科及以上学历，3-5年用户增长实操经验，有消费金融用户增长经验的优先；具备跨多团队协作和良好沟通的能力，能快速适应全球化团队工作；英语可以作为工作语言，有国际学习或工作经历的优先",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7659694348188485941/detail"
+    },
+    {
+      "id": "job-f6467cf094f5d294",
+      "rank": 6,
+      "title": "商户运营-国际支付",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "2-3年",
+      "education": "本科",
+      "score": 76,
+      "tier": "A+",
+      "tierLabel": "A+ 支付大厂优先",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": true,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1764917888941,
+      "sourceJobId": "7580264553969125637",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "支付金融"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "电商/商家",
+        "支付业务"
+      ],
+      "responsibilities": [
+        "负责商户入驻、配置和日常维护，确保系统信息的准确性和及时性",
+        "根据商户需求，调整和优化支付解决方案，实现业务增长",
+        "监控和分析商户的交易数据，识别潜在问题并提出改进建议"
+      ],
+      "requirements": "本科及以上学历，金融、市场营销、管理等相关专业优先；2-3年支付行业或商户运营相关工作经验，具备丰富的实践经验者优先",
+      "notes": [
         "支付业务经验更有优势"
       ],
       "requiresEnglish": false,
       "agency": false,
       "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/5fedbf9f60988f9f0nFz3t-0F1RQ.html"
+      "url": "https://jobs.bytedance.com/experienced/position/7580264553969125637/detail"
     },
     {
-      "id": "job-05",
-      "rank": 5,
-      "title": "Global Selling-用户增长运营（高阶）（出差英国）",
+      "id": "job-8898aaddfa368e48",
+      "rank": 7,
+      "title": "用户增长策略运营（商品补贴方向）-TikTok Shop",
       "company": "字节跳动",
-      "salary": "50-80K·15薪",
-      "salaryFloor": 50,
+      "salary": "未提取",
+      "salaryFloor": null,
       "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
+      "experience": "3年以上",
+      "education": "未提取",
       "score": 100,
       "tier": "A-",
       "tierLabel": "A- 接近标准",
-      "isReference": true,
+      "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1779945475560,
+      "sourceJobId": "7644806039452027189",
       "directions": [
         "用户增长",
         "商家电商",
@@ -451,24 +719,609 @@
         "电商/商家"
       ],
       "responsibilities": [
-        "负责海外市场的用户增长（拉新、促活、复购），基于市场洞察和数据分析进行策略设计并落地，服务于用户规模、活跃、营收和利润",
-        "洞察用户⽣命周期，建⽴⽤户分层，基于场景化及资源进行策略调整提升整体活跃度，建立完整⽤户体系",
-        "参与增长业务的规划及落地策略制定，制定增长方案和策略，提升用户规模、活跃度及商业价值，包括但不限于用户获取、承接、促活、召回及交易转化；深入理解和洞察用户，分析数据，找出增长关键路径"
+        "补贴策略操盘与规划：负责东南亚（SEA）电商商品补贴整体策略与大盘预算分配；结合补贴率与规模目标，输出体系化的补贴策略，持续优化大盘补贴ROI（钱效）",
+        "深度数据分析与机会挖掘：主导深入的数据分析，挖掘人群、货盘、场景的增长机会点；通过前置性测算、数据归因与精细化拆解，实现目标补贴率下的高效增长",
+        "算法驱动与策略演进：具备扎实的算法理解能力，与算法团队紧密合作，强力推动补贴策略的算法化演进（如智能化资源分配），实现复杂约束条件下的策略最优化"
       ],
-      "requirements": "本科及以上学历，5年以上用户增长、营销产品、数分或咨询经验，有跨境电商/内容电商经验优先；英文可作为工作语言、有海外生活或工作经验加分",
+      "requirements": "具备3年以上用户运营工作经验，具有资深的补贴操盘、营销策略设计或大盘预算分配经验者优先；较强的数据分析能力：对数据高度敏感，逻辑严密；能够熟练使用SQL、Python等工具独立完成深度数据挖掘；精通A/B测试及其在策略验证中的应用",
       "notes": [
-        "资深岗位，对年限和项目体量要求较高",
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7644806039452027189/detail"
+    },
+    {
+      "id": "job-9fa3503870344caf",
+      "rank": 8,
+      "title": "用户增长策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "未提取",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1776146960824,
+      "sourceJobId": "7628492974523369781",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "理解业务目标：负责东南亚电商运费运营，结合补贴率目标和规模目标，拆解执行路径，探索增长机会点",
+        "需求收集与数据分析：通过深入的数据分析，挖掘人群、区域、价格带、场景等维度的增长机会点，开展前置性分析以实现目标补贴率下的业务增长",
+        "策略设计与迭代：基于用户行为与市场洞察，设计并优化用户增长策略，涵盖运费定价、运费补贴、产品玩法等方向，平衡预算投入、用户体验与商业收益，确保策略投入产出效益"
+      ],
+      "requirements": "具备3年以上用户增长、战略分析或电商运营工作经验，拥有补贴或营销策略设计经验者优先；对数据高度敏感，具备优秀的逻辑思维能力，能够熟练使用SQL、Python、Excel等工具独立完成数据分析；熟悉A/B测试及其在策略验证中的应用；对基本营销增长算法（如Uplift模型、用户行为预测模型）有一定理解，能与算法团队合作设计并优化策略",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7628492974523369781/detail"
+    },
+    {
+      "id": "job-f6670f6f6086400f",
+      "rank": 9,
+      "title": "用户增长营销策略（裂变玩法方向）-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "2年以上",
+      "education": "未提取",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1773379262393,
+      "sourceJobId": "7616605496055810309",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "定义业务目标：根据公司战略，清晰理解指导策略的目标，设定优先级，推动策略落地",
+        "需求收集与数据分析：熟悉电商平台的营销玩法与补贴机制，通过深入的数据分析，挖掘人群与行业等增长机会点，进行前置性分析以准确评估策略需求的覆盖范围与影响",
+        "策略设计、迭代与评估：基于用户行为与市场洞察，设计并优化用户增长策略，包括但不限于人群细分、优惠券发放及预算最优分配，平衡预算、用户体验与收益，确保策略的高效性与可行性；通过定性与定量评估方法，监控策略的商业影响和风险，持续优化策略效果，主导策略实验及A/B测试设计，验证策略对核心指标（如ROI、GMV）的提升效果"
+      ],
+      "requirements": "具备2年以上用户增长、互动玩法、电商运营相关经验，拥有补贴或营销策略设计经验者优先；对数据高度敏感，具备优秀的逻辑思维能力，能够熟练独立完成数据分析；熟悉A／B测试及其在策略验证中的应用；对基本营销增长算法（如Uplift模型、用户行为预测模型）有一定理解，能与算法团队合作设计并优化策略",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7616605496055810309/detail"
+    },
+    {
+      "id": "job-dc7395f2655eb964",
+      "rank": 10,
+      "title": "用户增长营销策略（提频方向）-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "2年以上",
+      "education": "未提取",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1754375246328,
+      "sourceJobId": "7534982780762786056",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "定义业务目标：根据公司战略，清晰理解指导策略的目标，设定优先级，推动策略落地",
+        "需求收集与数据分析：熟悉电商平台的营销玩法与补贴机制，通过深入的数据分析，挖掘人群与行业等增长机会点，进行前置性分析以准确评估策略需求的覆盖范围与影响",
+        "策略设计、迭代与评估：基于用户行为与市场洞察，设计并优化用户增长策略，包括但不限于人群细分、优惠券发放及预算最优分配，平衡预算、用户体验与收益，确保策略的高效性与可行性；通过定性与定量评估方法，监控策略的商业影响和风险，持续优化策略效果，主导策略实验及A/B测试设计，验证策略对核心指标（如ROI、GMV）的提升效果"
+      ],
+      "requirements": "具备2年以上用户增长、互动玩法、电商运营相关经验，拥有补贴或营销策略设计经验者优先；对数据高度敏感，具备优秀的逻辑思维能力，能够熟练独立完成数据分析；熟悉A／B测试及其在策略验证中的应用；对基本营销增长算法（如Uplift模型、用户行为预测模型）有一定理解，能与算法团队合作设计并优化策略",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7534982780762786056/detail"
+    },
+    {
+      "id": "job-ca3eefb476c41ea3",
+      "rank": 11,
+      "title": "越南用户运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1778135125867,
+      "sourceJobId": "7637032139187734837",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "用户增长与分层运营：负责平台用户增长与活跃提升，制定用户全生命周期运营策略，基于用户分层（新客/老客/高价值用户等）设计差异化运营策略，提升转化率与复购率",
+        "供需联动与策略设计：与行业/商家团队深度协同，基于供给变化制定用户策略（如新品、爆品、价格带结构等），推动供给结构优化（如高性价比商品、核心价格带覆盖），从源头提升用户转化，搭建供需协同机制，实现用户需求反哺供给优化",
+        "数据分析与策略迭代：基于数据分析拆解转化漏斗，识别对用户行为的核心影响因素，搭建核心指标体系（转化率、供给渗透率、价格竞争力等），通过A/B Test持续验证供给策略对用户增长的影响"
+      ],
+      "requirements": "本科及以上学历，3年电商用户增长或策略经验；有较强的用户和供给理解能力，熟悉电商核心指标，具备系统性增长思维",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7637032139187734837/detail"
+    },
+    {
+      "id": "job-6811d6bcc28461d7",
+      "rank": 12,
+      "title": "商业化策略运营专家-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1779096385554,
+      "sourceJobId": "7641160697302862085",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "深度参与美国电商商业化策略拆解，负责商业业务模块的策略设计与落地",
+        "挖掘增长机会：基于市场洞察与数据分析，优化流量分配、佣金体系、营销工具、商家项目组合等策略，提升收入和业绩",
+        "主导复杂商业化项目，联动产品、运营、广告等跨部门资源推动落地，对项目GMV/Revenue/ROI负责"
+      ],
+      "requirements": "本科及以上学历，5年及以上电商/国际电商商业化策略运营经验；具备国际电商主流平台核心策略操盘经验，有亿级GMV项目核心贡献案例",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7641160697302862085/detail"
+    },
+    {
+      "id": "job-93d207d2f91c87c3",
+      "rank": 13,
+      "title": "行业策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "5年以上",
+      "education": "未提取",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1778320355001,
+      "sourceJobId": "7637827363052996917",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "深入理解国际电商业务，通过数据分析、市场研究及业务洞察，识别行业增长机会与核心问题，制定可落地的行业运营策略",
+        "搭建并优化行业运营机制，包括目标拆解、过程管理、策略追踪、资源管理及经营复盘，推动业务健康增长",
+        "围绕商家、货品、内容等业务模块，推动行业增长专项，提升GMV、供给质量及运营效率"
+      ],
+      "requirements": "5年以上电商运营、商业分析或行业运营相关经验；对国际电商业务有深入理解，具备较强商业敏感度，能够独立进行业务分析、策略制定及增长机会判断",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7637827363052996917/detail"
+    },
+    {
+      "id": "job-12adefe97ace4a8f",
+      "rank": 14,
+      "title": "护肤行业运营 - 抖音电商",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1784530169522,
+      "sourceJobId": "7664498590484809989",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "类目增长操盘：承接护肤类目月度、季度、年度GMV指标，通过数据复盘、趋势研判，制定品类增长策略，挖掘功效护肤、国货新锐、细分单品等增量机会，补齐类目增长短板",
+        "商家分层运营：负责护肤类目腰部、新锐商家精细化运营，品牌深度共建、资源匹配；扶持新锐商家冷启动与起量，常态化商家赋能、答疑指导，提升商家经营能力与动销效率",
+        "营销活动落地：统筹护肤类目日常品类活动、平台大促的招商、选品、落地与复盘，对接平台流量、商城资源，盘活类目货品，保障大促与日常生意稳定增长"
+      ],
+      "requirements": "经验背景：本科及以上学历，熟悉内容电商运营模式，具有美妆护肤品类赛道经验者优先；核心能力：懂抖音短视频、直播、商城货架全域流量逻辑，具备基础数据分析能力，可通过数据拆解问题、迭代运营策略；具备独立操盘品类活动、对接商家的项目能力",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7664498590484809989/detail"
+    },
+    {
+      "id": "job-176f72a04338193d",
+      "rank": 15,
+      "title": "淘宝闪购-供给策略运营-运营中心",
+      "company": "阿里巴巴",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "alibaba",
+      "sourceLabel": "阿里巴巴官网",
+      "officialSource": true,
+      "postedAt": 1783308789000,
+      "sourceJobId": "5000039530",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "战略级供给洞察：建立动态供给评估模型，通过商户画像、需求预测、竞争分析构建供给图谱；主导本地生活供给生态战略布局，通过运用多维数据建模制定\"优质供给\"标准体系，形成行业标杆影响力",
+        "策略全链操盘手：独立负责百万级策略项目全周期运营（市场洞察→策略设计→项目落地→效果归因），持续打造系统性策略解决方案；在本地生活万亿市场沉淀可复用的策略方法论，驱动业务可持续增长",
+        "增长引擎设计师：通过供给结构优化激活平台GMV增长飞轮，输出高价值策略资产与行业定制化解决方案，实现业务规模突破与模式创新"
+      ],
+      "requirements": "本科及以上学历，3年以上互联网平台策略运营经验，兼具商业分析深度与项目落地推动力（咨询/战略分析背景优先）；【加分项】：深度掌握本地生活/电商/共享经济领域供给策略方法论，主导过百万级商户供给结构调整的成功实践。",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://talent.alibaba.com/off-campus/position-detail?positionId=5000039530"
+    },
+    {
+      "id": "job-7ca074bed05c2f6e",
+      "rank": 16,
+      "title": "用户增长策略运营（渠道导流方向）-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1776671750840,
+      "sourceJobId": "7630746708893092149",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责国际化目标市场渠道引流与用户拉新工作，核心围绕渠道流量投放、补贴政策、增长玩法组合，实现新用户规模化获取",
+        "基于渠道数据、大盘数据及用户全生命周期表现，制定渠道专属补贴与投放策略，保障渠道ROI与资金使用效率",
+        "针对渠道新客行为特征，设计新客留存与复购引导方案，培养用户消费习惯，提升渠道新客复购与转化效率"
+      ],
+      "requirements": "本科及以上学历，2年及以上用户增长、渠道投放、流量运营相关经验，有国际化产品增长或渠道导流经验优先；熟练使用商务英语，可独立对接国际化渠道与跨部门协作，有国际化工作、学习或国际化渠道对接经验优先",
+      "notes": [
         "可能涉及出差或驻外",
         "需要英语能力"
       ],
       "requiresEnglish": true,
       "agency": false,
       "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/92332af285189b850nF43t61FldS.html"
+      "url": "https://jobs.bytedance.com/experienced/position/7630746708893092149/detail"
     },
     {
-      "id": "job-06",
-      "rank": 6,
+      "id": "job-f3795508f016da95",
+      "rank": 17,
+      "title": "补贴策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1768359431259,
+      "sourceJobId": "7595045854680647941",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责国际市场用户增长补贴策略，基于市场洞察和数据分析进行策略设计并落地，为策略增量GMV负责",
+        "熟悉ROI衡量体系，从平台全局视角进行预算效率的量化、预算分配，和大促、行业等多团队做好沟通协作",
+        "与资产管理、数据科学、产品团队合作，通过策略分析和A/B测试，识别用户/商品等机会，提升持续补贴效率。"
+      ],
+      "requirements": "本科及以上学历，有电商/用户运营经验；有资产管理、算法、跨境电商/内容电商经验优先；英文可作为工作语言、有海外生活或工作经验加分。",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7595045854680647941/detail"
+    },
+    {
+      "id": "job-67189353249aac40",
+      "rank": 18,
+      "title": "菲律宾商城频道策略运营专家-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1763524568303,
+      "sourceJobId": "7574280221312387381",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "频道策略制定：洞察市场趋势、用户消费行为与竞争格局，结合TikTok生态特性，牵头制定商城频道中长期战略规划与阶段性运营策略；主导货盘分层体系搭建与精细化运营（如品牌标品价格立足、爆品价格优势强化、长尾品性价比挖掘），通过补贴策略优化、价格竞争力提升等动作，实现频道GMV、复购率、高价值用户渗透等核心指标的增长",
+        "商家政策设计：整合内外部资源，聚焦价格力提升与补贴效能最大化，设计针对性商家扶持成长政策（如低价供货激励、补贴分摊机制、价格达标奖励），激励卖家加大平台投入、释放供货成本空间，实现商家经营效益、平台价格竞争力与收入的双向增长",
+        "商业化与钱效：整合推荐、搜索、达人等多场景资源，设计创新运营玩法与AB实验体系，通过货品结构优化、流量精准分发、券策略迭代，搭配阶梯式补贴策略（如新客首单补贴、高频用户复购补贴、爆品冲量补贴），持续提升频道转化效率与用户生命周期价值（LTV）；基于价格力优势与商家需求，探索商业化变现路径，平衡补贴成本与ROI，实现补贴效益最大化"
+      ],
+      "requirements": "本科及以上学历，电商或科技策略运营相关经验，电商运营经验加分，内容运营经验加分，电商广告加分，懂产品/算法，懂本地市场加分；有项目管理经验，独立负责关键业务指标",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7574280221312387381/detail"
+    },
+    {
+      "id": "job-e52b9f61a7186bce",
+      "rank": 19,
       "title": "淘宝闪购-商家供给策略运营-运营中心",
       "company": "淘宝闪购",
       "salary": "25-40K·16薪",
@@ -486,6 +1339,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "商家电商"
@@ -514,16 +1372,16 @@
       "url": "https://www.zhipin.com/job_detail/462bbc50ae0faa200nBz0t-5E1NQ.html"
     },
     {
-      "id": "job-07",
-      "rank": 7,
-      "title": "用户增长运营（联合用增方向）-抖音电商",
-      "company": "字节跳动",
-      "salary": "25-50K·15薪",
-      "salaryFloor": 25,
+      "id": "job-8927e248c17fed73",
+      "rank": 20,
+      "title": "淘宝闪购-仓店商家运营专家-上海/南京",
+      "company": "阿里巴巴",
+      "salary": "未提取",
+      "salaryFloor": null,
       "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 94,
+      "experience": "2-5年",
+      "education": "未提取",
+      "score": 100,
       "tier": "A-",
       "tierLabel": "A- 接近标准",
       "isReference": false,
@@ -533,6 +1391,1008 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "alibaba",
+      "sourceLabel": "阿里巴巴官网",
+      "officialSource": true,
+      "postedAt": 1783670172000,
+      "sourceJobId": "100003449005",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责到家平台零售仓店业态商家运营，对平台的供给规模和供给质量负责，优化商户供给结构，推动平台GMV和应收增长",
+        "了解仓店业态的竞争趋势，根据行业运营策略进行商户商务谈判、运营提升、平台规则同步等相关业务的规划及落地",
+        "深入市场及商户，通过对市场及商户的调研走访，结合用户需求，分析消费者行为，输出针对提升商户的运营思路，为用户提供适合平台特点的产品和服务，提升运营效率"
+      ],
+      "requirements": "具备2-5年O2O、本地生活行业相关经验，有商家运营，零售、仓店、前置仓行业运营背景优先；对零售行业有较强的认知和方法论沉淀，具备优秀的逻辑思维能力和表达能力，有产品化思维，且具备较强的业务敏感性",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://talent.alibaba.com/off-campus/position-detail?positionId=100003449005"
+    },
+    {
+      "id": "job-94a831f465c80652",
+      "rank": 21,
+      "title": "拉美MAC货品策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1780459764688,
+      "sourceJobId": "7647015934015736117",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责拉美用户增长场景下的货品运营工作，通过爆品运营、人群货盘运营及素材生态建设，持续提升平台用户规模",
+        "负责货品运营，针对不同用户群体（如新客、高价值流失用户、低频用户等）建设差异化货盘，协同行业BD商家降价",
+        "负责素材增长，与MCN机构、联盟达人及内容团队建立合作机制，持续丰富增长爆品素材供给"
+      ],
+      "requirements": "本科及以上学历，3年以上电商运营、商品运营、增长运营、平台招商或商家运营经验；具备较强的数据分析能力和业务判断能力，能够独立制定并推动运营策略",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7647015934015736117/detail"
+    },
+    {
+      "id": "job-9bd5b52d2884b900",
+      "rank": 22,
+      "title": "用户增长策略-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "未提取",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1774940521431,
+      "sourceJobId": "7623311355443431685",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "召回策略设计，基于用户生命周期（新客、流失、防流失），设计差异化用户增长策略，搭建并优化召回产品组合，包括但不限于：Free Shipping、Bonus Cashback、Voucher、满减券、内容激励（AIGC、直播、短视频回流），设计补贴和营销工具的匹配机制，平衡用户转化与ROI",
+        "用户分层与精细化运营，搭建用户分层体系（RFM、活跃度、类目偏好、价格敏感度），识别关键流失节点（首单后流失、活跃用户流失、高价值用户沉默），针对不同人群制定差异化召回路径（激励强度、触达方式）",
+        "与流量场合作：触达与转化路径优化，联动CRM、Push、站内资源位、内容场（短视频、直播）等多渠道触达，优化“召回链路”：触达→点击→浏览→下单，提升召回转化率与路径效率"
+      ],
+      "requirements": "3年以上用户增长/战略分析/用户运营/电商运营工作经验，有流失召回、复购提升或CRM经验优先；具备数据分析能力，对数据敏感，逻辑分析能力良好，熟悉AB实验等价值衡量工具，熟练使用SQL/Excel，可独立完成分析与洞察输出",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7623311355443431685/detail"
+    },
+    {
+      "id": "job-9033f3cc56f3f20e",
+      "rank": 23,
+      "title": "商家运营经理（日用家纺）-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1772005578891,
+      "sourceJobId": "7610705633323649333",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "面向目标市场为美国的品牌/商家，引导和管理商家开店和运营，为商家GMV和品类增长负责",
+        "管理与商家的合作伙伴关系，确保商家销售的持续增长",
+        "进行细分品类市场分析，找到增长点，制定类目策略"
+      ],
+      "requirements": "本科及以上学历，专业不限；4年及以上电商平台商家运营相关工作经验，熟悉商家运营，与国际化商家有良好合作经验者优先",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7610705633323649333/detail"
+    },
+    {
+      "id": "job-432fbaf79dcb8581",
+      "rank": 24,
+      "title": "东南亚大促用户策略运营-国际电商",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1747995313602,
+      "sourceJobId": "7507580015518271762",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责东南亚电商大促补贴和人群策略，对相应策略GMV规模、效率等指标的提升负责",
+        "结合不同东南亚市场国家需求，深度挖掘用户在大促场景下增长空间，通过洞察设计用户分层、标签，并支持策略在补贴、投放等方向的应用",
+        "负责大促核心用户运营，整体把控和负责核心用户规模和GMV的增长策略，对接招商选品、市场营销、用户权益等协作团队，拉齐核心用户运营策略，基于业务诉求完成实验方案、推动相应实验基建迭代"
+      ],
+      "requirements": "本科以上学历，3年以上数据分析、策略运营经验，电商或平台相关背景用户增长运营，活动运营或国际化业务支持经验加分；具备用户思维，熟悉用户分层，能够拆解、识别核心用户群体，规划电商大促视角下人群权益设计",
+      "notes": [
+        "可能涉及出差或驻外",
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7507580015518271762/detail"
+    },
+    {
+      "id": "job-2103cb5633ebd77d",
+      "rank": 25,
+      "title": "撮合策略运营-TikTok生活服务",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "1-3年",
+      "education": "本科",
+      "score": 100,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1725165886615,
+      "sourceJobId": "7409528631707863346",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责国际化生活服务联盟运营方向，通过货品特征刻画、商家特性、不同市场差异化用户需求等，搭建联盟货品识别体系及内容营销策略，推动策略落地及持续迭代，带动整体交易GMV提升",
+        "围绕货品及内容营销特征，设计商家及达人差异化撮合解决方案，建立不同市场、时令、人群、品类等的组合整合营销模式体系，带动不同商家分层的合作预算及投放规模化提升",
+        "结合不同市场撮合特征，协同上下游团队建立商家、机构、服务商体系，提升生态丰富及驱动长期业务增长。"
+      ],
+      "requirements": "本科及以上学历，1-3年产品运营工作经验，有商家达人撮合、电商商家/货盘、作者联盟等运营等相关经验者优先；英语流利；如有日语、印尼语等小语种能力是加分项。",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7409528631707863346/detail"
+    },
+    {
+      "id": "job-8ac26ef4598c71be",
+      "rank": 26,
+      "title": "用户运营岗",
+      "company": "京东",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "5年以上",
+      "education": "本科",
+      "score": 99,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "jd",
+      "sourceLabel": "京东官网",
+      "officialSource": true,
+      "postedAt": "2026-07-23",
+      "sourceJobId": "221233",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责欧洲市场用户运营核心数据指标体系（拉新、活跃、留存、转化、复购等）的规划与搭建，建立完整的度量体系",
+        "深度分析转化漏斗和行为路径，定位增长机会，输出可执行的数据优化方案，推动业务决策",
+        "协同产品技术团队，推动欧洲市场CDP（客户数据平台）的搭建与优化，统一用户数据资产，实现可识别、可触达、可运营、可持续转化"
+      ],
+      "requirements": "本科及以上学历，市场营销、电子商务、数据科学、国际贸易等相关专业优先；5年以上互联网/电商用户运营经验，有跨境电商或海外市场用户运营经验者优先",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://zhaopin.jd.com/web/job-info-detail?requementId=221233"
+    },
+    {
+      "id": "job-b1ba2796a56a0284",
+      "rank": 27,
+      "title": "用户运营（携程美食林）(MJ035929)",
+      "company": "携程",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "未提取",
+      "score": 99,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "ctrip",
+      "sourceLabel": "携程官网",
+      "officialSource": true,
+      "postedAt": "2026-07-09",
+      "sourceJobId": "MJ035929",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "1) 负责频道整体的流量运营工作，制定并执行频道流量增长策略，对频道DAU、用户渗透率、回访率等核心指标负责；监控频道流量来源及流转路径，通过数据分析定位流量瓶颈，提出优化方案并推动落地。"
+      ],
+      "requirements": "1)3年以上互联网或相关行业工作经验，具有营销运营、产品运营、商家运营管理等相关经验者优先考虑。 2)热爱美食，对美食行业有了解优先考虑； 3)精通数据分析，能够通过数据洞察发现问题、制定策略并推动增长；",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.ctrip.com/#/experienced/job-detail/MJ035929"
+    },
+    {
+      "id": "job-fda1489c5c306988",
+      "rank": 28,
+      "title": "越南策略运营专家-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "未提取",
+      "score": 98,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1781504994291,
+      "sourceJobId": "7651505165478349061",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "协助类自营项目（托管方向）业务中长期规划，输出高质量的项目增长策略（商业模型设计、市场分析、增长路径拆解等），辅助负责人完成季度规划、目标拆解、资源协调",
+        "主导货盘供给渗透增长策略，设计最小可行方案（MVP），定义阶段成功指标，并与项目团队、中台、行业、数据团队紧密协同确保落地节奏推进",
+        "理解平台视角和商家视角成本利润模型，结合项目利润指标，合理定制广告激励策略和达人激励策略，驱动商家快速成长"
+      ],
+      "requirements": "具备出色的结构化思维和数据分析能力，能独立完成从问题定义到试点设计、复盘的全过程；3年以上电商战略、商业分析或运营策略经验，有供给端（招商/商家运营）或平台治理经验者优先",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7651505165478349061/detail"
+    },
+    {
+      "id": "job-01695e57f8ffbf10",
+      "rank": 29,
+      "title": "菲律宾货品策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "本科",
+      "score": 98,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1777296835769,
+      "sourceJobId": "7633431224727701765",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "基于对菲律宾本地市场的深度洞察与数据分析，制定供给的整体增长策略与年度目标；通过精准的诊断归因，对供给增长、品类健康度等关键指标负责",
+        "协同各团队搭建高效的商品运营链路与数据监控体系；通过制定差异化的扶持策略，推动新品冷启动、商品结构优化等关键动作落地与迭代",
+        "结合用户视角与消费趋势，定义并企划有增长潜力的核心货盘，针对特定商品方向成立并主导跨职能专项；牵头产品、行业运营、数据算法等资源，确保项目高效落地并分阶段取得业务成果。"
+      ],
+      "requirements": "本科及以上学历，3年以上电商/内容平台相关经验；深刻理解内容电商逻辑，兼具出色的用户洞察力与商业敏感度，并能平衡平台、商家、用户三方利益",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7633431224727701765/detail"
+    },
+    {
+      "id": "job-68c78a002bdb4843",
+      "rank": 30,
+      "title": "用户产品运营（推荐方向）-抖音生活服务",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 98,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1775818185764,
+      "sourceJobId": "7627080904674773301",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "深入理解抖音推荐场域的业务逻辑，通过数据洞察优化直播与短视频在推荐Feeds流中的分发效率，为C端工具推广设计并落地激励赛、分层运营等玩法，提升内容质量与交易转化效率",
+        "聚焦直播生态的“有效供给”，建立并完善高潜力主播的发现、激励与扶持机制，协同产品与生态团队优化开播工具，提升有效开播规模与商家GMV",
+        "承担直播相关新产品、新功能的推广协同角色，联动产品BP、行业BP与市场团队，制定清晰的宣发策略并推动落地，沉淀可复用的打法与知识库，赋能业务团队"
+      ],
+      "requirements": "本科及以上学历，3-5年互联网产品运营、策略运营或相关经验，有内容社区、直播电商或本地生活行业背景者优先",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7627080904674773301/detail"
+    },
+    {
+      "id": "job-91c09d17cd681b83",
+      "rank": 31,
+      "title": "欧美商城策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "5年以上",
+      "education": "本科",
+      "score": 98,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1772461955312,
+      "sourceJobId": "7612665673892464901",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "营销玩法与频道运营策略：迭代商城大促和日期营销玩法与频道运营策略，联动行业和产品侧升级商城频道形态和供给，形成包括优化流量分发和商城资源的精细化匹配，通过数据洞察，驱动商家商品成长和用户体验提升",
+        "商家商品全生命周期孵化：制定并执行全面的商家和商品入驻、冷启动孵化到成长成熟的全生命周期商城策略，根据不同类目的货品特性和用户需求，建立清晰的商城运营通路、分层优先级和扶持机制，利用商城流量和平台资源加速重点商家商品的货架成长",
+        "行业协作与SOP共建：协同行业类目团队，建立并标准化跨团队商城协作流程，包括但不限于定义商城招商招品逻辑及扶持机制，确保行业协作与规模化增长"
+      ],
+      "requirements": "本科及以上学历，5年以上电商相关行业经验或策略运营经验",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7612665673892464901/detail"
+    },
+    {
+      "id": "job-c18d4e8e7ffa9a95",
+      "rank": 32,
+      "title": "服饰行业商家运营（欧洲/日本市场）-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "4年以上",
+      "education": "本科",
+      "score": 98,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1772190102564,
+      "sourceJobId": "7611498203321616693",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "服饰/配饰/箱包鞋靴品类招商：洞察行业需求与商家格局，招募出海商家，结合商家需求提供整合合作方案",
+        "商家与品类运营：运用平台多元模式，制定商家长效经营方案，对商家交易额及品类增长负责",
+        "数据驱动策略：基于数据分析输出业务规划，落地可执行的解决方案"
+      ],
+      "requirements": "本科及以上学历，4年以上运营经验，有出海电商平台运营经历，国际化商家资源者优先；懂社交电商、内容营销且有实际操盘经验者优先",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7611498203321616693/detail"
+    },
+    {
+      "id": "job-c7f221338b38ac58",
+      "rank": 33,
+      "title": "商家运营（运动潮奢）-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "4年以上",
+      "education": "本科",
+      "score": 98,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1757518504994,
+      "sourceJobId": "7548483297439189256",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "品类商家招商拓展：洞察运动户外、鞋靴箱包、珠宝二手奢侈品收藏品等品类需求，完成高潜品牌识别与针对性经营策略制定；具备出海商家招商能力，根据商家需求提供全套整合方案",
+        "商家商品策略制定：结合当地用户特点，识别并制定商家爆品货盘运营策略，推动商家商品体系建立",
+        "商家运营：对相关行业商家在平台的经营结果负责，通过货架场+内容场（短视频、直播）打造爆款；深度支持业务负责人完成项目任务拆解、优先级排序，监控进展；通过定量与定性分析度量项目产出及效率，确保达成业务目标"
+      ],
+      "requirements": "本科及以上学历，4年以上商家运营工作经验，具备内容电商、直播运营经验优先；具备跨境电商经验且有相关商家资源优先；具备高效的沟通能力和跨团队协同能力，对内容营销有一定理解优先；逻辑清晰，总结提炼能力强，能独立输出高质量方案并落地",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7548483297439189256/detail"
+    },
+    {
+      "id": "job-e755b5d7f417c710",
+      "rank": 34,
+      "title": "国际化策略运营（马来西亚）(MJ035908)",
+      "company": "携程",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "未提取",
+      "score": 96,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "ctrip",
+      "sourceLabel": "携程官网",
+      "officialSource": true,
+      "postedAt": "2026-07-08",
+      "sourceJobId": "MJ035908",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责马来西亚市场分站点运营，搭建并迭代本地化策略体系，驱动流量承接与转化增长",
+        "深度洞察马来西亚市场竞争格局与分层用户需求，制定差异化的市场-产品匹配增长策略",
+        "主导策略落地推进，拉通供给覆盖、节假日促销、货架排序、信息展示等关键运营动作"
+      ],
+      "requirements": "3年及以上OTA、旅游行业、跨境电商行业运营经验，熟悉马来西亚本地市场规则、用户消费习惯及本地文旅资源特点，有东南亚站点运营经验者优先；具备分站点运营或区域增长方法论，能独立制定市场匹配与转化策略",
+      "notes": [
+        "可能涉及出差或驻外",
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.ctrip.com/#/experienced/job-detail/MJ035908"
+    },
+    {
+      "id": "job-2e9cd1fb8a2943c1",
+      "rank": 35,
+      "title": "小红书电商增长-流量策略和玩法运营",
+      "company": "小红书",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "1-3年",
+      "education": "本科",
+      "score": 92,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "xiaohongshu",
+      "sourceLabel": "小红书官网",
+      "officialSource": true,
+      "postedAt": "2026-07-17",
+      "sourceJobId": "20514",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责小红书电商交易场域的流量增长策略设计，围绕核心用户群体优化「内容→交易」的转化链路，通过策略提升各场域（推荐、搜索、话题页、货架等）的流量利用效率和目标用户转化率",
+        "设计并落地电商增长玩法（如新人转化、老客复购、裂变传播、活动营销等），对玩法的参与率、转化率、ROI 等核心指标负责，沉淀可复用的增长方法论",
+        "基于用户分层和生命周期，制定差异化的流量触达与运营策略，持续提升用户购买频次、客单价及长期价值（LTV）"
+      ],
+      "requirements": "本科及以上学历，1-3年电商增长/用户增长相关经验；对电商流量增长有系统性认知——熟悉各流量场域（推荐、搜索、货架、活动等）的运作逻辑，理解用户从内容消费到交易转化的完整链路，有内容电商/社交电商增长经验者优先",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.xiaohongshu.com/social/position/20514"
+    },
+    {
+      "id": "job-d368ad7ba8f3e748",
+      "rank": 36,
+      "title": "中小买手-策略运营",
+      "company": "小红书",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "未提取",
+      "score": 90,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "xiaohongshu",
+      "sourceLabel": "小红书官网",
+      "officialSource": true,
+      "postedAt": "2026-07-03",
+      "sourceJobId": "21082",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责星火计划所有激励政策和货盘策略设计，对GMV增长负责，包含",
+        "腰部激励整体策略：基于买手分层、成长阶段与生态目标，定义星火激励的整体策略框架——什么时候用限时活动激活、什么时候用长期任务沉淀、什么时候用跃迁奖励重奖突破，以及三者的资源配比与节奏。",
+        "机制体系搭建：把单次活动抽象为可复用、可放大的产品化机制——从任务设计 SOP（分位数 → 门槛 → 预估完成率 → ROI）、到激励金额配比、到归因模型，沉淀为团队长期资产。"
+      ],
+      "requirements": "有电商 / 直播带货 / 内容平台的买手或主播分层运营、激励政策、会员/成长体系操盘经验更佳。",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.xiaohongshu.com/social/position/21082"
+    },
+    {
+      "id": "job-b0f2be697d5df410",
+      "rank": 37,
+      "title": "黑钻会员运营专家(MJ034705)",
+      "company": "携程",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 90,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "ctrip",
+      "sourceLabel": "携程官网",
+      "officialSource": true,
+      "postedAt": "2026-04-28",
+      "sourceJobId": "MJ034705",
+      "directions": [
+        "用户增长",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化"
+      ],
+      "responsibilities": [
+        "岗位目标 负责携程海外高净值会员服务体系的搭建、优化与运营，通过深入洞察海外高净值用户需求，设计差异化服务策略，提升会员满意度、忠诚度及生命周期价值，推动海外高端旅游市场业务增长。 核心职责",
+        "高净值会员服务体系搭建：基于海外市场特性及用户画像，设计并完善高净值会员服务标准、流程及权益体系，确保服务体验的一致性与高端性",
+        "会员生命周期管理：制定全生命周期服务运营策略，包括会员激活、留存、及服务升级方案，实现会员结构优化与价值最大化"
+      ],
+      "requirements": "本科及以上学历，3 年以上高端客户服务运营经验，有奢侈品、高端酒店、私人银行或旅游行业高净值客户运营经验者优先；具备优秀的中英文沟通能力，能熟练使用英语作为工作语言",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.ctrip.com/#/experienced/job-detail/MJ034705"
+    },
+    {
+      "id": "job-d013ef1566f952c1",
+      "rank": 38,
+      "title": "高端游商家策略运营(MJ032195)",
+      "company": "携程",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 90,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "ctrip",
+      "sourceLabel": "携程官网",
+      "officialSource": true,
+      "postedAt": "2025-12-11",
+      "sourceJobId": "MJ032195",
+      "directions": [
+        "用户增长",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化"
+      ],
+      "responsibilities": [
+        "业务运营： 1） 深入理解业务，与业务团队协助，利用数据驱动策略，持续提升线上平台业绩增长，达成目标； 2）负责制定供应商运营管理相关政策、规则、流程，建立供应商触达体系，成长体系，并推动落地 3）针对核心供应商制定运营策略，帮助供应商更好的了解平台用户需求、优化产品、保证履约、提高用户满意度 4）负责交付业务流程及业务策略的执行和闭环运营",
+        "项目运营： 1） 了解项目目标及计划，协助负责人执行项目方案，推动项目进展； 2） 协助项目负责人进行过程分析，识别并改善问题，达成目标； 3）参与项目结案，定期进行总结和汇报项目整体推荐情况",
+        "部门间沟通协调 协助其他需求部门，推进部门间协作事项"
+      ],
+      "requirements": "工作要求：本科及以上学历，旅游管理、市场营销相关专业优先； 能力要求：有流利的英语口语及英文书面表达能力，能与外籍人士顺利交流；良好的项目管理能力；有很强的跨部门协助和沟通能力；",
+      "notes": [
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.ctrip.com/#/experienced/job-detail/MJ032195"
+    },
+    {
+      "id": "job-f24fe51a038b9837",
+      "rank": 39,
+      "title": "淘宝闪购-KA商家运营-战略品牌",
+      "company": "阿里巴巴",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 90,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "alibaba",
+      "sourceLabel": "阿里巴巴官网",
+      "officialSource": true,
+      "postedAt": 1784702401000,
+      "sourceJobId": "5000038201",
       "directions": [
         "用户增长",
         "商家电商"
@@ -546,28 +2406,129 @@
         "电商/商家"
       ],
       "responsibilities": [
-        "负责抖音电商平台用户增长，对用户规模的持续快速增长负责",
-        "结合不同用户品类消费需求和商家经营场景，制定⽤户跨品类消费提升策略，带动⼤盘增长",
-        "基于⽤户在不同场景的消费特征和分层，联合场景侧设计有效的增长策略，带动大盘增长"
+        "负责连锁品牌商家的策略运营工作，基于平台战略制定清晰有效的运营策略和规则，推动品牌业务增长",
+        "负责部门与商业化业务板块的对接与协同，承接品牌广告投放、效果营销等商业化产品的落地，推动品牌商家在平台内的商业化投入与ROI提升",
+        "与内部跨部门团队紧密合作，包括频道、场景、商业化等部门，推动品牌项目的落地实施；通过数据分析及品牌研究，挖掘商户经营痛点，对品牌商家的经营效率负责"
       ],
-      "requirements": "1-3 年用户增长相关经验；较强的数据及业务分析能力，善于通过数据分析发现问题并制定相应策略",
+      "requirements": "本科及以上学历，3年及以上互联网运营经验，具备本地生活或餐饮行业相关经验优先",
       "notes": [
         "未发现明显硬性风险，仍需核对完整任职要求"
       ],
       "requiresEnglish": false,
       "agency": false,
       "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/613c6b548878982e0nF42Nu9F1ZZ.html"
+      "url": "https://talent.alibaba.com/off-campus/position-detail?positionId=5000038201"
     },
     {
-      "id": "job-08",
-      "rank": 8,
-      "title": "用户增长-广告投放策略产品运营",
-      "company": "拼多多集团-PDD",
-      "salary": "20-40K·16薪",
+      "id": "job-dfd7651b29f6776d",
+      "rank": 40,
+      "title": "淘宝闪购-医药商家运营专家-全国KA",
+      "company": "阿里巴巴",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "5年以上",
+      "education": "未提取",
+      "score": 88,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "alibaba",
+      "sourceLabel": "阿里巴巴官网",
+      "officialSource": true,
+      "postedAt": 1783677276000,
+      "sourceJobId": "100003429001",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "商家策略制定与落地：基于医药O2O业务规划，制定商家管理、分层运营、激励等B端策略，协同横向业务团队推动策略落地并持续迭代",
+        "KA商家管理与辅导：对接全国性连锁药店集团总部及区域分公司，针对不同发展阶段制定差异化运营方案，管理商品策略、营销活动、履约体验等核心环节，保障业绩产出与增长",
+        "头部商家深度合作：根据头部商家的战略诉求，共同探索品类共建、数字化运营、药企工业协同等合作机会，推动个性化专项落地，沉淀可规模化的平台能力"
+      ],
+      "requirements": "5年以上互联网平台运营经验，3年以上O2O或即时零售行业经验，对平台供给侧运营有体系化理解；熟练使用AI工具，具备独立数据分析能力，善于从数据中提炼策略",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://talent.alibaba.com/off-campus/position-detail?positionId=100003429001"
+    },
+    {
+      "id": "job-7dfddd5c490fcc4f",
+      "rank": 41,
+      "title": "【热招】电商行业运营",
+      "company": "小红书",
+      "salary": "20-40K·18薪",
       "salaryFloor": 20,
       "city": "上海",
-      "experience": "经验不限",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 84,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": true,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "xiaohongshu",
+      "sourceLabel": "小红书官网",
+      "officialSource": true,
+      "postedAt": "2026-07-20",
+      "sourceJobId": "18458",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "挖掘小红书生态资源、社区用户偏好及行业商品趋势，结合趋势、内容、供给匹配交易增量",
+        "负责行业产业带商圈运营，推动商圈持续稳步增长，为GMV及新商数量负责",
+        "打造品类/产地头部商家标杆，强运营陪跑打出商家showcase，并持续深入运营商圈引入新商家。"
+      ],
+      "requirements": "全日制本科以上学历，具备电商工作经验，有相关产业带运营经验",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.xiaohongshu.com/social/position/18458"
+    },
+    {
+      "id": "job-4aca328f13e3dc3e",
+      "rank": 42,
+      "title": "电商行业运营-男装",
+      "company": "小红书",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
       "education": "本科",
       "score": 84,
       "tier": "A-",
@@ -579,6 +2540,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "xiaohongshu",
+      "sourceLabel": "小红书官网",
+      "officialSource": true,
+      "postedAt": "2026-07-09",
+      "sourceJobId": "19009",
       "directions": [
         "用户增长",
         "商家电商"
@@ -586,31 +2552,31 @@
       "dimensions": [
         "增长/生命周期",
         "数据分析",
-        "策略设计",
-        "跨团队推进",
+        "商业结果",
+        "用户/行业洞察",
         "电商/商家"
       ],
       "responsibilities": [
-        "负责拼多多APP在各个广告平台的广告投放与用户增长，对用户数量与质量指标负责",
-        "关注实时表现，研究竞争与边际，结合市场竞争环境，调整⼴告投放策略，提升投放效率",
-        "研究不同⼴告平台的流量拍卖机制，优化⾃身的投放策略。通过定向、出价等策略调整提升买量竞争力"
+        "挖掘小红书生态资源、社区用户偏好及服饰行业商品趋势，结合趋势、内容、供给匹配交易增量",
+        "负责服饰行业商圈运营，推动商圈持续稳步增长，为GMV及新商数量负责",
+        "打造品类/产地头部商家标杆，强运营陪跑打出商家showcase，并持续深入运营商圈引入新商家。"
       ],
-      "requirements": "本科及以上学历，经济学、心理学、市场营销、数理专业优先。；有一年及以上用户增长、商业化经验优先，有电商、游戏、应用内付费经验优先。",
+      "requirements": "全日制本科以上学历，2~5年电商工作经验，有服饰运营经验",
       "notes": [
         "未发现明显硬性风险，仍需核对完整任职要求"
       ],
       "requiresEnglish": false,
       "agency": false,
       "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/c60468d6ea97a5fc0nB-39m5FVRR.html"
+      "url": "https://job.xiaohongshu.com/social/position/19009"
     },
     {
-      "id": "job-09",
-      "rank": 9,
-      "title": "商城频道用户增长运营-抖音电商",
-      "company": "字节跳动",
-      "salary": "20-40K",
-      "salaryFloor": 20,
+      "id": "job-c4fb4be02ca9811f",
+      "rank": 43,
+      "title": "电商行业运营-珠宝配饰",
+      "company": "小红书",
+      "salary": "未提取",
+      "salaryFloor": null,
       "city": "上海",
       "experience": "3-5年",
       "education": "本科",
@@ -624,6 +2590,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "xiaohongshu",
+      "sourceLabel": "小红书官网",
+      "officialSource": true,
+      "postedAt": "2026-07-09",
+      "sourceJobId": "19003",
       "directions": [
         "用户增长",
         "商家电商"
@@ -631,380 +2602,294 @@
       "dimensions": [
         "增长/生命周期",
         "数据分析",
-        "策略设计",
-        "跨团队推进",
+        "商业结果",
+        "用户/行业洞察",
         "电商/商家"
       ],
       "responsibilities": [
-        "负责抖音电商供给玩法频道运营，对频道内认知用户规模、用户活跃分层、有行为率等指标负责",
-        "建⽴并维护频道的⽤户分层运营体系，结合频道特⾊供给与补贴策略，设计用户成长路径，提升用户活跃度、访问深度及长期价值",
-        "协同产品推动频道整体运营框架的设计与迭代，提升频道内有⾏为率及优化用户体验；主导制定长期的资源（流量、预算、产品）使用规划，并推动落地提升效率"
+        "挖掘小红书生态资源、社区用户偏好及服饰-珠宝配饰行业商品趋势，结合趋势、内容、供给匹配交易增量",
+        "负责服饰-珠宝配饰行业商圈运营，推动商圈持续稳步增长，为GMV及新商数量负责",
+        "打造品类/产地头部商家标杆，强运营陪跑打出商家showcase，并持续深入运营商圈引入新商家。"
       ],
-      "requirements": "具备电商平台频道运营、互动玩法运营经验者优先",
+      "requirements": "全日制本科以上学历，3-5年以上电商工作经验，有服饰运营经验",
       "notes": [
         "未发现明显硬性风险，仍需核对完整任职要求"
       ],
       "requiresEnglish": false,
       "agency": false,
       "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/986032ab89abd3d50nF-2du-GFJR.html"
+      "url": "https://job.xiaohongshu.com/social/position/19003"
     },
     {
-      "id": "job-10",
-      "rank": 10,
-      "title": "用户运营-运动户外",
-      "company": "阿里巴巴集团",
-      "salary": "30-55K·16薪",
-      "salaryFloor": 30,
+      "id": "job-684c26115c124140",
+      "rank": 44,
+      "title": "电商行业运营-户外潮流",
+      "company": "小红书",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 84,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "xiaohongshu",
+      "sourceLabel": "小红书官网",
+      "officialSource": true,
+      "postedAt": "2026-07-09",
+      "sourceJobId": "17450",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "挖掘小红书生态资源、社区用户偏好及服饰行业商品趋势，结合趋势、内容、供给匹配交易增量",
+        "负责服饰行业商圈运营，推动商圈持续稳步增长，为GMV及新商数量负责",
+        "打造品类/产地头部商家标杆，强运营陪跑打出商家showcase，并持续深入运营商圈引入新商家。"
+      ],
+      "requirements": "全日制本科以上学历，2~5年电商工作经验，有服饰运营经验",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.xiaohongshu.com/social/position/17450"
+    },
+    {
+      "id": "job-eceb71ab6dfbed2e",
+      "rank": 45,
+      "title": "电商行业运营-女装（产业带方向）",
+      "company": "小红书",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 84,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "xiaohongshu",
+      "sourceLabel": "小红书官网",
+      "officialSource": true,
+      "postedAt": "2026-07-09",
+      "sourceJobId": "18680",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "挖掘小红书生态资源、社区用户偏好及服饰行业商品趋势，结合趋势、内容、供给匹配交易增量",
+        "负责服饰行业商圈运营，推动商圈持续稳步增长，为GMV及新商数量负责",
+        "打造品类/产地头部商家标杆，强运营陪跑打出商家showcase，并持续深入运营商圈引入新商家。"
+      ],
+      "requirements": "全日制本科以上学历，3-5年以上电商工作经验，有服饰运营经验",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.xiaohongshu.com/social/position/18680"
+    },
+    {
+      "id": "job-e7659ab6979ebd04",
+      "rank": 46,
+      "title": "Global Selling-用户增长运营（高阶）（出差英国）",
+      "company": "字节跳动",
+      "salary": "50-80K·15薪",
+      "salaryFloor": 50,
       "city": "上海",
       "experience": "5-10年",
       "education": "本科",
-      "score": 81,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
+      "score": 100,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": true,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
       "strategyRelevant": true,
-      "frequentTravel": false,
+      "frequentTravel": true,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责运动户外行业的用户增长运营，包含行业用户⼈群运营、新客拉新、⽼客复购、品牌会员等",
-        "根据分⼈群的消费需求，结合渠道特征/数据分析找到用户增长空间，产出分人群的增长策略与推动落地，实现⾏业AAC/MAC增长",
-        "通过合理的用户分层设计，结合用户周期和用户权益设计，提升用户复购和用户价值"
-      ],
-      "requirements": "5年以上电商领域用户增长/用户运营经验，熟悉用户分层运营方法，具备平台经验优先",
-      "notes": [
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/6d09ba90bc52e4390nV42dq4FVNS.html"
-    },
-    {
-      "id": "job-11",
-      "rank": 11,
-      "title": "供给运营—抖音生服（北/上）",
-      "company": "字节跳动",
-      "salary": "20-40K·15薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 80,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
+        "商家电商",
+        "海外跨境"
       ],
       "dimensions": [
         "增长/生命周期",
         "数据分析",
         "商业结果",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责生活服务独立端/品类营销活动/团购tab的商品策略及招商运营，为支付GMV和订单量负责",
-        "理解货架场的经营逻辑，根据独立端/团购tab/营销活动的定位和⽬标做相应的供给策略并推进招商引⼊⼯作",
-        "熟悉生活服务行业的商家和商品，搭建并落地业务对接机制，为供给的规模和质量负责"
-      ],
-      "requirements": "本科及以上学历，具有生活服务行业商家商品运营经验，有生活服务、电商相关经验者优先",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/2690e11f5f3a82140nBy2Nq7FFtR.html"
-    },
-    {
-      "id": "job-12",
-      "rank": 12,
-      "title": "作者增长运营（上海）",
-      "company": "字节跳动",
-      "salary": "17-25K",
-      "salaryFloor": 17,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 76,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
+        "用户/行业洞察",
         "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "借助社群渠道，促成作者与平台的内容创作方向的交互，提高用户粘性和精选内容投稿活跃度，助力更多⾼潜⼒创作者跃迁为平台精选创作者",
-        "可以独⽴根据各垂类精选内容标准、及时捕捉热门话题和流行趋势，在不同的垂类上针对作者投稿视频、账号制定内容调优策略，并与协同团队合作落地，协助作者成长，实现平台精选内容/作者增长",
-        "组织并实施线上线下活动，如创作者成长训练营、挑战赛、直播活动、作者访谈等，提高作者参与度，牵引更多创作者跃迁为平台精选作者"
-      ],
-      "requirements": "本科及以上学历，3年以上相关短视频平台运营经验，拥有相关服务产品运营/项目经验为加分项",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/4f2d687853b417fb0nF42d29EFtW.html"
-    },
-    {
-      "id": "job-13",
-      "rank": 13,
-      "title": "用户增长策略运营",
-      "company": "字节跳动",
-      "salary": "30-60K·15薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 76,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "负责抖音生活服务用户增长团队的策略运营，依托抖音推荐流量体系，与市场营销团队和各⼤区业务资源结合，运⽤流量和⼀线活动等结合的方式，提升支付⽤户，对交易用户数负责",
-        "基于用户、渠道特点等持续挖掘商品、内容供给撬动用户增长的机会，并通过流量和补贴资源引入增量供给和商家资源带动增长",
-        "结合供给特点制定差异化补贴运营策略以及钱效优化，完成从预算申请、策略制定与配置、实验数据分析与评估的完整工作"
-      ],
-      "requirements": "本科及以上学历，3年及以上用户增长、用户运营相关经验",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/2f2bc92a2778409b0nF_3N29E1pQ.html"
-    },
-    {
-      "id": "job-14",
-      "rank": 14,
-      "title": "用户增长产品运营-抖音生活服务",
-      "company": "字节跳动",
-      "salary": "30-60K·15薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "本科",
-      "score": 74,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责抖音生活服务整体用户增长，对生活服务交易⽤户规模与交易频次的持续快速增长负责",
-        "负责互动玩法的⽇常运营、包括但不限于激励、积分等互动玩法，⽇常负责人群、品类、权益等数值策略的制定与迭代，为收益与经济效益负责",
-        "横向对接其他合作团队的沟通与协作，通过产品迭代、权益设计、招商引资等方式扩⼤互动玩法的覆盖规模与收益，实现业务的收益增长与经济效益优化"
-      ],
-      "requirements": "本科及以上学历，3年及以上营销玩法产品或运营相关经验，有本地生活服务/电商等交易场景背景优先",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/9cbf350714c66b9a0nF63N-8GVVW.html"
-    },
-    {
-      "id": "job-15",
-      "rank": 15,
-      "title": "商家广告产品运营（增长）-上海",
-      "company": "百度",
-      "salary": "30-60K·13薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 72,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "策略设计"
-      ],
-      "responsibilities": [
-        "充分理解广告业务形态，对广告产品有敏锐洞察力，结合客户需求，输出产品策略及建议，强化客户投放广告的心智、提升投放意愿，实现客户拉新、留存、ARPU提升，为客户数及收入目标负责",
-        "对中小商家的生意增长模式和营销诉求有理解和同理心，能够利用各类广告产品的优势，充分挖掘客户开启广告投放的机会点，结合客户投放效果和满意度反哺投放产品优化，提升广告产品和客户需求的适配度，实现广告业务规模增长",
-        "围绕业务目标进行指标拆解及规划设计，结合预算激励、营销活动、产品推广、投放指导等手段，落地分行业客户增长策略，达成业务目标。 【"
-      ],
-      "requirements": "对互联网广告产品运营有强烈的好奇心和热情；熟悉客户增长运营方法论，有一线互联网公司客户增长实战经验，勇于突破和创新",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/c51c337964e9b5ac031_0tu5FVRS.html"
-    },
-    {
-      "id": "job-16",
-      "rank": 16,
-      "title": "资深产品运营（支付业务）",
-      "company": "光子易",
-      "salary": "12-24K·14薪",
-      "salaryFloor": 12,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "学历不限",
-      "score": 68,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "海外跨境",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
         "跨团队推进",
         "国际化",
-        "支付业务"
+        "电商/商家"
       ],
       "responsibilities": [
-        "负责跨境收款、付款、汇兑业务在客户侧的实施落地,解决客户在产品使用中的各种问题,为客户提供最佳使用实践",
-        "通过帮助客户有效使用我方产品和服务,促进客户完成其业绩⽬标",
-        "负责整体运营⽅案及⽇常工作流程的制定和执行,随业务发展不断完善,搭建标准化的运营体系"
+        "负责海外市场的用户增长（拉新、促活、复购），基于市场洞察和数据分析进行策略设计并落地，服务于用户规模、活跃、营收和利润",
+        "洞察用户⽣命周期，建⽴⽤户分层，基于场景化及资源进行策略调整提升整体活跃度，建立完整⽤户体系",
+        "参与增长业务的规划及落地策略制定，制定增长方案和策略，提升用户规模、活跃度及商业价值，包括但不限于用户获取、承接、促活、召回及交易转化；深入理解和洞察用户，分析数据，找出增长关键路径"
       ],
-      "requirements": "本科及以上学历,有跨境支付行业收付兑业务从业经验者优先，需要有涉外英语能力",
+      "requirements": "本科及以上学历，5年以上用户增长、营销产品、数分或咨询经验，有跨境电商/内容电商经验优先；英文可作为工作语言、有海外生活或工作经验加分",
       "notes": [
+        "资深岗位，对年限和项目体量要求较高",
+        "可能涉及出差或驻外",
         "需要英语能力",
-        "支付业务经验更有优势"
+        "需要频繁出差，不进入 A+ 或 A- 档"
       ],
       "requiresEnglish": true,
       "agency": false,
       "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/7944c391539b9d760nFz2tW_FFNT.html"
+      "url": "https://www.zhipin.com/job_detail/92332af285189b850nF43t61FldS.html"
     },
     {
-      "id": "job-17",
-      "rank": 17,
-      "title": "产品运营-地理位置中台",
-      "company": "字节跳动",
-      "salary": "20-40K",
-      "salaryFloor": 20,
+      "id": "job-b08ea1a97b7d2e0b",
+      "rank": 47,
+      "title": "国际化策略运营（台湾）(MJ035909)",
+      "company": "携程",
+      "salary": "未提取",
+      "salaryFloor": null,
       "city": "上海",
-      "experience": "经验不限",
-      "education": "本科",
-      "score": 68,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
+      "experience": "3年以上",
+      "education": "未提取",
+      "score": 96,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
       "strategyRelevant": true,
-      "frequentTravel": false,
+      "frequentTravel": true,
       "applicationRecommended": true,
+      "source": "ctrip",
+      "sourceLabel": "携程官网",
+      "officialSource": true,
+      "postedAt": "2026-07-08",
+      "sourceJobId": "MJ035909",
       "directions": [
-        "用户增长"
+        "用户增长",
+        "商家电商",
+        "海外跨境"
       ],
       "dimensions": [
         "增长/生命周期",
         "数据分析",
+        "用户/行业洞察",
         "策略设计",
-        "跨团队推进"
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
       ],
       "responsibilities": [
-        "负责众包用户运营体系建设，制定并落地用户增长策略，对众包用户规模负责",
-        "设计并迭代众包用户分层和激励体系，提升用户的活跃度与人均产能",
-        "通过调研问卷、访谈调研等形式，持续挖掘用户体验问题并推进产品能力迭代"
+        "负责台湾市场分站点运营，搭建并迭代本地化策略体系，驱动流量承接与转化增长",
+        "深度洞察台湾市场竞争格局与分层用户需求，制定差异化的市场-产品匹配增长策略",
+        "主导策略落地推进，拉通供给覆盖、节假日促销、货架排序、信息展示等关键运营动作"
       ],
-      "requirements": "本科及以上学历，3年及以上用户运营相关工作经验，熟悉众包、UGC或任务型产品/运营逻辑优先；具备较强的数据分析能力，能独立用户行为数据分析、完成目标拆解、策略制定及效果归因",
+      "requirements": "3年以上OTA、旅游行业、电商行业经验，熟悉台湾市场用户消费习惯与偏好；具备分站点运营或区域增长方法论，能独立制定市场匹配与转化策略",
       "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
+        "可能涉及出差或驻外",
+        "需要英语能力",
+        "需要频繁出差，不进入 A+ 或 A- 档"
       ],
-      "requiresEnglish": false,
+      "requiresEnglish": true,
       "agency": false,
       "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/3ec8eb0ffb8a0e810nR50ti5GFNY.html"
+      "url": "https://job.ctrip.com/#/experienced/job-detail/MJ035909"
     },
     {
-      "id": "job-18",
-      "rank": 18,
+      "id": "job-d2d0abb8cdf094be",
+      "rank": 48,
+      "title": "国际化策略运营（度假｜香港）(MJ035029)",
+      "company": "携程",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "未提取",
+      "score": 96,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": true,
+      "applicationRecommended": true,
+      "source": "ctrip",
+      "sourceLabel": "携程官网",
+      "officialSource": true,
+      "postedAt": "2026-05-19",
+      "sourceJobId": "MJ035029",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责香港市场分站点运营，搭建并迭代本地化策略体系，驱动流量承接与转化增长",
+        "深度洞察香港市场竞争格局与分层用户需求，制定差异化的市场-产品匹配增长策略",
+        "主导策略落地推进，拉通供给覆盖、节假日促销、货架排序、信息展示等关键运营动作"
+      ],
+      "requirements": "3年以上OTA、旅游行业、电商行业经验，熟悉香港市场用户消费习惯与偏好；具备分站点运营或区域增长方法论，能独立制定市场匹配与转化策略",
+      "notes": [
+        "可能涉及出差或驻外",
+        "需要英语能力",
+        "需要频繁出差，不进入 A+ 或 A- 档"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://job.ctrip.com/#/experienced/job-detail/MJ035029"
+    },
+    {
+      "id": "job-909774e11524d3d8",
+      "rank": 49,
       "title": "海外用户增长运营",
       "company": "井英科技",
       "salary": "30-50K·13薪",
@@ -1022,6 +2907,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "商家电商",
@@ -1051,8 +2941,166 @@
       "url": "https://www.zhipin.com/job_detail/883aa5bd0aba912a0nF40ty9ElFX.html"
     },
     {
-      "id": "job-19",
-      "rank": 19,
+      "id": "job-7240a21f81251a96",
+      "rank": 50,
+      "title": "商家及策略运营",
+      "company": "美团",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "本科",
+      "score": 90,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": true,
+      "applicationRecommended": true,
+      "source": "meituan",
+      "sourceLabel": "美团官网",
+      "officialSource": true,
+      "postedAt": 1773199023000,
+      "sourceJobId": "4208753649",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "策略制定与规划 结合总部核心策略，基于城市洞察，制定差异化城市运营策略（商户拓展、运营提效、资源投放等） 设计城市试点方案，验证策略有效性后规模化推广 运营团队资源协同产品、销售团队，推动策略落地所需资源支持",
+        "业务落地与执行 推动策略在城市的执行，监控关键指标（商户数、GTV、财务收入、动销率、留存率等） 通过商户培训、运营活动、资源对接等方式提升商户经营能力 建立城市案例库，提炼可复制的成功方法论",
+        "区域协同与赋能 支持大区/区域负责人进行业务规划与目标拆解 为城市一线团队提供策略指导、工具支持和培训赋能 搭建区域信息共享机制，促进跨城市经验交流"
+      ],
+      "requirements": "学历与经验 本科及以上学历，3年以上互联网平台策略运营、商业分析、区域运营或咨询相关经验 有本地生活、电商、O2O或医药健康行业经验者优先 具备城市级市场拓展或运营实战经验者优先；核心能力 数据分析能力：熟练使用数据处理及分析工具，能独立完成城市市场分析、商户特征分析等 策略规划能力：具备从洞察到策略设计、试点到规模化的完整方法论 业务落地能力：能推动策略执行，解决一线实际问题，拿到业务结果 沟通协同能力：能有效联动区域销售、产品、市场等多团队协作 能使用AI数据分析工具辅助城市市场分析和商户特征画像构建，有将智能化工具融入区域...",
+      "notes": [
+        "可能涉及出差或驻外",
+        "需要频繁出差，不进入 A+ 或 A- 档"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://zhaopin.meituan.com/web/position/detail?highlightType=social&jobShareType=1&jobUnionId=4208753649"
+    },
+    {
+      "id": "job-2905188f754f9e62",
+      "rank": 51,
+      "title": "印尼半托管业务策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "未提取",
+      "score": 88,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1761553995721,
+      "sourceJobId": "7565815861611088133",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "业务策略与预算管理：深入拆解电商业务链路，基于市场趋势、用户需求及业务目标制定核心运营策略；通过多维度数据（GMV、转化率、ROI等）分析，动态优化业务预算分配方案，推动资源向高价值业务模块倾斜，提升整体业务效益与投入产出比",
+        "负责电商产品功能的落地推进，牵头协调产品经理明确功能需求与迭代优先级；联动财务、税务、法务等跨职能团队，完成产品功能上线前的合规性评估（如财税合规、法务风险排查），确保产品功能既满足业务需求，又符合内外部合规要求，保障上线效率与质量",
+        "统筹外部合作资源，重点负责外包人力（如比价外包、客服外包等）的分配与管理；建立供应商服务标准与考核机制，定期评估外包团队的工作效率与成果，及时协调解决合作中的资源缺口或执行问题，确保外部资源高效支撑电商业务运营。"
+      ],
+      "requirements": "具备3年以上电商策略运营经验，能深度洞察电商业务逻辑，擅长通过业务策略调整驱动增长；数据敏感度高，熟练使用Excel、SQL进行数据分析，可基于数据结论优化预算分配与业务决策；积极主动学习，具备较强的目标导向与抗压能力，能适应电商行业快速变化的业务节奏。",
+      "notes": [
+        "可能为外包岗位"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7565815861611088133/detail"
+    },
+    {
+      "id": "job-3ab2e97b77f59991",
+      "rank": 52,
+      "title": "商户运营（电销运营）-国际支付",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 80,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": true,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1764917301234,
+      "sourceJobId": "7580261650861885701",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境",
+        "支付金融"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "跨团队推进",
+        "国际化",
+        "电商/商家",
+        "支付业务"
+      ],
+      "responsibilities": [
+        "基于To B金融产品特性，分层管理企业客户线索（按行业、规模、需求类型等维度），制定差异化电销触达策略（含沟通话术、跟进节奏、资源匹配规则），结合市场竞争环境与客户生命周期，设计电销转化漏斗优化方案，提升线索-意向-成交的全流程转化率",
+        "建立To B电销数据指标体系（如线索响应率、商机转化率、客户LTV等），通过数据分析定位流程卡点并迭代策略，推动AI外呼、智能话术、智能SNS辅助等工具在To B场景的适配应用，优化卖家和客户的沟通体验与电销团队产能",
+        "与业务、产品、风控团队联动，确保电销话术匹配产品要求和合规要求，同步客户需求以支撑产品迭代，协调和管理外呼本地坐席，为高价值企业客户提供精准的电销-面访衔接服务"
+      ],
+      "requirements": "本科及以上学历，金融、市场营销、统计学等相关专业优先；良好的沟通能力和英语听说对话水平",
+      "notes": [
+        "可能为外包岗位",
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7580261650861885701/detail"
+    },
+    {
+      "id": "job-7b9ccefc4ef013b6",
+      "rank": 53,
       "title": "商家及策略运营（美团渠道）",
       "company": "哈啰普惠",
       "salary": "25-35K·15薪",
@@ -1070,6 +3118,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "商家电商"
@@ -1097,8 +3150,8 @@
       "url": "https://www.zhipin.com/job_detail/94913ab3d909118c0nF509-4E1tU.html"
     },
     {
-      "id": "job-20",
-      "rank": 20,
+      "id": "job-a8ddf6988f8fd8c6",
+      "rank": 54,
       "title": "运营（用户增长与营收增长方向）",
       "company": "中至数据集团",
       "salary": "15-20K",
@@ -1116,6 +3169,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长"
       ],
@@ -1141,8 +3199,8 @@
       "url": "https://www.zhipin.com/job_detail/e22a9ad19ca37df80nB43N25F1FT.html"
     },
     {
-      "id": "job-21",
-      "rank": 21,
+      "id": "job-e2c167ad56458ac4",
+      "rank": 55,
       "title": "高级用户运营",
       "company": "数佑文化",
       "salary": "20-40K",
@@ -1160,6 +3218,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "海外跨境"
@@ -1187,8 +3250,8 @@
       "url": "https://www.zhipin.com/job_detail/67ffcc2433e519150nV-2dy6F1RY.html"
     },
     {
-      "id": "job-22",
-      "rank": 22,
+      "id": "job-7604b752d6825deb",
+      "rank": 56,
       "title": "增长运营经理（卡支付产品）",
       "company": "北京中利博冠网络科技",
       "salary": "25-50K",
@@ -1206,6 +3269,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "海外跨境",
@@ -1235,55 +3303,61 @@
       "url": "https://www.zhipin.com/job_detail/1579e983bd02adea0nF73N29EFRU.html"
     },
     {
-      "id": "job-23",
-      "rank": 23,
-      "title": "海外APP用户运营（金融交易）",
-      "company": "点涨科技",
-      "salary": "25-35K",
-      "salaryFloor": 25,
+      "id": "job-abe9374b5a662ceb",
+      "rank": 57,
+      "title": "商品治理策略运营（美洲）-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
       "city": "上海",
-      "experience": "3-5年",
+      "experience": "未提取",
       "education": "本科",
-      "score": 75,
+      "score": 78,
       "tier": "B",
       "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
-      "majorCompany": false,
+      "majorCompany": true,
       "strategyRelevant": true,
-      "frequentTravel": false,
+      "frequentTravel": true,
       "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1728483125427,
+      "sourceJobId": "7423778460462057754",
       "directions": [
         "用户增长",
+        "商家电商",
         "海外跨境"
       ],
       "dimensions": [
         "增长/生命周期",
         "数据分析",
-        "商业结果",
-        "策略设计",
         "跨团队推进",
-        "国际化"
+        "国际化",
+        "电商/商家"
       ],
       "responsibilities": [
-        "存量老用户精细化运营 ● 用户分层与策略搭建：搭建并落地海外老用户分层运营体系，依据用户活跃度、交易频次、资产规模、生命周期状态完成用户分层，针对沉睡用户、低频用户、高价值核心用户制定差异化的留存、促活、唤醒运营策略。",
-        "老用户专属活动策划与落地 ● 老客活动策划：独立及协同团队策划适配海外金融市场的老客专属运营活动，涵盖老用户签到福利、交易加码、会员权益、专属交易竞赛、沉睡用户回归唤醒等特色活动。",
-        "海外私域与老用户触达维护 ● 私域社群运营：负责海外社媒社群、私域渠道的老客日常维护，开展常态化用户互动、社群氛围运营，提升老用户粘性与用户忠诚度。 ● 精准用户触达：精细化运营海外用户邮件列表、私域渠道，定向完成老用户专属福利、产品功能更新、活动预告、会员权益提醒等精准触达。"
+        "为产品合规、商品滥发、类目开放领域设计政策与治理策略",
+        "基于定量数据分析构建主动监测方案，最大程度地降低产品合规、商品滥发、类目管控方面的问题",
+        "定义运营指标和指示器，并拥有专属仪表板，用以监测上述操作在有效性和效率等各个层面的情况"
       ],
-      "requirements": "● 学历与经验：本科及以上学历，拥有2-3年互联网用户运营、存量用户精细化运营相关经验。有金融APP、海外市场老用户运营相关经验者优先。 ● 核心技能： ● 熟悉海外主流社交媒体生态与海外用户习性，具备存量用户分层运营、老客活动策划落地实操经验。",
+      "requirements": "具有电商治理策略或政策制定方面的经验；拥有四年以上下述领域工作经验，涵盖战略或运营管理咨询、平台治理、信任与安全政策制定及运营管理、电商战略、卖家或产品增长、风险、合规或体验项目等",
       "notes": [
-        "Web3/CFD 等交易方向，先核验公司与业务合规性",
-        "需要英语能力"
+        "可能涉及出差或驻外",
+        "需要英语能力",
+        "需要频繁出差，不进入 A+ 或 A- 档"
       ],
       "requiresEnglish": true,
       "agency": false,
-      "sensitive": true,
-      "url": "https://www.zhipin.com/job_detail/114fe33797f69f6d0nFy2N61FFBW.html"
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7423778460462057754/detail"
     },
     {
-      "id": "job-24",
-      "rank": 24,
+      "id": "job-29c0cf3470d53b40",
+      "rank": 58,
       "title": "海外用户增长运营专家（AI产品）",
       "company": "群核科技",
       "salary": "25-45K·14薪",
@@ -1301,6 +3375,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "海外跨境"
@@ -1328,8 +3407,8 @@
       "url": "https://www.zhipin.com/job_detail/350924083bbf93e40nB-09i-FVVZ.html"
     },
     {
-      "id": "job-25",
-      "rank": 25,
+      "id": "job-3c0e3a1b244c9cd3",
+      "rank": 59,
       "title": "Global User Growth 海外用户增长",
       "company": "上海天码形空科技",
       "salary": "17-26K·15薪",
@@ -1347,6 +3426,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "海外跨境"
@@ -1373,55 +3457,8 @@
       "url": "https://www.zhipin.com/job_detail/da564a64e4e4581c0nF909W4EFJX.html"
     },
     {
-      "id": "job-26",
-      "rank": 26,
-      "title": "用户运营专家（拉新）",
-      "company": "某知名互联网公司",
-      "salary": "35-60K",
-      "salaryFloor": 35,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 73,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责 C 端拉新及转化全链路运营，涵盖注册⽤户到店引导、首单转化、会员权益运营及流失用户召回，对核⼼指标（转化率、付费用户规模）直接负责；​",
-        "统筹多拉新渠道的协同运营，基于数据分析与用户需求洞察，制定并落地流量效率优化策略，提升渠道 ROI；​",
-        "搭建用户增长数据漏斗模型，精准分析各环节转化瓶颈，具备产品化思维，提出可落地的优化方案并推动实施；​"
-      ],
-      "requirements": "本科及以上学历，5 年及以上 C 端用户运营、拉新增长或相关领域工作经验，目标感强，具备主动推进业务的落地能力；数据敏感度高，能熟练使用 SQL 进行数据提取与分析，具备独立通过数据洞察问题、优化策略的能力",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系",
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/186bd36d239d42ff0nBz2926EVNU.html"
-    },
-    {
-      "id": "job-27",
-      "rank": 27,
+      "id": "job-9fcc22f61dc5bc45",
+      "rank": 60,
       "title": "用户运营",
       "company": "杭州某大型互联网电商平台上市公司",
       "salary": "35-60K·16薪",
@@ -1439,6 +3476,11 @@
       "strategyRelevant": true,
       "frequentTravel": false,
       "applicationRecommended": true,
+      "source": "boss",
+      "sourceLabel": "BOSS 直聘",
+      "officialSource": false,
+      "postedAt": null,
+      "sourceJobId": "",
       "directions": [
         "用户增长",
         "商家电商"
@@ -1465,679 +3507,6 @@
       "agency": true,
       "sensitive": false,
       "url": "https://www.zhipin.com/job_detail/6c4d9437529034910nZ-0967FVRS.html"
-    },
-    {
-      "id": "job-28",
-      "rank": 28,
-      "title": "用户运营",
-      "company": "杭州某大型互联网上市公司",
-      "salary": "35-60K·15薪",
-      "salaryFloor": 35,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 73,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责3C数码用户增长策略的制定和执行，包括拉新、留存及转化效率",
-        "基于数据挖掘与平台能力，结合3C数码行业特性，洞察⽤户增长的机会点，驱动⽤户规模与价值的持续增长",
-        "协同⾏业、市场、产品技术等团队，根据用户需求并结合核心渠道运营，主导并推动⽤户运营目标的达成。"
-      ],
-      "requirements": "本科及以上学历，3年以上互联网用户运营经验，熟悉电商生态和3C数码行业的优先，具备成功用户增长案例（如用户规模提升、分层运营、ROI优化等）",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系",
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/1484dfc4d8bc840e0nZ72dS0ElpS.html"
-    },
-    {
-      "id": "job-29",
-      "rank": 29,
-      "title": "用户运营",
-      "company": "杭州某大型互联网上市公司",
-      "salary": "35-60K·15薪",
-      "salaryFloor": 35,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 73,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责3C数码用户增长策略的制定和执行，包括拉新、留存及转化效率",
-        "基于数据挖掘与平台能力，结合3C数码行业特性，洞察⽤户增长的机会点，驱动⽤户规模与价值的持续增长",
-        "协同⾏业、市场、产品技术等团队，根据用户需求并结合核心渠道运营，主导并推动⽤户运营目标的达成。"
-      ],
-      "requirements": "本科及以上学历，3年以上互联网用户运营经验，熟悉电商生态和3C数码行业的优先，具备成功用户增长案例（如用户规模提升、分层运营、ROI优化等）",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系",
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/22d52878e8a062b80nZ72N28F1dT.html"
-    },
-    {
-      "id": "job-30",
-      "rank": 30,
-      "title": "用户运营",
-      "company": "某大型知名互联网上市公司",
-      "salary": "40-60K·15薪",
-      "salaryFloor": 40,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 73,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "核心目标达成：负责家享生活闪购业务的用户运营，对DAU和订单量等核心业务指标负责",
-        "全链路营销策划与执行：制定并执行家享生活闪购业务品类的整合营销策略，包括但不限于拉新、促活、复购及大促活动。设计创新的营销玩法，并负责从策略规划、资源整合到落地执行的全流程管理",
-        "跨场域协同与资源联动：作为核心枢纽，主动推进家享生活闪购业务与平台内各场域的深度合作。整合内外部营销资源，设计并落地跨业务联动项目，扩大流量曝光和转化效率"
-      ],
-      "requirements": "学历与经验：本科及以上学历。3-5年互联网近场业务用户运营或电商运营相关工作经验；行业与业务背景：熟悉即时零售、电商或O2O行业，对家电、家居等品类的用户消费场景和市场趋势有理解。具备成功的营销活动策划和用户运营实战经验",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/d76bca7795376c4803N_09S-GVZR.html"
-    },
-    {
-      "id": "job-31",
-      "rank": 31,
-      "title": "海外用户增长运营（CRO专家）",
-      "company": "微盟",
-      "salary": "25-35K·13薪",
-      "salaryFloor": 25,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 72,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "跨团队推进",
-        "国际化",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "电商漏⽃优化与 PDP 迭代",
-        "负责独⽴站店铺全链路转化漏斗优化：产品详情页（PDP）、购物车（Cart）、结账（Checkout）等核心节点",
-        "PDP 优化：卖点呈现、图⽚ / 视频布局、评价模块、信任徽章、FAQ 结构等"
-      ],
-      "requirements": "5 年以上Shopify 店铺运营或 CRO 经验（3-5 年有极强案例也可考虑）；A/B 测试硬核：独立设计并执行过 A/B 测试，能说清楚测试背景、假设、变量控制、测试周期、数据结论、后续动作",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/ee0f6b272d5534cc0nZ82dm4FFtZ.html"
-    },
-    {
-      "id": "job-32",
-      "rank": 32,
-      "title": "策略运营",
-      "company": "JCtrans",
-      "salary": "12-15K",
-      "salaryFloor": 12,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 70,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "国际化"
-      ],
-      "responsibilities": [
-        "体系搭建：以续约率提升为最终目标，从平台运营视角，负责B端付费会员全生命周期运营体系搭建，包括分层策略、激活留存机制、客户效果感知及服务力模型等",
-        "机制落地：根据会员全⽣命周期体系，与客户成功团队配合，制定服务标准并协同推动落地，保证落地效果，并能够根据实际落地中的数据及客户反馈，动态调整策略",
-        "策略运营：根据整个体系中的能⼒缺失，针对性补⾜商机匹配板块的能力（包括产品体验、供需规模等），并推动其他版块的能力提升。"
-      ],
-      "requirements": "全⽇制本科及以上学历，3年以上商家/B端运营经验， 有策略制定和项目管理经验优先；沟通能力强（很重要），能够有效地与其他部门协同，推进策略落地，回收效果； 有B2B平台运营经验、物流/货代相关行业经验、英语熟练者优先。",
-      "notes": [
-        "需要英语能力"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/a1cb82a358d8e00a0nF73dq0EVdV.html"
-    },
-    {
-      "id": "job-33",
-      "rank": 33,
-      "title": "电商行业运营（北上广杭均可）",
-      "company": "某知名互联网公司",
-      "salary": "65-90K·16薪",
-      "salaryFloor": 65,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 66,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "用户/行业洞察",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "挖掘生态资源、社区用户偏好及行业商品趋势，结合趋势、内容、供给匹配交易增量",
-        "负责⾏业产业带商圈运营，推动商圈持续稳步增长，为GMV及新商数量负责",
-        "打造品类/产地头部商家标杆，强运营陪跑打出商家showcase，并持续深⼊运营商圈引⼊新商家。"
-      ],
-      "requirements": "全日制本科以上学历，具备电商工作经验，有相关产业带运营经验",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系",
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/004cfed67b419e180nBz0t2-FlRU.html"
-    },
-    {
-      "id": "job-34",
-      "rank": 34,
-      "title": "用户增长专家",
-      "company": "网鱼",
-      "salary": "20-35K·14薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "本科",
-      "score": 66,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "负责网鱼线下门店与线上App、小程序的⽤户增长，通过引流、裂变、资源置换、投放等多种形式⼤量获取精准⽤户",
-        "协同内外资源，完成用户的激活、转化、留存，制定用户分层策略，管理⽤户生命周期",
-        "建立增长指标体系，对增长数据进行监控、跟踪、分析、复盘，通过数据驱动提升运营质量"
-      ],
-      "requirements": "本科及以上学历，有5年以上互联网、娱乐行业用户增长工作经验，有成体系的增长方法论；要求：具备头部连锁茶饮、新零售行业经验。",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/9c480fed658829e40nF40t66GFJU.html"
-    },
-    {
-      "id": "job-35",
-      "rank": 35,
-      "title": "AI产品运营/增长运营",
-      "company": "上海迪诺克科技",
-      "salary": "8-13K",
-      "salaryFloor": 8,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 66,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "国际化"
-      ],
-      "responsibilities": [
-        "运用大模型及Agent框架高效产出产品文案、营销素材、社群内容等，负责抖⾳、⼩红书、微信、TikTok、YouTube、Instagram、Fackbook等平台的内容策划与发布",
-        "使⽤AI设计工具完成产品基础体验设计，收集整理用户反馈并提炼优化建议，参与产品迭代全流程",
-        "制定并执⾏产品增长策略，优化各平台推广内容与投放方式，探索新增长渠道与玩法，提升用户转化"
-      ],
-      "requirements": "本科及以上学历，专业背景不限，工作经验两年及以上",
-      "notes": [
-        "需要英语能力"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/cccaf81473ac78ee0nF90tu5F1FY.html"
-    },
-    {
-      "id": "job-36",
-      "rank": 36,
-      "title": "产品增长运营/数据策略运营(AI方向)",
-      "company": "星驿支付",
-      "salary": "15-25K·13薪",
-      "salaryFloor": 15,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 66,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "负责本地商户智能营销产品的增长与触达运营:负责营销 Agent 预生成物料(SEO词库、GEO引用策略、AIGC话术等)的全渠道营销内容的策划、审计与日常推送执行，提升B端商家的活跃度与粘性。",
-        "深⼊理解本地⽣活市场与商户痛点:善于利⽤内部资源与外部数据分析工具，挖掘并优化文案、图⽚等营销素材，能站在商户视角提高产品触达效率，承担对应的活跃、转化与核销等指标。",
-        "关注本地生活市场及竞品动态:实时监测各场景的主动触达数据、商户点击率及后续转化，定期形成深度分析报告，沉淀不同行业、不同时令节点的策略运营经验。"
-      ],
-      "requirements": "敏感的 B端商户视角与内容把关能力:对本地生活、B 端 SaaS 或营销类产品有深刻了解，具备优秀的文案与审美能力，能精准捕捉时令热点并转化为直击商户痛点的高质量物料；具备严谨而有效的增长运营思路:对数据极其敏感，逻辑性强，有较强的数据分析能力，能够熟练通过数据漏斗发现问题并推动营销策略的优化",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/c83d22c4db646ba40nF82Ny9GFBZ.html"
-    },
-    {
-      "id": "job-37",
-      "rank": 37,
-      "title": "用户增长负责人",
-      "company": "上海圆盛",
-      "salary": "20-35K",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "学历不限",
-      "score": 64,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "负责用户增长策略的制定与实施，统筹拉新、促活、留存、转化等核心指标的提升。",
-        "设计并推动增长实验，包括但不限于裂变活动、渠道投放优化、产品功能迭代等增长手段。",
-        "搭建用户⾏为数据分析体系，监测关键增长指标，输出数据洞察并驱动策略调整。"
-      ],
-      "requirements": "对⽤户增长有系统性理解，具备独立策划和执行增长项目的能力。",
-      "notes": [
-        "负责人岗位，对资历要求可能较高"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/0b1a222cb682626a0nB-3d64FldT.html"
-    },
-    {
-      "id": "job-38",
-      "rank": 38,
-      "title": "海外用户增长运营",
-      "company": "小派科技",
-      "salary": "12-17K",
-      "salaryFloor": 12,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 64,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "跨团队推进",
-        "国际化"
-      ],
-      "responsibilities": [
-        "负责海外社群（Discord、Telegram、WhatsApp等）从0到1搭建与运营，搭建海外私域流量池。",
-        "策划社群裂变、拉新活动，推动用户从加群到转化的全链路增长。",
-        "建立用户分层与激励体系，提升用户留存与复购。"
-      ],
-      "requirements": "本科及以上学历，英语流利，可作为工作语言。；至少2年以上海外社群运营或用户增长运营经验，有从0到1搭建海外社群并跑通增长路径的成功案例。",
-      "notes": [
-        "需要英语能力"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/f8b539a23587f2c00nF92tq1GFBX.html"
-    },
-    {
-      "id": "job-39",
-      "rank": 39,
-      "title": "商家运营专员",
-      "company": "上海某大型电子商务公司",
-      "salary": "11-13K",
-      "salaryFloor": 11,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 63,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "负责女装产业带商家运营：包括但不限于为商家建立规划与GMV策略，并不断沉淀方法论，优化运营机制，为所带商家GMV增长负责。",
-        "负责产业重点新商运营：引导商家丰富平台出价供给；引导商家完善商品基础建设，指导其熟悉平台规则与玩法，协助新商进行活动报名，帮助其快速启动并实现GMV增长，提升新商毕业率与成交贡献度。",
-        "结合行业发展方向，完成行业重点项目管理：如品类增长专项、用户增长专项、平台大促、疯狂周末等，有效管理内部项目执行，能有效进行跨部门沟通协作，整合资源、撬动商家以确保项目目标达成。"
-      ],
-      "requirements": "本科及以上学历，具备3年及以上电商平台运营经验，熟悉产业带运作模式及经营思路，拥有一定的运营业务诊断能力。",
-      "notes": [
-        "劳务派遣/猎头代招，先确认实际雇主和用工性质",
-        "岗位级别可能偏初级"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/3056bd46f1010bfd03N-3di0E1RT.html"
-    },
-    {
-      "id": "job-40",
-      "rank": 40,
-      "title": "商业分析经理-策略运营方向(A60549)",
-      "company": "霸王茶姬",
-      "salary": "20-30K·14薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 62,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "基于战略目标，拆解用户增长团队目标，进行核⼼⽬标达成归因分析，将数据转化为可落地的增长策略",
-        "参与营销活动策划，输出活动⽬标，结合策略做活动复盘，不断沉淀和优化活动策略",
-        "搭建CHAGEE热爱体系的监控指标，形成方法论，并能和运营合作形成落地策略，达成业务目标"
-      ],
-      "requirements": "本科及以上学历，统计学、数学、计算机、市场营销相关专业优先；5年及以上数据分析经验，1年以上用户运营相关经验",
-      "notes": [
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/01015e822f6c2ef10nd709u_FFRR.html"
-    },
-    {
-      "id": "job-41",
-      "rank": 41,
-      "title": "用户运营经理 (MJ001148)",
-      "company": "首旅如家",
-      "salary": "15-30K·14薪",
-      "salaryFloor": 15,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "大专",
-      "score": 61,
-      "tier": "B",
-      "tierLabel": "B 策略运营匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "大专及以上学历 、良好的沟通与协调能力，善于分析总结",
-        "对数据敏感，具备数据分析能力；有一定的地堆经验",
-        "3年以上用户运营、用户增长经验，有规模化互联网产品的用户运营经历优先"
-      ],
-      "requirements": "请打开原岗位核对详细要求",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/768cda6d4ffe6da903Z52dy0F1JX.html"
-    },
-    {
-      "id": "job-42",
-      "rank": 42,
-      "title": "电商行业运营",
-      "company": "小红书",
-      "salary": "20-40K·18薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 84,
-      "tier": "C",
-      "tierLabel": "C 仅供参考",
-      "isReference": true,
-      "closed": true,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": false,
-      "directions": [
-        "用户增长",
-        "商家电商"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "用户/行业洞察",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "挖掘小红书生态资源、社区用户偏好及行业商品趋势，结合趋势、内容、供给匹配交易增量",
-        "负责行业产业带商圈运营，推动商圈持续稳步增长，为GMV及新商数量负责",
-        "打造品类/产地头部商家标杆，强运营陪跑打出商家showcase，并持续深入运营商圈引入新商家。"
-      ],
-      "requirements": "全日制本科以上学历，具备电商工作经验，有相关产业带运营经验",
-      "notes": [
-        "职位已关闭，仅作岗位方向参考",
-        "仅供岗位方向参考，不建议直接投递"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/736bee86af65da90031-3Ny5GVdV.html"
     }
   ]
 }

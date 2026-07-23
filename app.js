@@ -102,6 +102,7 @@ function textIncludes(job, query) {
   const haystack = [
     job.title,
     job.company,
+    job.sourceLabel,
     job.salary,
     job.experience,
     ...job.directions,
@@ -126,6 +127,7 @@ function filteredJobs() {
     if (state.bonus === "payment" && !job.paymentBonus) return false;
     if (state.bonus === "major" && !job.majorCompany) return false;
     if (state.bonus === "both" && !(job.paymentBonus && job.majorCompany)) return false;
+    if (state.bonus === "official" && !job.officialSource) return false;
     if (state.bonus === "reference" && !job.isReference) return false;
     if (state.savedOnly && !state.saved.has(job.id)) return false;
     return true;
@@ -247,6 +249,7 @@ function makeJobCard(job) {
   appendSpans(meta, [job.salary, job.city, job.experience, job.education]);
   const bonuses = [];
   if (job.isReference) bonuses.push("原始标杆");
+  if (job.officialSource) bonuses.push(job.sourceLabel);
   if (job.paymentBonus) bonuses.push("支付业务 +14");
   if (job.majorCompany) bonuses.push("大平台 +10");
   if (!job.applicationRecommended) bonuses.push("仅供方向参考 · 不建议投递");
@@ -259,11 +262,13 @@ function makeJobCard(job) {
 
   const link = fragment.querySelector(".external-button");
   link.href = job.url;
-  link.textContent = job.applicationRecommended ? "BOSS ↗" : "参考 JD ↗";
+  link.textContent = job.applicationRecommended
+    ? `${job.officialSource ? "官网" : "BOSS"} ↗`
+    : "参考 JD ↗";
   link.setAttribute(
     "aria-label",
     job.applicationRecommended
-      ? `在 BOSS 直聘查看 ${job.title}`
+      ? `在${job.officialSource ? job.sourceLabel : "BOSS 直聘"}查看 ${job.title}`
       : `查看仅供参考的岗位描述：${job.title}`,
   );
 
@@ -515,7 +520,11 @@ async function init() {
     elements.eligibleStat.textContent = state.data.eligibleSize;
     elements.displayedStat.textContent = state.data.displayedSize;
     elements.skillJobCount.textContent = state.data.displayedSize;
-    elements.sourceTime.textContent = formatTime(state.data.sourceGeneratedAt || state.data.generatedAt);
+    elements.sourceTime.textContent = formatTime(
+      state.data.officialSourceGeneratedAt
+      || state.data.sourceGeneratedAt
+      || state.data.generatedAt,
+    );
     elements.dialogSummary.textContent = state.data.profile.summary;
     state.data.profile.criteria.forEach((criterion) => {
       const li = document.createElement("li");

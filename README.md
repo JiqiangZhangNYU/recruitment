@@ -1,6 +1,6 @@
 # Recruitment Shortlist
 
-上海增长运营岗位的静态筛选页面。公开数据来自本地筛选结果，仅展示符合当前 A/B/C 规则的岗位摘要、匹配度、加分项、风险提示和 BOSS 直聘原始链接。
+上海增长运营岗位的静态筛选页面。公开数据来自字节跳动、蚂蚁集团、阿里巴巴、腾讯、美团、京东、小红书、携程官网及 BOSS 直聘，仅展示符合当前 A+/A-/B/C 规则的岗位摘要、匹配度、加分项、风险提示和原始链接。
 
 筛选规则以工作地点上海为硬性标准。A+ 必须同时属于明确支付业务和大平台公司；A- 必须是相关策略运营，并至少满足支付或大平台之一；两档均排除频繁出差和明显招聘风险。B 必须是数据驱动的相关增长或策略运营岗位；C 最多 10 个，仅保留关闭岗位或必要的原始标杆供方向参考，不建议投递。五个原始标杆岗位保留在候选清单中。
 
@@ -19,7 +19,7 @@ python3 -m http.server 4173
 在上级项目目录执行：
 
 ```bash
-python3 scripts/export_recruitment_site.py
+npm run refresh:recruitment
 ```
 
-提交并推送 `jobs.json` 后，GitHub Pages 会自动重新部署。
+官网抓取配置位于 `sources/recruit/official-job-targets.json`。单个官网临时失败时会沿用上一版该来源的数据并标记为 stale；其他来源继续更新。提交并推送 `jobs.json` 后，GitHub Pages 会自动重新部署。
