@@ -83,10 +83,12 @@ async function checkPage(browser, viewport, screenshotPath) {
     await page.locator(".job-card.closed").count(),
     references.filter((job) => job.closed).length,
   );
-  assert.match(await page.locator(".job-card.closed").textContent(), /职位已关闭/);
+  if (references.some((job) => job.closed)) {
+    assert.match(await page.locator(".job-card.closed").first().textContent(), /职位已关闭/);
+  }
   await page.locator("#reset-button").click();
 
-  await page.locator("#search-input").fill("淘宝闪购");
+  await page.locator("#search-input").fill("淘宝闪购-商家供给策略运营-运营中心");
   assert.equal(await page.locator(".job-card").count(), 1);
   await page.locator(".detail-toggle").click();
   assert.equal(await page.locator(".job-detail").isVisible(), true);
@@ -103,7 +105,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   }));
   assert.ok(layout.overflow <= 1, `horizontal overflow: ${layout.overflow}px (${layout.offenders.join(", ")})`);
   assert.deepEqual(errors, []);
-  await page.screenshot({ path: screenshotPath, fullPage: true });
+  await page.screenshot({ path: screenshotPath, fullPage: false });
   await page.close();
 }
 
