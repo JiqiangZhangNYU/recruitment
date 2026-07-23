@@ -58,6 +58,8 @@ const state = {
   challengePacks: new Map(),
   challengePromises: new Map(),
   challengeProgress: new Map(),
+  challengeDrafts: new Map(),
+  practiceDays: new Map(),
   view: initialLearningRoute ? "skills" : "jobs",
   query: "",
   tier: "all",
@@ -715,6 +717,95 @@ function persistChallengeProgress(skillId) {
   persistLearningChecklist(challengeStorageKey(skillId), getChallengeProgress(skillId));
 }
 
+function challengeDraftStorageKey(skillId) {
+  return `recruitment-challenge-drafts-${skillId}`;
+}
+
+function getChallengeDrafts(skillId) {
+  if (!state.challengeDrafts.has(skillId)) {
+    const stored = readStoredJSON(challengeDraftStorageKey(skillId), {});
+    state.challengeDrafts.set(skillId, stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {});
+  }
+  return state.challengeDrafts.get(skillId);
+}
+
+function getChallengeDraft(skillId, key) {
+  return getChallengeDrafts(skillId)[key] || {};
+}
+
+function updateChallengeDraft(skillId, key, update) {
+  const drafts = getChallengeDrafts(skillId);
+  drafts[key] = { ...drafts[key], ...update };
+  localStorage.setItem(challengeDraftStorageKey(skillId), JSON.stringify(drafts));
+}
+
+function localDateKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function dailyMissionStorageKey(skillId) {
+  return `recruitment-daily-mission-${skillId}`;
+}
+
+function getDailyMission(pack) {
+  const date = localDateKey();
+  const questions = challengeQuestions(pack);
+  const validKeys = new Set(questions.map((item) => item.key));
+  const stored = readStoredJSON(dailyMissionStorageKey(pack.skillId), null);
+  if (
+    stored?.date === date
+    && Array.isArray(stored.keys)
+    && stored.keys.every((key) => validKeys.has(key))
+  ) {
+    stored.completed = Array.isArray(stored.completed)
+      ? stored.completed.filter((key) => stored.keys.includes(key))
+      : [];
+    return stored;
+  }
+  const progress = getChallengeProgress(pack.skillId);
+  const mission = {
+    date,
+    keys: questions.filter((item) => !progress.has(item.key)).slice(0, 3).map((item) => item.key),
+    completed: [],
+  };
+  localStorage.setItem(dailyMissionStorageKey(pack.skillId), JSON.stringify(mission));
+  return mission;
+}
+
+function completeDailyMissionItem(pack, key) {
+  const mission = getDailyMission(pack);
+  if (mission.keys.includes(key) && !mission.completed.includes(key)) mission.completed.push(key);
+  localStorage.setItem(dailyMissionStorageKey(pack.skillId), JSON.stringify(mission));
+}
+
+function practiceDayStorageKey(skillId) {
+  return `recruitment-practice-days-${skillId}`;
+}
+
+function getPracticeDays(skillId) {
+  if (!state.practiceDays.has(skillId)) {
+    state.practiceDays.set(skillId, new Set(storedArray(practiceDayStorageKey(skillId))));
+  }
+  return state.practiceDays.get(skillId);
+}
+
+function markPracticeDay(skillId) {
+  const days = getPracticeDays(skillId);
+  days.add(localDateKey());
+  persistLearningChecklist(practiceDayStorageKey(skillId), days);
+}
+
+function practiceDaysThisWeek(skillId) {
+  const now = new Date();
+  const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+  const mondayKey = localDateKey(monday);
+  return [...getPracticeDays(skillId)].filter((date) => date >= mondayKey && date <= localDateKey(now)).length;
+}
+
 function challengeQuestions(pack) {
   return pack.levels.flatMap((level) => level.questions.map((question) => ({
     key: `${level.id}/${question.id}`,
@@ -730,11 +821,25 @@ function challengeStatus(pack, level, question) {
   const key = `${level.id}/${question.id}`;
   return {
     completed: progress.has(key),
-    unlocked: index === 0 || progress.has(questions[index - 1]?.key),
+    unlocked: index === 0 || questions.slice(0, index).every((item) => progress.has(item.key)),
     index,
     total: questions.length,
   };
 }
+
+function challengeMode(question, questionIndex) {
+  if (question.activity?.mode === "choice") return "warmup";
+  if (questionIndex === 1) return "arrange";
+  if (questionIndex === 4) return "boss";
+  return "practice";
+}
+
+const challengeModeLabels = {
+  warmup: "热身选择",
+  arrange: "句子排序",
+  practice: "短答练习",
+  boss: "Boss 挑战",
+};
 
 function updateChallengeSkillLevel(pack) {
   const total = challengeQuestions(pack).length;
@@ -787,6 +892,289 @@ function setChallengeDetailChrome() {
   elements.detailPagination.hidden = true;
 }
 
+function makeDailyMission(pack) {
+  const mission = getDailyMission(pack);
+  const allQuestions = challengeQuestions(pack);
+  const byKey = new Map(allQuestions.map((item) => [item.key, item]));
+  const completedCount = mission.completed.length;
+  const section = document.createElement("section");
+  section.className = "daily-mission";
+
+  const heading = document.createElement("div");
+  heading.className = "daily-mission-heading";
+  const copy = document.createElement("div");
+  copy.append(
+    makeTextElement("span", "section-kicker", "TODAY · 约 5 分钟"),
+    makeTextElement("h3", "", mission.keys.length ? "今日三题" : "全部关卡已完成"),
+    makeTextElement("p", "", mission.keys.length ? "只完成今天的三个小目标，也算一次有效练习。" : "可以从关卡地图自由复习已经完成的题目。"),
+  );
+  const weekly = document.createElement("div");
+  weekly.className = "weekly-practice";
+  weekly.append(
+    makeTextElement("strong", "", `${Math.min(practiceDaysThisWeek(pack.skillId), 3)} / 3 天`),
+    makeTextElement("span", "", "本周柔性目标"),
+  );
+  heading.append(copy, weekly);
+
+  const steps = document.createElement("div");
+  steps.className = "daily-mission-steps";
+  mission.keys.forEach((key, index) => {
+    const item = byKey.get(key);
+    const done = mission.completed.includes(key);
+    const status = item ? challengeStatus(pack, item.level, item.question) : null;
+    const step = document.createElement("span");
+    step.className = "daily-mission-step";
+    step.classList.toggle("completed", done);
+    step.classList.toggle("locked", !done && !status?.unlocked);
+    step.append(
+      makeTextElement("span", "", done ? "✓" : String(index + 1)),
+      makeTextElement("strong", "", item?.question.title || "练习题"),
+    );
+    steps.append(step);
+  });
+
+  const currentKey = mission.keys.find((key) => !mission.completed.includes(key));
+  const current = byKey.get(currentKey);
+  const currentStatus = current ? challengeStatus(pack, current.level, current.question) : null;
+  const start = document.createElement("button");
+  start.type = "button";
+  start.className = "daily-mission-button";
+  start.disabled = !current || !currentStatus?.unlocked;
+  start.textContent = !mission.keys.length
+    ? "已完成全部 30 题"
+    : completedCount === mission.keys.length
+      ? "今日任务完成"
+      : completedCount ? "继续今日任务 →" : "开始今日三题 →";
+  start.addEventListener("click", () => current && navigateLearning(
+    "challengeQuestion",
+    pack.skillId,
+    true,
+    current.level.id,
+    current.question.id,
+  ));
+
+  section.append(heading, steps, start);
+  return section;
+}
+
+function makeLevelReward(level, newlyUnlocked = false) {
+  const section = document.createElement("section");
+  section.className = "challenge-reward";
+  section.classList.toggle("newly-unlocked", newlyUnlocked);
+  section.append(
+    makeTextElement("span", "challenge-reward-mark", "✓"),
+    makeTextElement("span", "section-kicker", newlyUnlocked ? "新奖励已解锁" : "通关奖励"),
+    makeTextElement("h3", "", level.reward.title),
+    makeTextElement("p", "", level.reward.description),
+  );
+  const list = document.createElement("div");
+  list.className = "challenge-reward-list";
+  level.reward.items.forEach((item) => list.append(makeTextElement("code", "", item)));
+  section.append(list);
+  return section;
+}
+
+function answerChunks(sample) {
+  const normalized = sample.replace(/\n+/g, " ").replace(/\s+/g, " ").trim();
+  return (normalized.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [normalized]).map((item) => item.trim());
+}
+
+function rotatedChunks(chunks, seedText) {
+  if (chunks.length < 2) return chunks.map((text, index) => ({ text, index }));
+  const seed = [...seedText].reduce((total, character) => total + character.charCodeAt(0), 0);
+  const offset = seed % (chunks.length - 1) + 1;
+  const indexed = chunks.map((text, index) => ({ text, index }));
+  return [...indexed.slice(offset), ...indexed.slice(0, offset)];
+}
+
+function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
+  const key = `${level.id}/${question.id}`;
+  const draft = getChallengeDraft(pack.skillId, key);
+  const mode = challengeMode(question, questionIndex);
+  const section = document.createElement("section");
+  section.className = `challenge-response challenge-response-${mode}`;
+  const heading = document.createElement("div");
+  heading.className = "challenge-response-heading";
+  heading.append(
+    makeTextElement("span", "challenge-section-label", challengeModeLabels[mode]),
+    makeTextElement("span", "", mode === "boss" ? "写出完整版本" : mode === "practice" ? "先写一句也可以" : "完成后再看答案"),
+  );
+  section.append(heading);
+
+  let isReady = () => false;
+  let onReveal = () => {};
+
+  if (mode === "warmup") {
+    const activity = question.activity;
+    section.append(makeTextElement("p", "challenge-response-prompt", activity.prompt));
+    const choices = document.createElement("div");
+    choices.className = "challenge-choice-list";
+    const buttons = activity.choices.map((choice, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "challenge-choice";
+      button.classList.toggle("selected", draft.choice === index);
+      button.append(makeTextElement("span", "", String.fromCharCode(65 + index)), makeTextElement("strong", "", choice));
+      button.addEventListener("click", () => {
+        buttons.forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        draft.choice = index;
+        updateChallengeDraft(pack.skillId, key, { choice: index });
+        onReady(true);
+      });
+      choices.append(button);
+      return button;
+    });
+    const result = makeTextElement("p", "challenge-response-result", "");
+    result.hidden = true;
+    section.append(choices, result);
+    isReady = () => Number.isInteger(draft.choice);
+    onReveal = () => {
+      buttons.forEach((button, index) => {
+        button.disabled = true;
+        button.classList.toggle("correct", index === activity.correctChoice);
+        button.classList.toggle("incorrect", index === draft.choice && index !== activity.correctChoice);
+      });
+      result.hidden = false;
+      result.classList.toggle("correct", draft.choice === activity.correctChoice);
+      result.textContent = `${draft.choice === activity.correctChoice ? "选择正确。" : "再留意一下概念边界。"}${activity.feedback}`;
+    };
+  } else if (mode === "arrange") {
+    const chunks = answerChunks(question.answer.sample);
+    draft.order = Array.isArray(draft.order)
+      ? draft.order.filter((index) => Number.isInteger(index) && index >= 0 && index < chunks.length)
+      : [];
+    const instruction = makeTextElement("p", "challenge-response-prompt", "依次点击句子，把回复排成清楚的表达顺序。");
+    const arranged = document.createElement("div");
+    arranged.className = "challenge-arranged";
+    const available = document.createElement("div");
+    available.className = "challenge-chunk-bank";
+    const controls = document.createElement("div");
+    controls.className = "challenge-arrange-controls";
+    const undo = document.createElement("button");
+    undo.type = "button";
+    undo.textContent = "撤回一步";
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.textContent = "重新排序";
+    const result = makeTextElement("span", "challenge-response-result", "");
+    result.hidden = true;
+    controls.append(undo, reset, result);
+
+    const renderOrder = () => {
+      arranged.replaceChildren();
+      if (!draft.order.length) arranged.append(makeTextElement("span", "challenge-arranged-placeholder", "从下方选择第一句"));
+      draft.order.forEach((index, position) => {
+        const line = document.createElement("button");
+        line.type = "button";
+        line.className = "challenge-arranged-line";
+        line.append(makeTextElement("span", "", String(position + 1)), makeTextElement("strong", "", chunks[index]));
+        line.addEventListener("click", () => {
+          draft.order.splice(position, 1);
+          updateChallengeDraft(pack.skillId, key, { order: draft.order });
+          renderOrder();
+        });
+        arranged.append(line);
+      });
+      available.replaceChildren();
+      rotatedChunks(chunks, question.id).filter((item) => !draft.order.includes(item.index)).forEach((item) => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "challenge-chunk";
+        chip.textContent = item.text;
+        chip.addEventListener("click", () => {
+          draft.order.push(item.index);
+          updateChallengeDraft(pack.skillId, key, { order: draft.order });
+          renderOrder();
+        });
+        available.append(chip);
+      });
+      undo.disabled = !draft.order.length;
+      reset.disabled = !draft.order.length;
+      onReady(draft.order.length === chunks.length);
+    };
+    undo.addEventListener("click", () => {
+      draft.order.pop();
+      updateChallengeDraft(pack.skillId, key, { order: draft.order });
+      renderOrder();
+    });
+    reset.addEventListener("click", () => {
+      draft.order = [];
+      updateChallengeDraft(pack.skillId, key, { order: [] });
+      renderOrder();
+    });
+    section.append(instruction, arranged, available, controls);
+    isReady = () => draft.order.length === chunks.length;
+    onReveal = () => {
+      const correct = draft.order.every((value, index) => value === index);
+      result.hidden = false;
+      result.classList.toggle("correct", correct);
+      result.textContent = correct ? "顺序正确，逻辑很清楚。" : "已经完成排序，可以对照参考答案调整结构。";
+    };
+    renderOrder();
+  } else {
+    const textarea = document.createElement("textarea");
+    textarea.className = "challenge-draft-input";
+    textarea.rows = mode === "boss" ? 8 : 5;
+    textarea.setAttribute("aria-label", `${question.title}的英文回答`);
+    textarea.value = typeof draft.text === "string" ? draft.text : "";
+    textarea.placeholder = mode === "boss" ? "在这里写下完整英文回答..." : "先写下你的英文回答，哪怕只有一句...";
+    const counter = makeTextElement("span", "challenge-draft-count", `${textarea.value.trim().length} 字符`);
+    textarea.addEventListener("input", () => {
+      draft.text = textarea.value;
+      updateChallengeDraft(pack.skillId, key, { text: textarea.value });
+      counter.textContent = `${textarea.value.trim().length} 字符 · 草稿已保存在浏览器`;
+      onReady(textarea.value.trim().length >= 5);
+    });
+    section.append(textarea, counter);
+    isReady = () => textarea.value.trim().length >= 5;
+  }
+
+  onReady(isReady());
+  return { element: section, isReady, onReveal, mode };
+}
+
+function makeSelfReview(status, onComplete) {
+  const section = document.createElement("section");
+  section.className = "challenge-self-review";
+  section.hidden = true;
+  section.append(
+    makeTextElement("span", "challenge-section-label", "快速自评"),
+    makeTextElement("h3", "", "不用和参考答案一样，确认掌握三项即可"),
+  );
+  const criteria = ["我回答了题目的核心要求", "表达结构或结论足够清楚", "语气适合当前工作场景", "我记住了至少一个关键表达"];
+  const grid = document.createElement("div");
+  grid.className = "challenge-review-grid";
+  const completionButton = document.createElement("button");
+  completionButton.type = "button";
+  completionButton.className = "challenge-complete-button";
+  completionButton.textContent = status.completed ? "本题已完成" : "再确认 3 项即可完成";
+  completionButton.disabled = true;
+  const update = () => {
+    const count = grid.querySelectorAll("input:checked").length;
+    if (!status.completed) {
+      completionButton.disabled = count < 3;
+      completionButton.textContent = count >= 3 ? "掌握本题并解锁下一题" : `已确认 ${count} / 4 · 还需 ${3 - count} 项`;
+    }
+  };
+  criteria.forEach((criterion) => {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    const mark = makeTextElement("span", "", "✓");
+    const text = makeTextElement("strong", "", criterion);
+    label.append(input, mark, text);
+    input.addEventListener("change", () => {
+      label.classList.toggle("selected", input.checked);
+      update();
+    });
+    grid.append(label);
+  });
+  completionButton.addEventListener("click", onComplete);
+  section.append(grid, completionButton);
+  return { section, completionButton };
+}
+
 function renderChallengeHub(pack) {
   setChallengeDetailChrome();
   const progress = getChallengeProgress(pack.skillId);
@@ -802,6 +1190,7 @@ function renderChallengeHub(pack) {
     makeTextElement("span", "section-kicker", `互动训练 · ${pack.levels.length} 个等级`),
     makeTextElement("h2", "", pack.title),
     makeTextElement("p", "", pack.summary),
+    makeTextElement("p", "challenge-story", pack.story),
   );
   header.append(copy, makeChallengeProgress(progress.size, allQuestions.length, "总闯关进度"));
 
@@ -829,20 +1218,21 @@ function renderChallengeHub(pack) {
     const top = document.createElement("span");
     top.className = "challenge-level-top";
     top.append(
-      makeTextElement("span", "challenge-level-number", `LEVEL ${String(levelIndex + 1).padStart(2, "0")}`),
+      makeTextElement("span", "challenge-level-number", level.chapter || `LEVEL ${String(levelIndex + 1).padStart(2, "0")}`),
       makeTextElement("span", "challenge-level-state", isComplete ? "已通关" : firstStatus.unlocked ? `${completed}/${level.questions.length}` : "未解锁"),
     );
     button.append(
       top,
       makeTextElement("strong", "", level.title),
       makeTextElement("span", "challenge-level-subtitle", level.subtitle),
+      makeTextElement("span", "challenge-level-story", level.story),
       makeTextElement("span", "challenge-level-action", isComplete ? "重新练习 →" : firstStatus.unlocked ? "进入关卡 →" : "完成上一等级后开放"),
     );
     button.addEventListener("click", () => navigateLearning("challengeLevel", pack.skillId, true, level.id));
     grid.append(button);
   });
 
-  article.append(makeChallengeBreadcrumb(pack), header, intro, grid);
+  article.append(makeChallengeBreadcrumb(pack), header, makeDailyMission(pack), intro, grid);
   elements.skillDetailContainer.replaceChildren(article);
 }
 
@@ -863,9 +1253,10 @@ function renderChallengeLevel(pack, levelId) {
   const copy = document.createElement("div");
   const levelIndex = pack.levels.findIndex((item) => item.id === level.id);
   copy.append(
-    makeTextElement("span", "section-kicker", `LEVEL ${String(levelIndex + 1).padStart(2, "0")}`),
+    makeTextElement("span", "section-kicker", level.chapter || `LEVEL ${String(levelIndex + 1).padStart(2, "0")}`),
     makeTextElement("h2", "", level.title),
     makeTextElement("p", "", level.objective),
+    makeTextElement("p", "challenge-story", level.story),
   );
   header.append(copy, makeChallengeProgress(completed, level.questions.length, "本等级进度"));
 
@@ -873,6 +1264,7 @@ function renderChallengeLevel(pack, levelId) {
   list.className = "challenge-question-list";
   level.questions.forEach((question, questionIndex) => {
     const status = challengeStatus(pack, level, question);
+    const mode = challengeMode(question, questionIndex);
     const button = document.createElement("button");
     button.type = "button";
     button.className = "challenge-question-row";
@@ -883,7 +1275,7 @@ function renderChallengeLevel(pack, levelId) {
     button.append(
       makeTextElement("span", "challenge-question-number", String(questionIndex + 1).padStart(2, "0")),
       makeTextElement("span", "challenge-question-copy", question.title),
-      makeTextElement("span", "challenge-question-type", question.type),
+      makeTextElement("span", `challenge-question-type mode-${mode}`, challengeModeLabels[mode]),
       makeTextElement("span", "challenge-question-state", status.completed ? "已完成" : status.unlocked ? "开始 →" : "锁定"),
     );
     button.addEventListener("click", () => navigateLearning("challengeQuestion", pack.skillId, true, level.id, question.id));
@@ -897,7 +1289,9 @@ function renderChallengeLevel(pack, levelId) {
   back.textContent = "← 返回关卡地图";
   back.addEventListener("click", () => navigateLearning("detail", pack.skillId));
   footer.append(back);
-  article.append(makeChallengeBreadcrumb(pack, level), header, list, footer);
+  article.append(makeChallengeBreadcrumb(pack, level), header, list);
+  if (completed === level.questions.length && level.reward) article.append(makeLevelReward(level));
+  article.append(footer);
   elements.skillDetailContainer.replaceChildren(article);
 }
 
@@ -917,17 +1311,23 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   const allQuestions = challengeQuestions(pack);
   const previous = allQuestions[status.index - 1];
   const next = allQuestions[status.index + 1];
+  const questionIndex = level.questions.indexOf(question);
+  const mode = challengeMode(question, questionIndex);
   const article = document.createElement("article");
-  article.className = "challenge-page challenge-question-page";
+  article.className = `challenge-page challenge-question-page challenge-mode-${mode}`;
   article.dataset.questionId = question.id;
 
   const header = document.createElement("header");
   header.className = "challenge-question-header";
-  const label = makeTextElement("span", "section-kicker", `${level.title} · 第 ${level.questions.indexOf(question) + 1} 题`);
+  const label = makeTextElement("span", "section-kicker", `${level.chapter || level.title} · 第 ${questionIndex + 1} 题`);
   const title = makeTextElement("h2", "", question.title);
   const meta = document.createElement("div");
   meta.className = "challenge-question-meta";
-  meta.append(makeTextElement("span", "", question.type), makeTextElement("span", "", `${status.index + 1} / ${status.total}`));
+  meta.append(
+    makeTextElement("span", `mode-${mode}`, challengeModeLabels[mode]),
+    makeTextElement("span", "", question.type),
+    makeTextElement("span", "", `${status.index + 1} / ${status.total}`),
+  );
   header.append(label, title, meta);
 
   const promptSection = document.createElement("section");
@@ -945,19 +1345,22 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     promptSection.append(hint);
   }
 
-  const answerActions = document.createElement("div");
-  answerActions.className = "challenge-answer-actions";
   const revealButton = document.createElement("button");
   revealButton.type = "button";
   revealButton.className = "challenge-primary-button";
-  revealButton.textContent = "查看答案";
+  revealButton.textContent = "完成作答后查看答案";
+  revealButton.disabled = true;
   revealButton.setAttribute("aria-expanded", "false");
-  const completionButton = document.createElement("button");
-  completionButton.type = "button";
-  completionButton.className = "challenge-complete-button";
-  completionButton.textContent = status.completed ? "已完成" : "掌握本题并解锁下一题";
-  completionButton.disabled = true;
-  answerActions.append(revealButton, completionButton);
+  const answerGate = makeTextElement("span", "challenge-answer-gate", "先完成上面的作答，不要求和参考答案一致。");
+  const answerActions = document.createElement("div");
+  answerActions.className = "challenge-answer-actions";
+  answerActions.append(revealButton, answerGate);
+
+  const response = makeChallengeResponse(pack, level, question, questionIndex, (ready) => {
+    revealButton.disabled = !ready;
+    revealButton.textContent = ready ? "查看参考答案" : "完成作答后查看答案";
+    answerGate.textContent = ready ? "作答已保存，可以对照答案。" : "先完成上面的作答，不要求和参考答案一致。";
+  });
 
   const answerPanel = document.createElement("section");
   answerPanel.className = "challenge-answer";
@@ -1000,26 +1403,49 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   nextButton.addEventListener("click", () => next && navigateLearning("challengeQuestion", pack.skillId, true, next.level.id, next.question.id));
   navigation.append(homeButton, previousButton, nextButton);
 
+  let selfReview;
+  const completeQuestion = () => {
+    const key = `${level.id}/${question.id}`;
+    completeDailyMissionItem(pack, key);
+    const progress = getChallengeProgress(pack.skillId);
+    progress.add(key);
+    persistChallengeProgress(pack.skillId);
+    markPracticeDay(pack.skillId);
+    updateChallengeSkillLevel(pack);
+    article.classList.add("completed");
+    selfReview.completionButton.textContent = "本题已完成";
+    selfReview.completionButton.disabled = true;
+    setNextButton(true);
+
+    const levelComplete = level.questions.every((item) => progress.has(`${level.id}/${item.id}`));
+    if (levelComplete && level.reward && !article.querySelector(".challenge-reward")) {
+      const reward = makeLevelReward(level, true);
+      article.insertBefore(reward, navigation);
+      reward.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+  };
+  selfReview = makeSelfReview(status, completeQuestion);
+
   revealButton.addEventListener("click", () => {
     const willShow = answerPanel.hidden;
     answerPanel.hidden = !willShow;
-    revealButton.textContent = willShow ? "收起答案" : "查看答案";
+    selfReview.section.hidden = !willShow;
+    revealButton.textContent = willShow ? "收起参考答案" : "查看参考答案";
     revealButton.setAttribute("aria-expanded", String(willShow));
-    completionButton.disabled = !willShow || status.completed;
-  });
-  completionButton.addEventListener("click", () => {
-    const progress = getChallengeProgress(pack.skillId);
-    progress.add(`${level.id}/${question.id}`);
-    persistChallengeProgress(pack.skillId);
-    updateChallengeSkillLevel(pack);
-    article.classList.add("completed");
-    completionButton.textContent = "已完成";
-    completionButton.disabled = true;
-    setNextButton(true);
+    if (willShow) response.onReveal();
   });
 
   if (status.completed) article.classList.add("completed");
-  article.append(makeChallengeBreadcrumb(pack, level), header, promptSection, answerActions, answerPanel, navigation);
+  article.append(
+    makeChallengeBreadcrumb(pack, level),
+    header,
+    promptSection,
+    response.element,
+    answerActions,
+    answerPanel,
+    selfReview.section,
+    navigation,
+  );
   elements.skillDetailContainer.replaceChildren(article);
 }
 

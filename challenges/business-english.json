@@ -1,19 +1,34 @@
 {
-  "version": 1,
+  "version": 2,
   "skillId": "business-english",
   "title": "业务英语闯关",
   "summary": "围绕支付与策略运营的真实工作场景训练表达。每题先独立作答，再对照参考答案修正，目标不是背模板，而是形成可以在邮件、会议、汇报和面试中直接调用的表达结构。",
+  "story": "你刚加入一个跨境支付增长项目。六个章节会带你从理解支付链路，一路走到跨区域上线和最终英文面试。",
   "levels": [
     {
       "id": "payment-basics",
       "title": "支付术语基础",
       "subtitle": "把支付链路和核心指标讲准确",
       "objective": "能够用简洁英语解释支付参与方、资金流程、合规概念和商业指标。",
+      "chapter": "第一章 · 加入支付团队",
+      "story": "入职第一周，你需要向海外同事讲清支付链路，避免团队因术语误解做出错误判断。",
+      "reward": {
+        "title": "支付术语速查卡",
+        "description": "完成本章后，下面这些表达可以直接用于支付业务沟通。",
+        "items": ["Authorization reserves funds; settlement moves funds.", "A chargeback is initiated through the issuing bank.", "Review pricing together with unit economics."]
+      },
       "questions": [
         {
           "id": "authorization-capture-settlement",
           "title": "授权、请款与结算",
           "type": "概念表达",
+          "activity": {
+            "mode": "choice",
+            "prompt": "哪一句最准确地解释 authorization？",
+            "choices": ["Authorization means the merchant has received settled funds.", "Authorization checks and temporarily reserves available funds.", "Authorization is a dispute initiated by the cardholder."],
+            "correctChoice": 1,
+            "feedback": "授权阶段检查并预留额度，资金尚未结算给商户。"
+          },
           "prompt": "一位海外同事把 authorization、capture 和 settlement 当成同一个动作。你需要在会议中澄清三者的先后关系。",
           "task": "用 3 至 5 句英文解释三个阶段，并说明授权成功不代表商户已经收到钱。",
           "hint": "按“检查并预留额度 → 确认扣款 → 资金划转”的顺序组织。",
@@ -82,11 +97,25 @@
       "title": "清晰商务写作",
       "subtitle": "写出结论先行、动作明确的邮件",
       "objective": "能够快速写出结构清楚、语气得体并带有负责人和截止时间的商务邮件。",
+      "chapter": "第二章 · 推动海外试点",
+      "story": "巴西试点出现延期风险。你需要通过邮件把结论、证据、负责人和截止时间讲清楚。",
+      "reward": {
+        "title": "结论先行邮件卡",
+        "description": "三句话快速搭出一封行动明确的商务邮件。",
+        "items": ["I recommend ... because ...", "The owner will complete ... by ...", "Unless there are objections by ..., I will ..."]
+      },
       "questions": [
         {
           "id": "bluf-rewrite",
           "title": "结论先行改写",
           "type": "邮件改写",
+          "activity": {
+            "mode": "choice",
+            "prompt": "哪一句最适合作为延期建议邮件的第一句？",
+            "choices": ["As you may already know, we have recently reviewed several issues.", "I am writing this email to discuss the Brazil pilot.", "I recommend moving the Brazil pilot from 12 August to 19 August."],
+            "correctChoice": 2,
+            "feedback": "首句直接写建议和日期，收件人不必从背景中寻找结论。"
+          },
           "prompt": "你建议将巴西试点推迟一周，因为退款接口尚未通过回归测试。",
           "task": "写一封不超过 90 词的英文邮件，第一句直接给出建议，再补充原因和下一步。",
           "hint": "使用 recommendation → evidence → next step 的结构。",
@@ -155,11 +184,25 @@
       "title": "数据汇报",
       "subtitle": "从数字走向判断和行动",
       "objective": "能够用英文讲清指标变化、诊断证据、业务影响与后续动作。",
+      "chapter": "第三章 · 诊断成功率事故",
+      "story": "支付成功率突然下降。你要在有限时间内向管理层讲清变化、定位、判断和下一步。",
+      "reward": {
+        "title": "四句数据汇报卡",
+        "description": "用固定顺序把数字变成可行动的业务判断。",
+        "items": ["Metric change: what changed and by how much.", "Diagnosis: where and when the change happened.", "Action: what we did and when we will update."]
+      },
       "questions": [
         {
           "id": "success-rate-drop",
           "title": "支付成功率下降",
           "type": "周报口径",
+          "activity": {
+            "mode": "choice",
+            "prompt": "成功率从 92.4% 降至 90.8%，哪一种说法准确？",
+            "choices": ["It fell by 1.6 percent.", "It fell by 1.6 percentage points.", "It fell to 1.6 percentage points."],
+            "correctChoice": 1,
+            "feedback": "两个百分比相减得到百分点变化，因此应使用 percentage points。"
+          },
           "prompt": "本周整体支付成功率从 92.4% 降至 90.8%，主要来自德国银行卡支付，下降发生在周二路由调整后。",
           "task": "用 4 句英文汇报变化、定位、初步判断和行动。",
           "hint": "回答 where、when 和 what next。",
@@ -228,11 +271,25 @@
       "title": "会议与异议",
       "subtitle": "澄清、反对并推动会议形成决定",
       "objective": "能够在英语会议中确认理解、表达不同意见、处理异议并锁定下一步。",
+      "chapter": "第四章 · 主持跨团队会议",
+      "story": "项目进入争议密集期。你要在不破坏协作关系的前提下澄清问题、表达反对并锁定行动。",
+      "reward": {
+        "title": "会议推进表达卡",
+        "description": "遇到模糊需求、不同意见和资源冲突时可以直接调用。",
+        "items": ["Could we clarify which outcome matters most?", "My concern is ...; I would recommend ...", "Before we close, let me confirm the owner and deadline."]
+      },
       "questions": [
         {
           "id": "clarify-vague-request",
           "title": "澄清模糊需求",
           "type": "会议表达",
+          "activity": {
+            "mode": "choice",
+            "prompt": "对方只说“we need better performance”，最佳回应是什么？",
+            "choices": ["Sure, we will improve it as soon as possible.", "Could we clarify the target metric, scope and decision deadline?", "Why was the requirement not defined before the meeting?"],
+            "correctChoice": 1,
+            "feedback": "先澄清指标、范围和决策时间，才能把抽象要求转成可执行问题。"
+          },
           "prompt": "对方说“we need better payment performance”，但没有说明指标、市场或时间范围。",
           "task": "用英文提出三项澄清问题，并复述你理解的决策目标。",
           "hint": "围绕 metric、scope 和 decision。",
@@ -301,11 +358,25 @@
       "title": "跨区域协作",
       "subtitle": "在本地差异与全球一致性之间做取舍",
       "objective": "能够讨论本地化、市场进入、时区协作和合规不确定性，并形成跨区域机制。",
+      "chapter": "第五章 · 推动区域上线",
+      "story": "总部规则遇到本地市场现实。你需要区分翻译与本地化，并在合规、速度和增长之间做取舍。",
+      "reward": {
+        "title": "跨区域协作卡",
+        "description": "把本地关切转化为可验证、可治理的区域方案。",
+        "items": ["Localization adapts the full experience, not only the language.", "We have not yet confirmed whether ...", "Use a defined segment and explicit decision rules."]
+      },
       "questions": [
         {
           "id": "localization-translation",
           "title": "本地化不只是翻译",
           "type": "策略表达",
+          "activity": {
+            "mode": "choice",
+            "prompt": "哪一句最准确地区分 translation 和 localization？",
+            "choices": ["Localization adapts the full experience to local behavior and requirements.", "Localization means translating every sentence into the local language.", "Translation includes regulation, payment methods and support operations."],
+            "correctChoice": 0,
+            "feedback": "本地化覆盖行为、产品、监管和运营，翻译只是其中一个语言环节。"
+          },
           "prompt": "总部认为把英文收银台翻译成西班牙语就完成了墨西哥本地化，你需要说明还缺什么。",
           "task": "用英文解释 translation 与 localization 的差别，并给出至少三个需要验证的本地因素。",
           "hint": "考虑支付方式、信任、格式、监管和客服。",
@@ -374,11 +445,25 @@
       "title": "英文面试",
       "subtitle": "把经历讲成可验证的业务能力",
       "objective": "能够用结构化英文完成自我介绍、项目案例、失败复盘和岗位动机表达。",
+      "chapter": "最终章 · 赢得英文面试",
+      "story": "项目成果成为你的面试证据。最后一章要把经历压缩成清楚、可信并能经得住追问的英文案例。",
+      "reward": {
+        "title": "英文面试结构卡",
+        "description": "从开场到追问，用结构代替临场背诵。",
+        "items": ["Introduction: present, evidence, future.", "Project: situation, action, result, learning.", "Failure: ownership, recovery, changed behavior."]
+      },
       "questions": [
         {
           "id": "self-introduction",
           "title": "60 秒自我介绍",
           "type": "开场表达",
+          "activity": {
+            "mode": "choice",
+            "prompt": "哪一种自我介绍开场最容易建立岗位相关性？",
+            "choices": ["I graduated several years ago and then worked at three companies.", "Let me walk you through every position on my resume.", "I am a strategy and operations professional focused on turning data into scalable improvements."],
+            "correctChoice": 2,
+            "feedback": "先给职业定位和价值，再用项目证据支撑，比逐年复述简历更有效。"
+          },
           "prompt": "你面试支付策略运营岗位，需要在一分钟内建立与岗位的相关性，不能逐年复述简历。",
           "task": "写一个 90 至 120 词的英文自我介绍，包含定位、两项证据和求职方向。",
           "hint": "使用 present → evidence → future。",

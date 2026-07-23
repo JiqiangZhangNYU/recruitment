@@ -77,6 +77,8 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
   assert.equal(await page.locator(".challenge-level-card:disabled").count(), businessEnglish.levels.length - 1);
   assert.match(await page.locator(".challenge-hero").textContent(), /30/);
+  assert.equal(await page.locator(".daily-mission-step").count(), 3);
+  assert.match(await page.locator(".weekly-practice").textContent(), /0 \/ 3 天/);
 
   await page.locator(".challenge-level-card").first().click();
   assert.equal(await page.locator(".challenge-question-row").count(), businessEnglish.levels[0].questions.length);
@@ -84,10 +86,16 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.locator(".challenge-question-row").first().click();
   assert.equal(await page.locator(".challenge-answer").isHidden(), true);
   assert.equal(await page.locator(".challenge-complete-button").isDisabled(), true);
+  assert.equal(await page.locator(".challenge-primary-button").isDisabled(), true);
   assert.match(page.url(), /#challenge\/business-english\/payment-basics\/authorization-capture-settlement$/);
+  await page.locator(".challenge-choice").nth(businessEnglish.levels[0].questions[0].activity.correctChoice).click();
+  assert.equal(await page.locator(".challenge-primary-button").isEnabled(), true);
   await page.locator(".challenge-primary-button").click();
   assert.equal(await page.locator(".challenge-answer").isVisible(), true);
   assert.match(await page.locator(".challenge-answer-sample").textContent(), /Authorization checks/);
+  assert.equal(await page.locator(".challenge-choice.correct").count(), 1);
+  assert.equal(await page.locator(".challenge-self-review").isVisible(), true);
+  for (let index = 0; index < 3; index += 1) await page.locator(".challenge-review-grid label").nth(index).click();
   assert.equal(await page.locator(".challenge-complete-button").isEnabled(), true);
   await page.locator(".challenge-complete-button").click();
   assert.equal(await page.locator(".challenge-question-navigation button").last().isEnabled(), true);
@@ -98,19 +106,50 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.locator(".challenge-question-navigation button").last().click();
   assert.equal(await page.locator(".challenge-answer").isHidden(), true);
   assert.match(await page.locator(".challenge-question-header h2").textContent(), /退款与拒付/);
+  assert.match(await page.locator(".challenge-response-heading").textContent(), /句子排序/);
+  while (await page.locator(".challenge-chunk").count()) await page.locator(".challenge-chunk").first().click();
+  assert.equal(await page.locator(".challenge-primary-button").isEnabled(), true);
+  await page.locator(".challenge-primary-button").click();
+  assert.equal(await page.locator(".challenge-answer").isVisible(), true);
+  for (let index = 0; index < 3; index += 1) await page.locator(".challenge-review-grid label").nth(index).click();
+  await page.locator(".challenge-complete-button").click();
+  await page.locator(".challenge-question-navigation button").last().click();
+  assert.match(await page.locator(".challenge-question-header h2").textContent(), /支付链路参与方/);
+  assert.equal(await page.locator(".challenge-primary-button").isDisabled(), true);
+  await page.locator(".challenge-draft-input").fill("The issuer serves the customer, while the acquirer serves the merchant.");
+  assert.equal(await page.locator(".challenge-primary-button").isEnabled(), true);
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.locator(".challenge-question-header h2").waitFor();
-  assert.match(await page.locator(".challenge-question-header h2").textContent(), /退款与拒付/);
+  assert.match(await page.locator(".challenge-question-header h2").textContent(), /支付链路参与方/);
   assert.equal(await page.locator(".challenge-answer").isHidden(), true);
+  assert.match(await page.locator(".challenge-draft-input").inputValue(), /issuer serves the customer/);
   assert.deepEqual(
     await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-challenge-business-english"))),
-    ["payment-basics/authorization-capture-settlement"],
+    ["payment-basics/authorization-capture-settlement", "payment-basics/refund-chargeback"],
   );
-  await page.locator(".challenge-question-navigation button").nth(1).click();
-  assert.match(await page.locator(".challenge-question-header h2").textContent(), /授权、请款与结算/);
   await page.locator(".challenge-home-button").click();
   assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
-  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).textContent(), /1\/30/);
+  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).textContent(), /2\/30/);
+  assert.equal(await page.locator(".daily-mission-step.completed").count(), 2);
+  assert.match(await page.locator(".weekly-practice").textContent(), /1 \/ 3 天/);
+
+  const firstLevelKeys = businessEnglish.levels[0].questions.slice(0, 4)
+    .map((question) => `payment-basics/${question.id}`);
+  await page.evaluate((keys) => {
+    localStorage.setItem("recruitment-challenge-business-english", JSON.stringify(keys));
+  }, firstLevelKeys);
+  const rewardURL = new URL(baseURL);
+  rewardURL.searchParams.set("test", "reward");
+  rewardURL.hash = "challenge/business-english/payment-basics/take-rate-net-revenue";
+  await page.goto(rewardURL.href, { waitUntil: "domcontentloaded" });
+  await page.locator(".challenge-draft-input").waitFor();
+  assert.match(await page.locator(".challenge-response-heading").textContent(), /Boss 挑战/);
+  await page.locator(".challenge-draft-input").fill("Take rate explains gross pricing, while net revenue also depends on processing costs and losses.");
+  await page.locator(".challenge-primary-button").click();
+  for (let index = 0; index < 3; index += 1) await page.locator(".challenge-review-grid label").nth(index).click();
+  await page.locator(".challenge-complete-button").click();
+  assert.equal(await page.locator(".challenge-reward").isVisible(), true);
+  assert.match(await page.locator(".challenge-reward h3").textContent(), /支付术语速查卡/);
 
   await page.locator("#learning-view-nav button").filter({ hasText: "16 周路线" }).click();
   assert.equal(await page.locator(".week-row").count(), guide.weeks.length);
