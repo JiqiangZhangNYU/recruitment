@@ -1,0 +1,916 @@
+{
+  "version": 1,
+  "skillId": "data-diagnosis",
+  "title": "数据分析与经营诊断闯关",
+  "summary": "48 道题覆盖目标岗位最常见的数据任务，其中 34 道需要阅读、编写或修改 SQL，其余题训练数据质量、指标口径、Excel、单位经济、异常诊断和业务表达。每题先独立作答，再查看参考答案。",
+  "story": "你加入了跨境商家钱包增长组。八个阶段会从一次取数请求开始，逐步走到支付事故诊断、经营周报和最终面试案例。SQL 是主要工具，最终目标是做出可信的业务判断。",
+  "ui": {
+    "modeLabels": {
+      "warmup": "概念判断",
+      "sql": "SQL 实战",
+      "diagnosis": "业务诊断",
+      "boss": "综合 Boss"
+    },
+    "responseHints": {
+      "sql": "先独立写查询，再核对粒度和口径",
+      "diagnosis": "先写判断，再补证据和行动",
+      "boss": "把口径、SQL、结论和风险串起来"
+    },
+    "draftPlaceholders": {
+      "sql": "在这里写 PostgreSQL，可以先写注释、思路或伪代码...",
+      "diagnosis": "写下你的判断、需要的证据和下一步行动...",
+      "boss": "写出完整分析方案；需要 SQL 时一并写出..."
+    },
+    "selfReview": {
+      "title": "不用逐字一致，确认下面四项中的三项",
+      "threshold": 3,
+      "criteria": [
+        "粒度、时间窗、分子和分母定义清楚",
+        "SQL 或分析步骤能回答题目而且不会重复计数",
+        "结论区分事实、假设与因果",
+        "说明了业务影响、风险或下一步行动"
+      ]
+    }
+  },
+  "reference": {
+    "label": "查看练习表结构（PostgreSQL）",
+    "description": "所有时间字段均为 timestamptz，金额分析优先使用已换算的 USD 字段。除题目另有说明外，成功支付定义为 payment_result = 'SUCCESS'。",
+    "schema": "merchants(merchant_id, country, category, source, merchant_tier, onboard_date, kyc_completed_at)\nevents(entity_id, event_name, event_time, country, device)\norders(order_id, merchant_id, user_id, order_time, gmv_usd, subsidy_usd, status)\npayments(payment_id, order_id, merchant_id, payment_time, amount_usd, channel, issuer_country, auth_result, payment_result, failure_reason, processing_cost_usd, fx_revenue_usd, chargeback_flag, risk_result)\nsettlements(settlement_id, merchant_id, created_at, settled_at, amount_usd, status)\ncampaigns(campaign_id, start_date, end_date, cost_usd)\ncampaign_exposures(campaign_id, merchant_id, exposed_at)"
+  },
+  "levels": [
+    {
+      "id": "grain-quality",
+      "title": "粒度与数据质量",
+      "subtitle": "先保证每一行和每一个比例都可信",
+      "objective": "能够说明表粒度和主键，用 SQL 检查重复、缺失、异常值、时区与金额口径。",
+      "chapter": "第一章 · 接手陌生数据",
+      "story": "团队要你明早交一份商家钱包日报，但数据字典不完整。第一步不是画图，而是确认每张表的一行代表什么。",
+      "reward": {
+        "title": "数据质量检查卡",
+        "description": "每次分析开始前固定检查四类风险。",
+        "items": ["Grain and primary key", "Nulls, duplicates and impossible values", "Timezone, currency and metric definition"]
+      },
+      "questions": [
+        {
+          "id": "grain-before-query",
+          "title": "先确认表粒度",
+          "type": "口径基础",
+          "activity": {
+            "mode": "choice",
+            "prompt": "准备计算支付成功率时，最先应该确认什么？",
+            "choices": ["图表使用折线还是柱状", "payments 每一行的业务含义、主键和重复规则", "先筛选成功支付以减少数据量"],
+            "correctChoice": 1,
+            "feedback": "不知道一行代表一次尝试、一次订单还是一次状态变化，就无法定义正确分母。"
+          },
+          "prompt": "payments 表可能同时记录重试和状态更新，业务方只说要看支付成功率。",
+          "task": "选择最先确认的事项，再写出你会向数据负责人追问的两个口径问题。",
+          "hint": "考虑一笔订单是否会有多个 payment_id，以及同一 payment_id 是否会出现多行。",
+          "answer": {
+            "sample": "先确认 payments 的粒度、主键和状态更新方式。我会追问：一行是一笔支付尝试还是一次状态事件？同一订单重试会生成新的 payment_id，还是覆盖旧记录？只有确定去重单位和最终状态规则，才能定义成功率的分子与分母。",
+            "notes": ["表名不能代替粒度定义。", "支付成功率至少要说明尝试级还是订单级。"],
+            "keywords": ["grain", "primary key", "deduplication", "denominator"]
+          }
+        },
+        {
+          "id": "daily-new-merchants",
+          "title": "每日新增商家",
+          "type": "基础聚合",
+          "activity": {"mode": "sql"},
+          "prompt": "merchants 每行一个商家，onboard_date 为开户时间。运营需要过去 30 天按上海自然日统计每日新增商家。",
+          "task": "写 SQL 返回 onboard_day 和 new_merchants，并按日期升序。",
+          "hint": "timestamptz 先转换为 Asia/Shanghai，再截取日期。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  (onboard_date AT TIME ZONE 'Asia/Shanghai')::date AS onboard_day,\n  COUNT(DISTINCT merchant_id) AS new_merchants\nFROM merchants\nWHERE onboard_date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY 1\nORDER BY 1;",
+            "notes": ["自然日统计要明确业务时区。", "即使当前表声明一行一个商家，COUNT DISTINCT 也能防御意外重复。"],
+            "keywords": ["AT TIME ZONE", "COUNT DISTINCT", "GROUP BY", "date"]
+          }
+        },
+        {
+          "id": "duplicate-payment-id",
+          "title": "发现重复支付记录",
+          "type": "数据质量 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "数据字典声称 payment_id 唯一，但你怀疑上游重放造成了重复。",
+          "task": "写 SQL 找出重复 payment_id、重复行数和最早/最晚时间，只返回重复项。",
+          "hint": "GROUP BY 后用 HAVING 过滤组。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  payment_id,\n  COUNT(*) AS row_count,\n  MIN(payment_time) AS first_seen_at,\n  MAX(payment_time) AS last_seen_at\nFROM payments\nGROUP BY payment_id\nHAVING COUNT(*) > 1\nORDER BY row_count DESC, payment_id;",
+            "notes": ["WHERE 不能过滤聚合后的 COUNT。", "时间跨度能帮助判断是状态更新还是完全重复。"],
+            "keywords": ["HAVING", "COUNT(*)", "MIN", "MAX"]
+          }
+        },
+        {
+          "id": "invalid-payment-values",
+          "title": "筛出不可能值",
+          "type": "质量规则",
+          "activity": {"mode": "sql"},
+          "prompt": "支付表出现负金额、成功但无订单号、失败却没有失败原因等可疑记录。",
+          "task": "写一条 SQL 返回异常记录，并用 issue_type 标出至少三类问题。",
+          "hint": "用 CASE WHEN 标记问题，再在外层过滤。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH checked AS (\n  SELECT\n    p.*,\n    CASE\n      WHEN amount_usd <= 0 THEN 'NON_POSITIVE_AMOUNT'\n      WHEN payment_result = 'SUCCESS' AND order_id IS NULL THEN 'SUCCESS_WITHOUT_ORDER'\n      WHEN payment_result = 'FAILED' AND failure_reason IS NULL THEN 'FAILED_WITHOUT_REASON'\n      ELSE NULL\n    END AS issue_type\n  FROM payments p\n)\nSELECT *\nFROM checked\nWHERE issue_type IS NOT NULL\nORDER BY payment_time DESC;",
+            "notes": ["先把规则显式编码，便于统计每类问题。", "真实项目还应确认退款或冲正是否允许负金额。"],
+            "keywords": ["CASE WHEN", "NULL", "data quality", "business rule"]
+          }
+        },
+        {
+          "id": "timezone-cutoff",
+          "title": "跨时区日报边界",
+          "type": "时间口径",
+          "activity": {"mode": "sql"},
+          "prompt": "payment_time 存为 UTC timestamptz。上海团队要统计 2026-07-22 当地自然日的支付尝试。",
+          "task": "写 SQL 计算该日尝试数和成功数，避免直接对 UTC 日期取 date。",
+          "hint": "可以将时间转换到 Asia/Shanghai 后比较日期。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  COUNT(*) AS attempts,\n  COUNT(*) FILTER (WHERE payment_result = 'SUCCESS') AS successes\nFROM payments\nWHERE (payment_time AT TIME ZONE 'Asia/Shanghai')::date = DATE '2026-07-22';",
+            "notes": ["题目强调的是业务自然日，不是数据库会话时区。", "大表生产查询更适合换算 UTC 起止时间以利用索引。"],
+            "keywords": ["timestamptz", "business day", "FILTER", "timezone"]
+          }
+        },
+        {
+          "id": "quality-gate-boss",
+          "title": "日报上线前质量闸门",
+          "type": "综合质量检查",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "明早的经营日报会被管理层使用。你需要在发布前建立一个最小质量闸门。",
+          "task": "写 SQL 或伪代码输出重复主键、关键字段缺失、异常金额和未来时间四项问题数，并说明哪种情况应阻止发布。",
+          "hint": "可以用 UNION ALL 把多个质量指标纵向合并。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT 'duplicate_payment_id' AS check_name, COUNT(*) AS issue_count\nFROM (SELECT payment_id FROM payments GROUP BY payment_id HAVING COUNT(*) > 1) d\nUNION ALL\nSELECT 'missing_key_fields', COUNT(*)\nFROM payments\nWHERE payment_id IS NULL OR payment_time IS NULL OR payment_result IS NULL\nUNION ALL\nSELECT 'non_positive_amount', COUNT(*)\nFROM payments\nWHERE amount_usd <= 0\nUNION ALL\nSELECT 'future_payment_time', COUNT(*)\nFROM payments\nWHERE payment_time > CURRENT_TIMESTAMP + INTERVAL '5 minutes';\n\n-- 重复主键或关键字段缺失应阻止发布；其他问题需结合退款等业务规则设阈值。",
+            "notes": ["质量检查需要输出可监控的计数，而不只是抽样看几行。", "阻断规则应区分绝对错误与可能有业务解释的异常。"],
+            "keywords": ["UNION ALL", "quality gate", "blocking rule", "threshold"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "aggregation",
+      "title": "筛选、聚合与指标口径",
+      "subtitle": "把业务问题翻译成准确的分子和分母",
+      "objective": "熟练使用 WHERE、CASE、FILTER、GROUP BY、HAVING 和日期函数构造基础经营指标。",
+      "chapter": "第二章 · 搭建经营日报",
+      "story": "数据质量通过后，你需要把开户、KYC、支付尝试、成功和净收入放进同一套日报。",
+      "reward": {
+        "title": "指标 SQL 模板卡",
+        "description": "聚合题先写清粒度，再写分子、分母和零除保护。",
+        "items": ["COUNT(*) FILTER (WHERE ...)", "numerator / NULLIF(denominator, 0)", "date_trunc('week', timestamp)"]
+      },
+      "questions": [
+        {
+          "id": "where-vs-having",
+          "title": "WHERE 还是 HAVING",
+          "type": "SQL 概念",
+          "activity": {
+            "mode": "choice",
+            "prompt": "要找过去 30 天支付尝试超过 100 笔的商家，哪个逻辑正确？",
+            "choices": ["WHERE COUNT(*) > 100 后再 GROUP BY", "先 WHERE 限定时间，再 GROUP BY merchant_id，最后 HAVING COUNT(*) > 100", "只用 HAVING payment_time >= CURRENT_DATE - 30"],
+            "correctChoice": 1,
+            "feedback": "WHERE 过滤明细行，HAVING 过滤聚合后的商家组。"
+          },
+          "prompt": "面试官要求你解释 WHERE 与 HAVING 的差异，并给出支付场景例子。",
+          "task": "选择正确逻辑，再用一句话解释两者执行对象不同。",
+          "hint": "一个作用于聚合前的行，一个作用于聚合后的组。",
+          "answer": {
+            "sample": "WHERE 在聚合前过滤支付明细，例如限定最近 30 天；HAVING 在 GROUP BY 后过滤商家组，例如只保留尝试数大于 100 的商家。",
+            "notes": ["时间窗通常放 WHERE，聚合阈值放 HAVING。", "解释时要说清过滤的是行还是组。"],
+            "keywords": ["WHERE", "HAVING", "row filter", "group filter"]
+          }
+        },
+        {
+          "id": "kyc-rate-country",
+          "title": "各国 KYC 完成率",
+          "type": "条件聚合",
+          "activity": {"mode": "sql"},
+          "prompt": "需要比较过去 90 天开户商家在各国的 KYC 完成率。",
+          "task": "写 SQL 返回 country、onboarded、kyc_completed 和 kyc_rate，按开户数降序。",
+          "hint": "分母是窗口内开户商家，分子是其中 kyc_completed_at 非空者。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  country,\n  COUNT(DISTINCT merchant_id) AS onboarded,\n  COUNT(DISTINCT merchant_id) FILTER (WHERE kyc_completed_at IS NOT NULL) AS kyc_completed,\n  COUNT(DISTINCT merchant_id) FILTER (WHERE kyc_completed_at IS NOT NULL)::numeric\n    / NULLIF(COUNT(DISTINCT merchant_id), 0) AS kyc_rate\nFROM merchants\nWHERE onboard_date >= CURRENT_DATE - INTERVAL '90 days'\nGROUP BY country\nORDER BY onboarded DESC;",
+            "notes": ["不要在 WHERE 中先过滤已完成 KYC，否则分母会被改写。", "NULLIF 防止零除。"],
+            "keywords": ["FILTER", "NULLIF", "numerator", "denominator"]
+          }
+        },
+        {
+          "id": "success-rate-channel",
+          "title": "渠道支付成功率",
+          "type": "比率计算",
+          "activity": {"mode": "sql"},
+          "prompt": "运营要看过去 7 天各支付渠道的尝试数、成功数和成功率，只展示至少 100 次尝试的渠道。",
+          "task": "写 PostgreSQL 查询并按成功率升序。",
+          "hint": "使用 HAVING 限定聚合后的尝试数。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  channel,\n  COUNT(*) AS attempts,\n  COUNT(*) FILTER (WHERE payment_result = 'SUCCESS') AS successes,\n  COUNT(*) FILTER (WHERE payment_result = 'SUCCESS')::numeric / NULLIF(COUNT(*), 0) AS success_rate\nFROM payments\nWHERE payment_time >= CURRENT_TIMESTAMP - INTERVAL '7 days'\nGROUP BY channel\nHAVING COUNT(*) >= 100\nORDER BY success_rate, channel;",
+            "notes": ["明确这是尝试级成功率。", "低样本渠道被过滤，但报告中仍应说明阈值。"],
+            "keywords": ["success rate", "HAVING", "FILTER", "sample size"]
+          }
+        },
+        {
+          "id": "weekly-volume",
+          "title": "周度交易规模",
+          "type": "日期聚合",
+          "activity": {"mode": "sql"},
+          "prompt": "需要输出最近 12 个完整自然周的成功支付规模和活跃商家数。",
+          "task": "写 SQL 排除本周未结束数据，并按周升序。",
+          "hint": "上界使用 date_trunc('week', CURRENT_DATE)。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  date_trunc('week', payment_time)::date AS week_start,\n  SUM(amount_usd) AS payment_volume_usd,\n  COUNT(DISTINCT merchant_id) AS active_merchants\nFROM payments\nWHERE payment_result = 'SUCCESS'\n  AND payment_time >= date_trunc('week', CURRENT_DATE) - INTERVAL '12 weeks'\n  AND payment_time < date_trunc('week', CURRENT_DATE)\nGROUP BY 1\nORDER BY 1;",
+            "notes": ["完整周比较可以避免本周数据天然偏低。", "活跃商家定义为该周至少一笔成功支付。"],
+            "keywords": ["date_trunc", "complete week", "SUM", "active merchant"]
+          }
+        },
+        {
+          "id": "merchant-volume-bands",
+          "title": "商家交易规模分层",
+          "type": "CASE 分层",
+          "activity": {"mode": "sql"},
+          "prompt": "按商家过去 30 天成功支付规模分为 0、低于 1,000、1,000-10,000、10,000 以上四档。",
+          "task": "写 SQL 返回每档商家数，必须包含没有成功支付的商家。",
+          "hint": "先按商家聚合支付，再 LEFT JOIN 回全量 merchants。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH volume AS (\n  SELECT merchant_id, SUM(amount_usd) AS volume_30d\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n    AND payment_time >= CURRENT_DATE - INTERVAL '30 days'\n  GROUP BY merchant_id\n), banded AS (\n  SELECT\n    m.merchant_id,\n    CASE\n      WHEN COALESCE(v.volume_30d, 0) = 0 THEN '0. no volume'\n      WHEN v.volume_30d < 1000 THEN '1. below 1k'\n      WHEN v.volume_30d < 10000 THEN '2. 1k-10k'\n      ELSE '3. 10k+'\n    END AS volume_band\n  FROM merchants m\n  LEFT JOIN volume v USING (merchant_id)\n)\nSELECT volume_band, COUNT(*) AS merchants\nFROM banded\nGROUP BY volume_band\nORDER BY volume_band;",
+            "notes": ["从 payments 起表会漏掉零交易商家。", "CASE 的边界应互斥且穷尽。"],
+            "keywords": ["LEFT JOIN", "COALESCE", "CASE", "zero activity"]
+          }
+        },
+        {
+          "id": "daily-wbr-boss",
+          "title": "一张经营日报",
+          "type": "日报综合 SQL",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "负责人希望每天看到尝试数、成功率、成功规模、活跃商家和支付净收入。净收入简化为 fx_revenue_usd - processing_cost_usd。",
+          "task": "写一条过去 14 天的日报 SQL，并在注释中写清成功率和净收入口径。",
+          "hint": "成功规模与收入只应累计成功支付。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  payment_time::date AS payment_day,\n  COUNT(*) AS attempts,\n  COUNT(*) FILTER (WHERE payment_result = 'SUCCESS')::numeric / NULLIF(COUNT(*), 0) AS success_rate,\n  SUM(amount_usd) FILTER (WHERE payment_result = 'SUCCESS') AS payment_volume_usd,\n  COUNT(DISTINCT merchant_id) FILTER (WHERE payment_result = 'SUCCESS') AS active_merchants,\n  SUM(fx_revenue_usd - processing_cost_usd) FILTER (WHERE payment_result = 'SUCCESS') AS net_payment_revenue_usd\nFROM payments\nWHERE payment_time >= CURRENT_DATE - INTERVAL '14 days'\nGROUP BY 1\nORDER BY 1;\n\n-- success_rate: 成功尝试数 / 全部尝试数。\n-- net_payment_revenue: 题目给定的简化口径，不包含补贴、拒付损失和其他收入。",
+            "notes": ["同一张表中的指标也可能使用不同过滤条件。", "经营报表必须把简化口径和未覆盖成本写出来。"],
+            "keywords": ["WBR", "metric definition", "FILTER", "net revenue"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "joins-reconciliation",
+      "title": "JOIN 与数据核对",
+      "subtitle": "既不能漏掉零行为对象，也不能把金额重复放大",
+      "objective": "根据业务问题选择连接方式，识别一对多放大，并完成订单、支付和商家之间的核对。",
+      "chapter": "第三章 · 找回消失的商家",
+      "story": "日报显示所有商家都有交易，这显然不合理。你发现分析师从 payments 起表，零交易商家在第一步就被丢掉了。",
+      "reward": {
+        "title": "JOIN 防错卡",
+        "description": "连接前后固定核对行数、唯一键和金额。",
+        "items": ["Choose the driving table from the business population", "Aggregate before joining one-to-many tables", "Reconcile counts and amounts after every join"]
+      },
+      "questions": [
+        {
+          "id": "join-for-zero-payment",
+          "title": "保留零支付商家",
+          "type": "连接选择",
+          "activity": {
+            "mode": "choice",
+            "prompt": "要找开户后从未发生支付的商家，应从哪种连接开始？",
+            "choices": ["payments INNER JOIN merchants", "merchants LEFT JOIN payments", "payments LEFT JOIN merchants"],
+            "correctChoice": 1,
+            "feedback": "业务总体是全量商家，因此 merchants 必须作为驱动表并保留未匹配行。"
+          },
+          "prompt": "增长团队想触达开户 14 天仍没有任何支付尝试的商家。",
+          "task": "选择连接方向，并解释为什么从 payments 起表永远找不到目标人群。",
+          "hint": "先定义分析总体是谁。",
+          "answer": {
+            "sample": "从 merchants LEFT JOIN payments 开始。目标总体是所有已开户满 14 天的商家，未支付商家在 payments 中没有行；如果从 payments 起表，这些对象在连接前就已经消失。",
+            "notes": ["驱动表由业务总体决定。", "LEFT JOIN 后的右表条件不要误放到 WHERE。"],
+            "keywords": ["driving table", "LEFT JOIN", "population", "zero event"]
+          }
+        },
+        {
+          "id": "no-payment-after-onboard",
+          "title": "开户后无支付",
+          "type": "反连接 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "找出开户已满 14 天、但开户后没有任何支付尝试的商家。",
+          "task": "用 LEFT JOIN 或 NOT EXISTS 写 SQL，返回 merchant_id、country 和 onboard_date。",
+          "hint": "支付时间条件放在 ON 中，避免把 LEFT JOIN 变成 INNER JOIN。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT m.merchant_id, m.country, m.onboard_date\nFROM merchants m\nLEFT JOIN payments p\n  ON p.merchant_id = m.merchant_id\n AND p.payment_time >= m.onboard_date\nWHERE m.onboard_date < CURRENT_TIMESTAMP - INTERVAL '14 days'\n  AND p.payment_id IS NULL\nORDER BY m.onboard_date;",
+            "notes": ["右表时间限制放 ON，仍能保留无匹配商家。", "生产环境可进一步限定观察截止时间。"],
+            "keywords": ["anti join", "LEFT JOIN", "IS NULL", "ON condition"]
+          }
+        },
+        {
+          "id": "join-multiplication",
+          "title": "修复金额重复放大",
+          "type": "一对多 JOIN",
+          "activity": {"mode": "sql"},
+          "prompt": "一个订单可能有多次支付尝试。直接 orders JOIN payments 后 SUM(gmv_usd)，GMV 被重试次数放大。",
+          "task": "写 SQL 计算有成功支付的订单 GMV，每个 order_id 只能贡献一次。",
+          "hint": "先把 payments 聚合到 order_id，再连接 orders。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH paid_orders AS (\n  SELECT order_id\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n  GROUP BY order_id\n)\nSELECT SUM(o.gmv_usd) AS paid_order_gmv_usd\nFROM orders o\nJOIN paid_orders p USING (order_id)\nWHERE o.status <> 'CANCELLED';",
+            "notes": ["DISTINCT amount 不是通用解法，不同订单可能恰好同金额。", "先按连接键降到一行，再连接事实表。"],
+            "keywords": ["one-to-many", "pre-aggregation", "order_id", "double counting"]
+          }
+        },
+        {
+          "id": "orders-payments-reconcile",
+          "title": "订单与支付日核对",
+          "type": "跨表核对",
+          "activity": {"mode": "sql"},
+          "prompt": "你要比较每天已完成订单 GMV 与成功支付金额，发现接口漏单或口径差异。",
+          "task": "分别按日聚合两张表后 FULL OUTER JOIN，返回日期、两侧金额和差额。",
+          "hint": "不要直接连接明细表后聚合。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH order_daily AS (\n  SELECT order_time::date AS day, SUM(gmv_usd) AS order_gmv\n  FROM orders\n  WHERE status = 'COMPLETED'\n  GROUP BY 1\n), payment_daily AS (\n  SELECT payment_time::date AS day, SUM(amount_usd) AS paid_amount\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n  GROUP BY 1\n)\nSELECT\n  COALESCE(o.day, p.day) AS day,\n  COALESCE(o.order_gmv, 0) AS order_gmv,\n  COALESCE(p.paid_amount, 0) AS paid_amount,\n  COALESCE(p.paid_amount, 0) - COALESCE(o.order_gmv, 0) AS difference\nFROM order_daily o\nFULL OUTER JOIN payment_daily p USING (day)\nORDER BY day;",
+            "notes": ["FULL OUTER JOIN 能暴露只存在一侧的日期。", "差额不一定是错误，还可能来自跨日、部分支付或退款。"],
+            "keywords": ["FULL OUTER JOIN", "reconciliation", "COALESCE", "difference"]
+          }
+        },
+        {
+          "id": "orphan-payments",
+          "title": "没有订单的支付",
+          "type": "完整性检查",
+          "activity": {"mode": "sql"},
+          "prompt": "数据团队怀疑存在 order_id 无法在 orders 找到的支付记录。",
+          "task": "写 SQL 按 payment_result 统计孤儿支付数量和金额，并列出占全部支付的比例。",
+          "hint": "先标记右表未匹配，再用窗口或子查询得到总量。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  p.payment_result,\n  COUNT(*) AS orphan_payments,\n  SUM(p.amount_usd) AS orphan_amount_usd,\n  COUNT(*)::numeric / NULLIF((SELECT COUNT(*) FROM payments), 0) AS share_of_all_payments\nFROM payments p\nLEFT JOIN orders o ON o.order_id = p.order_id\nWHERE o.order_id IS NULL\nGROUP BY p.payment_result\nORDER BY orphan_payments DESC;",
+            "notes": ["数量和金额都要看，避免大量小额与少量大额被同等处理。", "比例分母在这里是全部支付记录，报告中需写明。"],
+            "keywords": ["referential integrity", "orphan row", "subquery", "share"]
+          }
+        },
+        {
+          "id": "merchant-360-boss",
+          "title": "商家 30 天经营宽表",
+          "type": "多表综合",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "运营需要每个商家一行的 30 天视图：尝试数、成功数、成功规模、订单 GMV、最近支付时间，并保留零行为商家。",
+          "task": "写 SQL，避免 orders 与 payments 直接多对多连接造成放大。",
+          "hint": "分别把订单和支付聚合到 merchant_id，再连接 merchants。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH pay AS (\n  SELECT\n    merchant_id,\n    COUNT(*) AS attempts_30d,\n    COUNT(*) FILTER (WHERE payment_result = 'SUCCESS') AS successes_30d,\n    SUM(amount_usd) FILTER (WHERE payment_result = 'SUCCESS') AS paid_volume_30d,\n    MAX(payment_time) AS last_payment_at\n  FROM payments\n  WHERE payment_time >= CURRENT_DATE - INTERVAL '30 days'\n  GROUP BY merchant_id\n), ord AS (\n  SELECT merchant_id, SUM(gmv_usd) AS order_gmv_30d\n  FROM orders\n  WHERE order_time >= CURRENT_DATE - INTERVAL '30 days'\n    AND status = 'COMPLETED'\n  GROUP BY merchant_id\n)\nSELECT\n  m.merchant_id, m.country, m.merchant_tier,\n  COALESCE(p.attempts_30d, 0) AS attempts_30d,\n  COALESCE(p.successes_30d, 0) AS successes_30d,\n  COALESCE(p.paid_volume_30d, 0) AS paid_volume_30d,\n  COALESCE(o.order_gmv_30d, 0) AS order_gmv_30d,\n  p.last_payment_at\nFROM merchants m\nLEFT JOIN pay p USING (merchant_id)\nLEFT JOIN ord o USING (merchant_id);",
+            "notes": ["每个 CTE 必须保证 merchant_id 唯一。", "输出后应核对行数等于 merchants 的商家数。"],
+            "keywords": ["merchant 360", "pre-aggregate", "one row per merchant", "row-count check"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "windows-lifecycle",
+      "title": "窗口函数与生命周期",
+      "subtitle": "在不丢失明细的前提下识别顺序、间隔和趋势",
+      "objective": "使用 ROW_NUMBER、LAG 和窗口聚合计算首笔、复购、连续活跃、滚动指标和生命周期阶段。",
+      "chapter": "第四章 · 追踪商家成长",
+      "story": "管理层不再满足于看当日总量，希望知道商家何时完成首笔、多久复购，以及哪些商家正在沉默。",
+      "reward": {
+        "title": "窗口函数选择卡",
+        "description": "根据问题选择排序、位移或滚动窗口。",
+        "items": ["ROW_NUMBER for first or nth event", "LAG for previous event and gap", "ROWS BETWEEN for rolling metrics"]
+      },
+      "questions": [
+        {
+          "id": "row-number-purpose",
+          "title": "何时使用 ROW_NUMBER",
+          "type": "窗口概念",
+          "activity": {
+            "mode": "choice",
+            "prompt": "要保留每个商家的第一笔成功支付整行信息，最直接的方法是什么？",
+            "choices": ["GROUP BY merchant_id 后直接选择所有字段", "按 merchant_id 分区、payment_time 排序计算 ROW_NUMBER，再筛 rn = 1", "对 payment_time 使用 DISTINCT"],
+            "correctChoice": 1,
+            "feedback": "ROW_NUMBER 既能按组排序，又能保留目标明细行的其他字段。"
+          },
+          "prompt": "你需要向面试官解释 GROUP BY 与窗口函数在首笔场景中的不同。",
+          "task": "选择正确方法，并说明为什么 MIN(payment_time) 不足以直接返回首笔渠道和金额。",
+          "hint": "MIN 只返回时间，窗口排序能保留整行。",
+          "answer": {
+            "sample": "使用 ROW_NUMBER() OVER (PARTITION BY merchant_id ORDER BY payment_time, payment_id)，再筛 rn = 1。MIN(payment_time) 只能得到最早时间；如果还需要首笔渠道、金额和支付号，就要重新连接或直接用窗口函数保留整行。",
+            "notes": ["排序最好加稳定的次级键。", "窗口函数不会像 GROUP BY 一样压缩所有明细列。"],
+            "keywords": ["ROW_NUMBER", "PARTITION BY", "ORDER BY", "first row"]
+          }
+        },
+        {
+          "id": "first-successful-payment",
+          "title": "每个商家的首笔成功支付",
+          "type": "ROW_NUMBER",
+          "activity": {"mode": "sql"},
+          "prompt": "需要返回每个商家的首笔成功支付时间、渠道和金额。",
+          "task": "使用窗口函数写 SQL；若时间相同，用 payment_id 稳定排序。",
+          "hint": "先过滤成功支付，再编号。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH ranked AS (\n  SELECT\n    merchant_id, payment_id, payment_time, channel, amount_usd,\n    ROW_NUMBER() OVER (\n      PARTITION BY merchant_id\n      ORDER BY payment_time, payment_id\n    ) AS rn\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n)\nSELECT merchant_id, payment_id, payment_time, channel, amount_usd\nFROM ranked\nWHERE rn = 1;",
+            "notes": ["过滤要在编号前完成，否则会得到首笔尝试而非首笔成功。", "稳定排序使结果可重复。"],
+            "keywords": ["ROW_NUMBER", "first success", "stable ordering", "CTE"]
+          }
+        },
+        {
+          "id": "second-payment-gap",
+          "title": "首笔到第二笔间隔",
+          "type": "LAG 与排序",
+          "activity": {"mode": "sql"},
+          "prompt": "增长团队认为首笔后 7 天内完成第二笔是激活质量信号。",
+          "task": "计算每个商家首笔与第二笔成功支付的时间，以及两者间隔天数。",
+          "hint": "编号后用条件聚合得到第一和第二笔。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH ranked AS (\n  SELECT\n    merchant_id, payment_time,\n    ROW_NUMBER() OVER (PARTITION BY merchant_id ORDER BY payment_time, payment_id) AS rn\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n), first_two AS (\n  SELECT\n    merchant_id,\n    MIN(payment_time) FILTER (WHERE rn = 1) AS first_paid_at,\n    MIN(payment_time) FILTER (WHERE rn = 2) AS second_paid_at\n  FROM ranked\n  WHERE rn <= 2\n  GROUP BY merchant_id\n)\nSELECT\n  merchant_id, first_paid_at, second_paid_at,\n  EXTRACT(EPOCH FROM second_paid_at - first_paid_at) / 86400.0 AS gap_days\nFROM first_two;",
+            "notes": ["没有第二笔的商家应保留为 NULL，便于计算未复购比例。", "时间差用小时或秒转天可保留小数。"],
+            "keywords": ["nth event", "FILTER", "interval", "repeat payment"]
+          }
+        },
+        {
+          "id": "consecutive-active-weeks",
+          "title": "连续活跃周",
+          "type": "LAG",
+          "activity": {"mode": "sql"},
+          "prompt": "你要找出本周和上周都至少有一笔成功支付的商家。",
+          "task": "先生成商家活跃周，再用 LAG 或自连接识别连续周。",
+          "hint": "同一商家同一周先去重。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH active_weeks AS (\n  SELECT DISTINCT\n    merchant_id,\n    date_trunc('week', payment_time)::date AS week_start\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n), sequenced AS (\n  SELECT\n    merchant_id, week_start,\n    LAG(week_start) OVER (PARTITION BY merchant_id ORDER BY week_start) AS previous_week\n  FROM active_weeks\n)\nSELECT merchant_id, week_start\nFROM sequenced\nWHERE previous_week = week_start - 7;",
+            "notes": ["先 DISTINCT 防止一周多笔支付产生重复。", "这条查询识别连续两周；连续周数可进一步使用 gaps-and-islands。"],
+            "keywords": ["LAG", "active week", "DISTINCT", "consecutive"]
+          }
+        },
+        {
+          "id": "rolling-seven-day-volume",
+          "title": "7 日滚动交易规模",
+          "type": "窗口聚合",
+          "activity": {"mode": "sql"},
+          "prompt": "日报波动太大，负责人要求增加每日成功规模的 7 日滚动总和。",
+          "task": "先按天聚合，再计算包含当天在内的 7 行滚动和。",
+          "hint": "先补齐日期更严谨；本题可假设每天都有记录。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH daily AS (\n  SELECT payment_time::date AS day, SUM(amount_usd) AS paid_volume\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n  GROUP BY 1\n)\nSELECT\n  day, paid_volume,\n  SUM(paid_volume) OVER (\n    ORDER BY day\n    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW\n  ) AS rolling_7d_volume\nFROM daily\nORDER BY day;",
+            "notes": ["必须先按天聚合，否则 6 PRECEDING 指六笔支付而非六天。", "日期缺失时应先生成日历表补零。"],
+            "keywords": ["rolling window", "ROWS BETWEEN", "daily grain", "calendar table"]
+          }
+        },
+        {
+          "id": "lifecycle-stage-boss",
+          "title": "可计算的生命周期分层",
+          "type": "生命周期综合",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "将商家分成未 KYC、已 KYC 无首笔、活跃（30 天有成功支付）、沉默（31-90 天）、流失（90 天以上或从未支付）五类。",
+          "task": "写每个商家唯一归类的 SQL，并说明 CASE 顺序为什么重要。",
+          "hint": "先按商家聚合最后成功支付时间，再从最明确的前置条件开始判断。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH activity AS (\n  SELECT\n    merchant_id,\n    MIN(payment_time) FILTER (WHERE payment_result = 'SUCCESS') AS first_paid_at,\n    MAX(payment_time) FILTER (WHERE payment_result = 'SUCCESS') AS last_paid_at\n  FROM payments\n  GROUP BY merchant_id\n)\nSELECT\n  m.merchant_id,\n  CASE\n    WHEN m.kyc_completed_at IS NULL THEN '1. not_kyc'\n    WHEN a.first_paid_at IS NULL THEN '2. kyc_no_first_payment'\n    WHEN a.last_paid_at >= CURRENT_DATE - INTERVAL '30 days' THEN '3. active'\n    WHEN a.last_paid_at >= CURRENT_DATE - INTERVAL '90 days' THEN '4. dormant'\n    ELSE '5. churned'\n  END AS lifecycle_stage\nFROM merchants m\nLEFT JOIN activity a USING (merchant_id);\n\n-- CASE 从前置阶段到后续行为判断，保证条件互斥且每个商家只进入一层。",
+            "notes": ["阶段规则必须可计算、互斥、穷尽。", "是否把从未支付归为流失取决于业务，应在文档中明确。"],
+            "keywords": ["lifecycle", "mutually exclusive", "first payment", "last activity"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "funnel-cohort",
+      "title": "漏斗、留存与同期群",
+      "subtitle": "用一致观察窗比较不同批次和市场",
+      "objective": "正确构建顺序漏斗、时间窗转化、同期群和留存矩阵，避免未来数据与分母偏差。",
+      "chapter": "第五章 · 找到激活断点",
+      "story": "开户量增长了，但活跃商家没有同步增长。你需要判断问题发生在 KYC、首笔还是首笔后的持续交易。",
+      "reward": {
+        "title": "漏斗与同期群口径卡",
+        "description": "每个转化率都必须带着总体、顺序和观察窗。",
+        "items": ["Eligible cohort before numerator", "Event B must occur after event A", "Use mature cohorts for fixed-window conversion"]
+      },
+      "questions": [
+        {
+          "id": "mature-cohort-denominator",
+          "title": "7 日转化率的正确分母",
+          "type": "观察窗判断",
+          "activity": {
+            "mode": "choice",
+            "prompt": "计算开户后 7 天 KYC 完成率时，今天开户的商家应该进入分母吗？",
+            "choices": ["应该，所有开户商家都进入", "不应该，只有已获得完整 7 天观察窗的商家进入", "只有已完成 KYC 的商家进入"],
+            "correctChoice": 1,
+            "feedback": "未成熟批次没有完整转化机会，放入分母会机械压低近期转化率。"
+          },
+          "prompt": "周报显示最近一周 7 日 KYC 转化突然下降，但其中很多商家昨天才开户。",
+          "task": "选择正确分母，并解释什么是成熟同期群。",
+          "hint": "观察截止日减去开户日必须至少 7 天。",
+          "answer": {
+            "sample": "分母只包含在观察截止日前至少已开户 7 天的商家，这些商家才拥有完整 7 天转化机会。未达到观察窗的近期批次属于未成熟同期群，应单独展示或等待窗口结束。",
+            "notes": ["固定窗口指标需要固定机会长度。", "近期趋势可以另看 1 日或 3 日领先指标。"],
+            "keywords": ["mature cohort", "observation window", "denominator", "right censoring"]
+          }
+        },
+        {
+          "id": "ordered-event-funnel",
+          "title": "按顺序计算事件漏斗",
+          "type": "事件漏斗 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "events 中记录 merchant_registered、kyc_completed、first_payment。需要确保后一步发生在前一步之后。",
+          "task": "写 SQL 为每个 merchant 取三个阶段时间，并统计各阶段人数。",
+          "hint": "先条件聚合取最早时间，再用顺序条件计数。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH stage_times AS (\n  SELECT\n    entity_id AS merchant_id,\n    MIN(event_time) FILTER (WHERE event_name = 'merchant_registered') AS registered_at,\n    MIN(event_time) FILTER (WHERE event_name = 'kyc_completed') AS kyc_at,\n    MIN(event_time) FILTER (WHERE event_name = 'first_payment') AS first_paid_at\n  FROM events\n  GROUP BY entity_id\n)\nSELECT\n  COUNT(*) FILTER (WHERE registered_at IS NOT NULL) AS registered,\n  COUNT(*) FILTER (WHERE kyc_at >= registered_at) AS kyc_completed,\n  COUNT(*) FILTER (WHERE first_paid_at >= kyc_at AND kyc_at >= registered_at) AS first_paid\nFROM stage_times;",
+            "notes": ["仅判断事件存在会把错误时序也算作转化。", "真实埋点还应处理重复事件和缺失注册事件。"],
+            "keywords": ["ordered funnel", "conditional MIN", "event sequence", "stage time"]
+          }
+        },
+        {
+          "id": "kyc-within-seven-days",
+          "title": "开户后 7 日 KYC",
+          "type": "时间窗 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "以 country 为维度计算成熟商家的开户后 7 日 KYC 完成率。",
+          "task": "写 SQL，分母排除开户不足 7 天的商家，分子要求 KYC 时间不早于开户且不晚于第 7 天。",
+          "hint": "把资格总体放进 CTE，分子用 FILTER。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH eligible AS (\n  SELECT *\n  FROM merchants\n  WHERE onboard_date < CURRENT_TIMESTAMP - INTERVAL '7 days'\n)\nSELECT\n  country,\n  COUNT(*) AS eligible_merchants,\n  COUNT(*) FILTER (\n    WHERE kyc_completed_at >= onboard_date\n      AND kyc_completed_at <= onboard_date + INTERVAL '7 days'\n  ) AS kyc_7d,\n  COUNT(*) FILTER (\n    WHERE kyc_completed_at >= onboard_date\n      AND kyc_completed_at <= onboard_date + INTERVAL '7 days'\n  )::numeric / NULLIF(COUNT(*), 0) AS kyc_7d_rate\nFROM eligible\nGROUP BY country;",
+            "notes": ["资格总体与转化条件分开写更易审计。", "是否包含恰好第 7 天要在口径中固定。"],
+            "keywords": ["eligible population", "7-day window", "FILTER", "mature cohort"]
+          }
+        },
+        {
+          "id": "weekly-cohort-retention",
+          "title": "周同期群留存",
+          "type": "同期群 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "按商家开户周构建成功支付活跃留存，输出 cohort_week、activity_week_number 和 active_merchants。",
+          "task": "写 SQL，activity_week_number 取 0、1、2...。",
+          "hint": "先生成商家-活跃周去重表，再与开户周比较。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH merchant_cohort AS (\n  SELECT merchant_id, date_trunc('week', onboard_date)::date AS cohort_week\n  FROM merchants\n), active_weeks AS (\n  SELECT DISTINCT merchant_id, date_trunc('week', payment_time)::date AS active_week\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n)\nSELECT\n  c.cohort_week,\n  ((a.active_week - c.cohort_week) / 7) AS activity_week_number,\n  COUNT(DISTINCT c.merchant_id) AS active_merchants\nFROM merchant_cohort c\nJOIN active_weeks a USING (merchant_id)\nWHERE a.active_week >= c.cohort_week\nGROUP BY 1, 2\nORDER BY 1, 2;",
+            "notes": ["这条查询输出活跃人数，留存率还要除以同期群规模。", "商家-周先去重避免一周多笔交易重复计数。"],
+            "keywords": ["cohort", "retention", "week number", "active merchant"]
+          }
+        },
+        {
+          "id": "funnel-drop-diagnosis",
+          "title": "开户涨、首笔跌怎么查",
+          "type": "诊断路径",
+          "activity": {"mode": "diagnosis"},
+          "prompt": "本月开户商家增长 25%，但开户后 14 日首笔率从 38% 降到 29%。",
+          "task": "写出你的诊断顺序，至少覆盖口径、成熟同期群、来源结构、国家/KYC 分层和产品变化。",
+          "hint": "先证明变化真实，再定位贡献最大的结构或环节。",
+          "answer": {
+            "sample": "先确认首笔定义、观察截止日和 14 日成熟同期群，排除近期未成熟商家造成的假下降。然后把首笔率按来源、国家、商家类型和 KYC 状态分层，并做结构贡献拆解，判断是各层都下降还是低转化来源占比上升。最后查看开户流程、KYC SLA、支付方式覆盖、失败码和同期产品改动。结论应区分结构变化与层内转化变化，再决定优化渠道质量、KYC 或首笔体验。",
+            "notes": ["总指标下降可能来自 mix shift。", "诊断先后顺序应从口径真实性到定位再到机制假设。"],
+            "keywords": ["mature cohort", "mix shift", "segmentation", "mechanism"]
+          }
+        },
+        {
+          "id": "country-cohort-boss",
+          "title": "国家 × 开户周首笔率",
+          "type": "同期群综合",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "需要比较各国每个开户周的 14 日首笔成功率，并排除未获得完整 14 天观察窗的同期群。",
+          "task": "写 SQL 返回 country、cohort_week、cohort_size、first_paid_14d 和 rate；同一商家多笔支付只能算一次。",
+          "hint": "先聚合出每个商家的首笔成功支付时间。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH first_paid AS (\n  SELECT merchant_id, MIN(payment_time) AS first_paid_at\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n  GROUP BY merchant_id\n), eligible AS (\n  SELECT\n    m.merchant_id, m.country, m.onboard_date,\n    date_trunc('week', m.onboard_date)::date AS cohort_week,\n    f.first_paid_at\n  FROM merchants m\n  LEFT JOIN first_paid f USING (merchant_id)\n  WHERE m.onboard_date < CURRENT_TIMESTAMP - INTERVAL '14 days'\n)\nSELECT\n  country, cohort_week,\n  COUNT(*) AS cohort_size,\n  COUNT(*) FILTER (\n    WHERE first_paid_at >= onboard_date\n      AND first_paid_at <= onboard_date + INTERVAL '14 days'\n  ) AS first_paid_14d,\n  COUNT(*) FILTER (\n    WHERE first_paid_at >= onboard_date\n      AND first_paid_at <= onboard_date + INTERVAL '14 days'\n  )::numeric / NULLIF(COUNT(*), 0) AS first_paid_14d_rate\nFROM eligible\nGROUP BY country, cohort_week\nORDER BY cohort_week, country;",
+            "notes": ["首笔先按商家聚合，避免支付行数成为分母。", "周同期群末尾仍可能包含观察窗不一致，严格场景可按商家逐行资格判断。"],
+            "keywords": ["first payment", "cohort size", "14-day conversion", "deduplication"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "economics-metrics",
+      "title": "经营指标与单位经济",
+      "subtitle": "把一个百分点换算成收入、成本和风险",
+      "objective": "区分 GMV、支付规模、收入与利润，计算费率、CAC、LTV 和盈亏平衡，并设计护栏。",
+      "chapter": "第六章 · 证明增长是否值得",
+      "story": "首笔补贴提高了转化，但财务质疑项目只买来了短期交易。你需要把增长结果连接到单位经济。",
+      "reward": {
+        "title": "单位经济判断卡",
+        "description": "规模增长只有在增量收入覆盖增量成本时才有价值。",
+        "items": ["GMV is not revenue", "Net revenue includes costs and losses", "Use incremental LTV, not observed revenue alone"]
+      },
+      "questions": [
+        {
+          "id": "gmv-revenue-profit",
+          "title": "GMV 不等于收入",
+          "type": "指标边界",
+          "activity": {
+            "mode": "choice",
+            "prompt": "GMV 上涨 20% 时，哪项结论一定成立？",
+            "choices": ["净收入一定上涨 20%", "利润一定上涨", "平台成交规模上涨，但收入和利润仍取决于费率、成本、补贴与损失"],
+            "correctChoice": 2,
+            "feedback": "GMV 是交易规模，不能直接替代收入、毛利或现金流。"
+          },
+          "prompt": "面试官问你为什么不能把 GMV 增长直接当作商业结果。",
+          "task": "选择正确答案，并给出两个可能导致 GMV 涨但利润跌的原因。",
+          "hint": "考虑补贴、渠道成本、退款拒付和商家结构。",
+          "answer": {
+            "sample": "GMV 只代表成交规模。若增长来自高补贴渠道、低费率大商家，或同时伴随处理成本、退款和拒付损失上升，净收入和利润可能下降。因此要同时看 take rate、单位处理成本、补贴、损失与增量留存。",
+            "notes": ["规模、收入、利润和现金流是不同层级。", "业务结论至少要连接一个价值指标和一个护栏。"],
+            "keywords": ["GMV", "take rate", "net revenue", "unit economics"]
+          }
+        },
+        {
+          "id": "monthly-take-rate",
+          "title": "月度支付费率",
+          "type": "商业指标 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "简化定义 gross payment revenue = fx_revenue_usd，take rate = gross revenue / 成功支付规模。",
+          "task": "按月和 channel 计算成功规模、gross revenue、take rate 与处理成本率。",
+          "hint": "所有金额口径都限定成功支付。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  date_trunc('month', payment_time)::date AS month,\n  channel,\n  SUM(amount_usd) AS payment_volume_usd,\n  SUM(fx_revenue_usd) AS gross_revenue_usd,\n  SUM(fx_revenue_usd) / NULLIF(SUM(amount_usd), 0) AS take_rate,\n  SUM(processing_cost_usd) / NULLIF(SUM(amount_usd), 0) AS processing_cost_rate\nFROM payments\nWHERE payment_result = 'SUCCESS'\nGROUP BY 1, 2\nORDER BY 1, 2;",
+            "notes": ["比率应使用总分子除以总分母，而不是直接平均行级比率。", "费率变化要结合渠道和国家结构解释。"],
+            "keywords": ["take rate", "ratio of sums", "processing cost", "channel mix"]
+          }
+        },
+        {
+          "id": "campaign-cac",
+          "title": "活动获客成本",
+          "type": "CAC SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "campaign_exposures 记录活动触达商家。激活定义为触达后 30 天内首次成功支付。",
+          "task": "按 campaign_id 计算活动成本、触达商家、激活商家和 CAC。",
+          "hint": "先得到每个商家的首笔成功时间，再按活动去重。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH first_paid AS (\n  SELECT merchant_id, MIN(payment_time) AS first_paid_at\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n  GROUP BY merchant_id\n), campaign_result AS (\n  SELECT\n    e.campaign_id,\n    COUNT(DISTINCT e.merchant_id) AS exposed_merchants,\n    COUNT(DISTINCT e.merchant_id) FILTER (\n      WHERE f.first_paid_at >= e.exposed_at\n        AND f.first_paid_at < e.exposed_at + INTERVAL '30 days'\n    ) AS activated_merchants\n  FROM campaign_exposures e\n  LEFT JOIN first_paid f USING (merchant_id)\n  GROUP BY e.campaign_id\n)\nSELECT\n  c.campaign_id, c.cost_usd, r.exposed_merchants, r.activated_merchants,\n  c.cost_usd / NULLIF(r.activated_merchants, 0) AS observed_cac_usd\nFROM campaigns c\nJOIN campaign_result r USING (campaign_id);",
+            "notes": ["这是 observed CAC，不代表因果增量 CAC。", "商家可能被多个活动触达，真实归因需额外规则或实验。"],
+            "keywords": ["CAC", "attribution", "first payment", "incrementality"]
+          }
+        },
+        {
+          "id": "excel-pivot-diagnosis",
+          "title": "Excel 快速体检",
+          "type": "表格工具",
+          "activity": {"mode": "diagnosis"},
+          "prompt": "你收到 5 万行支付明细 CSV，面试现场不能连接数据库，需要在 Excel 中快速定位成功率下降来自哪个国家和渠道。",
+          "task": "写出从数据检查到数据透视表的操作步骤，包括行列、值字段和至少一个条件格式。",
+          "hint": "成功率可先增加 success_flag 辅助列，再在透视表求平均。",
+          "answer": {
+            "sample": "先检查列类型、空值、重复 payment_id、日期范围和 amount_usd 异常；新增 success_flag（成功为 1，否则 0）和 payment_week。建立透视表：行放 country，列放 channel，值放 payment_id 计数与 success_flag 平均值，筛选最近两周。再用条件格式突出成功率低和周环比下降最大的单元格，并回到明细核对样本量与 failure_reason。",
+            "notes": ["二元 0/1 标记的平均值就是成功率。", "透视表用于定位，不替代口径核对和原始明细检查。"],
+            "keywords": ["PivotTable", "success_flag", "conditional formatting", "sample size"]
+          }
+        },
+        {
+          "id": "subsidy-guardrails",
+          "title": "补贴项目护栏",
+          "type": "指标设计",
+          "activity": {"mode": "diagnosis"},
+          "prompt": "新商首笔补贴的主指标是 14 日首笔率。只优化主指标可能引发套利和低质量交易。",
+          "task": "给出至少四个护栏指标，并说明每个护栏防止什么错误激励。",
+          "hint": "覆盖成本、风险、质量和长期价值。",
+          "answer": {
+            "sample": "护栏包括：单个增量首笔成本，防止用过高补贴买转化；30/90 日留存或净收入，防止只产生一次性交易；退款率与拒付率，防止低质量或争议交易；欺诈/套利命中率，防止自买自卖；投诉率，防止复杂规则伤害体验。上线决策要同时满足主指标和护栏阈值。",
+            "notes": ["护栏必须有明确阈值，不只是持续关注。", "长期指标可先作为观察指标，逐步积累。"],
+            "keywords": ["guardrail", "incremental cost", "retention", "fraud"]
+          }
+        },
+        {
+          "id": "subsidy-break-even-boss",
+          "title": "90 日补贴盈亏平衡",
+          "type": "单位经济综合",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "每个订单有 subsidy_usd，成功支付的简化净收入为 fx_revenue_usd - processing_cost_usd。需要按商家计算开户后 90 日累计补贴与净收入。",
+          "task": "写 SQL 标出是否在 90 日内盈亏平衡，并说明为什么这仍不能证明补贴有增量价值。",
+          "hint": "订单补贴和支付收入分别按商家聚合，避免直接连接放大。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH subsidy AS (\n  SELECT m.merchant_id, SUM(o.subsidy_usd) AS subsidy_90d\n  FROM merchants m\n  LEFT JOIN orders o\n    ON o.merchant_id = m.merchant_id\n   AND o.order_time >= m.onboard_date\n   AND o.order_time < m.onboard_date + INTERVAL '90 days'\n  GROUP BY m.merchant_id\n), revenue AS (\n  SELECT m.merchant_id, SUM(p.fx_revenue_usd - p.processing_cost_usd) AS net_revenue_90d\n  FROM merchants m\n  LEFT JOIN payments p\n    ON p.merchant_id = m.merchant_id\n   AND p.payment_result = 'SUCCESS'\n   AND p.payment_time >= m.onboard_date\n   AND p.payment_time < m.onboard_date + INTERVAL '90 days'\n  GROUP BY m.merchant_id\n)\nSELECT\n  s.merchant_id, COALESCE(s.subsidy_90d, 0) AS subsidy_90d,\n  COALESCE(r.net_revenue_90d, 0) AS net_revenue_90d,\n  COALESCE(r.net_revenue_90d, 0) >= COALESCE(s.subsidy_90d, 0) AS broke_even_90d\nFROM subsidy s\nJOIN revenue r USING (merchant_id);\n\n-- 观察到收入覆盖补贴不等于补贴带来增量；还需对照组或可信的反事实评估。",
+            "notes": ["补贴和收入先分别聚合，避免订单与支付多对多。", "盈亏平衡是商业结果，增量性是因果问题。"],
+            "keywords": ["break-even", "90-day value", "counterfactual", "incrementality"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "incident-diagnosis",
+      "title": "异常定位与经营诊断",
+      "subtitle": "从总量变化走到贡献、机制和行动",
+      "objective": "识别百分点与百分比、结构变化和辛普森悖论，用分层与贡献分析定位支付事故并形成 WBR。",
+      "chapter": "第七章 · 处理成功率事故",
+      "story": "周二路由调整后整体成功率下降。管理层需要的不只是一个图，而是影响范围、根因证据、止损动作和下一更新时间。",
+      "reward": {
+        "title": "事故诊断五步卡",
+        "description": "先确认异常，再定位贡献，最后提出可逆动作。",
+        "items": ["Validate definition and data freshness", "Segment by time, market, channel and issuer", "Quantify impact, rollback and monitor"]
+      },
+      "questions": [
+        {
+          "id": "percentage-points",
+          "title": "百分点还是百分比",
+          "type": "数字表达",
+          "activity": {
+            "mode": "choice",
+            "prompt": "成功率从 92.4% 降至 90.8%，准确表述是什么？",
+            "choices": ["下降 1.6%", "下降 1.6 个百分点，相对降幅约 1.73%", "下降到 1.6 个百分点"],
+            "correctChoice": 1,
+            "feedback": "两个率直接相减是百分点；相对变化还需除以原值。"
+          },
+          "prompt": "你要在管理层周报中准确描述支付成功率变化。",
+          "task": "选择正确表述，并说明什么时候业务影响更适合换算成失败笔数和金额。",
+          "hint": "百分点描述率的绝对差，失败笔数描述实际影响规模。",
+          "answer": {
+            "sample": "成功率下降 1.6 个百分点；相对降幅约为 1.6 / 92.4 = 1.73%。管理层决策还应把 1.6 个百分点按尝试量换算成新增失败笔数、受影响商家和潜在损失金额。",
+            "notes": ["percentage point 与 percent 不可混用。", "影响换算让指标变化进入商业语境。"],
+            "keywords": ["percentage point", "relative change", "failed attempts", "business impact"]
+          }
+        },
+        {
+          "id": "channel-contribution",
+          "title": "渠道下降贡献",
+          "type": "贡献分析 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "比较本周与上周各 channel 的尝试数和成功率，估算本周相对上周渠道成功率少成功的笔数。",
+          "task": "写 SQL 返回 channel、两周尝试、两周成功率和 lost_successes_estimate。",
+          "hint": "估算值可用本周尝试数 ×（上周成功率 - 本周成功率）。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH weekly AS (\n  SELECT\n    channel,\n    CASE\n      WHEN payment_time >= date_trunc('week', CURRENT_DATE) THEN 'current'\n      ELSE 'previous'\n    END AS period,\n    COUNT(*) AS attempts,\n    COUNT(*) FILTER (WHERE payment_result = 'SUCCESS')::numeric / NULLIF(COUNT(*), 0) AS success_rate\n  FROM payments\n  WHERE payment_time >= date_trunc('week', CURRENT_DATE) - INTERVAL '1 week'\n  GROUP BY channel, period\n), pivoted AS (\n  SELECT\n    channel,\n    MAX(attempts) FILTER (WHERE period = 'current') AS current_attempts,\n    MAX(success_rate) FILTER (WHERE period = 'current') AS current_rate,\n    MAX(attempts) FILTER (WHERE period = 'previous') AS previous_attempts,\n    MAX(success_rate) FILTER (WHERE period = 'previous') AS previous_rate\n  FROM weekly\n  GROUP BY channel\n)\nSELECT *, current_attempts * (previous_rate - current_rate) AS lost_successes_estimate\nFROM pivoted\nORDER BY lost_successes_estimate DESC NULLS LAST;",
+            "notes": ["估算使用本周尝试作为共同权重，便于比较渠道贡献。", "完整周与未完整周不能直接比较，实际应对齐周内时间。"],
+            "keywords": ["contribution", "common weight", "week over week", "lost successes"]
+          }
+        },
+        {
+          "id": "failure-pareto",
+          "title": "失败原因 Pareto",
+          "type": "累计贡献 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "需要找出过去 7 天造成 80% 支付失败的主要 failure_reason。",
+          "task": "写 SQL 返回原因、失败数、占比和按失败数降序的累计占比。",
+          "hint": "先按原因聚合，再用窗口 SUM 计算累计值。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH failures AS (\n  SELECT COALESCE(failure_reason, 'UNKNOWN') AS reason, COUNT(*) AS failures\n  FROM payments\n  WHERE payment_result = 'FAILED'\n    AND payment_time >= CURRENT_DATE - INTERVAL '7 days'\n  GROUP BY 1\n), ranked AS (\n  SELECT\n    reason, failures,\n    failures::numeric / SUM(failures) OVER () AS share,\n    SUM(failures) OVER (ORDER BY failures DESC, reason) ::numeric\n      / SUM(failures) OVER () AS cumulative_share\n  FROM failures\n)\nSELECT *\nFROM ranked\nORDER BY failures DESC, reason;",
+            "notes": ["UNKNOWN 应单列，不能静默丢弃。", "Pareto 用于排序优先级，还需结合可控性和商业影响。"],
+            "keywords": ["Pareto", "cumulative share", "window SUM", "UNKNOWN"]
+          }
+        },
+        {
+          "id": "simpsons-paradox",
+          "title": "总指标好转，各国都变差",
+          "type": "结构变化 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "整体成功率上升，但区域负责人称每个主要国家都下降。你怀疑高成功率国家的流量占比上升。",
+          "task": "写 SQL 同时输出周、country、尝试占比和成功率，以验证辛普森悖论。",
+          "hint": "先按周和国家聚合，再用周总尝试数计算结构占比。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH country_week AS (\n  SELECT\n    date_trunc('week', payment_time)::date AS week_start,\n    issuer_country AS country,\n    COUNT(*) AS attempts,\n    COUNT(*) FILTER (WHERE payment_result = 'SUCCESS')::numeric / NULLIF(COUNT(*), 0) AS success_rate\n  FROM payments\n  WHERE payment_time >= date_trunc('week', CURRENT_DATE) - INTERVAL '2 weeks'\n  GROUP BY 1, 2\n)\nSELECT\n  week_start, country, attempts, success_rate,\n  attempts::numeric / SUM(attempts) OVER (PARTITION BY week_start) AS attempt_share\nFROM country_week\nORDER BY week_start, attempts DESC;",
+            "notes": ["总指标同时受层内表现和结构权重影响。", "报告应同时展示 overall、segment rate 和 mix。"],
+            "keywords": ["Simpson's paradox", "mix shift", "weighted average", "segment rate"]
+          }
+        },
+        {
+          "id": "wbr-narrative",
+          "title": "把数字写成 WBR",
+          "type": "经营表达",
+          "activity": {"mode": "diagnosis"},
+          "prompt": "数据表明成功率下降 1.6 个百分点，70% 下降贡献来自德国银行卡，起点与周二路由调整一致；回滚后恢复了一半。",
+          "task": "用“结果、定位、判断、行动、风险”五段式写一段不超过 180 字的中文周报。",
+          "hint": "用“与……一致”而非直接宣称因果。",
+          "answer": {
+            "sample": "结果：本周支付成功率由 92.4% 降至 90.8%，新增约 1,600 笔失败。定位：德国银行卡贡献约 70% 的下降，异常始于周二路由调整后。判断：时间和分层证据与路由问题一致，但仍需核对 issuer response code。行动：已回滚并恢复约一半差距，支付团队明日完成失败码复盘。风险：若剩余差距来自发卡行侧变化，需要准备备用路由。",
+            "notes": ["事实、推断和未确认风险分开。", "行动包含 owner、时间和验证证据会更完整。"],
+            "keywords": ["result", "diagnosis", "hypothesis", "action", "risk"]
+          }
+        },
+        {
+          "id": "payment-incident-boss",
+          "title": "90 分钟支付事故诊断",
+          "type": "事故综合题",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "今天 10:00 监控报警：过去一小时支付成功率比上周同星期同小时低 4 个百分点。产品、风控、路由和数据团队都在等你的分析。",
+          "task": "写出前 90 分钟的分析步骤，并给出一条按 15 分钟、渠道、国家和失败原因定位的 SQL。",
+          "hint": "先确认数据新鲜度和口径，再量化影响、分层定位、核对变更并提出可逆止损。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  date_trunc('hour', payment_time)\n    + floor(date_part('minute', payment_time) / 15) * INTERVAL '15 minutes' AS bucket_15m,\n  channel, issuer_country, COALESCE(failure_reason, 'SUCCESS_OR_UNKNOWN') AS reason,\n  COUNT(*) AS attempts,\n  COUNT(*) FILTER (WHERE payment_result = 'SUCCESS') AS successes,\n  COUNT(*) FILTER (WHERE payment_result = 'SUCCESS')::numeric / NULLIF(COUNT(*), 0) AS success_rate,\n  SUM(amount_usd) AS attempted_amount_usd\nFROM payments\nWHERE payment_time >= CURRENT_TIMESTAMP - INTERVAL '2 hours'\nGROUP BY 1, 2, 3, 4\nORDER BY 1, attempts DESC;\n\n-- 0-15 分钟：确认延迟、重复、口径与报警真实性。\n-- 15-35 分钟：量化失败笔数、金额、商家和主要贡献分层。\n-- 35-60 分钟：对齐发布、路由、风控规则和外部渠道变更。\n-- 60-90 分钟：执行回滚/切路由等可逆止损，设 15 分钟监控与下一次更新时间。",
+            "notes": ["事故中速度重要，但不能跳过数据新鲜度检查。", "止损动作要可逆，并持续观察成功率与欺诈等护栏。"],
+            "keywords": ["incident", "15-minute bucket", "impact", "rollback", "guardrail"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "interview-cases",
+      "title": "招聘实战与综合案例",
+      "subtitle": "像策略运营候选人一样解释代码、取舍和业务影响",
+      "objective": "在限时面试场景中调试 SQL、完成开放分析、写数据需求，并清楚表达假设、限制和行动。",
+      "chapter": "最终章 · 通过数据案例面试",
+      "story": "你进入目标岗位的终面。面试官不会只检查 SQL 是否能运行，还会追问指标为何这样定义、结论能否支持决策。",
+      "reward": {
+        "title": "数据面试答题卡",
+        "description": "优秀答案同时具备正确查询、业务判断和边界意识。",
+        "items": ["Clarify population, grain, window and metric", "Write auditable SQL and run sanity checks", "State insight, action, limitation and next test"]
+      },
+      "questions": [
+        {
+          "id": "debug-average-rate",
+          "title": "调试错误成功率",
+          "type": "SQL 审查",
+          "activity": {
+            "mode": "choice",
+            "prompt": "分析师用 AVG(CASE WHEN payment_result = 'SUCCESS' THEN 1 ELSE NULL END) 算成功率，结果总是 1。应该怎样修复？",
+            "choices": ["把 AVG 改成 SUM", "把 ELSE NULL 改成 ELSE 0，并确认一行是一笔尝试", "在外层加 DISTINCT"],
+            "correctChoice": 1,
+            "feedback": "AVG 会忽略 NULL，当前表达式只平均成功行的 1；失败必须贡献 0。"
+          },
+          "prompt": "代码审查中你发现一条看似正常、实际永远返回 100% 的成功率 SQL。",
+          "task": "选择修复方式，并写出等价的 FILTER 分子/分母表达式。",
+          "hint": "COUNT(*) FILTER (WHERE ...) / COUNT(*)。",
+          "answer": {
+            "sample": "修复为 AVG(CASE WHEN payment_result = 'SUCCESS' THEN 1.0 ELSE 0.0 END)，并先确认每行是一笔支付尝试。等价写法是 COUNT(*) FILTER (WHERE payment_result = 'SUCCESS')::numeric / NULLIF(COUNT(*), 0)。",
+            "notes": ["聚合函数忽略 NULL 是高频面试陷阱。", "SQL 正确仍依赖表粒度正确。"],
+            "keywords": ["AVG", "NULL", "FILTER", "code review"]
+          }
+        },
+        {
+          "id": "revenue-decomposition",
+          "title": "净收入下降拆解",
+          "type": "开放 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "支付规模增长 12%，净收入却下降 8%。需要按月、country 和 channel 对比规模、take rate、处理成本率与净收入。",
+          "task": "写一条可用于定位结构变化的 SQL，并说明你会优先看哪两类贡献。",
+          "hint": "输出各分层的规模占比，区分费率变化、成本变化和 mix shift。",
+          "answer": {
+            "format": "sql",
+            "sample": "WITH segment AS (\n  SELECT\n    date_trunc('month', payment_time)::date AS month,\n    issuer_country AS country, channel,\n    SUM(amount_usd) AS volume,\n    SUM(fx_revenue_usd) AS gross_revenue,\n    SUM(processing_cost_usd) AS processing_cost,\n    SUM(fx_revenue_usd - processing_cost_usd) AS net_revenue\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n  GROUP BY 1, 2, 3\n)\nSELECT\n  *,\n  gross_revenue / NULLIF(volume, 0) AS take_rate,\n  processing_cost / NULLIF(volume, 0) AS cost_rate,\n  volume / NULLIF(SUM(volume) OVER (PARTITION BY month), 0) AS volume_mix\nFROM segment\nORDER BY month, net_revenue;\n\n-- 优先看层内 take rate/成本率恶化，以及低净收入率国家或渠道的规模占比上升。",
+            "notes": ["结果可拆为规模、单位收益、单位成本和结构四类驱动。", "拒付损失与补贴未在表中，需要作为限制说明。"],
+            "keywords": ["revenue decomposition", "take rate", "cost rate", "mix shift"]
+          }
+        },
+        {
+          "id": "activation-segments",
+          "title": "寻找高潜未激活商家",
+          "type": "人群 SQL",
+          "activity": {"mode": "sql"},
+          "prompt": "运营只能触达 1,000 个商家。目标人群是已 KYC、开户 7-30 天、尚无成功支付，但过去 7 天至少有 3 次支付尝试。",
+          "task": "写 SQL 返回符合条件的商家及尝试数、最近尝试、主要失败原因，并按尝试数降序。",
+          "hint": "用 HAVING 排除成功支付并限制尝试数。",
+          "answer": {
+            "format": "sql",
+            "sample": "SELECT\n  m.merchant_id, m.country,\n  COUNT(*) AS attempts_7d,\n  MAX(p.payment_time) AS last_attempt_at,\n  MODE() WITHIN GROUP (ORDER BY p.failure_reason) AS main_failure_reason\nFROM merchants m\nJOIN payments p\n  ON p.merchant_id = m.merchant_id\n AND p.payment_time >= CURRENT_TIMESTAMP - INTERVAL '7 days'\nWHERE m.kyc_completed_at IS NOT NULL\n  AND m.onboard_date BETWEEN CURRENT_TIMESTAMP - INTERVAL '30 days'\n                         AND CURRENT_TIMESTAMP - INTERVAL '7 days'\nGROUP BY m.merchant_id, m.country\nHAVING COUNT(*) >= 3\n   AND COUNT(*) FILTER (WHERE p.payment_result = 'SUCCESS') = 0\nORDER BY attempts_7d DESC\nLIMIT 1000;",
+            "notes": ["这是意愿较强但受阻的人群，比全量无首笔更可行动。", "MODE 在并列时的规则需接受；也可单独排序失败原因。"],
+            "keywords": ["activation", "HAVING", "MODE", "actionable segment"]
+          }
+        },
+        {
+          "id": "analytics-requirement",
+          "title": "写一份可执行数据需求",
+          "type": "协作表达",
+          "activity": {"mode": "diagnosis"},
+          "prompt": "你需要数据团队提供“商家流失分析”，但这个说法无法直接开发。",
+          "task": "把需求重写为可执行说明，至少包含业务决策、总体、粒度、字段、时间窗、指标、样例和验收。",
+          "hint": "数据需求的目标不是多要字段，而是让双方对结果含义一致。",
+          "answer": {
+            "sample": "业务决策：确定下月优先召回的商家与干预方式。总体：已完成 KYC 且历史有成功支付的商家。输出粒度：每个 merchant_id 一行。观察窗：截至 2026-07-31，行为回看 90 天。字段：国家、品类、最近成功时间、30/60/90 日成功笔数和规模、失败原因、退款拒付、历史活动触达。流失标签：连续 60 天无成功支付。附 3 行脱敏样例。验收：行数等于资格商家数、merchant_id 唯一、金额与支付日报核对误差低于约定阈值。",
+            "notes": ["先写业务决策和资格总体，再写字段。", "验收规则能降低取数完成后反复改口径。"],
+            "keywords": ["business decision", "grain", "data contract", "acceptance criteria"]
+          }
+        },
+        {
+          "id": "wallet-growth-case-boss",
+          "title": "商家钱包增长终面 Case",
+          "type": "终面综合题",
+          "activity": {"mode": "boss", "input": "sql"},
+          "prompt": "商家开户增长，但 KYC、首笔率、30 日留存和净收入都未达目标。面试官给你 30 分钟分析并提出下季度优先项。",
+          "task": "写出指标树、三条核心 SQL 的结构、诊断顺序、可能结论和行动取舍。至少真正写出一条关键 SQL。",
+          "hint": "用开户 → KYC → 首笔 → 持续活跃 → 规模 → 净收入串联，不要同时提出十个动作。",
+          "answer": {
+            "format": "sql",
+            "sample": "-- 关键 SQL：国家和来源维度的成熟 14 日首笔转化\nWITH first_paid AS (\n  SELECT merchant_id, MIN(payment_time) AS first_paid_at\n  FROM payments\n  WHERE payment_result = 'SUCCESS'\n  GROUP BY merchant_id\n)\nSELECT\n  m.country, m.source,\n  COUNT(*) AS mature_onboarded,\n  COUNT(*) FILTER (\n    WHERE f.first_paid_at BETWEEN m.onboard_date AND m.onboard_date + INTERVAL '14 days'\n  )::numeric / NULLIF(COUNT(*), 0) AS first_paid_14d_rate\nFROM merchants m\nLEFT JOIN first_paid f USING (merchant_id)\nWHERE m.onboard_date < CURRENT_TIMESTAMP - INTERVAL '14 days'\nGROUP BY m.country, m.source\nORDER BY mature_onboarded DESC;\n\n指标树：开户量 × KYC 率 × 14 日首笔率 × 30 日留存 × 商家频次 × 客单价 × 净收入率。另两条 SQL 分别做步骤漏斗/同期群和净收入单位经济拆解。先核对口径与成熟批次，再按国家、来源、商家层级定位最大贡献，最后只选择一个关键瓶颈和一到两个可验证动作。若低质量来源拉低首笔率，优先优化来源准入与 KYC/首笔引导，而不是全量补贴；用首笔率作主指标，90 日净收入、欺诈和退款作护栏。",
+            "notes": ["面试中先搭结构，再深入最重要分支。", "策略数量少而有取舍，并把验证方式和护栏说清。"],
+            "keywords": ["metric tree", "cohort", "unit economics", "prioritization", "guardrail"]
+          }
+        },
+        {
+          "id": "explain-null-result",
+          "title": "结果不显著怎么回答",
+          "type": "面试追问",
+          "activity": {"mode": "diagnosis"},
+          "prompt": "你的新商引导方案首笔率提升 1.2 个百分点，但置信区间跨过 0。面试官问项目是不是失败了。",
+          "task": "给出结构化回答，至少覆盖实验可信度、统计不确定性、业务价值、分群、继续/停止条件和学习。",
+          "hint": "不显著不等于没有效果，也不等于一定有效。",
+          "answer": {
+            "sample": "我不会直接宣布成功或失败。先检查随机化、SRM、埋点、污染和实验周期，确认结果可信；再看 1.2 个百分点的置信区间、最小可检测效应和对应增量首笔/收入，判断数据是不足还是效果太小。预先定义的关键分群只能作为机制证据，不能事后无限切片。若上界仍低于商业盈亏阈值就停止；若区间仍包含有价值效果且获取更多样本成本合理，则延长到预定样本。复盘会记录假设、限制和下次改动，而不是只说需要更多数据。",
+            "notes": ["先检查实验可信度，再解释效果大小。", "决策阈值应由业务价值和风险共同决定。"],
+            "keywords": ["confidence interval", "SRM", "MDE", "decision threshold", "learning"]
+          }
+        }
+      ]
+    }
+  ]
+}

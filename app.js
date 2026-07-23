@@ -281,11 +281,12 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
       if (updateURL) setView("skills");
     }
 
-    const isChallenge = state.selectedSkill === "business-english" && detailPages.includes(state.learningTab);
+    const selectedSkill = state.guide.skills.find((skill) => skill.id === state.selectedSkill);
+    const isChallenge = Boolean(selectedSkill?.challenge) && detailPages.includes(state.learningTab);
     let challengePack = null;
     if (isChallenge) {
       elements.guideLoading.hidden = false;
-      elements.guideLoading.querySelector("strong").textContent = "正在加载业务英语关卡";
+      elements.guideLoading.querySelector("strong").textContent = selectedSkill.challenge.loadingLabel || "正在加载互动关卡";
       challengePack = await ensureChallengePack(state.selectedSkill);
       if (
         requestedPage !== state.learningTab
@@ -622,7 +623,7 @@ function makeSkillOverviewCard(skill) {
   button.className = `skill-overview-card skill-group-${skill.group}`;
   button.dataset.skillId = skill.id;
   button.classList.toggle("mastered", level >= state.guide.targetLevel);
-  button.classList.toggle("challenge-enabled", skill.id === "business-english");
+  button.classList.toggle("challenge-enabled", Boolean(skill.challenge));
 
   const top = document.createElement("span");
   top.className = "overview-card-top";
@@ -647,7 +648,7 @@ function makeSkillOverviewCard(skill) {
   const week = document.createElement("span");
   week.textContent = skill.weeks;
   const exerciseCount = document.createElement("span");
-  exerciseCount.textContent = skill.id === "business-english" ? "6 级 · 30 题闯关" : `${skill.exercises.length} 道练习`;
+  exerciseCount.textContent = skill.challenge?.label || `${skill.exercises.length} 道练习`;
   const arrow = document.createElement("span");
   arrow.setAttribute("aria-hidden", "true");
   arrow.textContent = "→";
@@ -842,6 +843,7 @@ function challengeStatus(pack, level, question) {
 
 function challengeMode(question, questionIndex) {
   if (question.activity?.mode === "choice") return "warmup";
+  if (["arrange", "sql", "diagnosis", "boss"].includes(question.activity?.mode)) return question.activity.mode;
   if (questionIndex === 1) return "arrange";
   if (questionIndex === 4) return "boss";
   return "practice";
@@ -851,8 +853,14 @@ const challengeModeLabels = {
   warmup: "热身选择",
   arrange: "句子排序",
   practice: "短答练习",
+  sql: "SQL 实战",
+  diagnosis: "业务诊断",
   boss: "Boss 挑战",
 };
+
+function challengeModeLabel(pack, mode) {
+  return pack.ui?.modeLabels?.[mode] || challengeModeLabels[mode] || "综合练习";
+}
 
 function updateChallengeSkillLevel(pack) {
   const total = challengeQuestions(pack).length;
@@ -886,7 +894,7 @@ function makeChallengeProgress(completed, total, label) {
 function makeChallengeBreadcrumb(pack, level = null) {
   const nav = document.createElement("nav");
   nav.className = "challenge-breadcrumb";
-  nav.setAttribute("aria-label", "业务英语闯关导航");
+  nav.setAttribute("aria-label", `${pack.title}导航`);
   const overview = document.createElement("button");
   overview.type = "button";
   overview.textContent = "能力体系";
@@ -954,7 +962,7 @@ function makeDailyMission(pack) {
   start.className = "daily-mission-button";
   start.disabled = !current || !currentStatus?.unlocked;
   start.textContent = !mission.keys.length
-    ? "已完成全部 30 题"
+    ? `已完成全部 ${allQuestions.length} 题`
     : completedCount === mission.keys.length
       ? "今日任务完成"
       : completedCount ? "继续今日任务 →" : "开始今日三题 →";
@@ -992,6 +1000,19 @@ function answerChunks(sample) {
   return (normalized.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [normalized]).map((item) => item.trim());
 }
 
+function makeChallengeReference(pack) {
+  if (!pack.reference) return null;
+  const details = document.createElement("details");
+  details.className = "challenge-reference";
+  details.append(makeTextElement("summary", "", pack.reference.label || "查看练习表结构"));
+  const body = document.createElement("div");
+  if (pack.reference.description) body.append(makeTextElement("p", "", pack.reference.description));
+  const code = makeTextElement("pre", "", pack.reference.schema || "");
+  body.append(code);
+  details.append(body);
+  return details;
+}
+
 function rotatedChunks(chunks, seedText) {
   if (chunks.length < 2) return chunks.map((text, index) => ({ text, index }));
   const seed = [...seedText].reduce((total, character) => total + character.charCodeAt(0), 0);
@@ -1008,9 +1029,15 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
   section.className = `challenge-response challenge-response-${mode}`;
   const heading = document.createElement("div");
   heading.className = "challenge-response-heading";
+  const responseHints = {
+    boss: "写出完整版本",
+    practice: "先写一句也可以",
+    sql: "先独立写查询，再核对口径",
+    diagnosis: "先写判断，再补证据和行动",
+  };
   heading.append(
-    makeTextElement("span", "challenge-section-label", challengeModeLabels[mode]),
-    makeTextElement("span", "", mode === "boss" ? "写出完整版本" : mode === "practice" ? "先写一句也可以" : "完成后再看答案"),
+    makeTextElement("span", "challenge-section-label", challengeModeLabel(pack, mode)),
+    makeTextElement("span", "", pack.ui?.responseHints?.[mode] || responseHints[mode] || "完成后再看答案"),
   );
   section.append(heading);
 
@@ -1126,12 +1153,18 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
     };
     renderOrder();
   } else {
+    const isSQL = mode === "sql" || question.activity?.input === "sql" || question.answer?.format === "sql";
     const textarea = document.createElement("textarea");
     textarea.className = "challenge-draft-input";
-    textarea.rows = mode === "boss" ? 8 : 5;
-    textarea.setAttribute("aria-label", `${question.title}的英文回答`);
+    textarea.rows = mode === "boss" ? 10 : isSQL ? 8 : 5;
+    textarea.setAttribute("aria-label", `${question.title}的${isSQL ? "SQL" : "回答"}`);
+    textarea.spellcheck = !isSQL;
+    if (isSQL) textarea.setAttribute("autocapitalize", "off");
     textarea.value = typeof draft.text === "string" ? draft.text : "";
-    textarea.placeholder = mode === "boss" ? "在这里写下完整英文回答..." : "先写下你的英文回答，哪怕只有一句...";
+    textarea.placeholder = question.activity?.placeholder
+      || pack.ui?.draftPlaceholders?.[mode]
+      || (isSQL ? "在这里写 SQL，可以先写思路或伪代码..." : mode === "boss" ? "在这里写下完整回答..." : "先写下你的回答，哪怕只有一句...");
+    section.classList.toggle("is-code", isSQL);
     const counter = makeTextElement("span", "challenge-draft-count", `${textarea.value.trim().length} 字符`);
     textarea.addEventListener("input", () => {
       draft.text = textarea.value;
@@ -1147,27 +1180,29 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
   return { element: section, isReady, onReveal, mode };
 }
 
-function makeSelfReview(status, onComplete) {
+function makeSelfReview(pack, status, onComplete) {
   const section = document.createElement("section");
   section.className = "challenge-self-review";
   section.hidden = true;
   section.append(
     makeTextElement("span", "challenge-section-label", "快速自评"),
-    makeTextElement("h3", "", "不用和参考答案一样，确认掌握三项即可"),
+    makeTextElement("h3", "", pack.ui?.selfReview?.title || "不用和参考答案一样，确认掌握三项即可"),
   );
-  const criteria = ["我回答了题目的核心要求", "表达结构或结论足够清楚", "语气适合当前工作场景", "我记住了至少一个关键表达"];
+  const criteria = pack.ui?.selfReview?.criteria
+    || ["我回答了题目的核心要求", "表达结构或结论足够清楚", "语气适合当前工作场景", "我记住了至少一个关键表达"];
+  const threshold = Math.min(pack.ui?.selfReview?.threshold || 3, criteria.length);
   const grid = document.createElement("div");
   grid.className = "challenge-review-grid";
   const completionButton = document.createElement("button");
   completionButton.type = "button";
   completionButton.className = "challenge-complete-button";
-  completionButton.textContent = status.completed ? "本题已完成" : "再确认 3 项即可完成";
+  completionButton.textContent = status.completed ? "本题已完成" : `再确认 ${threshold} 项即可完成`;
   completionButton.disabled = true;
   const update = () => {
     const count = grid.querySelectorAll("input:checked").length;
     if (!status.completed) {
-      completionButton.disabled = count < 3;
-      completionButton.textContent = count >= 3 ? "掌握本题并解锁下一题" : `已确认 ${count} / 4 · 还需 ${3 - count} 项`;
+      completionButton.disabled = count < threshold;
+      completionButton.textContent = count >= threshold ? "掌握本题并解锁下一题" : `已确认 ${count} / ${criteria.length} · 还需 ${threshold - count} 项`;
     }
   };
   criteria.forEach((criterion) => {
@@ -1245,7 +1280,10 @@ function renderChallengeHub(pack) {
     grid.append(button);
   });
 
-  article.append(makeChallengeBreadcrumb(pack), header, makeDailyMission(pack), intro, grid);
+  const reference = makeChallengeReference(pack);
+  article.append(makeChallengeBreadcrumb(pack), header);
+  if (reference) article.append(reference);
+  article.append(makeDailyMission(pack), intro, grid);
   elements.skillDetailContainer.replaceChildren(article);
 }
 
@@ -1288,7 +1326,7 @@ function renderChallengeLevel(pack, levelId) {
     button.append(
       makeTextElement("span", "challenge-question-number", String(questionIndex + 1).padStart(2, "0")),
       makeTextElement("span", "challenge-question-copy", question.title),
-      makeTextElement("span", `challenge-question-type mode-${mode}`, challengeModeLabels[mode]),
+      makeTextElement("span", `challenge-question-type mode-${mode}`, challengeModeLabel(pack, mode)),
       makeTextElement("span", "challenge-question-state", status.completed ? "已完成" : status.unlocked ? "开始 →" : "锁定"),
     );
     button.addEventListener("click", () => navigateLearning("challengeQuestion", pack.skillId, true, level.id, question.id));
@@ -1337,7 +1375,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   const meta = document.createElement("div");
   meta.className = "challenge-question-meta";
   meta.append(
-    makeTextElement("span", `mode-${mode}`, challengeModeLabels[mode]),
+    makeTextElement("span", `mode-${mode}`, challengeModeLabel(pack, mode)),
     makeTextElement("span", "", question.type),
     makeTextElement("span", "", `${status.index + 1} / ${status.total}`),
   );
@@ -1357,6 +1395,8 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     hint.append(makeTextElement("summary", "", "需要提示？"), makeTextElement("p", "", question.hint));
     promptSection.append(hint);
   }
+  const reference = makeChallengeReference(pack);
+  if (reference) promptSection.append(reference);
 
   const revealButton = document.createElement("button");
   revealButton.type = "button";
@@ -1377,6 +1417,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
 
   const answerPanel = document.createElement("section");
   answerPanel.className = "challenge-answer";
+  answerPanel.classList.toggle("is-code", mode === "sql" || question.activity?.input === "sql" || question.answer?.format === "sql");
   answerPanel.hidden = true;
   answerPanel.append(
     makeTextElement("span", "challenge-section-label", "参考答案"),
@@ -1437,7 +1478,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
       reward.scrollIntoView({ block: "nearest", behavior: "smooth" });
     }
   };
-  selfReview = makeSelfReview(status, completeQuestion);
+  selfReview = makeSelfReview(pack, status, completeQuestion);
 
   revealButton.addEventListener("click", () => {
     const willShow = answerPanel.hidden;
@@ -1639,7 +1680,7 @@ function renderLearningSidebar() {
         : "闯关";
       section.append(makeLearningNavButton(
         skill.title,
-        skill.id === "business-english" ? challengeMeta : `${level}级`,
+        skill.challenge ? challengeMeta : `${level}级`,
         ["detail", "challengeLevel", "challengeQuestion"].includes(state.learningTab) && state.selectedSkill === skill.id,
         () => navigateLearning("detail", skill.id),
       ));
