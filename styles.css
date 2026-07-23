@@ -513,7 +513,6 @@ select {
 .skill-overview-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .skill-overview-card { position: relative; display: flex; min-width: 0; min-height: 155px; flex-direction: column; padding: 13px 14px 11px; overflow: hidden; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 7px; box-shadow: var(--shadow); text-align: left; }
 .skill-overview-card::before { position: absolute; top: 0; right: 0; left: 0; height: 3px; background: var(--accent); content: ""; }
-.skill-overview-card.skill-group-aplus::before { background: var(--c); }
 .skill-overview-card.skill-group-p1::before { background: var(--b); }
 .skill-overview-card:hover { border-color: var(--accent); transform: translateY(-1px); }
 .skill-overview-card.mastered { border-color: color-mix(in srgb, var(--a) 55%, var(--line)); }
@@ -523,7 +522,6 @@ select {
 .skill-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 18px; }
 .skill-priority { padding: 2px 6px; border-radius: 4px; font: 700 9px var(--mono); }
 .priority-p0 { color: var(--a); background: var(--a-soft); }
-.priority-aplus { color: var(--c); background: var(--c-soft); }
 .priority-p1 { color: var(--b); background: var(--b-soft); }
 .skill-coverage { color: var(--muted); font: 9px/1.45 var(--mono); overflow-wrap: anywhere; }
 .overview-level { flex: 0 0 auto; color: var(--accent); font: 700 9px var(--mono); }
@@ -540,11 +538,11 @@ select {
 .skill-detail-header { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 28px; padding: 23px 24px 20px; }
 .skill-detail-header h2 { margin: 7px 0 5px; font-size: 22px; }
 .skill-detail-header p { max-width: 760px; margin: 0; color: var(--ink-soft); font-size: 12px; }
+.skill-detail-header .skill-boundary { margin-top: 9px; padding-left: 9px; color: var(--accent); border-left: 2px solid var(--accent); font-size: 10px; }
 .detail-level-control { display: grid; align-content: center; gap: 6px; }
 .detail-level-control > span { color: var(--muted); font-size: 9px; font-weight: 700; }
 .skill-level { height: 30px; padding-left: 7px; font-size: 10px; }
 .coverage-track { height: 3px; margin: 0; border-radius: 0; }
-.skill-group-aplus .coverage-track span { background: var(--c); }
 .skill-group-p1 .coverage-track span { background: var(--b); }
 .skill-detail-page.mastered { border-color: color-mix(in srgb, var(--a) 55%, var(--line)); }
 .skill-detail-page.mastered .detail-level-control { padding: 10px; background: var(--a-soft); border-radius: 5px; }

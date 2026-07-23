@@ -53,13 +53,18 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 0);
   assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
+  assert.equal(await page.locator(".skill-overview-group").count(), guide.groups.length);
+  assert.equal(await page.locator(".skill-overview-group").nth(0).locator(".skill-overview-card").count(), 6);
+  assert.equal(await page.locator(".skill-overview-group").nth(1).locator(".skill-overview-card").count(), 3);
   assert.equal(await page.locator(".skill-detail-page").count(), 0);
   assert.equal(await page.locator(".week-row").count(), 0);
   assert.equal(await page.locator("#portfolio-list .checklist-item").count(), 0);
   assert.equal(await page.locator("#skill-job-count").textContent(), String(guide.sample.totalJobs));
-  assert.match(await page.locator("#skills-view").textContent(), /数据分析与业务诊断/);
+  assert.match(await page.locator("#skills-view").textContent(), new RegExp(guide.skills[0].title));
+  assert.match(await page.locator("#learning-view-nav button").first().textContent(), /9/);
   await page.locator(".skill-overview-card").first().click();
   assert.equal(await page.locator(".skill-detail-page").count(), 1);
+  assert.match(await page.locator(".skill-boundary").textContent(), /能力边界/);
   assert.equal(await page.locator(".skill-overview-card:visible").count(), 0);
   assert.ok(await page.locator(".skill-detail-page .exercise-list li").count() >= 4);
   await page.locator(".skill-detail-page .skill-level").selectOption("3");
@@ -218,9 +223,36 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.close();
 }
 
+async function checkSkillLevelMigration(browser) {
+  const page = await browser.newPage();
+  await page.addInitScript(() => {
+    localStorage.setItem("recruitment-skill-levels", JSON.stringify({
+      "data-diagnosis": 1,
+      "metrics-results": 3,
+      "lifecycle-growth": 2,
+      "strategy-design": 4,
+      "project-delivery": 3,
+      "product-data-ml": 2,
+      "experience-assets": 4,
+    }));
+  });
+  await page.goto(`${baseURL}/#skills`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.locator(".skill-overview-card").first().waitFor();
+  const levels = await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-skill-levels")));
+  assert.equal(levels["data-diagnosis"], 3);
+  assert.equal(levels["lifecycle-growth"], 4);
+  assert.equal(levels["project-delivery"], 3);
+  assert.equal(levels["metrics-results"], undefined);
+  assert.equal(levels["strategy-design"], undefined);
+  assert.equal(levels["product-data-ml"], undefined);
+  assert.equal(levels["experience-assets"], undefined);
+  await page.close();
+}
+
 (async () => {
   const browser = await chromium.launch({ executablePath, headless: true });
   try {
+    await checkSkillLevelMigration(browser);
     await checkPage(browser, { width: 1440, height: 1000 }, "/tmp/recruitment-desktop.png");
     await checkPage(browser, { width: 390, height: 844 }, "/tmp/recruitment-mobile.png");
     console.log("Site checks passed for desktop and mobile viewports.");

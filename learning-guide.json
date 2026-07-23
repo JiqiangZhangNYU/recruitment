@@ -1,9 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-07-23",
   "source": "A档岗位能力提升完整指南.md",
   "title": "A 档能力提升计划",
-  "summary": "面向上海支付策略、增长、商户、收入、支付绩效与方案商业化岗位，用 16 周形成可用于工作、简历和面试的能力证据。",
+  "summary": "面向上海支付策略、增长、商户、收入、支付绩效与方案商业化岗位，以 9 个边界清晰的能力域组织 16 周训练，形成可用于工作、简历和面试的能力证据。",
   "sample": {
     "totalJobs": 68,
     "aPlus": 6,
@@ -35,9 +35,8 @@
     "entities": ["商家", "用户", "行为事件", "订单", "支付", "结算", "营销活动"]
   },
   "groups": [
-    { "id": "p0", "label": "P0 通用能力", "description": "投递 A- 前应达到 3 级，是几乎所有目标岗位的共同底盘。" },
-    { "id": "aplus", "label": "A+ 核心专项", "description": "放大既有国际支付优势，支撑头部支付机构与全球业务岗位。" },
-    { "id": "p1", "label": "P1/P2 拓展", "description": "按岗位方向补齐电商、洞察、实验及产品数据算法协作。" }
+    { "id": "p0", "label": "P0 核心能力", "description": "合并通用底盘与 A+ 核心专项，是目标岗位共同要求和个人支付优势的主干能力。" },
+    { "id": "p1", "label": "P1 方向专项", "description": "与 P0 边界清晰，按电商经营、研究洞察或实验验证岗位方向选修。" }
   ],
   "skills": [
     {
@@ -45,185 +44,118 @@
       "number": 1,
       "group": "p0",
       "priority": "P0",
-      "title": "数据分析与业务诊断",
+      "title": "数据分析与经营诊断",
       "coverageCount": 68,
       "coverageTotal": 68,
       "coverageLabel": "68/68 个 A 档岗位",
-      "weeks": "第 1-3 周",
-      "goal": "把模糊业务问题转成数据问题，独立完成取数、清洗、核对、分析、可视化和结论表达。SQL 与 Excel 是工具，业务诊断才是目标。",
+      "weeks": "第 1-4 周",
+      "goal": "用 Excel 与 SQL 建立可信口径，从规模、转化、结构、同期群和单位经济诊断经营问题，并把变化换算成收入、成本或风险。",
+      "boundary": "回答“发生了什么、为什么、商业影响多大”，不负责选择增长策略或证明因果。",
       "path": [
-        { "title": "表格与口径", "points": ["理解事实表、维度表、主键、粒度和一对多关系", "检查空值、重复、异常值、时区、币种与口径变更", "掌握数据透视表、XLOOKUP、SUMIFS、条件格式和基础图表"] },
-        { "title": "SQL 分析", "points": ["掌握筛选、聚合、CASE WHEN、HAVING 与日期函数", "掌握 JOIN、CTE、子查询和连接前后行数核对", "用窗口函数完成漏斗、留存、复购、分群和同期群分析"] },
-        { "title": "诊断与表达", "points": ["先建指标树再取数", "从总量、结构、趋势、分群、漏斗、同期群六个视角排查", "用发现、证据、解释、建议、风险五段式表达"] }
+        { "title": "数据口径与工具", "points": ["理解事实表、维度表、主键、粒度和一对多关系", "检查空值、重复、异常值、时区、币种与口径变更", "掌握数据透视表、XLOOKUP、SUMIFS 以及 SQL 的 JOIN、CTE 和窗口函数"] },
+        { "title": "诊断框架", "points": ["先建指标树再取数，区分结果、过程、诊断与护栏指标", "从总量、结构、趋势、分群、漏斗和同期群六个视角排查", "识别自然增长、季节性、渠道迁移、数据质量和口径变化"] },
+        { "title": "经营结果", "points": ["明确 GMV、交易规模、收入、利润与现金流的区别", "掌握 CAC、LTV、毛利、补贴、支付成本和拒付损失", "用发现、证据、解释、商业影响和行动建议组织 WBR"] }
       ],
       "resources": [
         { "title": "SQL Cookbook, 2nd Edition", "type": "参考书", "url": "https://www.oreilly.com/library/view/sql-cookbook-2nd/9781492077435/" },
         { "title": "Lean Analytics", "type": "参考书", "url": "https://www.oreilly.com/library/view/lean-analytics/9781098168179/" },
         { "title": "PostgreSQL 官方教程", "type": "免费", "url": "https://www.postgresql.org/docs/current/tutorial.html" },
-        { "title": "Excel 数据透视表", "type": "免费", "url": "https://support.microsoft.com/en-us/excel/overview-of-pivottables-and-pivotcharts" }
+        { "title": "Excel 数据透视表", "type": "免费", "url": "https://support.microsoft.com/en-us/excel/overview-of-pivottables-and-pivotcharts" },
+        { "title": "How Finance Works", "type": "参考书", "url": "https://store.hbr.org/product/how-finance-works-the-hbr-guide-to-thinking-smart-about-the-numbers/10192" }
       ],
       "exercises": [
         "计算每日新增、KYC 完成、首笔交易和活跃商家",
         "用 LEFT JOIN 找出开户后没有支付记录的商家，并解释连接选择",
         "计算注册后 1、7、30 天的 KYC 与首笔同期群转化率",
         "将支付失败拆成发卡行、风控、技术和用户放弃并计算贡献",
-        "分析交易规模上涨但净收入下降的结构原因"
-      ],
-      "deliverable": "《商家钱包增长诊断》：8-12 条 SQL、一张漏斗、一张同期群表、一张失败原因 Pareto 图和 5 条业务结论。",
-      "acceptance": ["SQL 可重复运行，文件顶部写清口径", "任意比例都能说明分子、分母、时间窗和去重单位", "至少完成一次数据质量检查和一次反直觉发现", "建议对应责任团队与预期影响"]
-    },
-    {
-      "id": "metrics-results",
-      "number": 2,
-      "group": "p0",
-      "priority": "P0",
-      "title": "指标体系与商业结果",
-      "coverageCount": 48,
-      "coverageTotal": 68,
-      "coverageLabel": "48/68 明确强调商业结果",
-      "weeks": "第 4 周",
-      "goal": "从 GMV、交易规模、收入或利润向下拆解驱动因素，建立北极星、过程与护栏指标，并完成基本投入产出判断。",
-      "path": [
-        { "title": "指标结构", "points": ["按规模、转化、频次和单价建立业务指标树", "构建曝光到注册、KYC、绑卡、首笔和持续交易的漏斗", "区分结果指标、过程指标、诊断指标和护栏指标"] },
-        { "title": "经营判断", "points": ["掌握 CAC、LTV、毛利、补贴、支付成本和拒付损失", "明确 GMV、收入、利润与现金流的区别", "识别自然增长、季节性、渠道迁移和口径变化"] }
-      ],
-      "resources": [
-        { "title": "Lean Analytics", "type": "参考书", "url": "https://www.oreilly.com/library/view/lean-analytics/9781098168179/" },
-        { "title": "How Finance Works", "type": "参考书", "url": "https://store.hbr.org/product/how-finance-works-the-hbr-guide-to-thinking-smart-about-the-numbers/10192" }
-      ],
-      "exercises": [
         "分别以活跃商家、支付规模和净收入为顶层画三棵指标树",
         "计算首笔补贴项目的 90 天盈亏平衡点",
-        "解释 GMV 增长但高价值商家占比下降、退款率上升的经营含义",
-        "为支付成功率设置一个主指标和至少四个护栏指标"
+        "分析交易规模上涨但净收入下降的结构原因，并换算影响"
       ],
-      "deliverable": "一张完整指标树和一页 Weekly Business Review，包含结果、目标差距、驱动、异常、行动、负责人和截止时间。",
-      "acceptance": ["能解释指标为何值得优化", "能把一个百分点换算成交易、收入或成本", "能识别让指标虚假变好的行为", "能在指标过多时做取舍"]
+      "deliverable": "《商家钱包经营诊断》：可复用 SQL、指标树、漏斗、同期群、失败原因 Pareto 图及一页 Weekly Business Review。",
+      "acceptance": ["SQL 可重复运行且口径清楚", "任意比例都能说明分子、分母、时间窗和去重单位", "至少完成一次数据质量检查和一次反直觉发现", "能把一个百分点换算成交易、收入或成本", "能识别让指标虚假变好的行为"]
     },
     {
       "id": "lifecycle-growth",
-      "number": 3,
+      "number": 2,
       "group": "p0",
       "priority": "P0",
-      "title": "增长与生命周期运营",
+      "title": "增长策略与生命周期运营",
       "coverageCount": 66,
       "coverageTotal": 68,
       "coverageLabel": "66/68 个 A 档岗位",
-      "weeks": "第 5 周",
-      "goal": "定义用户或商家生命周期，识别关键跃迁和流失点，为不同价值层级设计差异化策略。",
+      "weeks": "第 5-6 周",
+      "goal": "定义用户或商家生命周期，找到关键跃迁与流失矛盾，为不同价值和意愿人群做少而明确的策略取舍。",
+      "boundary": "回答“对谁、为什么、采取什么增长策略”，不负责项目排期或实验因果证明。",
       "path": [
-        { "title": "生命周期", "points": ["定义潜客、注册、验证、激活、成长、成熟、沉默、流失和召回", "为每个阶段设置进入、退出条件、关键行为和目标指标", "区分用户、商家、商品和营销生命周期"] },
-        { "title": "分层与动作", "points": ["综合 RFM、利润、潜力、风险和行为标签", "把价值和意愿分开判断", "围绕拉新、激活、留存、提频和召回设计策略"] }
+        { "title": "生命周期与分层", "points": ["定义潜客、注册、验证、激活、成长、成熟、沉默、流失和召回", "为每个阶段设置进入、退出条件、关键行为和目标指标", "综合 RFM、利润、潜力、风险和行为标签，把价值与意愿分开"] },
+        { "title": "策略判断", "points": ["从目标约束、事实与原因假设中识别关键矛盾", "形成指导方针与一组一致行动，区分策略、战术、动作和愿望", "比较备选策略的影响、信心、成本、速度、风险和可逆性"] },
+        { "title": "动作组合", "points": ["围绕拉新、激活、留存、提频和召回设计差异化动作", "写清不做什么以及资源减半时的保留项", "补齐触点、频次、主指标、护栏、预案和复盘机制"] }
       ],
       "resources": [
         { "title": "Hacking Growth", "type": "参考书", "url": "https://www.penguinrandomhouse.com/books/545936/hacking-growth-by-sean-ellis-founder-of-growthhackerscom-and-morgan-brown/" },
-        { "title": "Lean Analytics", "type": "参考书", "url": "https://www.oreilly.com/library/view/lean-analytics/9781098168179/" }
+        { "title": "Lean Analytics", "type": "参考书", "url": "https://www.oreilly.com/library/view/lean-analytics/9781098168179/" },
+        { "title": "Good Strategy/Bad Strategy", "type": "必读", "url": "https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/" }
       ],
       "exercises": [
         "用可计算规则定义钱包商家的八个生命周期阶段",
         "按 90 天价值与增长潜力做二维分层并设计动作",
-        "为已 KYC 但 14 天无首笔的商家设计三种非全量补贴干预",
-        "设计沉默商家召回策略并列出不应召回的人群",
-        "在首笔率、30 日留存与 90 日 LTV 中选择激活主指标"
-      ],
-      "deliverable": "一张生命周期运营地图，覆盖阶段规则、人群规模、关键问题、策略、触点、主指标、护栏和预期收益。",
-      "acceptance": ["每层都能解释为什么这样分", "分层后有差异化动作", "写清效果验证方式", "提前定义无效后的调整"]
-    },
-    {
-      "id": "strategy-design",
-      "number": 4,
-      "group": "p0",
-      "priority": "P0",
-      "title": "增长策略与方案设计",
-      "coverageCount": 57,
-      "coverageTotal": 68,
-      "coverageLabel": "57/68 明确要求策略能力",
-      "weeks": "第 6 周",
-      "goal": "面对开放问题找到关键矛盾，提出少而有力的选择，并转成可落地、可衡量、可复盘的方案。",
-      "path": [
-        { "title": "策略内核", "points": ["从目标约束、事实、关键矛盾到原因假设", "形成指导方针与一组一致行动", "区分策略、战术、动作和愿望"] },
-        { "title": "落地取舍", "points": ["比较备选策略的影响、信心、成本、速度、风险和可逆性", "写清不做什么及原因", "补齐资源、排期、指标、预案和复盘机制"] }
-      ],
-      "resources": [
-        { "title": "Good Strategy/Bad Strategy", "type": "必读", "url": "https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/" },
-        { "title": "Hacking Growth", "type": "参考书", "url": "https://www.penguinrandomhouse.com/books/545936/hacking-growth-by-sean-ellis-founder-of-growthhackerscom-and-morgan-brown/" }
-      ],
-      "exercises": [
         "把提高钱包活跃拆成五个问题并选择关键矛盾",
         "用影响、成本和风险比较补贴、产品优化与运营教育",
-        "把加强运营触达改写为含人群、时机、渠道、频次和指标的策略",
-        "资源减半后重做方案并明确放弃项",
-        "为最喜欢的方案写一份反方意见"
+        "为已 KYC 但 14 天无首笔的商家设计三种差异化干预",
+        "设计沉默商家召回策略并列出不应召回的人群",
+        "资源减半后重做方案并明确放弃项"
       ],
-      "deliverable": "不超过 3 页的《商家首笔交易增长策略》，另附一页备选方案决策记录。",
-      "acceptance": ["10 分钟内讲完核心逻辑", "能连续回答为什么和其他方案", "能应对资源减半", "能说明结果不显著时的处理"]
+      "deliverable": "一张生命周期运营地图和不超过 3 页的《商家首笔交易增长策略》，另附备选方案决策记录。",
+      "acceptance": ["每层都能解释分层依据并对应差异化动作", "10 分钟内讲清关键矛盾、取舍与不做什么", "能应对资源减半", "写清效果验证方式和无效后的调整"]
     },
     {
       "id": "project-delivery",
-      "number": 5,
+      "number": 3,
       "group": "p0",
       "priority": "P0",
-      "title": "跨团队项目推进与独立落地",
+      "title": "跨团队项目与产品数据协作",
       "coverageCount": 60,
       "coverageTotal": 68,
       "coverageLabel": "60/68 个 A 档岗位",
-      "weeks": "第 9 周",
-      "goal": "在没有直接汇报关系时，对齐产品、技术、数据、算法、市场、合规和风控，管理依赖、风险与决策。",
+      "weeks": "第 9、15 周",
+      "goal": "把运营方案翻译为产品、数据或算法可执行的需求，并在没有直接汇报关系时管理跨团队依赖、风险、决策和上线。",
+      "boundary": "回答“如何把既定方案跨团队交付”，不替代业务策略、领域知识或专业研究。",
       "path": [
-        { "title": "项目骨架", "points": ["用章程明确背景、目标、范围、不做什么和成功标准", "建立利益相关者地图与 RACI", "识别里程碑、关键路径和真正阻塞交付的依赖"] },
-        { "title": "风险与决策", "points": ["维护 RAID：风险、假设、问题和依赖", "记录选项、证据、决定、负责人和日期", "设定升级机制并用机制根因做复盘"] }
+        { "title": "项目治理", "points": ["用章程明确背景、目标、范围、不做什么和成功标准", "建立利益相关者地图、RACI、里程碑和关键路径", "维护 RAID 与决策记录，设定升级和复盘机制"] },
+        { "title": "产品与数据需求", "points": ["从用户问题与业务价值出发写场景、范围、流程、异常和指标", "数据需求写清字段、粒度、时间、过滤、样例和验收", "理解埋点、事件、属性、实验标签和指标血缘"] },
+        { "title": "算法与上线协作", "points": ["区分分类、回归、排序、推荐、预测和因果增量的适用问题", "明确标签、特征、偏差、离线与在线指标和反馈回路", "用灰度、监控、异常处理和回滚保证交付"] }
       ],
       "resources": [
         { "title": "Making Things Happen", "type": "必读", "url": "https://www.oreilly.com/library/view/making-things-happen/9780596517717/" },
-        { "title": "PMI 项目管理标准", "type": "参考", "url": "https://www.pmi.org/standards" }
+        { "title": "PMI 项目管理标准", "type": "参考", "url": "https://www.pmi.org/standards" },
+        { "title": "INSPIRED, 2nd Edition", "type": "产品", "url": "https://www.wiley.com/en-us/INSPIRED%3A+How+to+Create+Tech+Products+Customers+Love%2C+2nd+Edition-p-9781119387503" },
+        { "title": "Google Machine Learning Crash Course", "type": "免费", "url": "https://developers.google.com/machine-learning/crash-course" }
       ],
       "exercises": [
         "为东南亚商家钱包增长项目建立七团队 RACI",
         "写十项 RAID，其中至少三项为跨境支付特有风险",
-        "分别应对产品无排期、数据延误、区域不认同统一策略",
-        "写一封带选项和建议的项目延期状态更新",
-        "画真实项目时间线并标注三次关键决策和本人作用"
+        "把做商家运营后台重写为问题、目标和三个可验证假设",
+        "为商家流失预警定义标签、观察窗、预测窗与行动",
+        "诊断离线 AUC 提升但线上 GMV 不变",
+        "分别应对产品无排期、数据延误和区域不认同统一方案",
+        "写含灰度、埋点、监控、异常和回滚的上线计划"
       ],
-      "deliverable": "项目推进包：一页章程、一张 RACI、一张四周排期、一份 RAID、一页周报和一页复盘。",
-      "acceptance": ["任务有唯一负责人和验收条件", "风险有触发条件、影响、预案和责任人", "能解释无职权时如何获得支持", "复盘落到机制根因"]
-    },
-    {
-      "id": "experience-assets",
-      "number": 13,
-      "group": "p0",
-      "priority": "P0",
-      "title": "经验资产化与面试案例",
-      "coverageCount": 67,
-      "coverageTotal": 68,
-      "coverageLabel": "67/68 要求相关经验",
-      "weeks": "第 16 周",
-      "goal": "把已有国际支付经历整理成可迁移、可验证、可追问的能力证据，并严格处理保密边界。",
-      "path": [
-        { "title": "项目盘点", "points": ["记录背景、目标、基线、约束、职责和决策权", "区分本人判断与团队共同成果", "补齐结果、持续时间、副作用、反事实和改进"] },
-        { "title": "案例表达", "points": ["准备数据诊断、复杂推进、支付增长、跨区域协作和失败复盘五类案例", "每个案例准备 30 秒、2 分钟和 8 分钟版本", "用比例、区间或指数脱敏，不虚构数字"] }
-      ],
-      "resources": [],
-      "exercises": [
-        "为每个案例写 30 秒、2 分钟和 8 分钟版本",
-        "为每个案例准备十个为什么追问及证据",
-        "标出所有我们团队并改写为本人动作",
-        "用基线、变化、时间和范围替换效果很好",
-        "写出未选方案、放弃理由和外部影响因素"
-      ],
-      "deliverable": "5 个 STAR-L 案例与一份项目索引，覆盖数据、复杂项目、支付、国际化和失败复盘。",
-      "acceptance": ["Action 能说清本人判断与动作", "Result 有基线、变化和时间范围", "每个案例可被深挖 20 分钟", "不泄露客户、系统、策略或个人信息"]
+      "deliverable": "项目交付包与《商家流失预警和干预》协作文档，覆盖章程、RACI、RAID、需求、验收、灰度、监控和复盘。",
+      "acceptance": ["任务有唯一负责人和验收条件", "产品、数据和算法同事能判断可实现性", "运营同事能直接执行", "风险有触发条件、预案和责任人", "上线方案包含灰度、监控和回滚"]
     },
     {
       "id": "payments-fintech",
-      "number": 10,
-      "group": "aplus",
-      "priority": "P0-A+",
+      "number": 4,
+      "group": "p0",
+      "priority": "P0",
       "title": "支付与金融科技业务",
       "coverageCount": 6,
       "coverageTotal": 6,
       "coverageLabel": "A+ 岗位 6/6",
       "weeks": "第 12-13 周",
       "goal": "把已有支付经验系统化，横向解释支付产品、增长杠杆、成本、风险和商业模式，并量化业务价值。",
+      "boundary": "沉淀支付领域知识与经营取舍，不重复通用数据工具、增长方法或项目管理。",
       "path": [
         { "title": "支付链路", "points": ["讲清账户、KYC/KYB、授权、认证、扣款、清算、结算和对账", "理解发卡行、收单行、卡组织、PSP、商户与消费者角色", "覆盖退款、撤销、拒付、争议和追偿"] },
         { "title": "支付经营与增长", "points": ["拆解授权率、成功率、TPV、Take Rate、支付成本、FX 收入和净收入", "诊断商户接入、渠道路由、认证、重试和支付方式覆盖", "平衡转化、体验、欺诈、拒付、合规与资金安全"] }
@@ -246,15 +178,16 @@
     },
     {
       "id": "business-english",
-      "number": 9,
-      "group": "aplus",
-      "priority": "P0-A+",
+      "number": 5,
+      "group": "p0",
+      "priority": "P0",
       "title": "业务英语",
       "coverageCount": 37,
       "coverageTotal": 68,
       "coverageLabel": "37/68；A+ 5/6",
       "weeks": "第 14 周起持续",
       "goal": "围绕读 JD、写邮件、开会、汇报数据、解释策略和处理异议训练准确、简洁、可行动的工作英语。",
+      "boundary": "训练英文工作表达，不重复国际市场分析、支付知识或项目管理方法。",
       "path": [
         { "title": "输入与写作", "points": ["每周精读一份英文 JD 与一篇支付官方资料", "建立增长、指标、支付、风险和项目术语库", "使用 BLUF 写背景、结论、请求、负责人和时间"] },
         { "title": "口语与会议", "points": ["每周录制 3-5 分钟项目更新", "练习澄清、不同意、追问、总结和行动确认", "用短句和清晰结构替代背稿"] }
@@ -275,18 +208,19 @@
     },
     {
       "id": "international-collaboration",
-      "number": 8,
-      "group": "aplus",
-      "priority": "P1-A+",
-      "title": "国际化业务与跨文化协作",
+      "number": 6,
+      "group": "p0",
+      "priority": "P0",
+      "title": "国际市场与本地化",
       "coverageCount": 40,
       "coverageTotal": 68,
       "coverageLabel": "40/68 个 A 档岗位",
       "weeks": "第 14 周",
-      "goal": "分析市场差异，判断哪些策略可复制、需适配或不可复制，并通过结构化异步协作推进跨区域项目。",
+      "goal": "比较国家和区域的用户、商家、支付、监管、竞争与渠道条件，决定市场进入顺序以及产品和运营的本地化方式。",
+      "boundary": "解决国家差异与本地化决策，不重复英语训练或通用跨团队协作。",
       "path": [
-        { "title": "市场差异", "points": ["比较用户、商家、支付方式、监管、竞争、渠道和基础设施", "区分事实、假设与刻板印象", "形成可复制、需适配、不可复制清单"] },
-        { "title": "跨文化推进", "points": ["理解沟通、反馈、说服、信任、分歧与时间观念差异", "为会议与异步协作留下上下文、决定、负责人和截止时间", "用小规模验证解决总部与区域判断冲突"] }
+        { "title": "市场进入判断", "points": ["比较用户、商家、支付方式、监管、竞争、渠道和基础设施", "区分事实、假设与刻板印象", "根据市场规模、进入难度、战略协同和风险决定进入顺序"] },
+        { "title": "本地化与区域适配", "points": ["检查语言、支付方式、信任、格式、客服、合规和运营节奏", "形成全球统一、区域例外和不可复制清单", "用小规模试点和当地证据决定是否扩大区域例外"] }
       ],
       "resources": [
         { "title": "The Culture Map", "type": "必读", "url": "https://www.penguinrandomhouse.com/authors/2195551/erin-meyer/" },
@@ -294,16 +228,17 @@
       ],
       "exercises": [
         "比较中国、巴西和印尼商家使用跨境收款的差异并标注待验证事实",
-        "为一项中国策略制作可复制、需适配、不可复制清单",
-        "写跨时区项目的会议、异步更新、决策与升级约定",
-        "从数据、市场和协作关系处理区域团队反对总部方案"
+        "为一项中国策略制作全球统一、区域适配和不可复制清单",
+        "用市场规模、进入难度、协同和风险排列三个市场的进入顺序",
+        "为印尼市场制作语言、支付、信任、客服与合规本地化清单",
+        "设计一个验证区域例外是否值得推广的小规模试点"
       ],
-      "deliverable": "2 页市场差异备忘录：比较两个国家并给出进入顺序、策略差异与待验证假设。",
-      "acceptance": ["事实和假设清晰分开", "覆盖用户、支付、监管、竞争和渠道", "策略差异对应证据", "包含验证方法与负责人"]
+      "deliverable": "2 页市场进入与本地化备忘录：比较两个国家并给出进入顺序、统一项、适配项和待验证假设。",
+      "acceptance": ["事实和假设清晰分开", "覆盖用户、支付、监管、竞争和渠道", "本地化差异对应证据", "包含验证方法、决策阈值与负责人"]
     },
     {
       "id": "ecommerce-merchants",
-      "number": 6,
+      "number": 7,
       "group": "p1",
       "priority": "P1",
       "title": "电商与商家经营",
@@ -312,6 +247,7 @@
       "coverageLabel": "60/68 个 A 档岗位",
       "weeks": "第 10-11 周",
       "goal": "理解平台人、货、场和多边生态，从商家供给、商品结构、流量、转化、履约和利润共同诊断经营问题。",
+      "boundary": "聚焦平台供给、商品和商家经营，不泛化为通用增长策略或数据诊断。",
       "path": [
         { "title": "平台经营", "points": ["理解用户、商家、达人、平台、服务商、支付和物流角色", "按流量、点击率、转化率、客单价和频次拆 GMV", "分析搜索、推荐、货架、活动、直播与短视频流量"] },
         { "title": "商家与供给", "points": ["管理招募、入驻、冷启动、成长、成熟、沉默和流失", "按规模、质量、潜力、稀缺度、内容、履约和风险分层", "评估品类、价格带、品牌、新老商品和头腰尾结构"] }
@@ -332,15 +268,16 @@
     },
     {
       "id": "research-insight",
-      "number": 7,
+      "number": 8,
       "group": "p1",
       "priority": "P1",
-      "title": "用户、商家与市场洞察",
+      "title": "用户与市场研究",
       "coverageCount": 43,
       "coverageTotal": 68,
       "coverageLabel": "43/68 个 A 档岗位",
       "weeks": "第 8 周",
       "goal": "用定量数据定位问题，用访谈、观察和案头研究解释原因，把证据转成可执行机会。",
+      "boundary": "用定性与案头证据解释原因，不承担日常报表诊断或实验因果估计。",
       "path": [
         { "title": "研究设计", "points": ["从业务决策反推研究问题", "明确对象、样本、招募、提纲、记录和伦理边界", "避免诱导问题与把少量意见当总体事实"] },
         { "title": "证据与洞察", "points": ["结合行为数据、访谈、客服反馈和竞品证据", "对记录编码，区分事实、解释和假设", "按影响范围、证据强度、价值与成本排序机会"] }
@@ -360,15 +297,16 @@
     },
     {
       "id": "experimentation",
-      "number": 11,
+      "number": 9,
       "group": "p1",
-      "priority": "P2",
-      "title": "A/B 测试与效果验证",
+      "priority": "P1",
+      "title": "实验与因果验证",
       "coverageCount": 11,
       "coverageTotal": 68,
       "coverageLabel": "11/68 明确点名",
       "weeks": "第 7 周",
       "goal": "判断何时适合实验，写清假设、实验单位、指标、样本和周期，识别污染与偏差并据结果决策。",
+      "boundary": "评估动作是否造成结果，不承担日常经营诊断、策略选择或用户访谈。",
       "path": [
         { "title": "实验设计", "points": ["写出对象、动作、指标和机制明确的可证伪假设", "选择用户、商家、订单、城市或时间作为随机化单位", "设置主指标、诊断指标、护栏和长期指标"] },
         { "title": "可信度与决策", "points": ["理解最小可检测效应、功效、显著性与置信区间", "排查 SRM、新奇效应、溢出、网络效应和重复检验", "区分统计显著与业务价值，无法随机时说明准实验局限"] }
@@ -385,36 +323,6 @@
       ],
       "deliverable": "一份实验设计和一份模拟结果复盘，覆盖假设、分流、样本、周期、指标、SRM、分群、决策与推广边界。",
       "acceptance": ["实验单位与干预机制匹配", "主指标和护栏均有决策阈值", "先检查实验可信度再看效果", "结论包含推广边界"]
-    },
-    {
-      "id": "product-data-ml",
-      "number": 12,
-      "group": "p1",
-      "priority": "P1",
-      "title": "产品、数据与算法协作",
-      "coverageCount": 42,
-      "coverageTotal": 68,
-      "coverageLabel": "约 42/68 正文涉及",
-      "weeks": "第 15 周",
-      "goal": "把运营问题翻译为产品、数据或算法问题，共同定义目标、输入、输出、约束、验收和风险。",
-      "path": [
-        { "title": "产品与数据", "points": ["从用户问题与业务价值出发写场景、范围、流程、异常和指标", "数据需求写清字段、粒度、时间、过滤、样例和验收", "理解埋点、事件、属性、实验标签和指标血缘"] },
-        { "title": "算法协作", "points": ["区分分类、回归、排序、推荐、预测和因果增量", "关注标签、特征、偏差、离线与在线指标和反馈回路", "理解购买倾向、流失和 Uplift 模型的目标差异"] }
-      ],
-      "resources": [
-        { "title": "INSPIRED, 2nd Edition", "type": "产品", "url": "https://www.wiley.com/en-us/INSPIRED%3A+How+to+Create+Tech+Products+Customers+Love%2C+2nd+Edition-p-9781119387503" },
-        { "title": "Google Machine Learning Crash Course", "type": "免费", "url": "https://developers.google.com/machine-learning/crash-course" },
-        { "title": "Google Machine Learning 学习路径", "type": "免费", "url": "https://developers.google.com/machine-learning" }
-      ],
-      "exercises": [
-        "把做商家运营后台重写为问题、目标和三个可验证假设",
-        "为商家流失预警定义标签、观察窗、预测窗与行动",
-        "比较购买倾向、流失和 Uplift 模型在发券中的差异",
-        "诊断离线 AUC 提升但线上 GMV 不变",
-        "写含灰度、埋点、监控、异常和回滚的上线计划"
-      ],
-      "deliverable": "《商家流失预警与干预》协作文档：业务问题、标签、特征假设、策略、实验、护栏、公平性和监控。",
-      "acceptance": ["算法同事能判断可实现性", "运营同事能直接执行", "管理者能判断投入价值", "上线方案包含灰度、监控和回滚"]
     }
   ],
   "phases": [

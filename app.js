@@ -25,9 +25,9 @@ const initialLearningRoute = learningRouteFromHash(location.hash);
 
 const legacySkillIds = {
   "sql-excel": "data-diagnosis",
-  "metrics-funnel": "metrics-results",
+  "metrics-funnel": "data-diagnosis",
   lifecycle: "lifecycle-growth",
-  strategy: "strategy-design",
+  strategy: "lifecycle-growth",
   project: "project-delivery",
   insight: "research-insight",
   experimentation: "experimentation",
@@ -44,6 +44,19 @@ const storedSkillLevels = storedSkillLevelsValue && typeof storedSkillLevelsValu
 legacyMasteredSkills.forEach((id) => {
   const currentId = legacySkillIds[id];
   if (currentId && storedSkillLevels[currentId] === undefined) storedSkillLevels[currentId] = 3;
+});
+const mergedSkillIds = {
+  "data-diagnosis": ["metrics-results"],
+  "lifecycle-growth": ["strategy-design"],
+  "project-delivery": ["product-data-ml"],
+};
+Object.entries(mergedSkillIds).forEach(([targetId, sourceIds]) => {
+  const ids = [targetId, ...sourceIds];
+  const levels = ids
+    .filter((id) => Object.hasOwn(storedSkillLevels, id))
+    .map((id) => Number(storedSkillLevels[id]))
+    .filter(Number.isFinite);
+  if (levels.length) storedSkillLevels[targetId] = Math.max(...levels);
 });
 
 function storedArray(key) {
@@ -1471,7 +1484,10 @@ function renderSkillDetail(skillId) {
   title.textContent = skill.title;
   const goal = document.createElement("p");
   goal.textContent = skill.goal;
-  copy.append(badges, title, goal);
+  const boundary = document.createElement("p");
+  boundary.className = "skill-boundary";
+  boundary.textContent = `能力边界 · ${skill.boundary}`;
+  copy.append(badges, title, goal, boundary);
   const levelControl = document.createElement("label");
   levelControl.className = "detail-level-control";
   const levelLabel = document.createElement("span");
@@ -1604,7 +1620,7 @@ function makeLearningNavButton(label, meta, active, onClick) {
 function renderLearningSidebar() {
   if (!state.guide) return;
   elements.learningViewNav.replaceChildren(
-    makeLearningNavButton("能力体系", "13", state.learningTab === "overview", () => navigateLearning("overview")),
+    makeLearningNavButton("能力体系", String(state.guide.skills.length), state.learningTab === "overview", () => navigateLearning("overview")),
     makeLearningNavButton("16 周路线", `${state.completedWeeks.size}/17`, state.learningTab === "roadmap", () => navigateLearning("roadmap")),
     makeLearningNavButton("作品与验收", `${state.completedPortfolio.size}/14`, state.learningTab === "portfolio", () => navigateLearning("portfolio")),
   );
