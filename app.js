@@ -1231,49 +1231,6 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
   return { element: section, isReady, onReveal, mode };
 }
 
-function makeSelfReview(pack, status, onComplete) {
-  const section = document.createElement("section");
-  section.className = "challenge-self-review";
-  section.hidden = true;
-  section.append(
-    makeTextElement("span", "challenge-section-label", "快速自评"),
-    makeTextElement("h3", "", pack.ui?.selfReview?.title || "不用和参考答案一样，确认掌握三项即可"),
-  );
-  const criteria = pack.ui?.selfReview?.criteria
-    || ["我回答了题目的核心要求", "表达结构或结论足够清楚", "语气适合当前工作场景", "我记住了至少一个关键表达"];
-  const threshold = Math.min(pack.ui?.selfReview?.threshold || 3, criteria.length);
-  const grid = document.createElement("div");
-  grid.className = "challenge-review-grid";
-  const completionButton = document.createElement("button");
-  completionButton.type = "button";
-  completionButton.className = "challenge-complete-button";
-  completionButton.textContent = status.completed ? "本题已完成" : `再确认 ${threshold} 项即可完成`;
-  completionButton.disabled = true;
-  const update = () => {
-    const count = grid.querySelectorAll("input:checked").length;
-    if (!status.completed) {
-      completionButton.disabled = count < threshold;
-      completionButton.textContent = count >= threshold ? "掌握本题并解锁下一题" : `已确认 ${count} / ${criteria.length} · 还需 ${threshold - count} 项`;
-    }
-  };
-  criteria.forEach((criterion) => {
-    const label = document.createElement("label");
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    const mark = makeTextElement("span", "", "✓");
-    const text = makeTextElement("strong", "", criterion);
-    label.append(input, mark, text);
-    input.addEventListener("change", () => {
-      label.classList.toggle("selected", input.checked);
-      update();
-    });
-    grid.append(label);
-  });
-  completionButton.addEventListener("click", onComplete);
-  section.append(grid, completionButton);
-  return { section, completionButton };
-}
-
 function renderChallengeHub(pack) {
   setChallengeDetailChrome();
   const progress = getChallengeProgress(pack.skillId);
@@ -1517,24 +1474,25 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     nextButton.disabled = !next || !completed;
     nextButton.textContent = !next
       ? "已完成全部题目"
-      : completed ? `下一题 · ${next.question.title} →` : "完成本题后解锁下一题";
+      : completed ? `下一题 · ${next.question.title} →` : "查看参考答案后进入下一题";
   };
   setNextButton(status.completed);
   nextButton.addEventListener("click", () => next && navigateLearning("challengeQuestion", pack.skillId, true, next.level.id, next.question.id));
   navigation.append(homeButton, previousButton, nextButton);
 
-  let selfReview;
   const completeQuestion = () => {
     const key = `${level.id}/${question.id}`;
-    completeDailyMissionItem(pack, key);
     const progress = getChallengeProgress(pack.skillId);
+    if (progress.has(key)) {
+      setNextButton(true);
+      return;
+    }
+    completeDailyMissionItem(pack, key);
     progress.add(key);
     persistChallengeProgress(pack.skillId);
     markPracticeDay(pack.skillId);
     updateChallengeSkillLevel(pack);
     article.classList.add("completed");
-    selfReview.completionButton.textContent = "本题已完成";
-    selfReview.completionButton.disabled = true;
     setNextButton(true);
 
     const levelComplete = level.questions.every((item) => progress.has(`${level.id}/${item.id}`));
@@ -1544,15 +1502,16 @@ function renderChallengeQuestion(pack, levelId, questionId) {
       reward.scrollIntoView({ block: "nearest", behavior: "smooth" });
     }
   };
-  selfReview = makeSelfReview(pack, status, completeQuestion);
 
   revealButton.addEventListener("click", () => {
     const willShow = answerPanel.hidden;
     answerPanel.hidden = !willShow;
-    selfReview.section.hidden = !willShow;
     revealButton.textContent = willShow ? "收起参考答案" : "查看参考答案";
     revealButton.setAttribute("aria-expanded", String(willShow));
-    if (willShow) response.onReveal();
+    if (willShow) {
+      response.onReveal();
+      completeQuestion();
+    }
   });
 
   if (status.completed) article.classList.add("completed");
@@ -1563,7 +1522,6 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     response.element,
     answerActions,
     answerPanel,
-    selfReview.section,
     navigation,
   );
   elements.skillDetailContainer.replaceChildren(article);

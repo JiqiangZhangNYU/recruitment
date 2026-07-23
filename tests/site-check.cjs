@@ -122,8 +122,8 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.locator(".challenge-choice").nth(dataDiagnosis.levels[0].questions[0].activity.correctChoice).click();
   await page.locator(".challenge-primary-button").click();
   assert.match(await page.locator(".challenge-answer-sample").textContent(), /payments 的粒度/);
-  for (let index = 0; index < 3; index += 1) await page.locator(".challenge-review-grid label").nth(index).click();
-  await page.locator(".challenge-complete-button").click();
+  assert.equal(await page.locator(".challenge-self-review").count(), 0);
+  assert.equal(await page.locator(".challenge-question-navigation button").last().isEnabled(), true);
   assert.deepEqual(
     await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-challenge-data-diagnosis"))),
     ["grain-quality/grain-before-query"],
@@ -149,7 +149,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.match(await page.locator(".challenge-answer-sample").textContent(), /AT TIME ZONE/);
   const sqlOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(sqlOverflow <= 1, `SQL challenge horizontal overflow: ${sqlOverflow}px`);
-  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: dataDiagnosis.title.replace("闯关", "") }).textContent(), /1\/48/);
+  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: dataDiagnosis.title.replace("闯关", "") }).textContent(), /2\/48/);
 
   await page.locator("#learning-skill-nav button").filter({ hasText: guide.skills[1].title }).click();
   assert.equal(await page.locator(".skill-detail-page").count(), 1);
@@ -176,7 +176,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".challenge-question-row:disabled").count(), businessEnglish.levels[0].questions.length - 1);
   await page.locator(".challenge-question-row").first().click();
   assert.equal(await page.locator(".challenge-answer").isHidden(), true);
-  assert.equal(await page.locator(".challenge-complete-button").isDisabled(), true);
+  assert.equal(await page.locator(".challenge-self-review").count(), 0);
   assert.equal(await page.locator(".challenge-primary-button").isDisabled(), true);
   assert.match(page.url(), /#challenge\/business-english\/payment-basics\/authorization-capture-settlement$/);
   await page.locator(".challenge-choice").nth(businessEnglish.levels[0].questions[0].activity.correctChoice).click();
@@ -185,10 +185,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".challenge-answer").isVisible(), true);
   assert.match(await page.locator(".challenge-answer-sample").textContent(), /Authorization checks/);
   assert.equal(await page.locator(".challenge-choice.correct").count(), 1);
-  assert.equal(await page.locator(".challenge-self-review").isVisible(), true);
-  for (let index = 0; index < 3; index += 1) await page.locator(".challenge-review-grid label").nth(index).click();
-  assert.equal(await page.locator(".challenge-complete-button").isEnabled(), true);
-  await page.locator(".challenge-complete-button").click();
+  assert.equal(await page.locator(".challenge-self-review").count(), 0);
   assert.equal(await page.locator(".challenge-question-navigation button").last().isEnabled(), true);
   assert.deepEqual(
     await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-challenge-business-english"))),
@@ -202,8 +199,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".challenge-primary-button").isEnabled(), true);
   await page.locator(".challenge-primary-button").click();
   assert.equal(await page.locator(".challenge-answer").isVisible(), true);
-  for (let index = 0; index < 3; index += 1) await page.locator(".challenge-review-grid label").nth(index).click();
-  await page.locator(".challenge-complete-button").click();
+  assert.equal(await page.locator(".challenge-question-navigation button").last().isEnabled(), true);
   await page.locator(".challenge-question-navigation button").last().click();
   assert.match(await page.locator(".challenge-question-header h2").textContent(), /支付链路参与方/);
   assert.equal(await page.locator(".challenge-primary-button").isDisabled(), true);
@@ -237,8 +233,6 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.match(await page.locator(".challenge-response-heading").textContent(), /Boss 挑战/);
   await page.locator(".challenge-draft-input").fill("Take rate explains gross pricing, while net revenue also depends on processing costs and losses.");
   await page.locator(".challenge-primary-button").click();
-  for (let index = 0; index < 3; index += 1) await page.locator(".challenge-review-grid label").nth(index).click();
-  await page.locator(".challenge-complete-button").click();
   assert.equal(await page.locator(".challenge-reward").isVisible(), true);
   assert.match(await page.locator(".challenge-reward h3").textContent(), /支付术语速查卡/);
 
