@@ -14,30 +14,38 @@ async function checkPage(browser, viewport, screenshotPath) {
 
   await page.goto(baseURL, { waitUntil: "networkidle" });
   await page.locator(".job-card").first().waitFor();
-  assert.equal(await page.locator(".job-card").count(), 35);
-  assert.equal(await page.locator("#displayed-stat").textContent(), "35");
+  const dataset = await page.evaluate(async () => (await fetch("./jobs.json")).json());
+  assert.equal(await page.locator(".job-card").count(), dataset.displayedSize);
+  assert.equal(await page.locator("#displayed-stat").textContent(), String(dataset.displayedSize));
 
   await page.locator('.primary-nav button[data-view="skills"]').click();
-  assert.equal(await page.locator(".skill-card").count(), 10);
+  assert.equal(await page.locator(".skill-card").count(), dataset.skills.items.length);
   assert.match(await page.locator("#skills-view").textContent(), /SQL 与 Excel 数据分析/);
   await page.locator(".skill-card").first().locator('.mastery-control input').check();
-  assert.equal(await page.locator("#skill-progress-count").textContent(), "1 / 10");
+  assert.equal(
+    await page.locator("#skill-progress-count").textContent(),
+    `1 / ${dataset.skills.items.length}`,
+  );
   await page.locator("#hide-mastered").check();
-  assert.equal(await page.locator(".skill-card").count(), 9);
+  assert.equal(await page.locator(".skill-card").count(), dataset.skills.items.length - 1);
   await page.locator("#hide-mastered").uncheck();
-  assert.equal(await page.locator(".skill-card").count(), 10);
+  assert.equal(await page.locator(".skill-card").count(), dataset.skills.items.length);
   const skillOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(skillOverflow <= 1, `skills horizontal overflow: ${skillOverflow}px`);
   await page.screenshot({ path: screenshotPath.replace(".png", "-skills.png"), fullPage: true });
   await page.locator('.primary-nav button[data-view="jobs"]').click();
 
   await page.locator("#tier-segments button").filter({ hasText: "A ·" }).click();
-  assert.equal(await page.locator(".job-card").count(), 15);
+  assert.equal(await page.locator(".job-card").count(), dataset.counts.A);
   await page.locator("#reset-button").click();
 
   await page.locator("#bonus-select").selectOption("reference");
-  assert.equal(await page.locator(".job-card").count(), 5);
-  assert.equal(await page.locator(".job-card.closed").count(), 1);
+  const references = dataset.jobs.filter((job) => job.isReference);
+  assert.equal(await page.locator(".job-card").count(), references.length);
+  assert.equal(
+    await page.locator(".job-card.closed").count(),
+    references.filter((job) => job.closed).length,
+  );
   assert.match(await page.locator(".job-card.closed").textContent(), /职位已关闭/);
   await page.locator("#reset-button").click();
 
