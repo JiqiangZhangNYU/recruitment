@@ -1612,6 +1612,58 @@ a:focus-visible {
   font-size: 10px;
 }
 
+.mandate-summary {
+  max-width: 760px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.mandate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+
+.mandate-grid article {
+  min-width: 0;
+  padding: 14px 16px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.mandate-grid article > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mandate-grid span,
+.mandate-grid small,
+.mandate-grid p {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.mandate-grid small {
+  font-weight: 800;
+}
+
+.mandate-grid article[data-level="硬性"] small {
+  color: var(--amber);
+}
+
+.mandate-grid strong {
+  display: block;
+  margin: 5px 0 2px;
+  font-size: 14px;
+}
+
+.mandate-grid p {
+  margin: 0;
+}
+
 .jobs-intro {
   margin-bottom: 24px;
 }
@@ -2177,6 +2229,136 @@ a:focus-visible {
   font-size: 10px;
 }
 
+.evidence-pack-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.evidence-pack-actions button {
+  width: fit-content;
+  padding: 5px 8px;
+  color: var(--accent-dark);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.evidence-pack-actions button:hover {
+  background: var(--accent-soft);
+}
+
+.evidence-template-view {
+  margin-top: 28px;
+  scroll-margin-top: 20px;
+  border-top: 3px solid var(--accent);
+}
+
+.evidence-template-nav {
+  margin: 0;
+}
+
+.evidence-template-header {
+  padding: 28px 0 20px;
+}
+
+.evidence-template-header h3,
+.evidence-template-header p {
+  margin: 0;
+}
+
+.evidence-template-header h3 {
+  margin: 4px 0;
+  font-size: 24px;
+}
+
+.evidence-template-header > p:last-child {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.evidence-template-sections {
+  border-top: 1px solid var(--line-strong);
+}
+
+.evidence-template-sections article {
+  display: grid;
+  grid-template-columns: 38px 180px minmax(260px, 1fr) minmax(220px, 0.8fr);
+  gap: 18px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.evidence-template-sections article > span {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.template-section-intro h4,
+.template-section-intro p {
+  margin: 0;
+}
+
+.template-section-intro h4 {
+  font-size: 13px;
+}
+
+.template-section-intro p {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.template-field-list {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.template-field-list li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 11px;
+}
+
+.template-field-list li::before {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--blue-soft);
+  border-radius: 50%;
+  content: "";
+}
+
+.evidence-template-sections blockquote {
+  margin: 0;
+  padding-left: 12px;
+  color: var(--muted);
+  border-left: 2px solid var(--line-strong);
+  font-size: 10px;
+}
+
+.template-checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+  padding: 26px 0;
+}
+
+.template-checks section > span {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+}
+
 @media (max-width: 980px) {
   :root {
     --sidebar-width: 220px;
@@ -2247,6 +2429,10 @@ a:focus-visible {
     border-bottom: 1px solid var(--line);
   }
 
+  .mandate-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .radar-summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2269,6 +2455,14 @@ a:focus-visible {
 
   .evidence-pack-list article {
     grid-template-columns: 40px 200px minmax(0, 1fr);
+  }
+
+  .evidence-template-sections article {
+    grid-template-columns: 34px 150px minmax(240px, 1fr);
+  }
+
+  .evidence-template-sections blockquote {
+    grid-column: 2 / -1;
   }
 }
 
@@ -2514,6 +2708,10 @@ a:focus-visible {
     border-bottom: 0;
   }
 
+  .mandate-grid {
+    grid-template-columns: 1fr;
+  }
+
   .market-skills-heading,
   .radar-results-header {
     display: grid;
@@ -2594,8 +2792,21 @@ a:focus-visible {
     grid-template-columns: 36px minmax(0, 1fr);
   }
 
-  .evidence-pack-list article > ul {
+  .evidence-pack-actions {
     grid-column: 2;
+  }
+
+  .evidence-template-sections article {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .evidence-template-sections .template-field-list,
+  .evidence-template-sections blockquote {
+    grid-column: 2;
+  }
+
+  .template-checks {
+    grid-template-columns: 1fr;
   }
 }
 

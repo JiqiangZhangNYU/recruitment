@@ -243,6 +243,25 @@
       "skillTags": ["python", "statistical-modeling", "signal-research", "research-rigor", "productionization", "portfolio-risk", "collaboration", "communication"]
     },
     {
+      "id": "recruiter-cta-ml-pm-low-comp",
+      "institutionId": null,
+      "institutionName": "匿名机构（猎头发布）",
+      "title": "CTA 量化策略研究员 / PM（机器学习方向）",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "publishedAt": "2026-06-17",
+      "checkedAt": "2026-07-24",
+      "source": { "publisher": "猎聘猎头职位", "kind": "recruiter-posting", "url": "https://www.liepin.com/a/76541581.shtml" },
+      "fit": { "tier": "C", "score": 42, "verdict": "商品 CTA 与机器学习内容相关，但公开薪资 25–40k × 15 薪，全年上限约 60 万，明确低于 100 万固定保证门槛。" },
+      "eligibility": { "location": "pass", "institutionScale": "unknown", "compensation": "fail", "seniority": "verify" },
+      "compensation": { "guaranteedGross": null, "performanceBonus": null, "reportedRange": "25–40k × 15薪（约37.5–60万元/年）", "disclosure": "range", "note": "即使把 15 薪全部视为保证收入，上限仍低于 100 万元，直接淘汰。" },
+      "responsibilities": ["研发和优化商品期货中低频或日内 CTA 策略", "使用树模型、深度学习或强化学习发掘非线性规律", "提升预测精度、稳健性和实盘表现"],
+      "requirements": ["两年以上 CTA 或期货量化策略经验", "熟悉国内商品期货品种和规则", "数学、统计、物理、计算机或金融工程背景"],
+      "skillTags": ["python", "machine-learning", "statistical-modeling", "signal-research", "backtesting", "commodity-domain"]
+    },
+    {
       "id": "optiver-commodity-quant-researcher",
       "institutionId": null,
       "institutionName": "Optiver",

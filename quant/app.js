@@ -7,6 +7,7 @@ const state = {
   jobs: null,
   jobSkills: null,
   actionPlan: null,
+  evidenceTemplates: {},
   activeView: "overview",
   directionFilter: "all",
   jobFilter: "strict-watch",
@@ -150,9 +151,26 @@ function renderOverview() {
       </div>
     </section>
 
+    <section class="mandate-band section-band" aria-labelledby="mandate-title">
+      <header class="section-heading compact-heading">
+        <p class="section-index">03 / ROLE SEARCH MANDATE</p>
+        <h2 id="mandate-title">换岗硬边界</h2>
+      </header>
+      <p class="mandate-summary">${escapeHTML(profile.careerMandate.summary)}</p>
+      <div class="mandate-grid">
+        ${profile.careerMandate.criteria.map((criterion) => `
+          <article data-level="${escapeHTML(criterion.level)}">
+            <div><span>${escapeHTML(criterion.label)}</span><small>${escapeHTML(criterion.level)}</small></div>
+            <strong>${escapeHTML(criterion.value)}</strong>
+            <p>${escapeHTML(criterion.note)}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+
     <section class="research-chain section-band" aria-labelledby="research-chain-title">
       <header class="section-heading compact-heading">
-        <p class="section-index">03 / RESEARCH EVIDENCE CHAIN</p>
+        <p class="section-index">04 / RESEARCH EVIDENCE CHAIN</p>
         <h2 id="research-chain-title">研究证据链</h2>
       </header>
       <div class="chain-visual">
@@ -171,7 +189,7 @@ function renderOverview() {
 
     <section class="responsibility-band section-band" aria-labelledby="responsibility-title">
       <header class="section-heading compact-heading">
-        <p class="section-index">04 / RESPONSIBILITY BOUNDARY</p>
+        <p class="section-index">05 / RESPONSIBILITY BOUNDARY</p>
         <h2 id="responsibility-title">职责与决策边界</h2>
       </header>
       <div class="responsibility-grid">
@@ -194,14 +212,14 @@ function renderOverview() {
     <section class="evidence-band section-band">
       <div class="evidence-column confirmed-column">
         <header class="section-heading compact-heading">
-          <p class="section-index">05 / CONFIRMED</p>
+          <p class="section-index">06 / CONFIRMED</p>
           <h2>已确认事实</h2>
         </header>
         ${list(profile.confirmedFacts, "evidence-list")}
       </div>
       <div class="evidence-column questions-column">
         <header class="section-heading compact-heading">
-          <p class="section-index">06 / TO VERIFY</p>
+          <p class="section-index">07 / TO VERIFY</p>
           <h2>决定岗位定价的问题</h2>
         </header>
         ${list(profile.evidenceQuestions, "question-list")}
@@ -210,7 +228,7 @@ function renderOverview() {
 
     <section class="next-evidence section-band">
       <header class="section-heading compact-heading">
-        <p class="section-index">07 / NEXT EVIDENCE</p>
+        <p class="section-index">08 / NEXT EVIDENCE</p>
         <h2>下一批材料</h2>
       </header>
       <div class="deliverable-grid">
@@ -700,13 +718,58 @@ function renderActionPlan() {
             <article>
               <span>${String(index + 1).padStart(2, "0")}</span>
               <div><h4>${escapeHTML(item.title)}</h4><p>${escapeHTML(item.purpose)}</p></div>
-              ${list(item.contents, "compact-boundary-list")}
+              <div class="evidence-pack-actions">
+                ${list(item.contents, "compact-boundary-list")}
+                <button type="button" data-evidence-template="${escapeHTML(item.id)}">打开填写模板</button>
+              </div>
             </article>
           `).join("")}
         </div>
       </section>
+      <section id="evidence-template-view" class="evidence-template-view" hidden></section>
     </div>
   `;
+}
+
+function renderEvidenceTemplate(template) {
+  const panel = document.querySelector("#evidence-template-view");
+  if (!panel) return;
+  panel.innerHTML = `
+    <nav class="breadcrumb evidence-template-nav" aria-label="证据模板导航">
+      <button type="button" data-close-evidence-template><span aria-hidden="true">←</span> 四份证据</button>
+      <span>${escapeHTML(template.status)}</span>
+    </nav>
+    <header class="evidence-template-header">
+      <p class="section-index">LAZY-LOADED EVIDENCE TEMPLATE</p>
+      <h3>${escapeHTML(template.title)}</h3>
+      <p>${escapeHTML(template.subtitle)}</p>
+    </header>
+    <div class="evidence-template-sections">
+      ${template.sections.map((section, index) => `
+        <article>
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <div class="template-section-intro"><h4>${escapeHTML(section.title)}</h4><p>${escapeHTML(section.purpose)}</p></div>
+          ${list(section.fields, "template-field-list")}
+          <blockquote>${escapeHTML(section.example)}</blockquote>
+        </article>
+      `).join("")}
+    </div>
+    <div class="template-checks">
+      <section><span>保密边界</span>${list(template.guardrails, "question-list")}</section>
+      <section><span>完成标准</span>${list(template.acceptanceCriteria, "evidence-list")}</section>
+    </div>
+  `;
+  panel.hidden = false;
+  panel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function ensureEvidenceTemplate(templateId) {
+  const known = state.actionPlan.evidencePack.some((item) => item.id === templateId);
+  if (!known) return;
+  if (!state.evidenceTemplates[templateId]) {
+    state.evidenceTemplates[templateId] = await loadJSON(`data/evidence/${templateId}.json`);
+  }
+  renderEvidenceTemplate(state.evidenceTemplates[templateId]);
 }
 
 function renderInstitutionDirectory() {
@@ -817,10 +880,17 @@ function renderJobSkills() {
 
 function renderJobs() {
   const filters = jobFilterOptions();
-  const jobs = state.jobs.jobs.filter((job) => job.pool === state.jobFilter);
+  const queueRanks = new Map(state.actionPlan.queue.map((item) => [item.jobId, item.rank]));
+  const jobs = state.jobs.jobs
+    .filter((job) => job.pool === state.jobFilter)
+    .sort((left, right) => (
+      (queueRanks.get(left.id) || 99) - (queueRanks.get(right.id) || 99)
+      || right.fit.score - left.fit.score
+    ));
   const activeJobs = state.jobs.jobs.filter((job) => job.status === "active");
   const strictCount = state.jobs.jobs.filter((job) => job.pool === "strict-watch").length;
   const compensationKnown = activeJobs.filter((job) => job.eligibility.compensation === "pass").length;
+  const compensationFailed = activeJobs.filter((job) => job.eligibility.compensation === "fail").length;
   elements.jobsContent.innerHTML = `
     <section class="view-intro jobs-intro">
       <div>
@@ -833,7 +903,7 @@ function renderJobs() {
       <div><span>百亿机构</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>均有协会规模证据</small></div>
       <div><span>当前职位</span><strong>${activeJobs.length}</strong><small>含相邻和边界线索</small></div>
       <div><span>重点待核</span><strong>${strictCount}</strong><small>地点、规模已过闸</small></div>
-      <div><span>薪酬已达标</span><strong>${compensationKnown}</strong><small>未披露不推断</small></div>
+      <div><span>薪酬已达标</span><strong>${compensationKnown}</strong><small>${compensationFailed} 条明确淘汰，其余不推断</small></div>
     </section>
     ${renderJobSkills()}
     <section class="radar-results section-band" aria-labelledby="radar-results-title">
@@ -938,7 +1008,7 @@ function setTheme(theme) {
   elements.themeButton.setAttribute("aria-label", theme === "dark" ? "切换到浅色主题" : "切换到深色主题");
 }
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", async (event) => {
   const viewButton = event.target.closest("[data-view]");
   if (viewButton) location.hash = viewButton.dataset.view;
 
@@ -963,6 +1033,25 @@ document.addEventListener("click", (event) => {
   if (jobFilterButton) {
     state.jobFilter = jobFilterButton.dataset.jobFilter;
     renderJobs();
+  }
+
+  const evidenceButton = event.target.closest("[data-evidence-template]");
+  if (evidenceButton) {
+    try {
+      await ensureEvidenceTemplate(evidenceButton.dataset.evidenceTemplate);
+    } catch (error) {
+      console.error(error);
+      elements.errorState.hidden = false;
+    }
+  }
+
+  if (event.target.closest("[data-close-evidence-template]")) {
+    const panel = document.querySelector("#evidence-template-view");
+    if (panel) {
+      panel.hidden = true;
+      panel.innerHTML = "";
+      document.querySelector(".evidence-pack")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 });
 

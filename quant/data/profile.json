@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updatedAt": "2026-07-24",
   "identity": {
     "role": "量化研究员",
@@ -34,6 +34,17 @@
     "adjacent": "Principal Quant Researcher、系统化商品研究、商品 CTA 研究",
     "stretch": "独立承担资金与风险决策的商品量化 PM",
     "principle": "目标是持续亲自构造信号、写模型和优化组合的 IC 型高级岗位，不以团队规模或行政管理作为晋升路径。"
+  },
+  "careerMandate": {
+    "summary": "只有同时满足职业升级和经济底线的机会才值得投入完整面试流程；未披露薪酬的岗位先核验，不因品牌自动放宽。",
+    "criteria": [
+      { "label": "地点", "value": "仅上海", "level": "硬性", "note": "不考虑异地岗位" },
+      { "label": "机构规模", "value": "≥ 100 亿元", "level": "硬性", "note": "优先使用协会或官方证据" },
+      { "label": "固定收入", "value": "税前 ≥ 100 万元", "level": "硬性", "note": "不以浮动奖金补足" },
+      { "label": "良好年份", "value": "税后现金 > 80 万元", "level": "硬性", "note": "奖金约 10.5–16 万元起" },
+      { "label": "机构类型", "value": "私募基金优先", "level": "优先", "note": "公募、券商和期货资管为辅" },
+      { "label": "工作形态", "value": "亲自研究的高级 IC", "level": "优先", "note": "增加决策权，不转纯管理" }
+    ]
   },
   "confirmedFacts": [
     "在上海远澜私募基金从事量化研究 6 年",
