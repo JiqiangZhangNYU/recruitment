@@ -1,26 +1,24 @@
 {
-  "generatedAt": "2026-07-23T10:31:52+08:00",
+  "generatedAt": "2026-07-23T10:53:59+08:00",
   "sourceGeneratedAt": "2026-07-22T14:31:20.529Z",
   "poolSize": 502,
-  "eligibleSize": 57,
-  "displayedSize": 50,
+  "eligibleSize": 42,
+  "displayedSize": 42,
   "counts": {
-    "A": 23,
-    "B": 24,
-    "C": 3
+    "A": 4,
+    "B": 37,
+    "C": 1
   },
   "profile": {
-    "summary": "上海岗位为硬性标准，优先大平台及支付业务，聚焦数据驱动的增长与策略运营",
+    "summary": "A 档仅限上海支付大厂且无需频繁出差；B 档为数据驱动的相关策略运营；C 档仅供方向参考",
     "criteria": [
       "工作地点必须为上海（硬性标准）",
-      "支付或金融科技业务明显加分（14 分）",
-      "阿里、字节、小红书等大平台明显加分（10 分）",
-      "商业增长与明确结果指标",
-      "数据分析、漏斗和归因能力",
-      "用户、商家或行业洞察",
-      "策略设计、落地和持续迭代",
-      "跨团队项目推动",
-      "电商或国际化业务经验"
+      "A 档必须同时属于明确支付业务和大平台公司",
+      "A 档不得要求频繁、长期或高频出差",
+      "A 档排除猎头代招、劳务派遣、外包及敏感交易业务",
+      "B 档必须是数据驱动的增长或策略运营岗位",
+      "B 档可以只满足支付或大平台一项，也可以均不满足",
+      "C 档最多 10 个，优先保留关闭岗位和原始标杆，仅供方向参考"
     ]
   },
   "skills": {
@@ -54,10 +52,10 @@
           "理解表粒度、指标口径、空值异常与数据质量检查"
         ],
         "practice": "用模拟用户行为表完成新增、激活、7 日留存和付费转化分析，输出一页结论。",
-        "jobCount": 3,
-        "totalJobs": 50,
-        "relatedCount": 48,
-        "evidence": "48/50 个岗位涉及数据分析；3 个明确点名 SQL/Excel"
+        "jobCount": 2,
+        "totalJobs": 42,
+        "relatedCount": 42,
+        "evidence": "42/42 个岗位涉及数据分析；2 个明确点名 SQL/Excel"
       },
       {
         "id": "metrics-funnel",
@@ -71,10 +69,10 @@
           "渠道归因、ROI、CAC、LTV、GMV 和利润基础口径"
         ],
         "practice": "搭建一张增长指标树和转化漏斗，指出三个问题环节及对应运营动作。",
-        "jobCount": 28,
-        "totalJobs": 50,
+        "jobCount": 25,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "28/50 个岗位正文明确涉及"
+        "evidence": "25/42 个岗位正文明确涉及"
       },
       {
         "id": "lifecycle",
@@ -88,10 +86,10 @@
           "拉新、激活、留存、复购、召回策略及效果指标"
         ],
         "practice": "为一个钱包或电商产品画出生命周期地图，并为每层用户设计策略和指标。",
-        "jobCount": 50,
-        "totalJobs": 50,
+        "jobCount": 42,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "50/50 个岗位正文明确涉及"
+        "evidence": "42/42 个岗位正文明确涉及"
       },
       {
         "id": "strategy",
@@ -105,10 +103,10 @@
           "优先级、资源测算、风险预案和复盘迭代"
         ],
         "practice": "写一份 3 页增长方案：业务诊断、策略设计、执行排期与量化目标。",
-        "jobCount": 36,
-        "totalJobs": 50,
+        "jobCount": 32,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "36/50 个岗位正文明确涉及"
+        "evidence": "32/42 个岗位正文明确涉及"
       },
       {
         "id": "project",
@@ -122,10 +120,10 @@
           "面向不同团队表达收益、成本和优先级"
         ],
         "practice": "制作一份跨团队项目计划，包含 RACI、四周排期、风险清单和复盘模板。",
-        "jobCount": 44,
-        "totalJobs": 50,
+        "jobCount": 37,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "44/50 个岗位正文明确涉及"
+        "evidence": "37/42 个岗位正文明确涉及"
       },
       {
         "id": "insight",
@@ -139,10 +137,10 @@
           "输出机会点、证据、影响范围和建议优先级"
         ],
         "practice": "访谈 5 名目标用户，结合一份行为数据写出洞察、证据和三项机会点。",
-        "jobCount": 20,
-        "totalJobs": 50,
+        "jobCount": 17,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "20/50 个岗位正文明确涉及"
+        "evidence": "17/42 个岗位正文明确涉及"
       },
       {
         "id": "experimentation",
@@ -156,15 +154,15 @@
           "实验污染、辛普森悖论及结果推广边界"
         ],
         "practice": "设计一次新客激励 A/B 测试，写清假设、分组、指标、周期和决策规则。",
-        "jobCount": 4,
-        "totalJobs": 50,
+        "jobCount": 3,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "4/50 个岗位正文明确涉及"
+        "evidence": "3/42 个岗位正文明确涉及"
       },
       {
         "id": "payments",
         "group": "specialized",
-        "title": "支付与金融科技业务",
+        "title": "支付业务",
         "priority": "重点加分",
         "description": "理解支付链路和关键经营指标，是当前大平台目标岗位的明显加分项。",
         "learningPoints": [
@@ -173,10 +171,10 @@
           "KYC、AML、合规、风控、拒付和用户体验之间的平衡"
         ],
         "practice": "拆解商家钱包从开户到首笔交易的漏斗，提出三项增长策略和风险控制点。",
-        "jobCount": 12,
-        "totalJobs": 50,
+        "jobCount": 6,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "12/50 个岗位正文明确涉及"
+        "evidence": "6/42 个岗位正文明确涉及"
       },
       {
         "id": "ecommerce",
@@ -190,10 +188,10 @@
           "供给结构、品类运营、营销活动和商家激励"
         ],
         "practice": "为一个品类制定商家分层与供给增长方案，明确 GMV 拆解和周度指标。",
-        "jobCount": 30,
-        "totalJobs": 50,
+        "jobCount": 26,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "30/50 个岗位正文明确涉及"
+        "evidence": "26/42 个岗位正文明确涉及"
       },
       {
         "id": "english",
@@ -207,10 +205,10 @@
           "用英语说明业务背景、个人贡献、结果和复盘"
         ],
         "practice": "准备一份英文项目复盘并完成 5 分钟口述，覆盖目标、动作、数据和结果。",
-        "jobCount": 9,
-        "totalJobs": 50,
+        "jobCount": 8,
+        "totalJobs": 42,
         "relatedCount": null,
-        "evidence": "9/50 个岗位正文明确涉及"
+        "evidence": "8/42 个岗位正文明确涉及"
       }
     ]
   },
@@ -227,11 +225,14 @@
       "education": "本科",
       "score": 100,
       "tier": "A",
-      "tierLabel": "A 优先看",
+      "tierLabel": "A 支付大厂优先",
       "isReference": true,
       "closed": false,
       "paymentBonus": true,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商",
@@ -246,7 +247,7 @@
         "跨团队推进",
         "国际化",
         "电商/商家",
-        "支付/金融科技"
+        "支付业务"
       ],
       "responsibilities": [
         "商户增长与生命周期运营：结合国际电商的业务场景、客户群体和商家资金管理需求，制定并执行商户钱包业务的拉新、激活与留存策略，搭建覆盖开户、⾸次使⽤到交易转化的全链路运营体系，针对不同层级和类型的商家设计差异化运营⽅案，持续提升渗透率与活跃度",
@@ -256,7 +257,7 @@
       "requirements": "本科及以上学历，3 年以上互联网运营经验，具备支付、电商、金融科技或 ToB SaaS 等领域的商家运营或用户增长经验；熟悉支付或资金管理类产品的业务逻辑，具备扎实的数据分析能力，能基于漏斗分析、用户分层、A/B 实验等方法驱动运营决策；同时具备独立策划和落地运营活动的实操经验",
       "notes": [
         "需要英语能力",
-        "支付/金融科技经验更有优势"
+        "支付业务经验更有优势"
       ],
       "requiresEnglish": true,
       "agency": false,
@@ -275,11 +276,14 @@
       "education": "本科",
       "score": 100,
       "tier": "A",
-      "tierLabel": "A 优先看",
+      "tierLabel": "A 支付大厂优先",
       "isReference": true,
       "closed": false,
       "paymentBonus": true,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商",
@@ -294,7 +298,7 @@
         "跨团队推进",
         "国际化",
         "电商/商家",
-        "支付/金融科技"
+        "支付业务"
       ],
       "responsibilities": [
         "基于行业/市场/用户需求洞察进行分析，结合国际化电商业务的特点，制定设计短、中、长期的活动计划，包含节点、热点、大促等活动，设计国际信⽤⽀付业务（BNPL）的整合营销活动⽅案和玩法，负责BNPL的GMV和用户量等核心指标的提升",
@@ -304,7 +308,7 @@
       "requirements": "本科及以上学历，3年及以上工作经验，有信用支付或电商行业的用户增长运营、整合营销活动经验优先；能够独立操盘项目，有较强的方案设计能力和数据敏感度，资源整合能力佳",
       "notes": [
         "需要英语能力",
-        "支付/金融科技经验更有优势"
+        "支付业务经验更有优势"
       ],
       "requiresEnglish": true,
       "agency": false,
@@ -323,11 +327,14 @@
       "education": "本科",
       "score": 100,
       "tier": "A",
-      "tierLabel": "A 优先看",
+      "tierLabel": "A 支付大厂优先",
       "isReference": true,
       "closed": false,
       "paymentBonus": true,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境",
@@ -341,7 +348,7 @@
         "策略设计",
         "跨团队推进",
         "国际化",
-        "支付/金融科技"
+        "支付业务"
       ],
       "responsibilities": [
         "负责重点区域增长与收入目标，深入洞察海外汇款用户需求，定位⽬标⼈群，制定增长运营策略并协同跨团队完成⽬标",
@@ -351,7 +358,7 @@
       "requirements": "本科及以上学历，3-5年用户运营经验，有海外C端用户经验或者钱包运营经验优先；具备独立负责项目经验，熟悉海外汇款业务优先",
       "notes": [
         "需要英语能力",
-        "支付/金融科技经验更有优势"
+        "支付业务经验更有优势"
       ],
       "requiresEnglish": true,
       "agency": false,
@@ -370,11 +377,14 @@
       "education": "本科",
       "score": 100,
       "tier": "A",
-      "tierLabel": "A 优先看",
+      "tierLabel": "A 支付大厂优先",
       "isReference": false,
       "closed": false,
       "paymentBonus": true,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商",
@@ -388,7 +398,7 @@
         "跨团队推进",
         "国际化",
         "电商/商家",
-        "支付/金融科技"
+        "支付业务"
       ],
       "responsibilities": [
         "该岗位为以用户增长为导向、兼顾外汇解决方案的复合型角色，重点聚焦中小客户的规模化增长，通过营销策略规模化获取并转化中⼩商家、创作者/达⼈及C端⽤户，将外汇服务转化为可规模化触达的增长举措，达成交易量、渗透率与收入的增长目标",
@@ -398,7 +408,7 @@
       "requirements": "行业经验：3年以上金融科技、全球支付、跨境电商领域工作经验，具备支付/外汇/金融产品的增长或解决方案背景者优先；市场营销、财经、金融、经济或相关专业本科及以上学历；解决方案与客户能力：能够独立完成客户需求调研，将外汇产品能力转化为解决方案与价值主张并推进落地；有跨区域、跨团队协作项目经验者优先；能够以中英双语作为工作语言",
       "notes": [
         "资深岗位，对年限和项目体量要求较高",
-        "支付/金融科技经验更有优势"
+        "支付业务经验更有优势"
       ],
       "requiresEnglish": false,
       "agency": false,
@@ -416,12 +426,15 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 100,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": true,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商",
@@ -464,12 +477,15 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 100,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -508,12 +524,15 @@
       "experience": "1-3年",
       "education": "本科",
       "score": 94,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -551,12 +570,15 @@
       "experience": "3-5年",
       "education": "本科",
       "score": 92,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商",
@@ -596,12 +618,15 @@
       "experience": "经验不限",
       "education": "本科",
       "score": 84,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -638,12 +663,15 @@
       "experience": "3-5年",
       "education": "本科",
       "score": 84,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -680,12 +708,15 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 81,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -722,12 +753,15 @@
       "experience": "1-3年",
       "education": "本科",
       "score": 80,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -764,12 +798,15 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 80,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -807,12 +844,15 @@
       "experience": "1-3年",
       "education": "本科",
       "score": 80,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -848,12 +888,15 @@
       "experience": "3-5年",
       "education": "大专",
       "score": 79,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境"
@@ -883,6 +926,54 @@
     {
       "id": "job-16",
       "rank": 16,
+      "title": "增长运营经理（卡支付产品）",
+      "company": "北京中利博冠网络科技",
+      "salary": "25-50K",
+      "salaryFloor": 25,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "学历不限",
+      "score": 78,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": true,
+      "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "海外跨境",
+        "支付金融"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "支付业务"
+      ],
+      "responsibilities": [
+        "负责Card产品的日常运营管理，建立并持续优化运营机制，保障卡业务稳定、安全、高效运行",
+        "负责与发卡机构、卡处理商(Processor)、⽀付合作伙伴及其他外部机构的⽇常沟通与协作，推动合作项⽬顺利落地",
+        "搭建并运营Card用户全生命周期增长体系，围绕申请、激活、绑卡、消费、留存及复购等关键环节进⾏精细化运营，不断提升用户转化率和活跃度"
+      ],
+      "requirements": "请打开原岗位核对详细要求",
+      "notes": [
+        "Web3/CFD 等交易方向，先核验公司与业务合规性",
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": true,
+      "url": "https://www.zhipin.com/job_detail/1579e983bd02adea0nF73N29EFRU.html"
+    },
+    {
+      "id": "job-17",
+      "rank": 17,
       "title": "作者增长运营（上海）",
       "company": "字节跳动",
       "salary": "17-25K",
@@ -891,12 +982,15 @@
       "experience": "3-5年",
       "education": "本科",
       "score": 76,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -921,8 +1015,8 @@
       "url": "https://www.zhipin.com/job_detail/4f2d687853b417fb0nF42d29EFtW.html"
     },
     {
-      "id": "job-17",
-      "rank": 17,
+      "id": "job-18",
+      "rank": 18,
       "title": "用户增长策略运营",
       "company": "字节跳动",
       "salary": "30-60K·15薪",
@@ -931,12 +1025,15 @@
       "experience": "3-5年",
       "education": "本科",
       "score": 76,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -961,8 +1058,55 @@
       "url": "https://www.zhipin.com/job_detail/2f2bc92a2778409b0nF_3N29E1pQ.html"
     },
     {
-      "id": "job-18",
-      "rank": 18,
+      "id": "job-19",
+      "rank": 19,
+      "title": "海外APP用户运营（金融交易）",
+      "company": "点涨科技",
+      "salary": "25-35K",
+      "salaryFloor": 25,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 75,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "国际化"
+      ],
+      "responsibilities": [
+        "存量老用户精细化运营 ● 用户分层与策略搭建：搭建并落地海外老用户分层运营体系，依据用户活跃度、交易频次、资产规模、生命周期状态完成用户分层，针对沉睡用户、低频用户、高价值核心用户制定差异化的留存、促活、唤醒运营策略。",
+        "老用户专属活动策划与落地 ● 老客活动策划：独立及协同团队策划适配海外金融市场的老客专属运营活动，涵盖老用户签到福利、交易加码、会员权益、专属交易竞赛、沉睡用户回归唤醒等特色活动。",
+        "海外私域与老用户触达维护 ● 私域社群运营：负责海外社媒社群、私域渠道的老客日常维护，开展常态化用户互动、社群氛围运营，提升老用户粘性与用户忠诚度。 ● 精准用户触达：精细化运营海外用户邮件列表、私域渠道，定向完成老用户专属福利、产品功能更新、活动预告、会员权益提醒等精准触达。"
+      ],
+      "requirements": "● 学历与经验：本科及以上学历，拥有2-3年互联网用户运营、存量用户精细化运营相关经验。有金融APP、海外市场老用户运营相关经验者优先。 ● 核心技能： ● 熟悉海外主流社交媒体生态与海外用户习性，具备存量用户分层运营、老客活动策划落地实操经验。",
+      "notes": [
+        "Web3/CFD 等交易方向，先核验公司与业务合规性",
+        "需要英语能力"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": true,
+      "url": "https://www.zhipin.com/job_detail/114fe33797f69f6d0nFy2N61FFBW.html"
+    },
+    {
+      "id": "job-20",
+      "rank": 20,
       "title": "用户增长产品运营-抖音生活服务",
       "company": "字节跳动",
       "salary": "30-60K·15薪",
@@ -971,12 +1115,15 @@
       "experience": "经验不限",
       "education": "本科",
       "score": 74,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -1002,8 +1149,8 @@
       "url": "https://www.zhipin.com/job_detail/9cbf350714c66b9a0nF63N-8GVVW.html"
     },
     {
-      "id": "job-19",
-      "rank": 19,
+      "id": "job-21",
+      "rank": 21,
       "title": "海外用户增长运营专家（AI产品）",
       "company": "群核科技",
       "salary": "25-45K·14薪",
@@ -1012,12 +1159,15 @@
       "experience": "5-10年",
       "education": "本科",
       "score": 74,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境"
@@ -1045,8 +1195,8 @@
       "url": "https://www.zhipin.com/job_detail/350924083bbf93e40nB-09i-FVVZ.html"
     },
     {
-      "id": "job-20",
-      "rank": 20,
+      "id": "job-22",
+      "rank": 22,
       "title": "Global User Growth 海外用户增长",
       "company": "上海天码形空科技",
       "salary": "17-26K·15薪",
@@ -1055,12 +1205,15 @@
       "experience": "1-3年",
       "education": "本科",
       "score": 74,
-      "tier": "A",
-      "tierLabel": "A 优先看",
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境"
@@ -1087,320 +1240,8 @@
       "url": "https://www.zhipin.com/job_detail/da564a64e4e4581c0nF909W4EFJX.html"
     },
     {
-      "id": "job-21",
-      "rank": 21,
-      "title": "用户增长运营经理（AI金融/证券方向）",
-      "company": "猎鹰",
-      "salary": "20-40K·15薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 72,
-      "tier": "A",
-      "tierLabel": "A 优先看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "支付/金融科技"
-      ],
-      "responsibilities": [
-        "1，负责金融类APP产品日常运营管理，负责会员订阅、增值服务等日常推⼴与转化运营 2，参与⽤户全⽣命周期运营，执行核心⽤户的运营策略，提升用户活跃、留存与付费转化。"
-      ],
-      "requirements": "1，本科及以上学历，金融学、市场营销、工商管理、计算机相关专业优先 2，1-3年金融科技、互联网运营相关工作经验，优秀应届毕业生亦可 3，了解ASO、效果广告投放基本逻辑者加分，熟悉用户增长的基本方法论和数据分析工具者优先 4，熟练使用 Excel、PPT、企微等办公软件，会使用基础数据分析工具者优先 5，互联网证券平台从业履历优先，具备良好的沟通表达...",
-      "notes": [
-        "支付/金融科技经验更有优势"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/a40058c71568b2600ndy3dy1ElJQ.html"
-    },
-    {
-      "id": "job-22",
-      "rank": 22,
-      "title": "商家广告产品运营（增长）-上海",
-      "company": "百度",
-      "salary": "30-60K·13薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 72,
-      "tier": "A",
-      "tierLabel": "A 优先看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "策略设计"
-      ],
-      "responsibilities": [
-        "充分理解广告业务形态，对广告产品有敏锐洞察力，结合客户需求，输出产品策略及建议，强化客户投放广告的心智、提升投放意愿，实现客户拉新、留存、ARPU提升，为客户数及收入目标负责",
-        "对中小商家的生意增长模式和营销诉求有理解和同理心，能够利用各类广告产品的优势，充分挖掘客户开启广告投放的机会点，结合客户投放效果和满意度反哺投放产品优化，提升广告产品和客户需求的适配度，实现广告业务规模增长",
-        "围绕业务目标进行指标拆解及规划设计，结合预算激励、营销活动、产品推广、投放指导等手段，落地分行业客户增长策略，达成业务目标。 【"
-      ],
-      "requirements": "对互联网广告产品运营有强烈的好奇心和热情；熟悉客户增长运营方法论，有一线互联网公司客户增长实战经验，勇于突破和创新",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/c51c337964e9b5ac031_0tu5FVRS.html"
-    },
-    {
       "id": "job-23",
       "rank": 23,
-      "title": "海外用户增长运营（CRO专家）",
-      "company": "微盟",
-      "salary": "25-35K·13薪",
-      "salaryFloor": 25,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 72,
-      "tier": "A",
-      "tierLabel": "A 优先看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "跨团队推进",
-        "国际化",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "电商漏⽃优化与 PDP 迭代",
-        "负责独⽴站店铺全链路转化漏斗优化：产品详情页（PDP）、购物车（Cart）、结账（Checkout）等核心节点",
-        "PDP 优化：卖点呈现、图⽚ / 视频布局、评价模块、信任徽章、FAQ 结构等"
-      ],
-      "requirements": "5 年以上Shopify 店铺运营或 CRO 经验（3-5 年有极强案例也可考虑）；A/B 测试硬核：独立设计并执行过 A/B 测试，能说清楚测试背景、假设、变量控制、测试周期、数据结论、后续动作",
-      "notes": [
-        "未发现明显硬性风险，仍需核对完整任职要求"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/ee0f6b272d5534cc0nZ82dm4FFtZ.html"
-    },
-    {
-      "id": "job-24",
-      "rank": 24,
-      "title": "海外APP用户运营（金融交易）",
-      "company": "点涨科技",
-      "salary": "25-35K",
-      "salaryFloor": 25,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 89,
-      "tier": "B",
-      "tierLabel": "B 条件匹配再看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "海外跨境",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "策略设计",
-        "跨团队推进",
-        "国际化",
-        "支付/金融科技"
-      ],
-      "responsibilities": [
-        "存量老用户精细化运营 ● 用户分层与策略搭建：搭建并落地海外老用户分层运营体系，依据用户活跃度、交易频次、资产规模、生命周期状态完成用户分层，针对沉睡用户、低频用户、高价值核心用户制定差异化的留存、促活、唤醒运营策略。",
-        "老用户专属活动策划与落地 ● 老客活动策划：独立及协同团队策划适配海外金融市场的老客专属运营活动，涵盖老用户签到福利、交易加码、会员权益、专属交易竞赛、沉睡用户回归唤醒等特色活动。",
-        "海外私域与老用户触达维护 ● 私域社群运营：负责海外社媒社群、私域渠道的老客日常维护，开展常态化用户互动、社群氛围运营，提升老用户粘性与用户忠诚度。 ● 精准用户触达：精细化运营海外用户邮件列表、私域渠道，定向完成老用户专属福利、产品功能更新、活动预告、会员权益提醒等精准触达。"
-      ],
-      "requirements": "● 学历与经验：本科及以上学历，拥有2-3年互联网用户运营、存量用户精细化运营相关经验。有金融APP、海外市场老用户运营相关经验者优先。 ● 核心技能： ● 熟悉海外主流社交媒体生态与海外用户习性，具备存量用户分层运营、老客活动策划落地实操经验。",
-      "notes": [
-        "Web3/CFD 等交易方向，先核验公司与业务合规性",
-        "需要英语能力",
-        "支付/金融科技经验更有优势"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": true,
-      "url": "https://www.zhipin.com/job_detail/114fe33797f69f6d0nFy2N61FFBW.html"
-    },
-    {
-      "id": "job-25",
-      "rank": 25,
-      "title": "增长运营经理（卡支付产品）",
-      "company": "北京中利博冠网络科技",
-      "salary": "25-50K",
-      "salaryFloor": 25,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "学历不限",
-      "score": 78,
-      "tier": "B",
-      "tierLabel": "B 条件匹配再看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "海外跨境",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "国际化",
-        "支付/金融科技"
-      ],
-      "responsibilities": [
-        "负责Card产品的日常运营管理，建立并持续优化运营机制，保障卡业务稳定、安全、高效运行",
-        "负责与发卡机构、卡处理商(Processor)、⽀付合作伙伴及其他外部机构的⽇常沟通与协作，推动合作项⽬顺利落地",
-        "搭建并运营Card用户全生命周期增长体系，围绕申请、激活、绑卡、消费、留存及复购等关键环节进⾏精细化运营，不断提升用户转化率和活跃度"
-      ],
-      "requirements": "请打开原岗位核对详细要求",
-      "notes": [
-        "Web3/CFD 等交易方向，先核验公司与业务合规性",
-        "需要英语能力"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": true,
-      "url": "https://www.zhipin.com/job_detail/1579e983bd02adea0nF73N29EFRU.html"
-    },
-    {
-      "id": "job-26",
-      "rank": 26,
-      "title": "用户生命周期运营（web3远程办公）",
-      "company": "某大型互联网金融公司",
-      "salary": "35-65K·14薪",
-      "salaryFloor": 35,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 76,
-      "tier": "B",
-      "tierLabel": "B 条件匹配再看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "海外跨境",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "国际化",
-        "电商/商家",
-        "支付/金融科技"
-      ],
-      "responsibilities": [
-        "激活与转化：主导新用户注册引导流程的优化，通过产品迭代、个性化用户营销活动及针对性用户参与策略的落地，提升新用户激活率与⾸次交易（FTT）转化率。",
-        "留存与复购：搭建完善的⽤户⽣命周期管理体系及用户分层框架，通过会员体系、积分制度、游戏化设计及交叉销售等多元策略，增强用户粘性并提升复购频次。",
-        "设计并优化⽤户推荐及病毒式增长机制，推动产品实现自然增长。"
-      ],
-      "requirements": "互联网行业从业 5 年以上，其中 3 年以上在电商、金融科技等交易类领域担任高级用户增长相关岗位优先；具备独立主导增长项目、运营活动的经验，拥有系统化的框架与方法论。 深入掌握 A/B 测试、漏斗分析、定制化策略等核心运营方法。",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系",
-        "Web3/CFD 等交易方向，先核验公司与业务合规性",
-        "资深岗位，对年限和项目体量要求较高",
-        "远程岗位，需确认合同主体和办公安排",
-        "需要英语能力",
-        "支付/金融科技经验更有优势"
-      ],
-      "requiresEnglish": true,
-      "agency": true,
-      "sensitive": true,
-      "url": "https://www.zhipin.com/job_detail/ada4f8805f5771a20nR909y8FFRS.html"
-    },
-    {
-      "id": "job-27",
-      "rank": 27,
-      "title": "Ai用户运营",
-      "company": "杭州某大型互联网金融科技上市公司",
-      "salary": "40-70K·15薪",
-      "salaryFloor": 40,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 73,
-      "tier": "B",
-      "tierLabel": "B 条件匹配再看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "电商/商家",
-        "支付/金融科技"
-      ],
-      "responsibilities": [
-        "AI 策略体系搭建：主导小微信贷业务 AI 增长策略从 0 到 1 建设，将 AI 能力融⼊客户经营从获客、转化、留存、召回的全周期。你的策略将直接影响业务增长曲线，每⼀份⽅案都能看见数据反馈。",
-        "信贷服务全链路智能化：融合信贷经验、关键生产要素、用户市场洞察，构建以信贷为核⼼的客户综合金融服务的未来形态。这是你发挥专业深度、塑造行业标准的舞台。",
-        "场景化运营：通过与电商场景的深度融合，发现客户服务与规模增长的新机会，并结合 AI 能力实现高效的端到端服务落地。让每一个洞察都转化为真实的业务价值。"
-      ],
-      "requirements": "信贷业务经验：3-5 年金融科技/小微信贷/消费金融领域工作经验，深入理解信贷业务逻辑、风控规则及用户生命周期管理。在此基础上，有电商经验者优先。；本科及以上学历，学习能力强，有敏锐的市场觉察，具备良好的跨团队协作能力和业务敏感度，自驱力强。我们希望你对未知充满好奇，对挑战保持兴奋。 认证资质 人力资源服务许可证 其它信息 所属部门：用户运营 任女士 聚猎 · 猎头顾问 竞争力分析 查看完整个人竞争力 个人综合排名：在人中排名第 你在？位置 一般 良好 优秀 极好",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系",
-        "资深岗位，对年限和项目体量要求较高",
-        "支付/金融科技经验更有优势"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/e5e6b02bf56fac5c0nBz2tW4E1dY.html"
-    },
-    {
-      "id": "job-28",
-      "rank": 28,
       "title": "用户运营专家（拉新）",
       "company": "某知名互联网公司",
       "salary": "35-60K",
@@ -1410,11 +1251,14 @@
       "education": "本科",
       "score": 73,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -1443,8 +1287,8 @@
       "url": "https://www.zhipin.com/job_detail/186bd36d239d42ff0nBz2926EVNU.html"
     },
     {
-      "id": "job-29",
-      "rank": 29,
+      "id": "job-24",
+      "rank": 24,
       "title": "用户运营",
       "company": "杭州某大型互联网电商平台上市公司",
       "salary": "35-60K·16薪",
@@ -1454,11 +1298,14 @@
       "education": "本科",
       "score": 73,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -1487,8 +1334,8 @@
       "url": "https://www.zhipin.com/job_detail/6c4d9437529034910nZ-0967FVRS.html"
     },
     {
-      "id": "job-30",
-      "rank": 30,
+      "id": "job-25",
+      "rank": 25,
       "title": "用户运营",
       "company": "杭州某大型互联网上市公司",
       "salary": "35-60K·15薪",
@@ -1498,11 +1345,14 @@
       "education": "本科",
       "score": 73,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -1531,8 +1381,8 @@
       "url": "https://www.zhipin.com/job_detail/1484dfc4d8bc840e0nZ72dS0ElpS.html"
     },
     {
-      "id": "job-31",
-      "rank": 31,
+      "id": "job-26",
+      "rank": 26,
       "title": "用户运营",
       "company": "杭州某大型互联网上市公司",
       "salary": "35-60K·15薪",
@@ -1542,11 +1392,14 @@
       "education": "本科",
       "score": 73,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -1575,8 +1428,8 @@
       "url": "https://www.zhipin.com/job_detail/22d52878e8a062b80nZ72N28F1dT.html"
     },
     {
-      "id": "job-32",
-      "rank": 32,
+      "id": "job-27",
+      "rank": 27,
       "title": "用户运营",
       "company": "某大型知名互联网上市公司",
       "salary": "40-60K·15薪",
@@ -1586,11 +1439,14 @@
       "education": "本科",
       "score": 73,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -1618,8 +1474,97 @@
       "url": "https://www.zhipin.com/job_detail/d76bca7795376c4803N_09S-GVZR.html"
     },
     {
-      "id": "job-33",
-      "rank": 33,
+      "id": "job-28",
+      "rank": 28,
+      "title": "商家广告产品运营（增长）-上海",
+      "company": "百度",
+      "salary": "30-60K·13薪",
+      "salaryFloor": 30,
+      "city": "上海",
+      "experience": "3-5年",
+      "education": "本科",
+      "score": 72,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计"
+      ],
+      "responsibilities": [
+        "充分理解广告业务形态，对广告产品有敏锐洞察力，结合客户需求，输出产品策略及建议，强化客户投放广告的心智、提升投放意愿，实现客户拉新、留存、ARPU提升，为客户数及收入目标负责",
+        "对中小商家的生意增长模式和营销诉求有理解和同理心，能够利用各类广告产品的优势，充分挖掘客户开启广告投放的机会点，结合客户投放效果和满意度反哺投放产品优化，提升广告产品和客户需求的适配度，实现广告业务规模增长",
+        "围绕业务目标进行指标拆解及规划设计，结合预算激励、营销活动、产品推广、投放指导等手段，落地分行业客户增长策略，达成业务目标。 【"
+      ],
+      "requirements": "对互联网广告产品运营有强烈的好奇心和热情；熟悉客户增长运营方法论，有一线互联网公司客户增长实战经验，勇于突破和创新",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/c51c337964e9b5ac031_0tu5FVRS.html"
+    },
+    {
+      "id": "job-29",
+      "rank": 29,
+      "title": "海外用户增长运营（CRO专家）",
+      "company": "微盟",
+      "salary": "25-35K·13薪",
+      "salaryFloor": 25,
+      "city": "上海",
+      "experience": "1-3年",
+      "education": "本科",
+      "score": 72,
+      "tier": "B",
+      "tierLabel": "B 策略运营匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "电商漏⽃优化与 PDP 迭代",
+        "负责独⽴站店铺全链路转化漏斗优化：产品详情页（PDP）、购物车（Cart）、结账（Checkout）等核心节点",
+        "PDP 优化：卖点呈现、图⽚ / 视频布局、评价模块、信任徽章、FAQ 结构等"
+      ],
+      "requirements": "5 年以上Shopify 店铺运营或 CRO 经验（3-5 年有极强案例也可考虑）；A/B 测试硬核：独立设计并执行过 A/B 测试，能说清楚测试背景、假设、变量控制、测试周期、数据结论、后续动作",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://www.zhipin.com/job_detail/ee0f6b272d5534cc0nZ82dm4FFtZ.html"
+    },
+    {
+      "id": "job-30",
+      "rank": 30,
       "title": "策略运营",
       "company": "JCtrans",
       "salary": "12-15K",
@@ -1629,11 +1574,14 @@
       "education": "本科",
       "score": 70,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境"
@@ -1660,8 +1608,8 @@
       "url": "https://www.zhipin.com/job_detail/a1cb82a358d8e00a0nF73dq0EVdV.html"
     },
     {
-      "id": "job-34",
-      "rank": 34,
+      "id": "job-31",
+      "rank": 31,
       "title": "资深产品运营（支付业务）",
       "company": "光子易",
       "salary": "12-24K·14薪",
@@ -1671,11 +1619,14 @@
       "education": "学历不限",
       "score": 68,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": true,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境",
@@ -1686,7 +1637,7 @@
         "数据分析",
         "跨团队推进",
         "国际化",
-        "支付/金融科技"
+        "支付业务"
       ],
       "responsibilities": [
         "负责跨境收款、付款、汇兑业务在客户侧的实施落地,解决客户在产品使用中的各种问题,为客户提供最佳使用实践",
@@ -1696,7 +1647,7 @@
       "requirements": "本科及以上学历,有跨境支付行业收付兑业务从业经验者优先，需要有涉外英语能力",
       "notes": [
         "需要英语能力",
-        "支付/金融科技经验更有优势"
+        "支付业务经验更有优势"
       ],
       "requiresEnglish": true,
       "agency": false,
@@ -1704,8 +1655,8 @@
       "url": "https://www.zhipin.com/job_detail/7944c391539b9d760nFz2tW_FFNT.html"
     },
     {
-      "id": "job-35",
-      "rank": 35,
+      "id": "job-32",
+      "rank": 32,
       "title": "产品运营-地理位置中台",
       "company": "字节跳动",
       "salary": "20-40K",
@@ -1715,11 +1666,14 @@
       "education": "本科",
       "score": 68,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -1744,50 +1698,8 @@
       "url": "https://www.zhipin.com/job_detail/3ec8eb0ffb8a0e810nR50ti5GFNY.html"
     },
     {
-      "id": "job-36",
-      "rank": 36,
-      "title": "支付行业广告商务运营（流量变现信息流投放",
-      "company": "汇付天下",
-      "salary": "15-20K",
-      "salaryFloor": 15,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 66,
-      "tier": "B",
-      "tierLabel": "B 条件匹配再看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "支付/金融科技"
-      ],
-      "responsibilities": [
-        "负责支付后场景流量变现体系搭建与优化，挖掘场景流量价值，结合用户⾏为特点设计合理的⼴告变现模式，提升场景整体提变现收益",
-        "负责⽀付后（支付成功页、完成页等）广告的全流程运营，包括素材审核、投放执⾏、效果监控及优化",
-        "统筹整体流量分发策略，平衡广告曝光于用户体验，优化广告加载形式，展示频次"
-      ],
-      "requirements": "本科及以上学历，3年以上广告运营、效果投放、场景化广告运营相关经验，有支付后/金融场景广告运营经验者有限；熟悉广告投放策略，了解主流广告平台规则，掌握支付后场景广告的特性、用户行为逻辑及优化技巧",
-      "notes": [
-        "支付/金融科技经验更有优势"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/091abe7e16305fe00nF509S0EFJT.html"
-    },
-    {
-      "id": "job-37",
-      "rank": 37,
+      "id": "job-33",
+      "rank": 33,
       "title": "电商行业运营（北上广杭均可）",
       "company": "某知名互联网公司",
       "salary": "65-90K·16薪",
@@ -1797,11 +1709,14 @@
       "education": "本科",
       "score": 66,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -1829,8 +1744,8 @@
       "url": "https://www.zhipin.com/job_detail/004cfed67b419e180nBz0t2-FlRU.html"
     },
     {
-      "id": "job-38",
-      "rank": 38,
+      "id": "job-34",
+      "rank": 34,
       "title": "用户增长专家",
       "company": "网鱼",
       "salary": "20-35K·14薪",
@@ -1840,11 +1755,14 @@
       "education": "本科",
       "score": 66,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -1869,8 +1787,8 @@
       "url": "https://www.zhipin.com/job_detail/9c480fed658829e40nF40t66GFJU.html"
     },
     {
-      "id": "job-39",
-      "rank": 39,
+      "id": "job-35",
+      "rank": 35,
       "title": "AI产品运营/增长运营",
       "company": "上海迪诺克科技",
       "salary": "8-13K",
@@ -1880,11 +1798,14 @@
       "education": "本科",
       "score": 66,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境"
@@ -1910,8 +1831,8 @@
       "url": "https://www.zhipin.com/job_detail/cccaf81473ac78ee0nF90tu5F1FY.html"
     },
     {
-      "id": "job-40",
-      "rank": 40,
+      "id": "job-36",
+      "rank": 36,
       "title": "产品增长运营/数据策略运营(AI方向)",
       "company": "星驿支付",
       "salary": "15-25K·13薪",
@@ -1921,11 +1842,14 @@
       "education": "本科",
       "score": 66,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -1950,8 +1874,8 @@
       "url": "https://www.zhipin.com/job_detail/c83d22c4db646ba40nF82Ny9GFBZ.html"
     },
     {
-      "id": "job-41",
-      "rank": 41,
+      "id": "job-37",
+      "rank": 37,
       "title": "用户增长负责人",
       "company": "上海圆盛",
       "salary": "20-35K",
@@ -1961,11 +1885,14 @@
       "education": "学历不限",
       "score": 64,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -1990,8 +1917,8 @@
       "url": "https://www.zhipin.com/job_detail/0b1a222cb682626a0nB-3d64FldT.html"
     },
     {
-      "id": "job-42",
-      "rank": 42,
+      "id": "job-38",
+      "rank": 38,
       "title": "海外用户增长运营",
       "company": "小派科技",
       "salary": "12-17K",
@@ -2001,11 +1928,14 @@
       "education": "本科",
       "score": 64,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "海外跨境"
@@ -2031,8 +1961,8 @@
       "url": "https://www.zhipin.com/job_detail/f8b539a23587f2c00nF92tq1GFBX.html"
     },
     {
-      "id": "job-43",
-      "rank": 43,
+      "id": "job-39",
+      "rank": 39,
       "title": "商家运营专员",
       "company": "上海某大型电子商务公司",
       "salary": "11-13K",
@@ -2042,11 +1972,14 @@
       "education": "本科",
       "score": 63,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长",
         "商家电商"
@@ -2075,8 +2008,8 @@
       "url": "https://www.zhipin.com/job_detail/3056bd46f1010bfd03N-3di0E1RT.html"
     },
     {
-      "id": "job-44",
-      "rank": 44,
+      "id": "job-40",
+      "rank": 40,
       "title": "商业分析经理-策略运营方向(A60549)",
       "company": "霸王茶姬",
       "salary": "20-30K·14薪",
@@ -2086,11 +2019,14 @@
       "education": "本科",
       "score": 62,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -2115,8 +2051,8 @@
       "url": "https://www.zhipin.com/job_detail/01015e822f6c2ef10nd709u_FFRR.html"
     },
     {
-      "id": "job-45",
-      "rank": 45,
+      "id": "job-41",
+      "rank": 41,
       "title": "用户运营经理 (MJ001148)",
       "company": "首旅如家",
       "salary": "15-30K·14薪",
@@ -2126,11 +2062,14 @@
       "education": "大专",
       "score": 61,
       "tier": "B",
-      "tierLabel": "B 条件匹配再看",
+      "tierLabel": "B 策略运营匹配",
       "isReference": false,
       "closed": false,
       "paymentBonus": false,
       "majorCompany": false,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
       "directions": [
         "用户增长"
       ],
@@ -2155,176 +2094,8 @@
       "url": "https://www.zhipin.com/job_detail/768cda6d4ffe6da903Z52dy0F1JX.html"
     },
     {
-      "id": "job-46",
-      "rank": 46,
-      "title": "配置运营专员（跨境支付方向）",
-      "company": "ONERWAY",
-      "salary": "7-10K·14薪",
-      "salaryFloor": 7,
-      "city": "上海",
-      "experience": "经验不限",
-      "education": "本科",
-      "score": 60,
-      "tier": "B",
-      "tierLabel": "B 条件匹配再看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": true,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "海外跨境",
-        "支付金融"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "跨团队推进",
-        "国际化",
-        "支付/金融科技"
-      ],
-      "responsibilities": [
-        "交易配置：负责⽹站上线配置通道和⽀付方式，根据商户需求及上游渠道的规则快速响应调整交易通道",
-        "内部数据支持：定期分析和总结业务数据和问题，并输出相关报告，从数据上协助其他相关部完成各项⽅案的评估",
-        "数据分析与监控：与运营、产品、数分等团队合作，配合建立异常数据监控系统，针对数据异常提出预警和采取措施"
-      ],
-      "requirements": "请打开原岗位核对详细要求",
-      "notes": [
-        "岗位级别可能偏初级"
-      ],
-      "requiresEnglish": false,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/81c198e335b3dde60nB82tS9E1FY.html"
-    },
-    {
-      "id": "job-47",
-      "rank": 47,
-      "title": "【发行】海外营销（东南亚）(A193007)",
-      "company": "沐瞳科技",
-      "salary": "20-35K·16薪",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 60,
-      "tier": "B",
-      "tierLabel": "B 条件匹配再看",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "directions": [
-        "用户增长",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "跨团队推进",
-        "国际化"
-      ],
-      "responsibilities": [
-        "主导MOBA游戏重点版本东南亚（细分国家市场）整合营销，通过数据驱动本地化策略实现用户增长与版本更新目标，负责手游产品在海外的全渠道市场推广策略，包括不限于区域事件营销、线上推⼴、平台合作等⽅⾯",
-        "协同全球品牌、运营、社区、区域团队，协调游戏内容与资源，对DAU/新增用户目标负责。",
-        "统筹预算分配，具备⼀定数据分析和决策能力，以新增为绝对导向，确保ROI最大化"
-      ],
-      "requirements": "3年+游戏营销经验，具有海外成功案例及实项目经验，操盘过线上线下整合项目/用数据优化ROI-CTR-参与度/处理舆情危机。；了解海外游戏生态（社媒玩法/MOBA玩家/赛事）；热爱游戏，工作态度认真负责，具有良好的学习能力，抗压能力强",
-      "notes": [
-        "需要英语能力"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/161ec4790fe27db70ndy09-8FFdR.html"
-    },
-    {
-      "id": "job-48",
-      "rank": 48,
-      "title": "用户运营专家（p7p8p9)",
-      "company": "某大型互联网公司",
-      "salary": "70-100K·16薪",
-      "salaryFloor": 70,
-      "city": "上海",
-      "experience": "5-10年",
-      "education": "本科",
-      "score": 57,
-      "tier": "C",
-      "tierLabel": "C 备选",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": false,
-      "directions": [
-        "用户增长"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "跨团队推进"
-      ],
-      "responsibilities": [
-        "建立高潜用户识别策略，设计差异化触达路径与促转活动，提升高潜⽤户下单转化率与⾸单/复购率",
-        "综合⽤户在该品类的下单频次、平台活跃度及品类偏好度，构建并持续优化高/中/低频用户分层体系，制定分层识别标准与动态更新机制",
-        "定期输出品类⽤户基础画像，核心计算用户在该品美的消费频次，客单价分布，以及该品美订单在用户总订单中的渗透率，为差异化运营日标制定提供数据支撑。"
-      ],
-      "requirements": "有互联网平台用户运营经验3-5年以上相关经验，有0-1搭建用户分层模型或成功操盘高潜转化经验；具备用户消费链路运营的方法论，良好的数据分析能力，能独立分析原因并提出完整解决方案",
-      "notes": [
-        "猎头或代招岗位，先确认实际雇主和劳动关系",
-        "资深岗位，对年限和项目体量要求较高"
-      ],
-      "requiresEnglish": false,
-      "agency": true,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/ed6d0ac15de6376e0ndz29q4F1VW.html"
-    },
-    {
-      "id": "job-49",
-      "rank": 49,
-      "title": "亚太区域电商广告运营-游戏/应用/线索方向",
-      "company": "字节跳动",
-      "salary": "15-30K·15薪",
-      "salaryFloor": 15,
-      "city": "上海",
-      "experience": "1-3年",
-      "education": "本科",
-      "score": 54,
-      "tier": "C",
-      "tierLabel": "C 备选",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "majorCompany": true,
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "跨团队推进",
-        "国际化",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "游戏/应用工具行业广告策略：熟悉互联⽹⼴告及媒体平台和信息流商业化⼴告逻辑，尤其要具备效果广告的基本知识，根据业务场景及行业痛点，基于数据明确具体问题，洞察分客户群⽣意需求和广告诉求，提供综合的商业产品解决方案 ，定期输出方法论",
-        "推动字节跳动海外商业化广告产品优化：以客户需求为核心，有效协同产品、数据、中台、销售、客户等各部门有效推动商业产品迭代升级，不断完善媒体投放产品",
-        "重点广告客户运营：针对应用/游戏/线索广告客户的生命周期研究、梳理客户标签、针对广告投放产品在客户层的应用效果进行跟进负责，助力商业化收入增长，全面考虑和解决客户问题，为客户的广告投放进行诊断，和产出精细化运营优化投放策略建议"
-      ],
-      "requirements": "本科及以上学历，英语可以作为工作语言优先；了解主流广告平台的产品情况，了解广告系统的优化逻辑，有快消行业广告投放经验/电商行业广告运营经验优先",
-      "notes": [
-        "需要英语能力"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/c5fc1ea4be89b80c0nF52N--FFtR.html"
-    },
-    {
-      "id": "job-50",
-      "rank": 50,
+      "id": "job-42",
+      "rank": 42,
       "title": "电商行业运营",
       "company": "小红书",
       "salary": "20-40K·18薪",
@@ -2334,11 +2105,14 @@
       "education": "本科",
       "score": 84,
       "tier": "C",
-      "tierLabel": "C 备选",
+      "tierLabel": "C 仅供参考",
       "isReference": true,
       "closed": true,
       "paymentBonus": false,
       "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": false,
       "directions": [
         "用户增长",
         "商家电商"
@@ -2357,7 +2131,8 @@
       ],
       "requirements": "全日制本科以上学历，具备电商工作经验，有相关产业带运营经验",
       "notes": [
-        "职位已关闭，仅作岗位方向参考"
+        "职位已关闭，仅作岗位方向参考",
+        "仅供岗位方向参考，不建议直接投递"
       ],
       "requiresEnglish": false,
       "agency": false,

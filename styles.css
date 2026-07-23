@@ -343,6 +343,7 @@ select {
   font-size: 18px;
 }
 .save-button.saved { color: var(--b); background: var(--b-soft); }
+.save-button[hidden] { display: none; }
 .external-button {
   display: inline-flex;
   align-items: center;

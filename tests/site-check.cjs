@@ -17,6 +17,20 @@ async function checkPage(browser, viewport, screenshotPath) {
   const dataset = await page.evaluate(async () => (await fetch("./jobs.json")).json());
   assert.equal(await page.locator(".job-card").count(), dataset.displayedSize);
   assert.equal(await page.locator("#displayed-stat").textContent(), String(dataset.displayedSize));
+  const aJobs = dataset.jobs.filter((job) => job.tier === "A");
+  const bJobs = dataset.jobs.filter((job) => job.tier === "B");
+  const cJobs = dataset.jobs.filter((job) => job.tier === "C");
+  assert.ok(aJobs.length > 0);
+  assert.ok(aJobs.every((job) => (
+    job.city === "上海"
+    && job.paymentBonus
+    && job.majorCompany
+    && !job.frequentTravel
+    && job.applicationRecommended
+  )));
+  assert.ok(bJobs.every((job) => job.strategyRelevant && job.applicationRecommended));
+  assert.ok(cJobs.length <= 10);
+  assert.ok(cJobs.every((job) => !job.applicationRecommended && (job.closed || job.isReference)));
 
   await page.locator('.primary-nav button[data-view="skills"]').click();
   assert.equal(await page.locator(".skill-card").count(), dataset.skills.items.length);
@@ -37,6 +51,14 @@ async function checkPage(browser, viewport, screenshotPath) {
 
   await page.locator("#tier-segments button").filter({ hasText: "A ·" }).click();
   assert.equal(await page.locator(".job-card").count(), dataset.counts.A);
+  await page.locator("#reset-button").click();
+
+  await page.locator("#tier-segments button").filter({ hasText: "C ·" }).click();
+  assert.equal(await page.locator(".job-card").count(), dataset.counts.C);
+  if (dataset.counts.C) {
+    assert.match(await page.locator(".job-card").first().textContent(), /不建议投递/);
+    assert.equal(await page.locator(".job-card").first().locator(".save-button").isHidden(), true);
+  }
   await page.locator("#reset-button").click();
 
   await page.locator("#bonus-select").selectOption("reference");

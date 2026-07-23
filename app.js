@@ -58,12 +58,13 @@ const elements = {
   skillEmpty: document.querySelector("#skill-empty"),
   showMastered: document.querySelector("#show-mastered"),
   skillProgressCount: document.querySelector("#skill-progress-count"),
+  skillJobCount: document.querySelector("#skill-job-count"),
   skillProgressTrack: document.querySelector(".skill-progress-track"),
   skillProgressFill: document.querySelector("#skill-progress-fill"),
   skillTemplate: document.querySelector("#skill-template"),
 };
 
-const tierNames = { all: "全部", A: "优先看", B: "条件匹配", C: "备选" };
+const tierNames = { all: "全部", A: "支付大厂", B: "策略匹配", C: "仅供参考" };
 
 function persistSaved() {
   localStorage.setItem("recruitment-saved", JSON.stringify([...state.saved]));
@@ -233,6 +234,7 @@ function makeJobCard(job) {
   fragment.querySelector(".company").textContent = job.company;
   fragment.querySelector(".score-value").textContent = job.score;
   card.classList.toggle("closed", job.closed);
+  card.classList.toggle("reference-only", !job.applicationRecommended);
 
   const meta = fragment.querySelector(".meta-line");
   appendSpans(meta, [job.salary, job.city, job.experience, job.education]);
@@ -240,6 +242,7 @@ function makeJobCard(job) {
   if (job.isReference) bonuses.push("原始标杆");
   if (job.paymentBonus) bonuses.push("支付业务 +14");
   if (job.majorCompany) bonuses.push("大平台 +10");
+  if (!job.applicationRecommended) bonuses.push("仅供方向参考 · 不建议投递");
   appendSpans(fragment.querySelector(".bonus-list"), bonuses);
   appendSpans(fragment.querySelector(".dimension-list"), job.dimensions);
 
@@ -249,9 +252,16 @@ function makeJobCard(job) {
 
   const link = fragment.querySelector(".external-button");
   link.href = job.url;
-  link.setAttribute("aria-label", `在 BOSS 直聘查看 ${job.title}`);
+  link.textContent = job.applicationRecommended ? "BOSS ↗" : "参考 JD ↗";
+  link.setAttribute(
+    "aria-label",
+    job.applicationRecommended
+      ? `在 BOSS 直聘查看 ${job.title}`
+      : `查看仅供参考的岗位描述：${job.title}`,
+  );
 
   const saveButton = fragment.querySelector(".save-button");
+  saveButton.hidden = !job.applicationRecommended;
   const setSaveState = () => {
     const saved = state.saved.has(job.id);
     saveButton.classList.toggle("saved", saved);
@@ -497,6 +507,7 @@ async function init() {
     elements.poolStat.textContent = state.data.poolSize;
     elements.eligibleStat.textContent = state.data.eligibleSize;
     elements.displayedStat.textContent = state.data.displayedSize;
+    elements.skillJobCount.textContent = state.data.displayedSize;
     elements.sourceTime.textContent = formatTime(state.data.sourceGeneratedAt || state.data.generatedAt);
     elements.dialogSummary.textContent = state.data.profile.summary;
     state.data.profile.criteria.forEach((criterion) => {
