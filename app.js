@@ -1013,6 +1013,57 @@ function makeChallengeReference(pack) {
   return details;
 }
 
+function makeSQLProblem(pack, question) {
+  const spec = question.sqlSpec;
+  const section = document.createElement("section");
+  section.className = "challenge-prompt challenge-sql-prompt";
+  section.append(
+    makeTextElement("span", "challenge-section-label", "业务需求"),
+    makeTextElement("p", "challenge-context", question.prompt),
+  );
+
+  const specification = document.createElement("div");
+  specification.className = "challenge-sql-spec";
+  const tables = document.createElement("section");
+  tables.className = "challenge-sql-spec-tables";
+  tables.append(makeTextElement("h3", "", "相关表"));
+  const schemas = spec.tables.map((table) => pack.reference?.tables?.[table] || table);
+  tables.append(makeTextElement("pre", "", schemas.join("\n")));
+
+  const requirements = document.createElement("section");
+  requirements.append(makeTextElement("h3", "", "查询要求"));
+  const requirementList = document.createElement("ol");
+  appendList(requirementList, spec.requirements);
+  requirements.append(requirementList);
+
+  const output = document.createElement("section");
+  output.append(makeTextElement("h3", "", "输出字段"));
+  const outputList = document.createElement("ul");
+  outputList.className = "challenge-sql-output";
+  appendList(outputList, spec.output);
+  output.append(outputList);
+
+  specification.append(tables, requirements, output);
+  if (spec.boundaries?.length) {
+    const boundaries = document.createElement("section");
+    boundaries.className = "challenge-sql-boundaries";
+    boundaries.append(makeTextElement("h3", "", "口径与边界"));
+    const boundaryList = document.createElement("ul");
+    appendList(boundaryList, spec.boundaries);
+    boundaries.append(boundaryList);
+    specification.append(boundaries);
+  }
+  section.append(specification);
+
+  if (question.hint) {
+    const hint = document.createElement("details");
+    hint.className = "challenge-hint";
+    hint.append(makeTextElement("summary", "", "查看提示"), makeTextElement("p", "", question.hint));
+    section.append(hint);
+  }
+  return section;
+}
+
 function rotatedChunks(chunks, seedText) {
   if (chunks.length < 2) return chunks.map((text, index) => ({ text, index }));
   const seed = [...seedText].reduce((total, character) => total + character.charCodeAt(0), 0);
@@ -1035,10 +1086,10 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
     sql: "先独立写查询，再核对口径",
     diagnosis: "先写判断，再补证据和行动",
   };
-  heading.append(
-    makeTextElement("span", "challenge-section-label", challengeModeLabel(pack, mode)),
-    makeTextElement("span", "", pack.ui?.responseHints?.[mode] || responseHints[mode] || "完成后再看答案"),
-  );
+  heading.append(makeTextElement("span", "challenge-section-label", challengeModeLabel(pack, mode)));
+  if (!pack.ui?.compact) {
+    heading.append(makeTextElement("span", "", pack.ui?.responseHints?.[mode] || responseHints[mode] || "完成后再看答案"));
+  }
   section.append(heading);
 
   let isReady = () => false;
@@ -1229,6 +1280,7 @@ function renderChallengeHub(pack) {
   const allQuestions = challengeQuestions(pack);
   const article = document.createElement("article");
   article.className = "challenge-page challenge-hub";
+  article.classList.toggle("challenge-compact", Boolean(pack.ui?.compact));
   article.dataset.skillId = pack.skillId;
 
   const header = document.createElement("header");
@@ -1238,8 +1290,8 @@ function renderChallengeHub(pack) {
     makeTextElement("span", "section-kicker", `互动训练 · ${pack.levels.length} 个等级`),
     makeTextElement("h2", "", pack.title),
     makeTextElement("p", "", pack.summary),
-    makeTextElement("p", "challenge-story", pack.story),
   );
+  if (!pack.ui?.compact) copy.append(makeTextElement("p", "challenge-story", pack.story));
   header.append(copy, makeChallengeProgress(progress.size, allQuestions.length, "总闯关进度"));
 
   const intro = document.createElement("div");
@@ -1273,9 +1325,13 @@ function renderChallengeHub(pack) {
       top,
       makeTextElement("strong", "", level.title),
       makeTextElement("span", "challenge-level-subtitle", level.subtitle),
-      makeTextElement("span", "challenge-level-story", level.story),
-      makeTextElement("span", "challenge-level-action", isComplete ? "重新练习 →" : firstStatus.unlocked ? "进入关卡 →" : "完成上一等级后开放"),
     );
+    if (pack.ui?.compact && level.difficulty) {
+      button.append(makeTextElement("span", "challenge-level-difficulty", `难度 ${level.difficulty} / 5`));
+    } else {
+      button.append(makeTextElement("span", "challenge-level-story", level.story));
+    }
+    button.append(makeTextElement("span", "challenge-level-action", isComplete ? "重新练习 →" : firstStatus.unlocked ? "进入关卡 →" : "完成上一等级后开放"));
     button.addEventListener("click", () => navigateLearning("challengeLevel", pack.skillId, true, level.id));
     grid.append(button);
   });
@@ -1298,6 +1354,7 @@ function renderChallengeLevel(pack, levelId) {
   const completed = level.questions.filter((question) => progress.has(`${level.id}/${question.id}`)).length;
   const article = document.createElement("article");
   article.className = "challenge-page challenge-level-page";
+  article.classList.toggle("challenge-compact", Boolean(pack.ui?.compact));
 
   const header = document.createElement("header");
   header.className = "challenge-level-header";
@@ -1307,8 +1364,8 @@ function renderChallengeLevel(pack, levelId) {
     makeTextElement("span", "section-kicker", level.chapter || `LEVEL ${String(levelIndex + 1).padStart(2, "0")}`),
     makeTextElement("h2", "", level.title),
     makeTextElement("p", "", level.objective),
-    makeTextElement("p", "challenge-story", level.story),
   );
+  if (!pack.ui?.compact) copy.append(makeTextElement("p", "challenge-story", level.story));
   header.append(copy, makeChallengeProgress(completed, level.questions.length, "本等级进度"));
 
   const list = document.createElement("div");
@@ -1366,6 +1423,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   const mode = challengeMode(question, questionIndex);
   const article = document.createElement("article");
   article.className = `challenge-page challenge-question-page challenge-mode-${mode}`;
+  article.classList.toggle("challenge-compact", Boolean(pack.ui?.compact));
   article.dataset.questionId = question.id;
 
   const header = document.createElement("header");
@@ -1374,45 +1432,53 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   const title = makeTextElement("h2", "", question.title);
   const meta = document.createElement("div");
   meta.className = "challenge-question-meta";
+  meta.append(makeTextElement("span", `mode-${mode}`, challengeModeLabel(pack, mode)));
+  const difficulty = question.difficulty || level.difficulty;
+  if (difficulty) meta.append(makeTextElement("span", "", `难度 ${difficulty} / 5`));
   meta.append(
-    makeTextElement("span", `mode-${mode}`, challengeModeLabel(pack, mode)),
     makeTextElement("span", "", question.type),
     makeTextElement("span", "", `${status.index + 1} / ${status.total}`),
   );
   header.append(label, title, meta);
 
-  const promptSection = document.createElement("section");
-  promptSection.className = "challenge-prompt";
-  promptSection.append(
-    makeTextElement("span", "challenge-section-label", "情境"),
-    makeTextElement("p", "challenge-context", question.prompt),
-    makeTextElement("span", "challenge-section-label", "你的任务"),
-    makeTextElement("p", "challenge-task", question.task),
-  );
-  if (question.hint) {
-    const hint = document.createElement("details");
-    hint.className = "challenge-hint";
-    hint.append(makeTextElement("summary", "", "需要提示？"), makeTextElement("p", "", question.hint));
-    promptSection.append(hint);
+  let promptSection;
+  if ((mode === "sql" || question.activity?.input === "sql") && question.sqlSpec) {
+    promptSection = makeSQLProblem(pack, question);
+  } else {
+    promptSection = document.createElement("section");
+    promptSection.className = "challenge-prompt";
+    promptSection.append(
+      makeTextElement("span", "challenge-section-label", "情境"),
+      makeTextElement("p", "challenge-context", question.prompt),
+      makeTextElement("span", "challenge-section-label", "你的任务"),
+      makeTextElement("p", "challenge-task", question.task),
+    );
+    if (question.hint) {
+      const hint = document.createElement("details");
+      hint.className = "challenge-hint";
+      hint.append(makeTextElement("summary", "", "需要提示？"), makeTextElement("p", "", question.hint));
+      promptSection.append(hint);
+    }
   }
-  const reference = makeChallengeReference(pack);
-  if (reference) promptSection.append(reference);
 
   const revealButton = document.createElement("button");
   revealButton.type = "button";
   revealButton.className = "challenge-primary-button";
-  revealButton.textContent = "完成作答后查看答案";
+  revealButton.textContent = pack.ui?.compact ? "查看参考答案" : "完成作答后查看答案";
   revealButton.disabled = true;
   revealButton.setAttribute("aria-expanded", "false");
   const answerGate = makeTextElement("span", "challenge-answer-gate", "先完成上面的作答，不要求和参考答案一致。");
+  answerGate.hidden = Boolean(pack.ui?.compact);
   const answerActions = document.createElement("div");
   answerActions.className = "challenge-answer-actions";
   answerActions.append(revealButton, answerGate);
 
   const response = makeChallengeResponse(pack, level, question, questionIndex, (ready) => {
     revealButton.disabled = !ready;
-    revealButton.textContent = ready ? "查看参考答案" : "完成作答后查看答案";
-    answerGate.textContent = ready ? "作答已保存，可以对照答案。" : "先完成上面的作答，不要求和参考答案一致。";
+    if (!pack.ui?.compact) {
+      revealButton.textContent = ready ? "查看参考答案" : "完成作答后查看答案";
+      answerGate.textContent = ready ? "作答已保存，可以对照答案。" : "先完成上面的作答，不要求和参考答案一致。";
+    }
   });
 
   const answerPanel = document.createElement("section");

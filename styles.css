@@ -621,6 +621,7 @@ select {
 .challenge-level-card.locked .challenge-level-number, .challenge-level-card.locked .challenge-level-state { color: var(--muted); }
 .challenge-level-card > strong { margin-top: 17px; font-size: 16px; }
 .challenge-level-subtitle { margin-top: 4px; color: var(--ink-soft); font-size: 11px; }
+.challenge-level-difficulty { margin-top: 11px; color: var(--muted); font: 9px var(--mono); }
 .challenge-level-story { display: -webkit-box; margin-top: 10px; overflow: hidden; color: var(--muted); font-size: 9px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .challenge-level-action { margin-top: auto; padding-top: 16px; color: var(--accent); font-size: 10px; }
 .challenge-level-card.locked .challenge-level-action { color: var(--muted); }
@@ -646,6 +647,21 @@ select {
 .challenge-section-label { display: block; color: var(--accent); font: 700 9px var(--mono); }
 .challenge-context { margin: 7px 0 23px; color: var(--ink-soft); font-size: 13px; }
 .challenge-task { margin: 7px 0 0; color: var(--ink); font-size: 17px; font-weight: 650; line-height: 1.65; }
+.challenge-sql-prompt { padding-bottom: 22px; }
+.challenge-sql-prompt .challenge-context { margin-bottom: 19px; }
+.challenge-sql-spec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.challenge-sql-spec > section { min-width: 0; padding: 15px 17px; }
+.challenge-sql-spec > section:nth-child(3) { border-left: 1px solid var(--line); }
+.challenge-sql-spec .challenge-sql-spec-tables { grid-column: 1 / -1; border-bottom: 1px solid var(--line); }
+.challenge-sql-spec h3 { margin: 0 0 8px; color: var(--ink); font-size: 11px; }
+.challenge-sql-spec pre { margin: 0; overflow-x: auto; color: var(--ink-soft); font: 10px/1.65 var(--mono); white-space: pre; }
+.challenge-sql-spec ol, .challenge-sql-spec ul { margin: 0; padding-left: 18px; color: var(--ink-soft); }
+.challenge-sql-spec li { margin: 5px 0; font-size: 10px; line-height: 1.55; }
+.challenge-sql-output { list-style: none; padding-left: 0 !important; }
+.challenge-sql-output li { font-family: var(--mono); }
+.challenge-sql-boundaries { grid-column: 1 / -1; border-top: 1px solid var(--line); border-left: 0 !important; }
+.challenge-compact .challenge-level-card { min-height: 174px; }
+.challenge-compact .challenge-answer-actions { max-width: 240px; }
 .challenge-hint { margin-top: 23px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
 .challenge-hint summary { width: max-content; color: var(--accent); cursor: pointer; }
 .challenge-hint p { margin: 8px 0 0; }
@@ -902,6 +918,11 @@ dialog li { margin: 6px 0; padding-left: 5px; }
   .challenge-question-header h2 { margin-right: 0; font-size: 20px; }
   .challenge-question-meta { position: static; flex-wrap: wrap; margin-top: 9px; }
   .challenge-prompt { padding: 21px 17px 22px; }
+  .challenge-sql-spec { grid-template-columns: 1fr; }
+  .challenge-sql-spec > section:nth-child(3) { border-left: 0; }
+  .challenge-sql-spec > section + section { border-top: 1px solid var(--line); }
+  .challenge-sql-spec .challenge-sql-spec-tables { grid-column: 1; }
+  .challenge-sql-boundaries { grid-column: 1; }
   .challenge-context { margin-bottom: 20px; font-size: 12px; }
   .challenge-task { font-size: 15px; }
   .challenge-response { padding: 18px 15px; }

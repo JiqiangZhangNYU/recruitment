@@ -29,6 +29,18 @@ assert.equal(
     .filter((question) => question.activity?.mode === "sql" || question.activity?.input === "sql").length,
   34,
 );
+const dataDifficulties = dataDiagnosis.levels.flatMap((level) => (
+  level.questions.map((question) => question.difficulty || level.difficulty)
+));
+assert.deepEqual(dataDifficulties, [...dataDifficulties].sort((left, right) => left - right));
+assert.ok(dataDiagnosis.levels.flatMap((level) => level.questions)
+  .filter((question) => question.activity?.mode === "sql" || question.activity?.input === "sql")
+  .every((question) => (
+    question.sqlSpec?.tables?.length
+    && question.sqlSpec.requirements?.length >= 4
+    && question.sqlSpec.output?.length
+    && question.sqlSpec.boundaries?.length >= 2
+  )));
 
 async function checkPage(browser, viewport, screenshotPath) {
   const page = await browser.newPage({ viewport });
@@ -98,6 +110,8 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.match(await page.locator(".challenge-hero").textContent(), /48/);
   assert.equal(await page.locator(".daily-mission-step").count(), 3);
   assert.equal(await page.locator(".challenge-reference").count(), 1);
+  assert.equal(await page.locator(".challenge-level-difficulty").count(), dataDiagnosis.levels.length);
+  assert.equal(await page.locator(".challenge-level-story").count(), 0);
 
   await page.locator(".challenge-level-card").first().click();
   assert.equal(await page.locator(".challenge-question-row").count(), dataDiagnosis.levels[0].questions.length);
@@ -116,6 +130,13 @@ async function checkPage(browser, viewport, screenshotPath) {
   );
   await page.locator(".challenge-question-navigation button").last().click();
   assert.match(await page.locator(".challenge-response-heading").textContent(), /SQL 实战/);
+  assert.match(await page.locator(".challenge-question-meta").textContent(), /难度 1 \/ 5/);
+  assert.equal(await page.locator(".challenge-sql-spec").count(), 1);
+  assert.equal(await page.locator(".challenge-sql-spec .challenge-sql-spec-tables pre").textContent(), dataDiagnosis.reference.tables.merchants);
+  assert.ok(await page.locator(".challenge-sql-spec ol li").count() >= 4);
+  assert.match(await page.locator(".challenge-sql-output").textContent(), /onboard_day/);
+  assert.equal(await page.locator(".challenge-reference").count(), 0);
+  assert.equal(await page.locator(".challenge-answer-gate").isHidden(), true);
   assert.equal(await page.locator(".challenge-response.is-code").count(), 1);
   assert.equal(await page.locator(".challenge-primary-button").isDisabled(), true);
   await page.locator(".challenge-draft-input").fill("SELECT onboard_date::date, COUNT(*) FROM merchants GROUP BY 1;");
