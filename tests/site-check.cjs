@@ -27,7 +27,7 @@ function checkChallengePackData(pack, expectedLevels, expectedQuestions) {
 }
 
 checkChallengePackData(dataDiagnosis, 8, 48);
-checkChallengePackData(businessEnglish, 6, 30);
+checkChallengePackData(businessEnglish, 50, 500);
 const newP0ChallengePacks = [lifecycleGrowth, projectDelivery, paymentsFintech, internationalCollaboration];
 const challengePackBySkill = new Map([
   [dataDiagnosis.skillId, dataDiagnosis],
@@ -67,9 +67,27 @@ assert.deepEqual(
   guide.skills.filter((skill) => skill.priority === "P0").map((skill) => skill.id),
   [...challengePackBySkill.keys()],
 );
-assert.equal(Object.keys(businessEnglish.translations).length, 30);
+assert.equal(Object.keys(businessEnglish.translations).length, 500);
 assert.ok(businessEnglish.levels.flatMap((level) => level.questions)
   .every((question) => businessEnglish.translations[question.id]?.length >= 20));
+assert.ok(businessEnglish.levels.every((level) => level.questions.length === 10));
+const businessEnglishQuestions = businessEnglish.levels.flatMap((level) => level.questions);
+assert.equal(new Set(businessEnglishQuestions.map((question) => question.id)).size, 500);
+assert.equal(new Set(businessEnglishQuestions.map((question) => question.answer.sample)).size, 500);
+assert.deepEqual(
+  businessEnglishQuestions.reduce((counts, question) => {
+    counts[question.difficulty] = (counts[question.difficulty] || 0) + 1;
+    return counts;
+  }, {}),
+  { 1: 100, 2: 100, 3: 100, 4: 100, 5: 100 },
+);
+assert.ok(businessEnglishQuestions.every((question) => (
+  question.difficulty >= 1
+  && question.difficulty <= 5
+  && question.answer.sample.length >= 80
+  && question.answer.notes.length >= 2
+  && question.answer.keywords.length >= 3
+)));
 assert.equal(
   dataDiagnosis.levels.flatMap((level) => level.questions)
     .filter((question) => question.activity?.mode === "sql" || question.activity?.input === "sql").length,
@@ -263,7 +281,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(requestedURLs.filter((url) => url.includes("challenges/business-english.json")).length, 1);
   assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
   assert.equal(await page.locator(".challenge-level-card:disabled").count(), 0);
-  assert.match(await page.locator(".challenge-hero").textContent(), /30/);
+  assert.match(await page.locator(".challenge-hero").textContent(), /500/);
   assert.equal(await page.locator(".daily-mission-step").count(), 5);
   assert.match(await page.locator(".weekly-practice").textContent(), /0 \/ 3 天/);
 
@@ -309,7 +327,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   );
   await page.locator(".challenge-home-button").click();
   assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
-  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).textContent(), /2\/30/);
+  assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).textContent(), /2\/500/);
   const completedEnglishMissionItems = await page.evaluate(() => {
     const mission = JSON.parse(localStorage.getItem("recruitment-daily-mission-business-english"));
     return mission.completed.length;
@@ -317,14 +335,16 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".daily-mission-step.completed").count(), completedEnglishMissionItems);
   assert.match(await page.locator(".weekly-practice").textContent(), /1 \/ 3 天/);
 
-  const firstLevelKeys = businessEnglish.levels[0].questions.slice(0, 4)
+  const rewardQuestion = businessEnglish.levels[0].questions[4];
+  const firstLevelKeys = businessEnglish.levels[0].questions
+    .filter((question) => question.id !== rewardQuestion.id)
     .map((question) => `payment-basics/${question.id}`);
   await page.evaluate((keys) => {
     localStorage.setItem("recruitment-challenge-business-english", JSON.stringify(keys));
   }, firstLevelKeys);
   const rewardURL = new URL(baseURL);
   rewardURL.searchParams.set("test", "reward");
-  rewardURL.hash = "challenge/business-english/payment-basics/take-rate-net-revenue";
+  rewardURL.hash = `challenge/business-english/payment-basics/${rewardQuestion.id}`;
   await page.goto(rewardURL.href, { waitUntil: "domcontentloaded" });
   await page.locator(".challenge-choice").first().waitFor();
   assert.match(await page.locator(".challenge-response-heading").textContent(), /单选题/);
