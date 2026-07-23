@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-07-24",
-  "status": "按最新可核验参数估算，签约时需由税务或薪酬专业人士复核",
+  "status": "截至 2026-07-24 按最新可核验参数估算；2026 社保缴费上下限公布后及签约时均需复核",
   "objective": {
     "guaranteedGrossMinimum": 1000000,
     "successfulYearCashMinimum": 800000,
@@ -14,7 +14,8 @@
     "employeeSocialRate": 0.105,
     "employeeHousingFundRate": 0.07,
     "specialAdditionalDeductions": 0,
-    "contributionCapPeriod": "2025.07 起，当前检索到的上海最新公开数值",
+    "contributionCapPeriod": "2025.07 起；截至 2026-07-24 仍是检索到的上海最新公开上下限数值",
+    "contributionCapCaveat": "2026 社保年度缴费工资申报已启动，但本轮未检索到 2026 年上下限公告，因此不虚构新参数。",
     "housingFundNote": "住房公积金比例按 7% 情景估算；实际比例应以录用单位为准。",
     "cashDefinition": "现金到手扣除个人社保、公积金和个人所得税；公积金账户余额单独列示，不计入当年工资现金。",
     "excluded": [
@@ -157,15 +158,21 @@
       "supports": "2025 年 7 月起月缴费基数上限 37,302 元"
     },
     {
+      "label": "2026 社保年度缴费工资申报公告",
+      "publisher": "国家税务总局上海市税务局",
+      "url": "https://www.shanghai.gov.cn/gwk/search/content/ca6685bd116e4ff29a32303c6405851b",
+      "supports": "确认 2026 社保年度为 2026 年 7 月至 2027 年 6 月；公告未给出新上下限"
+    },
+    {
       "label": "2025 年度上海住房公积金基数调整",
       "publisher": "上海市人民政府",
       "url": "https://www.shanghai.gov.cn/nw17239/20250704/649d8a7b2b1b4ceab2107b8d84fe805e.html",
       "supports": "住房公积金年度基数调整口径"
     },
     {
-      "label": "全年一次性奖金个人所得税政策",
-      "publisher": "国家税务总局浙江省税务局",
-      "url": "https://zhejiang.chinatax.gov.cn/art/2023/8/29/art_8409_83676.html",
+      "label": "全年一次性奖金个税专题热点问答",
+      "publisher": "国家税务总局上海市税务局",
+      "url": "https://shanghai.chinatax.gov.cn/zcfw/rdwd/202501/t474844.html",
       "supports": "单独计税政策延续至 2027 年底"
     }
   ]

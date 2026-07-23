@@ -1722,7 +1722,7 @@ a:focus-visible {
 .market-skill-row > div {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
+  gap: 8px 28px;
   padding: 0 0 18px 176px;
 }
 
@@ -1734,6 +1734,10 @@ a:focus-visible {
 
 .market-skill-row > div strong {
   color: var(--ink);
+}
+
+.market-skill-row > div p:first-child {
+  grid-row: span 3;
 }
 
 .sample-rule,
@@ -2015,6 +2019,164 @@ a:focus-visible {
   font-weight: 700;
 }
 
+.action-principle {
+  margin: 0 0 22px;
+  padding: 12px 14px;
+  color: var(--muted);
+  background: var(--surface-warm);
+  border-left: 3px solid var(--amber);
+  font-size: 11px;
+}
+
+.application-queue {
+  border-top: 1px solid var(--line-strong);
+}
+
+.application-queue > header {
+  padding: 18px 0 12px;
+}
+
+.application-queue h3,
+.negotiation-script h3,
+.evidence-pack h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.application-row {
+  border-bottom: 1px solid var(--line);
+}
+
+.application-row summary {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 86px;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.application-row summary::-webkit-details-marker {
+  display: none;
+}
+
+.application-row summary > span {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.application-row summary div {
+  display: grid;
+}
+
+.application-row summary small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.application-row summary em {
+  padding: 3px 6px;
+  text-align: center;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border-radius: 3px;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.application-detail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 30px;
+  padding: 2px 0 20px 58px;
+}
+
+.application-detail > section > span,
+.negotiation-grid section > span {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.application-positioning,
+.stop-rule {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 12px;
+  margin: 0;
+  font-size: 11px;
+}
+
+.application-positioning span,
+.stop-rule strong {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.stop-rule {
+  padding-top: 10px;
+  color: var(--danger);
+  border-top: 1px dashed var(--line);
+}
+
+.negotiation-script blockquote {
+  margin: 18px 0 24px;
+  padding: 16px 18px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.negotiation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.evidence-pack-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.evidence-pack-list article {
+  display: grid;
+  grid-template-columns: 42px 240px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.evidence-pack-list article > span {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.evidence-pack-list h4,
+.evidence-pack-list p {
+  margin: 0;
+}
+
+.evidence-pack-list h4 {
+  font-size: 13px;
+}
+
+.evidence-pack-list p {
+  color: var(--muted);
+  font-size: 10px;
+}
+
 @media (max-width: 980px) {
   :root {
     --sidebar-width: 220px;
@@ -2103,6 +2265,10 @@ a:focus-visible {
 
   .institution-access {
     grid-column: 1 / -1;
+  }
+
+  .evidence-pack-list article {
+    grid-template-columns: 40px 200px minmax(0, 1fr);
   }
 }
 
@@ -2370,6 +2536,10 @@ a:focus-visible {
     padding-left: 88px;
   }
 
+  .market-skill-row > div p:first-child {
+    grid-row: auto;
+  }
+
   .job-filter {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2408,6 +2578,24 @@ a:focus-visible {
 
   .institution-access {
     grid-column: auto;
+  }
+
+  .application-detail,
+  .negotiation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .application-positioning,
+  .stop-rule {
+    grid-column: auto;
+  }
+
+  .evidence-pack-list article {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+
+  .evidence-pack-list article > ul {
+    grid-column: 2;
   }
 }
 
@@ -2548,6 +2736,31 @@ a:focus-visible {
 
   .job-gate:nth-child(-n + 2) {
     border-bottom: 1px solid var(--line);
+  }
+
+  .application-row summary {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .application-row summary em {
+    grid-column: 2;
+    width: fit-content;
+  }
+
+  .application-detail {
+    padding-left: 40px;
+  }
+
+  .application-positioning,
+  .stop-rule {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .evidence-pack-list article {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 8px;
   }
 }
 

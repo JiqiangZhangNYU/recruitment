@@ -24,6 +24,9 @@
       "label": "Python 与可复现研究代码",
       "count": 10,
       "priority": "P0",
+      "candidateState": "强项",
+      "candidateEvidence": "六年策略研究持续使用 Python，并把公开数据、模型预测和组合优化连接起来。",
+      "gap": "尚未把代码质量、测试和实验可复现性做成可展示的脱敏证据。",
       "interpretation": "不是会写脚本，而是能用同一套可测试代码完成数据、建模、回测、归因和交付。",
       "evidenceToPrepare": "展示一个脱敏研究仓库的目录、测试、实验配置和结果追踪。"
     },
@@ -32,6 +35,9 @@
       "label": "严谨验证与证据链",
       "count": 8,
       "priority": "P0",
+      "candidateState": "强项待包装",
+      "candidateEvidence": "2024.03 至今有费后实盘，可直接比较预测、回测与真实结果。",
+      "gap": "需要统一样本外、费用、收益归因和失败实验的书面口径。",
       "interpretation": "岗位共同关心数据质量、统计可靠性和从研究到实盘的偏差，而不只看回测 Sharpe。",
       "evidenceToPrepare": "整理样本外划分、费用冲击、失败实验、实盘偏差和回撤复盘。"
     },
@@ -40,6 +46,9 @@
       "label": "统计建模与预测",
       "count": 7,
       "priority": "P0",
+      "candidateState": "强项",
+      "candidateEvidence": "个人负责从公开数据构造信号、模型预测并把预测用于组合。",
+      "gap": "需要用一个脱敏案例说明目标、损失函数、稳定性和边际贡献。",
       "interpretation": "需要把经济假设、预测目标、损失函数、稳定性检验和组合使用方式连成闭环。",
       "evidenceToPrepare": "准备一个信号从假设到 OOS、再到组合边际贡献的完整案例。"
     },
@@ -48,6 +57,9 @@
       "label": "机器学习与非线性模型",
       "count": 5,
       "priority": "P1",
+      "candidateState": "待补证",
+      "candidateEvidence": "熟练使用大模型和 Python，但这不能自动证明金融机器学习或深度学习能力。",
+      "gap": "缺少非线性模型相对线性基线的样本外增益、漂移和上线成本证据。",
       "interpretation": "头部机构普遍把 ML 作为模型工具，但真正门槛是金融样本下的稳定验证，不是框架 API。",
       "evidenceToPrepare": "比较线性基线与非线性模型，说明增益、漂移、可解释性和上线成本。"
     },
@@ -56,6 +68,9 @@
       "label": "研究到实盘的一致性",
       "count": 7,
       "priority": "P0",
+      "candidateState": "强项有边界",
+      "candidateEvidence": "策略已由公司 PM 配置约 10 亿元费后实盘运行。",
+      "gap": "下单由同事负责，需要补足实盘和模拟偏差、监控及执行接口证据。",
       "interpretation": "生产岗位和研究岗位都在追问实盘、回测、交易和数据之间能否对齐。",
       "evidenceToPrepare": "量化 2024.03 至今预测、模拟与费后实盘的差异来源。"
     },
@@ -64,6 +79,9 @@
       "label": "数据到 Alpha 的研究能力",
       "count": 6,
       "priority": "P0",
+      "candidateState": "核心强项",
+      "candidateEvidence": "六年商品期货日频截面策略研究，个人负责公开数据信号。",
+      "gap": "需要在不泄露策略的前提下证明原创性、正交增量和跨状态稳定性。",
       "interpretation": "公开数据构造信号是强匹配项，需要进一步证明原创性、稳定性和增量价值。",
       "evidenceToPrepare": "用脱敏方式展示数据生成机制、去泄漏、正交化和边际 IC。"
     },
@@ -72,6 +90,9 @@
       "label": "组合优化、风险归因与容量",
       "count": 1,
       "priority": "P0",
+      "candidateState": "强项有决策缺口",
+      "candidateEvidence": "个人负责组合优化，现有策略资金约 10 亿元，容量估计 50 亿元以上。",
+      "gap": "资金配置、杠杆和最终风险决策由 PM 负责，尚无独立授权记录。",
       "interpretation": "明确写进岗位的频率不高，但这是从高级研究员升级为研究型 PM 的决定性能力。",
       "evidenceToPrepare": "把约 10 亿元现有配置、50 亿元以上容量、杠杆和回撤约束写成可审查案例。"
     },
@@ -80,6 +101,9 @@
       "label": "SQL、数据工程与质量控制",
       "count": 1,
       "priority": "P1",
+      "candidateState": "待核验",
+      "candidateEvidence": "当前已确认事实没有明确说明 SQL、ETL 或数据平台职责。",
+      "gap": "先核验真实熟练度，再决定补基础还是只准备研究数据质量案例。",
       "interpretation": "SQL 不是策略负责人的核心定价项，但数据审计、ETL 与可追溯性是研究可信度的底座。",
       "evidenceToPrepare": "准备数据版本、异常检测、点时数据和重跑一致性的设计说明。"
     },
@@ -88,6 +112,9 @@
       "label": "交易成本与实盘偏差",
       "count": 2,
       "priority": "P0",
+      "candidateState": "部分强项",
+      "candidateEvidence": "低换手和 50 亿元以上容量估计表明已考虑成本与规模。",
+      "gap": "本人不负责下单，需要补充滑点、冲击、参与率和实盘偏差的量化证据。",
       "interpretation": "当前不负责下单并不等于可以忽略执行；负责人必须解释成本、冲击和容量。",
       "evidenceToPrepare": "展示换手、费率、滑点与规模扩张的敏感性分析。"
     },
@@ -96,6 +123,9 @@
       "label": "跨研究、交易与工程协作",
       "count": 6,
       "priority": "P1",
+      "candidateState": "已确认",
+      "candidateEvidence": "与 PM、交易同事分工协作，并指导过实习生。",
+      "gap": "没有正式带团队经历，沟通时应定位为技术影响力和研究协作，不包装人员管理。",
       "interpretation": "IC 路线仍要求清楚定义接口、推动落地并指导年轻研究者，不等于人员管理。",
       "evidenceToPrepare": "准备与 PM、交易、数据同事协作以及指导实习生的具体案例。"
     }

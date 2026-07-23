@@ -96,6 +96,36 @@
       ]
     },
     {
+      "id": "citic-futures",
+      "name": "中信期货",
+      "legalName": "中信期货有限公司",
+      "type": "期货公司资管",
+      "priority": "次要",
+      "scale": { "status": "verify", "band": "2022Q4 私募资管月均约1200亿元，当前值待核", "asOf": "2022-12-31" },
+      "shanghai": { "status": "pass", "evidence": "当前 CTA 研究员职位明确位于上海。" },
+      "career": { "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E5%9B%A2%E9%98%9F-cta%E7%A0%94%E7%A9%B6%E5%91%98g00089-at-citic-futures-4421454852", "status": "active", "note": "当前上海 CTA 研究职位偏投资经理支持。" },
+      "accessPolicy": { "mode": "manual", "reason": "人工核验雇主公开职位页和公司官网，不自动采集。" },
+      "sources": [
+        { "label": "中信期货官方介绍", "url": "https://www.citicsf.com/e-futures/about/", "supports": "公司主体、业务范围和期货资管属性" },
+        { "label": "中信期货雇主职位页", "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E5%9B%A2%E9%98%9F-cta%E7%A0%94%E7%A9%B6%E5%91%98g00089-at-citic-futures-4421454852", "supports": "当前岗位、上海地点和历史资管规模自述" }
+      ]
+    },
+    {
+      "id": "blackrock-china-fmc",
+      "name": "贝莱德基金",
+      "legalName": "贝莱德基金管理有限公司",
+      "type": "公募基金",
+      "priority": "次要",
+      "scale": { "status": "verify", "band": "中国基金子公司规模待核", "asOf": "2026-07-24" },
+      "shanghai": { "status": "pass", "evidence": "官方职位明确位于上海，主体为上海的全资基金管理公司。" },
+      "career": { "url": "https://careers.blackrock.com/job/shanghai/analyst-quantitative-researcher/45831/94327989472", "status": "active", "note": "当前量化研究员岗位覆盖股票、多资产、宏观和 CTA。" },
+      "accessPolicy": { "mode": "manual", "reason": "本轮只人工核验官方职业页面。" },
+      "sources": [
+        { "label": "贝莱德官方职位页", "url": "https://careers.blackrock.com/job/shanghai/analyst-quantitative-researcher/45831/94327989472", "supports": "岗位状态、地点、职级、职责和发展路径" },
+        { "label": "贝莱德中国官网", "url": "https://www.blackrock.com.cn/", "supports": "中国业务主体与产品信息；本轮不据此推断本地管理规模" }
+      ]
+    },
+    {
       "id": "ubiquant",
       "name": "九坤投资",
       "legalName": "北京九坤投资（集团）有限公司",

@@ -6,6 +6,7 @@ const state = {
   institutions: null,
   jobs: null,
   jobSkills: null,
+  actionPlan: null,
   activeView: "overview",
   directionFilter: "all",
   jobFilter: "strict-watch",
@@ -596,6 +597,7 @@ function renderCompensation() {
       <div class="assumption-grid">
         <dl>
           <div><dt>上海月缴费基数上限</dt><dd>${Number(dataset.assumptions.monthlyContributionCap).toLocaleString("zh-CN")} 元</dd></div>
+          <div><dt>2026 参数状态</dt><dd>${escapeHTML(dataset.assumptions.contributionCapCaveat)}</dd></div>
           <div><dt>个人社保比例</dt><dd>${formatPercent(dataset.assumptions.employeeSocialRate)}</dd></div>
           <div><dt>个人公积金比例</dt><dd>${formatPercent(dataset.assumptions.employeeHousingFundRate)} 情景</dd></div>
           <div><dt>专项附加扣除</dt><dd>未计入</dd></div>
@@ -639,10 +641,72 @@ function jobFilterOptions() {
   return [
     { id: "strict-watch", label: "重点待核" },
     { id: "adjacent", label: "相邻岗位" },
+    { id: "secondary", label: "公募 / 券商" },
     { id: "boundary", label: "边界线索" },
     { id: "historical", label: "历史参照" },
     { id: "institutions", label: "机构库" },
+    { id: "actions", label: "行动清单" },
   ];
+}
+
+function renderActionPlan() {
+  const plan = state.actionPlan;
+  return `
+    <div class="action-plan">
+      <p class="action-principle">${escapeHTML(plan.principle)}</p>
+      <section class="application-queue" aria-labelledby="application-queue-title">
+        <header>
+          <p class="section-index">PRIORITY QUEUE</p>
+          <h3 id="application-queue-title">五条优先沟通路径</h3>
+        </header>
+        ${plan.queue.map((item) => {
+          const job = state.jobs.jobs.find((candidate) => candidate.id === item.jobId);
+          const institution = institutionById(job.institutionId);
+          return `
+            <details class="application-row" ${item.rank === 1 ? "open" : ""}>
+              <summary>
+                <span>${String(item.rank).padStart(2, "0")}</span>
+                <div><strong>${escapeHTML(institution.name)} · ${escapeHTML(job.title)}</strong><small>${escapeHTML(item.why)}</small></div>
+                <em>${escapeHTML(item.stage)}</em>
+              </summary>
+              <div class="application-detail">
+                <p class="application-positioning"><span>沟通定位</span>${escapeHTML(item.positioning)}</p>
+                <section><span>带去的证据</span>${list(item.proof, "compact-boundary-list")}</section>
+                <section><span>首轮必问</span>${list(item.questions, "question-list")}</section>
+                <p class="stop-rule"><strong>停止条件</strong>${escapeHTML(item.stopRule)}</p>
+              </div>
+            </details>
+          `;
+        }).join("")}
+      </section>
+      <section class="negotiation-script section-band" aria-labelledby="negotiation-title">
+        <header class="section-heading compact-heading">
+          <p class="section-index">COMPENSATION VERIFICATION</p>
+          <h3 id="negotiation-title">薪酬核验话术</h3>
+        </header>
+        <blockquote>${escapeHTML(plan.compensationScript.opening)}</blockquote>
+        <div class="negotiation-grid">
+          <section><span>必须问清</span>${list(plan.compensationScript.minimumQuestions, "evidence-list")}</section>
+          <section><span>高风险信号</span>${list(plan.compensationScript.redFlags, "question-list")}</section>
+        </div>
+      </section>
+      <section class="evidence-pack section-band" aria-labelledby="evidence-pack-title">
+        <header class="section-heading compact-heading">
+          <p class="section-index">INTERVIEW EVIDENCE PACK</p>
+          <h3 id="evidence-pack-title">四份脱敏证据</h3>
+        </header>
+        <div class="evidence-pack-list">
+          ${plan.evidencePack.map((item, index) => `
+            <article>
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <div><h4>${escapeHTML(item.title)}</h4><p>${escapeHTML(item.purpose)}</p></div>
+              ${list(item.contents, "compact-boundary-list")}
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    </div>
+  `;
 }
 
 function renderInstitutionDirectory() {
@@ -739,6 +803,8 @@ function renderJobSkills() {
             </summary>
             <div>
               <p>${escapeHTML(skill.interpretation)}</p>
+              <p><strong>个人现状 · ${escapeHTML(skill.candidateState)}：</strong>${escapeHTML(skill.candidateEvidence)}</p>
+              <p><strong>当前缺口：</strong>${escapeHTML(skill.gap)}</p>
               <p><strong>要准备的证据：</strong>${escapeHTML(skill.evidenceToPrepare)}</p>
             </div>
           </details>
@@ -783,7 +849,11 @@ function renderJobs() {
           <button type="button" data-job-filter="${escapeHTML(filter.id)}" class="${filter.id === state.jobFilter ? "active" : ""}">${escapeHTML(filter.label)}</button>
         `).join("")}
       </div>
-      ${state.jobFilter === "institutions" ? renderInstitutionDirectory() : renderJobCards(jobs)}
+      ${state.jobFilter === "institutions"
+        ? renderInstitutionDirectory()
+        : state.jobFilter === "actions"
+          ? renderActionPlan()
+          : renderJobCards(jobs)}
     </section>
     <p class="radar-methodology">${escapeHTML(state.institutions.methodology)} ${escapeHTML(state.jobs.methodology.freshness)}</p>
   `;
@@ -820,11 +890,12 @@ async function ensureCompensation() {
 }
 
 async function ensureJobs() {
-  if (!state.institutions || !state.jobs || !state.jobSkills) {
-    [state.institutions, state.jobs, state.jobSkills] = await Promise.all([
+  if (!state.institutions || !state.jobs || !state.jobSkills || !state.actionPlan) {
+    [state.institutions, state.jobs, state.jobSkills, state.actionPlan] = await Promise.all([
       loadJSON("data/institutions.json"),
       loadJSON("data/jobs.json"),
       loadJSON("data/job-skills.json"),
+      loadJSON("data/action-plan.json"),
     ]);
   }
   renderJobs();
