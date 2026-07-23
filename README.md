@@ -16,6 +16,10 @@ python3 -m http.server 4173
 
 打开 `http://localhost:4173/`。
 
+## 量化职业子站
+
+商品期货量化研究员的职业画像、岗位方向和能力地图发布在 `quant/` 子目录，线上地址为 `https://jiqiangzhangnyu.github.io/recruitment/quant/`。源文件维护在 `/mnt/Data/jiqiang/job_quant/`，通过该目录下的 `scripts/sync-to-recruitment.cjs` 同步，不直接在发布副本中编辑。
+
 ## 更新数据
 
 在上级项目目录执行：

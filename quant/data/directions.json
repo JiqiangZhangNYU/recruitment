@@ -1,0 +1,81 @@
+{
+  "version": 3,
+  "updatedAt": "2026-07-24",
+  "basis": "基于六年商品截面研究和 2024 年 3 月至今的费后实盘表现形成岗位原型；尚未接入真实招聘数据。所有负责人岗位均指亲自研究的 IC 路线，不以团队管理为目标。",
+  "screeningCriteria": [
+    { "id": "location", "label": "工作地点", "value": "仅上海", "note": "硬性条件，不考虑异地岗位", "level": "硬性" },
+    { "id": "institution", "label": "机构类型", "value": "私募基金优先", "note": "公募基金、证券公司等为辅", "level": "优先" },
+    { "id": "aum", "label": "机构规模", "value": "管理规模 ≥ 100 亿元", "note": "按机构公开披露或可信来源核验", "level": "硬性" },
+    { "id": "target-compensation", "label": "目标薪酬", "value": "年薪 ≥ 100 万元", "note": "税前总包或税后收入口径待确认", "level": "硬性" },
+    { "id": "current-compensation", "label": "当前工资", "value": "税后约 80 万元 / 年", "note": "仅用于判断换岗机会成本", "level": "基线" }
+  ],
+  "compensationNote": "招聘岗位通常披露税前年薪或税前总包，当前收入是税后工资，两者不能直接比较。正式筛选前需把目标 100 万元明确为税前总包、税后收入或保底现金中的一种。",
+  "directions": [
+    {
+      "id": "commodity-cross-sectional-lead",
+      "tier": "A+",
+      "title": "商品期货截面策略负责人（IC）",
+      "titleEn": "IC Quant Strategy Lead, Commodity Cross-Sectional Alpha",
+      "fit": "最直接",
+      "thesis": "研究方向、实盘业绩与资金规模都高度同构；最合适的是拥有更大策略决策权、同时继续亲自构造信号和优化组合的岗位。",
+      "evidence": ["六年商品研究", "费后实盘年化约 30%", "约 10 亿元策略资金", "容量估计 50 亿元以上"],
+      "mustProve": ["脱敏实盘证据", "容量估算方法", "回撤期判断", "从研究到风险决策的升级方案"],
+      "keywords": ["商品期货截面", "cross-sectional futures", "commodity alpha", "IC quant strategy lead"]
+    },
+    {
+      "id": "systematic-commodities",
+      "tier": "A+",
+      "title": "系统化商品量化研究员",
+      "titleEn": "Senior Systematic Commodities Researcher",
+      "fit": "高度相关",
+      "thesis": "保留商品专长和个人研究属性，同时把公开数据、模型预测与组合优化能力扩展到更广的系统化商品策略族。",
+      "evidence": ["公开数据构造信号", "模型预测", "组合优化", "大规模费后实盘"],
+      "mustProve": ["非截面策略广度", "不同市场状态归因", "杠杆和风险预算", "执行成本协作"],
+      "keywords": ["systematic commodities", "CTA research", "futures quant", "relative value"]
+    },
+    {
+      "id": "principal-quant-researcher",
+      "tier": "A",
+      "title": "Principal Quant Researcher",
+      "titleEn": "Principal Quant Researcher, Futures and Systematic Alpha",
+      "fit": "稳健升级",
+      "thesis": "适合不承担人员管理、但以研究深度、实盘贡献和复杂问题所有权获得高级职级的专家路线。",
+      "evidence": ["六年连续研究", "独立信号与模型开发", "组合优化", "指导过实习生"],
+      "mustProve": ["可复用研究框架", "跨项目技术影响", "失败研究复盘", "不依赖管理头衔的职级定义"],
+      "keywords": ["principal quant researcher", "senior quant IC", "futures alpha", "量化专家"]
+    },
+    {
+      "id": "commodity-pm",
+      "tier": "A",
+      "title": "研究型商品量化 PM",
+      "titleEn": "Research-Driven Commodity Quant Portfolio Manager",
+      "fit": "进阶目标",
+      "thesis": "已经拥有可观费后实盘和组合优化经验，主要缺口不是研究或业绩，而是最终资金配置、杠杆与回撤决策责任。",
+      "evidence": ["2024.03 至今费后实盘", "年化约 30% / 回撤约 10%", "约 10 亿元资金", "低频高容量"],
+      "mustProve": ["独立风险预算", "杠杆上下限", "回撤期决策案例", "PM 授权边界"],
+      "keywords": ["commodity quant PM", "portfolio manager futures", "CTA PM", "商品量化投资经理"]
+    },
+    {
+      "id": "multi-asset-cross-sectional",
+      "tier": "B+",
+      "title": "多资产截面研究员",
+      "titleEn": "Multi-Asset Cross-Sectional Researcher",
+      "fit": "可迁移",
+      "thesis": "截面研究方法可迁移，但股票、外汇或利率产品的数据生成机制、交易成本和风险模型不同。",
+      "evidence": ["截面建模", "模型预测", "组合优化", "费后实盘纪律"],
+      "mustProve": ["跨资产实验", "新资产风险模型", "资产特有微观结构", "非商品容量"],
+      "keywords": ["multi-asset quant", "cross-asset factors", "systematic macro", "cross-sectional alpha"]
+    },
+    {
+      "id": "ai-quant-research",
+      "tier": "B",
+      "title": "AI 增强型量化研究专家",
+      "titleEn": "AI-Augmented Quant Research Specialist",
+      "fit": "差异化副线",
+      "thesis": "大模型能力用于放大个人研究产能，而不是转向平台管理或离开策略开发主线。",
+      "evidence": ["熟练使用大模型", "Python", "真实量化研究场景"],
+      "mustProve": ["可复用工作流", "研究提效指标", "安全与可追溯性", "研究质量提升"],
+      "keywords": ["AI quant research", "LLM for alpha research", "quant researcher", "research automation"]
+    }
+  ]
+}

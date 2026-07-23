@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="拥有大规模费后实盘经验的商品期货量化研究员职业定位、目标岗位方向与能力证据工作台。">
+  <title>量化职业工作台</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="返回职业画像">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span class="brand-copy">
+          <strong>量化职业工作台</strong>
+          <span>QUANT CAREER DESK</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" aria-label="主要视图">
+        <button type="button" data-view="overview" class="active" aria-pressed="true">
+          <span class="nav-icon" aria-hidden="true">⌂</span><span>职业画像</span>
+        </button>
+        <button type="button" data-view="directions" aria-pressed="false">
+          <span class="nav-icon" aria-hidden="true">◎</span><span>目标方向</span>
+        </button>
+        <button type="button" data-view="skills" aria-pressed="false">
+          <span class="nav-icon" aria-hidden="true">◇</span><span>能力地图</span>
+        </button>
+      </nav>
+
+      <section class="side-section" aria-labelledby="positioning-heading">
+        <h2 id="positioning-heading">核心定位</h2>
+        <p class="side-role">商品期货<br>日频截面策略</p>
+        <dl class="side-facts">
+          <div><dt>地点</dt><dd>上海</dd></div>
+          <div><dt>经验</dt><dd>6 年</dd></div>
+          <div><dt>实盘</dt><dd>Sharpe ≈ 2</dd></div>
+        </dl>
+      </section>
+
+      <section id="skill-side-section" class="side-section skill-side-section" hidden aria-labelledby="skill-side-heading">
+        <h2 id="skill-side-heading">能力目录</h2>
+        <div id="skill-side-nav" class="skill-side-nav"></div>
+      </section>
+
+      <footer class="sidebar-footer">
+        <span>阶段 01</span>
+        <span id="data-date">载入中</span>
+      </footer>
+    </aside>
+
+    <main class="main">
+      <header class="page-header">
+        <div>
+          <p id="page-eyebrow" class="eyebrow">费后实盘 · 2024.03 至今</p>
+          <h1 id="page-title">商品期货量化研究员</h1>
+          <p id="page-subtitle" class="subtitle">正在载入职业画像...</p>
+        </div>
+        <button id="theme-button" class="icon-button" type="button" title="切换明暗主题" aria-label="切换明暗主题">◐</button>
+      </header>
+
+      <section id="overview-view" class="view-panel" aria-labelledby="page-title">
+        <div id="overview-loading" class="loading-state" role="status">
+          <span></span><strong>正在载入研究档案</strong>
+        </div>
+        <div id="overview-content" hidden></div>
+      </section>
+
+      <section id="directions-view" class="view-panel" hidden aria-labelledby="directions-title">
+        <div id="directions-loading" class="loading-state" role="status">
+          <span></span><strong>正在载入目标方向</strong>
+        </div>
+        <div id="directions-content" hidden></div>
+      </section>
+
+      <section id="skills-view" class="view-panel" hidden aria-labelledby="skills-title">
+        <div id="skills-loading" class="loading-state" role="status">
+          <span></span><strong>正在载入能力地图</strong>
+        </div>
+        <div id="skills-overview" hidden></div>
+        <div id="skill-detail" hidden></div>
+      </section>
+
+      <div id="error-state" class="error-state" hidden role="alert">
+        <strong>数据载入失败</strong>
+        <p>请通过本地 HTTP 服务打开页面。</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
