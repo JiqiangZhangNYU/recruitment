@@ -7,6 +7,7 @@ const state = {
   jobs: null,
   jobSkills: null,
   actionPlan: null,
+  searchAudit: null,
   evidenceTemplates: {},
   activeView: "overview",
   directionFilter: "all",
@@ -664,7 +665,54 @@ function jobFilterOptions() {
     { id: "historical", label: "历史参照" },
     { id: "institutions", label: "机构库" },
     { id: "actions", label: "行动清单" },
+    { id: "audit", label: "检索审计" },
   ];
+}
+
+function renderSearchAudit() {
+  const audit = state.searchAudit;
+  if (!audit) {
+    return `<div class="audit-loading" role="status"><span></span><strong>正在载入检索审计</strong></div>`;
+  }
+  return `
+    <div class="search-audit">
+      <p class="audit-scope">${escapeHTML(audit.scope)}</p>
+      <section class="audit-summary" aria-label="检索覆盖摘要">
+        ${audit.summary.map((item) => `<article><span>${escapeHTML(item.label)}</span><strong>${escapeHTML(item.value)}</strong><small>${escapeHTML(item.note)}</small></article>`).join("")}
+      </section>
+      <section class="audit-section section-band" aria-labelledby="audit-source-title">
+        <header class="section-heading compact-heading"><p class="section-index">SOURCE HIERARCHY</p><h3 id="audit-source-title">证据来源层级</h3></header>
+        <div class="source-hierarchy">
+          ${audit.sourceHierarchy.map((source) => `
+            <article><span>${String(source.rank).padStart(2, "0")}</span><div><h4>${escapeHTML(source.label)}</h4><p>${escapeHTML(source.use)}</p></div><small>${escapeHTML(source.rule)}</small></article>
+          `).join("")}
+        </div>
+      </section>
+      <section class="audit-section section-band" aria-labelledby="audit-access-title">
+        <header class="section-heading compact-heading"><p class="section-index">ACCESS BOUNDARIES</p><h3 id="audit-access-title">访问方式与边界</h3></header>
+        <div class="access-channel-grid">
+          ${audit.accessChannels.map((channel) => `
+            <article><div><h4>${escapeHTML(channel.label)}</h4><span>${escapeHTML(channel.mode)}</span></div><p>${escapeHTML(channel.result)}</p><small>${escapeHTML(channel.next)}</small></article>
+          `).join("")}
+        </div>
+      </section>
+      <section class="audit-section section-band" aria-labelledby="audit-screened-title">
+        <header class="section-heading compact-heading"><p class="section-index">SCREENED OUT / WATCHLIST</p><h3 id="audit-screened-title">没有进入推荐池的线索</h3></header>
+        <div class="screened-candidate-list">
+          ${audit.screenedCandidates.map((candidate) => `
+            <details class="screened-candidate">
+              <summary><div><strong>${escapeHTML(candidate.name)}</strong><small>${escapeHTML(candidate.signal)}</small></div><em>${escapeHTML(candidate.status)}</em></summary>
+              <div><p>${escapeHTML(candidate.decision)}</p><nav>${candidate.sources.map((source) => `<a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.label)}</a>`).join("")}</nav></div>
+            </details>
+          `).join("")}
+        </div>
+      </section>
+      <section class="audit-section section-band audit-followup" aria-labelledby="audit-followup-title">
+        <header class="section-heading compact-heading"><p class="section-index">GAPS & NEXT REVIEW</p><h3 id="audit-followup-title">覆盖缺口与复核计划</h3></header>
+        <div><section><span>仍缺什么</span>${list(audit.coverageGaps, "question-list")}</section><section><span>下一轮</span><ol>${audit.nextReview.map((item) => `<li><strong>${escapeHTML(item.date)}</strong><p>${escapeHTML(item.task)}</p></li>`).join("")}</ol></section></div>
+      </section>
+    </div>
+  `;
 }
 
 function renderActionPlan() {
@@ -923,6 +971,8 @@ function renderJobs() {
         ? renderInstitutionDirectory()
         : state.jobFilter === "actions"
           ? renderActionPlan()
+          : state.jobFilter === "audit"
+            ? renderSearchAudit()
           : renderJobCards(jobs)}
     </section>
     <p class="radar-methodology">${escapeHTML(state.institutions.methodology)} ${escapeHTML(state.jobs.methodology.freshness)}</p>
@@ -1033,6 +1083,15 @@ document.addEventListener("click", async (event) => {
   if (jobFilterButton) {
     state.jobFilter = jobFilterButton.dataset.jobFilter;
     renderJobs();
+    if (state.jobFilter === "audit" && !state.searchAudit) {
+      try {
+        state.searchAudit = await loadJSON("data/search-audit.json");
+        renderJobs();
+      } catch (error) {
+        console.error(error);
+        elements.errorState.hidden = false;
+      }
+    }
   }
 
   const evidenceButton = event.target.closest("[data-evidence-template]");
