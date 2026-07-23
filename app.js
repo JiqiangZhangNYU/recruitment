@@ -125,6 +125,9 @@ function filteredJobs() {
     if (state.risk === "no-english" && job.requiresEnglish) return false;
     if (state.risk === "low-risk" && (job.agency || job.requiresEnglish)) return false;
     if (state.bonus === "payment" && !job.paymentBonus) return false;
+    if (state.bonus === "international-payment" && !job.internationalPaymentFit) return false;
+    if (state.bonus === "payment-native" && !job.paymentNative) return false;
+    if (state.bonus === "payment-leader" && !job.paymentLeader) return false;
     if (state.bonus === "major" && !job.majorCompany) return false;
     if (state.bonus === "both" && !(job.paymentBonus && job.majorCompany)) return false;
     if (state.bonus === "official" && !job.officialSource) return false;
@@ -251,6 +254,9 @@ function makeJobCard(job) {
   if (job.isReference) bonuses.push("原始标杆");
   if (job.officialSource) bonuses.push(job.sourceLabel);
   if (job.paymentBonus) bonuses.push("支付业务 +14");
+  if (job.internationalPaymentFit) bonuses.push("国际支付经验匹配");
+  if (job.paymentLeader) bonuses.push("头部支付机构");
+  else if (job.paymentNative) bonuses.push("支付公司");
   if (job.majorCompany) bonuses.push("大平台 +10");
   if (!job.applicationRecommended) bonuses.push("仅供方向参考 · 不建议投递");
   appendSpans(fragment.querySelector(".bonus-list"), bonuses);
