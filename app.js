@@ -690,13 +690,26 @@ function dailyMissionStorageKey(skillId) {
   return `recruitment-daily-mission-${skillId}`;
 }
 
+const DAILY_MISSION_VERSION = 2;
+const DAILY_MISSION_SIZE = 5;
+
+function shuffledQuestionKeys(questions) {
+  const keys = questions.map((item) => item.key);
+  for (let index = keys.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [keys[index], keys[swapIndex]] = [keys[swapIndex], keys[index]];
+  }
+  return keys;
+}
+
 function getDailyMission(pack) {
   const date = localDateKey();
   const questions = challengeQuestions(pack);
   const validKeys = new Set(questions.map((item) => item.key));
   const stored = readStoredJSON(dailyMissionStorageKey(pack.skillId), null);
   if (
-    stored?.date === date
+    stored?.version === DAILY_MISSION_VERSION
+    && stored.date === date
     && Array.isArray(stored.keys)
     && stored.keys.every((key) => validKeys.has(key))
   ) {
@@ -707,8 +720,9 @@ function getDailyMission(pack) {
   }
   const progress = getChallengeProgress(pack.skillId);
   const mission = {
+    version: DAILY_MISSION_VERSION,
     date,
-    keys: questions.filter((item) => !progress.has(item.key)).slice(0, 3).map((item) => item.key),
+    keys: shuffledQuestionKeys(questions.filter((item) => !progress.has(item.key))).slice(0, DAILY_MISSION_SIZE),
     completed: [],
   };
   localStorage.setItem(dailyMissionStorageKey(pack.skillId), JSON.stringify(mission));
@@ -888,9 +902,9 @@ function makeDailyMission(pack) {
   heading.className = "daily-mission-heading";
   const copy = document.createElement("div");
   copy.append(
-    makeTextElement("span", "section-kicker", "TODAY · 约 5 分钟"),
-    makeTextElement("h3", "", mission.keys.length ? "今日三题" : "全部关卡已完成"),
-    makeTextElement("p", "", mission.keys.length ? "只完成今天的三个小目标，也算一次有效练习。" : "可以从关卡地图自由复习已经完成的题目。"),
+    makeTextElement("span", "section-kicker", "TODAY · 约 10 分钟"),
+    makeTextElement("h3", "", mission.keys.length ? "今日五题" : "全部关卡已完成"),
+    makeTextElement("p", "", mission.keys.length ? "从未作答题目中随机抽取，每天完成五个小目标。" : "可以从关卡地图自由复习已经完成的题目。"),
   );
   const weekly = document.createElement("div");
   weekly.className = "weekly-practice";
@@ -928,7 +942,7 @@ function makeDailyMission(pack) {
     ? `已完成全部 ${allQuestions.length} 题`
     : completedCount === mission.keys.length
       ? "今日任务完成"
-      : completedCount ? "继续今日任务 →" : "开始今日三题 →";
+      : completedCount ? "继续今日任务 →" : "开始今日五题 →";
   start.addEventListener("click", () => current && navigateLearning(
     "challengeQuestion",
     pack.skillId,

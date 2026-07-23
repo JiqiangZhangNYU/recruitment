@@ -600,7 +600,7 @@ select {
 .weekly-practice strong, .weekly-practice span { display: block; }
 .weekly-practice strong { color: var(--accent); font: 700 15px var(--mono); }
 .weekly-practice span { margin-top: 2px; color: var(--muted); font-size: 8px; }
-.daily-mission-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; min-width: 0; }
+.daily-mission-steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; min-width: 0; }
 .daily-mission-step { display: grid; grid-template-columns: 24px minmax(0, 1fr); align-items: center; gap: 7px; min-width: 0; padding: 7px 8px; background: var(--surface-muted); border: 1px solid var(--line); border-radius: 5px; }
 .daily-mission-step > span { display: grid; place-items: center; width: 20px; height: 20px; color: var(--accent); background: var(--accent-soft); border-radius: 50%; font: 700 8px var(--mono); }
 .daily-mission-step strong { min-width: 0; overflow: hidden; color: var(--ink-soft); font-size: 9px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
@@ -889,7 +889,7 @@ dialog li { margin: 6px 0; padding-left: 5px; }
   .challenge-hero h2, .challenge-level-header h2 { font-size: 23px; }
   .daily-mission { grid-template-columns: 1fr; gap: 12px; padding: 15px; }
   .daily-mission-heading { align-items: flex-start; }
-  .daily-mission-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .daily-mission-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .daily-mission-step { display: flex; min-height: 57px; flex-direction: column; align-items: flex-start; gap: 4px; }
   .daily-mission-step strong { width: 100%; }
   .daily-mission-button { width: 100%; }

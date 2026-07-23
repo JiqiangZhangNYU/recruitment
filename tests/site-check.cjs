@@ -161,7 +161,11 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".challenge-level-card").count(), dataDiagnosis.levels.length);
   assert.equal(await page.locator(".challenge-level-card:disabled").count(), 0);
   assert.match(await page.locator(".challenge-hero").textContent(), /48/);
-  assert.equal(await page.locator(".daily-mission-step").count(), 3);
+  assert.equal(await page.locator(".daily-mission-step").count(), 5);
+  const initialDataMission = await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-daily-mission-data-diagnosis")));
+  assert.equal(initialDataMission.version, 2);
+  assert.equal(initialDataMission.keys.length, 5);
+  assert.equal(new Set(initialDataMission.keys).size, 5);
   assert.equal(await page.locator(".challenge-reference").count(), 1);
   assert.equal(await page.locator(".challenge-level-difficulty").count(), dataDiagnosis.levels.length);
   assert.equal(await page.locator(".challenge-level-story").count(), 0);
@@ -203,6 +207,24 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(sqlOverflow <= 1, `SQL challenge horizontal overflow: ${sqlOverflow}px`);
   assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: dataDiagnosis.title.replace("闯关", "") }).textContent(), /2\/48/);
 
+  const completedDataKeys = await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-challenge-data-diagnosis")));
+  await page.evaluate(() => {
+    const mission = JSON.parse(localStorage.getItem("recruitment-daily-mission-data-diagnosis"));
+    mission.date = "2000-01-01";
+    localStorage.setItem("recruitment-daily-mission-data-diagnosis", JSON.stringify(mission));
+  });
+  await page.locator("#learning-skill-nav button").filter({ hasText: dataDiagnosis.title.replace("闯关", "") }).click();
+  const refreshedDataMission = await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-daily-mission-data-diagnosis")));
+  assert.equal(refreshedDataMission.keys.length, 5);
+  assert.equal(new Set(refreshedDataMission.keys).size, 5);
+  assert.ok(refreshedDataMission.keys.every((key) => !completedDataKeys.includes(key)));
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.locator(".daily-mission-step").first().waitFor();
+  assert.deepEqual(
+    (await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-daily-mission-data-diagnosis")))).keys,
+    refreshedDataMission.keys,
+  );
+
   const standardSkill = guide.skills.find((skill) => skill.id === "ecommerce-merchants");
   await page.locator("#learning-skill-nav button").filter({ hasText: standardSkill.title }).click();
   assert.equal(await page.locator(".skill-detail-page").count(), 1);
@@ -242,7 +264,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
   assert.equal(await page.locator(".challenge-level-card:disabled").count(), 0);
   assert.match(await page.locator(".challenge-hero").textContent(), /30/);
-  assert.equal(await page.locator(".daily-mission-step").count(), 3);
+  assert.equal(await page.locator(".daily-mission-step").count(), 5);
   assert.match(await page.locator(".weekly-practice").textContent(), /0 \/ 3 天/);
 
   await page.locator(".challenge-level-card").first().click();
@@ -288,7 +310,11 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.locator(".challenge-home-button").click();
   assert.equal(await page.locator(".challenge-level-card").count(), businessEnglish.levels.length);
   assert.match(await page.locator("#learning-skill-nav button").filter({ hasText: "业务英语" }).textContent(), /2\/30/);
-  assert.equal(await page.locator(".daily-mission-step.completed").count(), 2);
+  const completedEnglishMissionItems = await page.evaluate(() => {
+    const mission = JSON.parse(localStorage.getItem("recruitment-daily-mission-business-english"));
+    return mission.completed.length;
+  });
+  assert.equal(await page.locator(".daily-mission-step.completed").count(), completedEnglishMissionItems);
   assert.match(await page.locator(".weekly-practice").textContent(), /1 \/ 3 天/);
 
   const firstLevelKeys = businessEnglish.levels[0].questions.slice(0, 4)
