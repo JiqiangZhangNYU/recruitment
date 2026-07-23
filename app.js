@@ -835,31 +835,69 @@ function challengeStatus(pack, level, question) {
   const key = `${level.id}/${question.id}`;
   return {
     completed: progress.has(key),
-    unlocked: index === 0 || questions.slice(0, index).every((item) => progress.has(item.key)),
+    unlocked: true,
     index,
     total: questions.length,
   };
 }
 
 function challengeMode(question, questionIndex) {
-  if (question.activity?.mode === "choice") return "warmup";
-  if (["arrange", "sql", "diagnosis", "boss"].includes(question.activity?.mode)) return question.activity.mode;
-  if (questionIndex === 1) return "arrange";
-  if (questionIndex === 4) return "boss";
-  return "practice";
+  if (question.activity?.mode === "arrange") return "arrange";
+  if (!question.activity?.mode && questionIndex === 1) return "arrange";
+  return "warmup";
 }
 
 const challengeModeLabels = {
-  warmup: "热身选择",
+  warmup: "单选题",
   arrange: "句子排序",
-  practice: "短答练习",
-  sql: "SQL 实战",
-  diagnosis: "业务诊断",
-  boss: "Boss 挑战",
 };
 
 function challengeModeLabel(pack, mode) {
   return pack.ui?.modeLabels?.[mode] || challengeModeLabels[mode] || "综合练习";
+}
+
+function objectiveChoiceActivity(pack, question) {
+  if (question.activity?.mode === "choice") return question.activity;
+  const isSQL = Boolean(
+    question.sqlSpec
+    || question.activity?.mode === "sql"
+    || question.activity?.input === "sql"
+    || question.answer?.format === "sql"
+  );
+  const isEnglish = pack.skillId === "business-english";
+  const correct = question.answer?.notes?.filter(Boolean).slice(0, 2).join("；")
+    || question.answer?.sample
+    || "先明确目标和边界，再基于证据给出结论与行动。";
+  const distractors = isSQL
+    ? [
+      "直接对原始明细做 COUNT 或 SUM，不处理重复记录、一对多关系、时区和统计边界。",
+      "先筛选出符合预期的结果，再用总量变化代替题目要求的分群、漏斗或单位经济分析。",
+    ]
+    : isEnglish
+      ? [
+        "逐句直译并保留全部背景，把结论、请求、负责人和截止时间放到最后。",
+        "只表达同意或反对，不说明依据、业务影响、下一步行动和确认方式。",
+      ]
+      : [
+        "直接采用覆盖面最大的动作，不区分对象、约束、证据、成本或风险。",
+        "只复述现象和目标，不说明判断依据、取舍、负责人、时间和验证标准。",
+      ];
+  const choices = [correct, ...distractors];
+  const seed = [...question.id].reduce((total, character) => total + character.charCodeAt(0), 0);
+  const offset = seed % choices.length;
+  const rotated = [...choices.slice(offset), ...choices.slice(0, offset)];
+  return {
+    prompt: isSQL
+      ? "以下哪种查询思路最符合题目的口径和边界？"
+      : isEnglish
+        ? "以下哪种表达思路最适合当前工作情境？"
+        : "以下哪种处理思路最符合题目要求？",
+    choices: rotated,
+    correctChoice: (choices.length - offset) % choices.length,
+    feedback: isSQL
+      ? "参考答案中保留了完整 SQL、口径说明和边界处理。"
+      : "参考答案中保留了可直接学习的完整示例。",
+  };
 }
 
 function updateChallengeSkillLevel(pack) {
@@ -1080,15 +1118,9 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
   section.className = `challenge-response challenge-response-${mode}`;
   const heading = document.createElement("div");
   heading.className = "challenge-response-heading";
-  const responseHints = {
-    boss: "写出完整版本",
-    practice: "先写一句也可以",
-    sql: "先独立写查询，再核对口径",
-    diagnosis: "先写判断，再补证据和行动",
-  };
   heading.append(makeTextElement("span", "challenge-section-label", challengeModeLabel(pack, mode)));
   if (!pack.ui?.compact) {
-    heading.append(makeTextElement("span", "", pack.ui?.responseHints?.[mode] || responseHints[mode] || "完成后再看答案"));
+    heading.append(makeTextElement("span", "", "可以作答，也可以直接查看答案或前往下一题"));
   }
   section.append(heading);
 
@@ -1096,7 +1128,7 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
   let onReveal = () => {};
 
   if (mode === "warmup") {
-    const activity = question.activity;
+    const activity = objectiveChoiceActivity(pack, question);
     section.append(makeTextElement("p", "challenge-response-prompt", activity.prompt));
     const choices = document.createElement("div");
     choices.className = "challenge-choice-list";
@@ -1121,14 +1153,15 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
     section.append(choices, result);
     isReady = () => Number.isInteger(draft.choice);
     onReveal = () => {
+      const answered = Number.isInteger(draft.choice);
       buttons.forEach((button, index) => {
         button.disabled = true;
         button.classList.toggle("correct", index === activity.correctChoice);
-        button.classList.toggle("incorrect", index === draft.choice && index !== activity.correctChoice);
+        button.classList.toggle("incorrect", answered && index === draft.choice && index !== activity.correctChoice);
       });
       result.hidden = false;
-      result.classList.toggle("correct", draft.choice === activity.correctChoice);
-      result.textContent = `${draft.choice === activity.correctChoice ? "选择正确。" : "再留意一下概念边界。"}${activity.feedback}`;
+      result.classList.toggle("correct", !answered || draft.choice === activity.correctChoice);
+      result.textContent = `${!answered ? "已标出正确选项。" : draft.choice === activity.correctChoice ? "选择正确。" : "再留意一下概念边界。"}${activity.feedback}`;
     };
   } else if (mode === "arrange") {
     const chunks = answerChunks(question.answer.sample);
@@ -1197,34 +1230,15 @@ function makeChallengeResponse(pack, level, question, questionIndex, onReady) {
     section.append(instruction, arranged, available, controls);
     isReady = () => draft.order.length === chunks.length;
     onReveal = () => {
+      const attempted = draft.order.length === chunks.length;
       const correct = draft.order.every((value, index) => value === index);
       result.hidden = false;
-      result.classList.toggle("correct", correct);
-      result.textContent = correct ? "顺序正确，逻辑很清楚。" : "已经完成排序，可以对照参考答案调整结构。";
+      result.classList.toggle("correct", !attempted || correct);
+      result.textContent = !attempted
+        ? "已显示参考顺序，可以直接对照学习。"
+        : correct ? "顺序正确，逻辑很清楚。" : "可以对照参考答案调整表达结构。";
     };
     renderOrder();
-  } else {
-    const isSQL = mode === "sql" || question.activity?.input === "sql" || question.answer?.format === "sql";
-    const textarea = document.createElement("textarea");
-    textarea.className = "challenge-draft-input";
-    textarea.rows = mode === "boss" ? 10 : isSQL ? 8 : 5;
-    textarea.setAttribute("aria-label", `${question.title}的${isSQL ? "SQL" : "回答"}`);
-    textarea.spellcheck = !isSQL;
-    if (isSQL) textarea.setAttribute("autocapitalize", "off");
-    textarea.value = typeof draft.text === "string" ? draft.text : "";
-    textarea.placeholder = question.activity?.placeholder
-      || pack.ui?.draftPlaceholders?.[mode]
-      || (isSQL ? "在这里写 SQL，可以先写思路或伪代码..." : mode === "boss" ? "在这里写下完整回答..." : "先写下你的回答，哪怕只有一句...");
-    section.classList.toggle("is-code", isSQL);
-    const counter = makeTextElement("span", "challenge-draft-count", `${textarea.value.trim().length} 字符`);
-    textarea.addEventListener("input", () => {
-      draft.text = textarea.value;
-      updateChallengeDraft(pack.skillId, key, { text: textarea.value });
-      counter.textContent = `${textarea.value.trim().length} 字符 · 草稿已保存在浏览器`;
-      onReady(textarea.value.trim().length >= 5);
-    });
-    section.append(textarea, counter);
-    isReady = () => textarea.value.trim().length >= 5;
   }
 
   onReady(isReady());
@@ -1254,8 +1268,8 @@ function renderChallengeHub(pack) {
   const intro = document.createElement("div");
   intro.className = "challenge-instruction";
   intro.append(
-    makeTextElement("strong", "", "从第一题开始，逐题解锁"),
-    makeTextElement("span", "", "先独立作答，再查看参考答案；确认掌握后，下一题才会开放。"),
+    makeTextElement("strong", "", "按需要自由学习"),
+    makeTextElement("span", "", "题目仅需点击选择或排序；可以跳过作答，直接查看答案或切换任意题目。"),
   );
 
   const grid = document.createElement("div");
@@ -1399,7 +1413,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   header.append(label, title, meta);
 
   let promptSection;
-  if ((mode === "sql" || question.activity?.input === "sql") && question.sqlSpec) {
+  if (question.sqlSpec) {
     promptSection = makeSQLProblem(pack, question);
   } else {
     promptSection = document.createElement("section");
@@ -1407,7 +1421,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     promptSection.append(
       makeTextElement("span", "challenge-section-label", "情境"),
       makeTextElement("p", "challenge-context", question.prompt),
-      makeTextElement("span", "challenge-section-label", "你的任务"),
+      makeTextElement("span", "challenge-section-label", "学习目标"),
       makeTextElement("p", "challenge-task", question.task),
     );
     if (question.hint) {
@@ -1421,31 +1435,37 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   const revealButton = document.createElement("button");
   revealButton.type = "button";
   revealButton.className = "challenge-primary-button";
-  revealButton.textContent = pack.ui?.compact ? "查看参考答案" : "完成作答后查看答案";
-  revealButton.disabled = true;
+  revealButton.textContent = "查看参考答案";
+  revealButton.disabled = false;
   revealButton.setAttribute("aria-expanded", "false");
-  const answerGate = makeTextElement("span", "challenge-answer-gate", "先完成上面的作答，不要求和参考答案一致。");
+  const answerGate = makeTextElement("span", "challenge-answer-gate", "无需作答，可以直接查看答案或前往下一题。");
   answerGate.hidden = Boolean(pack.ui?.compact);
   const answerActions = document.createElement("div");
   answerActions.className = "challenge-answer-actions";
   answerActions.append(revealButton, answerGate);
 
-  const response = makeChallengeResponse(pack, level, question, questionIndex, (ready) => {
-    revealButton.disabled = !ready;
-    if (!pack.ui?.compact) {
-      revealButton.textContent = ready ? "查看参考答案" : "完成作答后查看答案";
-      answerGate.textContent = ready ? "作答已保存，可以对照答案。" : "先完成上面的作答，不要求和参考答案一致。";
-    }
-  });
+  const response = makeChallengeResponse(pack, level, question, questionIndex, () => {});
 
   const answerPanel = document.createElement("section");
   answerPanel.className = "challenge-answer";
-  answerPanel.classList.toggle("is-code", mode === "sql" || question.activity?.input === "sql" || question.answer?.format === "sql");
+  answerPanel.classList.toggle("is-code", Boolean(
+    question.sqlSpec
+    || question.activity?.mode === "sql"
+    || question.activity?.input === "sql"
+    || question.answer?.format === "sql"
+  ));
   answerPanel.hidden = true;
   answerPanel.append(
     makeTextElement("span", "challenge-section-label", "参考答案"),
     makeTextElement("div", "challenge-answer-sample", question.answer.sample),
   );
+  const translation = question.answer.translation || pack.translations?.[question.id];
+  if (translation) {
+    answerPanel.append(
+      makeTextElement("span", "challenge-section-label challenge-translation-label", "中文翻译"),
+      makeTextElement("div", "challenge-answer-translation", translation),
+    );
+  }
   const notesTitle = makeTextElement("h3", "", "答案拆解");
   const notes = document.createElement("ul");
   appendList(notes, question.answer.notes);
@@ -1470,13 +1490,13 @@ function renderChallengeQuestion(pack, levelId, questionId) {
   previousButton.addEventListener("click", () => previous && navigateLearning("challengeQuestion", pack.skillId, true, previous.level.id, previous.question.id));
   const nextButton = document.createElement("button");
   nextButton.type = "button";
-  const setNextButton = (completed) => {
-    nextButton.disabled = !next || !completed;
+  const setNextButton = () => {
+    nextButton.disabled = !next;
     nextButton.textContent = !next
       ? "已完成全部题目"
-      : completed ? `下一题 · ${next.question.title} →` : "查看参考答案后进入下一题";
+      : `下一题 · ${next.question.title} →`;
   };
-  setNextButton(status.completed);
+  setNextButton();
   nextButton.addEventListener("click", () => next && navigateLearning("challengeQuestion", pack.skillId, true, next.level.id, next.question.id));
   navigation.append(homeButton, previousButton, nextButton);
 
@@ -1484,7 +1504,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     const key = `${level.id}/${question.id}`;
     const progress = getChallengeProgress(pack.skillId);
     if (progress.has(key)) {
-      setNextButton(true);
+      setNextButton();
       return;
     }
     completeDailyMissionItem(pack, key);
@@ -1493,7 +1513,7 @@ function renderChallengeQuestion(pack, levelId, questionId) {
     markPracticeDay(pack.skillId);
     updateChallengeSkillLevel(pack);
     article.classList.add("completed");
-    setNextButton(true);
+    setNextButton();
 
     const levelComplete = level.questions.every((item) => progress.has(`${level.id}/${item.id}`));
     if (levelComplete && level.reward && !article.querySelector(".challenge-reward")) {

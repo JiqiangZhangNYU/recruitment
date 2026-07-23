@@ -1,36 +1,13 @@
 {
-  "version": 2,
+  "version": 3,
   "skillId": "data-diagnosis",
   "title": "数据分析与经营诊断闯关",
-  "summary": "难度 1 到 5，共 48 题、34 道 SQL。从单表聚合逐步进入 JOIN、窗口函数、同期群、单位经济、事故诊断和招聘综合 Case。",
+  "summary": "难度 1 到 5，共 48 题、34 道 SQL。通过单选学习查询思路和业务判断，参考答案保留完整 SQL；可以自由查看答案或切换题目。",
   "story": "你加入了跨境商家钱包增长组。八个阶段会从一次取数请求开始，逐步走到支付事故诊断、经营周报和最终面试案例。SQL 是主要工具，最终目标是做出可信的业务判断。",
   "ui": {
     "compact": true,
     "modeLabels": {
-      "warmup": "概念判断",
-      "sql": "SQL 实战",
-      "diagnosis": "业务诊断",
-      "boss": "综合 Boss"
-    },
-    "responseHints": {
-      "sql": "先独立写查询，再核对粒度和口径",
-      "diagnosis": "先写判断，再补证据和行动",
-      "boss": "把口径、SQL、结论和风险串起来"
-    },
-    "draftPlaceholders": {
-      "sql": "在这里写 PostgreSQL，可以先写注释、思路或伪代码...",
-      "diagnosis": "写下你的判断、需要的证据和下一步行动...",
-      "boss": "写出完整分析方案；需要 SQL 时一并写出..."
-    },
-    "selfReview": {
-      "title": "不用逐字一致，确认下面四项中的三项",
-      "threshold": 3,
-      "criteria": [
-        "粒度、时间窗、分子和分母定义清楚",
-        "SQL 或分析步骤能回答题目而且不会重复计数",
-        "结论区分事实、假设与因果",
-        "说明了业务影响、风险或下一步行动"
-      ]
+      "warmup": "单选学习"
     }
   },
   "reference": {
