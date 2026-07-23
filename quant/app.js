@@ -8,11 +8,13 @@ const state = {
   jobSkills: null,
   actionPlan: null,
   searchAudit: null,
+  interviewPrep: null,
   evidenceTemplates: {},
   activeView: "overview",
   directionFilter: "all",
   jobFilter: "strict-watch",
   bonusTaxMode: "separate",
+  interviewRoleId: "tianyan-senior-quant-researcher",
 };
 
 const viewMetadata = {
@@ -665,6 +667,7 @@ function jobFilterOptions() {
     { id: "historical", label: "历史参照" },
     { id: "institutions", label: "机构库" },
     { id: "actions", label: "行动清单" },
+    { id: "interview", label: "面试题库" },
     { id: "audit", label: "检索审计" },
   ];
 }
@@ -710,6 +713,50 @@ function renderSearchAudit() {
       <section class="audit-section section-band audit-followup" aria-labelledby="audit-followup-title">
         <header class="section-heading compact-heading"><p class="section-index">GAPS & NEXT REVIEW</p><h3 id="audit-followup-title">覆盖缺口与复核计划</h3></header>
         <div><section><span>仍缺什么</span>${list(audit.coverageGaps, "question-list")}</section><section><span>下一轮</span><ol>${audit.nextReview.map((item) => `<li><strong>${escapeHTML(item.date)}</strong><p>${escapeHTML(item.task)}</p></li>`).join("")}</ol></section></div>
+      </section>
+    </div>
+  `;
+}
+
+function renderInterviewPrep() {
+  const prep = state.interviewPrep;
+  if (!prep) {
+    return `<div class="audit-loading" role="status"><span></span><strong>正在载入岗位面试题库</strong></div>`;
+  }
+  const activeRole = prep.roles.find((role) => role.jobId === state.interviewRoleId) || prep.roles[0];
+  return `
+    <div class="interview-prep">
+      <p class="interview-methodology">${escapeHTML(prep.methodology)}</p>
+      <section class="answer-rules" aria-labelledby="answer-rules-title">
+        <header><p class="section-index">ANSWER GUARDRAILS</p><h3 id="answer-rules-title">所有岗位共用的回答边界</h3></header>
+        ${list(prep.answerRules, "evidence-list")}
+      </section>
+      <nav class="interview-role-tabs" aria-label="岗位题库">
+        ${prep.roles.map((role) => `<button type="button" data-interview-role="${escapeHTML(role.jobId)}" class="${role.jobId === activeRole.jobId ? "active" : ""}" aria-pressed="${role.jobId === activeRole.jobId}">${escapeHTML(role.label)}</button>`).join("")}
+      </nav>
+      <section class="interview-role-header">
+        <div><p class="section-index">ROLE-SPECIFIC DRILL · ${activeRole.questions.length} QUESTIONS</p><h3>${escapeHTML(activeRole.label)}</h3></div>
+        <p>${escapeHTML(activeRole.fitThesis)}</p>
+      </section>
+      <section class="interview-opening" aria-labelledby="interview-opening-title">
+        <span id="interview-opening-title">90 秒开场</span>
+        <blockquote>${escapeHTML(activeRole.opening)}</blockquote>
+      </section>
+      <section class="interview-question-list" aria-label="岗位定制问题">
+        ${activeRole.questions.map((question, index) => `
+          <details class="interview-question">
+            <summary>
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <div><small>${escapeHTML(question.category)} · ${escapeHTML(question.difficulty)}</small><strong>${escapeHTML(question.prompt)}</strong><p>${escapeHTML(question.whyAsked)}</p></div>
+              <em>查看回答框架</em>
+            </summary>
+            <div class="interview-answer">
+              <section><span>回答顺序</span><ol>${question.answerFramework.map((step) => `<li>${escapeHTML(step)}</li>`).join("")}</ol></section>
+              <section class="answer-evidence"><span>带去的证据</span><p>${escapeHTML(question.evidence)}</p></section>
+              <section class="answer-avoid"><span>不能这样答</span><p>${escapeHTML(question.avoid)}</p></section>
+            </div>
+          </details>
+        `).join("")}
       </section>
     </div>
   `;
@@ -971,6 +1018,8 @@ function renderJobs() {
         ? renderInstitutionDirectory()
         : state.jobFilter === "actions"
           ? renderActionPlan()
+          : state.jobFilter === "interview"
+            ? renderInterviewPrep()
           : state.jobFilter === "audit"
             ? renderSearchAudit()
           : renderJobCards(jobs)}
@@ -1092,6 +1141,22 @@ document.addEventListener("click", async (event) => {
         elements.errorState.hidden = false;
       }
     }
+    if (state.jobFilter === "interview" && !state.interviewPrep) {
+      try {
+        state.interviewPrep = await loadJSON("data/interview-prep.json");
+        state.interviewRoleId = state.interviewPrep.roles[0].jobId;
+        renderJobs();
+      } catch (error) {
+        console.error(error);
+        elements.errorState.hidden = false;
+      }
+    }
+  }
+
+  const interviewRoleButton = event.target.closest("[data-interview-role]");
+  if (interviewRoleButton && state.interviewPrep) {
+    state.interviewRoleId = interviewRoleButton.dataset.interviewRole;
+    renderJobs();
   }
 
   const evidenceButton = event.target.closest("[data-evidence-template]");
