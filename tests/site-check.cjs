@@ -15,7 +15,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   });
   page.on("pageerror", (error) => errors.push(error.message));
 
-  await page.goto(baseURL, { waitUntil: "networkidle" });
+  await page.goto(baseURL, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator(".job-card").first().waitFor();
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
   const dataset = await page.evaluate(async () => (await fetch("./jobs.json")).json());
