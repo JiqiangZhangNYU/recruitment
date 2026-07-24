@@ -1,0 +1,58 @@
+{
+  "jobId": "man-group-china-macro-quant-researcher",
+  "label": "Man Group · China Macro",
+  "fitThesis": "中国期货实盘、宏观跨资产、风险平价和完整投资生命周期与经历高度重合；关键是诚实补齐最终授权与投资者沟通缺口，并确认六年经验不会按 2–5 年普通研究员降级。",
+  "opening": "I have six years of quantitative research experience in daily cross-sectional strategies for Chinese commodity futures. I own public-data signals, forecasting models, and portfolio optimization. Since March 2024, the strategy has run net of fees in company accounts with about RMB 1 billion allocated by PMs, producing an out-of-sample Sharpe of about 2. I do not claim final authority over capital, leverage, or execution. I am now looking to extend my research ownership into formal risk-budget and lifecycle decisions while continuing to build strategies hands-on.",
+  "questions": [
+    {
+      "id": "man-full-lifecycle",
+      "category": "Investment lifecycle",
+      "difficulty": "Core",
+      "prompt": "The role requires ownership of the full investment lifecycle. Which parts do you own today, and where is the gap?",
+      "whyAsked": "The JD uses strong ownership language; the interviewer must distinguish real research ownership from PM authority that the candidate has not held.",
+      "answerFramework": ["Define current ownership: public data, signals, forecasts, portfolio optimization, and research iteration.", "Define collaboration: PM review, target-position handoff, execution feedback, and live monitoring.", "State the boundary: final capital, leverage, launch/stop decisions, and order execution are not yours.", "Use one real decision memo to show judgment even when the PM held final authority.", "Propose staged authority with explicit risk limits, milestones, and rollback conditions."],
+      "evidence": "An anonymized RACI, one decision memo, and a 30/90/180-day authority ladder.",
+      "avoid": "Do not translate strategy allocation into personal AUM or claim full-lifecycle authority retroactively."
+    },
+    {
+      "id": "man-risk-parity",
+      "category": "Risk parity",
+      "difficulty": "Advanced",
+      "prompt": "How would you combine cross-sectional commodity alpha with a risk-parity or macro allocation framework?",
+      "whyAsked": "The role is not a pure alpha seat; it explicitly combines forecasts with risk-balanced allocation across assets.",
+      "answerFramework": ["Separate alpha forecasts from the risk model and allocation objective.", "Estimate volatility and correlation with shrinkage, horizon alignment, and stress overrides.", "Translate commodity signals into expected returns or tilts without double-counting shared macro exposures.", "Apply risk budgets, diversification, leverage, liquidity, margin, and turnover constraints together.", "Evaluate net-of-cost marginal contribution and behavior in correlation-breakdown scenarios."],
+      "evidence": "A small allocation example showing forecasts, covariance, constraints, and marginal risk contributions.",
+      "avoid": "Do not describe equal risk contribution as automatically diversified or stable."
+    },
+    {
+      "id": "man-dynamic-leverage",
+      "category": "Leverage and risk",
+      "difficulty": "Pressure",
+      "prompt": "When should dynamic leverage be reduced or restored in a futures portfolio?",
+      "whyAsked": "The JD explicitly names dynamic leverage; the answer reveals whether leverage is treated as a return multiplier or a governed risk decision.",
+      "answerFramework": ["Start from a target risk budget, not a target return.", "Use ex-ante volatility, correlation, liquidity, margin, concentration, and model-confidence diagnostics.", "Define precommitted triggers for reduction rather than changing rules after losses.", "Separate market-risk breaches, execution/liquidity failures, and model-evidence deterioration.", "Make restoration rules symmetric, staged, and subject to independent risk review."],
+      "evidence": "A leverage policy with triggers, actions, owners, and recovery conditions.",
+      "avoid": "Do not imply that low historical volatility or available margin justifies more leverage by itself."
+    },
+    {
+      "id": "man-live-alpha",
+      "category": "Live track record",
+      "difficulty": "Core",
+      "prompt": "What makes your China futures alpha record credible and transferable to our macro team?",
+      "whyAsked": "The role asks for live China futures alpha; reported Sharpe alone does not establish ownership, robustness, or transferability.",
+      "answerFramework": ["Fix the record definition: company accounts, net of fees, March 2024 to present, and PM-allocated capital.", "Show the research-to-live timeline and how versions map to observable changes.", "Decompose forecast quality, portfolio construction, costs, and market-state contribution.", "Explain transferable mechanisms and explicitly name assumptions that may not transfer to cross-asset macro.", "Offer reproducible anonymized evidence while protecting employer code, parameters, and positions."],
+      "evidence": "Monthly net returns, drawdown attribution, live-versus-backtest bridge, and responsibility map.",
+      "avoid": "Do not present annualized return without leverage, risk, fee, and sample-length context."
+    },
+    {
+      "id": "man-external-communication",
+      "category": "External representation",
+      "difficulty": "Communication",
+      "prompt": "How would you explain a risk-parity drawdown to an investor or distributor?",
+      "whyAsked": "The job includes external representation, which is not yet a confirmed part of the candidate's current role.",
+      "answerFramework": ["Acknowledge the drawdown and compare it with the stated risk objective without minimizing it.", "Explain the main drivers in plain language: shocks, correlations, leverage, and rebalancing.", "Separate expected model behavior from implementation or data problems.", "Describe actions already governed by the process and conditions for further action.", "State uncertainty, avoid forecasts, and keep proprietary signal details protected."],
+      "evidence": "A one-page bilingual drawdown explanation with an approved metric glossary.",
+      "avoid": "Do not promise recovery, blame markets, or present investor-facing experience as established if it is only a prepared simulation."
+    }
+  ]
+}

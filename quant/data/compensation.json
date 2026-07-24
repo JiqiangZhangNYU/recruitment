@@ -15,7 +15,7 @@
     "employeeHousingFundRate": 0.07,
     "specialAdditionalDeductions": 0,
     "contributionCapPeriod": "2025.07 起；截至 2026-07-24 仍是检索到的上海最新公开上下限数值",
-    "contributionCapCaveat": "2026 社保年度缴费工资申报已启动，但本轮未检索到 2026 年上下限公告，因此不虚构新参数。",
+    "contributionCapCaveat": "2026 社保年度缴费工资申报已开展，但截至 2026-07-24 未检索到新的上下限公告，因此不虚构新参数。",
     "housingFundNote": "住房公积金比例按 7% 情景估算；实际比例应以录用单位为准。",
     "cashDefinition": "现金到手扣除个人社保、公积金和个人所得税；公积金账户余额单独列示，不计入当年工资现金。",
     "excluded": [
@@ -269,6 +269,12 @@
       "publisher": "国家税务总局上海市税务局",
       "url": "https://www.shanghai.gov.cn/gwk/search/content/ca6685bd116e4ff29a32303c6405851b",
       "supports": "确认 2026 社保年度为 2026 年 7 月至 2027 年 6 月；公告未给出新上下限"
+    },
+    {
+      "label": "2026 医保年度转换通知",
+      "publisher": "上海市医疗保障局",
+      "url": "https://www.shanghai.gov.cn/gwk/search/content/dbe0d00f57084f95925e6c6df2f0e15a",
+      "supports": "确认 2026 医保年度在职职工个人账户按本人缴费基数 2% 计入，与个人医疗缴费比例口径一致"
     },
     {
       "label": "2025 年度上海住房公积金基数调整",

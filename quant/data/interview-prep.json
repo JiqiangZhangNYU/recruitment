@@ -11,6 +11,11 @@
   ],
   "lazyRoles": [
     {
+      "jobId": "man-group-china-macro-quant-researcher",
+      "label": "Man Group · China Macro",
+      "source": "data/interviews/man-group-china-macro-quant-researcher.json"
+    },
+    {
       "jobId": "citic-futures-cta-investment-manager",
       "label": "中信期货 · CTA 投资经理",
       "source": "data/interviews/citic-futures-cta-investment-manager.json"

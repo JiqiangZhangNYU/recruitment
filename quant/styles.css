@@ -2839,13 +2839,16 @@ a:focus-visible {
 }
 
 .interview-role-tabs {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
   margin-top: 22px;
   border: 1px solid var(--line-strong);
 }
 
 .interview-role-tabs button {
+  flex: 1 0 142px;
   min-width: 0;
   min-height: 42px;
   padding: 8px;
@@ -2860,14 +2863,6 @@ a:focus-visible {
 
 .interview-role-tabs button:last-child {
   border-right: 0;
-}
-
-.interview-role-tabs button:nth-child(3) {
-  border-right: 0;
-}
-
-.interview-role-tabs button:nth-child(-n + 3) {
-  border-bottom: 1px solid var(--line);
 }
 
 .interview-role-tabs button:hover,
@@ -3270,15 +3265,12 @@ a:focus-visible {
   }
 
   .interview-role-tabs {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    scroll-snap-type: inline proximity;
   }
 
-  .interview-role-tabs button:nth-child(3) {
-    border-right: 0;
-  }
-
-  .interview-role-tabs button:nth-child(-n + 3) {
-    border-bottom: 1px solid var(--line);
+  .interview-role-tabs button {
+    flex-basis: 160px;
+    scroll-snap-align: start;
   }
 
   .interview-answer {
@@ -3658,18 +3650,19 @@ a:focus-visible {
   }
 
   .interview-role-tabs {
-    grid-template-columns: 1fr;
+    margin-inline: -7px;
   }
 
   .interview-role-tabs button,
   .interview-role-tabs button:nth-child(3),
   .interview-role-tabs button:last-child {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
+    flex-basis: 154px;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
   }
 
   .interview-role-tabs button:last-child {
-    border-bottom: 0;
+    border-right: 0;
   }
 
   .interview-opening {
