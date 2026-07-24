@@ -108,6 +108,6 @@
       "task": "更新上海社保缴费基数上下限并重建薪酬模型。"
     }
   ],
-  "candidateCount": 11,
+  "candidateCount": 12,
   "candidatesSource": "data/search-candidates.json"
 }
