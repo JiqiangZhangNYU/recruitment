@@ -279,18 +279,6 @@
       ]
     },
     {
-      "name": "上海双隆 CTA 量化研究员",
-      "status": "规模待核",
-      "signal": "BOSS 当前上海岗位直接覆盖 CTA 课题研究、市场数据挖掘、策略开发优化和多策略组合。",
-      "decision": "方向相关，但 BOSS 公司人数标签不能证明资管规模，本轮也没有取得管理规模不低于 100 亿元的证据；规模、职级和待遇结构全部补证前不进入主投池。",
-      "sources": [
-        {
-          "label": "BOSS 直聘单岗页",
-          "url": "https://www.zhipin.com/job_detail/fe813a10c4e834890nZ53d2_EFdU.html"
-        }
-      ]
-    },
-    {
       "name": "均直资产 商品量化研究员（CTA 方向）",
       "status": "规模未证",
       "signal": "上海岗位聚焦商品期货行情、基本面和另类数据，开发 Alpha 因子并构建 CTA 中高频或日内策略。",
@@ -299,18 +287,6 @@
         {
           "label": "BOSS 直聘单岗页",
           "url": "https://www.zhipin.com/job_detail/81437a9fad05c9610nZ52tm_E1NT.html"
-        }
-      ]
-    },
-    {
-      "name": "千象资产 量化策略投资经理",
-      "status": "规模与职级边界",
-      "signal": "上海岗位覆盖高频或中低频策略实现和实盘管理，标题接近目标路径。",
-      "decision": "BOSS 公司卡片为 20–99 人，岗位要求仅 1–3 年且未限定商品期货，本轮也没有百亿规模证据；保留为投资经理职责样本，不进入严格池。",
-      "sources": [
-        {
-          "label": "BOSS 直聘单岗页",
-          "url": "https://www.zhipin.com/job_detail/a580d3757fd7b552031z3N--FFBX.html"
         }
       ]
     },
@@ -339,6 +315,22 @@
         {
           "label": "灵均投资官方招聘页",
           "url": "https://www.lingjuninvest.com/jiaruwomen"
+        }
+      ]
+    },
+    {
+      "name": "敦和资管 量化基金经理/资深研究员",
+      "status": "资产与频率淘汰",
+      "signal": "百亿全球宏观私募当前在上海招聘量化基金经理/资深研究员，机构本身覆盖大宗商品、期货、期权和系统化多策略。",
+      "decision": "当前 BOSS 职位正文明确要求 A 股量化组合且双边换手率超过 100 倍，资产类别和频率都偏离商品日频低换手；不因机构具有商品能力就把具体岗位列入 A/B。",
+      "sources": [
+        {
+          "label": "敦和资管 BOSS 单岗页",
+          "url": "https://www.zhipin.com/job_detail/f2484f20d2d5ecdf03R72Nq0EVFV.html"
+        },
+        {
+          "label": "当前机构规模页",
+          "url": "https://dc.simuwang.com/company/CO000001KM.html"
         }
       ]
     },

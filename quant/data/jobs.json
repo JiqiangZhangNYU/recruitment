@@ -2,275 +2,17 @@
   "version": 1,
   "updatedAt": "2026-07-24",
   "methodology": {
-    "scope": "上海、百亿元以上机构的当前公开岗位优先；匿名雇主或已停止招聘的岗位只进入边界/历史池。",
+    "scope": "上海、商品期货/CTA 高相关的当前公开岗位优先。A 档要求机构规模、岗位方向、职级与外部条件整体最接近目标；B 档允许一项关键条件待核或接近门槛。匿名雇主和明显错位岗位不进入 A/B。",
+    "gradeA": "上海地点明确，机构规模达标，职责覆盖商品/期货或可迁移的系统化策略完整链路，职级和外部条件没有明显硬伤。",
+    "gradeB": "方向有实质相关性，但当前规模接近门槛，或资产范围、职级、策略所有权、外部条件中有一项需要重点核验。",
     "freshness": "职位状态均以 checkedAt 为准；官网长期开放职位不等同于近期新发布。",
     "sampleWarning": "技能频率只描述本页已核验样本，不代表完整市场统计。",
-    "supplementalPath": "data/job-pools.json"
+    "supplementalPaths": {
+      "gradeB": "data/job-pools.json",
+      "other": "data/job-archive.json"
+    }
   },
   "jobs": [
-    {
-      "id": "yanfu-quant-researcher",
-      "institutionId": "yanfu",
-      "title": "量化研究员",
-      "location": "上海",
-      "employment": "全职 / 实习均开放",
-      "status": "active",
-      "pool": "strict-watch",
-      "publishedAt": null,
-      "checkedAt": "2026-07-24",
-      "source": {
-        "publisher": "衍复投资官方招聘页",
-        "kind": "official-careers",
-        "url": "https://yanfuinvestments.com/about"
-      },
-      "fit": {
-        "tier": "A",
-        "score": 88,
-        "verdict": "研究主线高度匹配，但广告同时面向实习/全职，需确认高级职级、策略所有权和 PM 路径。"
-      },
-      "eligibility": {
-        "location": "pass",
-        "institutionScale": "pass",
-        "seniority": "verify"
-      },
-      "responsibilities": [
-        "从历史数据发掘规律",
-        "建立预测未来资产价格变化的模型",
-        "参与量化策略研究"
-      ],
-      "requirements": [
-        "数学、物理、经济或计算机等量化背景",
-        "强编程能力",
-        "大规模 AI 或行为金融经验加分"
-      ],
-      "skillTags": [
-        "python",
-        "statistical-modeling",
-        "machine-learning",
-        "signal-research",
-        "research-rigor",
-        "collaboration"
-      ]
-    },
-    {
-      "id": "minghong-ai-quant-researcher",
-      "institutionId": "minghong",
-      "title": "AI 算法研究员 / Quantitative Researcher - Machine Learning",
-      "location": "上海 / 香港 / 纽约",
-      "employment": "全职社招",
-      "status": "active",
-      "pool": "strict-watch",
-      "publishedAt": "2023-09-21",
-      "checkedAt": "2026-07-24",
-      "source": {
-        "publisher": "明汯公开招聘门户",
-        "kind": "official-ats",
-        "url": "https://join.mhfunds.com/index/position/7281148138903423286/detail"
-      },
-      "fit": {
-        "tier": "A-",
-        "score": 80,
-        "verdict": "机器学习预测与量化研究匹配，需证明商品实盘经验如何迁移至其模型体系，并锁定上海。"
-      },
-      "eligibility": {
-        "location": "pass",
-        "institutionScale": "pass",
-        "seniority": "pass"
-      },
-      "responsibilities": [
-        "使用机器学习或深度学习处理金融数据",
-        "研究时间序列、NLP、图像或数据挖掘方法",
-        "把算法用于量化研究"
-      ],
-      "requirements": [
-        "理工科硕士或博士",
-        "PyTorch 或 TensorFlow",
-        "机器学习竞赛或论文经历加分"
-      ],
-      "skillTags": [
-        "python",
-        "machine-learning",
-        "statistical-modeling",
-        "signal-research",
-        "research-rigor"
-      ]
-    },
-    {
-      "id": "century-frontier-quant-researcher",
-      "institutionId": "century-frontier",
-      "title": "量化研究员（高频 / 中频）",
-      "location": "上海等办公室",
-      "employment": "全职",
-      "status": "active",
-      "pool": "strict-watch",
-      "publishedAt": null,
-      "checkedAt": "2026-07-24",
-      "source": {
-        "publisher": "世纪前沿官网",
-        "kind": "official-careers",
-        "url": "https://www.centuryfrontier.com/contact"
-      },
-      "fit": {
-        "tier": "A-",
-        "score": 82,
-        "verdict": "明确覆盖期货 Alpha、模型与回测；频率可能高于当前日频策略，需确认低频高容量席位和负责人层级。"
-      },
-      "eligibility": {
-        "location": "pass",
-        "institutionScale": "pass",
-        "seniority": "verify"
-      },
-      "responsibilities": [
-        "分析股票或期货数据",
-        "挖掘 Alpha 并建立模型",
-        "回测、优化并迭代策略"
-      ],
-      "requirements": [
-        "量化专业硕士及以上",
-        "Python、C++、MATLAB 或 R",
-        "严谨的数据分析和模型能力"
-      ],
-      "skillTags": [
-        "python",
-        "statistical-modeling",
-        "signal-research",
-        "backtesting",
-        "research-rigor",
-        "productionization"
-      ]
-    },
-    {
-      "id": "century-frontier-general-quant-researcher",
-      "institutionId": "century-frontier",
-      "title": "量化研究员（预测 / 组合优化 / 执行优化）",
-      "location": "上海等办公室",
-      "employment": "全职",
-      "status": "active",
-      "pool": "strict-watch",
-      "publishedAt": null,
-      "checkedAt": "2026-07-24",
-      "source": {
-        "publisher": "世纪前沿官网",
-        "kind": "official-careers",
-        "url": "https://www.centuryfrontier.com/contact"
-      },
-      "fit": {
-        "tier": "A",
-        "score": 90,
-        "verdict": "官网把期货预测、模型集成和组合优化列在同一研究岗位，直接覆盖当前职责；但“职责任一”意味着入职范围可能很窄，需锁定低频商品和组合方向。"
-      },
-      "eligibility": {
-        "location": "pass",
-        "institutionScale": "pass",
-        "seniority": "verify"
-      },
-      "responsibilities": [
-        "因子挖掘并研发股票或期货预测模型",
-        "完成模型集成和投资组合优化",
-        "可选择承担高频交易执行优化"
-      ],
-      "requirements": [
-        "一流院校数量学科硕士及以上",
-        "Python、MATLAB 或 R",
-        "扎实数学基础、量化创新和英文文献阅读能力"
-      ],
-      "skillTags": [
-        "python",
-        "statistical-modeling",
-        "signal-research",
-        "portfolio-risk",
-        "research-rigor",
-        "productionization"
-      ]
-    },
-    {
-      "id": "century-frontier-portfolio-optimization",
-      "institutionId": "century-frontier",
-      "title": "Quantitative Researcher - Portfolio Optimization",
-      "location": "上海",
-      "employment": "全职",
-      "status": "active",
-      "pool": "strict-watch",
-      "publishedAt": null,
-      "checkedAt": "2026-07-24",
-      "source": {
-        "publisher": "世纪前沿官方招聘页",
-        "kind": "official-careers",
-        "url": "https://www.centuryfrontier.com/contact"
-      },
-      "fit": {
-        "tier": "A",
-        "score": 86,
-        "verdict": "组合优化、风险归因与实盘分析直接承接现有能力，但资产类别和是否拥有策略决策权需核验。"
-      },
-      "eligibility": {
-        "location": "pass",
-        "institutionScale": "pass",
-        "seniority": "pass"
-      },
-      "responsibilities": [
-        "研究组合优化方法",
-        "完成风险归因和绩效分解",
-        "分析 PnL 并改进投资组合"
-      ],
-      "requirements": [
-        "数量学科背景",
-        "风险模型或 BARRA 经验",
-        "Python 优先"
-      ],
-      "skillTags": [
-        "python",
-        "portfolio-risk",
-        "statistical-modeling",
-        "research-rigor",
-        "collaboration"
-      ]
-    },
-    {
-      "id": "jq-quant-strategy-researcher",
-      "institutionId": "jq-investments",
-      "title": "量化策略研究员 / Quantitative Researcher",
-      "location": "上海 / 北京",
-      "employment": "全职",
-      "status": "active",
-      "pool": "strict-watch",
-      "publishedAt": null,
-      "checkedAt": "2026-07-24",
-      "source": {
-        "publisher": "佳期投资 BOSS 直聘职位页",
-        "kind": "employer-posting",
-        "url": "https://www.zhipin.com/job_detail/fc58754142b53db40nR92t-8FFFZ.html"
-      },
-      "fit": {
-        "tier": "A",
-        "score": 85,
-        "verdict": "信号、收益预测、模型测试与实现均匹配；官网未限定高级职级，需确认是否能按六年实盘经验定价，以及商品研究和策略所有权空间。"
-      },
-      "eligibility": {
-        "location": "pass",
-        "institutionScale": "pass",
-        "seniority": "verify"
-      },
-      "responsibilities": [
-        "分析复杂数据集并发掘市场信号",
-        "开发、测试和实现定价与收益预测模型",
-        "研究统计方法以提升策略表现并管理风险"
-      ],
-      "requirements": [
-        "统计、物理、数学等数量学科背景",
-        "熟练使用 Python 分析数据",
-        "掌握统计和机器学习方法并具备应用研究能力"
-      ],
-      "skillTags": [
-        "python",
-        "statistical-modeling",
-        "machine-learning",
-        "signal-research",
-        "backtesting",
-        "research-rigor",
-        "productionization"
-      ]
-    },
     {
       "id": "tianyan-senior-quant-researcher",
       "institutionId": "tianyan",
@@ -279,6 +21,7 @@
       "employment": "全职社招",
       "status": "active",
       "pool": "strict-watch",
+      "grade": "A",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
@@ -326,6 +69,7 @@
       "employment": "全职",
       "status": "active",
       "pool": "strict-watch",
+      "grade": "A",
       "publishedAt": "2026-07-18",
       "checkedAt": "2026-07-24",
       "source": {
@@ -380,6 +124,7 @@
       "employment": "全职",
       "status": "active",
       "pool": "strict-watch",
+      "grade": "A",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
@@ -419,55 +164,14 @@
         "collaboration",
         "communication"
       ]
-    },
-    {
-      "id": "blackwing-cta-researcher",
-      "institutionId": "blackwing",
-      "title": "CTA 研究员",
-      "location": "上海 / 北京 / 成都",
-      "employment": "全职",
-      "status": "active",
-      "pool": "strict-watch",
-      "publishedAt": null,
-      "checkedAt": "2026-07-24",
-      "source": {
-        "publisher": "黑翼资产官网",
-        "kind": "official-careers",
-        "url": "https://www.blackwingasset.com/index.php?a=lists&c=index&catid=23&m=content"
-      },
-      "fit": {
-        "tier": "A+",
-        "score": 96,
-        "verdict": "百亿以上量化私募、上海和 CTA 方向均直接匹配；官网只列岗位名称，必须先确认上海席位、日频截面研究范围、六年经验定级和策略所有权。"
-      },
-      "eligibility": {
-        "location": "pass",
-        "institutionScale": "pass",
-        "seniority": "verify"
-      },
-      "responsibilities": [
-        "承担 CTA 研究（官网只列岗位名称）",
-        "机构策略覆盖趋势、期限结构、均值回归与多品种套利",
-        "具体信号、组合和生产职责需沟通核验"
-      ],
-      "requirements": [
-        "官网未披露经验年限",
-        "官网未披露编程与模型要求",
-        "需确认六年实盘对应职级和上海席位"
-      ],
-      "skillTags": [
-        "statistical-modeling",
-        "signal-research",
-        "research-rigor",
-        "portfolio-risk",
-        "commodity-domain"
-      ]
     }
   ],
   "catalog": {
-    "total": 41,
-    "active": 39,
+    "total": 44,
+    "active": 42,
     "historical": 2,
-    "strict": 10
+    "a": 3,
+    "b": 12,
+    "other": 27
   }
 }

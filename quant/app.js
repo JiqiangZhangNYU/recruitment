@@ -13,12 +13,12 @@ const state = {
   evidenceTemplates: {},
   activeView: "overview",
   directionFilter: "all",
-  jobFilter: "strict-watch",
+  jobFilter: "grade-a",
   interviewRoleId: "tianyan-senior-quant-researcher",
 };
 
 const interviewRolePromises = new Map();
-let jobPoolsPromise;
+const jobPoolPromises = new Map();
 
 const viewMetadata = {
   overview: {
@@ -471,10 +471,9 @@ function renderGate(label, status) {
 
 function jobFilterOptions() {
   return [
-    { id: "strict-watch", label: "重点待核" },
-    { id: "adjacent", label: "相邻岗位" },
-    { id: "secondary", label: "公募 / 券商" },
-    { id: "boundary", label: "边界线索" },
+    { id: "grade-a", label: "A 档" },
+    { id: "grade-b", label: "B 档" },
+    { id: "other", label: "其他线索" },
     { id: "historical", label: "历史参照" },
     { id: "institutions", label: "机构库" },
     { id: "actions", label: "行动清单" },
@@ -482,6 +481,14 @@ function jobFilterOptions() {
     { id: "materials", label: "求职材料" },
     { id: "audit", label: "检索审计" },
   ];
+}
+
+function jobMatchesFilter(job, filter) {
+  if (filter === "grade-a") return job.status === "active" && job.grade === "A";
+  if (filter === "grade-b") return job.status === "active" && job.grade === "B";
+  if (filter === "other") return job.status === "active" && !job.grade;
+  if (filter === "historical") return job.status !== "active";
+  return false;
 }
 
 function renderSearchAudit() {
@@ -798,11 +805,11 @@ function renderJobCards(jobs) {
         const institution = job.institutionId ? institutionById(job.institutionId) : null;
         const freshness = jobFreshness(job.checkedAt, job.status);
         return `
-          <article class="job-card">
-            <div class="job-fit">
-              <strong>${escapeHTML(job.fit.tier)}</strong>
+          <article class="job-card" data-grade="${escapeHTML(job.grade || "other")}">
+            <div class="job-fit" data-grade="${escapeHTML(job.grade || "other")}">
+              <strong>${escapeHTML(job.grade ? `${job.grade}档` : "观察")}</strong>
               <span>${escapeHTML(String(job.fit.score))}</span>
-              <small>匹配分</small>
+              <small>综合匹配</small>
             </div>
             <div class="job-body">
               <header class="job-header">
@@ -815,7 +822,7 @@ function renderJobCards(jobs) {
               </header>
               <div class="job-gates" aria-label="岗位硬条件">
                 ${renderGate("上海", job.eligibility.location)}
-                ${renderGate("百亿机构", job.eligibility.institutionScale)}
+                ${renderGate("机构规模", job.eligibility.institutionScale)}
                 ${renderGate("职级", job.eligibility.seniority)}
               </div>
               <p class="job-verdict">${escapeHTML(job.fit.verdict)}</p>
@@ -873,16 +880,17 @@ function renderJobs() {
   const filters = jobFilterOptions();
   const queueRanks = new Map((state.actionPlan?.queue || []).map((item) => [item.jobId, item.rank]));
   const jobs = state.jobs.jobs
-    .filter((job) => job.pool === state.jobFilter)
+    .filter((job) => jobMatchesFilter(job, state.jobFilter))
     .sort((left, right) => (
       (queueRanks.get(left.id) || 99) - (queueRanks.get(right.id) || 99)
       || right.fit.score - left.fit.score
     ));
   const activeJobs = state.jobs.jobs.filter((job) => job.status === "active");
-  const strictCount = state.jobs.jobs.filter((job) => job.pool === "strict-watch").length;
   const catalog = state.jobs.catalog || {
     active: activeJobs.length,
-    strict: strictCount,
+    a: activeJobs.filter((job) => job.grade === "A").length,
+    b: activeJobs.filter((job) => job.grade === "B").length,
+    other: activeJobs.filter((job) => !job.grade).length,
   };
   elements.jobsContent.innerHTML = `
     <section class="view-intro jobs-intro">
@@ -893,10 +901,10 @@ function renderJobs() {
       <p>${escapeHTML(state.jobs.methodology.scope)}</p>
     </section>
     <section class="radar-summary" aria-label="岗位雷达摘要">
-      <div><span>百亿机构</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>规模证据单独核验</small></div>
+      <div><span>A 档</span><strong>${catalog.a}</strong><small>当前最接近目标</small></div>
+      <div><span>B 档</span><strong>${catalog.b}</strong><small>允许一项关键条件待核</small></div>
       <div><span>当前职位</span><strong>${catalog.active}</strong><small>含相邻和边界线索</small></div>
-      <div><span>重点待核</span><strong>${catalog.strict}</strong><small>地点、规模已过闸</small></div>
-      <div><span>直接投研样本</span><strong>${state.jobSkills.sample.size}</strong><small>用于共同技能统计</small></div>
+      <div><span>规模已过闸</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>双隆另按接近门槛观察</small></div>
     </section>
     ${renderJobSkills()}
     <section class="radar-results section-band" aria-labelledby="radar-results-title">
@@ -905,8 +913,12 @@ function renderJobs() {
           <p class="section-index">SCREENED OPPORTUNITIES</p>
           <h2 id="radar-results-title">岗位与机构证据</h2>
         </div>
-        <span>当前机会与边界线索分池展示</span>
+        <span>A 档优先，B 档逐项确认缺口</span>
       </header>
+      <dl class="grade-guide" aria-label="A B 分档规则">
+        <div><dt>A 档</dt><dd>${escapeHTML(state.jobs.methodology.gradeA)}</dd></div>
+        <div><dt>B 档</dt><dd>${escapeHTML(state.jobs.methodology.gradeB)}</dd></div>
+      </dl>
       <div class="segment-control job-filter" role="group" aria-label="岗位池筛选">
         ${filters.map((filter) => `
           <button type="button" data-job-filter="${escapeHTML(filter.id)}" class="${filter.id === state.jobFilter ? "active" : ""}">${escapeHTML(filter.label)}</button>
@@ -964,25 +976,31 @@ async function ensureJobs() {
   renderJobs();
 }
 
-async function ensureSupplementalJobs() {
-  const path = state.jobs?.methodology?.supplementalPath;
-  if (!path || state.jobs.supplementalLoaded) return;
-  if (!jobPoolsPromise) {
-    jobPoolsPromise = loadJSON(path)
+async function ensureSupplementalJobs(filter) {
+  const paths = state.jobs?.methodology?.supplementalPaths;
+  const path = filter === "grade-b" || ["actions", "interview"].includes(filter)
+    ? paths?.gradeB
+    : paths?.other;
+  if (!path) return;
+  state.jobs.loadedSupplementalPaths ||= [];
+  if (state.jobs.loadedSupplementalPaths.includes(path)) return;
+  if (!jobPoolPromises.has(path)) {
+    const request = loadJSON(path)
       .then((dataset) => {
         if (dataset.updatedAt !== state.jobs.updatedAt) {
           throw new Error("Supplemental job data is out of date");
         }
         const knownIds = new Set(state.jobs.jobs.map((job) => job.id));
         state.jobs.jobs.push(...dataset.jobs.filter((job) => !knownIds.has(job.id)));
-        state.jobs.supplementalLoaded = true;
+        state.jobs.loadedSupplementalPaths.push(path);
       })
       .catch((error) => {
-        jobPoolsPromise = null;
+        jobPoolPromises.delete(path);
         throw error;
       });
+    jobPoolPromises.set(path, request);
   }
-  await jobPoolsPromise;
+  await jobPoolPromises.get(path);
 }
 
 async function showView(view, detailId = "") {
@@ -1039,9 +1057,9 @@ document.addEventListener("click", async (event) => {
   const jobFilterButton = event.target.closest("[data-job-filter]");
   if (jobFilterButton) {
     state.jobFilter = jobFilterButton.dataset.jobFilter;
-    if (["adjacent", "secondary", "boundary", "historical", "actions"].includes(state.jobFilter)) {
+    if (["grade-b", "other", "historical", "actions", "interview"].includes(state.jobFilter)) {
       try {
-        await ensureSupplementalJobs();
+        await ensureSupplementalJobs(state.jobFilter);
       } catch (error) {
         console.error(error);
         elements.errorState.hidden = false;

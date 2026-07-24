@@ -1917,6 +1917,42 @@ a:focus-visible {
   margin: 18px 0 22px;
 }
 
+.grade-guide {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 18px 0 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.grade-guide div {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.grade-guide div + div {
+  border-left: 1px solid var(--line);
+}
+
+.grade-guide dt {
+  color: var(--accent-dark);
+  font-weight: 900;
+}
+
+.grade-guide div:nth-child(2) dt,
+.job-fit[data-grade="B"] strong {
+  color: var(--amber);
+}
+
+.grade-guide dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
 .job-list {
   display: grid;
   gap: 12px;
@@ -1946,6 +1982,12 @@ a:focus-visible {
   color: var(--accent-dark);
   font-family: Georgia, serif;
   font-size: 24px;
+}
+
+.job-fit[data-grade="other"] strong {
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 16px;
 }
 
 .job-fit span {
@@ -2007,7 +2049,7 @@ a:focus-visible {
 
 .job-gates {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 14px 0 12px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -3743,6 +3785,15 @@ a:focus-visible {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .grade-guide {
+    grid-template-columns: 1fr;
+  }
+
+  .grade-guide div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
   .job-card {
     grid-template-columns: 1fr;
   }
@@ -3944,15 +3995,17 @@ a:focus-visible {
   }
 
   .job-gates {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
+  .job-gate,
   .job-gate:nth-child(2) {
     border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
-  .job-gate:nth-child(-n + 2) {
-    border-bottom: 1px solid var(--line);
+  .job-gate:last-child {
+    border-bottom: 0;
   }
 
   .application-row summary {
