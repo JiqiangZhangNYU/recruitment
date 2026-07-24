@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-24",
+  "principle": "材料的任务不是把经历写得更大，而是让高级 IC 的价值和真实边界同时清楚。每个数字都带区间、账户、费用和职责口径；任何可对外使用的版本都应再次检查原公司保密要求。",
+  "profiles": [
+    {
+      "id": "zh-30",
+      "label": "中文 30 秒定位",
+      "text": "六年商品期货日频截面量化研究经验，个人负责公开数据到信号、模型预测和组合优化。相关策略自 2024 年 3 月起由公司 PM 配置约 10 亿元费后实盘，样本外 Sharpe 约 2、年化收益约 30%、最大回撤约 10%。下一步希望担任继续亲自研究的高级 IC 或研究型 PM，逐步承担完整策略的风险预算和生命周期判断。"
+    },
+    {
+      "id": "zh-90",
+      "label": "中文 90 秒陈述",
+      "text": "过去六年，我的核心工作一直是商品期货日频截面策略研究，研究链路包括公开数据处理、信号构造、预测模型和组合优化。策略从 2024 年 3 月开始进入公司账户费后实盘，由 PM 配置约 10 亿元资金；到目前为止，样本外 Sharpe 约 2、年化收益约 30%、最大回撤约 10%，换手约十天一次。低换手和流动性分析支持 50 亿元以上的容量情景估计，但这不是已实盘规模。我的职责不包括实际下单、资金配置、杠杆和最终投资决策，这些由交易同事和 PM 负责。下一阶段，我希望继续亲自写研究和策略，同时把组合风险预算、回撤动作和策略停用/恢复逐步纳入自己的正式职责，而不是转向纯人员管理。"
+    },
+    {
+      "id": "en-60",
+      "label": "English 60-second introduction",
+      "text": "I have six years of quantitative research experience focused on daily cross-sectional strategies in Chinese commodity futures. I own the research chain from public-data signals through forecasting and portfolio optimization. Since March 2024, the strategy has run net of fees in company accounts with approximately RMB 1 billion allocated by PMs, delivering an out-of-sample Sharpe ratio of about 2, annualized return of about 30%, and maximum drawdown of about 10%. Trading execution, capital allocation, leverage, and final investment decisions are owned by other colleagues and PMs. I am looking for a senior individual-contributor or research-PM role where I can keep building strategies while taking on more formal responsibility for risk budgets and strategy lifecycle decisions."
+    }
+  ],
+  "resumeBullets": [
+    {
+      "id": "research-chain",
+      "theme": "研究主链",
+      "zh": "负责商品期货日频截面策略的公开数据处理、信号构造、模型预测与组合优化，建立从研究假设到目标仓位的完整量化链路。",
+      "en": "Owned the research chain for daily cross-sectional commodity-futures strategies, spanning public-data processing, signal construction, forecasting, and portfolio optimization.",
+      "proof": "用一个脱敏信号到组合案例支撑；不要列精确数据源、参数或品种权重。"
+    },
+    {
+      "id": "live-record",
+      "theme": "费后实盘",
+      "zh": "相关策略自 2024 年 3 月起在公司账户费后实盘运行，由 PM 配置约 10 亿元资金；样本外 Sharpe 约 2、年化收益约 30%、最大回撤约 10%。",
+      "en": "Strategy has run net of fees in company accounts since March 2024 with approximately RMB 1 billion allocated by PMs; out-of-sample Sharpe of about 2, annualized return of about 30%, and maximum drawdown of about 10%.",
+      "proof": "附统一口径的月度成绩单；明确这不是个人账户，也不写成个人管理规模。"
+    },
+    {
+      "id": "capacity",
+      "theme": "成本与容量",
+      "zh": "围绕约十天一次的低频换手，评估手续费、滑点、流动性、保证金与板块集中约束，形成 50 亿元以上的容量情景估计。",
+      "en": "Evaluated fees, slippage, liquidity, margin, and sector-concentration constraints for a roughly ten-day turnover horizon, supporting a scenario-based capacity estimate above RMB 5 billion.",
+      "proof": "展示 10/30/50 亿元三档敏感性；明确 50 亿元是估计而非已配置资金。"
+    },
+    {
+      "id": "validation",
+      "theme": "研究可信度",
+      "zh": "通过点时数据、样本外切分、跨品种稳定性、费用后回测与实盘偏差跟踪控制泄漏、过拟合和研究口径漂移。",
+      "en": "Controlled leakage, overfitting, and research-definition drift through point-in-time data, out-of-sample splits, cross-instrument stability tests, net-of-cost backtests, and live-versus-simulation tracking.",
+      "proof": "只保留真实采用的方法；准备实验登记和失败研究例子。"
+    },
+    {
+      "id": "engineering",
+      "theme": "研究工程",
+      "zh": "使用 Python 构建可复现研究流程，并将信号、预测与组合结果通过清晰接口交付 PM 和交易同事，持续分析模拟与实盘差异。",
+      "en": "Built reproducible Python research workflows and delivered signals, forecasts, and portfolio outputs through defined interfaces to PM and trading colleagues, with ongoing simulation-versus-live analysis.",
+      "proof": "准备脱敏仓库结构、测试清单和交付接口；不声称负责下单系统。"
+    },
+    {
+      "id": "influence",
+      "theme": "技术影响力",
+      "zh": "跨 PM、交易与研究协作推动策略落地，并指导实习生完成研究任务、验证和复盘；职业路径定位为高级 IC，不包装正式团队管理经验。",
+      "en": "Collaborated across PM, trading, and research functions to move strategies into production, and mentored interns on research, validation, and review while remaining on an individual-contributor track.",
+      "proof": "准备一个协作冲突或指导案例；明确没有正式带过团队。"
+    }
+  ],
+  "outreach": [
+    {
+      "id": "private-fund",
+      "label": "百亿私募首轮沟通",
+      "subject": "上海商品期货高级量化研究 / 研究型 PM",
+      "message": "您好，我有六年商品期货日频截面量化研究经验，负责公开数据信号、预测模型和组合优化。相关策略自 2024.03 起由公司 PM 配置约 10 亿元费后实盘，样本外 Sharpe 约 2。现在只考虑上海、百亿以上平台、继续亲自研究的高级 IC 或研究型 PM 机会。为节省双方时间，我的固定税前保证收入要求不低于 100 万元，绩效良好年份的现金税后需要超过 80 万元。若职级、策略所有权和薪酬结构大致匹配，我可以先提供一页脱敏经历摘要。"
+    },
+    {
+      "id": "targeted-role",
+      "label": "针对具体岗位",
+      "subject": "关于贵司量化研究岗位的匹配与定级",
+      "message": "您好，我看到贵司在上海的量化研究岗位。我的核心经验是六年商品期货日频截面研究，个人负责信号、预测和组合优化；策略自 2024.03 起在公司账户费后实盘，PM 配置约 10 亿元。我想先确认三点：该岗位能否按 Senior/Principal IC 定级，是否有商品或跨资产策略所有权，以及固定税前保证收入是否不低于 100 万元。三项大致匹配后，我愿意按岗位要求准备脱敏研究案例。"
+    },
+    {
+      "id": "headhunter-check",
+      "label": "匿名猎头先核验",
+      "subject": "先确认四项硬条件",
+      "message": "感谢联系。进入简历和技术细节前，请先确认：工作地点是否仅上海；实际用人机构及最新管理规模能否披露；合同固定税前保证收入是否不低于 100 万元；岗位是亲自研究并拥有策略责任的高级 IC，还是团队管理/研究支持。奖金上限不能替代固定保证收入。四项符合后我再进一步沟通。"
+    }
+  ],
+  "keywordMap": [
+    {
+      "target": "Senior Quantitative Researcher",
+      "use": ["commodity futures", "cross-sectional signals", "out-of-sample", "net-of-fee live strategy", "portfolio optimization", "capacity"],
+      "doNotClaim": ["personal AUM", "final capital allocation", "trade execution ownership"]
+    },
+    {
+      "target": "Research PM / Strategy Lead",
+      "use": ["risk-budget proposal", "drawdown attribution", "strategy lifecycle", "scenario analysis", "technical mentorship"],
+      "doNotClaim": ["formal PM authorization", "team management", "final leverage decision"]
+    },
+    {
+      "target": "Portfolio Optimization Researcher",
+      "use": ["objective and constraints", "risk attribution", "transaction costs", "liquidity", "marginal contribution", "stress testing"],
+      "doNotClaim": ["BARRA expertise unless verified", "multi-asset production experience unless evidenced"]
+    },
+    {
+      "target": "Machine Learning Quant Researcher",
+      "use": ["time-series validation", "baseline comparison", "nonlinear modeling", "drift monitoring", "reproducible experiments"],
+      "doNotClaim": ["LLM usage as ML alpha evidence", "deep-learning production results without a real case"]
+    }
+  ],
+  "checklist": [
+    {
+      "stage": "发送前",
+      "items": ["所有数字含区间、费用和账户口径", "删除策略代码、参数、持仓和可逆推细节", "中英文数字、单位和职责一致", "确认职位仍在招且地点为上海"]
+    },
+    {
+      "stage": "首轮前",
+      "items": ["核验机构主体和百亿规模证据", "问清固定现金、保证奖金和目标奖金", "确认 Senior/Principal IC 定级", "确认策略和风险决策边界"]
+    },
+    {
+      "stage": "技术面前",
+      "items": ["只选一个完整研究案例讲深", "准备失败实验和实盘偏差", "准备容量与回撤压力题", "划定不能披露的追问边界"]
+    },
+    {
+      "stage": "Offer 前",
+      "items": ["书面确认固定保证收入至少 100 万元", "测算奖金计税、递延、回拨和离职处理", "确认授权、汇报线和资源", "在薪酬换算器中复算税后现金"]
+    }
+  ]
+}

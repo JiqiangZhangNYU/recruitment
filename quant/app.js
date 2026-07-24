@@ -9,6 +9,7 @@ const state = {
   actionPlan: null,
   searchAudit: null,
   interviewPrep: null,
+  applicationKit: null,
   evidenceTemplates: {},
   activeView: "overview",
   directionFilter: "all",
@@ -668,6 +669,7 @@ function jobFilterOptions() {
     { id: "institutions", label: "机构库" },
     { id: "actions", label: "行动清单" },
     { id: "interview", label: "面试题库" },
+    { id: "materials", label: "求职材料" },
     { id: "audit", label: "检索审计" },
   ];
 }
@@ -757,6 +759,56 @@ function renderInterviewPrep() {
             </div>
           </details>
         `).join("")}
+      </section>
+    </div>
+  `;
+}
+
+function renderApplicationKit() {
+  const kit = state.applicationKit;
+  if (!kit) {
+    return `<div class="audit-loading" role="status"><span></span><strong>正在载入求职材料</strong></div>`;
+  }
+  return `
+    <div class="application-kit">
+      <p class="kit-principle">${escapeHTML(kit.principle)}</p>
+      <section class="kit-section section-band" aria-labelledby="kit-profile-title">
+        <header class="section-heading compact-heading"><p class="section-index">POSITIONING SCRIPTS</p><h3 id="kit-profile-title">中英文职业定位</h3></header>
+        <div class="profile-script-list">
+          ${kit.profiles.map((profile, index) => `
+            <details ${index === 0 ? "open" : ""}><summary><strong>${escapeHTML(profile.label)}</strong><span>${index === 0 ? "默认展开" : "点击查看"}</span></summary><blockquote>${escapeHTML(profile.text)}</blockquote></details>
+          `).join("")}
+        </div>
+      </section>
+      <section class="kit-section section-band" aria-labelledby="kit-resume-title">
+        <header class="section-heading compact-heading"><p class="section-index">BILINGUAL RESUME BULLETS</p><h3 id="kit-resume-title">六条可核验简历要点</h3></header>
+        <div class="resume-bullet-list">
+          ${kit.resumeBullets.map((bullet, index) => `
+            <article><span>${String(index + 1).padStart(2, "0")}</span><div><small>${escapeHTML(bullet.theme)}</small><p>${escapeHTML(bullet.zh)}</p><p lang="en">${escapeHTML(bullet.en)}</p><em>${escapeHTML(bullet.proof)}</em></div></article>
+          `).join("")}
+        </div>
+      </section>
+      <section class="kit-section section-band" aria-labelledby="kit-outreach-title">
+        <header class="section-heading compact-heading"><p class="section-index">RECRUITER OUTREACH</p><h3 id="kit-outreach-title">三类首轮沟通模板</h3></header>
+        <div class="outreach-list">
+          ${kit.outreach.map((item) => `
+            <details><summary><div><strong>${escapeHTML(item.label)}</strong><small>${escapeHTML(item.subject)}</small></div><span>查看模板</span></summary><p>${escapeHTML(item.message)}</p></details>
+          `).join("")}
+        </div>
+      </section>
+      <section class="kit-section section-band" aria-labelledby="kit-keyword-title">
+        <header class="section-heading compact-heading"><p class="section-index">KEYWORD MAPPING</p><h3 id="kit-keyword-title">按岗位取舍关键词</h3></header>
+        <div class="keyword-map">
+          ${kit.keywordMap.map((group) => `
+            <article><h4>${escapeHTML(group.target)}</h4><div><span>可使用</span>${list(group.use, "compact-boundary-list")}</div><div class="keyword-avoid"><span>不可声称</span>${list(group.doNotClaim, "compact-boundary-list")}</div></article>
+          `).join("")}
+        </div>
+      </section>
+      <section class="kit-section section-band" aria-labelledby="kit-check-title">
+        <header class="section-heading compact-heading"><p class="section-index">APPLICATION CHECKLIST</p><h3 id="kit-check-title">四阶段事实检查</h3></header>
+        <div class="application-checklist">
+          ${kit.checklist.map((stage, index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><h4>${escapeHTML(stage.stage)}</h4>${list(stage.items, "evidence-list")}</article>`).join("")}
+        </div>
       </section>
     </div>
   `;
@@ -1020,6 +1072,8 @@ function renderJobs() {
           ? renderActionPlan()
           : state.jobFilter === "interview"
             ? renderInterviewPrep()
+          : state.jobFilter === "materials"
+            ? renderApplicationKit()
           : state.jobFilter === "audit"
             ? renderSearchAudit()
           : renderJobCards(jobs)}
@@ -1145,6 +1199,15 @@ document.addEventListener("click", async (event) => {
       try {
         state.interviewPrep = await loadJSON("data/interview-prep.json");
         state.interviewRoleId = state.interviewPrep.roles[0].jobId;
+        renderJobs();
+      } catch (error) {
+        console.error(error);
+        elements.errorState.hidden = false;
+      }
+    }
+    if (state.jobFilter === "materials" && !state.applicationKit) {
+      try {
+        state.applicationKit = await loadJSON("data/application-kit.json");
         renderJobs();
       } catch (error) {
         console.error(error);

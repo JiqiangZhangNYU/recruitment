@@ -2788,6 +2788,184 @@ a:focus-visible {
   color: var(--danger);
 }
 
+.kit-principle {
+  max-width: 920px;
+  margin: 18px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.profile-script-list,
+.outreach-list,
+.resume-bullet-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.profile-script-list details,
+.outreach-list details {
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-script-list summary,
+.outreach-list summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.profile-script-list summary::-webkit-details-marker,
+.outreach-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.profile-script-list summary strong,
+.outreach-list summary strong,
+.outreach-list summary small {
+  display: block;
+}
+
+.profile-script-list summary strong,
+.outreach-list summary strong {
+  font-size: 12px;
+}
+
+.profile-script-list summary span,
+.outreach-list summary span,
+.outreach-list summary small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.profile-script-list blockquote {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  font-size: 12px;
+}
+
+.resume-bullet-list article {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.resume-bullet-list article > span {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.resume-bullet-list small,
+.resume-bullet-list p,
+.resume-bullet-list em {
+  display: block;
+  margin: 0;
+}
+
+.resume-bullet-list small {
+  color: var(--accent-dark);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.resume-bullet-list p {
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.resume-bullet-list p[lang="en"] {
+  color: var(--muted);
+}
+
+.resume-bullet-list em {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 9px;
+  font-style: normal;
+}
+
+.outreach-list details > p {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border-left: 3px solid var(--blue-soft);
+  font-size: 11px;
+}
+
+.keyword-map {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+
+.keyword-map article {
+  min-width: 0;
+  padding: 16px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.keyword-map h4 {
+  margin: 0 0 12px;
+  font-size: 12px;
+}
+
+.keyword-map article > div {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.keyword-map article > div > span {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.keyword-map .keyword-avoid {
+  color: var(--danger);
+}
+
+.application-checklist {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+
+.application-checklist article {
+  min-width: 0;
+  padding: 14px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.application-checklist article > span {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.application-checklist h4 {
+  margin: 4px 0 10px;
+  font-size: 12px;
+}
+
+.application-checklist ul {
+  margin: 0;
+}
+
 @media (max-width: 980px) {
   :root {
     --sidebar-width: 220px;
@@ -2884,6 +3062,10 @@ a:focus-visible {
 
   .interview-answer > section:first-child {
     grid-column: 1 / -1;
+  }
+
+  .application-checklist {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .radar-summary {
@@ -3220,6 +3402,15 @@ a:focus-visible {
 
   .interview-answer > section:first-child {
     grid-column: auto;
+  }
+
+  .keyword-map,
+  .application-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .keyword-map article > div {
+    grid-template-columns: 64px minmax(0, 1fr);
   }
 
   .market-skills-heading,
