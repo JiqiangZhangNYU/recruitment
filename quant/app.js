@@ -99,6 +99,16 @@ function formatPercent(value) {
   return `${(Number(value) * 100).toFixed(1)}%`;
 }
 
+function jobFreshness(checkedAt, status) {
+  if (status !== "active") return { state: "historical", label: "历史参照" };
+  const checked = new Date(`${checkedAt}T00:00:00+08:00`);
+  const days = Math.max(0, Math.floor((Date.now() - checked.getTime()) / 86_400_000));
+  if (days === 0) return { state: "fresh", label: "今日核验" };
+  if (days <= 7) return { state: "fresh", label: `${days} 天前核验` };
+  if (days <= 14) return { state: "review", label: `${days} 天前 · 即将复核` };
+  return { state: "stale", label: `${days} 天前 · 待复核` };
+}
+
 function renderOverview() {
   const profile = state.profile;
   elements.subtitle.textContent = profile.summary;
@@ -997,6 +1007,7 @@ function renderJobCards(jobs) {
     <section class="job-list" aria-live="polite">
       ${jobs.map((job) => {
         const institution = job.institutionId ? institutionById(job.institutionId) : null;
+        const freshness = jobFreshness(job.checkedAt, job.status);
         return `
           <article class="job-card">
             <div class="job-fit">
@@ -1009,7 +1020,7 @@ function renderJobCards(jobs) {
                 <div>
                   <span class="job-institution">${escapeHTML(institution?.name || job.institutionName || "匿名客户")}</span>
                   <h3>${escapeHTML(job.title)}</h3>
-                  <p>${escapeHTML(job.location)} · ${escapeHTML(job.employment)} · 核验于 ${escapeHTML(job.checkedAt)}</p>
+                  <p>${escapeHTML(job.location)} · ${escapeHTML(job.employment)} · <span class="job-freshness" data-freshness="${escapeHTML(freshness.state)}">${escapeHTML(freshness.label)}</span></p>
                 </div>
                 <a href="${escapeHTML(job.source.url)}" target="_blank" rel="noopener noreferrer">查看原职位</a>
               </header>

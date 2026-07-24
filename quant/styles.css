@@ -2009,6 +2009,23 @@ a:focus-visible {
   font-size: 12px;
 }
 
+.job-freshness {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.job-freshness[data-freshness="review"] {
+  color: var(--amber);
+}
+
+.job-freshness[data-freshness="stale"] {
+  color: var(--danger);
+}
+
+.job-freshness[data-freshness="historical"] {
+  color: var(--muted);
+}
+
 .job-tags {
   display: flex;
   flex-wrap: wrap;

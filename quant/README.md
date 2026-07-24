@@ -70,7 +70,14 @@ node scripts/build-compensation-model.cjs
 node tests/data-check.cjs
 node tests/compensation-check.cjs
 node tests/collector-check.cjs
+node tests/freshness-check.cjs
 node --check app.js
+```
+
+复核职位来源时可按指定日期列出超过 7 天的待检查项；超过 14 天会标记为 stale：
+
+```bash
+AS_OF_DATE=2026-08-07 node scripts/check-job-freshness.cjs
 ```
 
 浏览器端到端检查需要工作区已有的 Playwright：
