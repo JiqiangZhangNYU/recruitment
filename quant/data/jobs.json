@@ -243,6 +243,24 @@
       "skillTags": ["python", "statistical-modeling", "signal-research", "research-rigor", "productionization", "portfolio-risk", "collaboration", "communication"]
     },
     {
+      "id": "gtja-futures-cta-researcher",
+      "institutionId": "gtja-futures",
+      "title": "CTA研究员 (MJ000517)",
+      "location": "上海静安",
+      "employment": "全职",
+      "status": "active",
+      "pool": "secondary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": { "publisher": "国泰君安期货雇主职位页", "kind": "employer-posting", "url": "https://www.zhaopin.com/jobdetail/CC290232610J40921980708.htm" },
+      "fit": { "tier": "C", "score": 45, "verdict": "商品 CTA、机器学习、时间序列、SQL 和 Python 内容高度相关，但公开固定收入仅约 25.2–36 万元/年，明确低于 100 万元硬门槛。" },
+      "eligibility": { "location": "pass", "institutionScale": "verify", "compensation": "fail", "seniority": "verify" },
+      "compensation": { "guaranteedGross": null, "performanceBonus": null, "reportedRange": "1.4–2万元 × 18薪（约25.2–36万元/年）", "disclosure": "range", "note": "即使 18 薪全部保证，公开上限仍只有约 36 万元，直接淘汰；不因机构规模或业务匹配放宽。" },
+      "responsibilities": ["运用概率统计、机器学习、数据挖掘和时间序列方法研发 CTA 策略", "覆盖商品期货或股指期货的量价、基本面与另类数据信号", "持续开发新策略并与投资经理和技术团队协作"],
+      "requirements": ["三年以上量化 CTA 策略研发经验", "精通 Python 或 C/C++，熟悉 Linux、SQL 与 Pandas", "硕士以上学历并具备商品或股指期货研究经验"],
+      "skillTags": ["python", "sql-data", "statistical-modeling", "machine-learning", "signal-research", "commodity-domain", "collaboration"]
+    },
+    {
       "id": "recruiter-cta-ml-pm-low-comp",
       "institutionId": null,
       "institutionName": "匿名机构（猎头发布）",

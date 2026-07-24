@@ -126,6 +126,22 @@
       ]
     },
     {
+      "id": "gtja-futures",
+      "name": "国泰君安期货",
+      "legalName": "国泰君安期货有限公司",
+      "type": "期货公司资管",
+      "priority": "次要",
+      "scale": { "status": "verify", "band": "2022年末资管规模峰值超过200亿元，当前规模待核", "asOf": "2022-12-31" },
+      "shanghai": { "status": "pass", "evidence": "官网明确总部位于上海，当前 CTA 研究员职位位于上海静安。" },
+      "career": { "url": "https://www.gtjaqh.com/pc/c/profile", "status": "active", "note": "官网提供社会招聘入口；当前雇主职位页列示 CTA 研究员。" },
+      "accessPolicy": { "mode": "manual", "reason": "人工核验官网与雇主公开职位页，不自动访问申请系统。" },
+      "sources": [
+        { "label": "国泰君安期货官网", "url": "https://www.gtjaqh.com/pc/c/profile", "supports": "公司主体、上海总部、注册资本、业务范围与招聘入口" },
+        { "label": "国泰君安期货资管官网", "url": "https://am.gtjaqh.com/", "supports": "截至2022年末资管规模峰值超过200亿元；不代表当前规模" },
+        { "label": "当前雇主职位页", "url": "https://www.zhaopin.com/jobdetail/CC290232610J40921980708.htm", "supports": "CTA研究员状态、上海地点、要求和公开薪资" }
+      ]
+    },
+    {
       "id": "ubiquant",
       "name": "九坤投资",
       "legalName": "北京九坤投资（集团）有限公司",
