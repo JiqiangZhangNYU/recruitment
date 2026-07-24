@@ -2633,6 +2633,21 @@ a:focus-visible {
   border-top: 1px solid var(--line-strong);
 }
 
+.audit-candidate-loader {
+  width: 100%;
+  min-height: 48px;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.audit-candidate-loader:hover {
+  background: var(--surface-strong);
+}
+
 .source-hierarchy article {
   display: grid;
   grid-template-columns: 36px 260px minmax(0, 1fr);

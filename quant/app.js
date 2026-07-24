@@ -8,6 +8,7 @@ const state = {
   jobSkills: null,
   actionPlan: null,
   searchAudit: null,
+  searchCandidates: null,
   interviewPrep: null,
   applicationKit: null,
   evidenceTemplates: {},
@@ -521,14 +522,14 @@ function renderSearchAudit() {
       </section>
       <section class="audit-section section-band" aria-labelledby="audit-screened-title">
         <header class="section-heading compact-heading"><p class="section-index">SCREENED OUT / WATCHLIST</p><h3 id="audit-screened-title">没有进入推荐池的线索</h3></header>
-        <div class="screened-candidate-list">
-          ${audit.screenedCandidates.map((candidate) => `
+        ${state.searchCandidates ? `<div class="screened-candidate-list">
+          ${state.searchCandidates.candidates.map((candidate) => `
             <details class="screened-candidate">
               <summary><div><strong>${escapeHTML(candidate.name)}</strong><small>${escapeHTML(candidate.signal)}</small></div><em>${escapeHTML(candidate.status)}</em></summary>
               <div><p>${escapeHTML(candidate.decision)}</p><nav>${candidate.sources.map((source) => `<a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.label)}</a>`).join("")}</nav></div>
             </details>
           `).join("")}
-        </div>
+        </div>` : `<button type="button" class="audit-candidate-loader" data-load-search-candidates>展开 ${audit.candidateCount} 条筛选记录</button>`}
       </section>
       <section class="audit-section section-band audit-followup" aria-labelledby="audit-followup-title">
         <header class="section-heading compact-heading"><p class="section-index">GAPS & NEXT REVIEW</p><h3 id="audit-followup-title">覆盖缺口与复核计划</h3></header>
@@ -1093,6 +1094,20 @@ document.addEventListener("click", async (event) => {
       const roleId = interviewRoleButton.dataset.interviewRole;
       await ensureInterviewRole(roleId);
       state.interviewRoleId = roleId;
+      renderJobs();
+    } catch (error) {
+      console.error(error);
+      elements.errorState.hidden = false;
+    }
+  }
+
+  if (event.target.closest("[data-load-search-candidates]") && state.searchAudit && !state.searchCandidates) {
+    try {
+      const candidates = await loadJSON(state.searchAudit.candidatesSource);
+      if (candidates.candidates.length !== state.searchAudit.candidateCount) {
+        throw new Error("Search candidate count mismatch");
+      }
+      state.searchCandidates = candidates;
       renderJobs();
     } catch (error) {
       console.error(error);

@@ -3,10 +3,26 @@
   "updatedAt": "2026-07-24",
   "scope": "上海、管理规模不低于 100 亿元、面向六年量化实盘经验的高级研究或研究型 PM 机会。固定税前保证收入低于 100 万元直接排除；未披露薪酬只进入待核验池。",
   "summary": [
-    { "label": "机构档案", "value": "11 家", "note": "其中 8 家规模证据已过闸" },
-    { "label": "公开岗位", "value": "23 条", "note": "22 条当前、1 条历史参照" },
-    { "label": "明汯公开列表", "value": "24 条", "note": "低频抓取后仅发布相关精简记录" },
-    { "label": "薪酬通过", "value": "0 条", "note": "2 条明确不符，其余待问" }
+    {
+      "label": "机构档案",
+      "value": "11 家",
+      "note": "其中 8 家规模证据已过闸"
+    },
+    {
+      "label": "公开岗位",
+      "value": "23 条",
+      "note": "22 条当前、1 条历史参照"
+    },
+    {
+      "label": "明汯公开列表",
+      "value": "24 条",
+      "note": "低频抓取后仅发布相关精简记录"
+    },
+    {
+      "label": "薪酬通过",
+      "value": "0 条",
+      "note": "2 条明确不符，其余待问"
+    }
   ],
   "sourceHierarchy": [
     {
@@ -60,118 +76,38 @@
       "next": "不运行脚本；按月人工查看。"
     }
   ],
-  "screenedCandidates": [
-    {
-      "name": "上海迎水投资",
-      "status": "补证后再评",
-      "signal": "当前公开招聘覆盖商品期货与期权研究员、交易员和基金经理，上海地点明确，公开月薪为 3–6 万元。",
-      "decision": "策略方向相关，但即使按 12 个月上限计算也只有 72 万元，低于固定保证门槛；同时需要用协会页面复核最新百亿规模。",
-      "sources": [
-        { "label": "当前雇主职位页", "url": "https://m.zhaopin.com/jobs/CCL1260852180J40965242004.htm" },
-        { "label": "协会数据镜像", "url": "https://dc.simuwang.com/company/CO00000I72.html" }
-      ]
-    },
-    {
-      "name": "上海稳博投资",
-      "status": "观察",
-      "signal": "官网明确覆盖期货、期权、高频、趋势和套利策略，业务内容相关。",
-      "decision": "当前可核的招聘门户以实习和校招为主，未找到六年经验的高级 IC 职位；历史机器学习职位不能当作当前机会。",
-      "sources": [
-        { "label": "机构官网", "url": "https://www.wenbofund.com/index.html" },
-        { "label": "当前校园招聘门户", "url": "https://mh.hire66.com/position?secret_key=O8wvS7JBcc" }
-      ]
-    },
-    {
-      "name": "上海念空",
-      "status": "相邻观察",
-      "signal": "当前公开资深量化数据研究员强调另类数据评估、经济逻辑、数据工程和研究落地。",
-      "decision": "能补充数据与研究工程证据，但岗位不以商品策略所有权为主，且本轮未取得最新百亿规模一手证据。",
-      "sources": [
-        { "label": "当前公开职位", "url": "https://www.nowcoder.com/jobs/detail/450243" }
-      ]
-    },
-    {
-      "name": "上海锴量投资",
-      "status": "规模淘汰",
-      "signal": "官网量化研究岗位覆盖股票和期货数据、因子加工与机器学习。",
-      "decision": "协会公示管理规模为 5–10 亿元，明确低于 100 亿元硬门槛，不继续投入。",
-      "sources": [
-        { "label": "协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/1906101543108936.html" },
-        { "label": "机构官网职位", "url": "https://www.chiquant.com/" }
-      ]
-    },
-    {
-      "name": "匿名百亿 CTA 猎头岗位",
-      "status": "薪资淘汰",
-      "signal": "商品期货、统计建模、组合优化与风险归因均相关，上海月薪 3–6 万元。",
-      "decision": "机构身份未披露，且年化公开固定薪上限约 72 万元，未达到 100 万元。",
-      "sources": [
-        { "label": "当前猎头职位", "url": "https://www.zhaopin.com/jobdetail/CC664497020J40863066501.htm" }
-      ]
-    },
-    {
-      "name": "匿名百亿私募量化研究员",
-      "status": "时效淘汰",
-      "signal": "页面仍可访问，要求 3–5 年成熟策略、Python、Matlab 和 SQL。",
-      "decision": "职位引用编号始于 2021，雇主身份与当前招聘状态不清；不进入当前岗位池。",
-      "sources": [
-        { "label": "猎头职位页", "url": "https://www.michaelpage.com.cn/job-detail/%E9%87%8F%E5%8C%96%E7%A0%94%E7%A9%B6%E5%91%98-%E7%99%BE%E4%BA%BF%E7%BA%A7%E7%A7%81%E5%8B%9F/ref/jn-122021-4559536" }
-      ]
-    },
-    {
-      "name": "Point72 / Cubist 期货与宏观量化研究",
-      "status": "地点淘汰",
-      "signal": "当前职位覆盖期货、商品、截面与时间序列信号、组合优化，公开固定薪也高于人民币 100 万元。",
-      "decision": "当前岗位地点为纽约、香港等，不包含上海；地点是硬条件，因此不进入机会池。",
-      "sources": [
-        { "label": "当前宏观量化职位", "url": "https://careers.point72.com/CSJobDetail?jobCode=CSS-0008107&jobName=quantitative-researcher-macro&retURL=%2FCSCareerSearch" },
-        { "label": "当前通用量化职位", "url": "https://careers.point72.com/CSJobDetail?jobCode=CSS-0010379&jobName=quantitative-researcher&retURL=%2FCSCareerSearch" }
-      ]
-    },
-    {
-      "name": "花旗上海交易分析岗位",
-      "status": "职责淘汰",
-      "signal": "当前上海职位涉及公开数据、绩效评价、归因、风险与保证金方法，并与量化团队协作。",
-      "decision": "核心是股票交易产品、客户分析和风险框架，不是商品策略研究与所有权；不因全球机构规模放宽职责要求。",
-      "sources": [
-        { "label": "当前官方职位", "url": "https://jobs.citi.com/job/shanghai/markets-analyst-equity-trading/287/96291603472" }
-      ]
-    },
-    {
-      "name": "BNP Paribas Asset Management 多资产 PM",
-      "status": "时效淘汰",
-      "signal": "上海中高级岗位要求五年以上投资管理或量化研究，覆盖跨资产、因子、衍生品、组合构建、归因和风险分解。",
-      "decision": "雇主职位页已明确停止接受申请，且 BNP 官方上海当前职位列表中没有该岗位；职责可作 PM 标杆，但不能当作当前机会。",
-      "sources": [
-        { "label": "已关闭雇主职位页", "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-multi-assets-investments-at-bnp-paribas-asset-management-4199223729" },
-        { "label": "官方上海当前职位列表", "url": "https://group.bnpparibas/en/careers/all-job-offers/shanghai" }
-      ]
-    },
-    {
-      "name": "Two Sigma 上海 Portfolio Manager",
-      "status": "历史职责标杆",
-      "signal": "岗位曾要求五年以上组合经验，直接管理境内期货、股票和债券组合，并基于系统信号承担投资与风险决策。",
-      "decision": "职位一年前发布且已停止接受申请，不进入机会池；其“信号输入、PM 最终决策、跨团队执行”的边界可用于校准目标授权。",
-      "sources": [
-        { "label": "已关闭雇主职位页", "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-shanghai-at-two-sigma-3985803466" },
-        { "label": "机构招聘入口", "url": "https://careers.twosigma.com/careers/SearchJobs" }
-      ]
-    }
-  ],
   "coverageGaps": [
     "所有当前重点岗位都未公开固定薪、奖金公式、递延与回拨，必须在首轮沟通前核验。",
     "公开招聘偏股票或高频，商品日频低换手高级 IC 供给稀少，隐性招聘和猎头渠道仍需补充。",
     "Man Group 的 2,287 亿美元为全球 AUM，虽通过机构规模硬门槛，仍需确认上海合同主体、人民币定价和中国团队资金授权。",
+    "大模型工具熟练度不等于 AI 量化研究履历；缺少顶会/论文、基础模型微调和 GPU 训练证据时，不投专职 AI/ML 研究岗。",
     "部分机构官网长期开放通用研究岗位，但无法从页面判断六年经验对应职级。",
     "研究型 PM 的最终资金、杠杆和回撤决策权通常不写入 JD；中信期货虽写明授权内投资管理，授权清单仍需面试逐项核实。",
     "Optiver 当前上海资深职位可校准策略全生命周期能力，但其为自营交易商，不满足百亿资管机构硬口径。",
     "2026 上海社保缴费上下限尚未检索到新公告，薪酬换算需在新参数发布后重算。"
   ],
   "nextReview": [
-    { "date": "2026-07-31", "task": "复核 Man Group、天演、佳期、衍复、世纪前沿官方职位状态。" },
-    { "date": "2026-08-07", "task": "低频重跑明汯公开职位列表并比对 24 个职位编号。" },
-    { "date": "2026-08-07", "task": "人工检查灵均与九坤，严格遵守站点访问限制。" },
-    { "date": "首轮沟通前", "task": "向中信期货核验最新私募资管规模、CTA 投资经理授权边界和百万固定薪口径。" },
-    { "date": "新参数发布后", "task": "更新上海社保缴费基数上下限并重建薪酬模型。" }
-  ]
+    {
+      "date": "2026-07-31",
+      "task": "复核 Man Group、天演、佳期、衍复、世纪前沿官方职位状态。"
+    },
+    {
+      "date": "2026-08-07",
+      "task": "低频重跑明汯公开职位列表并比对 24 个职位编号。"
+    },
+    {
+      "date": "2026-08-07",
+      "task": "人工检查灵均与九坤，严格遵守站点访问限制。"
+    },
+    {
+      "date": "首轮沟通前",
+      "task": "向中信期货核验最新私募资管规模、CTA 投资经理授权边界和百万固定薪口径。"
+    },
+    {
+      "date": "新参数发布后",
+      "task": "更新上海社保缴费基数上下限并重建薪酬模型。"
+    }
+  ],
+  "candidateCount": 11,
+  "candidatesSource": "data/search-candidates.json"
 }

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-24",
+  "candidates": [
+    {
+      "name": "上海迎水投资",
+      "status": "补证后再评",
+      "signal": "当前公开招聘覆盖商品期货与期权研究员、交易员和基金经理，上海地点明确，公开月薪为 3–6 万元。",
+      "decision": "策略方向相关，但即使按 12 个月上限计算也只有 72 万元，低于固定保证门槛；同时需要用协会页面复核最新百亿规模。",
+      "sources": [
+        {
+          "label": "当前雇主职位页",
+          "url": "https://m.zhaopin.com/jobs/CCL1260852180J40965242004.htm"
+        },
+        {
+          "label": "协会数据镜像",
+          "url": "https://dc.simuwang.com/company/CO00000I72.html"
+        }
+      ]
+    },
+    {
+      "name": "上海稳博投资",
+      "status": "观察",
+      "signal": "官网明确覆盖期货、期权、高频、趋势和套利策略，业务内容相关。",
+      "decision": "当前可核的招聘门户以实习和校招为主，未找到六年经验的高级 IC 职位；历史机器学习职位不能当作当前机会。",
+      "sources": [
+        {
+          "label": "机构官网",
+          "url": "https://www.wenbofund.com/index.html"
+        },
+        {
+          "label": "当前校园招聘门户",
+          "url": "https://mh.hire66.com/position?secret_key=O8wvS7JBcc"
+        }
+      ]
+    },
+    {
+      "name": "上海念空",
+      "status": "相邻观察",
+      "signal": "当前公开资深量化数据研究员强调另类数据评估、经济逻辑、数据工程和研究落地。",
+      "decision": "能补充数据与研究工程证据，但岗位不以商品策略所有权为主，且本轮未取得最新百亿规模一手证据。",
+      "sources": [
+        {
+          "label": "当前公开职位",
+          "url": "https://www.nowcoder.com/jobs/detail/450243"
+        }
+      ]
+    },
+    {
+      "name": "上海锴量投资",
+      "status": "规模淘汰",
+      "signal": "官网量化研究岗位覆盖股票和期货数据、因子加工与机器学习。",
+      "decision": "协会公示管理规模为 5–10 亿元，明确低于 100 亿元硬门槛，不继续投入。",
+      "sources": [
+        {
+          "label": "协会管理人公示",
+          "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/1906101543108936.html"
+        },
+        {
+          "label": "机构官网职位",
+          "url": "https://www.chiquant.com/"
+        }
+      ]
+    },
+    {
+      "name": "匿名百亿 CTA 猎头岗位",
+      "status": "薪资淘汰",
+      "signal": "商品期货、统计建模、组合优化与风险归因均相关，上海月薪 3–6 万元。",
+      "decision": "机构身份未披露，且年化公开固定薪上限约 72 万元，未达到 100 万元。",
+      "sources": [
+        {
+          "label": "当前猎头职位",
+          "url": "https://www.zhaopin.com/jobdetail/CC664497020J40863066501.htm"
+        }
+      ]
+    },
+    {
+      "name": "匿名百亿私募量化研究员",
+      "status": "时效淘汰",
+      "signal": "页面仍可访问，要求 3–5 年成熟策略、Python、Matlab 和 SQL。",
+      "decision": "职位引用编号始于 2021，雇主身份与当前招聘状态不清；不进入当前岗位池。",
+      "sources": [
+        {
+          "label": "猎头职位页",
+          "url": "https://www.michaelpage.com.cn/job-detail/%E9%87%8F%E5%8C%96%E7%A0%94%E7%A9%B6%E5%91%98-%E7%99%BE%E4%BA%BF%E7%BA%A7%E7%A7%81%E5%8B%9F/ref/jn-122021-4559536"
+        }
+      ]
+    },
+    {
+      "name": "Point72 / Cubist 期货与宏观量化研究",
+      "status": "地点淘汰",
+      "signal": "当前职位覆盖期货、商品、截面与时间序列信号、组合优化，公开固定薪也高于人民币 100 万元。",
+      "decision": "当前岗位地点为纽约、香港等，不包含上海；地点是硬条件，因此不进入机会池。",
+      "sources": [
+        {
+          "label": "当前宏观量化职位",
+          "url": "https://careers.point72.com/CSJobDetail?jobCode=CSS-0008107&jobName=quantitative-researcher-macro&retURL=%2FCSCareerSearch"
+        },
+        {
+          "label": "当前通用量化职位",
+          "url": "https://careers.point72.com/CSJobDetail?jobCode=CSS-0010379&jobName=quantitative-researcher&retURL=%2FCSCareerSearch"
+        }
+      ]
+    },
+    {
+      "name": "花旗上海交易分析岗位",
+      "status": "职责淘汰",
+      "signal": "当前上海职位涉及公开数据、绩效评价、归因、风险与保证金方法，并与量化团队协作。",
+      "decision": "核心是股票交易产品、客户分析和风险框架，不是商品策略研究与所有权；不因全球机构规模放宽职责要求。",
+      "sources": [
+        {
+          "label": "当前官方职位",
+          "url": "https://jobs.citi.com/job/shanghai/markets-analyst-equity-trading/287/96291603472"
+        }
+      ]
+    },
+    {
+      "name": "BNP Paribas Asset Management 多资产 PM",
+      "status": "时效淘汰",
+      "signal": "上海中高级岗位要求五年以上投资管理或量化研究，覆盖跨资产、因子、衍生品、组合构建、归因和风险分解。",
+      "decision": "雇主职位页已明确停止接受申请，且 BNP 官方上海当前职位列表中没有该岗位；职责可作 PM 标杆，但不能当作当前机会。",
+      "sources": [
+        {
+          "label": "已关闭雇主职位页",
+          "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-multi-assets-investments-at-bnp-paribas-asset-management-4199223729"
+        },
+        {
+          "label": "官方上海当前职位列表",
+          "url": "https://group.bnpparibas/en/careers/all-job-offers/shanghai"
+        }
+      ]
+    },
+    {
+      "name": "Two Sigma 上海 Portfolio Manager",
+      "status": "历史职责标杆",
+      "signal": "岗位曾要求五年以上组合经验，直接管理境内期货、股票和债券组合，并基于系统信号承担投资与风险决策。",
+      "decision": "职位一年前发布且已停止接受申请，不进入机会池；其“信号输入、PM 最终决策、跨团队执行”的边界可用于校准目标授权。",
+      "sources": [
+        {
+          "label": "已关闭雇主职位页",
+          "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-shanghai-at-two-sigma-3985803466"
+        },
+        {
+          "label": "机构招聘入口",
+          "url": "https://careers.twosigma.com/careers/SearchJobs"
+        }
+      ]
+    },
+    {
+      "name": "Man Group 上海 Quantitative Researcher - AI/ML",
+      "status": "技能门槛不符",
+      "signal": "当前岗位覆盖 LLM、NLP、另类数据、深度学习、强化学习、AI 交易成本模型、风险模型和组合优化，属于专职 AI 投资研究路径。",
+      "decision": "不因熟练使用大模型而投递。岗位明确要求核心 ML 理论、Transformer/扩散模型、顶会论文或论文工作、基础模型微调和多机 CPU/GPU；现有可验证优势是 LLM 研究工作流，不是 AI 模型研究履历。保留为能力边界，并把 AI 实践用于同机构 China Macro 岗加分。",
+      "sources": [
+        {
+          "label": "当前雇主职位页",
+          "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-ai-ml-at-man-group-4433591653"
+        }
+      ]
+    }
+  ]
+}
