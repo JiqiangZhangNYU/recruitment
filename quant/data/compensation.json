@@ -126,6 +126,68 @@
       "rationale": "岗位匹配不等于薪酬达标，进入面试前确认固定现金、奖金规则和递延比例。"
     }
   ],
+  "offerExamples": [
+    {
+      "id": "fixed-only",
+      "label": "100 万固定，无奖金",
+      "guaranteed": 1000000,
+      "bonus": 0,
+      "taxMode": "separate",
+      "totalGross": 1000000,
+      "estimatedCash": 706002.77,
+      "guaranteePass": true,
+      "cashPass": false,
+      "note": "固定条件通过，但现金到手只有约 70.6 万元。"
+    },
+    {
+      "id": "separate-minimum",
+      "label": "100 万固定 + 10.5 万奖金",
+      "guaranteed": 1000000,
+      "bonus": 105000,
+      "taxMode": "separate",
+      "totalGross": 1105000,
+      "estimatedCash": 800712.77,
+      "guaranteePass": true,
+      "cashPass": true,
+      "note": "奖金符合全年一次性奖金单独计税且单位实际采用时，两道条件均通过。"
+    },
+    {
+      "id": "merged-minimum",
+      "label": "100 万固定 + 16 万奖金",
+      "guaranteed": 1000000,
+      "bonus": 160000,
+      "taxMode": "merged",
+      "totalGross": 1160000,
+      "estimatedCash": 803836.19,
+      "guaranteePass": true,
+      "cashPass": true,
+      "note": "奖金并入综合所得的保守筛选方案，两道条件均通过。"
+    },
+    {
+      "id": "fixed-strong",
+      "label": "116 万固定，无奖金",
+      "guaranteed": 1160000,
+      "bonus": 0,
+      "taxMode": "merged",
+      "totalGross": 1160000,
+      "estimatedCash": 803836.19,
+      "guaranteePass": true,
+      "cashPass": true,
+      "note": "全部作为固定保证收入时，即使没有绩效奖金也超过 80 万元现金。"
+    },
+    {
+      "id": "package-trap",
+      "label": "80 万固定 + 30 万奖金",
+      "guaranteed": 800000,
+      "bonus": 300000,
+      "taxMode": "separate",
+      "totalGross": 1100000,
+      "estimatedCash": 817412.77,
+      "guaranteePass": false,
+      "cashPass": true,
+      "note": "总包和税后现金可能看起来足够，但固定保证收入未达到 100 万元，仍然淘汰。"
+    }
+  ],
   "sources": [
     {
       "label": "《中华人民共和国个人所得税法》",

@@ -68,6 +68,7 @@ python3 -m http.server 4180
 ```bash
 node scripts/build-compensation-model.cjs
 node tests/data-check.cjs
+node tests/compensation-check.cjs
 node tests/collector-check.cjs
 node --check app.js
 ```

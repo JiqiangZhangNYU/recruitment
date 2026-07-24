@@ -1552,6 +1552,74 @@ a:focus-visible {
   color: var(--amber);
 }
 
+.offer-example-table {
+  border-top: 1px solid var(--line-strong);
+}
+
+.offer-example-row {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.6fr) repeat(4, minmax(90px, 0.55fr));
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.offer-example-row > * {
+  min-width: 0;
+  padding: 13px 12px;
+}
+
+.offer-example-row > *:first-child {
+  padding-left: 0;
+}
+
+.offer-example-row > *:last-child {
+  padding-right: 0;
+}
+
+.offer-example-row span,
+.offer-example-row em {
+  font-size: 10px;
+}
+
+.offer-example-head {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.offer-example-row strong,
+.offer-example-row small {
+  display: block;
+}
+
+.offer-example-row strong {
+  font-size: 12px;
+}
+
+.offer-example-row small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.offer-example-row em {
+  width: fit-content;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.offer-example-row em[data-pass="true"] {
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+}
+
+.offer-example-row em[data-pass="false"] {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 9%, transparent);
+}
+
 .assumption-grid {
   display: grid;
   grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
@@ -3341,6 +3409,50 @@ a:focus-visible {
 
   .compensation-summary article:last-child {
     border-bottom: 0;
+  }
+
+  .offer-example-head {
+    display: none;
+  }
+
+  .offer-example-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px 12px;
+    padding: 14px 0;
+  }
+
+  .offer-example-row > * {
+    padding: 0;
+  }
+
+  .offer-example-row > div {
+    grid-column: 1 / -1;
+  }
+
+  .offer-example-row > span::before,
+  .offer-example-row > em::before {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--muted);
+    font-size: 8px;
+    font-style: normal;
+    content: "";
+  }
+
+  .offer-example-row > span:nth-child(2)::before {
+    content: "税前总额";
+  }
+
+  .offer-example-row > span:nth-child(3)::before {
+    content: "现金到手";
+  }
+
+  .offer-example-row > em:nth-child(4)::before {
+    content: "固定保证";
+  }
+
+  .offer-example-row > em:nth-child(5)::before {
+    content: "税后现金";
   }
 
   .mandate-grid {

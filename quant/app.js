@@ -611,6 +611,26 @@ function renderCompensation() {
         </div>
       </div>
     </section>
+    <section class="offer-examples section-band" aria-labelledby="offer-examples-title">
+      <header class="section-heading compact-heading">
+        <p class="section-index">OFFER STRUCTURE EXAMPLES</p>
+        <h2 id="offer-examples-title">总包相近，结论可能相反</h2>
+      </header>
+      <div class="offer-example-table" role="table" aria-label="录用条件拆分示例">
+        <div class="offer-example-row offer-example-head" role="row">
+          <span role="columnheader">报价拆分</span><span role="columnheader">税前总额</span><span role="columnheader">现金到手</span><span role="columnheader">固定保证</span><span role="columnheader">税后现金</span>
+        </div>
+        ${dataset.offerExamples.map((example) => `
+          <article class="offer-example-row" role="row" data-example="${escapeHTML(example.id)}">
+            <div role="cell"><strong>${escapeHTML(example.label)}</strong><small>${escapeHTML(example.note)}</small></div>
+            <span role="cell">${formatWan(example.totalGross)}</span>
+            <span role="cell">${formatWan(example.estimatedCash)}</span>
+            <em role="cell" data-pass="${example.guaranteePass}">${example.guaranteePass ? "通过" : "不通过"}</em>
+            <em role="cell" data-pass="${example.cashPass}">${example.cashPass ? "通过" : "不通过"}</em>
+          </article>
+        `).join("")}
+      </div>
+    </section>
     <section class="assumption-band section-band" aria-labelledby="assumption-title">
       <header class="section-heading compact-heading">
         <p class="section-index">ASSUMPTIONS & SOURCES</p>
