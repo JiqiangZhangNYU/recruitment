@@ -5,25 +5,23 @@
     "roleIds": [
       "yanfu-quant-researcher",
       "minghong-ai-quant-researcher",
-      "minghong-research-engineer",
-      "minghong-post-trading-data",
-      "lingjun-quant-developer",
       "century-frontier-quant-researcher",
+      "century-frontier-general-quant-researcher",
       "century-frontier-portfolio-optimization",
-      "century-frontier-ml-researcher",
       "tianyan-senior-quant-researcher",
       "jq-quant-strategy-researcher"
     ],
-    "size": 10,
-    "rule": "只统计当前、机构百亿以上、地点包含上海且为社招或可面向有经验候选人的已核验岗位；匿名客户和已关闭岗位排除。",
-    "warning": "这是定向岗位样本的描述性频率，不是上海量化招聘市场的总体估计。"
+    "size": 7,
+    "rule": "只统计当前、百亿以上、上海可选且直接承担 Alpha、预测、组合或投资判断的研究岗位；研究工程、交易后数据、纯开发、匿名客户和历史岗位不计入频次。",
+    "warning": "频次只回答公开 JD 写了什么；0/7 不代表能力不重要，负责人晋级项需结合职责缺口单独判断。"
   },
   "skills": [
     {
       "id": "python",
       "label": "Python 与可复现研究代码",
-      "count": 10,
+      "count": 7,
       "priority": "P0",
+      "basis": "JD 共识",
       "candidateState": "强项",
       "candidateEvidence": "六年策略研究持续使用 Python，并把公开数据、模型预测和组合优化连接起来。",
       "gap": "尚未把代码质量、测试和实验可复现性做成可展示的脱敏证据。",
@@ -33,8 +31,9 @@
     {
       "id": "research-rigor",
       "label": "严谨验证与证据链",
-      "count": 8,
+      "count": 7,
       "priority": "P0",
+      "basis": "JD 共识",
       "candidateState": "强项待包装",
       "candidateEvidence": "2024.03 至今有费后实盘，可直接比较预测、回测与真实结果。",
       "gap": "需要统一样本外、费用、收益归因和失败实验的书面口径。",
@@ -46,6 +45,7 @@
       "label": "统计建模与预测",
       "count": 7,
       "priority": "P0",
+      "basis": "JD 共识",
       "candidateState": "强项",
       "candidateEvidence": "个人负责从公开数据构造信号、模型预测并把预测用于组合。",
       "gap": "需要用一个脱敏案例说明目标、损失函数、稳定性和边际贡献。",
@@ -55,8 +55,9 @@
     {
       "id": "machine-learning",
       "label": "机器学习与非线性模型",
-      "count": 5,
+      "count": 3,
       "priority": "P1",
+      "basis": "差异化",
       "candidateState": "待补证",
       "candidateEvidence": "熟练使用大模型和 Python，但这不能自动证明金融机器学习或深度学习能力。",
       "gap": "缺少非线性模型相对线性基线的样本外增益、漂移和上线成本证据。",
@@ -66,8 +67,9 @@
     {
       "id": "productionization",
       "label": "研究到实盘的一致性",
-      "count": 7,
+      "count": 4,
       "priority": "P0",
+      "basis": "JD 共识",
       "candidateState": "强项有边界",
       "candidateEvidence": "策略已由公司 PM 配置约 10 亿元费后实盘运行。",
       "gap": "下单由同事负责，需要补足实盘和模拟偏差、监控及执行接口证据。",
@@ -79,6 +81,7 @@
       "label": "数据到 Alpha 的研究能力",
       "count": 6,
       "priority": "P0",
+      "basis": "JD 共识",
       "candidateState": "核心强项",
       "candidateEvidence": "六年商品期货日频截面策略研究，个人负责公开数据信号。",
       "gap": "需要在不泄露策略的前提下证明原创性、正交增量和跨状态稳定性。",
@@ -88,8 +91,9 @@
     {
       "id": "portfolio-risk",
       "label": "组合优化、风险归因与容量",
-      "count": 1,
+      "count": 2,
       "priority": "P0",
+      "basis": "晋级门槛",
       "candidateState": "强项有决策缺口",
       "candidateEvidence": "个人负责组合优化，现有策略资金约 10 亿元，容量估计 50 亿元以上。",
       "gap": "资金配置、杠杆和最终风险决策由 PM 负责，尚无独立授权记录。",
@@ -99,8 +103,9 @@
     {
       "id": "sql-data",
       "label": "SQL、数据工程与质量控制",
-      "count": 1,
+      "count": 0,
       "priority": "P1",
+      "basis": "支撑能力",
       "candidateState": "待核验",
       "candidateEvidence": "当前已确认事实没有明确说明 SQL、ETL 或数据平台职责。",
       "gap": "先核验真实熟练度，再决定补基础还是只准备研究数据质量案例。",
@@ -110,8 +115,9 @@
     {
       "id": "transaction-costs",
       "label": "交易成本与实盘偏差",
-      "count": 2,
+      "count": 0,
       "priority": "P0",
+      "basis": "晋级门槛",
       "candidateState": "部分强项",
       "candidateEvidence": "低换手和 50 亿元以上容量估计表明已考虑成本与规模。",
       "gap": "本人不负责下单，需要补充滑点、冲击、参与率和实盘偏差的量化证据。",
@@ -121,13 +127,26 @@
     {
       "id": "collaboration",
       "label": "跨研究、交易与工程协作",
-      "count": 6,
+      "count": 3,
       "priority": "P1",
+      "basis": "JD 共识",
       "candidateState": "已确认",
       "candidateEvidence": "与 PM、交易同事分工协作，并指导过实习生。",
       "gap": "没有正式带团队经历，沟通时应定位为技术影响力和研究协作，不包装人员管理。",
       "interpretation": "IC 路线仍要求清楚定义接口、推动落地并指导年轻研究者，不等于人员管理。",
       "evidenceToPrepare": "准备与 PM、交易、数据同事协作以及指导实习生的具体案例。"
+    },
+    {
+      "id": "strategy-ownership",
+      "label": "策略所有权与投资判断",
+      "count": 1,
+      "priority": "P0",
+      "basis": "晋级门槛",
+      "candidateState": "目标能力",
+      "candidateEvidence": "本人拥有信号、预测和组合优化研究链条，但资金配置、上线停用和最终风险决策由公司 PM 负责。",
+      "gap": "没有独立资金授权或最终投资决策记录，不能把公司 PM 的权限写成个人经历。",
+      "interpretation": "公开研究 JD 很少明写最终授权，但研究型 PM 的定价取决于能否提出风险预算、停用规则并承担判断责任。",
+      "evidenceToPrepare": "准备一份不冒领权限的 PM 迁移案例：说明自己会如何设预算、监控、降杠杆、停用和复盘。"
     }
   ]
 }

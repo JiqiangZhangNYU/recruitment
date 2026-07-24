@@ -1029,7 +1029,7 @@ function renderJobSkills() {
               <span class="skill-frequency"><i style="--frequency: ${skill.count / sample.size}"></i></span>
               <strong>${escapeHTML(skill.label)}</strong>
               <span>${skill.count} / ${sample.size}</span>
-              <small>${escapeHTML(skill.priority)}</small>
+              <small>${escapeHTML(skill.priority)} · ${escapeHTML(skill.basis)}</small>
             </summary>
             <div>
               <p>${escapeHTML(skill.interpretation)}</p>

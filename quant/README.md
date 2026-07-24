@@ -79,7 +79,13 @@ node --check app.js
 NODE_PATH=/mnt/Data/jiqiang/job/node_modules \
 SITE_URL=http://127.0.0.1:4180 \
 node tests/site-check.cjs
+
+NODE_PATH=/mnt/Data/jiqiang/job/node_modules \
+SITE_URL=http://127.0.0.1:4180 \
+node tests/performance-check.cjs
 ```
+
+性能测试按实际响应正文设置未压缩预算：首屏不超过 145 KB，岗位核心数据增量不超过 60 KB；面试题库、求职材料、检索审计和单份证据模板必须在用户进入对应二级页签后才加载。GitHub Pages 还会对可压缩资源启用传输压缩，因此线上传输量通常更小。
 
 ## 数据边界
 

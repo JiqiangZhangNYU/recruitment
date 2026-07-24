@@ -1800,7 +1800,7 @@ a:focus-visible {
 
 .market-skill-row summary {
   display: grid;
-  grid-template-columns: 160px minmax(180px, 1fr) 50px 38px;
+  grid-template-columns: 160px minmax(180px, 1fr) 50px 92px;
   gap: 16px;
   align-items: center;
   min-height: 54px;
@@ -1822,6 +1822,7 @@ a:focus-visible {
 .market-skill-row summary > small {
   text-align: right;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .skill-frequency {
@@ -3735,7 +3736,7 @@ a:focus-visible {
   }
 
   .market-skill-row summary {
-    grid-template-columns: minmax(0, 1fr) 38px 28px;
+    grid-template-columns: minmax(0, 1fr) 38px 90px;
   }
 
   .skill-frequency {

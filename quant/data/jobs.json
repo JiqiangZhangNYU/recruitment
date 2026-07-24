@@ -135,6 +135,24 @@
       "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "research-rigor", "productionization"]
     },
     {
+      "id": "century-frontier-general-quant-researcher",
+      "institutionId": "century-frontier",
+      "title": "量化研究员（预测 / 组合优化 / 执行优化）",
+      "location": "上海等办公室",
+      "employment": "全职",
+      "status": "active",
+      "pool": "strict-watch",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": { "publisher": "世纪前沿官网", "kind": "official-careers", "url": "https://www.centuryfrontier.com/contact" },
+      "fit": { "tier": "A", "score": 90, "verdict": "官网把期货预测、模型集成和组合优化列在同一研究岗位，直接覆盖当前职责；但“职责任一”意味着入职范围可能很窄，需锁定低频商品和组合方向。" },
+      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "verify" },
+      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网未披露薪酬或职级；需按六年实盘和约 10 亿元现有配置核验百万固定薪。" },
+      "responsibilities": ["因子挖掘并研发股票或期货预测模型", "完成模型集成和投资组合优化", "可选择承担高频交易执行优化"],
+      "requirements": ["一流院校数量学科硕士及以上", "Python、MATLAB 或 R", "扎实数学基础、量化创新和英文文献阅读能力"],
+      "skillTags": ["python", "statistical-modeling", "signal-research", "portfolio-risk", "research-rigor", "productionization"]
+    },
+    {
       "id": "century-frontier-portfolio-optimization",
       "institutionId": "century-frontier",
       "title": "Quantitative Researcher - Portfolio Optimization",
