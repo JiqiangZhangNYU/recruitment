@@ -121,11 +121,7 @@
       "decision": "雇主职位页已明确停止接受申请，且 BNP 官方上海当前职位列表中没有该岗位；职责可作 PM 标杆，但不能当作当前机会。",
       "sources": [
         {
-          "label": "已关闭雇主职位页",
-          "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-multi-assets-investments-at-bnp-paribas-asset-management-4199223729"
-        },
-        {
-          "label": "官方上海当前职位列表",
+          "label": "BNP Paribas 官方上海当前职位列表（已无该岗位）",
           "url": "https://group.bnpparibas/en/careers/all-job-offers/shanghai"
         }
       ]
@@ -137,12 +133,8 @@
       "decision": "职位一年前发布且已停止接受申请，不进入机会池；其“信号输入、PM 最终决策、跨团队执行”的边界可用于校准目标授权。",
       "sources": [
         {
-          "label": "已关闭雇主职位页",
-          "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-shanghai-at-two-sigma-3985803466"
-        },
-        {
-          "label": "机构招聘入口",
-          "url": "https://careers.twosigma.com/careers/SearchJobs"
+          "label": "Two Sigma 官方招聘入口（当前已无该岗位）",
+          "url": "https://www.twosigma.com/careers/"
         }
       ]
     },
@@ -153,8 +145,8 @@
       "decision": "不因熟练使用大模型而投递。岗位明确要求核心 ML 理论、Transformer/扩散模型、顶会论文或论文工作、基础模型微调和多机 CPU/GPU；现有可验证优势是 LLM 研究工作流，不是 AI 模型研究履历。保留为能力边界，并把 AI 实践用于同机构 China Macro 岗加分。",
       "sources": [
         {
-          "label": "当前雇主职位页",
-          "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-ai-ml-at-man-group-4433591653"
+          "label": "Man Group 官方职位页",
+          "url": "https://job-boards.eu.greenhouse.io/mangroup/jobs/4882441101"
         }
       ]
     },
@@ -165,12 +157,12 @@
       "decision": "职责和目标头衔相关，但不能把 PM 配置给策略的约 10 亿元表述为个人独立管理规模。只有用人方接受可核验的研究、预测和组合所有权，并提供分阶段正式资金授权时才继续；同时需以资管 AUM 而非证券公司总资产核验百亿门槛。",
       "sources": [
         {
-          "label": "当前雇主职位页",
-          "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E6%B7%B1%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E7%BB%8F%E7%90%86-mj002571-at-%E4%B8%9C%E6%96%B9%E8%AF%81%E5%88%B8%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-4419713651"
+          "label": "东方证券智联招聘职位页",
+          "url": "https://www.zhaopin.com/jobdetail/CC120160570J40646814716.htm"
         },
         {
-          "label": "同批高级量化研究员职位页",
-          "url": "https://cn.linkedin.com/jobs/view/%E9%AB%98%E7%BA%A7%E9%87%8F%E5%8C%96%E7%A0%94%E7%A9%B6%E5%91%98-mj002572-at-%E4%B8%9C%E6%96%B9%E8%AF%81%E5%88%B8%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-4420877247"
+          "label": "东方证券公司官网",
+          "url": "https://www.dfzq.com.cn/"
         }
       ]
     },

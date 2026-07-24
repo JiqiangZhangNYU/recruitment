@@ -13,9 +13,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "衍复投资雇主职位页",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AE%B6-at-shanghai-yanfu-investments-co-ltd-4338917596"
+        "publisher": "衍复投资官方招聘页",
+        "kind": "official-careers",
+        "url": "https://yanfuinvestments.com/about"
       },
       "fit": {
         "tier": "B",
@@ -144,9 +144,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "灵均投资雇主职位页",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/quantitative-developer-at-%E7%81%B5%E5%9D%87%E6%8A%95%E8%B5%84-4439142996"
+        "publisher": "灵均投资官方招聘页",
+        "kind": "official-careers",
+        "url": "https://www.lingjuninvest.com/jiaruwomen"
       },
       "fit": {
         "tier": "B-",
@@ -232,9 +232,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "中信期货雇主职位页",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E5%9B%A2%E9%98%9F-cta%E7%A0%94%E7%A9%B6%E5%91%98g00089-at-citic-futures-4421454852"
+        "publisher": "中信期货官方招聘门户",
+        "kind": "official-ats",
+        "url": "https://citicsfzp.zhiye.com/social/jobs"
       },
       "fit": {
         "tier": "B",
@@ -277,9 +277,9 @@
       "publishedAt": "2026-06",
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "中信期货雇主职位页（来源智联招聘）",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E9%83%A8-cta%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E7%BB%8F%E7%90%86g00909-at-citic-futures-4423908322"
+        "publisher": "中信期货官方招聘门户",
+        "kind": "official-ats",
+        "url": "https://citicsfzp.zhiye.com/social/jobs"
       },
       "fit": {
         "tier": "A",
@@ -460,19 +460,19 @@
       "title": "Commodity Quantitative Researcher",
       "location": "上海",
       "employment": "全职",
-      "status": "active",
-      "pool": "boundary",
+      "status": "closed",
+      "pool": "historical",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "Optiver 官网",
+        "publisher": "Optiver 上海官方招聘页",
         "kind": "official-careers",
-        "url": "https://www.optiver.com/join-us/jobs/institutional-sales-and-trading/shanghai/commodity-quantitative-researcher/"
+        "url": "https://www.optiver.com/join-us/locations/shanghai/"
       },
       "fit": {
         "tier": "A-",
         "score": 79,
-        "verdict": "商品、信号、Python 与 AI 内容直接匹配；但岗位要求 0–3 年经验，且自营交易商不满足百亿资管机构口径，仅作国际能力标杆。"
+        "verdict": "原岗位的商品、信号、Python 与 AI 内容直接匹配，但官方单岗页在 2026-07-24 已返回 404，当前上海职位列表也不再列出；仅作历史能力标杆。"
       },
       "eligibility": {
         "location": "pass",
@@ -608,9 +608,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "Durlston Partners",
+        "publisher": "Durlston Partners 官方岗位库",
         "kind": "recruiter-posting",
-        "url": "https://cn.linkedin.com/jobs/view/commodities-quant-researcher-at-durlston-partners-4434838658"
+        "url": "https://durlstonpartners.com/roles/"
       },
       "fit": {
         "tier": "A+",
@@ -1398,9 +1398,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "灵均投资雇主职位页",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-at-%E7%81%B5%E5%9D%87%E6%8A%95%E8%B5%84-4329194779"
+        "publisher": "灵均投资官方招聘页",
+        "kind": "official-careers",
+        "url": "https://www.lingjuninvest.com/jiaruwomen"
       },
       "fit": {
         "tier": "A",

@@ -19,9 +19,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "衍复投资雇主职位页",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/%E9%87%8F%E5%8C%96%E7%A0%94%E7%A9%B6%E5%91%98-at-%E4%B8%8A%E6%B5%B7%E8%A1%8D%E5%A4%8D%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-4338927628"
+        "publisher": "衍复投资官方招聘页",
+        "kind": "official-careers",
+        "url": "https://yanfuinvestments.com/about"
       },
       "fit": {
         "tier": "A",
@@ -194,9 +194,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "世纪前沿雇主职位页",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-portfolio-optimization-at-%E4%B8%96%E7%BA%AA%E5%89%8D%E6%B2%BF%E8%B5%84%E4%BA%A7-century-frontier-asset-management-4384810082"
+        "publisher": "世纪前沿官方招聘页",
+        "kind": "official-careers",
+        "url": "https://www.centuryfrontier.com/contact"
       },
       "fit": {
         "tier": "A",
@@ -329,9 +329,9 @@
       "publishedAt": "2026-07-18",
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "Man Group 雇主职位页",
-        "kind": "employer-posting",
-        "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-at-man-group-4433353137"
+        "publisher": "Man Group 官方职位页",
+        "kind": "official-ats",
+        "url": "https://job-boards.eu.greenhouse.io/mangroup/jobs/4882442101"
       },
       "fit": {
         "tier": "A+",
@@ -466,8 +466,8 @@
   ],
   "catalog": {
     "total": 41,
-    "active": 40,
-    "historical": 1,
+    "active": 39,
+    "historical": 2,
     "strict": 10
   }
 }

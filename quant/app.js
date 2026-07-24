@@ -811,7 +811,7 @@ function renderJobCards(jobs) {
                   <h3>${escapeHTML(job.title)}</h3>
                   <p>${escapeHTML(job.location)} · ${escapeHTML(job.employment)} · <span class="job-freshness" data-freshness="${escapeHTML(freshness.state)}">${escapeHTML(freshness.label)}</span></p>
                 </div>
-                <a href="${escapeHTML(job.source.url)}" target="_blank" rel="noopener noreferrer">查看原职位</a>
+                <a href="${escapeHTML(job.source.url)}" target="_blank" rel="noopener noreferrer">打开招聘页</a>
               </header>
               <div class="job-gates" aria-label="岗位硬条件">
                 ${renderGate("上海", job.eligibility.location)}

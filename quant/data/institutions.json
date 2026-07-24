@@ -103,12 +103,11 @@
       "priority": "次要",
       "scale": { "status": "verify", "band": "2022Q4 私募资管月均约1200亿元，当前值待核", "asOf": "2022-12-31" },
       "shanghai": { "status": "pass", "evidence": "当前 CTA 投资经理与研究员职位均明确位于上海。" },
-      "career": { "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E9%83%A8-cta%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E7%BB%8F%E7%90%86g00909-at-citic-futures-4423908322", "status": "active", "note": "当前同时存在上海 CTA 投资经理与支持型研究员岗位；前者与目标职责高度贴合。" },
+      "career": { "url": "https://citicsfzp.zhiye.com/social/jobs", "status": "active", "note": "公司官网直接链接官方北森招聘门户；当前另有上海 CTA 投资经理与支持型研究员公开线索。" },
       "accessPolicy": { "mode": "manual", "reason": "人工核验雇主公开职位页和公司官网，不自动采集。" },
       "sources": [
         { "label": "中信期货官方介绍", "url": "https://www.citicsf.com/e-futures/about/", "supports": "公司主体、业务范围和期货资管属性" },
-        { "label": "中信期货 CTA 投资经理职位页", "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E9%83%A8-cta%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E7%BB%8F%E7%90%86g00909-at-citic-futures-4423908322", "supports": "当前投资经理岗位、上海地点、职责要求和历史资管规模自述" },
-        { "label": "中信期货 CTA 研究员职位页", "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E5%9B%A2%E9%98%9F-cta%E7%A0%94%E7%A9%B6%E5%91%98g00089-at-citic-futures-4421454852", "supports": "同团队支持型岗位的职责边界" }
+        { "label": "中信期货官方招聘门户", "url": "https://citicsfzp.zhiye.com/social/jobs", "supports": "公司官网直达的社会招聘入口；具体 CTA 岗位状态需在门户内复核" }
       ]
     },
     {
@@ -165,11 +164,11 @@
       "priority": "主要",
       "scale": { "status": "pass", "band": "全球 AUM 2,287 亿美元", "asOf": "2026-03-31" },
       "shanghai": { "status": "pass", "evidence": "当前 Quantitative Researcher 职位位于上海，并明确属于 dedicated China research team。" },
-      "career": { "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-at-man-group-4433353137", "status": "active", "note": "当前上海岗位聚焦中国期货、宏观量化与风险平价完整生命周期。" },
+      "career": { "url": "https://job-boards.eu.greenhouse.io/mangroup/jobs/4882442101", "status": "active", "note": "当前上海岗位聚焦中国期货、宏观量化与风险平价完整生命周期。" },
       "accessPolicy": { "mode": "manual", "reason": "人工核验 Man Group 官网和雇主公开职位页；不访问登录后申请数据。" },
       "sources": [
         { "label": "Man Group 官方机构介绍", "url": "https://www.man.com/about-us", "supports": "全球另类投资管理属性及截至 2026-03-31 的 2,287 亿美元 AUM" },
-        { "label": "Man Group 上海雇主职位页", "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-at-man-group-4433353137", "supports": "当前岗位、上海地点、中国期货经验要求和完整投资生命周期职责" }
+        { "label": "Man Group 上海官方职位页", "url": "https://job-boards.eu.greenhouse.io/mangroup/jobs/4882442101", "supports": "当前岗位、上海地点、中国期货经验要求和完整投资生命周期职责" }
       ]
     },
     {
