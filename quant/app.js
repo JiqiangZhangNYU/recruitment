@@ -836,6 +836,9 @@ function renderApplicationKit() {
 
 function renderActionPlan() {
   const plan = state.actionPlan;
+  if (!plan) {
+    return `<div class="audit-loading" role="status"><span></span><strong>正在载入行动清单</strong></div>`;
+  }
   return `
     <div class="action-plan">
       <p class="action-principle">${escapeHTML(plan.principle)}</p>
@@ -863,6 +866,29 @@ function renderActionPlan() {
             </details>
           `;
         }).join("")}
+      </section>
+      <section class="decision-rights section-band" aria-labelledby="decision-rights-title">
+        <header class="section-heading compact-heading">
+          <p class="section-index">DECISION RIGHTS</p>
+          <h3 id="decision-rights-title">${escapeHTML(plan.decisionRights.title)}</h3>
+        </header>
+        <p class="decision-rights-note">${escapeHTML(plan.decisionRights.note)}</p>
+        <div class="decision-rights-list">
+          ${plan.decisionRights.items.map((item) => `
+            <details class="decision-right-row">
+              <summary>
+                <strong>${escapeHTML(item.area)}</strong>
+                <span>${escapeHTML(item.current)}</span>
+                <em data-decision-status="${escapeHTML(item.status)}">${escapeHTML(item.status)}</em>
+              </summary>
+              <div>
+                <p><span>目标权责</span>${escapeHTML(item.target)}</p>
+                <p><span>必须问</span>${escapeHTML(item.mustAsk)}</p>
+                <p class="decision-reject"><span>拒绝条件</span>${escapeHTML(item.rejectIf)}</p>
+              </div>
+            </details>
+          `).join("")}
+        </div>
       </section>
       <section class="negotiation-script section-band" aria-labelledby="negotiation-title">
         <header class="section-heading compact-heading">
@@ -1047,7 +1073,7 @@ function renderJobSkills() {
 
 function renderJobs() {
   const filters = jobFilterOptions();
-  const queueRanks = new Map(state.actionPlan.queue.map((item) => [item.jobId, item.rank]));
+  const queueRanks = new Map((state.actionPlan?.queue || []).map((item) => [item.jobId, item.rank]));
   const jobs = state.jobs.jobs
     .filter((job) => job.pool === state.jobFilter)
     .sort((left, right) => (
@@ -1133,12 +1159,11 @@ async function ensureCompensation() {
 }
 
 async function ensureJobs() {
-  if (!state.institutions || !state.jobs || !state.jobSkills || !state.actionPlan) {
-    [state.institutions, state.jobs, state.jobSkills, state.actionPlan] = await Promise.all([
+  if (!state.institutions || !state.jobs || !state.jobSkills) {
+    [state.institutions, state.jobs, state.jobSkills] = await Promise.all([
       loadJSON("data/institutions.json"),
       loadJSON("data/jobs.json"),
       loadJSON("data/job-skills.json"),
-      loadJSON("data/action-plan.json"),
     ]);
   }
   renderJobs();
@@ -1209,6 +1234,15 @@ document.addEventListener("click", async (event) => {
     if (state.jobFilter === "audit" && !state.searchAudit) {
       try {
         state.searchAudit = await loadJSON("data/search-audit.json");
+        renderJobs();
+      } catch (error) {
+        console.error(error);
+        elements.errorState.hidden = false;
+      }
+    }
+    if (state.jobFilter === "actions" && !state.actionPlan) {
+      try {
+        state.actionPlan = await loadJSON("data/action-plan.json");
         renderJobs();
       } catch (error) {
         console.error(error);

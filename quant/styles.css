@@ -2158,6 +2158,7 @@ a:focus-visible {
 }
 
 .application-queue h3,
+.decision-rights h3,
 .negotiation-script h3,
 .evidence-pack h3 {
   margin: 0;
@@ -2244,6 +2245,91 @@ a:focus-visible {
   padding-top: 10px;
   color: var(--danger);
   border-top: 1px dashed var(--line);
+}
+
+.decision-rights-note {
+  max-width: 820px;
+  margin: 14px 0 18px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.decision-rights-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.decision-right-row {
+  border-bottom: 1px solid var(--line);
+}
+
+.decision-right-row summary {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) 76px;
+  gap: 18px;
+  align-items: center;
+  min-height: 58px;
+  padding: 9px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.decision-right-row summary::-webkit-details-marker {
+  display: none;
+}
+
+.decision-right-row summary strong {
+  font-size: 12px;
+}
+
+.decision-right-row summary > span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.decision-right-row summary em {
+  padding: 3px 6px;
+  text-align: center;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border-radius: 3px;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.decision-right-row summary em[data-decision-status="需争取"] {
+  color: var(--amber);
+  background: var(--amber-soft);
+}
+
+.decision-right-row summary em[data-decision-status="保持协作"] {
+  color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.decision-right-row > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding: 0 0 18px 198px;
+}
+
+.decision-right-row > div p {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.decision-right-row > div p > span {
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.decision-right-row > div .decision-reject {
+  color: var(--danger);
 }
 
 .negotiation-script blockquote {
@@ -3593,13 +3679,19 @@ a:focus-visible {
   }
 
   .application-detail,
-  .negotiation-grid {
+  .negotiation-grid,
+  .decision-right-row > div {
     grid-template-columns: 1fr;
   }
 
   .application-positioning,
   .stop-rule {
     grid-column: auto;
+  }
+
+  .decision-right-row > div {
+    gap: 10px;
+    padding-left: 0;
   }
 
   .evidence-pack-list article {
@@ -3775,6 +3867,16 @@ a:focus-visible {
 
   .application-detail {
     padding-left: 40px;
+  }
+
+  .decision-right-row summary {
+    grid-template-columns: minmax(0, 1fr) 76px;
+    gap: 6px 10px;
+    padding: 12px 0;
+  }
+
+  .decision-right-row summary > span {
+    grid-column: 1 / -1;
   }
 
   .application-positioning,
