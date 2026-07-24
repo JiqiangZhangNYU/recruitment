@@ -77,7 +77,8 @@
       "accessPolicy": { "mode": "manual", "reason": "本轮人工核验官网职位页和雇主公开职位描述。" },
       "sources": [
         { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000073770.html", "supports": "机构类型、百亿以上规模、上海办公地址与更新时间" },
-        { "label": "佳期投资官方职位页", "url": "https://www.jqinvestments.com/positions", "supports": "当前开放岗位和上海地点" }
+        { "label": "佳期投资官方职位页", "url": "https://www.jqinvestments.com/positions", "supports": "当前开放岗位和上海地点" },
+        { "label": "佳期投资 BOSS 直聘职位页", "url": "https://www.zhipin.com/job_detail/fc58754142b53db40nR92t-8FFFZ.html", "supports": "当前岗位单页、职级字段和雇主信息" }
       ]
     },
     {
@@ -92,7 +93,8 @@
       "accessPolicy": { "mode": "manual", "reason": "本轮直接核验公开官网职位页，不访问外部投递系统。" },
       "sources": [
         { "label": "基金业协会管理人公示", "url": "https://gs.amac.org.cn/amac-infodisc/res/pof/manager/101000009631.html", "supports": "机构类型、百亿以上规模、上海办公地址与更新时间" },
-        { "label": "天演资本官方职位页", "url": "https://www.tianyancapital.com/zh/join-us/jobs/index.html", "supports": "资深量化研究员当前职责、要求和上海地点" }
+        { "label": "天演资本官方职位页", "url": "https://www.tianyancapital.com/zh/join-us/jobs/index.html", "supports": "资深量化研究员当前职责、要求和上海地点" },
+        { "label": "天演资本 BOSS 直聘职位页", "url": "https://www.zhipin.com/job_detail/740380144869036203dz39-9EFFZ.html", "supports": "衍生品量化岗位单页、5–10 年经验和雇主信息" }
       ]
     },
     {

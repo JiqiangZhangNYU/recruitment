@@ -237,9 +237,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "佳期投资官网与雇主职位页",
-        "kind": "official-careers",
-        "url": "https://www.jqinvestments.com/positions"
+        "publisher": "佳期投资 BOSS 直聘职位页",
+        "kind": "employer-posting",
+        "url": "https://www.zhipin.com/job_detail/fc58754142b53db40nR92t-8FFFZ.html"
       },
       "fit": {
         "tier": "A",
@@ -274,7 +274,7 @@
     {
       "id": "tianyan-senior-quant-researcher",
       "institutionId": "tianyan",
-      "title": "量化研究员（资深）",
+      "title": "量化研究员（资深）/ 衍生品量化研究员 (MJ000067)",
       "location": "上海",
       "employment": "全职社招",
       "status": "active",
@@ -282,9 +282,9 @@
       "publishedAt": null,
       "checkedAt": "2026-07-24",
       "source": {
-        "publisher": "天演资本官网",
-        "kind": "official-careers",
-        "url": "https://www.tianyancapital.com/zh/join-us/jobs/index.html"
+        "publisher": "天演资本 BOSS 直聘职位页",
+        "kind": "employer-posting",
+        "url": "https://www.zhipin.com/job_detail/740380144869036203dz39-9EFFZ.html"
       },
       "fit": {
         "tier": "A+",
