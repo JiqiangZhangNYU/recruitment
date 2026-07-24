@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-07-24",
-  "methodology": "机构规模优先采用中国证券投资基金业协会私募基金管理人公示信息；上海办公地点使用协会、机构官网或两者交叉核验。规模达标只说明机构层面满足百亿元门槛，不代表具体岗位的薪酬或职责达标。",
+  "methodology": "机构规模优先采用中国证券投资基金业协会私募基金管理人公示信息；上海办公地点使用协会、机构官网或两者交叉核验。规模达标只说明机构层面满足百亿元门槛，不代表具体岗位的职责和职级达标。",
   "institutions": [
     {
       "id": "yanfu",
@@ -139,7 +139,7 @@
       "sources": [
         { "label": "国泰君安期货官网", "url": "https://www.gtjaqh.com/pc/c/profile", "supports": "公司主体、上海总部、注册资本、业务范围与招聘入口" },
         { "label": "国泰君安期货资管官网", "url": "https://am.gtjaqh.com/", "supports": "截至2022年末资管规模峰值超过200亿元；不代表当前规模" },
-        { "label": "当前雇主职位页", "url": "https://www.zhaopin.com/jobdetail/CC290232610J40921980708.htm", "supports": "CTA研究员状态、上海地点、要求和公开薪资" }
+        { "label": "当前雇主职位页", "url": "https://www.zhaopin.com/jobdetail/CC290232610J40921980708.htm", "supports": "CTA研究员状态、上海地点与要求" }
       ]
     },
     {
@@ -231,6 +231,84 @@
       "sources": [
         { "label": "浙商基金官方招聘页", "url": "https://www.zsfund.com/aboutus/job/job1/index.html", "supports": "当前量化基金经理和量化研究员、上海地点、职责要求及截止日期" },
         { "label": "公开基金规模统计", "url": "https://fund.eastmoney.com/Company/f10/gmbd_80156777.html", "supports": "截至 2026-03-31 的管理规模约 295 亿元；需与后续官方披露交叉更新" }
+      ]
+    },
+    {
+      "id": "mingshi",
+      "name": "鸣石基金",
+      "legalName": "上海鸣石私募基金管理有限公司",
+      "type": "私募证券基金 / 量化对冲基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "500–600 亿元", "asOf": "2026-03-31" },
+      "shanghai": { "status": "pass", "evidence": "机构总部及官方社招系统当前两个职位均位于上海。" },
+      "career": { "url": "https://mingshiim.zhiye.com/social/jobs", "status": "active", "note": "官方社招接口当前列出 Portfolio Manager/Senior Quantitative Researcher 和资深 AI 量化工程师。" },
+      "accessPolicy": { "mode": "public-api", "reason": "只读取北森公开职位列表返回的岗位名称、地点、职责和要求，不访问投递或个人数据。" },
+      "sources": [
+        { "label": "鸣石基金官网", "url": "https://mingshiim.com/", "supports": "上海量化对冲基金主体、股票/期货/期权策略与研究体系" },
+        { "label": "鸣石官方社招系统", "url": "https://mingshiim.zhiye.com/social/jobs", "supports": "当前上海职位、职责、要求与岗位状态" },
+        { "label": "上海市虹口区政府走访信息", "url": "https://www.shhk.gov.cn/slh/038001/20260721/6a9b746e-3c50-484e-affd-7a68011d4a3f.html", "supports": "2026 年一季度管理规模 500–600 亿元" }
+      ]
+    },
+    {
+      "id": "blackwing",
+      "name": "黑翼资产",
+      "legalName": "上海黑翼资产管理有限公司",
+      "type": "私募证券基金 / 量化对冲基金",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "超过 200 亿元", "asOf": "2026-07-24" },
+      "shanghai": { "status": "pass", "evidence": "机构总部位于上海，官方招聘页把 CTA 研究员列为北京、上海、成都开放岗位。" },
+      "career": { "url": "https://www.blackwingasset.com/index.php?a=lists&c=index&catid=23&m=content", "status": "active", "note": "官网长期招聘 CTA 研究员、股票量化研究员及量化开发等职位。" },
+      "accessPolicy": { "mode": "manual", "reason": "官网为静态公开招聘页，本轮只人工核验岗位名称、地点和联系邮箱。" },
+      "sources": [
+        { "label": "黑翼资产官网", "url": "https://www.blackwingasset.com/", "supports": "超过 200 亿元管理规模、量化 CTA、股票量化和宏观对冲策略" },
+        { "label": "黑翼官方职位招聘", "url": "https://www.blackwingasset.com/index.php?a=lists&c=index&catid=23&m=content", "supports": "CTA 研究员等当前人才需求及上海地点" }
+      ]
+    },
+    {
+      "id": "luoshu",
+      "name": "洛书投资",
+      "legalName": "上海洛书投资管理有限公司",
+      "type": "私募证券基金 / 量化投资",
+      "priority": "观察",
+      "scale": { "status": "pass", "band": "超过 100 亿元", "asOf": "2026-01-31" },
+      "shanghai": { "status": "pass", "evidence": "总部及当前 Junior Quant Researcher 职位均位于上海浦东。" },
+      "career": { "url": "https://www.luoshu.com/", "status": "active", "note": "官网开放招聘入口，雇主认证页当前列出 22 个职位；相关研究岗职级偏初级。" },
+      "accessPolicy": { "mode": "manual", "reason": "官网对自动访问返回限制，本轮只人工核验官网和雇主认证职位页。" },
+      "sources": [
+        { "label": "洛书投资官网", "url": "https://www.luoshu.com/", "supports": "量化私募主体、CTA/股票/期权策略及官方招聘入口" },
+        { "label": "洛书雇主认证职位页", "url": "https://www.zhaopin.com/jobdetail/CC246060330J40670142712.htm", "supports": "当前 Junior Quant Researcher、上海地点、职责与职级" },
+        { "label": "2026 年管理人走访报道", "url": "https://cj.sina.com.cn/articles/view/5952915720/162d2490806703q6eu", "supports": "截至 2026 年 1 月末管理规模超过 100 亿元；属于二级来源" }
+      ]
+    },
+    {
+      "id": "mengxi",
+      "name": "蒙玺投资",
+      "legalName": "上海蒙玺投资管理有限公司",
+      "type": "私募证券基金 / 量化投资",
+      "priority": "观察",
+      "scale": { "status": "pass", "band": "超过 200 亿元", "asOf": "2026-03-04" },
+      "shanghai": { "status": "pass", "evidence": "官网列示上海浦东办公室和社会招聘入口。" },
+      "career": { "url": "https://www.mxifund.com/career", "status": "watch", "note": "官网接受社会招聘简历，但当前页面未公开可逐条核验的社会招聘职位名称。" },
+      "accessPolicy": { "mode": "manual", "reason": "只保留机构观察和官方投递入口，不把校园或实习岗位推断为社会招聘。" },
+      "sources": [
+        { "label": "蒙玺官方加入我们", "url": "https://www.mxifund.com/career", "supports": "上海办公室、社会招聘流程和官方邮箱" },
+        { "label": "2026 年百亿私募巡礼", "url": "https://finance.sina.com.cn/money/fund/original/2026-03-04/doc-inhpvpqk3838348.shtml", "supports": "2026 年管理规模超过 200 亿元；属于二级来源" }
+      ]
+    },
+    {
+      "id": "worldquant",
+      "name": "WorldQuant",
+      "legalName": "WorldQuant, LLC 及其中国研究办公室相关主体",
+      "type": "全球量化资产管理机构 / 对冲基金",
+      "priority": "观察",
+      "scale": { "status": "pass", "band": "外部客户资产接近 300 亿美元", "asOf": "2026-07-01" },
+      "shanghai": { "status": "pass", "evidence": "官方职位接口当前列出北京或上海 Quantitative Researcher 和 Data Scientist。" },
+      "career": { "url": "https://job-boards.greenhouse.io/worldquant", "status": "active", "note": "当前四条上海线索均偏校园或实习层级，本页保留两条全职岗位作为职级边界。" },
+      "accessPolicy": { "mode": "public-api", "reason": "只读取 Greenhouse 公开职位接口；规模为 WorldQuant Millennium Advisors 外部客户资产，不等同于上海实体 AUM。" },
+      "sources": [
+        { "label": "WorldQuant 官方介绍", "url": "https://www.worldquant.com/how-we-work/", "supports": "全球量化资产管理属性、28 个办公室和系统化研究模式" },
+        { "label": "WorldQuant 官方职位接口", "url": "https://job-boards.greenhouse.io/worldquant", "supports": "当前北京或上海岗位、职责和毕业年份限制" },
+        { "label": "WorldQuant Millennium Advisors 规模报道", "url": "https://www.briefs.co/news/external-assets-for-clients-of-worldquant-hit-30-billion/", "supports": "2026 年外部客户资产接近 300 亿美元；规模口径需与雇佣主体分开" }
       ]
     }
   ]

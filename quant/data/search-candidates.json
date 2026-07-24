@@ -200,9 +200,9 @@
     },
     {
       "name": "WorldQuant Quantitative Researcher",
-      "status": "职级淘汰",
+      "status": "职级边界",
       "signal": "北京或上海当前岗位覆盖全球市场预测模型和系统化 Alpha 研究。",
-      "decision": "职位明确面向 2025 或 2026 届毕业生，与六年费后实盘经历严重错位；不以品牌换取初级定级。",
+      "decision": "职位明确面向 2025 或 2026 届毕业生，与六年费后实盘经历严重错位；已作为外资对冲基金职级反例纳入边界池，不以品牌换取初级定级。",
       "sources": [
         {
           "label": "WorldQuant 官方职位页",
@@ -235,6 +235,54 @@
         {
           "label": "QRT 官方职位页",
           "url": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8105885002"
+        }
+      ]
+    },
+    {
+      "name": "Schonfeld",
+      "status": "地点淘汰",
+      "signal": "全球多经理对冲基金，量化、宏观和基本面策略均与目标机构类型相关。",
+      "decision": "官方 Greenhouse 接口当前枚举 55 条职位，未发现上海地点；不把香港、新加坡或全球办公室推断为上海机会。",
+      "sources": [
+        {
+          "label": "Schonfeld 官方职位接口",
+          "url": "https://job-boards.greenhouse.io/schonfeld"
+        }
+      ]
+    },
+    {
+      "name": "Squarepoint Capital",
+      "status": "地点淘汰",
+      "signal": "全球系统化投资机构，研究、数据和组合平台与量化背景相关。",
+      "decision": "官方 Greenhouse 接口当前枚举 83 条职位，未发现上海地点；暂不进入岗位池。",
+      "sources": [
+        {
+          "label": "Squarepoint 官方职位接口",
+          "url": "https://job-boards.greenhouse.io/squarepointcapital"
+        }
+      ]
+    },
+    {
+      "name": "Winton",
+      "status": "地点淘汰",
+      "signal": "全球系统化资管机构，策略研究方式与商品量化背景相关。",
+      "decision": "官方 Greenhouse 接口当前枚举 9 条职位，未发现上海地点；保留为外资机构观察，不进入当前池。",
+      "sources": [
+        {
+          "label": "Winton 官方职位接口",
+          "url": "https://job-boards.greenhouse.io/winton"
+        }
+      ]
+    },
+    {
+      "name": "ExodusPoint",
+      "status": "地点淘汰",
+      "signal": "全球多策略对冲基金，机构类型和目标层级相关。",
+      "decision": "官方 Greenhouse 接口当前只有 2 条职位，均不在上海；当前不进入岗位池。",
+      "sources": [
+        {
+          "label": "ExodusPoint 官方职位接口",
+          "url": "https://job-boards.greenhouse.io/exoduspoint"
         }
       ]
     }

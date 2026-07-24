@@ -18,6 +18,7 @@ const state = {
 };
 
 const interviewRolePromises = new Map();
+let jobPoolsPromise;
 
 const viewMetadata = {
   overview: {
@@ -879,6 +880,10 @@ function renderJobs() {
     ));
   const activeJobs = state.jobs.jobs.filter((job) => job.status === "active");
   const strictCount = state.jobs.jobs.filter((job) => job.pool === "strict-watch").length;
+  const catalog = state.jobs.catalog || {
+    active: activeJobs.length,
+    strict: strictCount,
+  };
   elements.jobsContent.innerHTML = `
     <section class="view-intro jobs-intro">
       <div>
@@ -889,8 +894,8 @@ function renderJobs() {
     </section>
     <section class="radar-summary" aria-label="岗位雷达摘要">
       <div><span>百亿机构</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>规模证据单独核验</small></div>
-      <div><span>当前职位</span><strong>${activeJobs.length}</strong><small>含相邻和边界线索</small></div>
-      <div><span>重点待核</span><strong>${strictCount}</strong><small>地点、规模已过闸</small></div>
+      <div><span>当前职位</span><strong>${catalog.active}</strong><small>含相邻和边界线索</small></div>
+      <div><span>重点待核</span><strong>${catalog.strict}</strong><small>地点、规模已过闸</small></div>
       <div><span>直接投研样本</span><strong>${state.jobSkills.sample.size}</strong><small>用于共同技能统计</small></div>
     </section>
     ${renderJobSkills()}
@@ -959,6 +964,27 @@ async function ensureJobs() {
   renderJobs();
 }
 
+async function ensureSupplementalJobs() {
+  const path = state.jobs?.methodology?.supplementalPath;
+  if (!path || state.jobs.supplementalLoaded) return;
+  if (!jobPoolsPromise) {
+    jobPoolsPromise = loadJSON(path)
+      .then((dataset) => {
+        if (dataset.updatedAt !== state.jobs.updatedAt) {
+          throw new Error("Supplemental job data is out of date");
+        }
+        const knownIds = new Set(state.jobs.jobs.map((job) => job.id));
+        state.jobs.jobs.push(...dataset.jobs.filter((job) => !knownIds.has(job.id)));
+        state.jobs.supplementalLoaded = true;
+      })
+      .catch((error) => {
+        jobPoolsPromise = null;
+        throw error;
+      });
+  }
+  await jobPoolsPromise;
+}
+
 async function showView(view, detailId = "") {
   const safeView = ["overview", "directions", "skills", "jobs"].includes(view) ? view : "overview";
   state.activeView = safeView;
@@ -1013,6 +1039,14 @@ document.addEventListener("click", async (event) => {
   const jobFilterButton = event.target.closest("[data-job-filter]");
   if (jobFilterButton) {
     state.jobFilter = jobFilterButton.dataset.jobFilter;
+    if (["adjacent", "secondary", "boundary", "historical", "actions"].includes(state.jobFilter)) {
+      try {
+        await ensureSupplementalJobs();
+      } catch (error) {
+        console.error(error);
+        elements.errorState.hidden = false;
+      }
+    }
     renderJobs();
     if (state.jobFilter === "audit" && !state.searchAudit) {
       try {
