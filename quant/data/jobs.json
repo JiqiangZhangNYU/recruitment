@@ -391,6 +391,24 @@
       "skillTags": ["python", "sql-data", "linux", "machine-learning", "statistical-modeling", "signal-research", "portfolio-risk", "commodity-domain"]
     },
     {
+      "id": "man-group-china-macro-quant-researcher",
+      "institutionId": "man-group",
+      "title": "Quantitative Researcher - China Macro",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "strict-watch",
+      "publishedAt": "2026-07-18",
+      "checkedAt": "2026-07-24",
+      "source": { "publisher": "Man Group 雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-at-man-group-4433353137" },
+      "fit": { "tier": "A+", "score": 98, "verdict": "当前公开岗位中职责匹配度最高：专门要求中国期货 Alpha 实盘，覆盖风险平价、宏观跨资产、组合、动态杠杆、成本、执行和完整投资生命周期；需确认六年经验定级、上海合同主体与百万固定薪。" },
+      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
+      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "岗位未披露薪酬；首轮必须确认固定税前保证收入至少 100 万元，奖金另算、递延与回拨，以及良好年份税后现金超过 80 万元。" },
+      "responsibilities": ["在中国研究团队开发和改进风险平价与宏观量化策略", "从 Alpha、数据建模和风险模型推进到组合构建、交易执行与实施", "研究风险预算、动态杠杆、分散与再平衡，以及交易成本和执行优化", "解释模型输出、风险暴露和绩效归因并支持组合决策", "向投资者和渠道清晰说明策略理念、组合逻辑、业绩和风险"],
+      "requirements": ["2–5 年中国市场期货 Alpha 研究与实盘交易经验", "Python 处理大型复杂数据及扎实统计、计量研究能力", "风险平价、波动率建模、衍生品、杠杆和中国宏观跨资产知识", "LLM 与 AI agent 实践经验加分", "能向内部和外部利益相关方简明解释复杂策略"],
+      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "research-rigor", "portfolio-risk", "transaction-costs", "productionization", "commodity-domain", "strategy-ownership", "collaboration", "communication"]
+    },
+    {
       "id": "lingjun-portfolio-manager-historical",
       "institutionId": "lingjun",
       "title": "Portfolio Manager",

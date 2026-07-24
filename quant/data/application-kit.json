@@ -81,6 +81,12 @@
       "label": "匿名猎头先核验",
       "subject": "先确认四项硬条件",
       "message": "感谢联系。进入简历和技术细节前，请先确认：工作地点是否仅上海；实际用人机构及最新管理规模能否披露；合同固定税前保证收入是否不低于 100 万元；岗位是亲自研究并拥有策略责任的高级 IC，还是团队管理/研究支持。奖金上限不能替代固定保证收入。四项符合后我再进一步沟通。"
+    },
+    {
+      "id": "man-group-china-macro",
+      "label": "Man Group 英文首联",
+      "subject": "China Macro Quantitative Researcher - commodity futures live track record",
+      "message": "Hello, I am reaching out regarding the Shanghai China Macro Quantitative Researcher role. I have six years of experience in daily cross-sectional research for Chinese commodity futures, owning public-data signals, forecasting models, and portfolio optimization. Since March 2024, my strategy has run net of fees in company accounts with about RMB 1 billion allocated by PMs, with an out-of-sample Sharpe of about 2. The role's focus on futures alpha, risk budgeting, dynamic leverage, transaction costs, and the full investment lifecycle is directly relevant. My experience is slightly beyond the stated 2-5 year range, so I would first like to confirm the Shanghai seniority, decision rights, employing entity, and compensation structure. I can share a concise, anonymized track-record and research summary if these are broadly aligned."
     }
   ],
   "keywordMap": [
@@ -103,6 +109,11 @@
       "target": "Machine Learning Quant Researcher",
       "use": ["time-series validation", "baseline comparison", "nonlinear modeling", "drift monitoring", "reproducible experiments"],
       "doNotClaim": ["LLM usage as ML alpha evidence", "deep-learning production results without a real case"]
+    },
+    {
+      "target": "Man Group China Macro Quantitative Researcher",
+      "use": ["Chinese futures live alpha", "risk-parity portfolio construction", "volatility and correlation modeling", "dynamic leverage and risk budgeting", "transaction-cost modeling", "model interpretation and performance attribution", "LLM and AI-agent workflow with human review"],
+      "doNotClaim": ["full investment-lifecycle authority in the current role", "trade-execution ownership", "investor-facing spokesperson experience unless evidenced"]
     }
   ],
   "checklist": [
@@ -112,7 +123,7 @@
     },
     {
       "stage": "首轮前",
-      "items": ["核验机构主体和百亿规模证据", "问清固定现金、保证奖金和目标奖金", "确认 Senior/Principal IC 定级", "确认策略和风险决策边界"]
+      "items": ["核验机构主体和百亿规模证据", "问清固定现金、保证奖金和目标奖金", "确认 Senior/Principal IC 定级", "确认策略和风险决策边界", "跨境机构另问上海合同主体、计薪币种和汇报线"]
     },
     {
       "stage": "技术面前",

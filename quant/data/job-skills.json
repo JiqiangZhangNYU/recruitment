@@ -9,17 +9,18 @@
       "century-frontier-general-quant-researcher",
       "century-frontier-portfolio-optimization",
       "tianyan-senior-quant-researcher",
-      "jq-quant-strategy-researcher"
+      "jq-quant-strategy-researcher",
+      "man-group-china-macro-quant-researcher"
     ],
-    "size": 7,
+    "size": 8,
     "rule": "只统计当前、百亿以上、上海可选且直接承担 Alpha、预测、组合或投资判断的研究岗位；研究工程、交易后数据、纯开发、匿名客户和历史岗位不计入频次。",
-    "warning": "频次只回答公开 JD 写了什么；0/7 不代表能力不重要，负责人晋级项需结合职责缺口单独判断。"
+    "warning": "频次只回答公开 JD 写了什么；0/8 不代表能力不重要，负责人晋级项需结合职责缺口单独判断。"
   },
   "skills": [
     {
       "id": "python",
       "label": "Python 与可复现研究代码",
-      "count": 7,
+      "count": 8,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项",
@@ -31,7 +32,7 @@
     {
       "id": "research-rigor",
       "label": "严谨验证与证据链",
-      "count": 7,
+      "count": 8,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项待包装",
@@ -43,7 +44,7 @@
     {
       "id": "statistical-modeling",
       "label": "统计建模与预测",
-      "count": 7,
+      "count": 8,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项",
@@ -67,7 +68,7 @@
     {
       "id": "productionization",
       "label": "研究到实盘的一致性",
-      "count": 4,
+      "count": 5,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项有边界",
@@ -79,7 +80,7 @@
     {
       "id": "signal-research",
       "label": "数据到 Alpha 的研究能力",
-      "count": 6,
+      "count": 7,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "核心强项",
@@ -91,7 +92,7 @@
     {
       "id": "portfolio-risk",
       "label": "组合优化、风险归因与容量",
-      "count": 2,
+      "count": 3,
       "priority": "P0",
       "basis": "晋级门槛",
       "candidateState": "强项有决策缺口",
@@ -115,7 +116,7 @@
     {
       "id": "transaction-costs",
       "label": "交易成本与实盘偏差",
-      "count": 0,
+      "count": 1,
       "priority": "P0",
       "basis": "晋级门槛",
       "candidateState": "部分强项",
@@ -127,7 +128,7 @@
     {
       "id": "collaboration",
       "label": "跨研究、交易与工程协作",
-      "count": 3,
+      "count": 4,
       "priority": "P1",
       "basis": "JD 共识",
       "candidateState": "已确认",
@@ -139,7 +140,7 @@
     {
       "id": "strategy-ownership",
       "label": "策略所有权与投资判断",
-      "count": 1,
+      "count": 2,
       "priority": "P0",
       "basis": "晋级门槛",
       "candidateState": "目标能力",
