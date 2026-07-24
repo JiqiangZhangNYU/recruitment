@@ -2840,7 +2840,7 @@ a:focus-visible {
 
 .interview-role-tabs {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 22px;
   border: 1px solid var(--line-strong);
 }
@@ -2860,6 +2860,14 @@ a:focus-visible {
 
 .interview-role-tabs button:last-child {
   border-right: 0;
+}
+
+.interview-role-tabs button:nth-child(3) {
+  border-right: 0;
+}
+
+.interview-role-tabs button:nth-child(-n + 3) {
+  border-bottom: 1px solid var(--line);
 }
 
 .interview-role-tabs button:hover,

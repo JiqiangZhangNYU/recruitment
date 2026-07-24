@@ -18,6 +18,7 @@ const state = {
 };
 
 let compensationViewPromise;
+const interviewRolePromises = new Map();
 
 const viewMetadata = {
   overview: {
@@ -542,6 +543,10 @@ function renderInterviewPrep() {
   if (!prep) {
     return `<div class="audit-loading" role="status"><span></span><strong>正在载入岗位面试题库</strong></div>`;
   }
+  const lazyRoles = (prep.lazyRoles || []).filter((descriptor) => (
+    !prep.roles.some((role) => role.jobId === descriptor.jobId)
+  ));
+  const roleTabs = [...prep.roles, ...lazyRoles];
   const activeRole = prep.roles.find((role) => role.jobId === state.interviewRoleId) || prep.roles[0];
   return `
     <div class="interview-prep">
@@ -551,7 +556,7 @@ function renderInterviewPrep() {
         ${list(prep.answerRules, "evidence-list")}
       </section>
       <nav class="interview-role-tabs" aria-label="岗位题库">
-        ${prep.roles.map((role) => `<button type="button" data-interview-role="${escapeHTML(role.jobId)}" class="${role.jobId === activeRole.jobId ? "active" : ""}" aria-pressed="${role.jobId === activeRole.jobId}">${escapeHTML(role.label)}</button>`).join("")}
+        ${roleTabs.map((role) => `<button type="button" data-interview-role="${escapeHTML(role.jobId)}" class="${role.jobId === activeRole.jobId ? "active" : ""}" aria-pressed="${role.jobId === activeRole.jobId}">${escapeHTML(role.label)}</button>`).join("")}
       </nav>
       <section class="interview-role-header">
         <div><p class="section-index">ROLE-SPECIFIC DRILL · ${activeRole.questions.length} QUESTIONS</p><h3>${escapeHTML(activeRole.label)}</h3></div>
@@ -579,6 +584,22 @@ function renderInterviewPrep() {
       </section>
     </div>
   `;
+}
+
+async function ensureInterviewRole(roleId) {
+  const prep = state.interviewPrep;
+  const loaded = prep.roles.find((role) => role.jobId === roleId);
+  if (loaded) return loaded;
+  const descriptor = (prep.lazyRoles || []).find((role) => role.jobId === roleId);
+  if (!descriptor) throw new Error(`Unknown interview role: ${roleId}`);
+  if (!interviewRolePromises.has(roleId)) {
+    interviewRolePromises.set(roleId, loadJSON(descriptor.source).then((role) => {
+      if (role.jobId !== roleId) throw new Error(`Interview role ID mismatch: ${roleId}`);
+      if (!prep.roles.some((item) => item.jobId === roleId)) prep.roles.push(role);
+      return role;
+    }));
+  }
+  return interviewRolePromises.get(roleId);
 }
 
 function renderApplicationKit() {
@@ -1068,8 +1089,15 @@ document.addEventListener("click", async (event) => {
 
   const interviewRoleButton = event.target.closest("[data-interview-role]");
   if (interviewRoleButton && state.interviewPrep) {
-    state.interviewRoleId = interviewRoleButton.dataset.interviewRole;
-    renderJobs();
+    try {
+      const roleId = interviewRoleButton.dataset.interviewRole;
+      await ensureInterviewRole(roleId);
+      state.interviewRoleId = roleId;
+      renderJobs();
+    } catch (error) {
+      console.error(error);
+      elements.errorState.hidden = false;
+    }
   }
 
   const evidenceButton = event.target.closest("[data-evidence-template]");

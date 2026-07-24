@@ -243,6 +243,24 @@
       "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "productionization", "commodity-domain", "collaboration"]
     },
     {
+      "id": "citic-futures-cta-investment-manager",
+      "institutionId": "citic-futures",
+      "title": "CTA 量化投资经理 (G00909)",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "secondary",
+      "publishedAt": "2026-06",
+      "checkedAt": "2026-07-24",
+      "source": { "publisher": "中信期货雇主职位页（来源智联招聘）", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E9%83%A8-cta%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E7%BB%8F%E7%90%86g00909-at-citic-futures-4423908322" },
+      "fit": { "tier": "A", "score": 91, "verdict": "当前最贴近目标头衔的 CTA 投资经理岗位：从研究体系、趋势与套利策略一路覆盖组合、产品和授权内投资管理；但机构规模只披露 2022Q4 数据，固定薪和真实决策权限都要先核。" },
+      "eligibility": { "location": "pass", "institutionScale": "verify", "compensation": "verify", "seniority": "pass" },
+      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "岗位未公开薪酬；须在首轮确认固定税前保证收入至少 100 万元，奖金另算且良好年份税后现金超过 80 万元。" },
+      "responsibilities": ["搭建量化 CTA 研究体系、数据库和因子库", "开发、测试并迭代趋势跟踪与套利策略", "设计策略组合、资管产品和投资方案，并在授权范围内负责日常投资管理", "监控实盘并完成风险评价、绩效归因和投资报告", "协调托管人、投资人与市场部门"],
+      "requirements": ["两年以上 CTA 策略研究并有一年以上可验证业绩", "熟练编程并跟踪策略研究与智能算法", "资产配置、组合管理与风险防范经验", "沟通、协调和团队合作能力"],
+      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "portfolio-risk", "transaction-costs", "productionization", "commodity-domain", "strategy-ownership", "collaboration"]
+    },
+    {
       "id": "blackrock-analyst-quant-researcher",
       "institutionId": "blackrock-china-fmc",
       "title": "Analyst, Quantitative Researcher",
