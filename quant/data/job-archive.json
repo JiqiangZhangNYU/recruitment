@@ -43,7 +43,8 @@
         "linux",
         "machine-learning",
         "research-rigor"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "minghong-ai-quant-researcher",
@@ -86,7 +87,8 @@
         "statistical-modeling",
         "signal-research",
         "research-rigor"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "minghong-research-engineer",
@@ -130,7 +132,8 @@
         "productionization",
         "linux",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "minghong-post-trading-data",
@@ -174,7 +177,8 @@
         "productionization",
         "research-rigor",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "lingjun-quant-developer",
@@ -219,7 +223,8 @@
         "transaction-costs",
         "signal-research",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "century-frontier-ml-researcher",
@@ -262,7 +267,8 @@
         "statistical-modeling",
         "research-rigor",
         "productionization"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "blackrock-analyst-quant-researcher",
@@ -308,7 +314,8 @@
         "portfolio-risk",
         "collaboration",
         "communication"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "gtja-futures-cta-researcher",
@@ -353,7 +360,8 @@
         "signal-research",
         "commodity-domain",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "recruiter-cta-ml-pm-low-comp",
@@ -398,7 +406,8 @@
         "signal-research",
         "backtesting",
         "commodity-domain"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "optiver-commodity-quant-researcher",
@@ -493,7 +502,8 @@
         "productionization",
         "strategy-ownership",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "optiver-senior-quant-researcher-equities",
@@ -542,7 +552,8 @@
         "transaction-costs",
         "productionization",
         "strategy-ownership"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "anonymous-commodities-quant-researcher",
@@ -588,7 +599,8 @@
         "signal-research",
         "portfolio-risk",
         "commodity-domain"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "qrt-downstream-demand-analyst-metals",
@@ -633,7 +645,8 @@
         "commodity-domain",
         "collaboration",
         "communication"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "axq-portfolio-manager",
@@ -680,7 +693,8 @@
         "productionization",
         "strategy-ownership",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "axq-senior-quantitative-researcher",
@@ -728,7 +742,8 @@
         "productionization",
         "strategy-ownership",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "axq-quantitative-researcher",
@@ -773,7 +788,8 @@
         "backtesting",
         "research-rigor",
         "productionization"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "dongwu-fund-quant-research",
@@ -820,7 +836,8 @@
         "portfolio-risk",
         "productionization",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "zheshang-fund-quant-researcher",
@@ -866,7 +883,8 @@
         "backtesting",
         "research-rigor",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "selby-macro-futures-cta-researcher",
@@ -915,7 +933,8 @@
         "productionization",
         "commodity-domain",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "alphagrep-shanghai-quant-researcher",
@@ -963,7 +982,8 @@
         "transaction-costs",
         "productionization",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "mingshi-a-share-pm-senior-qr",
@@ -1008,7 +1028,8 @@
         "portfolio-risk",
         "strategy-ownership",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "mingshi-senior-ai-quant-engineer",
@@ -1052,7 +1073,8 @@
         "signal-research",
         "research-rigor",
         "productionization"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "worldquant-quant-researcher-graduate",
@@ -1096,7 +1118,8 @@
         "signal-research",
         "research-rigor",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "worldquant-data-scientist-graduate",
@@ -1140,7 +1163,8 @@
         "statistical-modeling",
         "signal-research",
         "research-rigor"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "luoshu-junior-quant-researcher",
@@ -1186,7 +1210,8 @@
         "portfolio-risk",
         "commodity-domain",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "anonymous-hundred-billion-cta-quant-researcher",
@@ -1233,7 +1258,8 @@
         "portfolio-risk",
         "commodity-domain",
         "collaboration"
-      ]
+      ],
+      "grade": "C"
     },
     {
       "id": "anonymous-hundred-billion-cta-pm",
@@ -1281,6 +1307,148 @@
         "portfolio-risk",
         "strategy-ownership",
         "commodity-domain",
+        "collaboration"
+      ],
+      "grade": "C"
+    },
+    {
+      "id": "inno-shanghai-quant-investment-researcher",
+      "institutionId": "inno",
+      "title": "量化投资研究员（上海）",
+      "location": "上海虹口北外滩",
+      "employment": "全职",
+      "status": "active",
+      "pool": "adjacent",
+      "grade": "C",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "因诺资产 BOSS 直聘职位页",
+        "kind": "employer-posting",
+        "url": "https://www.zhipin.com/job_detail/06326fc7dc0550e303d_2N-8F1pQ.html"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 68,
+        "verdict": "机构规模和上海地点通过，策略研究、实盘跟踪与模型迭代也可迁移；但公开职责没有商品期货范围，且经验不限，资产方向和高级定级均需补证。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "负责量化投资策略研究",
+        "跟踪策略实盘表现",
+        "持续优化和改进现有量化投资模型"
+      ],
+      "requirements": [
+        "理工科硕士，博士优先",
+        "公开职位卡标注经验不限",
+        "需确认资产类别、研究频率、策略所有权和六年经验对应职级"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "productionization",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "hantak-shanghai-quant-researcher",
+      "institutionId": "hantak",
+      "title": "量化研究员（上海 / 北京）",
+      "location": "上海浦东陆家嘴 / 北京",
+      "employment": "全职",
+      "status": "active",
+      "pool": "adjacent",
+      "grade": "C",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "涵德投资 BOSS 直聘职位页",
+        "kind": "employer-posting",
+        "url": "https://www.zhipin.com/job_detail/7f608b611dfd2a231X1y2t2_FFVT.html"
+      },
+      "fit": {
+        "tier": "C+",
+        "score": 55,
+        "verdict": "机构当前规模接近百亿且量化研究方法可迁移，但本条上海职位正文明确面向中国股票模型，资产类别与商品主线错位，外部条件也有明显差距。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "研究中国股票市场量化交易模型",
+        "配合基金经理优化和监控量化交易策略",
+        "分析市场与交易数据的统计特性"
+      ],
+      "requirements": [
+        "本科及以上学历",
+        "BOSS 职位卡标注 3–5 年经验",
+        "需确认是否另有上海商品或期货团队，而不能把机构历史期货能力套到本职位"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "productionization",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "dunhe-high-turnover-quant-manager",
+      "institutionId": "dunhe",
+      "title": "量化基金经理 / 资深研究员",
+      "location": "上海浦东张江",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "grade": "C",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "敦和资管 BOSS 直聘职位页",
+        "kind": "employer-posting",
+        "url": "https://www.zhipin.com/job_detail/f2484f20d2d5ecdf03R72Nq0EVFV.html"
+      },
+      "fit": {
+        "tier": "C",
+        "score": 50,
+        "verdict": "百亿全球宏观私募和高级职位名称有吸引力，但当前上海职位明确要求 A 股量化组合及双边换手率超过 100 倍，与商品日频、约十天换手的优势相反。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "管理和优化 A 股量化投资组合",
+        "开发和维护量化交易模型",
+        "监控策略有效性并持续迭代"
+      ],
+      "requirements": [
+        "BOSS 职位卡标注 3–5 年、硕士",
+        "硬性要求策略双边换手率超过 100 倍",
+        "不把敦和的大宗商品机构能力推断为本条具体职位的商品职责"
+      ],
+      "skillTags": [
+        "python",
+        "cpp",
+        "machine-learning",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "portfolio-risk",
+        "productionization",
+        "strategy-ownership",
         "collaboration"
       ]
     },

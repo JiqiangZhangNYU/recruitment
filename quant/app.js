@@ -473,7 +473,7 @@ function jobFilterOptions() {
   return [
     { id: "grade-a", label: "A 档" },
     { id: "grade-b", label: "B 档" },
-    { id: "other", label: "其他线索" },
+    { id: "grade-c", label: "C 档" },
     { id: "historical", label: "历史参照" },
     { id: "institutions", label: "机构库" },
     { id: "actions", label: "行动清单" },
@@ -486,7 +486,7 @@ function jobFilterOptions() {
 function jobMatchesFilter(job, filter) {
   if (filter === "grade-a") return job.status === "active" && job.grade === "A";
   if (filter === "grade-b") return job.status === "active" && job.grade === "B";
-  if (filter === "other") return job.status === "active" && !job.grade;
+  if (filter === "grade-c") return job.status === "active" && job.grade === "C";
   if (filter === "historical") return job.status !== "active";
   return false;
 }
@@ -890,7 +890,7 @@ function renderJobs() {
     active: activeJobs.length,
     a: activeJobs.filter((job) => job.grade === "A").length,
     b: activeJobs.filter((job) => job.grade === "B").length,
-    other: activeJobs.filter((job) => !job.grade).length,
+    c: activeJobs.filter((job) => job.grade === "C").length,
   };
   elements.jobsContent.innerHTML = `
     <section class="view-intro jobs-intro">
@@ -903,8 +903,8 @@ function renderJobs() {
     <section class="radar-summary" aria-label="岗位雷达摘要">
       <div><span>A 档</span><strong>${catalog.a}</strong><small>当前最接近目标</small></div>
       <div><span>B 档</span><strong>${catalog.b}</strong><small>允许一项关键条件待核</small></div>
-      <div><span>当前职位</span><strong>${catalog.active}</strong><small>含相邻和边界线索</small></div>
-      <div><span>规模已过闸</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>双隆另按接近门槛观察</small></div>
+      <div><span>C 档</span><strong>${catalog.c}</strong><small>两项以上关键差距</small></div>
+      <div><span>当前职位</span><strong>${catalog.active}</strong><small>历史参照不计入</small></div>
     </section>
     ${renderJobSkills()}
     <section class="radar-results section-band" aria-labelledby="radar-results-title">
@@ -913,11 +913,12 @@ function renderJobs() {
           <p class="section-index">SCREENED OPPORTUNITIES</p>
           <h2 id="radar-results-title">岗位与机构证据</h2>
         </div>
-        <span>A 档优先，B 档逐项确认缺口</span>
+        <span>A 档优先，B 档逐项确认，C 档只作定向补充</span>
       </header>
-      <dl class="grade-guide" aria-label="A B 分档规则">
+      <dl class="grade-guide" aria-label="A B C 分档规则">
         <div><dt>A 档</dt><dd>${escapeHTML(state.jobs.methodology.gradeA)}</dd></div>
         <div><dt>B 档</dt><dd>${escapeHTML(state.jobs.methodology.gradeB)}</dd></div>
+        <div><dt>C 档</dt><dd>${escapeHTML(state.jobs.methodology.gradeC)}</dd></div>
       </dl>
       <div class="segment-control job-filter" role="group" aria-label="岗位池筛选">
         ${filters.map((filter) => `
@@ -980,7 +981,7 @@ async function ensureSupplementalJobs(filter) {
   const paths = state.jobs?.methodology?.supplementalPaths;
   const path = filter === "grade-b" || ["actions", "interview"].includes(filter)
     ? paths?.gradeB
-    : paths?.other;
+    : paths?.gradeC;
   if (!path) return;
   state.jobs.loadedSupplementalPaths ||= [];
   if (state.jobs.loadedSupplementalPaths.includes(path)) return;
@@ -1057,7 +1058,7 @@ document.addEventListener("click", async (event) => {
   const jobFilterButton = event.target.closest("[data-job-filter]");
   if (jobFilterButton) {
     state.jobFilter = jobFilterButton.dataset.jobFilter;
-    if (["grade-b", "other", "historical", "actions", "interview"].includes(state.jobFilter)) {
+    if (["grade-b", "grade-c", "historical", "actions", "interview"].includes(state.jobFilter)) {
       try {
         await ensureSupplementalJobs(state.jobFilter);
       } catch (error) {

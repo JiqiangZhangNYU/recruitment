@@ -562,6 +562,56 @@
         "strategy-ownership",
         "collaboration"
       ]
+    },
+    {
+      "id": "yingshui-commodity-futures-options",
+      "institutionId": "yingshui",
+      "title": "商品期货与期权基金经理 / 量化研究员",
+      "location": "上海静安",
+      "employment": "全职社招",
+      "status": "active",
+      "pool": "strict-watch",
+      "grade": "B",
+      "publishedAt": "2026-07-24",
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "上海迎水投资智联招聘职位页",
+        "kind": "employer-posting",
+        "url": "https://m.zhaopin.com/jobs/CCL1260852180J40965242004.htm"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 94,
+        "verdict": "百亿私募、上海、商品期货与期权基金经理和量化研究链路均明确；但同一广告混合多个职种且经验不限，必须先锁定高级 IC 定级、日频商品方向与真实策略授权。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "研究和管理商品期货与期权策略，基金经理岗位要求成熟策略与可解释投资框架",
+        "开发和优化模型策略，协助构建及优化投资组合、提升业绩与容量",
+        "为投资组合和交易执行提供数据分析、自动化工具及量化系统支持"
+      ],
+      "requirements": [
+        "本科及以上数理、计算机或相关背景",
+        "熟练使用 Python，并具备独立开发、调试和算法能力",
+        "需确认按六年费后实盘定级，而不是进入应届、实习或通用支持席位"
+      ],
+      "skillTags": [
+        "python",
+        "cpp",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "portfolio-risk",
+        "productionization",
+        "commodity-domain",
+        "strategy-ownership",
+        "collaboration"
+      ]
     }
   ]
 }

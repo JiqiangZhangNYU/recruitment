@@ -1919,7 +1919,7 @@ a:focus-visible {
 
 .grade-guide {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 18px 0 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -1944,6 +1944,11 @@ a:focus-visible {
 .grade-guide div:nth-child(2) dt,
 .job-fit[data-grade="B"] strong {
   color: var(--amber);
+}
+
+.grade-guide div:nth-child(3) dt,
+.job-fit[data-grade="C"] strong {
+  color: var(--muted);
 }
 
 .grade-guide dd {

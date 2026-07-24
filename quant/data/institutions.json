@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-07-24",
-  "methodology": "机构规模优先采用中国证券投资基金业协会公示及其当前数据镜像，并与机构官网交叉核验。当前 AUM、历史峰值和累计管理规模分开记录；接近百亿的机构可进入 B 档，但不会标记为规模已通过。规模达标也不代表具体岗位的职责、职级和收入条件达标。",
+  "methodology": "机构规模优先采用中国证券投资基金业协会公示及其当前数据镜像，并与机构官网或雇主职位页交叉核验。当前 AUM、历史峰值、累计管理规模和招聘平台人数标签分开记录；接近百亿机构只有在其余条件高度匹配时才可能进入 B 档，规模达标也不代表具体岗位的职责、职级和外部条件达标。",
   "institutions": [
     {
       "id": "yanfu",
@@ -360,6 +360,51 @@
       ]
     },
     {
+      "id": "yingshui",
+      "name": "迎水投资",
+      "legalName": "上海迎水投资管理有限公司",
+      "type": "私募证券基金 / 另类与衍生品策略",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "100 亿元以上", "asOf": "2026-07-24" },
+      "shanghai": { "status": "pass", "evidence": "当前职位和机构数据页均明确上海，职位地址位于静安区。" },
+      "career": { "url": "https://m.zhaopin.com/jobs/CCL1260852180J40965242004.htm", "status": "active", "note": "当前合并招聘覆盖商品期货与期权基金经理、研究员、交易员和量化研究员。" },
+      "accessPolicy": { "mode": "manual", "reason": "人工核验雇主职位正文和当前机构规模页；招聘平台的 100–299 人只作为人数标签，不用于 AUM 判断。" },
+      "sources": [
+        { "label": "私募排排网当前机构页", "url": "https://dc.simuwang.com/company/CO00000I72.html", "supports": "当前管理规模 100 亿元以上、登记编号 P1022432 与上海办公信息" },
+        { "label": "迎水投资智联招聘职位页", "url": "https://m.zhaopin.com/jobs/CCL1260852180J40965242004.htm", "supports": "当前上海岗位、商品期货与期权方向、量化职责和经验要求" }
+      ]
+    },
+    {
+      "id": "inno",
+      "name": "因诺资产",
+      "legalName": "因诺（上海）资产管理有限公司",
+      "type": "私募证券基金 / 量化投资",
+      "priority": "观察",
+      "scale": { "status": "pass", "band": "100 亿元以上", "asOf": "2026-07-24" },
+      "shanghai": { "status": "pass", "evidence": "当前量化投资研究员职位位于上海虹口北外滩。" },
+      "career": { "url": "https://www.zhipin.com/job_detail/06326fc7dc0550e303d_2N-8F1pQ.html", "status": "active", "note": "当前上海职位覆盖策略研究、实盘跟踪和模型优化，但未公开限定商品期货方向。" },
+      "accessPolicy": { "mode": "manual", "reason": "人工核验 BOSS 聚合页、单岗 URL 与当前机构规模页；遇到安全验证时不继续自动访问。" },
+      "sources": [
+        { "label": "私募排排网当前机构页", "url": "https://dc.simuwang.com/company/CO000003KY.html", "supports": "当前管理规模 100 亿元以上、机构全称和登记信息" },
+        { "label": "因诺资产 BOSS 职位页", "url": "https://www.zhipin.com/job_detail/06326fc7dc0550e303d_2N-8F1pQ.html", "supports": "当前量化投资研究员、上海地点、职责与公开职级" }
+      ]
+    },
+    {
+      "id": "hantak",
+      "name": "涵德投资",
+      "legalName": "北京涵德投资管理有限公司",
+      "type": "私募证券基金 / 量化股票与期货",
+      "priority": "观察",
+      "scale": { "status": "verify", "band": "50–100 亿元", "asOf": "2026-07-24" },
+      "shanghai": { "status": "pass", "evidence": "当前量化研究员职位明确可选上海浦东陆家嘴。" },
+      "career": { "url": "https://www.zhipin.com/job_detail/7f608b611dfd2a231X1y2t2_FFVT.html", "status": "active", "note": "当前上海职位正文聚焦中国股票量化模型，不把机构期货能力推断为该岗职责。" },
+      "accessPolicy": { "mode": "manual", "reason": "人工核验雇主职位与当前规模页；50–100 亿元按接近门槛处理，不标记为已过规模硬闸。" },
+      "sources": [
+        { "label": "私募排排网当前机构页", "url": "https://dc.simuwang.com/company/CO000001VA.html", "supports": "当前管理规模 50–100 亿元、登记编号 P1001739 与量化期货背景" },
+        { "label": "涵德投资 BOSS 职位页", "url": "https://www.zhipin.com/job_detail/7f608b611dfd2a231X1y2t2_FFVT.html", "supports": "当前量化研究员、上海地点、3–5 年经验与股票模型职责" }
+      ]
+    },
+    {
       "id": "dunhe",
       "name": "敦和资管",
       "legalName": "敦和资产管理有限公司",
@@ -367,7 +412,7 @@
       "priority": "主要",
       "scale": { "status": "pass", "band": "100 亿元以上", "asOf": "2026-07-22" },
       "shanghai": { "status": "pass", "evidence": "BOSS 当前列出多个上海量化岗位，包括量化基金经理/资深研究员。" },
-      "career": { "url": "https://m.zhipin.com/companys/5dfc4a4d0fce30cb0XNz2d0~.html", "status": "active", "note": "当前上海同名高级岗位实际偏 A 股高换手，CTA 资深岗位位于杭州，因此暂不进入 A/B。" },
+      "career": { "url": "https://m.zhipin.com/companys/5dfc4a4d0fce30cb0XNz2d0~.html", "status": "active", "note": "当前上海同名高级岗位实际偏 A 股高换手，CTA 资深岗位位于杭州，因此统一列入 C 档。" },
       "accessPolicy": { "mode": "manual", "reason": "人工核验 BOSS 公司职位列表和单岗摘要，不因机构商品能力推断具体上海岗位职责。" },
       "sources": [
         { "label": "私募排排网当前机构页", "url": "https://dc.simuwang.com/company/CO000001KM.html", "supports": "当前管理规模 100 亿元以上、登记编号 P1000501 与全球宏观团队背景" },
