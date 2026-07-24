@@ -188,6 +188,51 @@
       "note": "总包和税后现金可能看起来足够，但固定保证收入未达到 100 万元，仍然淘汰。"
     }
   ],
+  "negotiationLadder": {
+    "note": "精确值是模型下达到 80 万元现金的数学下界；单独计税向上取整到 0.5 万元，并入综合所得向上取整到 1 万元，以留出参数变化余量。",
+    "rows": [
+      {
+        "guaranteed": 1000000,
+        "fixedCash": 706002.77,
+        "separateMinimum": 104208.03,
+        "separateScreening": 105000,
+        "mergedMinimum": 153025.09,
+        "mergedScreening": 160000
+      },
+      {
+        "guaranteed": 1050000,
+        "fixedCash": 738502.77,
+        "separateMinimum": 68096.92,
+        "separateScreening": 70000,
+        "mergedMinimum": 103025.1,
+        "mergedScreening": 110000
+      },
+      {
+        "guaranteed": 1100000,
+        "fixedCash": 770836.19,
+        "separateMinimum": 30065.78,
+        "separateScreening": 35000,
+        "mergedMinimum": 53025.09,
+        "mergedScreening": 60000
+      },
+      {
+        "guaranteed": 1150000,
+        "fixedCash": 798336.19,
+        "separateMinimum": 1715.27,
+        "separateScreening": 5000,
+        "mergedMinimum": 3025.09,
+        "mergedScreening": 10000
+      },
+      {
+        "guaranteed": 1160000,
+        "fixedCash": 803836.19,
+        "separateMinimum": 0,
+        "separateScreening": 0,
+        "mergedMinimum": 0,
+        "mergedScreening": 0
+      }
+    ]
+  },
   "sources": [
     {
       "label": "《中华人民共和国个人所得税法》",
