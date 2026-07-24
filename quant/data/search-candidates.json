@@ -63,14 +63,34 @@
       ]
     },
     {
-      "name": "匿名百亿 CTA 猎头岗位",
-      "status": "身份待核",
-      "signal": "商品期货、统计建模、组合优化与风险归因均相关，工作地点为上海。",
-      "decision": "机构身份未披露，无法核验百亿规模和实际授权；仅作为匿名市场线索。",
+      "name": "匿名百亿 CTA 猎头岗位（QR / PM）",
+      "status": "已纳入 B 档（条件线索）",
+      "signal": "上海同时在招 CTA 研究员和 CTA PM / 资深研究员；商品期货、统计建模、组合优化、风险归因和实盘调整均直接相关。",
+      "decision": "PM 岗方向和职级接近目标，列为 B 档条件线索；但机构身份、百亿规模和实际授权仍未闭环，而且独立基金经理年限是明确差距。研究员岗位继续列 C，首轮必须由猎头书面披露用人方和定级。",
       "sources": [
         {
-          "label": "当前猎头职位",
+          "label": "当前 CTA 研究员职位",
           "url": "https://www.zhaopin.com/jobdetail/CC664497020J40863066501.htm"
+        },
+        {
+          "label": "当前 CTA PM / 资深研究员职位",
+          "url": "https://www.zhaopin.com/jobdetail/CC664497020J40863067101.htm"
+        }
+      ]
+    },
+    {
+      "name": "Optiver 上海 Senior PM / Quantitative Researcher",
+      "status": "已纳入 B 档（伸展岗）",
+      "signal": "当前上海资深岗位要求三年以上量化经验，端到端负责 Alpha、预测模型、组合、成本、换手、容量、生产实现和实盘表现。",
+      "decision": "岗位所有权和资深 IC 定级可作为 PM 路径标杆，因此由 C 提至 B；但策略周期为分钟至小时，Optiver 也是自营交易商而非百亿资管机构，只有团队接受日频研究迁移时才值得推进。",
+      "sources": [
+        {
+          "label": "Optiver 官方职位页",
+          "url": "https://www.optiver.com/join-us/jobs/quantitative-research-and-machine-learning/shanghai/senior-portfolio-manager-quantitative-researcher-intraday-trading-strategy/"
+        },
+        {
+          "label": "Optiver 官方财务结果",
+          "url": "https://www.optiver.com/about-us/financial-results/"
         }
       ]
     },

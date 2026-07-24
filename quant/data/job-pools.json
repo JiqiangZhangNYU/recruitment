@@ -326,6 +326,55 @@
       ]
     },
     {
+      "id": "optiver-senior-intraday-pm-researcher",
+      "institutionId": null,
+      "institutionName": "Optiver",
+      "title": "Senior Portfolio Manager / Quantitative Researcher - Intraday Trading",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "Optiver 官网",
+        "kind": "official-careers",
+        "url": "https://www.optiver.com/join-us/jobs/quantitative-research-and-machine-learning/shanghai/senior-portfolio-manager-quantitative-researcher-intraday-trading-strategy/"
+      },
+      "fit": {
+        "tier": "B+",
+        "score": 82,
+        "verdict": "资深 IC、端到端所有权、组合与成本容量的岗位设计可作为 PM 标杆；但要求分钟至小时级实盘，自营交易商也不满足百亿资管机构口径。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "not-applicable",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "主导日内 Alpha 研究并决定研究方向",
+        "建立预测模型、组合并优化成本、换手和容量",
+        "端到端负责生产实现、可交易性和实盘表现"
+      ],
+      "requirements": [
+        "三年以上量化研究或交易经验",
+        "有日内策略费后实盘结果",
+        "Python、Java 或 C++ 及大型数据管线经验"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "portfolio-risk",
+        "transaction-costs",
+        "productionization",
+        "strategy-ownership",
+        "collaboration"
+      ],
+      "grade": "B"
+    },
+    {
       "id": "zheshang-fund-quant-manager",
       "institutionId": "zheshang-fund",
       "title": "量化基金经理",
@@ -419,6 +468,56 @@
         "portfolio-risk",
         "commodity-domain"
       ]
+    },
+    {
+      "id": "anonymous-hundred-billion-cta-pm",
+      "institutionId": null,
+      "institutionName": "匿名百亿私募（猎寻优才）",
+      "title": "CTA PM / 资深研究员",
+      "location": "上海浦东",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "publishedAt": "2026-07-20",
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "猎寻优才 / 智联招聘",
+        "kind": "recruiter-posting",
+        "url": "https://www.zhaopin.com/jobdetail/CC664497020J40863067101.htm"
+      },
+      "fit": {
+        "tier": "A-",
+        "score": 85,
+        "verdict": "量化 CTA 研究、回测和实盘调整与目标一致，作为 B 档条件线索跟进；但要求两年以上独立基金经理经验，当前 PM 配置策略的经历不能表述为独立管理，且必须先核验实际用人机构。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "unknown",
+        "seniority": "fail"
+      },
+      "responsibilities": [
+        "利用统计建模建立量化交易模型",
+        "开发和改进核心模型并完成模拟回测",
+        "负责实盘策略调整或商品板块组合管理"
+      ],
+      "requirements": [
+        "三年以上 CTA 期货量化交易经验",
+        "两年以上独立基金经理经验及可验证业绩",
+        "C/C++ 及 Python、R 或 MATLAB，熟悉关系型数据库"
+      ],
+      "skillTags": [
+        "python",
+        "cpp",
+        "sql-data",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "portfolio-risk",
+        "strategy-ownership",
+        "commodity-domain",
+        "collaboration"
+      ],
+      "grade": "B"
     },
     {
       "id": "shuangan-cta-fund-manager",
