@@ -18,6 +18,50 @@
     "rule": "只统计当前、百亿以上、上海可选且直接承担 Alpha、预测、组合或投资判断的研究岗位；研究工程、交易后数据、纯开发、匿名客户和历史岗位不计入频次。",
     "warning": "频次只回答公开 JD 写了什么；0/10 不代表能力不重要，负责人晋级项需结合职责缺口单独判断。"
   },
+  "groups": [
+    {
+      "id": "P0",
+      "label": "P0 核心能力",
+      "description": "覆盖 Alpha、建模、验证、组合、成本、生产和策略判断，是高级研究员与研究型 PM 的主要定价依据。"
+    },
+    {
+      "id": "P1",
+      "label": "P1 差异化能力",
+      "description": "用于扩大岗位适配范围和提升研究效率，不能替代商品策略实盘、组合和风险判断证据。"
+    }
+  ],
+  "tracks": [
+    {
+      "label": "01",
+      "title": "研究主链",
+      "description": "把数据、假设、预测、验证和代码组织成可复现的 Alpha 研究闭环。",
+      "skillIds": ["signal-research", "statistical-modeling", "research-rigor", "python"]
+    },
+    {
+      "label": "02",
+      "title": "实盘落地",
+      "description": "解释研究结果如何经过生产、成本、容量和风险约束转化为费后收益。",
+      "skillIds": ["productionization", "transaction-costs", "portfolio-risk"]
+    },
+    {
+      "label": "03",
+      "title": "PM 进阶",
+      "description": "从负责研究升级为提出风险预算、停用规则并承担策略判断责任的高级 IC。",
+      "skillIds": ["strategy-ownership", "collaboration"]
+    },
+    {
+      "label": "04",
+      "title": "工具差异化",
+      "description": "以金融样本外证据使用机器学习，并补足可追溯的数据工程与 SQL 能力。",
+      "skillIds": ["machine-learning", "sql-data"]
+    }
+  ],
+  "questionBank": {
+    "status": "planned",
+    "label": "题库筹备中",
+    "description": "后续每项技能使用独立题库目录和关卡清单，只有进入对应技能或关卡时才加载，不与支付运营题库共用文件。",
+    "futureRoot": "data/challenges/"
+  },
   "skills": [
     {
       "id": "python",

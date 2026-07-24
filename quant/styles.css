@@ -252,6 +252,19 @@ a:focus-visible {
   gap: 2px;
 }
 
+.skill-side-group + .skill-side-group {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.skill-side-group h3 {
+  margin: 0 10px 5px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+}
+
 .skill-side-nav button {
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr);
@@ -1112,6 +1125,82 @@ a:focus-visible {
   gap: 40px;
 }
 
+.learning-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 30px;
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+
+.learning-summary-strip > div {
+  display: grid;
+  min-height: 104px;
+  padding: 16px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.learning-summary-strip span,
+.learning-summary-strip small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.learning-summary-strip strong {
+  align-self: center;
+  font-family: Georgia, "Noto Serif SC", serif;
+  font-size: 24px;
+}
+
+.learning-track-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+
+.learning-track-grid article {
+  min-width: 0;
+  padding: 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.learning-track-grid article > span {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.learning-track-grid article > strong {
+  display: block;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.learning-track-grid article > p {
+  min-height: 64px;
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.learning-track-grid article > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.learning-track-grid small {
+  padding: 3px 6px;
+  color: var(--muted);
+  background: var(--surface-muted);
+  border-radius: 3px;
+  font-size: 9px;
+}
+
 .skill-group {
   padding-top: 26px;
   border-top: 1px solid var(--line);
@@ -1225,7 +1314,8 @@ a:focus-visible {
 .skill-arrow {
   align-self: end;
   color: var(--accent-dark);
-  font-size: 18px;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .breadcrumb {
@@ -1299,6 +1389,66 @@ a:focus-visible {
   margin: 28px 0 34px;
   font-size: 17px;
   line-height: 1.8;
+}
+
+.skill-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+
+.skill-plan-grid section {
+  min-width: 0;
+  min-height: 130px;
+  padding: 20px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-plan-grid span {
+  color: var(--accent-dark);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.skill-plan-grid p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.question-bank-placeholder {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  margin-top: 24px;
+  padding: 20px 22px;
+  color: var(--ink);
+  background: var(--surface-warm);
+  border-left: 4px solid var(--amber);
+}
+
+.question-bank-placeholder div {
+  display: grid;
+  gap: 4px;
+}
+
+.question-bank-placeholder span {
+  color: var(--amber);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.question-bank-placeholder strong {
+  font-size: 15px;
+}
+
+.question-bank-placeholder p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
 }
 
 .skill-detail-columns {
@@ -3302,6 +3452,11 @@ a:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .learning-summary-strip,
+  .learning-track-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .screening-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -3584,6 +3739,16 @@ a:focus-visible {
 
   .skill-card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .learning-track-grid,
+  .skill-plan-grid,
+  .question-bank-placeholder {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-track-grid article > p {
+    min-height: 0;
   }
 
   .skill-card {
@@ -3955,6 +4120,10 @@ a:focus-visible {
   .skill-group-header {
     grid-template-columns: 50px minmax(0, 1fr);
     gap: 10px;
+  }
+
+  .learning-summary-strip {
+    grid-template-columns: 1fr;
   }
 
   .detail-pagination {

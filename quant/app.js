@@ -1,7 +1,6 @@
 const state = {
   profile: null,
   directions: null,
-  skills: null,
   institutions: null,
   jobs: null,
   jobSkills: null,
@@ -31,9 +30,9 @@ const viewMetadata = {
     subtitle: "以商品截面研究为主定价，按证据要求区分直接匹配、进阶目标与迁移方向。",
   },
   skills: {
-    eyebrow: "去重能力框架 · 证据优先",
-    title: "九项能力地图",
-    subtitle: "P0 决定高级研究员与策略负责人定价，P1 用于形成差异化与扩大机会集。",
+    eyebrow: "招聘样本共性 · 证据优先",
+    title: "量化岗位提升计划",
+    subtitle: "从已核验岗位提炼 P0 核心能力与 P1 差异化能力，逐项准备可验证证据，题库随后按技能接入。",
   },
   jobs: {
     eyebrow: "真实岗位样本 · 逐条核验",
@@ -339,47 +338,86 @@ function renderDirections() {
   elements.directionsContent.hidden = false;
 }
 
+function orderedLearningSkills() {
+  const priorityOrder = new Map([["P0", 0], ["P1", 1]]);
+  return [...state.jobSkills.skills].sort((left, right) => (
+    priorityOrder.get(left.priority) - priorityOrder.get(right.priority)
+    || right.count - left.count
+  ));
+}
+
 function renderSkillNavigation(activeSkillId = "") {
-  elements.skillSideNav.innerHTML = state.skills.skills.map((skill, index) => `
-    <button type="button" data-skill-id="${escapeHTML(skill.id)}" class="${skill.id === activeSkillId ? "active" : ""}">
-      <span>${String(index + 1).padStart(2, "0")}</span>
-      <strong>${escapeHTML(skill.title)}</strong>
-    </button>
+  const skills = orderedLearningSkills();
+  elements.skillSideNav.innerHTML = state.jobSkills.groups.map((group) => `
+    <section class="skill-side-group">
+      <h3>${escapeHTML(group.label)}</h3>
+      ${skills.filter((skill) => skill.priority === group.id).map((skill) => `
+        <button type="button" data-skill-id="${escapeHTML(skill.id)}" class="${skill.id === activeSkillId ? "active" : ""}">
+          <span>${String(skills.indexOf(skill) + 1).padStart(2, "0")}</span>
+          <strong>${escapeHTML(skill.label)}</strong>
+        </button>
+      `).join("")}
+    </section>
   `).join("");
 }
 
 function renderSkillsOverview() {
-  const groups = ["P0", "P1"];
+  const skills = orderedLearningSkills();
+  const sample = state.jobSkills.sample;
+  const p0Count = skills.filter((skill) => skill.priority === "P0").length;
+  const p1Count = skills.length - p0Count;
   renderSkillNavigation();
   elements.skillsOverview.innerHTML = `
-    <section class="view-intro">
+    <section class="view-intro learning-intro">
       <div>
-        <p class="section-index">CAPABILITY MAP</p>
-        <h2 id="skills-title">九项低重叠能力</h2>
+        <p class="section-index">LEARNING PLAN · VERIFIED SAMPLE N=${sample.size}</p>
+        <h2 id="skills-title">十一项招聘技能</h2>
       </div>
-      <p>每项能力只承载一个招聘判断，当前状态以已确认事实为准，不用年限替代证据。</p>
+      <p>${escapeHTML(sample.rule)} ${escapeHTML(sample.warning)}</p>
+    </section>
+    <section class="learning-summary-strip" aria-label="提升计划摘要">
+      <div><span>岗位样本</span><strong>${sample.size}</strong><small>直接投研职责过闸</small></div>
+      <div><span>P0 核心</span><strong>${p0Count}</strong><small>高级研究与 PM 定价项</small></div>
+      <div><span>P1 差异化</span><strong>${p1Count}</strong><small>按目标岗位选修</small></div>
+      <div><span>互动题库</span><strong>筹备中</strong><small>后续按技能独立加载</small></div>
+    </section>
+    <section class="learning-tracks section-band" aria-labelledby="learning-tracks-title">
+      <header class="section-heading compact-heading">
+        <p class="section-index">FOUR TRAINING LANES</p>
+        <h2 id="learning-tracks-title">四条提升主线</h2>
+      </header>
+      <div class="learning-track-grid">
+        ${state.jobSkills.tracks.map((track) => `
+          <article>
+            <span>${escapeHTML(track.label)}</span>
+            <strong>${escapeHTML(track.title)}</strong>
+            <p>${escapeHTML(track.description)}</p>
+            <div>${track.skillIds.map((id) => `<small>${escapeHTML(skills.find((skill) => skill.id === id)?.label || id)}</small>`).join("")}</div>
+          </article>
+        `).join("")}
+      </div>
     </section>
     <div class="skill-groups">
-      ${groups.map((priority) => {
-        const skills = state.skills.skills.filter((skill) => skill.priority === priority);
+      ${state.jobSkills.groups.map((group) => {
+        const groupSkills = skills.filter((skill) => skill.priority === group.id);
         return `
-          <section class="skill-group" aria-labelledby="${priority.toLowerCase()}-heading">
+          <section class="skill-group" aria-labelledby="${group.id.toLowerCase()}-heading">
             <header class="skill-group-header">
-              <span>${priority}</span>
+              <span>${escapeHTML(group.id)}</span>
               <div>
-                <h3 id="${priority.toLowerCase()}-heading">${priority === "P0" ? "核心定价能力" : "差异化与迁移能力"}</h3>
-                <p>${priority === "P0" ? "高级研究员、策略负责人和 PM 岗位共同追问的底层证据" : "不稀释商品研究主身份的前提下扩大机会集"}</p>
+                <h3 id="${group.id.toLowerCase()}-heading">${escapeHTML(group.label)}</h3>
+                <p>${escapeHTML(group.description)}</p>
               </div>
             </header>
             <div class="skill-card-grid">
-              ${skills.map((skill, index) => `
+              ${groupSkills.map((skill) => `
                 <button type="button" class="skill-card" data-skill-id="${escapeHTML(skill.id)}">
-                  <span class="skill-number">${String(state.skills.skills.indexOf(skill) + 1).padStart(2, "0")}</span>
-                  <span class="status-chip">${escapeHTML(skill.status)}</span>
-                  <strong>${escapeHTML(skill.title)}</strong>
-                  <span>${escapeHTML(skill.subtitle)}</span>
-                  <small>${escapeHTML(skill.summary)}</small>
-                  <span class="skill-arrow" aria-hidden="true">→</span>
+                  <span class="skill-number">${String(skills.indexOf(skill) + 1).padStart(2, "0")}</span>
+                  <span class="status-chip">${skill.count} / ${sample.size}</span>
+                  <strong>${escapeHTML(skill.label)}</strong>
+                  <span>${escapeHTML(skill.basis)} · 个人现状：${escapeHTML(skill.candidateState)}</span>
+                  <small>${escapeHTML(skill.interpretation)}</small>
+                  <span class="skill-arrow">查看计划 →</span>
                 </button>
               `).join("")}
             </div>
@@ -394,7 +432,7 @@ function renderSkillsOverview() {
 }
 
 function renderSkillDetail(skillId) {
-  const skills = state.skills.skills;
+  const skills = orderedLearningSkills();
   const index = skills.findIndex((skill) => skill.id === skillId);
   if (index < 0) {
     location.hash = "skills";
@@ -403,10 +441,11 @@ function renderSkillDetail(skillId) {
   const skill = skills[index];
   const previous = skills[index - 1];
   const next = skills[index + 1];
+  const sample = state.jobSkills.sample;
   renderSkillNavigation(skillId);
   elements.skillDetail.innerHTML = `
-    <nav class="breadcrumb" aria-label="能力详情导航">
-      <button type="button" data-back-skills><span aria-hidden="true">←</span> 九项能力</button>
+    <nav class="breadcrumb" aria-label="技能详情导航">
+      <button type="button" data-back-skills><span aria-hidden="true">←</span> 十一项技能</button>
       <span>${String(index + 1).padStart(2, "0")} / ${String(skills.length).padStart(2, "0")}</span>
     </nav>
     <article class="skill-detail-sheet">
@@ -414,35 +453,32 @@ function renderSkillDetail(skillId) {
         <div>
           <div class="skill-detail-meta">
             <span>${escapeHTML(skill.priority)}</span>
-            <span>${escapeHTML(skill.status)}</span>
+            <span>${escapeHTML(skill.basis)}</span>
+            <span>${skill.count} / ${sample.size} 岗位</span>
           </div>
-          <h2>${escapeHTML(skill.title)}</h2>
-          <p>${escapeHTML(skill.subtitle)}</p>
+          <h2>${escapeHTML(skill.label)}</h2>
+          <p>个人现状：${escapeHTML(skill.candidateState)}</p>
         </div>
         <span class="detail-index">${String(index + 1).padStart(2, "0")}</span>
       </header>
-      <p class="skill-detail-summary">${escapeHTML(skill.summary)}</p>
-      <div class="skill-detail-columns">
-        <section>
-          <span class="field-label">已确认</span>
-          ${list(skill.confirmed, "evidence-list")}
-        </section>
-        <section>
-          <span class="field-label">待补证</span>
-          ${list(skill.toProve, "question-list")}
-        </section>
+      <p class="skill-detail-summary">${escapeHTML(skill.interpretation)}</p>
+      <div class="skill-plan-grid">
+        <section><span>当前证据</span><p>${escapeHTML(skill.candidateEvidence)}</p></section>
+        <section><span>能力缺口</span><p>${escapeHTML(skill.gap)}</p></section>
+        <section><span>目标产出</span><p>${escapeHTML(skill.evidenceToPrepare)}</p></section>
+        <section><span>训练顺序</span><p>先补概念与方法，再完成脱敏案例，最后用岗位问题验证能否清楚解释取舍、风险和结果。</p></section>
       </div>
-      <section class="next-action">
-        <span>下一份证据</span>
-        <strong>${escapeHTML(skill.next)}</strong>
+      <section class="question-bank-placeholder" aria-label="题库状态">
+        <div><span>INTERACTIVE CHALLENGE</span><strong>${escapeHTML(state.jobSkills.questionBank.label)}</strong></div>
+        <p>${escapeHTML(state.jobSkills.questionBank.description)}</p>
       </section>
     </article>
-    <nav class="detail-pagination" aria-label="上一项或下一项能力">
+    <nav class="detail-pagination" aria-label="上一项或下一项技能">
       <button type="button" ${previous ? `data-skill-id="${escapeHTML(previous.id)}"` : "disabled"}>
-        <span>上一项</span><strong>${previous ? escapeHTML(previous.title) : "已经是第一项"}</strong>
+        <span>上一项</span><strong>${previous ? escapeHTML(previous.label) : "已经是第一项"}</strong>
       </button>
       <button type="button" ${next ? `data-skill-id="${escapeHTML(next.id)}"` : "disabled"}>
-        <span>下一项</span><strong>${next ? escapeHTML(next.title) : "已经是最后一项"}</strong>
+        <span>下一项</span><strong>${next ? escapeHTML(next.label) : "已经是最后一项"}</strong>
       </button>
     </nav>
   `;
@@ -842,40 +878,6 @@ function renderJobCards(jobs) {
   `;
 }
 
-function renderJobSkills() {
-  const sample = state.jobSkills.sample;
-  return `
-    <section class="market-skills section-band" aria-labelledby="market-skills-title">
-      <header class="section-heading compact-heading market-skills-heading">
-        <div>
-          <p class="section-index">VERIFIED SAMPLE · N=${sample.size}</p>
-          <h2 id="market-skills-title">岗位样本共同技能</h2>
-        </div>
-        <p>${escapeHTML(sample.warning)}</p>
-      </header>
-      <div class="market-skill-list">
-        ${state.jobSkills.skills.map((skill) => `
-          <details class="market-skill-row">
-            <summary>
-              <span class="skill-frequency"><i style="--frequency: ${skill.count / sample.size}"></i></span>
-              <strong>${escapeHTML(skill.label)}</strong>
-              <span>${skill.count} / ${sample.size}</span>
-              <small>${escapeHTML(skill.priority)} · ${escapeHTML(skill.basis)}</small>
-            </summary>
-            <div>
-              <p>${escapeHTML(skill.interpretation)}</p>
-              <p><strong>个人现状 · ${escapeHTML(skill.candidateState)}：</strong>${escapeHTML(skill.candidateEvidence)}</p>
-              <p><strong>当前缺口：</strong>${escapeHTML(skill.gap)}</p>
-              <p><strong>要准备的证据：</strong>${escapeHTML(skill.evidenceToPrepare)}</p>
-            </div>
-          </details>
-        `).join("")}
-      </div>
-      <p class="sample-rule">${escapeHTML(sample.rule)}</p>
-    </section>
-  `;
-}
-
 function renderJobs() {
   const filters = jobFilterOptions();
   const queueRanks = new Map((state.actionPlan?.queue || []).map((item) => [item.jobId, item.rank]));
@@ -906,7 +908,6 @@ function renderJobs() {
       <div><span>C 档</span><strong>${catalog.c}</strong><small>两项以上关键差距</small></div>
       <div><span>当前职位</span><strong>${catalog.active}</strong><small>历史参照不计入</small></div>
     </section>
-    ${renderJobSkills()}
     <section class="radar-results section-band" aria-labelledby="radar-results-title">
       <header class="section-heading compact-heading radar-results-header">
         <div>
@@ -960,18 +961,17 @@ async function ensureDirections() {
 }
 
 async function ensureSkills(skillId = "") {
-  if (!state.skills) state.skills = await loadJSON("data/skills.json");
+  if (!state.jobSkills) state.jobSkills = await loadJSON("data/job-skills.json");
   elements.skillSideSection.hidden = false;
   if (skillId) renderSkillDetail(skillId);
   else renderSkillsOverview();
 }
 
 async function ensureJobs() {
-  if (!state.institutions || !state.jobs || !state.jobSkills) {
-    [state.institutions, state.jobs, state.jobSkills] = await Promise.all([
+  if (!state.institutions || !state.jobs) {
+    [state.institutions, state.jobs] = await Promise.all([
       loadJSON("data/institutions.json"),
       loadJSON("data/jobs.json"),
-      loadJSON("data/job-skills.json"),
     ]);
   }
   renderJobs();

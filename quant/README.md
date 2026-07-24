@@ -19,8 +19,8 @@
 
 - `职业画像`：默认加载，展示实盘成绩单、职责边界、职业定位和研究证据链。
 - `目标方向`：按需加载 `data/directions.json`，把个人证据和已核验岗位样本归纳成六类职业方向。
-- `能力地图`：按需加载 `data/skills.json`，包含 6 项 P0 核心能力和 3 项 P1 差异化能力。
-- `岗位雷达`：点击后才并行载入机构、3 条 A 档岗位和共同技能；15 条 B 档在首次点击 B 档时加载，13 条高价值 C 档边界机会与 2 条历史参照使用独立数据包，在用户进入对应页签时再加载。匹配分低于 70 的 C 档只保留在本地审计，不占用网页主池。行动、面试、材料与检索审计按页签加载，岗位专属面试题和筛选记录再按用户点击二次加载，原始公开职位快照不会发布到网页。
+- `提升计划`：按需加载 `data/job-skills.json`，从 10 条严格岗位样本总结 8 项 P0 核心能力和 3 项 P1 差异化能力；技能卡片、详情和未来题库入口独立于岗位雷达。
+- `岗位雷达`：点击后只并行载入机构与 3 条 A 档岗位；15 条 B 档在首次点击 B 档时加载，13 条高价值 C 档边界机会与 2 条历史参照使用独立数据包，在用户进入对应页签时再加载。匹配分低于 70 的 C 档只保留在本地审计，不占用网页主池。行动、面试、材料与检索审计按页签加载，岗位专属面试题和筛选记录再按用户点击二次加载，原始公开职位快照不会发布到网页。
 - `检索审计`：进入岗位雷达后仍不加载，只有点击该页签才读取独立审计数据，展示来源层级、访问边界、淘汰线索和复核计划。
 - `面试题库`：同样二级懒加载；按七个岗位包提供 35 道岗位定制问题，参考回答默认收起，并标注证据和披露边界。
 - `求职材料`：按需加载中英文定位、六条简历要点、猎头沟通模板、岗位关键词和四阶段事实检查。
@@ -36,6 +36,7 @@
 - 灵均第三方招聘路径受 `robots.txt` 限制，九坤官网条款禁止 crawler/spider，因此两者只人工浏览和核验，不运行自动采集。
 - `sources/snapshots/` 保存带日期的原始公开职位快照用于审计，不在同步清单中，不会进入 GitHub Pages 资源。
 - `data/job-skills.json` 的 `n/N` 只描述页面列出的定向样本，不是市场总体估计。
+- 支付运营站的数据位于发布仓库根目录的 `learning-guide.json` 与 `challenges/`；量化源数据只位于本仓库 `data/`，并只发布到 `recruitment/quant/data/`。两站不共享学习指南、题库或进度键。
 
 重新采集明汯公开职位需要工作区已有 Playwright：
 
@@ -73,6 +74,7 @@ node tests/data-check.cjs
 node tests/collector-check.cjs
 node tests/freshness-check.cjs
 node tests/job-skills-build-check.cjs
+node tests/data-isolation-check.cjs
 node tests/claim-guardrails-check.cjs
 NODE_PATH=/mnt/Data/jiqiang/job/node_modules node tests/accessibility-check.cjs
 SITE_URL=https://jiqiangzhangnyu.github.io/recruitment/quant node tests/deployment-check.cjs
