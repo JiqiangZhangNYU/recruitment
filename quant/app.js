@@ -2,7 +2,6 @@ const state = {
   profile: null,
   directions: null,
   skills: null,
-  compensation: null,
   institutions: null,
   jobs: null,
   jobSkills: null,
@@ -18,7 +17,6 @@ const state = {
   interviewRoleId: "tianyan-senior-quant-researcher",
 };
 
-let compensationViewPromise;
 const interviewRolePromises = new Map();
 
 const viewMetadata = {
@@ -36,15 +34,10 @@ const viewMetadata = {
     title: "九项能力地图",
     subtitle: "P0 决定高级研究员与策略负责人定价，P1 用于形成差异化与扩大机会集。",
   },
-  compensation: {
-    eyebrow: "上海税务口径 · 可复算估算",
-    title: "薪酬换算与谈判门槛",
-    subtitle: "固定税前保证收入和良好年份税后现金是两条独立条件；未披露固定薪酬的岗位必须人工核验。",
-  },
   jobs: {
-    eyebrow: "真实岗位样本 · 三道硬门槛",
+    eyebrow: "真实岗位样本 · 逐条核验",
     title: "上海量化岗位雷达",
-    subtitle: "机构规模有官方证据，职位状态有核验日期；薪酬未公开时只进入待沟通池，不推断达标。",
+    subtitle: "机构规模、上海地点、职位状态和职责边界分别核验，不用品牌代替证据。",
   },
 };
 
@@ -64,8 +57,6 @@ const elements = {
   skillDetail: document.querySelector("#skill-detail"),
   skillSideSection: document.querySelector("#skill-side-section"),
   skillSideNav: document.querySelector("#skill-side-nav"),
-  compensationLoading: document.querySelector("#compensation-loading"),
-  compensationContent: document.querySelector("#compensation-content"),
   jobsLoading: document.querySelector("#jobs-loading"),
   jobsContent: document.querySelector("#jobs-content"),
 };
@@ -288,7 +279,7 @@ function renderDirections() {
           <p class="section-index">SEARCH CONSTRAINTS</p>
           <h3 id="screening-title">岗位筛选边界</h3>
         </div>
-        <span>上海 · 百亿以上 · 百万年薪</span>
+        <span>上海 · 百亿以上 · 高级 IC</span>
       </header>
       <div class="screening-grid">
         ${dataset.screeningCriteria.map((criterion) => `
@@ -302,7 +293,6 @@ function renderDirections() {
           </article>
         `).join("")}
       </div>
-      <p class="compensation-note"><span>口径提醒</span>${escapeHTML(dataset.compensationNote)}</p>
     </section>
     <div class="segment-control" role="group" aria-label="岗位匹配级别">
       ${filters.map((filter) => `
@@ -664,7 +654,7 @@ function renderActionPlan() {
       <section class="application-queue" aria-labelledby="application-queue-title">
         <header>
           <p class="section-index">PRIORITY QUEUE</p>
-          <h3 id="application-queue-title">五条优先沟通路径</h3>
+          <h3 id="application-queue-title">${plan.queue.length} 条优先沟通路径</h3>
         </header>
         ${plan.queue.map((item) => {
           const job = state.jobs.jobs.find((candidate) => candidate.id === item.jobId);
@@ -707,17 +697,6 @@ function renderActionPlan() {
               </div>
             </details>
           `).join("")}
-        </div>
-      </section>
-      <section class="negotiation-script section-band" aria-labelledby="negotiation-title">
-        <header class="section-heading compact-heading">
-          <p class="section-index">COMPENSATION VERIFICATION</p>
-          <h3 id="negotiation-title">薪酬核验话术</h3>
-        </header>
-        <blockquote>${escapeHTML(plan.compensationScript.opening)}</blockquote>
-        <div class="negotiation-grid">
-          <section><span>必须问清</span>${list(plan.compensationScript.minimumQuestions, "evidence-list")}</section>
-          <section><span>高风险信号</span>${list(plan.compensationScript.redFlags, "question-list")}</section>
         </div>
       </section>
       <section class="evidence-pack section-band" aria-labelledby="evidence-pack-title">
@@ -836,7 +815,6 @@ function renderJobCards(jobs) {
               <div class="job-gates" aria-label="岗位硬条件">
                 ${renderGate("上海", job.eligibility.location)}
                 ${renderGate("百亿机构", job.eligibility.institutionScale)}
-                ${renderGate("薪酬", job.eligibility.compensation)}
                 ${renderGate("职级", job.eligibility.seniority)}
               </div>
               <p class="job-verdict">${escapeHTML(job.fit.verdict)}</p>
@@ -847,7 +825,6 @@ function renderJobCards(jobs) {
                   <section><span>核心职责</span>${list(job.responsibilities, "compact-boundary-list")}</section>
                   <section><span>主要要求</span>${list(job.requirements, "compact-boundary-list")}</section>
                 </div>
-                <p><strong>薪酬：</strong>${escapeHTML(job.compensation.note)}</p>
               </details>
             </div>
           </article>
@@ -902,21 +879,19 @@ function renderJobs() {
     ));
   const activeJobs = state.jobs.jobs.filter((job) => job.status === "active");
   const strictCount = state.jobs.jobs.filter((job) => job.pool === "strict-watch").length;
-  const compensationKnown = activeJobs.filter((job) => job.eligibility.compensation === "pass").length;
-  const compensationFailed = activeJobs.filter((job) => job.eligibility.compensation === "fail").length;
   elements.jobsContent.innerHTML = `
     <section class="view-intro jobs-intro">
       <div>
         <p class="section-index">JOB RADAR · ${escapeHTML(state.jobs.updatedAt)}</p>
         <h2 id="jobs-title">先核验，再判断匹配</h2>
       </div>
-      <p>${escapeHTML(state.jobs.methodology.scope)} ${escapeHTML(state.jobs.methodology.compensation)}</p>
+      <p>${escapeHTML(state.jobs.methodology.scope)}</p>
     </section>
     <section class="radar-summary" aria-label="岗位雷达摘要">
-      <div><span>百亿机构</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>均有协会规模证据</small></div>
+      <div><span>百亿机构</span><strong>${state.institutions.institutions.filter((item) => item.scale.status === "pass").length}</strong><small>规模证据单独核验</small></div>
       <div><span>当前职位</span><strong>${activeJobs.length}</strong><small>含相邻和边界线索</small></div>
       <div><span>重点待核</span><strong>${strictCount}</strong><small>地点、规模已过闸</small></div>
-      <div><span>薪酬已达标</span><strong>${compensationKnown}</strong><small>${compensationFailed} 条明确淘汰，其余不推断</small></div>
+      <div><span>直接投研样本</span><strong>${state.jobSkills.sample.size}</strong><small>用于共同技能统计</small></div>
     </section>
     ${renderJobSkills()}
     <section class="radar-results section-band" aria-labelledby="radar-results-title">
@@ -925,7 +900,7 @@ function renderJobs() {
           <p class="section-index">SCREENED OPPORTUNITIES</p>
           <h2 id="radar-results-title">岗位与机构证据</h2>
         </div>
-        <span>薪酬 0 条已通过，面试前必须先问固定现金</span>
+        <span>当前机会与边界线索分池展示</span>
       </header>
       <div class="segment-control job-filter" role="group" aria-label="岗位池筛选">
         ${filters.map((filter) => `
@@ -973,15 +948,6 @@ async function ensureSkills(skillId = "") {
   else renderSkillsOverview();
 }
 
-async function ensureCompensation() {
-  if (!state.compensation) state.compensation = await loadJSON("data/compensation.json");
-  if (!compensationViewPromise) compensationViewPromise = import("./compensation-view.js");
-  const { renderCompensation } = await compensationViewPromise;
-  renderCompensation(elements.compensationContent, state.compensation);
-  elements.compensationLoading.hidden = true;
-  elements.compensationContent.hidden = false;
-}
-
 async function ensureJobs() {
   if (!state.institutions || !state.jobs || !state.jobSkills) {
     [state.institutions, state.jobs, state.jobSkills] = await Promise.all([
@@ -994,7 +960,7 @@ async function ensureJobs() {
 }
 
 async function showView(view, detailId = "") {
-  const safeView = ["overview", "directions", "skills", "compensation", "jobs"].includes(view) ? view : "overview";
+  const safeView = ["overview", "directions", "skills", "jobs"].includes(view) ? view : "overview";
   state.activeView = safeView;
   document.querySelectorAll(".view-panel").forEach((panel) => {
     panel.hidden = panel.id !== `${safeView}-view`;
@@ -1010,7 +976,6 @@ async function showView(view, detailId = "") {
   try {
     if (safeView === "directions") await ensureDirections();
     if (safeView === "skills") await ensureSkills(detailId);
-    if (safeView === "compensation") await ensureCompensation();
     if (safeView === "jobs") await ensureJobs();
   } catch (error) {
     console.error(error);

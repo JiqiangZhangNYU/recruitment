@@ -10,17 +10,18 @@
       "century-frontier-portfolio-optimization",
       "tianyan-senior-quant-researcher",
       "jq-quant-strategy-researcher",
-      "man-group-china-macro-quant-researcher"
+      "man-group-china-macro-quant-researcher",
+      "qrt-quant-researcher-trader"
     ],
-    "size": 8,
+    "size": 9,
     "rule": "只统计当前、百亿以上、上海可选且直接承担 Alpha、预测、组合或投资判断的研究岗位；研究工程、交易后数据、纯开发、匿名客户和历史岗位不计入频次。",
-    "warning": "频次只回答公开 JD 写了什么；0/8 不代表能力不重要，负责人晋级项需结合职责缺口单独判断。"
+    "warning": "频次只回答公开 JD 写了什么；0/9 不代表能力不重要，负责人晋级项需结合职责缺口单独判断。"
   },
   "skills": [
     {
       "id": "python",
       "label": "Python 与可复现研究代码",
-      "count": 8,
+      "count": 9,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项",
@@ -32,7 +33,7 @@
     {
       "id": "research-rigor",
       "label": "严谨验证与证据链",
-      "count": 8,
+      "count": 9,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项待包装",
@@ -44,7 +45,7 @@
     {
       "id": "statistical-modeling",
       "label": "统计建模与预测",
-      "count": 8,
+      "count": 9,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项",
@@ -56,7 +57,7 @@
     {
       "id": "machine-learning",
       "label": "机器学习与非线性模型",
-      "count": 3,
+      "count": 4,
       "priority": "P1",
       "basis": "差异化",
       "candidateState": "待补证",
@@ -68,7 +69,7 @@
     {
       "id": "productionization",
       "label": "研究到实盘的一致性",
-      "count": 5,
+      "count": 6,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "强项有边界",
@@ -80,7 +81,7 @@
     {
       "id": "signal-research",
       "label": "数据到 Alpha 的研究能力",
-      "count": 7,
+      "count": 8,
       "priority": "P0",
       "basis": "JD 共识",
       "candidateState": "核心强项",
@@ -128,7 +129,7 @@
     {
       "id": "collaboration",
       "label": "跨研究、交易与工程协作",
-      "count": 4,
+      "count": 5,
       "priority": "P1",
       "basis": "JD 共识",
       "candidateState": "已确认",
@@ -140,7 +141,7 @@
     {
       "id": "strategy-ownership",
       "label": "策略所有权与投资判断",
-      "count": 2,
+      "count": 3,
       "priority": "P0",
       "basis": "晋级门槛",
       "candidateState": "目标能力",

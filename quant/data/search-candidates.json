@@ -5,8 +5,8 @@
     {
       "name": "上海迎水投资",
       "status": "补证后再评",
-      "signal": "当前公开招聘覆盖商品期货与期权研究员、交易员和基金经理，上海地点明确，公开月薪为 3–6 万元。",
-      "decision": "策略方向相关，但即使按 12 个月上限计算也只有 72 万元，低于固定保证门槛；同时需要用协会页面复核最新百亿规模。",
+      "signal": "当前公开招聘覆盖商品期货与期权研究员、交易员和基金经理，上海地点明确。",
+      "decision": "策略方向相关，但需要用协会页面复核最新百亿规模，并确认是否存在适合六年经验的高级 IC 职级。",
       "sources": [
         {
           "label": "当前雇主职位页",
@@ -64,9 +64,9 @@
     },
     {
       "name": "匿名百亿 CTA 猎头岗位",
-      "status": "薪资淘汰",
-      "signal": "商品期货、统计建模、组合优化与风险归因均相关，上海月薪 3–6 万元。",
-      "decision": "机构身份未披露，且年化公开固定薪上限约 72 万元，未达到 100 万元。",
+      "status": "身份待核",
+      "signal": "商品期货、统计建模、组合优化与风险归因均相关，工作地点为上海。",
+      "decision": "机构身份未披露，无法核验百亿规模和实际授权；仅作为匿名市场线索。",
       "sources": [
         {
           "label": "当前猎头职位",
@@ -89,7 +89,7 @@
     {
       "name": "Point72 / Cubist 期货与宏观量化研究",
       "status": "地点淘汰",
-      "signal": "当前职位覆盖期货、商品、截面与时间序列信号、组合优化，公开固定薪也高于人民币 100 万元。",
+      "signal": "当前职位覆盖期货、商品、截面与时间序列信号及组合优化。",
       "decision": "当前岗位地点为纽约、香港等，不包含上海；地点是硬条件，因此不进入机会池。",
       "sources": [
         {
@@ -162,7 +162,7 @@
       "name": "东方证券资深量化投资经理 (MJ002571)",
       "status": "授权门槛待核",
       "signal": "当前上海岗位负责策略开发和管理、实盘监控归因、资金管理与风险控制，要求 3–5 年量化投资经验及一年以上独立实盘管理经历。",
-      "decision": "职责和目标头衔相关，但不能把 PM 配置给策略的约 10 亿元表述为个人独立管理规模。只有用人方接受可核验的研究、预测和组合所有权，并提供分阶段正式资金授权时才继续；同时需以资管 AUM 而非证券公司总资产核验百亿门槛，并先问百万固定薪。",
+      "decision": "职责和目标头衔相关，但不能把 PM 配置给策略的约 10 亿元表述为个人独立管理规模。只有用人方接受可核验的研究、预测和组合所有权，并提供分阶段正式资金授权时才继续；同时需以资管 AUM 而非证券公司总资产核验百亿门槛。",
       "sources": [
         {
           "label": "当前雇主职位页",
@@ -171,6 +171,70 @@
         {
           "label": "同批高级量化研究员职位页",
           "url": "https://cn.linkedin.com/jobs/view/%E9%AB%98%E7%BA%A7%E9%87%8F%E5%8C%96%E7%A0%94%E7%A9%B6%E5%91%98-mj002572-at-%E4%B8%9C%E6%96%B9%E8%AF%81%E5%88%B8%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-4420877247"
+        }
+      ]
+    },
+    {
+      "name": "AXQ Algorithmic Trading Researcher",
+      "status": "频率与职责不符",
+      "signal": "上海当前岗位覆盖交易成本分析、实盘迭代、高保真回测和研究到实盘一致性。",
+      "decision": "核心要求是 L3 订单簿、报撤单逻辑、短周期预测和两年以上高频或算法执行经验；现有优势是日频信号与组合，不把执行协作包装成微观结构专长。",
+      "sources": [
+        {
+          "label": "AXQ 官方职位页",
+          "url": "https://job-boards.greenhouse.io/axq/jobs/6010042004"
+        }
+      ]
+    },
+    {
+      "name": "AXQ Machine Learning Researcher",
+      "status": "技能门槛不符",
+      "signal": "上海当前岗位把时间序列、NLP、LLM、非平稳金融数据和 Alpha 研究结合起来。",
+      "decision": "职位偏好顶会论文、竞赛记录和深度 ML 研究能力；熟练使用大模型工具不能替代可验证的模型研究成果，暂不投递。",
+      "sources": [
+        {
+          "label": "AXQ 官方职位页",
+          "url": "https://job-boards.greenhouse.io/axq/jobs/5636445004"
+        }
+      ]
+    },
+    {
+      "name": "WorldQuant Quantitative Researcher",
+      "status": "职级淘汰",
+      "signal": "北京或上海当前岗位覆盖全球市场预测模型和系统化 Alpha 研究。",
+      "decision": "职位明确面向 2025 或 2026 届毕业生，与六年费后实盘经历严重错位；不以品牌换取初级定级。",
+      "sources": [
+        {
+          "label": "WorldQuant 官方职位页",
+          "url": "https://job-boards.greenhouse.io/worldquant/jobs/4069466006"
+        }
+      ]
+    },
+    {
+      "name": "Tower Research 上海 Quantitative Researcher / Trader",
+      "status": "机构与频率边界",
+      "signal": "官方接口当前列出上海 Quantitative Researcher 和 APAC Quantitative Trader/Researcher。",
+      "decision": "公开职责以高频、微观结构和自营交易为主，且 Tower 不是百亿资管机构；作为研究与交易一体化标杆，不进入目标池。",
+      "sources": [
+        {
+          "label": "Tower Quantitative Researcher",
+          "url": "https://www.tower-research.com/open-positions/?gh_jid=7177090"
+        },
+        {
+          "label": "Tower Quantitative Trader / Researcher",
+          "url": "https://www.tower-research.com/open-positions/?gh_jid=4958633"
+        }
+      ]
+    },
+    {
+      "name": "QRT (Senior) Copper Analyst",
+      "status": "领域经历不符",
+      "signal": "上海当前职位要求八年以上中国铜产业研究、供需分析与成本曲线建模。",
+      "decision": "商品资产相关，但核心是铜产业链基本面而非量化信号与组合；没有八年铜研究经历时不投递，避免把公开数据研究泛化为产业专家。",
+      "sources": [
+        {
+          "label": "QRT 官方职位页",
+          "url": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8105885002"
         }
       ]
     }

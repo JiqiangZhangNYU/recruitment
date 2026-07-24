@@ -171,6 +171,67 @@
         { "label": "Man Group 官方机构介绍", "url": "https://www.man.com/about-us", "supports": "全球另类投资管理属性及截至 2026-03-31 的 2,287 亿美元 AUM" },
         { "label": "Man Group 上海雇主职位页", "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-at-man-group-4433353137", "supports": "当前岗位、上海地点、中国期货经验要求和完整投资生命周期职责" }
       ]
+    },
+    {
+      "id": "qrt",
+      "name": "Qube Research & Technologies",
+      "legalName": "Qube Research & Technologies Limited 及其受监管关联实体",
+      "type": "全球量化系统化投资机构",
+      "priority": "主要",
+      "scale": { "status": "pass", "band": "全球 AUM 约 380 亿美元", "asOf": "2025-03-07" },
+      "shanghai": { "status": "pass", "evidence": "官方招聘接口当前列出上海办公室及 Quantitative Researcher/Trader 等职位。" },
+      "career": { "url": "https://job-boards.greenhouse.io/quberesearchandtechnologies", "status": "active", "note": "公开接口当前列出 8 条含上海地点的职位，其中 2 条进入本页相关岗位池。" },
+      "accessPolicy": { "mode": "public-api", "reason": "只读取 Greenhouse 公开职位接口的标题、地点、更新时间和公开 JD，不访问申请或个人数据。" },
+      "sources": [
+        { "label": "QRT 官方机构介绍", "url": "https://www.qube-rt.com/", "supports": "全球多策略投资管理属性、研究方式与跨资产平台" },
+        { "label": "QRT 官方职位接口", "url": "https://job-boards.greenhouse.io/quberesearchandtechnologies", "supports": "上海办公室、当前职位状态与职责要求" },
+        { "label": "Bloomberg 规模报道", "url": "https://www.bloomberg.com/news/articles/2025-03-07/secretive-hedge-fund-qrt-adds-another-5-billion-to-its-assets", "supports": "2025 年 3 月全球 AUM 约 380 亿美元；规模证据不是上海实体 AUM" }
+      ]
+    },
+    {
+      "id": "axq",
+      "name": "AXQ Capital / 安贤投资",
+      "legalName": "安贤投资相关境内外投资管理实体（具体上海签约主体待核）",
+      "type": "全球量化投资公司",
+      "priority": "观察",
+      "scale": { "status": "verify", "band": "官网未披露可核验 AUM", "asOf": "2026-07-24" },
+      "shanghai": { "status": "pass", "evidence": "官网和官方职位接口均列出上海办公室及多条当前量化岗位。" },
+      "career": { "url": "https://job-boards.greenhouse.io/axq", "status": "active", "note": "公开接口当前列出 Portfolio Manager、Senior Quantitative Researcher 和 Quantitative Researcher 等上海岗位。" },
+      "accessPolicy": { "mode": "public-api", "reason": "只读取 Greenhouse 公开职位接口；官网的 20 亿美元以上数字是日均交易量，不作为 AUM 证据。" },
+      "sources": [
+        { "label": "AXQ 官方网站", "url": "https://www.axqcap.cn/", "supports": "机构定位、策略范围、上海办公室和 20 亿美元以上日均交易量" },
+        { "label": "AXQ 官方职位接口", "url": "https://job-boards.greenhouse.io/axq", "supports": "当前上海岗位、职责与经验要求" }
+      ]
+    },
+    {
+      "id": "dongwu-fund",
+      "name": "东吴基金",
+      "legalName": "东吴基金管理有限公司",
+      "type": "公募基金",
+      "priority": "次要",
+      "scale": { "status": "pass", "band": "公募及专户合计 520 亿元", "asOf": "2025-12-31" },
+      "shanghai": { "status": "pass", "evidence": "公司总部及 2026 年量化研究社会招聘岗位均位于上海。" },
+      "career": { "url": "https://www.scfund.com.cn/news/2026/04/30/38449/1.shtml", "status": "active", "note": "2026-04-30 官方社会招聘列出上海量化研究岗位。" },
+      "accessPolicy": { "mode": "manual", "reason": "人工核验公司官网职位和上交所公开募集说明书，不运行自动申请。" },
+      "sources": [
+        { "label": "东吴基金官方社会招聘", "url": "https://www.scfund.com.cn/news/2026/04/30/38449/1.shtml", "supports": "当前量化研究岗位、上海地点、职责和要求" },
+        { "label": "上交所公开募集说明书", "url": "https://static.sse.com.cn/disclosure/bond/announcement/company/c/new/2026-07-07/245603_20260707_N31F.pdf", "supports": "截至 2025 年末公募 487.86 亿元、公募及专户合计 520 亿元" }
+      ]
+    },
+    {
+      "id": "zheshang-fund",
+      "name": "浙商基金",
+      "legalName": "浙商基金管理有限公司",
+      "type": "公募基金",
+      "priority": "次要",
+      "scale": { "status": "pass", "band": "公募管理规模约 295 亿元", "asOf": "2026-03-31" },
+      "shanghai": { "status": "pass", "evidence": "官方招聘页明确列出上海量化基金经理和量化研究员岗位。" },
+      "career": { "url": "https://www.zsfund.com/aboutus/job/job1/index.html", "status": "active", "note": "两条量化职位均列示至 2026-12-31。" },
+      "accessPolicy": { "mode": "manual", "reason": "人工核验官方职位页；规模采用公开基金统计并保留来源日期。" },
+      "sources": [
+        { "label": "浙商基金官方招聘页", "url": "https://www.zsfund.com/aboutus/job/job1/index.html", "supports": "当前量化基金经理和量化研究员、上海地点、职责要求及截止日期" },
+        { "label": "公开基金规模统计", "url": "https://fund.eastmoney.com/Company/f10/gmbd_80156777.html", "supports": "截至 2026-03-31 的管理规模约 295 亿元；需与后续官方披露交叉更新" }
+      ]
     }
   ]
 }

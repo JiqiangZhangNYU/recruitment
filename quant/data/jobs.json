@@ -3,7 +3,6 @@
   "updatedAt": "2026-07-24",
   "methodology": {
     "scope": "上海、百亿元以上机构的当前公开岗位优先；匿名雇主或已停止招聘的岗位只进入边界/历史池。",
-    "compensation": "没有公开固定薪与奖金结构时统一标记为需沟通核验，不使用行业传闻推断。",
     "freshness": "职位状态均以 checkedAt 为准；官网长期开放职位不等同于近期新发布。",
     "sampleWarning": "技能频率只描述本页已核验样本，不代表完整市场统计。"
   },
@@ -18,13 +17,39 @@
       "pool": "strict-watch",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "衍复投资雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/%E9%87%8F%E5%8C%96%E7%A0%94%E7%A9%B6%E5%91%98-at-%E4%B8%8A%E6%B5%B7%E8%A1%8D%E5%A4%8D%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-4338927628" },
-      "fit": { "tier": "A", "score": 88, "verdict": "研究主线高度匹配，但广告同时面向实习/全职，需确认高级职级、策略所有权和 PM 路径。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "verify" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "仅称薪酬有竞争力，不能据此判断百万固定薪。" },
-      "responsibilities": ["从历史数据发掘规律", "建立预测未来资产价格变化的模型", "参与量化策略研究"],
-      "requirements": ["数学、物理、经济或计算机等量化背景", "强编程能力", "大规模 AI 或行为金融经验加分"],
-      "skillTags": ["python", "statistical-modeling", "machine-learning", "signal-research", "research-rigor", "collaboration"]
+      "source": {
+        "publisher": "衍复投资雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/%E9%87%8F%E5%8C%96%E7%A0%94%E7%A9%B6%E5%91%98-at-%E4%B8%8A%E6%B5%B7%E8%A1%8D%E5%A4%8D%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-4338927628"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 88,
+        "verdict": "研究主线高度匹配，但广告同时面向实习/全职，需确认高级职级、策略所有权和 PM 路径。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "从历史数据发掘规律",
+        "建立预测未来资产价格变化的模型",
+        "参与量化策略研究"
+      ],
+      "requirements": [
+        "数学、物理、经济或计算机等量化背景",
+        "强编程能力",
+        "大规模 AI 或行为金融经验加分"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "research-rigor",
+        "collaboration"
+      ]
     },
     {
       "id": "yanfu-data-scientist",
@@ -36,13 +61,38 @@
       "pool": "adjacent",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "衍复投资雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AE%B6-at-shanghai-yanfu-investments-co-ltd-4338917596" },
-      "fit": { "tier": "B", "score": 65, "verdict": "数据和模型能力匹配，但偏数据科学支持，不应优先于直接产生 Alpha 的研究岗位。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "需沟通核验。" },
-      "responsibilities": ["探索原始数据", "选择并验证模型", "建设可复用数据分析流程"],
-      "requirements": ["Python 与 SQL", "Linux 环境", "统计或机器学习建模"],
-      "skillTags": ["python", "sql-data", "linux", "machine-learning", "research-rigor"]
+      "source": {
+        "publisher": "衍复投资雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AE%B6-at-shanghai-yanfu-investments-co-ltd-4338917596"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 65,
+        "verdict": "数据和模型能力匹配，但偏数据科学支持，不应优先于直接产生 Alpha 的研究岗位。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "探索原始数据",
+        "选择并验证模型",
+        "建设可复用数据分析流程"
+      ],
+      "requirements": [
+        "Python 与 SQL",
+        "Linux 环境",
+        "统计或机器学习建模"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "linux",
+        "machine-learning",
+        "research-rigor"
+      ]
     },
     {
       "id": "minghong-ai-quant-researcher",
@@ -54,13 +104,38 @@
       "pool": "strict-watch",
       "publishedAt": "2023-09-21",
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "明汯公开招聘门户", "kind": "official-ats", "url": "https://join.mhfunds.com/index/position/7281148138903423286/detail" },
-      "fit": { "tier": "A-", "score": 80, "verdict": "机器学习预测与量化研究匹配，需证明商品实盘经验如何迁移至其模型体系，并锁定上海。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官方职位字段未披露薪酬。" },
-      "responsibilities": ["使用机器学习或深度学习处理金融数据", "研究时间序列、NLP、图像或数据挖掘方法", "把算法用于量化研究"],
-      "requirements": ["理工科硕士或博士", "PyTorch 或 TensorFlow", "机器学习竞赛或论文经历加分"],
-      "skillTags": ["python", "machine-learning", "statistical-modeling", "signal-research", "research-rigor"]
+      "source": {
+        "publisher": "明汯公开招聘门户",
+        "kind": "official-ats",
+        "url": "https://join.mhfunds.com/index/position/7281148138903423286/detail"
+      },
+      "fit": {
+        "tier": "A-",
+        "score": 80,
+        "verdict": "机器学习预测与量化研究匹配，需证明商品实盘经验如何迁移至其模型体系，并锁定上海。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "使用机器学习或深度学习处理金融数据",
+        "研究时间序列、NLP、图像或数据挖掘方法",
+        "把算法用于量化研究"
+      ],
+      "requirements": [
+        "理工科硕士或博士",
+        "PyTorch 或 TensorFlow",
+        "机器学习竞赛或论文经历加分"
+      ],
+      "skillTags": [
+        "python",
+        "machine-learning",
+        "statistical-modeling",
+        "signal-research",
+        "research-rigor"
+      ]
     },
     {
       "id": "minghong-research-engineer",
@@ -72,13 +147,39 @@
       "pool": "adjacent",
       "publishedAt": "2023-09-14",
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "明汯公开招聘门户", "kind": "official-ats", "url": "https://join.mhfunds.com/index/position/7278518576084273420/detail" },
-      "fit": { "tier": "B", "score": 62, "verdict": "研究工程能力可迁移，但岗位偏训练与算力基础设施，会削弱个人策略定价。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官方职位字段未披露薪酬。" },
-      "responsibilities": ["建设机器学习研究与训练系统", "优化分布式训练和高性能计算", "支撑研究模型生产化"],
-      "requirements": ["C++、CUDA 或 Python", "PyTorch 或 TensorFlow", "分布式训练与 RDMA 经验加分"],
-      "skillTags": ["python", "cpp", "machine-learning", "productionization", "linux", "collaboration"]
+      "source": {
+        "publisher": "明汯公开招聘门户",
+        "kind": "official-ats",
+        "url": "https://join.mhfunds.com/index/position/7278518576084273420/detail"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 62,
+        "verdict": "研究工程能力可迁移，但岗位偏训练与算力基础设施，会削弱个人策略定价。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "建设机器学习研究与训练系统",
+        "优化分布式训练和高性能计算",
+        "支撑研究模型生产化"
+      ],
+      "requirements": [
+        "C++、CUDA 或 Python",
+        "PyTorch 或 TensorFlow",
+        "分布式训练与 RDMA 经验加分"
+      ],
+      "skillTags": [
+        "python",
+        "cpp",
+        "machine-learning",
+        "productionization",
+        "linux",
+        "collaboration"
+      ]
     },
     {
       "id": "minghong-post-trading-data",
@@ -90,13 +191,39 @@
       "pool": "adjacent",
       "publishedAt": "2025-10-09",
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "明汯公开招聘门户", "kind": "official-ats", "url": "https://join.mhfunds.com/index/position/7559057449572256041/detail" },
-      "fit": { "tier": "C+", "score": 46, "verdict": "可作为实盘证据链和交易成本的能力参照，不是策略负责人目标岗位。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官方职位字段未披露薪酬。" },
-      "responsibilities": ["PnL 核算和回撤报告", "交易成本分析与数据审计", "实盘和回测偏差校验"],
-      "requirements": ["Python、Pandas 与 NumPy", "SQL、ETL 或时序数据库", "交易数据质量与可追溯性"],
-      "skillTags": ["python", "sql-data", "transaction-costs", "productionization", "research-rigor", "collaboration"]
+      "source": {
+        "publisher": "明汯公开招聘门户",
+        "kind": "official-ats",
+        "url": "https://join.mhfunds.com/index/position/7559057449572256041/detail"
+      },
+      "fit": {
+        "tier": "C+",
+        "score": 46,
+        "verdict": "可作为实盘证据链和交易成本的能力参照，不是策略负责人目标岗位。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "PnL 核算和回撤报告",
+        "交易成本分析与数据审计",
+        "实盘和回测偏差校验"
+      ],
+      "requirements": [
+        "Python、Pandas 与 NumPy",
+        "SQL、ETL 或时序数据库",
+        "交易数据质量与可追溯性"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "transaction-costs",
+        "productionization",
+        "research-rigor",
+        "collaboration"
+      ]
     },
     {
       "id": "lingjun-quant-developer",
@@ -108,13 +235,40 @@
       "pool": "adjacent",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "灵均投资雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/quantitative-developer-at-%E7%81%B5%E5%9D%87%E6%8A%95%E8%B5%84-4439142996" },
-      "fit": { "tier": "B-", "score": 56, "verdict": "期货实盘、因子和回测经验加分，但岗位核心是生产环境与交易系统，不是 Alpha 所有权。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "需沟通核验。" },
-      "responsibilities": ["监控生产环境并核对实盘与回测", "建设自动化测试和交易系统", "清洗数据并支持因子研究"],
-      "requirements": ["Python 或 C++", "Linux 与 Git", "CTP、期货实盘或执行算法经验加分"],
-      "skillTags": ["python", "cpp", "linux", "productionization", "transaction-costs", "signal-research", "collaboration"]
+      "source": {
+        "publisher": "灵均投资雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/quantitative-developer-at-%E7%81%B5%E5%9D%87%E6%8A%95%E8%B5%84-4439142996"
+      },
+      "fit": {
+        "tier": "B-",
+        "score": 56,
+        "verdict": "期货实盘、因子和回测经验加分，但岗位核心是生产环境与交易系统，不是 Alpha 所有权。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "监控生产环境并核对实盘与回测",
+        "建设自动化测试和交易系统",
+        "清洗数据并支持因子研究"
+      ],
+      "requirements": [
+        "Python 或 C++",
+        "Linux 与 Git",
+        "CTP、期货实盘或执行算法经验加分"
+      ],
+      "skillTags": [
+        "python",
+        "cpp",
+        "linux",
+        "productionization",
+        "transaction-costs",
+        "signal-research",
+        "collaboration"
+      ]
     },
     {
       "id": "century-frontier-quant-researcher",
@@ -126,13 +280,39 @@
       "pool": "strict-watch",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "世纪前沿官网", "kind": "official-careers", "url": "https://www.centuryfrontier.com/contact" },
-      "fit": { "tier": "A-", "score": 82, "verdict": "明确覆盖期货 Alpha、模型与回测；频率可能高于当前日频策略，需确认低频高容量席位和负责人层级。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "verify" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网未披露薪酬。" },
-      "responsibilities": ["分析股票或期货数据", "挖掘 Alpha 并建立模型", "回测、优化并迭代策略"],
-      "requirements": ["量化专业硕士及以上", "Python、C++、MATLAB 或 R", "严谨的数据分析和模型能力"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "research-rigor", "productionization"]
+      "source": {
+        "publisher": "世纪前沿官网",
+        "kind": "official-careers",
+        "url": "https://www.centuryfrontier.com/contact"
+      },
+      "fit": {
+        "tier": "A-",
+        "score": 82,
+        "verdict": "明确覆盖期货 Alpha、模型与回测；频率可能高于当前日频策略，需确认低频高容量席位和负责人层级。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "分析股票或期货数据",
+        "挖掘 Alpha 并建立模型",
+        "回测、优化并迭代策略"
+      ],
+      "requirements": [
+        "量化专业硕士及以上",
+        "Python、C++、MATLAB 或 R",
+        "严谨的数据分析和模型能力"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "productionization"
+      ]
     },
     {
       "id": "century-frontier-general-quant-researcher",
@@ -144,13 +324,39 @@
       "pool": "strict-watch",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "世纪前沿官网", "kind": "official-careers", "url": "https://www.centuryfrontier.com/contact" },
-      "fit": { "tier": "A", "score": 90, "verdict": "官网把期货预测、模型集成和组合优化列在同一研究岗位，直接覆盖当前职责；但“职责任一”意味着入职范围可能很窄，需锁定低频商品和组合方向。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "verify" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网未披露薪酬或职级；需按六年实盘和约 10 亿元现有配置核验百万固定薪。" },
-      "responsibilities": ["因子挖掘并研发股票或期货预测模型", "完成模型集成和投资组合优化", "可选择承担高频交易执行优化"],
-      "requirements": ["一流院校数量学科硕士及以上", "Python、MATLAB 或 R", "扎实数学基础、量化创新和英文文献阅读能力"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "portfolio-risk", "research-rigor", "productionization"]
+      "source": {
+        "publisher": "世纪前沿官网",
+        "kind": "official-careers",
+        "url": "https://www.centuryfrontier.com/contact"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 90,
+        "verdict": "官网把期货预测、模型集成和组合优化列在同一研究岗位，直接覆盖当前职责；但“职责任一”意味着入职范围可能很窄，需锁定低频商品和组合方向。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "因子挖掘并研发股票或期货预测模型",
+        "完成模型集成和投资组合优化",
+        "可选择承担高频交易执行优化"
+      ],
+      "requirements": [
+        "一流院校数量学科硕士及以上",
+        "Python、MATLAB 或 R",
+        "扎实数学基础、量化创新和英文文献阅读能力"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "portfolio-risk",
+        "research-rigor",
+        "productionization"
+      ]
     },
     {
       "id": "century-frontier-portfolio-optimization",
@@ -162,13 +368,38 @@
       "pool": "strict-watch",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "世纪前沿雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-portfolio-optimization-at-%E4%B8%96%E7%BA%AA%E5%89%8D%E6%B2%BF%E8%B5%84%E4%BA%A7-century-frontier-asset-management-4384810082" },
-      "fit": { "tier": "A", "score": 86, "verdict": "组合优化、风险归因与实盘分析直接承接现有能力，但资产类别和是否拥有策略决策权需核验。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "需沟通核验。" },
-      "responsibilities": ["研究组合优化方法", "完成风险归因和绩效分解", "分析 PnL 并改进投资组合"],
-      "requirements": ["数量学科背景", "风险模型或 BARRA 经验", "Python 优先"],
-      "skillTags": ["python", "portfolio-risk", "statistical-modeling", "research-rigor", "collaboration"]
+      "source": {
+        "publisher": "世纪前沿雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-portfolio-optimization-at-%E4%B8%96%E7%BA%AA%E5%89%8D%E6%B2%BF%E8%B5%84%E4%BA%A7-century-frontier-asset-management-4384810082"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 86,
+        "verdict": "组合优化、风险归因与实盘分析直接承接现有能力，但资产类别和是否拥有策略决策权需核验。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "研究组合优化方法",
+        "完成风险归因和绩效分解",
+        "分析 PnL 并改进投资组合"
+      ],
+      "requirements": [
+        "数量学科背景",
+        "风险模型或 BARRA 经验",
+        "Python 优先"
+      ],
+      "skillTags": [
+        "python",
+        "portfolio-risk",
+        "statistical-modeling",
+        "research-rigor",
+        "collaboration"
+      ]
     },
     {
       "id": "century-frontier-ml-researcher",
@@ -180,13 +411,38 @@
       "pool": "adjacent",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "世纪前沿官网", "kind": "official-careers", "url": "https://www.centuryfrontier.com/contact" },
-      "fit": { "tier": "B+", "score": 70, "verdict": "大模型和预测经验有差异化，但深度学习履历需要实证，不能只以工具熟练度替代。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网未披露薪酬。" },
-      "responsibilities": ["研究深度学习模型", "将机器学习用于金融数据", "推进模型实验与验证"],
-      "requirements": ["三年以上头部量化基金或科技公司经验", "PyTorch 或 TensorFlow", "扎实机器学习研究能力"],
-      "skillTags": ["python", "machine-learning", "statistical-modeling", "research-rigor", "productionization"]
+      "source": {
+        "publisher": "世纪前沿官网",
+        "kind": "official-careers",
+        "url": "https://www.centuryfrontier.com/contact"
+      },
+      "fit": {
+        "tier": "B+",
+        "score": 70,
+        "verdict": "大模型和预测经验有差异化，但深度学习履历需要实证，不能只以工具熟练度替代。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "研究深度学习模型",
+        "将机器学习用于金融数据",
+        "推进模型实验与验证"
+      ],
+      "requirements": [
+        "三年以上头部量化基金或科技公司经验",
+        "PyTorch 或 TensorFlow",
+        "扎实机器学习研究能力"
+      ],
+      "skillTags": [
+        "python",
+        "machine-learning",
+        "statistical-modeling",
+        "research-rigor",
+        "productionization"
+      ]
     },
     {
       "id": "jq-quant-strategy-researcher",
@@ -198,13 +454,40 @@
       "pool": "strict-watch",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "佳期投资官网与雇主职位页", "kind": "official-careers", "url": "https://www.jqinvestments.com/positions" },
-      "fit": { "tier": "A", "score": 85, "verdict": "信号、收益预测、模型测试与实现均匹配；官网未限定高级职级，需确认是否能按六年实盘经验定价，以及商品研究和策略所有权空间。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "verify" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网未披露薪酬，需先确认固定税前保证收入和奖金递延。" },
-      "responsibilities": ["分析复杂数据集并发掘市场信号", "开发、测试和实现定价与收益预测模型", "研究统计方法以提升策略表现并管理风险"],
-      "requirements": ["统计、物理、数学等数量学科背景", "熟练使用 Python 分析数据", "掌握统计和机器学习方法并具备应用研究能力"],
-      "skillTags": ["python", "statistical-modeling", "machine-learning", "signal-research", "backtesting", "research-rigor", "productionization"]
+      "source": {
+        "publisher": "佳期投资官网与雇主职位页",
+        "kind": "official-careers",
+        "url": "https://www.jqinvestments.com/positions"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 85,
+        "verdict": "信号、收益预测、模型测试与实现均匹配；官网未限定高级职级，需确认是否能按六年实盘经验定价，以及商品研究和策略所有权空间。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "分析复杂数据集并发掘市场信号",
+        "开发、测试和实现定价与收益预测模型",
+        "研究统计方法以提升策略表现并管理风险"
+      ],
+      "requirements": [
+        "统计、物理、数学等数量学科背景",
+        "熟练使用 Python 分析数据",
+        "掌握统计和机器学习方法并具备应用研究能力"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "productionization"
+      ]
     },
     {
       "id": "tianyan-senior-quant-researcher",
@@ -216,13 +499,42 @@
       "pool": "strict-watch",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "天演资本官网", "kind": "official-careers", "url": "https://www.tianyancapital.com/zh/join-us/jobs/index.html" },
-      "fit": { "tier": "A+", "score": 96, "verdict": "目前最直接的公开职位：明确认可独立实盘商品期货策略经验，且工作覆盖数据、策略化、回测与持续改进；需进一步核验固定薪、奖金和策略决策权。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网未披露薪酬；首次沟通即确认固定税前保证收入是否不低于 100 万元。" },
-      "responsibilities": ["对数据进行统计分析并把交易想法策略化", "完成历史回测、策略报告和实盘表现跟踪", "持续评估、改进量化策略并参与专项研究"],
-      "requirements": ["有独立实盘运行股票、股指期货、商品期货或期权任一策略的经验", "精通 Python、Matlab、C++ 或 C# 至少一门", "系统定量研究、严谨研究习惯及协作能力"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "research-rigor", "productionization", "commodity-domain", "collaboration", "strategy-ownership"]
+      "source": {
+        "publisher": "天演资本官网",
+        "kind": "official-careers",
+        "url": "https://www.tianyancapital.com/zh/join-us/jobs/index.html"
+      },
+      "fit": {
+        "tier": "A+",
+        "score": 96,
+        "verdict": "目前最直接的公开职位之一：明确认可独立实盘商品期货策略经验，且工作覆盖数据、策略化、回测与持续改进；需进一步核验策略决策权。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "对数据进行统计分析并把交易想法策略化",
+        "完成历史回测、策略报告和实盘表现跟踪",
+        "持续评估、改进量化策略并参与专项研究"
+      ],
+      "requirements": [
+        "有独立实盘运行股票、股指期货、商品期货或期权任一策略的经验",
+        "精通 Python、Matlab、C++ 或 C# 至少一门",
+        "系统定量研究、严谨研究习惯及协作能力"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "productionization",
+        "commodity-domain",
+        "collaboration",
+        "strategy-ownership"
+      ]
     },
     {
       "id": "citic-futures-cta-researcher",
@@ -234,13 +546,40 @@
       "pool": "secondary",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "中信期货雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E5%9B%A2%E9%98%9F-cta%E7%A0%94%E7%A9%B6%E5%91%98g00089-at-citic-futures-4421454852" },
-      "fit": { "tier": "B", "score": 72, "verdict": "商品品种和 CTA 实盘直接相关，但职责以协助投资经理为主，低于目标策略负责人层级；资管规模证据也需更新。" },
-      "eligibility": { "location": "pass", "institutionScale": "verify", "compensation": "verify", "seniority": "fail" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "未披露薪酬；支持型 CTA 研究员达到百万固定薪的可能性必须先核实。" },
-      "responsibilities": ["协助投资经理研究 CTA 量化模型和实盘交易", "处理商品数据并持续评估策略", "支持黑色、化工、有色和农产品研究"],
-      "requirements": ["两年以上相关经验", "有商品期货研究经历优先", "量化模型、数据处理和实盘理解"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "productionization", "commodity-domain", "collaboration"]
+      "source": {
+        "publisher": "中信期货雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E5%9B%A2%E9%98%9F-cta%E7%A0%94%E7%A9%B6%E5%91%98g00089-at-citic-futures-4421454852"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 72,
+        "verdict": "商品品种和 CTA 实盘直接相关，但职责以协助投资经理为主，低于目标策略负责人层级；资管规模证据也需更新。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "fail"
+      },
+      "responsibilities": [
+        "协助投资经理研究 CTA 量化模型和实盘交易",
+        "处理商品数据并持续评估策略",
+        "支持黑色、化工、有色和农产品研究"
+      ],
+      "requirements": [
+        "两年以上相关经验",
+        "有商品期货研究经历优先",
+        "量化模型、数据处理和实盘理解"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "productionization",
+        "commodity-domain",
+        "collaboration"
+      ]
     },
     {
       "id": "citic-futures-cta-investment-manager",
@@ -252,13 +591,46 @@
       "pool": "secondary",
       "publishedAt": "2026-06",
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "中信期货雇主职位页（来源智联招聘）", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E9%83%A8-cta%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E7%BB%8F%E7%90%86g00909-at-citic-futures-4423908322" },
-      "fit": { "tier": "A", "score": 91, "verdict": "当前最贴近目标头衔的 CTA 投资经理岗位：从研究体系、趋势与套利策略一路覆盖组合、产品和授权内投资管理；但机构规模只披露 2022Q4 数据，固定薪和真实决策权限都要先核。" },
-      "eligibility": { "location": "pass", "institutionScale": "verify", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "岗位未公开薪酬；须在首轮确认固定税前保证收入至少 100 万元，奖金另算且良好年份税后现金超过 80 万元。" },
-      "responsibilities": ["搭建量化 CTA 研究体系、数据库和因子库", "开发、测试并迭代趋势跟踪与套利策略", "设计策略组合、资管产品和投资方案，并在授权范围内负责日常投资管理", "监控实盘并完成风险评价、绩效归因和投资报告", "协调托管人、投资人与市场部门"],
-      "requirements": ["两年以上 CTA 策略研究并有一年以上可验证业绩", "熟练编程并跟踪策略研究与智能算法", "资产配置、组合管理与风险防范经验", "沟通、协调和团队合作能力"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "portfolio-risk", "transaction-costs", "productionization", "commodity-domain", "strategy-ownership", "collaboration"]
+      "source": {
+        "publisher": "中信期货雇主职位页（来源智联招聘）",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83-%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E9%83%A8-cta%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E7%BB%8F%E7%90%86g00909-at-citic-futures-4423908322"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 91,
+        "verdict": "当前最贴近目标头衔的 CTA 投资经理岗位：从研究体系、趋势与套利策略一路覆盖组合、产品和授权内投资管理；但机构规模只披露 2022Q4 数据，真实决策权限也要先核。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "搭建量化 CTA 研究体系、数据库和因子库",
+        "开发、测试并迭代趋势跟踪与套利策略",
+        "设计策略组合、资管产品和投资方案，并在授权范围内负责日常投资管理",
+        "监控实盘并完成风险评价、绩效归因和投资报告",
+        "协调托管人、投资人与市场部门"
+      ],
+      "requirements": [
+        "两年以上 CTA 策略研究并有一年以上可验证业绩",
+        "熟练编程并跟踪策略研究与智能算法",
+        "资产配置、组合管理与风险防范经验",
+        "沟通、协调和团队合作能力"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "portfolio-risk",
+        "transaction-costs",
+        "productionization",
+        "commodity-domain",
+        "strategy-ownership",
+        "collaboration"
+      ]
     },
     {
       "id": "blackrock-analyst-quant-researcher",
@@ -270,13 +642,41 @@
       "pool": "secondary",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "BlackRock Careers", "kind": "official-careers", "url": "https://careers.blackrock.com/job/shanghai/analyst-quantitative-researcher/45831/94327989472" },
-      "fit": { "tier": "B", "score": 68, "verdict": "CTA、信号生产化和归因内容可迁移，但 Analyst 职级与数年后才到 junior PM 的路径明显低于六年费后实盘定价。" },
-      "eligibility": { "location": "pass", "institutionScale": "verify", "compensation": "verify", "seniority": "fail" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官方未披露薪酬；公募 Analyst 固定薪是否达到 100 万元需要优先核验。" },
-      "responsibilities": ["研究股票、固收、宏观和 CTA 信号并写研究报告", "把通过审批的信号系统化生产到实盘产品", "完成风险分解、绩效归因与跨团队协作"],
-      "requirements": ["至少两年量化投研经验", "能独立完成研究并清晰撰写论文式材料", "Python 编程、跨资产或模型化策略经验"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "research-rigor", "productionization", "portfolio-risk", "collaboration", "communication"]
+      "source": {
+        "publisher": "BlackRock Careers",
+        "kind": "official-careers",
+        "url": "https://careers.blackrock.com/job/shanghai/analyst-quantitative-researcher/45831/94327989472"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 68,
+        "verdict": "CTA、信号生产化和归因内容可迁移，但 Analyst 职级与数年后才到 junior PM 的路径明显低于六年费后实盘定价。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "fail"
+      },
+      "responsibilities": [
+        "研究股票、固收、宏观和 CTA 信号并写研究报告",
+        "把通过审批的信号系统化生产到实盘产品",
+        "完成风险分解、绩效归因与跨团队协作"
+      ],
+      "requirements": [
+        "至少两年量化投研经验",
+        "能独立完成研究并清晰撰写论文式材料",
+        "Python 编程、跨资产或模型化策略经验"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "research-rigor",
+        "productionization",
+        "portfolio-risk",
+        "collaboration",
+        "communication"
+      ]
     },
     {
       "id": "gtja-futures-cta-researcher",
@@ -288,13 +688,40 @@
       "pool": "secondary",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "国泰君安期货雇主职位页", "kind": "employer-posting", "url": "https://www.zhaopin.com/jobdetail/CC290232610J40921980708.htm" },
-      "fit": { "tier": "C", "score": 45, "verdict": "商品 CTA、机器学习、时间序列、SQL 和 Python 内容高度相关，但公开固定收入仅约 25.2–36 万元/年，明确低于 100 万元硬门槛。" },
-      "eligibility": { "location": "pass", "institutionScale": "verify", "compensation": "fail", "seniority": "verify" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "reportedRange": "1.4–2万元 × 18薪（约25.2–36万元/年）", "disclosure": "range", "note": "即使 18 薪全部保证，公开上限仍只有约 36 万元，直接淘汰；不因机构规模或业务匹配放宽。" },
-      "responsibilities": ["运用概率统计、机器学习、数据挖掘和时间序列方法研发 CTA 策略", "覆盖商品期货或股指期货的量价、基本面与另类数据信号", "持续开发新策略并与投资经理和技术团队协作"],
-      "requirements": ["三年以上量化 CTA 策略研发经验", "精通 Python 或 C/C++，熟悉 Linux、SQL 与 Pandas", "硕士以上学历并具备商品或股指期货研究经验"],
-      "skillTags": ["python", "sql-data", "statistical-modeling", "machine-learning", "signal-research", "commodity-domain", "collaboration"]
+      "source": {
+        "publisher": "国泰君安期货雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://www.zhaopin.com/jobdetail/CC290232610J40921980708.htm"
+      },
+      "fit": {
+        "tier": "C",
+        "score": 45,
+        "verdict": "商品 CTA、机器学习、时间序列、SQL 和 Python 内容相关，但职责以研究支持为主，无法形成目标层级的策略所有权。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "运用概率统计、机器学习、数据挖掘和时间序列方法研发 CTA 策略",
+        "覆盖商品期货或股指期货的量价、基本面与另类数据信号",
+        "持续开发新策略并与投资经理和技术团队协作"
+      ],
+      "requirements": [
+        "三年以上量化 CTA 策略研发经验",
+        "精通 Python 或 C/C++，熟悉 Linux、SQL 与 Pandas",
+        "硕士以上学历并具备商品或股指期货研究经验"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "commodity-domain",
+        "collaboration"
+      ]
     },
     {
       "id": "recruiter-cta-ml-pm-low-comp",
@@ -307,13 +734,39 @@
       "pool": "boundary",
       "publishedAt": "2026-06-17",
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "猎聘猎头职位", "kind": "recruiter-posting", "url": "https://www.liepin.com/a/76541581.shtml" },
-      "fit": { "tier": "C", "score": 42, "verdict": "商品 CTA 与机器学习内容相关，但公开薪资 25–40k × 15 薪，全年上限约 60 万，明确低于 100 万固定保证门槛。" },
-      "eligibility": { "location": "pass", "institutionScale": "unknown", "compensation": "fail", "seniority": "verify" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "reportedRange": "25–40k × 15薪（约37.5–60万元/年）", "disclosure": "range", "note": "即使把 15 薪全部视为保证收入，上限仍低于 100 万元，直接淘汰。" },
-      "responsibilities": ["研发和优化商品期货中低频或日内 CTA 策略", "使用树模型、深度学习或强化学习发掘非线性规律", "提升预测精度、稳健性和实盘表现"],
-      "requirements": ["两年以上 CTA 或期货量化策略经验", "熟悉国内商品期货品种和规则", "数学、统计、物理、计算机或金融工程背景"],
-      "skillTags": ["python", "machine-learning", "statistical-modeling", "signal-research", "backtesting", "commodity-domain"]
+      "source": {
+        "publisher": "猎聘猎头职位",
+        "kind": "recruiter-posting",
+        "url": "https://www.liepin.com/a/76541581.shtml"
+      },
+      "fit": {
+        "tier": "C",
+        "score": 42,
+        "verdict": "商品 CTA 与机器学习内容相关，但客户匿名、职级边界不清且无法核验机构规模，只作市场线索。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "unknown",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "研发和优化商品期货中低频或日内 CTA 策略",
+        "使用树模型、深度学习或强化学习发掘非线性规律",
+        "提升预测精度、稳健性和实盘表现"
+      ],
+      "requirements": [
+        "两年以上 CTA 或期货量化策略经验",
+        "熟悉国内商品期货品种和规则",
+        "数学、统计、物理、计算机或金融工程背景"
+      ],
+      "skillTags": [
+        "python",
+        "machine-learning",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "commodity-domain"
+      ]
     },
     {
       "id": "optiver-commodity-quant-researcher",
@@ -326,13 +779,41 @@
       "pool": "boundary",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "Optiver 官网", "kind": "official-careers", "url": "https://www.optiver.com/join-us/jobs/institutional-sales-and-trading/shanghai/commodity-quantitative-researcher/" },
-      "fit": { "tier": "A-", "score": 79, "verdict": "商品、信号、Python 与 AI 内容直接匹配；但岗位要求 0–3 年经验，且自营交易商不满足百亿资管机构口径，仅作国际能力标杆。" },
-      "eligibility": { "location": "pass", "institutionScale": "not-applicable", "compensation": "verify", "seniority": "fail" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网只称有竞争力的薪酬与奖金，不能判断百万固定薪。" },
-      "responsibilities": ["探索、处理并分析多元和另类数据", "与交易员协作开发、回测并生产化商品信号", "使用 AI 改进研究管线和工具"],
-      "requirements": ["0–3 年量化研究或数据科学经验", "熟练使用 Python", "有使用 AI 提升工作质量的可验证记录"],
-      "skillTags": ["python", "sql-data", "machine-learning", "signal-research", "backtesting", "productionization", "commodity-domain", "collaboration"]
+      "source": {
+        "publisher": "Optiver 官网",
+        "kind": "official-careers",
+        "url": "https://www.optiver.com/join-us/jobs/institutional-sales-and-trading/shanghai/commodity-quantitative-researcher/"
+      },
+      "fit": {
+        "tier": "A-",
+        "score": 79,
+        "verdict": "商品、信号、Python 与 AI 内容直接匹配；但岗位要求 0–3 年经验，且自营交易商不满足百亿资管机构口径，仅作国际能力标杆。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "not-applicable",
+        "seniority": "fail"
+      },
+      "responsibilities": [
+        "探索、处理并分析多元和另类数据",
+        "与交易员协作开发、回测并生产化商品信号",
+        "使用 AI 改进研究管线和工具"
+      ],
+      "requirements": [
+        "0–3 年量化研究或数据科学经验",
+        "熟练使用 Python",
+        "有使用 AI 提升工作质量的可验证记录"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "productionization",
+        "commodity-domain",
+        "collaboration"
+      ]
     },
     {
       "id": "optiver-senior-intraday-pm-researcher",
@@ -345,13 +826,42 @@
       "pool": "boundary",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "Optiver 官网", "kind": "official-careers", "url": "https://www.optiver.com/join-us/jobs/quantitative-research-and-machine-learning/shanghai/senior-portfolio-manager-quantitative-researcher-intraday-trading-strategy/" },
-      "fit": { "tier": "B+", "score": 82, "verdict": "资深 IC、端到端所有权、组合与成本容量的岗位设计可作为 PM 标杆；但要求分钟至小时级实盘，自营交易商也不满足百亿资管机构口径。" },
-      "eligibility": { "location": "pass", "institutionScale": "not-applicable", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官网只说明有竞争力薪酬和奖金，固定现金、递延与回拨均未披露。" },
-      "responsibilities": ["主导日内 Alpha 研究并决定研究方向", "建立预测模型、组合并优化成本、换手和容量", "端到端负责生产实现、可交易性和实盘表现"],
-      "requirements": ["三年以上量化研究或交易经验", "有日内策略费后实盘结果", "Python、Java 或 C++ 及大型数据管线经验"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "portfolio-risk", "transaction-costs", "productionization", "strategy-ownership", "collaboration"]
+      "source": {
+        "publisher": "Optiver 官网",
+        "kind": "official-careers",
+        "url": "https://www.optiver.com/join-us/jobs/quantitative-research-and-machine-learning/shanghai/senior-portfolio-manager-quantitative-researcher-intraday-trading-strategy/"
+      },
+      "fit": {
+        "tier": "B+",
+        "score": 82,
+        "verdict": "资深 IC、端到端所有权、组合与成本容量的岗位设计可作为 PM 标杆；但要求分钟至小时级实盘，自营交易商也不满足百亿资管机构口径。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "not-applicable",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "主导日内 Alpha 研究并决定研究方向",
+        "建立预测模型、组合并优化成本、换手和容量",
+        "端到端负责生产实现、可交易性和实盘表现"
+      ],
+      "requirements": [
+        "三年以上量化研究或交易经验",
+        "有日内策略费后实盘结果",
+        "Python、Java 或 C++ 及大型数据管线经验"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "portfolio-risk",
+        "transaction-costs",
+        "productionization",
+        "strategy-ownership",
+        "collaboration"
+      ]
     },
     {
       "id": "optiver-senior-quant-researcher-equities",
@@ -364,13 +874,43 @@
       "pool": "boundary",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "Optiver 官网", "kind": "official-careers", "url": "https://www.optiver.com/join-us/jobs/quantitative-research-and-machine-learning/shanghai/senior-quantitative-researcher-equities/" },
-      "fit": { "tier": "B", "score": 76, "verdict": "五年以上经验和策略全生命周期与目标职级相符，可用于校准负责人能力；但限定股票 Delta One，且自营商不满足百亿资管口径。" },
-      "eligibility": { "location": "pass", "institutionScale": "not-applicable", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "官方职位没有给出固定薪、目标奖金或递延结构。" },
-      "responsibilities": ["定义 Alpha 议题并完成严谨回测", "构建组合、管理风险并优化成本和容量", "推动策略生产化并对实盘表现产生直接影响"],
-      "requirements": ["五年以上股票量化研究或交易经验", "机器学习或深度学习金融应用", "原创想法到生产及大型数据管线经验"],
-      "skillTags": ["python", "statistical-modeling", "machine-learning", "signal-research", "backtesting", "research-rigor", "portfolio-risk", "transaction-costs", "productionization", "strategy-ownership"]
+      "source": {
+        "publisher": "Optiver 官网",
+        "kind": "official-careers",
+        "url": "https://www.optiver.com/join-us/jobs/quantitative-research-and-machine-learning/shanghai/senior-quantitative-researcher-equities/"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 76,
+        "verdict": "五年以上经验和策略全生命周期与目标职级相符，可用于校准负责人能力；但限定股票 Delta One，且自营商不满足百亿资管口径。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "not-applicable",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "定义 Alpha 议题并完成严谨回测",
+        "构建组合、管理风险并优化成本和容量",
+        "推动策略生产化并对实盘表现产生直接影响"
+      ],
+      "requirements": [
+        "五年以上股票量化研究或交易经验",
+        "机器学习或深度学习金融应用",
+        "原创想法到生产及大型数据管线经验"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "portfolio-risk",
+        "transaction-costs",
+        "productionization",
+        "strategy-ownership"
+      ]
     },
     {
       "id": "anonymous-commodities-quant-researcher",
@@ -382,13 +922,41 @@
       "pool": "boundary",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "Durlston Partners", "kind": "recruiter-posting", "url": "https://cn.linkedin.com/jobs/view/commodities-quant-researcher-at-durlston-partners-4434838658" },
-      "fit": { "tier": "A+", "score": 93, "verdict": "工作内容几乎完全匹配，但客户匿名，无法核验机构类型、百亿规模与薪酬，不能进入严格候选。" },
-      "eligibility": { "location": "pass", "institutionScale": "unknown", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "匿名客户，所有硬条件均需先核验。" },
-      "responsibilities": ["研究全球商品市场的系统化策略", "融合公开、基本面和另类数据", "建立预测模型并参与组合构建"],
-      "requirements": ["商品系统化研究经验", "Python、SQL 与 Linux", "统计、机器学习与组合知识"],
-      "skillTags": ["python", "sql-data", "linux", "machine-learning", "statistical-modeling", "signal-research", "portfolio-risk", "commodity-domain"]
+      "source": {
+        "publisher": "Durlston Partners",
+        "kind": "recruiter-posting",
+        "url": "https://cn.linkedin.com/jobs/view/commodities-quant-researcher-at-durlston-partners-4434838658"
+      },
+      "fit": {
+        "tier": "A+",
+        "score": 93,
+        "verdict": "工作内容几乎完全匹配，但客户匿名，无法核验机构类型、百亿规模与实际授权，不能进入严格候选。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "unknown",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "研究全球商品市场的系统化策略",
+        "融合公开、基本面和另类数据",
+        "建立预测模型并参与组合构建"
+      ],
+      "requirements": [
+        "商品系统化研究经验",
+        "Python、SQL 与 Linux",
+        "统计、机器学习与组合知识"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "linux",
+        "machine-learning",
+        "statistical-modeling",
+        "signal-research",
+        "portfolio-risk",
+        "commodity-domain"
+      ]
     },
     {
       "id": "man-group-china-macro-quant-researcher",
@@ -400,13 +968,522 @@
       "pool": "strict-watch",
       "publishedAt": "2026-07-18",
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "Man Group 雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-at-man-group-4433353137" },
-      "fit": { "tier": "A+", "score": 98, "verdict": "当前公开岗位中职责匹配度最高：专门要求中国期货 Alpha 实盘，覆盖风险平价、宏观跨资产、组合、动态杠杆、成本、执行和完整投资生命周期；需确认六年经验定级、上海合同主体与百万固定薪。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "岗位未披露薪酬；首轮必须确认固定税前保证收入至少 100 万元，奖金另算、递延与回拨，以及良好年份税后现金超过 80 万元。" },
-      "responsibilities": ["在中国研究团队开发和改进风险平价与宏观量化策略", "从 Alpha、数据建模和风险模型推进到组合构建、交易执行与实施", "研究风险预算、动态杠杆、分散与再平衡，以及交易成本和执行优化", "解释模型输出、风险暴露和绩效归因并支持组合决策", "向投资者和渠道清晰说明策略理念、组合逻辑、业绩和风险"],
-      "requirements": ["2–5 年中国市场期货 Alpha 研究与实盘交易经验", "Python 处理大型复杂数据及扎实统计、计量研究能力", "风险平价、波动率建模、衍生品、杠杆和中国宏观跨资产知识", "LLM 与 AI agent 实践经验加分", "能向内部和外部利益相关方简明解释复杂策略"],
-      "skillTags": ["python", "statistical-modeling", "signal-research", "backtesting", "research-rigor", "portfolio-risk", "transaction-costs", "productionization", "commodity-domain", "strategy-ownership", "collaboration", "communication"]
+      "source": {
+        "publisher": "Man Group 雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/quantitative-researcher-at-man-group-4433353137"
+      },
+      "fit": {
+        "tier": "A+",
+        "score": 98,
+        "verdict": "当前公开岗位中职责匹配度最高：专门要求中国期货 Alpha 实盘，覆盖风险平价、宏观跨资产、组合、动态杠杆、成本、执行和完整投资生命周期；需确认六年经验定级、上海合同主体与实际授权。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "在中国研究团队开发和改进风险平价与宏观量化策略",
+        "从 Alpha、数据建模和风险模型推进到组合构建、交易执行与实施",
+        "研究风险预算、动态杠杆、分散与再平衡，以及交易成本和执行优化",
+        "解释模型输出、风险暴露和绩效归因并支持组合决策",
+        "向投资者和渠道清晰说明策略理念、组合逻辑、业绩和风险"
+      ],
+      "requirements": [
+        "2–5 年中国市场期货 Alpha 研究与实盘交易经验",
+        "Python 处理大型复杂数据及扎实统计、计量研究能力",
+        "风险平价、波动率建模、衍生品、杠杆和中国宏观跨资产知识",
+        "LLM 与 AI agent 实践经验加分",
+        "能向内部和外部利益相关方简明解释复杂策略"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "portfolio-risk",
+        "transaction-costs",
+        "productionization",
+        "commodity-domain",
+        "strategy-ownership",
+        "collaboration",
+        "communication"
+      ]
+    },
+    {
+      "id": "qrt-quant-researcher-trader",
+      "institutionId": "qrt",
+      "title": "Quantitative Researcher/Trader",
+      "location": "上海 / 香港 / 新加坡",
+      "employment": "全职",
+      "status": "active",
+      "pool": "strict-watch",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "QRT 官方职位接口",
+        "kind": "official-careers",
+        "url": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/6486065002"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 92,
+        "verdict": "要求成功系统策略记录，并负责信号、数据实现、全球执行平台上线和持续监控的完整研究周期；机构和上海地点过闸，但需确认商品与中低频研究空间。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "利用多源大规模数据构建高质量预测信号",
+        "将信号及相关数据接入全球执行平台",
+        "监控信号行为和模型表现，并负责从研究到实现的完整周期"
+      ],
+      "requirements": [
+        "量化研究、交易、数据科学或机器学习直接经验，拒绝应届申请",
+        "统计、机器学习、NLP 或 AI 能力及至少一门主流编程语言",
+        "成功交付系统化策略的可验证记录，并能跨研究、数据和交易团队协作"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "productionization",
+        "strategy-ownership",
+        "collaboration",
+        "communication"
+      ]
+    },
+    {
+      "id": "qrt-downstream-demand-analyst-metals",
+      "institutionId": "qrt",
+      "title": "Downstream Demand Analyst (Metals)",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "adjacent",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "QRT 官方职位接口",
+        "kind": "official-careers",
+        "url": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8568206002"
+      },
+      "fit": {
+        "tier": "B+",
+        "score": 79,
+        "verdict": "商品、公开与另类数据、Python/SQL 和相对价值研究高度相关，可扩展基本面数据能力；但岗位核心是金属终端需求与产业链建模，不是系统化策略所有权。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "构建全球金属终端需求、强度和库存模型",
+        "整合统计、产业、公司、航运、海关和卫星等多源数据",
+        "识别跨商品与地区的相对价值机会并支持组合定位"
+      ],
+      "requirements": [
+        "五年以上金属或商品研究经验，理解终端需求和价值链",
+        "高级 Python、SQL 与大规模实时数据处理能力",
+        "英文书面口头沟通和跨地区协作能力"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "statistical-modeling",
+        "signal-research",
+        "commodity-domain",
+        "collaboration",
+        "communication"
+      ]
+    },
+    {
+      "id": "axq-portfolio-manager",
+      "institutionId": "axq",
+      "title": "Portfolio Manager",
+      "location": "上海 / 北京",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "AXQ 官方职位接口",
+        "kind": "official-careers",
+        "url": "https://job-boards.greenhouse.io/axq/jobs/4907199004"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 90,
+        "verdict": "三年以上期货实盘和独立推动项目的要求与现有记录高度相关，是目标头衔的直接机会；但 AXQ 未披露可验证 AUM，且最终资金授权和团队管理占比待核。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "以经市场验证的股票或期货量化策略承担结果",
+        "独立推动策略项目落地",
+        "覆盖量化交易主要环节并与平台团队协作"
+      ],
+      "requirements": [
+        "三年以上海内外股票或期货实盘经验和优异策略记录",
+        "扎实数理统计基础并熟悉量化交易全流程",
+        "独立推进与结果责任；团队管理经验仅为加分项"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "portfolio-risk",
+        "productionization",
+        "strategy-ownership",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "axq-senior-quantitative-researcher",
+      "institutionId": "axq",
+      "title": "Senior Quantitative Researcher",
+      "location": "上海 / 北京",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "AXQ 官方职位接口",
+        "kind": "official-careers",
+        "url": "https://job-boards.greenhouse.io/axq/jobs/5215193004"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 91,
+        "verdict": "至少三年股票或期货研发、实盘策略、Alpha 与组合管理要求直接匹配，并明确 PM Track；机构规模待核，且岗位把独立管理组合与团队并列，需确认能否走 IC 路径。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "使用统计与机器学习方法开发和优化量化策略",
+        "跟踪实盘表现并主导策略迭代",
+        "优化研究框架并推进策略从构想到实盘"
+      ],
+      "requirements": [
+        "至少三年股票或期货量化策略研发经验并有实盘策略",
+        "熟悉 Alpha research 与投资组合管理",
+        "能独立推动项目并对结果负责，有志于 PM Track"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "portfolio-risk",
+        "productionization",
+        "strategy-ownership",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "axq-quantitative-researcher",
+      "institutionId": "axq",
+      "title": "Quantitative Researcher",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "adjacent",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "AXQ 官方职位接口",
+        "kind": "official-careers",
+        "url": "https://job-boards.greenhouse.io/axq/jobs/5635911004"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 75,
+        "verdict": "覆盖策略开发、组合与风险，研究内容相关；但职位强调由资深人员指导且没有经验年限，公开定级偏通用研究员，必须先确认高级 IC 职级。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "verify",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "使用概率统计和机器学习开发量化策略",
+        "跟踪策略表现并主导迭代",
+        "搭建或优化研究框架"
+      ],
+      "requirements": [
+        "扎实统计、时间序列和机器学习基础",
+        "熟练使用 Python 处理和分析数据",
+        "量化策略经验、顶级研究成果或竞赛经历为加分项"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "productionization"
+      ]
+    },
+    {
+      "id": "dongwu-fund-quant-research",
+      "institutionId": "dongwu-fund",
+      "title": "量化研究",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "secondary",
+      "publishedAt": "2026-04-30",
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "东吴基金官网",
+        "kind": "official-careers",
+        "url": "https://www.scfund.com.cn/news/2026/04/30/38449/1.shtml"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 73,
+        "verdict": "多资产、风险平价、因子、Python/SQL 与研究平台覆盖面完整；但职责同时包含系统建设和投资经理支持，且股票与公募流程权重较高。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "开发股票量化、多资产配置、风险平价和 ETF 策略",
+        "挖掘因子并维护数据与因子库",
+        "优化研究和交易系统并为投资经理提供风险监控支持"
+      ],
+      "requirements": [
+        "两年以上量化策略研究经验和硕士以上定量背景",
+        "精通 Python 和主要数据科学库，熟悉 SQL",
+        "掌握 C++、R、MATLAB 或 Spark 为加分项，并具备基金从业资格"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "portfolio-risk",
+        "productionization",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "zheshang-fund-quant-manager",
+      "institutionId": "zheshang-fund",
+      "title": "量化基金经理",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "secondary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "浙商基金官网",
+        "kind": "official-careers",
+        "url": "https://www.zsfund.com/aboutus/job/job1/index.html"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 86,
+        "verdict": "策略范围明确包含 CTA，要求 3–5 年实盘并独立负责组合、业绩、风险和回撤，职责升级直接；但带领团队和公募产品路演是显著工作内容，需确认能否保持研究型 IC。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "研究、设计、开发并迭代股票、中性、指数增强、CTA 和套利策略",
+        "独立管理量化产品并对业绩、风险和回撤负责",
+        "覆盖因子、模型、组合、算法交易、实盘监控和投资者沟通"
+      ],
+      "requirements": [
+        "三至五年以上量化投资实盘管理经验和可追溯业绩",
+        "扎实金融与数理基础及独立研究能力",
+        "团队管理经验优先，但公开职责本身包含带领团队"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "portfolio-risk",
+        "transaction-costs",
+        "productionization",
+        "commodity-domain",
+        "strategy-ownership",
+        "collaboration",
+        "communication"
+      ]
+    },
+    {
+      "id": "zheshang-fund-quant-researcher",
+      "institutionId": "zheshang-fund",
+      "title": "量化研究员",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "secondary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "浙商基金官网",
+        "kind": "official-careers",
+        "url": "https://www.zsfund.com/aboutus/job/job1/index.html"
+      },
+      "fit": {
+        "tier": "C",
+        "score": 60,
+        "verdict": "Alpha、另类数据、Python、深度学习和大模型工具相关，但岗位明确面向 1–3 年经验并协助基金经理，低于目标职级。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "fail"
+      },
+      "responsibilities": [
+        "清洗金融数据并维护因子库",
+        "挖掘 Alpha 与另类数据信号并完成策略回测",
+        "协助基金经理开展归因、敏感性和策略叠加测试"
+      ],
+      "requirements": [
+        "一至三年量化研究经验",
+        "Python、常见大模型和深度学习框架",
+        "独立完成数据获取、建模和结论验证"
+      ],
+      "skillTags": [
+        "python",
+        "sql-data",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "selby-macro-futures-cta-researcher",
+      "institutionId": null,
+      "institutionName": "匿名量化对冲基金（Selby Jennings）",
+      "title": "Quantitative Researcher - Macro / Futures / CTA",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "Selby Jennings",
+        "kind": "recruiter-posting",
+        "url": "https://www.selbyjennings.com/en-us/job/quant-researcher-macro-futures-cta-pr596278_1781250562"
+      },
+      "fit": {
+        "tier": "A+",
+        "score": 94,
+        "verdict": "宏观、商品与全球期货 Alpha、信号、回测、组合和风险预算几乎完全对应当前能力；但职位代表多个匿名客户，无法核验具体机构规模、合同主体和真实职级。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "unknown",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "研究利率、外汇、商品与股指期货系统策略",
+        "开发趋势、Carry、Momentum 和宏观预测信号",
+        "完成严谨回测、风险预算、分散配置并与交易和工程推进上线"
+      ],
+      "requirements": [
+        "两年以上 CTA、宏观量化或时间序列研究经验",
+        "强 Python、大规模数据和回测框架能力",
+        "理解期货、宏观驱动、信号处理和机器学习"
+      ],
+      "skillTags": [
+        "python",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "research-rigor",
+        "portfolio-risk",
+        "productionization",
+        "commodity-domain",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "alphagrep-shanghai-quant-researcher",
+      "institutionId": null,
+      "institutionName": "AlphaGrep Investment Management China",
+      "title": "Quantitative Researcher",
+      "location": "上海",
+      "employment": "全职",
+      "status": "active",
+      "pool": "boundary",
+      "publishedAt": null,
+      "checkedAt": "2026-07-24",
+      "source": {
+        "publisher": "AlphaGrep 官网",
+        "kind": "official-careers",
+        "url": "https://alphagrepim.com/alphagrep-investment-management-china/careers/job-details/?jid=5335169002"
+      },
+      "fit": {
+        "tier": "B",
+        "score": 69,
+        "verdict": "统计建模、策略自动化、回测和跨资产内容相关，但岗位服务做市与算法交易，频率和微观结构显著偏离日频商品截面；机构规模也无百亿 AUM 证据。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "not-applicable",
+        "seniority": "verify"
+      },
+      "responsibilities": [
+        "识别并改进做市和算法交易策略",
+        "分析交易表现与金融时间序列",
+        "构建、回测、维护模型并与技术团队优化电子交易系统"
+      ],
+      "requirements": [
+        "两年以上行业经验和顶尖 STEM 背景",
+        "C++、Python 编程与 Linux/Unix",
+        "数据分析、市场研究、建模和机器学习经验"
+      ],
+      "skillTags": [
+        "python",
+        "linux",
+        "statistical-modeling",
+        "machine-learning",
+        "signal-research",
+        "backtesting",
+        "transaction-costs",
+        "productionization",
+        "collaboration"
+      ]
     },
     {
       "id": "lingjun-portfolio-manager-historical",
@@ -418,13 +1495,38 @@
       "pool": "historical",
       "publishedAt": null,
       "checkedAt": "2026-07-24",
-      "source": { "publisher": "灵均投资雇主职位页", "kind": "employer-posting", "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-at-%E7%81%B5%E5%9D%87%E6%8A%95%E8%B5%84-4329194779" },
-      "fit": { "tier": "A", "score": 84, "verdict": "用于理解 PM 证据要求；职位已停止接受申请，不计入当前机会。" },
-      "eligibility": { "location": "pass", "institutionScale": "pass", "compensation": "verify", "seniority": "pass" },
-      "compensation": { "guaranteedGross": null, "performanceBonus": null, "disclosure": "undisclosed", "note": "已停止招聘，仅作历史参照。" },
-      "responsibilities": ["独立管理量化投资组合", "承担策略与风险决策", "交付可验证实盘业绩"],
-      "requirements": ["三年以上中低频或高频经验", "成功实盘记录", "Python、C 或 C++"],
-      "skillTags": ["python", "portfolio-risk", "strategy-ownership", "productionization", "research-rigor"]
+      "source": {
+        "publisher": "灵均投资雇主职位页",
+        "kind": "employer-posting",
+        "url": "https://cn.linkedin.com/jobs/view/portfolio-manager-at-%E7%81%B5%E5%9D%87%E6%8A%95%E8%B5%84-4329194779"
+      },
+      "fit": {
+        "tier": "A",
+        "score": 84,
+        "verdict": "用于理解 PM 证据要求；职位已停止接受申请，不计入当前机会。"
+      },
+      "eligibility": {
+        "location": "pass",
+        "institutionScale": "pass",
+        "seniority": "pass"
+      },
+      "responsibilities": [
+        "独立管理量化投资组合",
+        "承担策略与风险决策",
+        "交付可验证实盘业绩"
+      ],
+      "requirements": [
+        "三年以上中低频或高频经验",
+        "成功实盘记录",
+        "Python、C 或 C++"
+      ],
+      "skillTags": [
+        "python",
+        "portfolio-risk",
+        "strategy-ownership",
+        "productionization",
+        "research-rigor"
+      ]
     }
   ]
 }

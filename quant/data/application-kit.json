@@ -68,25 +68,25 @@
       "id": "private-fund",
       "label": "百亿私募首轮沟通",
       "subject": "上海商品期货高级量化研究 / 研究型 PM",
-      "message": "您好，我有六年商品期货日频截面量化研究经验，负责公开数据信号、预测模型和组合优化。相关策略自 2024.03 起由公司 PM 配置约 10 亿元费后实盘，样本外 Sharpe 约 2。现在只考虑上海、百亿以上平台、继续亲自研究的高级 IC 或研究型 PM 机会。为节省双方时间，我的固定税前保证收入要求不低于 100 万元，绩效良好年份的现金税后需要超过 80 万元。若职级、策略所有权和薪酬结构大致匹配，我可以先提供一页脱敏经历摘要。"
+      "message": "您好，我有六年商品期货日频截面量化研究经验，负责公开数据信号、预测模型和组合优化。相关策略自 2024.03 起由公司 PM 配置约 10 亿元费后实盘，样本外 Sharpe 约 2。现在只考虑上海、百亿以上平台、继续亲自研究的高级 IC 或研究型 PM 机会。若职级、策略所有权和研究资源大致匹配，我可以先提供一页脱敏经历摘要。"
     },
     {
       "id": "targeted-role",
       "label": "针对具体岗位",
       "subject": "关于贵司量化研究岗位的匹配与定级",
-      "message": "您好，我看到贵司在上海的量化研究岗位。我的核心经验是六年商品期货日频截面研究，个人负责信号、预测和组合优化；策略自 2024.03 起在公司账户费后实盘，PM 配置约 10 亿元。我想先确认三点：该岗位能否按 Senior/Principal IC 定级，是否有商品或跨资产策略所有权，以及固定税前保证收入是否不低于 100 万元。三项大致匹配后，我愿意按岗位要求准备脱敏研究案例。"
+      "message": "您好，我看到贵司在上海的量化研究岗位。我的核心经验是六年商品期货日频截面研究，个人负责信号、预测和组合优化；策略自 2024.03 起在公司账户费后实盘，PM 配置约 10 亿元。我想先确认三点：该岗位能否按 Senior/Principal IC 定级，是否有商品或跨资产策略所有权，以及能否逐步承担正式风险预算。三项大致匹配后，我愿意按岗位要求准备脱敏研究案例。"
     },
     {
       "id": "headhunter-check",
       "label": "匿名猎头先核验",
-      "subject": "先确认四项硬条件",
-      "message": "感谢联系。进入简历和技术细节前，请先确认：工作地点是否仅上海；实际用人机构及最新管理规模能否披露；合同固定税前保证收入是否不低于 100 万元；岗位是亲自研究并拥有策略责任的高级 IC，还是团队管理/研究支持。奖金上限不能替代固定保证收入。四项符合后我再进一步沟通。"
+      "subject": "先确认岗位边界",
+      "message": "感谢联系。进入简历和技术细节前，请先确认：工作地点是否仅上海；实际用人机构及最新管理规模能否披露；岗位是亲自研究并拥有策略责任的高级 IC，还是团队管理/研究支持；策略、组合与风险预算分别由谁负责。方向大致符合后我再进一步沟通。"
     },
     {
       "id": "man-group-china-macro",
       "label": "Man Group 英文首联",
       "subject": "China Macro Quantitative Researcher - commodity futures live track record",
-      "message": "Hello, I am reaching out regarding the Shanghai China Macro Quantitative Researcher role. I have six years of experience in daily cross-sectional research for Chinese commodity futures, owning public-data signals, forecasting models, and portfolio optimization. Since March 2024, my strategy has run net of fees in company accounts with about RMB 1 billion allocated by PMs, with an out-of-sample Sharpe of about 2. The role's focus on futures alpha, risk budgeting, dynamic leverage, transaction costs, and the full investment lifecycle is directly relevant. My experience is slightly beyond the stated 2-5 year range, so I would first like to confirm the Shanghai seniority, decision rights, employing entity, and compensation structure. I can share a concise, anonymized track-record and research summary if these are broadly aligned."
+      "message": "Hello, I am reaching out regarding the Shanghai China Macro Quantitative Researcher role. I have six years of experience in daily cross-sectional research for Chinese commodity futures, owning public-data signals, forecasting models, and portfolio optimization. Since March 2024, my strategy has run net of fees in company accounts with about RMB 1 billion allocated by PMs, with an out-of-sample Sharpe of about 2. The role's focus on futures alpha, risk budgeting, dynamic leverage, transaction costs, and the full investment lifecycle is directly relevant. My experience is slightly beyond the stated 2-5 year range, so I would first like to confirm the Shanghai seniority, decision rights, employing entity, and China-team mandate. I can share a concise, anonymized track-record and research summary if these are broadly aligned."
     }
   ],
   "keywordMap": [
@@ -123,7 +123,7 @@
     },
     {
       "stage": "首轮前",
-      "items": ["核验机构主体和百亿规模证据", "问清固定现金、保证奖金和目标奖金", "确认 Senior/Principal IC 定级", "确认策略和风险决策边界", "跨境机构另问上海合同主体、计薪币种和汇报线"]
+      "items": ["核验机构主体和百亿规模证据", "确认 Senior/Principal IC 定级", "确认策略和风险决策边界", "核验研究资源与初始资金授权", "跨境机构另问上海合同主体和汇报线"]
     },
     {
       "stage": "技术面前",
@@ -131,7 +131,7 @@
     },
     {
       "stage": "Offer 前",
-      "items": ["书面确认固定保证收入至少 100 万元", "测算奖金计税、递延、回拨和离职处理", "确认授权、汇报线和资源", "在薪酬换算器中复算税后现金"]
+      "items": ["书面确认职责、职级和汇报线", "确认策略归因、资源和风险预算", "确认上线、扩容、停复用的授权", "复核保密、竞业和离职交接边界"]
     }
   ]
 }
