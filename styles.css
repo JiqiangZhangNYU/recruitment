@@ -754,7 +754,7 @@ select {
 .glossary-result-head strong { font-size: 16px; }
 .glossary-result-head span { color: var(--muted); font: 11px var(--mono); }
 .glossary-list { overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 7px; box-shadow: var(--shadow); }
-.glossary-entry { border-left: 3px solid transparent; border-bottom: 1px solid var(--line); }
+.glossary-entry { content-visibility: auto; contain-intrinsic-size: auto 360px; border-left: 3px solid transparent; border-bottom: 1px solid var(--line); }
 .glossary-entry:last-child { border-bottom: 0; }
 .glossary-entry.mastered { border-left-color: var(--a); background: color-mix(in srgb, var(--a-soft) 32%, var(--surface)); }
 .glossary-entry-header { display: grid; grid-template-columns: 50px minmax(0, 1fr) 104px; align-items: center; gap: 12px; min-height: 62px; padding: 11px 16px 10px; }
@@ -769,7 +769,9 @@ select {
 .glossary-entry-body { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr) minmax(0, 1.35fr); border-top: 1px solid var(--line); }
 .glossary-field { min-width: 0; padding: 14px 16px 16px; border-left: 1px solid var(--line); }
 .glossary-field:first-child { border-left: 0; }
+.glossary-field-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 28px; margin-bottom: 7px; }
 .glossary-field-label { display: block; margin-bottom: 7px; color: var(--muted); font: 700 10px var(--mono); }
+.glossary-field-heading .glossary-field-label { margin-bottom: 0; }
 .glossary-field-value { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; }
 .glossary-entry-body .glossary-field:nth-child(2) .glossary-field-value { color: var(--ink); font-size: 15px; }
 .glossary-covered-value { display: block; width: 100%; min-height: 48px; padding: 10px 12px; color: var(--accent); background: var(--surface-muted); border: 1px dashed var(--line-strong); border-radius: 5px; font-size: 12px; text-align: left; }
@@ -778,6 +780,11 @@ select {
 .glossary-interview-practice { display: grid; grid-template-columns: minmax(0, 1fr) minmax(330px, 0.65fr); align-items: center; gap: 18px; padding: 15px 16px 16px; background: color-mix(in srgb, var(--accent-soft) 32%, var(--surface)); border-top: 1px solid var(--line); }
 .glossary-interview-copy { min-width: 0; }
 .glossary-interview-expression { margin: 0; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.75; overflow-wrap: anywhere; }
+.glossary-speak-button { flex: 0 0 auto; min-height: 28px; padding: 4px 8px; color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; font-size: 10px; white-space: nowrap; }
+.glossary-speak-button:hover:not(:disabled) { border-color: var(--accent); }
+.glossary-speak-button.speaking { color: #fff; background: var(--accent); border-color: var(--accent); }
+.glossary-speak-button:disabled { color: var(--muted); cursor: default; opacity: 0.55; }
+.glossary-entry-header .glossary-speak-button { margin-right: 3px; }
 .glossary-recorder { display: grid; gap: 7px; min-width: 0; }
 .glossary-recorder-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
 .glossary-recorder button { min-width: 0; min-height: 38px; padding: 7px 9px; color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; font-size: 12px; }
@@ -1032,12 +1039,15 @@ dialog li { margin: 6px 0; padding-left: 5px; }
   .glossary-field, .glossary-field:first-child, .glossary-field:nth-child(2) { grid-column: 1; padding: 15px 16px 17px; border-left: 0; border-bottom: 1px solid var(--line); }
   .glossary-field:last-child { border-bottom: 0; }
   .glossary-field-label { margin-bottom: 7px; font-size: 11px; }
+  .glossary-field-heading { min-height: 36px; margin-bottom: 7px; }
+  .glossary-field-heading .glossary-field-label { margin-bottom: 0; }
   .glossary-field-value { font-size: 15px; line-height: 1.75; }
   .glossary-entry-body .glossary-field:nth-child(2) .glossary-field-value { font-size: 16px; line-height: 1.75; }
   .glossary-covered-value { min-height: 54px; padding: 12px 14px; font-size: 14px; }
   .glossary-covered-value.revealed { font-size: 15px; line-height: 1.75; }
   .glossary-interview-practice { grid-template-columns: 1fr; gap: 13px; padding: 16px; }
   .glossary-interview-expression { font-size: 16px; line-height: 1.75; }
+  .glossary-speak-button { min-height: 36px; padding: 6px 9px; font-size: 12px; }
   .glossary-recorder { gap: 9px; }
   .glossary-recorder-actions { gap: 7px; }
   .glossary-recorder button { min-height: 46px; padding: 8px 7px; font-size: 13px; }

@@ -26,6 +26,15 @@ function learningRouteFromHash(hash) {
 }
 
 const initialLearningRoute = learningRouteFromHash(location.hash);
+const directLearningAssets = {
+  "core-vocabulary": {
+    manifest: "challenges/core-vocabulary/manifest.json",
+    glossary: {
+      count: 500,
+      file: "challenges/core-vocabulary/glossary.json",
+    },
+  },
+};
 
 const legacySkillIds = {
   "sql-excel": "data-diagnosis",
@@ -1342,10 +1351,14 @@ function renderChallengeHub(pack) {
 
 const GLOSSARY_PAGE_SIZE = 20;
 
-function makeGlossaryCoveredField(label, text, covered) {
+function makeGlossaryCoveredField(label, text, covered, action = null) {
   const section = document.createElement("section");
   section.className = "glossary-field";
-  section.append(makeTextElement("span", "glossary-field-label", label));
+  const heading = document.createElement("div");
+  heading.className = "glossary-field-heading";
+  heading.append(makeTextElement("span", "glossary-field-label", label));
+  if (action) heading.append(action);
+  section.append(heading);
   if (!covered) {
     section.append(makeTextElement("p", "glossary-field-value", text));
     return section;
@@ -1380,7 +1393,63 @@ function renderChallengeGlossary(pack, glossary) {
   article.dataset.skillId = pack.skillId;
   const recordings = new Map();
   const recordingSupported = Boolean(navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
+  const speechSupported = Boolean(window.speechSynthesis && window.SpeechSynthesisUtterance);
   let activeRecording = null;
+  let activeSpeechButton = null;
+
+  const stopSpeech = () => {
+    if (!speechSupported) return;
+    speechSynthesis.cancel();
+    if (!activeSpeechButton) return;
+    activeSpeechButton.classList.remove("speaking");
+    activeSpeechButton.setAttribute("aria-pressed", "false");
+    activeSpeechButton = null;
+  };
+
+  const setSpeakButtonsDisabled = (disabled) => {
+    article.querySelectorAll(".glossary-speak-button").forEach((button) => {
+      button.disabled = disabled || !speechSupported;
+    });
+  };
+
+  const makeSpeakButton = (text, label) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "glossary-speak-button";
+    button.textContent = speechSupported ? "AI 朗读" : "朗读不可用";
+    button.disabled = !speechSupported;
+    button.setAttribute("aria-label", label);
+    button.setAttribute("aria-pressed", "false");
+    button.addEventListener("click", () => {
+      if (activeSpeechButton === button) {
+        stopSpeech();
+        return;
+      }
+      stopSpeech();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-US";
+      utterance.rate = 0.88;
+      utterance.pitch = 1;
+      const voices = speechSynthesis.getVoices();
+      utterance.voice = voices.find((voice) => voice.lang === "en-US" && voice.localService)
+        || voices.find((voice) => voice.lang === "en-US")
+        || voices.find((voice) => voice.lang.startsWith("en"))
+        || null;
+      const finish = () => {
+        if (activeSpeechButton !== button) return;
+        button.classList.remove("speaking");
+        button.setAttribute("aria-pressed", "false");
+        activeSpeechButton = null;
+      };
+      utterance.addEventListener("end", finish);
+      utterance.addEventListener("error", finish);
+      activeSpeechButton = button;
+      button.classList.add("speaking");
+      button.setAttribute("aria-pressed", "true");
+      speechSynthesis.speak(utterance);
+    });
+    return button;
+  };
 
   const setRecordButtonsDisabled = (disabled) => {
     article.querySelectorAll(".glossary-record-button").forEach((button) => {
@@ -1397,6 +1466,7 @@ function renderChallengeGlossary(pack, glossary) {
   };
 
   const cleanupRecordings = () => {
+    stopSpeech();
     finishActiveRecording(true);
     recordings.forEach(({ url }) => URL.revokeObjectURL(url));
     recordings.clear();
@@ -1409,10 +1479,13 @@ function renderChallengeGlossary(pack, glossary) {
 
     const copy = document.createElement("div");
     copy.className = "glossary-interview-copy";
-    copy.append(
+    const copyHeading = document.createElement("div");
+    copyHeading.className = "glossary-field-heading";
+    copyHeading.append(
       makeTextElement("span", "glossary-field-label", "面试表达"),
-      makeTextElement("p", "glossary-interview-expression", entry.interviewExpression),
+      makeSpeakButton(entry.interviewExpression, `朗读 ${entry.term} 的面试表达`),
     );
+    copy.append(copyHeading, makeTextElement("p", "glossary-interview-expression", entry.interviewExpression));
 
     const recorderPanel = document.createElement("div");
     recorderPanel.className = "glossary-recorder";
@@ -1461,6 +1534,8 @@ function renderChallengeGlossary(pack, glossary) {
 
     recordButton.addEventListener("click", async () => {
       if (activeRecording) return;
+      stopSpeech();
+      setSpeakButtonsDisabled(true);
       setRecordButtonsDisabled(true);
       status.textContent = "正在请求麦克风权限...";
       let stream;
@@ -1499,6 +1574,7 @@ function renderChallengeGlossary(pack, glossary) {
           clearInterval(session.timer);
           stream.getTracks().forEach((track) => track.stop());
           if (activeRecording === session) activeRecording = null;
+          setSpeakButtonsDisabled(false);
           setRecordButtonsDisabled(false);
           stopButton.disabled = true;
 
@@ -1540,6 +1616,7 @@ function renderChallengeGlossary(pack, glossary) {
           clearInterval(activeRecording.timer);
           activeRecording = null;
         }
+        setSpeakButtonsDisabled(false);
         setRecordButtonsDisabled(false);
         stopButton.disabled = true;
         status.textContent = error.name === "NotAllowedError"
@@ -1738,6 +1815,7 @@ function renderChallengeGlossary(pack, glossary) {
       const title = document.createElement("div");
       title.append(
         makeTextElement("h3", "", entry.term),
+        makeSpeakButton(entry.term, `朗读单词 ${entry.term}`),
         makeTextElement("span", "glossary-category", entry.category),
         makeTextElement("span", "glossary-frequency", entry.frequency),
       );
@@ -1769,7 +1847,12 @@ function renderChallengeGlossary(pack, glossary) {
       body.className = "glossary-entry-body";
       body.append(
         makeGlossaryCoveredField("中文释义", entry.definition, state.glossaryMasks.definition),
-        makeGlossaryCoveredField("英文例句", entry.example, state.glossaryMasks.example),
+        makeGlossaryCoveredField(
+          "英文例句",
+          entry.example,
+          state.glossaryMasks.example,
+          makeSpeakButton(entry.example, `朗读 ${entry.term} 的英文例句`),
+        ),
         makeGlossaryCoveredField("中文翻译", entry.translation, state.glossaryMasks.translation),
       );
       row.append(entryHeader, body, makeInterviewPractice(entry));
@@ -2307,7 +2390,9 @@ async function ensureChallengePack(skillId) {
   if (state.challengePacks.has(skillId)) return state.challengePacks.get(skillId);
   if (!state.challengePromises.has(skillId)) {
     const challenge = state.guide?.skills.find((skill) => skill.id === skillId)?.challenge;
-    const source = challenge?.manifest || `challenges/${encodeURIComponent(skillId)}.json`;
+    const source = challenge?.manifest
+      || directLearningAssets[skillId]?.manifest
+      || `challenges/${encodeURIComponent(skillId)}.json`;
     const request = fetch(source)
       .then((response) => {
         if (!response.ok) throw new Error(`题库 HTTP ${response.status}`);
@@ -2339,9 +2424,66 @@ async function ensureChallengePack(skillId) {
   return state.challengePromises.get(skillId);
 }
 
+function validateChallengeGlossary(skillId, pack, glossary) {
+  if (!Array.isArray(glossary.entries) || glossary.entries.length !== pack.glossary.count) {
+    throw new Error("词汇表格式或数量不正确");
+  }
+  if (glossary.entries.some((entry) => typeof entry.interviewExpression !== "string" || !entry.interviewExpression.trim())) {
+    throw new Error("词汇表缺少面试表达");
+  }
+  const ranks = glossary.entries.map((entry) => entry.rank);
+  const terms = glossary.entries.map((entry) => entry.term.toLocaleLowerCase("en-US"));
+  if (ranks.some((rank, index) => rank !== index + 1) || new Set(terms).size !== terms.length) {
+    throw new Error("词汇表排序或词条不正确");
+  }
+  const mastery = getGlossaryMastery(skillId);
+  const validTerms = new Set(glossary.entries.map((entry) => entry.term));
+  [...mastery].forEach((term) => {
+    if (!validTerms.has(term)) mastery.delete(term);
+  });
+  persistGlossaryMastery(skillId);
+  return glossary;
+}
+
+function glossaryCacheKey(skillId) {
+  return `recruitment-glossary-cache-${skillId}`;
+}
+
+function persistGlossaryCache(skillId, glossary) {
+  try {
+    localStorage.setItem(glossaryCacheKey(skillId), JSON.stringify(glossary));
+  } catch {
+    // The network path remains available when browser storage is restricted or full.
+  }
+}
+
 async function ensureChallengeGlossary(skillId, pack) {
   if (state.challengeGlossaries.has(skillId)) return state.challengeGlossaries.get(skillId);
   if (!pack.glossary?.file) throw new Error("该题库尚未配置词汇表");
+
+  const cached = readStoredJSON(glossaryCacheKey(skillId), null);
+  if (cached) {
+    try {
+      const glossary = validateChallengeGlossary(skillId, pack, cached);
+      state.challengeGlossaries.set(skillId, glossary);
+      fetch(pack.glossary.file)
+        .then((response) => response.ok ? response.json() : Promise.reject(new Error(`词汇表 HTTP ${response.status}`)))
+        .then((freshGlossary) => {
+          validateChallengeGlossary(skillId, pack, freshGlossary);
+          persistGlossaryCache(skillId, freshGlossary);
+          state.challengeGlossaries.set(skillId, freshGlossary);
+        })
+        .catch(() => {});
+      return glossary;
+    } catch {
+      try {
+        localStorage.removeItem(glossaryCacheKey(skillId));
+      } catch {
+        // Ignore storage restrictions and continue with the network copy.
+      }
+    }
+  }
+
   if (!state.challengeGlossaryPromises.has(skillId)) {
     const request = fetch(pack.glossary.file)
       .then((response) => {
@@ -2349,23 +2491,8 @@ async function ensureChallengeGlossary(skillId, pack) {
         return response.json();
       })
       .then((glossary) => {
-        if (!Array.isArray(glossary.entries) || glossary.entries.length !== pack.glossary.count) {
-          throw new Error("词汇表格式或数量不正确");
-        }
-        if (glossary.entries.some((entry) => typeof entry.interviewExpression !== "string" || !entry.interviewExpression.trim())) {
-          throw new Error("词汇表缺少面试表达");
-        }
-        const ranks = glossary.entries.map((entry) => entry.rank);
-        const terms = glossary.entries.map((entry) => entry.term.toLocaleLowerCase("en-US"));
-        if (ranks.some((rank, index) => rank !== index + 1) || new Set(terms).size !== terms.length) {
-          throw new Error("词汇表排序或词条不正确");
-        }
-        const mastery = getGlossaryMastery(skillId);
-        const validTerms = new Set(glossary.entries.map((entry) => entry.term));
-        [...mastery].forEach((term) => {
-          if (!validTerms.has(term)) mastery.delete(term);
-        });
-        persistGlossaryMastery(skillId);
+        validateChallengeGlossary(skillId, pack, glossary);
+        persistGlossaryCache(skillId, glossary);
         state.challengeGlossaries.set(skillId, glossary);
         return glossary;
       })
@@ -2534,6 +2661,14 @@ async function init() {
   bindControls();
   if (initialLearningRoute) {
     setView("skills", false);
+    const assets = directLearningAssets[initialLearningRoute.skillId];
+    if (initialLearningRoute.page === "challengeGlossary" && assets) {
+      [
+        ensureGuideLoaded(),
+        ensureChallengePack(initialLearningRoute.skillId),
+        ensureChallengeGlossary(initialLearningRoute.skillId, { glossary: assets.glossary }),
+      ].forEach((request) => request.catch(() => {}));
+    }
     await navigateLearning(
       initialLearningRoute.page,
       initialLearningRoute.skillId,
