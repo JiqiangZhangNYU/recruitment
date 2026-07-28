@@ -1485,11 +1485,16 @@ function renderChallengeGlossary(pack, glossary) {
   const previous = document.createElement("button");
   previous.type = "button";
   previous.textContent = "← 上一页";
-  const pagePosition = makeTextElement("span", "", "");
+  const pagePicker = document.createElement("label");
+  pagePicker.className = "glossary-page-picker";
+  const pageSelect = document.createElement("select");
+  pageSelect.setAttribute("aria-label", "选择页码");
+  const pageTotal = makeTextElement("span", "", "");
+  pagePicker.append(makeTextElement("span", "", "第"), pageSelect, pageTotal);
   const next = document.createElement("button");
   next.type = "button";
   next.textContent = "下一页 →";
-  pagination.append(previous, pagePosition, next);
+  pagination.append(previous, pagePicker, next);
 
   const updateMasteryProgress = () => {
     masteryProgress.querySelector("strong").textContent = `${mastery.size} / ${glossary.count}`;
@@ -1586,7 +1591,14 @@ function renderChallengeGlossary(pack, glossary) {
     resultRange.textContent = filtered.length
       ? `显示 ${start + 1}-${Math.min(start + GLOSSARY_PAGE_SIZE, filtered.length)} · ${sortDescription}`
       : "当前筛选无结果";
-    pagePosition.textContent = `第 ${state.glossaryPage} / ${totalPages} 页`;
+    pageSelect.replaceChildren(...Array.from({ length: totalPages }, (_, index) => {
+      const option = document.createElement("option");
+      option.value = String(index + 1);
+      option.textContent = String(index + 1);
+      return option;
+    }));
+    pageSelect.value = String(state.glossaryPage);
+    pageTotal.textContent = `/ ${totalPages} 页`;
     previous.disabled = state.glossaryPage === 1;
     next.disabled = state.glossaryPage === totalPages;
     pagination.hidden = filtered.length <= GLOSSARY_PAGE_SIZE;
@@ -1615,6 +1627,11 @@ function renderChallengeGlossary(pack, glossary) {
   unmastered.addEventListener("change", () => {
     state.glossaryUnmasteredOnly = unmastered.checked;
     resetPageAndRender();
+  });
+  pageSelect.addEventListener("change", () => {
+    state.glossaryPage = Number(pageSelect.value);
+    renderEntries();
+    resultHead.scrollIntoView({ block: "start", behavior: "smooth" });
   });
   previous.addEventListener("click", () => {
     state.glossaryPage -= 1;
