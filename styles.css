@@ -782,6 +782,7 @@ select {
 .glossary-interview-expression { margin: 0; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.75; overflow-wrap: anywhere; }
 .glossary-speak-button { flex: 0 0 auto; min-height: 28px; padding: 4px 8px; color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; font-size: 10px; white-space: nowrap; }
 .glossary-speak-button:hover:not(:disabled) { border-color: var(--accent); }
+.glossary-speak-button.loading { cursor: progress; opacity: 0.72; }
 .glossary-speak-button.speaking { color: #fff; background: var(--accent); border-color: var(--accent); }
 .glossary-speak-button:disabled { color: var(--muted); cursor: default; opacity: 0.55; }
 .glossary-entry-header .glossary-speak-button { margin-right: 3px; }

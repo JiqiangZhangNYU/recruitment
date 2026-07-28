@@ -464,8 +464,17 @@ async function checkPage(browser, viewport, screenshotPath) {
 async function checkGlossaryReadAloud(browser) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   const requestedURLs = [];
+  const audioRequests = [];
   const errors = [];
-  page.on("request", (request) => requestedURLs.push(request.url()));
+  page.on("request", (request) => {
+    requestedURLs.push(request.url());
+    if (request.url().includes("/audio/core-vocabulary/")) {
+      audioRequests.push({
+        resourceType: request.resourceType(),
+        range: request.headers().range,
+      });
+    }
+  });
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
   });
@@ -494,12 +503,17 @@ async function checkGlossaryReadAloud(browser) {
   await interviewButton.click();
   const interviewResponse = await interviewResponsePromise;
   assert.ok([200, 206].includes(interviewResponse.status()));
+  await interviewButton.locator("xpath=self::*[contains(@class, 'speaking')]").waitFor();
   assert.equal(await interviewButton.getAttribute("aria-pressed"), "true");
 
   await page.locator(".glossary-pagination button").last().click();
   assert.equal(await page.locator(".glossary-rank").first().textContent(), "021");
   assert.equal(await page.locator(".glossary-speak-button.speaking").count(), 0);
   assert.equal(requestedURLs.filter((url) => url.includes("/audio/core-vocabulary/")).length, 2);
+  assert.deepEqual(audioRequests, [
+    { resourceType: "fetch", range: undefined },
+    { resourceType: "fetch", range: undefined },
+  ]);
   assert.deepEqual(errors, []);
   await page.close();
 }

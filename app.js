@@ -1395,27 +1395,58 @@ function renderChallengeGlossary(pack, glossary) {
   const recordingSupported = Boolean(navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
   const speechSupported = Boolean(window.speechSynthesis && window.SpeechSynthesisUtterance);
   const readAloudAudio = document.createElement("audio");
-  const generatedSpeechSupported = Boolean(readAloudAudio.canPlayType("audio/mpeg"));
+  const generatedSpeechSupported = Boolean(
+    readAloudAudio.canPlayType("audio/mpeg")
+    && window.fetch
+    && window.URL?.createObjectURL,
+  );
   const readAloudSupported = generatedSpeechSupported || speechSupported;
   readAloudAudio.preload = "none";
   let activeRecording = null;
   let activeSpeech = null;
 
+  const resetSpeechButton = (request) => {
+    if (!request) return;
+    request.button.classList.remove("loading", "speaking");
+    request.button.setAttribute("aria-pressed", "false");
+    request.button.textContent = readAloudSupported ? "AI 朗读" : "朗读不可用";
+  };
+
+  const releaseGeneratedSpeech = (request, abort = false) => {
+    if (!request) return;
+    clearTimeout(request.loadTimer);
+    request.loadTimer = null;
+    if (abort) request.controller?.abort();
+    request.controller = null;
+    if (!request.objectURL) return;
+    URL.revokeObjectURL(request.objectURL);
+    request.objectURL = null;
+  };
+
   const finishSpeech = (request) => {
     if (!request || activeSpeech !== request) return;
-    request.button.classList.remove("speaking");
-    request.button.setAttribute("aria-pressed", "false");
     activeSpeech = null;
+    readAloudAudio.pause();
+    readAloudAudio.removeAttribute("src");
+    readAloudAudio.load();
+    releaseGeneratedSpeech(request);
+    resetSpeechButton(request);
   };
 
   const speakWithBrowserVoice = (request) => {
     if (!request || activeSpeech !== request || request.fallbackStarted) return;
     request.fallbackStarted = true;
     readAloudAudio.pause();
+    readAloudAudio.removeAttribute("src");
+    readAloudAudio.load();
+    releaseGeneratedSpeech(request, true);
     if (!speechSupported) {
       finishSpeech(request);
       return;
     }
+    request.button.classList.remove("loading");
+    request.button.classList.add("speaking");
+    request.button.textContent = "停止朗读";
     const utterance = new SpeechSynthesisUtterance(request.text);
     utterance.lang = "en-US";
     utterance.rate = 0.88;
@@ -1436,13 +1467,46 @@ function renderChallengeGlossary(pack, glossary) {
   const stopSpeech = () => {
     const request = activeSpeech;
     activeSpeech = null;
+    if (request) request.cancelled = true;
     if (speechSupported) speechSynthesis.cancel();
     readAloudAudio.pause();
     readAloudAudio.removeAttribute("src");
     readAloudAudio.load();
     if (!request) return;
-    request.button.classList.remove("speaking");
-    request.button.setAttribute("aria-pressed", "false");
+    releaseGeneratedSpeech(request, true);
+    resetSpeechButton(request);
+  };
+
+  const playGeneratedSpeech = async (request, audioPath) => {
+    request.controller = new AbortController();
+    request.loadTimer = setTimeout(() => {
+      request.controller?.abort();
+    }, 12000);
+    try {
+      const response = await fetch(audioPath, {
+        cache: "force-cache",
+        signal: request.controller.signal,
+      });
+      if (!response.ok) throw new Error(`Speech audio request failed: ${response.status}`);
+      const audioBlob = await response.blob();
+      clearTimeout(request.loadTimer);
+      request.loadTimer = null;
+      request.controller = null;
+      if (activeSpeech !== request || request.cancelled) return;
+      request.objectURL = URL.createObjectURL(audioBlob);
+      readAloudAudio.src = request.objectURL;
+      await readAloudAudio.play();
+      if (activeSpeech !== request) return;
+      request.button.classList.remove("loading");
+      request.button.classList.add("speaking");
+      request.button.textContent = "停止朗读";
+    } catch {
+      clearTimeout(request.loadTimer);
+      request.loadTimer = null;
+      request.controller = null;
+      if (activeSpeech !== request || request.cancelled) return;
+      speakWithBrowserVoice(request);
+    }
   };
 
   const setSpeakButtonsDisabled = (disabled) => {
@@ -1465,21 +1529,24 @@ function renderChallengeGlossary(pack, glossary) {
         return;
       }
       stopSpeech();
-      const request = { button, text, fallbackStarted: false };
+      const request = {
+        button,
+        text,
+        fallbackStarted: false,
+        cancelled: false,
+        controller: null,
+        loadTimer: null,
+        objectURL: null,
+      };
       activeSpeech = request;
-      button.classList.add("speaking");
+      button.classList.add("loading");
       button.setAttribute("aria-pressed", "true");
+      button.textContent = "加载中";
       if (!generatedSpeechSupported) {
         speakWithBrowserVoice(request);
         return;
       }
-      readAloudAudio.src = audioPath;
-      const playback = readAloudAudio.play();
-      if (playback?.catch) {
-        playback.catch(() => speakWithBrowserVoice(request));
-      } else if (readAloudAudio.paused) {
-        speakWithBrowserVoice(request);
-      }
+      playGeneratedSpeech(request, audioPath);
     });
     return button;
   };
