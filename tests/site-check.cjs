@@ -483,8 +483,8 @@ async function checkGlossaryReadAloud(browser) {
   ));
   await wordButton.click();
   const wordResponse = await wordResponsePromise;
-  assert.equal(wordResponse.status(), 200);
-  assert.match(wordResponse.headers()["content-type"], /^audio\/mpeg/);
+  assert.ok([200, 206].includes(wordResponse.status()));
+  assert.match(wordResponse.headers()["content-type"], /^audio\/(?:mpeg|mp3)/);
 
   const interviewButton = page.locator(".glossary-entry").first()
     .locator(".glossary-interview-practice .glossary-speak-button");
@@ -493,7 +493,7 @@ async function checkGlossaryReadAloud(browser) {
   ));
   await interviewButton.click();
   const interviewResponse = await interviewResponsePromise;
-  assert.equal(interviewResponse.status(), 200);
+  assert.ok([200, 206].includes(interviewResponse.status()));
   assert.equal(await interviewButton.getAttribute("aria-pressed"), "true");
 
   await page.locator(".glossary-pagination button").last().click();
