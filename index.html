@@ -7,6 +7,22 @@
   <meta name="description" content="上海支付与策略运营岗位筛选清单，汇总大厂、支付公司官网与 BOSS 直聘岗位，包含匹配度、岗位摘要和风险提示。">
   <title>支付与策略运营岗位筛选</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    if (["#glossary/core-vocabulary", "#glossary/business-english"].includes(location.hash)) {
+      [
+        "learning-guide.json",
+        "challenges/core-vocabulary/manifest.json",
+        "challenges/core-vocabulary/glossary.json",
+      ].forEach((href) => {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "fetch";
+        link.href = href;
+        link.crossOrigin = "anonymous";
+        document.head.append(link);
+      });
+    }
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
