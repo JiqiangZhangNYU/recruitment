@@ -1,4 +1,5 @@
 kokoro==0.9.4
+eng-to-ipa==0.0.2
 imageio-ffmpeg==0.6.0
 numpy==2.4.6
 soundfile==0.14.0

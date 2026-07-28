@@ -760,7 +760,9 @@ select {
 .glossary-entry-header { display: grid; grid-template-columns: 50px minmax(0, 1fr) 104px; align-items: center; gap: 12px; min-height: 62px; padding: 11px 16px 10px; }
 .glossary-rank { color: var(--muted); font: 700 12px var(--mono); }
 .glossary-entry-header > div { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; }
-.glossary-entry-header h3 { margin: 0 8px 0 0; overflow-wrap: anywhere; font-size: 18px; }
+.glossary-term-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; min-width: 0; }
+.glossary-entry-header h3 { margin: 0; overflow-wrap: anywhere; font-size: 18px; }
+.glossary-ipa { color: var(--muted); font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
 .glossary-category, .glossary-frequency { padding: 3px 7px; color: var(--muted); background: var(--surface-muted); border: 1px solid var(--line); border-radius: 4px; font: 10px var(--mono); }
 .glossary-frequency { color: var(--accent); background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 26%, var(--line)); }
 .glossary-mastery-button { width: 104px; min-height: 36px; padding: 7px 9px; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 5px; font-size: 12px; }
@@ -1033,7 +1035,9 @@ dialog li { margin: 6px 0; padding-left: 5px; }
   .glossary-entry.mastered { border-left-color: var(--a); }
   .glossary-entry-header { grid-template-columns: 42px minmax(0, 1fr); gap: 10px; padding: 14px 14px 13px; }
   .glossary-rank { font-size: 12px; }
-  .glossary-entry-header h3 { width: 100%; margin: 0 0 3px; font-size: 19px; line-height: 1.4; }
+  .glossary-term-heading { width: 100%; gap: 7px; }
+  .glossary-entry-header h3 { margin: 0; font-size: 19px; line-height: 1.4; }
+  .glossary-ipa { font-size: 15px; line-height: 1.5; }
   .glossary-category, .glossary-frequency { padding: 3px 7px; font-size: 10px; }
   .glossary-mastery-button { grid-column: 1 / -1; width: 100%; min-height: 42px; font-size: 13px; }
   .glossary-entry-body { grid-template-columns: 1fr; }

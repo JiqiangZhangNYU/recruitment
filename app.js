@@ -1922,8 +1922,14 @@ function renderChallengeGlossary(pack, glossary) {
       entryHeader.className = "glossary-entry-header";
       const rank = makeTextElement("span", "glossary-rank", String(entry.rank).padStart(3, "0"));
       const title = document.createElement("div");
-      title.append(
+      const termHeading = document.createElement("div");
+      termHeading.className = "glossary-term-heading";
+      termHeading.append(
         makeTextElement("h3", "", entry.term),
+        makeTextElement("span", "glossary-ipa", entry.ipa),
+      );
+      title.append(
+        termHeading,
         makeSpeakButton(entry.term, `朗读单词 ${entry.term}`, glossaryAudioPath(entry, "word")),
         makeTextElement("span", "glossary-category", entry.category),
         makeTextElement("span", "glossary-frequency", entry.frequency),
@@ -2541,8 +2547,13 @@ function validateChallengeGlossary(skillId, pack, glossary) {
   if (!Array.isArray(glossary.entries) || glossary.entries.length !== pack.glossary.count) {
     throw new Error("词汇表格式或数量不正确");
   }
-  if (glossary.entries.some((entry) => typeof entry.interviewExpression !== "string" || !entry.interviewExpression.trim())) {
-    throw new Error("词汇表缺少面试表达");
+  if (glossary.entries.some((entry) => (
+    typeof entry.interviewExpression !== "string"
+    || !entry.interviewExpression.trim()
+    || typeof entry.ipa !== "string"
+    || !/^\/.+\/$/.test(entry.ipa)
+  ))) {
+    throw new Error("词汇表缺少面试表达或美式音标");
   }
   const ranks = glossary.entries.map((entry) => entry.rank);
   const terms = glossary.entries.map((entry) => entry.term.toLocaleLowerCase("en-US"));

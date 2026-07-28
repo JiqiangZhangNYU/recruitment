@@ -76,6 +76,7 @@ assert.deepEqual(
 );
 assert.equal(coreVocabulary.count, 500);
 assert.equal(coreVocabulary.entries.length, 500);
+assert.ok(coreVocabulary.entries.every((entry) => /^\/.+\/$/.test(entry.ipa)));
 assert.equal(coreVocabularyAudioManifest.expectedCount, coreVocabulary.count * 3);
 assert.equal(coreVocabularyAudioManifest.completedCount, coreVocabularyAudioManifest.expectedCount);
 coreVocabulary.entries.forEach((entry) => {
@@ -483,6 +484,8 @@ async function checkGlossaryReadAloud(browser) {
   await page.goto(`${baseURL}/#glossary/core-vocabulary`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator(".glossary-entry").first().waitFor();
   assert.equal(await page.locator(".glossary-entry").count(), 20);
+  assert.equal(await page.locator(".glossary-ipa").count(), 20);
+  assert.equal(await page.locator(".glossary-ipa").first().textContent(), "/ˈpeɪmənt/");
   assert.equal(await page.locator(".glossary-page-picker option").count(), 25);
   assert.equal(requestedURLs.filter((url) => url.includes("/audio/core-vocabulary/")).length, 0);
 
