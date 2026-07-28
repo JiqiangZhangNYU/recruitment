@@ -1350,6 +1350,7 @@ function renderChallengeHub(pack) {
 }
 
 const GLOSSARY_PAGE_SIZE = 20;
+const CORE_VOCABULARY_GLOSSARY_VERSION = 4;
 
 function makeGlossaryCoveredField(label, text, covered, action = null) {
   const section = document.createElement("section");
@@ -1552,7 +1553,7 @@ function renderChallengeGlossary(pack, glossary) {
   };
 
   const glossaryAudioPath = (entry, kind) => (
-    `audio/core-vocabulary/${String(entry.rank).padStart(3, "0")}-${kind}.mp3`
+    `audio/core-vocabulary/${String(entry.rank).padStart(3, "0")}-${kind}.mp3${kind === "word" ? `?v=${glossary.version}` : ""}`
   );
 
   const setRecordButtonsDisabled = (disabled) => {
@@ -2544,7 +2545,14 @@ async function ensureChallengePack(skillId) {
 }
 
 function validateChallengeGlossary(skillId, pack, glossary) {
-  if (!Array.isArray(glossary.entries) || glossary.entries.length !== pack.glossary.count) {
+  const expectedVersion = skillId === "core-vocabulary"
+    ? CORE_VOCABULARY_GLOSSARY_VERSION
+    : pack.glossary.version;
+  if (
+    (expectedVersion != null && glossary.version !== expectedVersion)
+    || !Array.isArray(glossary.entries)
+    || glossary.entries.length !== pack.glossary.count
+  ) {
     throw new Error("词汇表格式或数量不正确");
   }
   if (glossary.entries.some((entry) => (
@@ -2570,7 +2578,8 @@ function validateChallengeGlossary(skillId, pack, glossary) {
 }
 
 function glossaryCacheKey(skillId) {
-  return `recruitment-glossary-cache-${skillId}`;
+  const version = skillId === "core-vocabulary" ? `-v${CORE_VOCABULARY_GLOSSARY_VERSION}` : "";
+  return `recruitment-glossary-cache-${skillId}${version}`;
 }
 
 function persistGlossaryCache(skillId, glossary) {

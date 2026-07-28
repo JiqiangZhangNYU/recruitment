@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "title": "支付业务英语词汇表",
   "summary": "从现有业务英语题库覆盖的支付、经营、风控、定价与策略场景中整理 500 个词条，并按工作中的常用程度排序。",
   "count": 500,
@@ -44,7 +44,7 @@
     {
       "rank": 3,
       "term": "merchant",
-      "ipa": "/ˈmʌɹtʃənt/",
+      "ipa": "/ˈmɝtʃənt/",
       "definition": "接受客户付款并提供商品或服务的商家",
       "example": "Please add an explanation of merchant to the next operations update.",
       "translation": "请在下一次运营更新中加入对接受客户付款并提供商品或服务的商家的说明。",
@@ -176,7 +176,7 @@
     {
       "rank": 15,
       "term": "payment service provider (PSP)",
-      "ipa": "/ˈpeɪmənt ˈsʌɹvɪs pɹəˈvaɪdəɹ/",
+      "ipa": "/ˈpeɪmənt ˈsɝvɪs pɹəˈvaɪdəɹ, ˌpiː ɛs ˈpiː/",
       "definition": "为商户提供支付接入、处理和运营服务的支付服务商",
       "example": "Please add an explanation of payment service provider (PSP) to the next operations update.",
       "translation": "请在下一次运营更新中加入对为商户提供支付接入、处理和运营服务的支付服务商的说明。",
@@ -187,7 +187,7 @@
     {
       "rank": 16,
       "term": "card network",
-      "ipa": "/kɑɹd ˈnɛtˌwʌɹk/",
+      "ipa": "/kɑɹd ˈnɛtˌwɝk/",
       "definition": "制定银行卡交易规则并连接发卡行与收单行的卡组织",
       "example": "The weekly payment review includes a section on card network.",
       "translation": "支付周度复盘包含关于制定银行卡交易规则并连接发卡行与收单行的卡组织的专门部分。",
@@ -253,7 +253,7 @@
     {
       "rank": 22,
       "term": "conversion rate",
-      "ipa": "/kənˈvʌɹʒən ɹeɪt/",
+      "ipa": "/kənˈvɝʒən ɹeɪt/",
       "definition": "从某一步骤成功进入目标步骤的用户比例",
       "example": "The weekly payment review includes a section on conversion rate.",
       "translation": "支付周度复盘包含关于从某一步骤成功进入目标步骤的用户比例的专门部分。",
@@ -374,7 +374,7 @@
     {
       "rank": 33,
       "term": "currency",
-      "ipa": "/ˈkʌɹənsi/",
+      "ipa": "/ˈkɝənsi/",
       "definition": "交易计价、扣款或结算使用的货币",
       "example": "Please add an explanation of currency to the next operations update.",
       "translation": "请在下一次运营更新中加入对交易计价、扣款或结算使用的货币的说明。",
@@ -539,7 +539,7 @@
     {
       "rank": 48,
       "term": "recurring payment",
-      "ipa": "/ɹɪˈkʌɹɪŋ ˈpeɪmənt/",
+      "ipa": "/ɹɪˈkɝɪŋ ˈpeɪmənt/",
       "definition": "依据授权按固定或约定周期重复发起的付款",
       "example": "Please add an explanation of recurring payment to the next operations update.",
       "translation": "请在下一次运营更新中加入对依据授权按固定或约定周期重复发起的付款的说明。",
@@ -627,7 +627,7 @@
     {
       "rank": 56,
       "term": "3D Secure (3DS)",
-      "ipa": "/ˌθɹiː ˈdiː sɪˈkjʊɹ/",
+      "ipa": "/ˌθɹiː ˈdiː sɪˈkjʊɹ, ˌθɹiː diː ˈɛs/",
       "definition": "由卡组织支持、用于银行卡线上交易身份验证的协议",
       "example": "The team clarified how 3D Secure (3DS) affects the merchant plan.",
       "translation": "团队明确了由卡组织支持、用于银行卡线上交易身份验证的协议会如何影响商户方案。",
@@ -715,7 +715,7 @@
     {
       "rank": 64,
       "term": "segment",
-      "ipa": "/ˌsɛɡˈmɛnt/",
+      "ipa": "/ˈsɛɡmənt/",
       "definition": "按照共同特征划分的一组客户、商户或交易",
       "example": "The weekly payment review includes a section on segment.",
       "translation": "支付周度复盘包含关于按照共同特征划分的一组客户、商户或交易的专门部分。",
@@ -770,7 +770,7 @@
     {
       "rank": 69,
       "term": "service-level agreement (SLA)",
-      "ipa": "/ˈsʌɹvɪs ˈlɛvəl əˈɡɹimənt/",
+      "ipa": "/ˈsɝvɪs ˈlɛvəl əˈɡɹimənt, ˌɛs ɛl ˈeɪ/",
       "definition": "约定服务可用性、响应时限和补救措施的协议",
       "example": "Please add an explanation of service-level agreement (SLA) to the next operations update.",
       "translation": "请在下一次运营更新中加入对约定服务可用性、响应时限和补救措施的协议的说明。",
@@ -891,7 +891,7 @@
     {
       "rank": 80,
       "term": "impact",
-      "ipa": "/ˌɪmˈpækt/",
+      "ipa": "/ˈɪmpækt/",
       "definition": "某项变化对客户、收入、成本或风险造成的结果",
       "example": "The team clarified how impact affects the merchant plan.",
       "translation": "团队明确了某项变化对客户、收入、成本或风险造成的结果会如何影响商户方案。",
@@ -1012,7 +1012,7 @@
     {
       "rank": 91,
       "term": "conversion",
-      "ipa": "/kənˈvʌɹʒən/",
+      "ipa": "/kənˈvɝʒən/",
       "definition": "客户从意向或访问转变为完成目标行为的过程",
       "example": "The weekly payment review includes a section on conversion.",
       "translation": "支付周度复盘包含关于客户从意向或访问转变为完成目标行为的过程的专门部分。",
@@ -1034,7 +1034,7 @@
     {
       "rank": 93,
       "term": "churn",
-      "ipa": "/tʃəɹn/",
+      "ipa": "/tʃɝn/",
       "definition": "客户或商户停止使用或不再续约的流失现象",
       "example": "Please add an explanation of churn to the next operations update.",
       "translation": "请在下一次运营更新中加入对客户或商户停止使用或不再续约的流失现象的说明。",
@@ -1386,7 +1386,7 @@
     {
       "rank": 125,
       "term": "authorization reversal",
-      "ipa": "/ˌɔθəɹəˈzeɪʃən ɹɪˈvʌɹsəl/",
+      "ipa": "/ˌɔθəɹəˈzeɪʃən ɹɪˈvɝsəl/",
       "definition": "在无需扣款时释放原授权占用额度的操作",
       "example": "We reviewed the treatment of authorization reversal with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了在无需扣款时释放原授权占用额度的操作的处理方式。",
@@ -1551,7 +1551,7 @@
     {
       "rank": 140,
       "term": "first-party fraud",
-      "ipa": "/fəɹst ˈpɑɹti fɹɔd/",
+      "ipa": "/fɝst ˈpɑɹti fɹɔd/",
       "definition": "账户真实持有人利用规则漏洞实施欺诈的行为",
       "example": "We reviewed the treatment of first-party fraud with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了账户真实持有人利用规则漏洞实施欺诈的行为的处理方式。",
@@ -1650,7 +1650,7 @@
     {
       "rank": 149,
       "term": "network token",
-      "ipa": "/ˈnɛtˌwʌɹk ˈtoʊkən/",
+      "ipa": "/ˈnɛtˌwɝk ˈtoʊkən/",
       "definition": "由卡组织签发并可随卡状态更新的支付令牌",
       "example": "We reviewed the treatment of network token with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了由卡组织签发并可随卡状态更新的支付令牌的处理方式。",
@@ -1705,7 +1705,7 @@
     {
       "rank": 154,
       "term": "merchant-initiated transaction",
-      "ipa": "/ˈmʌɹtʃənt ˌɪˈnɪʃiˌeɪtɪd tɹænˈzækʃən/",
+      "ipa": "/ˈmɝtʃənt ˌɪˈnɪʃiˌeɪtɪd tɹænˈzækʃən/",
       "definition": "在客户不在线时由商户按既有授权发起的交易",
       "example": "The operations team mapped the role of merchant-initiated transaction before changing the payment flow.",
       "translation": "运营团队在调整支付流程前梳理了在客户不在线时由商户按既有授权发起的交易在链路中的作用。",
@@ -1727,7 +1727,7 @@
     {
       "rank": 156,
       "term": "recurring billing",
-      "ipa": "/ɹɪˈkʌɹɪŋ ˈbɪlɪŋ/",
+      "ipa": "/ɹɪˈkɝɪŋ ˈbɪlɪŋ/",
       "definition": "按约定周期自动计算并收取订阅费用的过程",
       "example": "The launch checklist now includes a review of recurring billing.",
       "translation": "上线清单现在包含对按约定周期自动计算并收取订阅费用的过程的检查。",
@@ -1782,7 +1782,7 @@
     {
       "rank": 161,
       "term": "involuntary churn",
-      "ipa": "/ˌɪnˈvɑlənˌtɛɹi tʃəɹn/",
+      "ipa": "/ˌɪnˈvɑlənˌtɛɹi tʃɝn/",
       "definition": "因支付失败而非客户主动意愿造成的流失",
       "example": "We reviewed the treatment of involuntary churn with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了因支付失败而非客户主动意愿造成的流失的处理方式。",
@@ -1958,7 +1958,7 @@
     {
       "rank": 177,
       "term": "merchant account",
-      "ipa": "/ˈmʌɹtʃənt əˈkaʊnt/",
+      "ipa": "/ˈmɝtʃənt əˈkaʊnt/",
       "definition": "用于接收和管理商户支付结算资金的账户",
       "example": "The launch checklist now includes a review of merchant account.",
       "translation": "上线清单现在包含对用于接收和管理商户支付结算资金的账户的检查。",
@@ -1969,7 +1969,7 @@
     {
       "rank": 178,
       "term": "merchant category code (MCC)",
-      "ipa": "/ˈmʌɹtʃənt ˈkætəˌɡɔɹi koʊd/",
+      "ipa": "/ˈmɝtʃənt ˈkætəˌɡɔɹi koʊd, ˌɛm siː ˈsiː/",
       "definition": "卡组织用于标识商户主营行业的四位代码",
       "example": "The operations team mapped the role of merchant category code (MCC) before changing the payment flow.",
       "translation": "运营团队在调整支付流程前梳理了卡组织用于标识商户主营行业的四位代码在链路中的作用。",
@@ -1980,7 +1980,7 @@
     {
       "rank": 179,
       "term": "terminal ID",
-      "ipa": "/ˈtʌɹmənəl ˌaɪ ˈdiː/",
+      "ipa": "/ˈtɝmənəl ˌaɪ ˈdiː/",
       "definition": "标识具体支付终端或受理渠道的编号",
       "example": "We reviewed the treatment of terminal ID with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了标识具体支付终端或受理渠道的编号的处理方式。",
@@ -1991,7 +1991,7 @@
     {
       "rank": 180,
       "term": "merchant ID (MID)",
-      "ipa": "/ˈmʌɹtʃənt ˌaɪ ˈdiː/",
+      "ipa": "/ˈmɝtʃənt ˌaɪ ˈdiː, ˌɛm aɪ ˈdiː/",
       "definition": "收单体系中唯一标识商户关系的编号",
       "example": "The launch checklist now includes a review of merchant ID (MID).",
       "translation": "上线清单现在包含对收单体系中唯一标识商户关系的编号的检查。",
@@ -2002,7 +2002,7 @@
     {
       "rank": 181,
       "term": "payment facilitator (PayFac)",
-      "ipa": "/ˈpeɪmənt fəˈsɪləˌteɪtəɹ/",
+      "ipa": "/ˈpeɪmənt fəˈsɪləˌteɪtəɹ, ˈpeɪˌfæk/",
       "definition": "代表收单机构聚合并管理多个子商户的平台",
       "example": "The operations team mapped the role of payment facilitator (PayFac) before changing the payment flow.",
       "translation": "运营团队在调整支付流程前梳理了代表收单机构聚合并管理多个子商户的平台在链路中的作用。",
@@ -2013,7 +2013,7 @@
     {
       "rank": 182,
       "term": "sub-merchant",
-      "ipa": "/səb ˈmʌɹtʃənt/",
+      "ipa": "/sʌb ˈmɝtʃənt/",
       "definition": "通过支付聚合方接入收单服务的下级商户",
       "example": "We reviewed the treatment of sub-merchant with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了通过支付聚合方接入收单服务的下级商户的处理方式。",
@@ -2079,7 +2079,7 @@
     {
       "rank": 188,
       "term": "reserve",
-      "ipa": "/ɹɪˈzʌɹv/",
+      "ipa": "/ɹɪˈzɝv/",
       "definition": "为覆盖退款、拒付或信用风险预留的资金",
       "example": "We reviewed the treatment of reserve with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了为覆盖退款、拒付或信用风险预留的资金的处理方式。",
@@ -2090,7 +2090,7 @@
     {
       "rank": 189,
       "term": "rolling reserve",
-      "ipa": "/ˈɹoʊlɪŋ ɹɪˈzʌɹv/",
+      "ipa": "/ˈɹoʊlɪŋ ɹɪˈzɝv/",
       "definition": "按比例滚动扣留交易款并在未来逐期释放的准备金",
       "example": "The launch checklist now includes a review of rolling reserve.",
       "translation": "上线清单现在包含对按比例滚动扣留交易款并在未来逐期释放的准备金的检查。",
@@ -2167,7 +2167,7 @@
     {
       "rank": 196,
       "term": "cut-off time",
-      "ipa": "/kət ɔf taɪm/",
+      "ipa": "/kʌt ɔf taɪm/",
       "definition": "决定交易计入当日还是下一处理日的截止时点",
       "example": "The operations team mapped the role of cut-off time before changing the payment flow.",
       "translation": "运营团队在调整支付流程前梳理了决定交易计入当日还是下一处理日的截止时点在链路中的作用。",
@@ -2211,7 +2211,7 @@
     {
       "rank": 200,
       "term": "funds flow",
-      "ipa": "/fəndz floʊ/",
+      "ipa": "/fʌndz floʊ/",
       "definition": "资金在客户、商户和支付参与方之间移动的路径",
       "example": "We reviewed the treatment of funds flow with the PSP during the incident follow-up.",
       "translation": "我们在事故复盘中与支付服务商核对了资金在客户、商户和支付参与方之间移动的路径的处理方式。",
@@ -2266,7 +2266,7 @@
     {
       "rank": 205,
       "term": "sub-ledger",
-      "ipa": "/səb ˈlɛdʒəɹ/",
+      "ipa": "/sʌb ˈlɛdʒəɹ/",
       "definition": "按业务对象记录明细并汇总到总账的辅助账",
       "example": "The analysis explains how sub-ledger affects payment performance.",
       "translation": "分析说明了按业务对象记录明细并汇总到总账的辅助账会如何影响支付表现。",
@@ -2288,7 +2288,7 @@
     {
       "rank": 207,
       "term": "journal entry",
-      "ipa": "/ˈdʒʌɹnəl ˈɛntɹi/",
+      "ipa": "/ˈdʒɝnəl ˈɛntɹi/",
       "definition": "记录一项经济业务借贷变化的会计分录",
       "example": "Please validate the calculation or use of journal entry before presenting the result.",
       "translation": "汇报结果前，请先验证记录一项经济业务借贷变化的会计分录的计算或使用方式。",
@@ -2431,7 +2431,7 @@
     {
       "rank": 220,
       "term": "month over month",
-      "ipa": "/mənθ ˈoʊvəɹ mənθ/",
+      "ipa": "/mʌnθ ˈoʊvəɹ mʌnθ/",
       "definition": "本月结果与上月结果之间的环比比较",
       "example": "The analysis explains how month over month affects payment performance.",
       "translation": "分析说明了本月结果与上月结果之间的环比比较会如何影响支付表现。",
@@ -2453,7 +2453,7 @@
     {
       "rank": 222,
       "term": "quarter over quarter",
-      "ipa": "/kˈwɔɹtəɹ ˈoʊvəɹ kˈwɔɹtəɹ/",
+      "ipa": "/ˈkwɔɹtəɹ ˈoʊvəɹ ˈkwɔɹtəɹ/",
       "definition": "本季度结果与上一季度之间的环比比较",
       "example": "Please validate the calculation or use of quarter over quarter before presenting the result.",
       "translation": "汇报结果前，请先验证本季度结果与上一季度之间的环比比较的计算或使用方式。",
@@ -2486,7 +2486,7 @@
     {
       "rank": 225,
       "term": "threshold",
-      "ipa": "/θˈɹɛˌʃoʊld/",
+      "ipa": "/ˈθɹɛˌʃoʊld/",
       "definition": "达到后会触发提醒、控制或决策的数值边界",
       "example": "Please validate the calculation or use of threshold before presenting the result.",
       "translation": "汇报结果前，请先验证达到后会触发提醒、控制或决策的数值边界的计算或使用方式。",
@@ -2585,7 +2585,7 @@
     {
       "rank": 234,
       "term": "incremental impact",
-      "ipa": "/ˌɪnkɹəˈmɛntəl ˌɪmˈpækt/",
+      "ipa": "/ˌɪnkɹəˈmɛntəl ˈɪmpækt/",
       "definition": "扣除自然变化后可归因于方案的额外影响",
       "example": "Please validate the calculation or use of incremental impact before presenting the result.",
       "translation": "汇报结果前，请先验证扣除自然变化后可归因于方案的额外影响的计算或使用方式。",
@@ -2695,7 +2695,7 @@
     {
       "rank": 244,
       "term": "data quality",
-      "ipa": "/ˈdeɪtə kˈwɑləti/",
+      "ipa": "/ˈdeɪtə ˈkwɑləti/",
       "definition": "数据在准确、完整、一致和及时方面的整体水平",
       "example": "The analysis explains how data quality affects payment performance.",
       "translation": "分析说明了数据在准确、完整、一致和及时方面的整体水平会如何影响支付表现。",
@@ -2860,7 +2860,7 @@
     {
       "rank": 259,
       "term": "conversion uplift",
-      "ipa": "/kənˈvʌɹʒən ˈʌplɪft/",
+      "ipa": "/kənˈvɝʒən ˈʌplɪft/",
       "definition": "新方案相对对照带来的转化率增量",
       "example": "The analysis explains how conversion uplift affects payment performance.",
       "translation": "分析说明了新方案相对对照带来的转化率增量会如何影响支付表现。",
@@ -2871,7 +2871,7 @@
     {
       "rank": 260,
       "term": "cost per transaction",
-      "ipa": "/kɔst pəɹ tɹænˈzækʃən/",
+      "ipa": "/kɔst pɝ tɹænˈzækʃən/",
       "definition": "总处理成本除以交易笔数得到的单笔成本",
       "example": "The dashboard includes a dedicated view of cost per transaction.",
       "translation": "看板包含一个专门展示总处理成本除以交易笔数得到的单笔成本的视图。",
@@ -2882,7 +2882,7 @@
     {
       "rank": 261,
       "term": "cost per successful payment",
-      "ipa": "/kɔst pəɹ səkˈsɛsfəl ˈpeɪmənt/",
+      "ipa": "/kɔst pɝ səkˈsɛsfəl ˈpeɪmənt/",
       "definition": "总支付成本除以成功支付笔数得到的成本",
       "example": "Please validate the calculation or use of cost per successful payment before presenting the result.",
       "translation": "汇报结果前，请先验证总支付成本除以成功支付笔数得到的成本的计算或使用方式。",
@@ -2948,7 +2948,7 @@
     {
       "rank": 267,
       "term": "merchant lifetime value",
-      "ipa": "/ˈmʌɹtʃənt ˈlaɪfˌtaɪm ˈvælju/",
+      "ipa": "/ˈmɝtʃənt ˈlaɪfˌtaɪm ˈvælju/",
       "definition": "商户在合作周期内预计贡献的净价值",
       "example": "Please validate the calculation or use of merchant lifetime value before presenting the result.",
       "translation": "汇报结果前，请先验证商户在合作周期内预计贡献的净价值的计算或使用方式。",
@@ -2970,7 +2970,7 @@
     {
       "rank": 269,
       "term": "cost to serve",
-      "ipa": "/kɔst tɪ səɹv/",
+      "ipa": "/kɔst tɪ sɝv/",
       "definition": "持续服务某类客户或商户所需的综合运营成本",
       "example": "The dashboard includes a dedicated view of cost to serve.",
       "translation": "看板包含一个专门展示持续服务某类客户或商户所需的综合运营成本的视图。",
@@ -2992,7 +2992,7 @@
     {
       "rank": 271,
       "term": "return on investment",
-      "ipa": "/ɹɪˈtʌɹn ɔn ˌɪnˈvɛstmənt/",
+      "ipa": "/ɹɪˈtɝn ɔn ˌɪnˈvɛstmənt/",
       "definition": "投资产生的净收益相对于投入金额的比例",
       "example": "The analysis explains how return on investment affects payment performance.",
       "translation": "分析说明了投资产生的净收益相对于投入金额的比例会如何影响支付表现。",
@@ -3036,7 +3036,7 @@
     {
       "rank": 275,
       "term": "risk threshold",
-      "ipa": "/ɹɪsk θˈɹɛˌʃoʊld/",
+      "ipa": "/ɹɪsk ˈθɹɛˌʃoʊld/",
       "definition": "超过后必须拦截、升级或采取行动的风险边界",
       "example": "Our policy defines an owner and review cycle for risk threshold.",
       "translation": "我们的政策为超过后必须拦截、升级或采取行动的风险边界明确了负责人和复核周期。",
@@ -3168,7 +3168,7 @@
     {
       "rank": 287,
       "term": "politically exposed person (PEP)",
-      "ipa": "/ˈplɪtɪkli ɪkˈspoʊzd ˈpʌɹsən/",
+      "ipa": "/ˈplɪtɪkli ɪkˈspoʊzd ˈpɝsən, ˌpiː iː ˈpiː/",
       "definition": "因重要公共职务而具有较高腐败风险的个人",
       "example": "Our policy defines an owner and review cycle for politically exposed person (PEP).",
       "translation": "我们的政策为因重要公共职务而具有较高腐败风险的个人明确了负责人和复核周期。",
@@ -3190,7 +3190,7 @@
     {
       "rank": 289,
       "term": "ultimate beneficial owner (UBO)",
-      "ipa": "/ˈʌltəmət ˌbɛnəˈfɪʃəl ˈoʊnəɹ/",
+      "ipa": "/ˈʌltəmət ˌbɛnəˈfɪʃəl ˈoʊnəɹ, ˌjuː biː ˈoʊ/",
       "definition": "处于所有权链条末端的最终受益所有人",
       "example": "The risk team reviewed ultimate beneficial owner (UBO) before approving the rollout.",
       "translation": "风险团队在批准推广前审查了处于所有权链条末端的最终受益所有人。",
@@ -3201,7 +3201,7 @@
     {
       "rank": 290,
       "term": "customer due diligence (CDD)",
-      "ipa": "/ˈkʌstəməɹ du ˈdɪlɪdʒəns/",
+      "ipa": "/ˈkʌstəməɹ du ˈdɪlɪdʒəns, ˌsiː diː ˈdiː/",
       "definition": "识别客户、理解关系目的并评估风险的尽调",
       "example": "Our policy defines an owner and review cycle for customer due diligence (CDD).",
       "translation": "我们的政策为识别客户、理解关系目的并评估风险的尽调明确了负责人和复核周期。",
@@ -3212,7 +3212,7 @@
     {
       "rank": 291,
       "term": "enhanced due diligence (EDD)",
-      "ipa": "/ɛnˈhænst du ˈdɪlɪdʒəns/",
+      "ipa": "/ɛnˈhænst du ˈdɪlɪdʒəns, ˌiː diː ˈdiː/",
       "definition": "针对高风险客户开展的更深入调查和持续审查",
       "example": "The control design accounts for enhanced due diligence (EDD) without hurting conversion.",
       "translation": "控制设计考虑了针对高风险客户开展的更深入调查和持续审查，同时避免损害转化。",
@@ -3234,7 +3234,7 @@
     {
       "rank": 293,
       "term": "source of funds",
-      "ipa": "/sɔɹs əv fəndz/",
+      "ipa": "/sɔɹs əv fʌndz/",
       "definition": "某一笔资金的直接来源及形成方式",
       "example": "Our policy defines an owner and review cycle for source of funds.",
       "translation": "我们的政策为某一笔资金的直接来源及形成方式明确了负责人和复核周期。",
@@ -3333,7 +3333,7 @@
     {
       "rank": 302,
       "term": "step-up authentication",
-      "ipa": "/stɛp əp ɔˌθɛntəˈkeɪʃən/",
+      "ipa": "/stɛp ʌp ɔˌθɛntəˈkeɪʃən/",
       "definition": "发现较高风险后要求客户完成额外验证",
       "example": "Our policy defines an owner and review cycle for step-up authentication.",
       "translation": "我们的政策为发现较高风险后要求客户完成额外验证明确了负责人和复核周期。",
@@ -3388,7 +3388,7 @@
     {
       "rank": 307,
       "term": "transaction risk analysis (TRA)",
-      "ipa": "/tɹænˈzækʃən ɹɪsk æˈnælɪsɪs/",
+      "ipa": "/tɹænˈzækʃən ɹɪsk æˈnælɪsɪs, ˌtiː ɑɹ ˈeɪ/",
       "definition": "基于实时风险分析申请强验证豁免的方法",
       "example": "The risk team reviewed transaction risk analysis (TRA) before approving the rollout.",
       "translation": "风险团队在批准推广前审查了基于实时风险分析申请强验证豁免的方法。",
@@ -3399,7 +3399,7 @@
     {
       "rank": 308,
       "term": "strong customer authentication (SCA)",
-      "ipa": "/stɹɔŋ ˈkʌstəməɹ ɔˌθɛntəˈkeɪʃən/",
+      "ipa": "/stɹɔŋ ˈkʌstəməɹ ɔˌθɛntəˈkeɪʃən, ˌɛs siː ˈeɪ/",
       "definition": "使用至少两类独立要素验证付款人的机制",
       "example": "Our policy defines an owner and review cycle for strong customer authentication (SCA).",
       "translation": "我们的政策为使用至少两类独立要素验证付款人的机制明确了负责人和复核周期。",
@@ -3432,7 +3432,7 @@
     {
       "rank": 311,
       "term": "one-time password (OTP)",
-      "ipa": "/wən taɪm ˈpæsˌwʌɹd/",
+      "ipa": "/wʌn taɪm ˈpæsˌwɝd, ˌoʊ tiː ˈpiː/",
       "definition": "只能使用一次且短时间有效的验证码",
       "example": "Our policy defines an owner and review cycle for one-time password (OTP).",
       "translation": "我们的政策为只能使用一次且短时间有效的验证码明确了负责人和复核周期。",
@@ -3762,7 +3762,7 @@
     {
       "rank": 341,
       "term": "merchant onboarding",
-      "ipa": "/ˈmʌɹtʃənt ˈɑnˌbɔɹdɪŋ/",
+      "ipa": "/ˈmɝtʃənt ˈɑnˌbɔɹdɪŋ/",
       "definition": "引导商户提交资料、通过审核并完成支付接入的流程",
       "example": "We tested merchant onboarding with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了引导商户提交资料、通过审核并完成支付接入的流程。",
@@ -3784,7 +3784,7 @@
     {
       "rank": 343,
       "term": "time to first transaction",
-      "ipa": "/taɪm tɪ fəɹst tɹænˈzækʃən/",
+      "ipa": "/taɪm tɪ fɝst tɹænˈzækʃən/",
       "definition": "商户从开始接入到完成首笔交易所需时间",
       "example": "The merchant plan includes a dedicated section on time to first transaction.",
       "translation": "商户方案包含关于商户从开始接入到完成首笔交易所需时间的专门部分。",
@@ -3894,7 +3894,7 @@
     {
       "rank": 353,
       "term": "approval workflow",
-      "ipa": "/əˈpɹuvəl ˈwʌɹkˌfloʊ/",
+      "ipa": "/əˈpɹuvəl ˈwɝkˌfloʊ/",
       "definition": "申请从提交到审查、批准和通知的流程",
       "example": "We tested approval workflow with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了申请从提交到审查、批准和通知的流程。",
@@ -3916,7 +3916,7 @@
     {
       "rank": 355,
       "term": "merchant profile",
-      "ipa": "/ˈmʌɹtʃənt ˈpɹoʊˌfaɪl/",
+      "ipa": "/ˈmɝtʃənt ˈpɹoʊˌfaɪl/",
       "definition": "汇总商户业务模式、规模、地区和风险的信息画像",
       "example": "The merchant plan includes a dedicated section on merchant profile.",
       "translation": "商户方案包含关于汇总商户业务模式、规模、地区和风险的信息画像的专门部分。",
@@ -3927,7 +3927,7 @@
     {
       "rank": 356,
       "term": "merchant segment",
-      "ipa": "/ˈmʌɹtʃənt ˌsɛɡˈmɛnt/",
+      "ipa": "/ˈmɝtʃənt ˈsɛɡmənt/",
       "definition": "按规模、行业、价值或需求划分的商户群体",
       "example": "We tested merchant segment with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了按规模、行业、价值或需求划分的商户群体。",
@@ -3938,7 +3938,7 @@
     {
       "rank": 357,
       "term": "small and medium-sized enterprise (SME)",
-      "ipa": "/smɔl ənd ˈmidiəm saɪzd ˈɛnəɹˌpɹaɪz/",
+      "ipa": "/smɔl ənd ˈmidiəm saɪzd ˈɛnəɹˌpɹaɪz, ˌɛs ɛm ˈiː/",
       "definition": "规模处于规定范围内的中小型企业",
       "example": "Clear guidance on small and medium-sized enterprise (SME) reduced support contacts.",
       "translation": "关于规模处于规定范围内的中小型企业的清晰指引减少了客服咨询。",
@@ -3949,7 +3949,7 @@
     {
       "rank": 358,
       "term": "enterprise merchant",
-      "ipa": "/ˈɛnəɹˌpɹaɪz ˈmʌɹtʃənt/",
+      "ipa": "/ˈɛnəɹˌpɹaɪz ˈmɝtʃənt/",
       "definition": "交易规模大、集成复杂且需要定制服务的大型商户",
       "example": "The merchant plan includes a dedicated section on enterprise merchant.",
       "translation": "商户方案包含关于交易规模大、集成复杂且需要定制服务的大型商户的专门部分。",
@@ -3960,7 +3960,7 @@
     {
       "rank": 359,
       "term": "strategic merchant",
-      "ipa": "/stɹəˈtidʒɪk ˈmʌɹtʃənt/",
+      "ipa": "/stɹəˈtidʒɪk ˈmɝtʃənt/",
       "definition": "对收入、品牌或能力建设具有重要价值的商户",
       "example": "We tested strategic merchant with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了对收入、品牌或能力建设具有重要价值的商户。",
@@ -3993,7 +3993,7 @@
     {
       "rank": 362,
       "term": "merchant support",
-      "ipa": "/ˈmʌɹtʃənt səˈpɔɹt/",
+      "ipa": "/ˈmɝtʃənt səˈpɔɹt/",
       "definition": "帮助商户解决支付、资金和产品使用问题的服务",
       "example": "We tested merchant support with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了帮助商户解决支付、资金和产品使用问题的服务。",
@@ -4037,7 +4037,7 @@
     {
       "rank": 366,
       "term": "first response time",
-      "ipa": "/fəɹst ɹɪˈspɑns taɪm/",
+      "ipa": "/fɝst ɹɪˈspɑns taɪm/",
       "definition": "客户提交问题后收到首次有效回复所需时间",
       "example": "Clear guidance on first response time reduced support contacts.",
       "translation": "关于客户提交问题后收到首次有效回复所需时间的清晰指引减少了客服咨询。",
@@ -4048,7 +4048,7 @@
     {
       "rank": 367,
       "term": "service quality",
-      "ipa": "/ˈsʌɹvɪs kˈwɑləti/",
+      "ipa": "/ˈsɝvɪs ˈkwɑləti/",
       "definition": "服务在准确性、速度、稳定性和体验方面的水平",
       "example": "The merchant plan includes a dedicated section on service quality.",
       "translation": "商户方案包含关于服务在准确性、速度、稳定性和体验方面的水平的专门部分。",
@@ -4070,7 +4070,7 @@
     {
       "rank": 369,
       "term": "merchant satisfaction",
-      "ipa": "/ˈmʌɹtʃənt ˌsætɪsˈfækʃən/",
+      "ipa": "/ˈmɝtʃənt ˌsætɪsˈfækʃən/",
       "definition": "商户对产品能力和服务体验的满意程度",
       "example": "Clear guidance on merchant satisfaction reduced support contacts.",
       "translation": "关于商户对产品能力和服务体验的满意程度的清晰指引减少了客服咨询。",
@@ -4081,7 +4081,7 @@
     {
       "rank": 370,
       "term": "net promoter score (NPS)",
-      "ipa": "/nɛt pɹəˈmoʊtəɹ skɔɹ/",
+      "ipa": "/nɛt pɹəˈmoʊtəɹ skɔɹ, ˌɛn piː ˈɛs/",
       "definition": "用推荐意愿衡量客户忠诚度的指标",
       "example": "The merchant plan includes a dedicated section on net promoter score (NPS).",
       "translation": "商户方案包含关于用推荐意愿衡量客户忠诚度的指标的专门部分。",
@@ -4158,7 +4158,7 @@
     {
       "rank": 377,
       "term": "churn rate",
-      "ipa": "/tʃəɹn ɹeɪt/",
+      "ipa": "/tʃɝn ɹeɪt/",
       "definition": "指定期间内停止使用或结束关系的客户比例",
       "example": "We tested churn rate with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了指定期间内停止使用或结束关系的客户比例。",
@@ -4169,7 +4169,7 @@
     {
       "rank": 378,
       "term": "checkout conversion",
-      "ipa": "/ˈtʃɛˌkaʊt kənˈvʌɹʒən/",
+      "ipa": "/ˈtʃɛˌkaʊt kənˈvɝʒən/",
       "definition": "进入结账流程后最终完成订单或支付的比例",
       "example": "Clear guidance on checkout conversion reduced support contacts.",
       "translation": "关于进入结账流程后最终完成订单或支付的比例的清晰指引减少了客服咨询。",
@@ -4191,7 +4191,7 @@
     {
       "rank": 380,
       "term": "local payment method (LPM)",
-      "ipa": "/ˈloʊkəl ˈpeɪmənt ˈmɛθəd/",
+      "ipa": "/ˈloʊkəl ˈpeɪmənt ˈmɛθəd, ˌɛl piː ˈɛm/",
       "definition": "在特定国家或地区广泛使用的本地支付方式",
       "example": "We tested local payment method (LPM) with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了在特定国家或地区广泛使用的本地支付方式。",
@@ -4202,7 +4202,7 @@
     {
       "rank": 381,
       "term": "alternative payment method (APM)",
-      "ipa": "/ɔlˈtʌɹnətɪv ˈpeɪmənt ˈmɛθəd/",
+      "ipa": "/ɔlˈtɝnətɪv ˈpeɪmənt ˈmɛθəd, ˌeɪ piː ˈɛm/",
       "definition": "银行卡之外的钱包、转账等替代支付方式",
       "example": "Clear guidance on alternative payment method (APM) reduced support contacts.",
       "translation": "关于银行卡之外的钱包、转账等替代支付方式的清晰指引减少了客服咨询。",
@@ -4213,7 +4213,7 @@
     {
       "rank": 382,
       "term": "buy now, pay later (BNPL)",
-      "ipa": "/baɪ naʊ, peɪ ˈleɪtəɹ/",
+      "ipa": "/baɪ naʊ, peɪ ˈleɪtəɹ, ˌbiː ɛn piː ˈɛl/",
       "definition": "客户先消费并在之后一次或分期付款的方式",
       "example": "The merchant plan includes a dedicated section on buy now, pay later (BNPL).",
       "translation": "商户方案包含关于客户先消费并在之后一次或分期付款的方式的专门部分。",
@@ -4224,7 +4224,7 @@
     {
       "rank": 383,
       "term": "account-to-account payment (A2A)",
-      "ipa": "/əˈkaʊnt tɪ əˈkaʊnt ˈpeɪmənt/",
+      "ipa": "/əˈkaʊnt tɪ əˈkaʊnt ˈpeɪmənt, ˌeɪ tə ˈeɪ/",
       "definition": "资金直接从付款银行账户转到收款账户的支付",
       "example": "We tested account-to-account payment (A2A) with a small group of merchants first.",
       "translation": "我们先在一小组商户中测试了资金直接从付款银行账户转到收款账户的支付。",
@@ -4235,7 +4235,7 @@
     {
       "rank": 384,
       "term": "real-time payment (RTP)",
-      "ipa": "/ɹil taɪm ˈpeɪmənt/",
+      "ipa": "/ɹil taɪm ˈpeɪmənt, ˌɑɹ tiː ˈpiː/",
       "definition": "资金和确认信息可在极短时间内完成的支付",
       "example": "Clear guidance on real-time payment (RTP) reduced support contacts.",
       "translation": "关于资金和确认信息可在极短时间内完成的支付的清晰指引减少了客服咨询。",
@@ -4334,7 +4334,7 @@
     {
       "rank": 393,
       "term": "payment initiation service",
-      "ipa": "/ˈpeɪmənt ˌɪˌnɪʃiˈeɪʃən ˈsʌɹvɪs/",
+      "ipa": "/ˈpeɪmənt ˌɪˌnɪʃiˈeɪʃən ˈsɝvɪs/",
       "definition": "经客户授权从银行账户发起付款的服务",
       "example": "Clear guidance on payment initiation service reduced support contacts.",
       "translation": "关于经客户授权从银行账户发起付款的服务的清晰指引减少了客服咨询。",
@@ -4345,7 +4345,7 @@
     {
       "rank": 394,
       "term": "account information service",
-      "ipa": "/əˈkaʊnt ˌɪnˌfɔɹˈmeɪʃən ˈsʌɹvɪs/",
+      "ipa": "/əˈkaʊnt ˌɪnˌfɔɹˈmeɪʃən ˈsɝvɪs/",
       "definition": "经客户授权聚合并展示多个账户信息的服务",
       "example": "The merchant plan includes a dedicated section on account information service.",
       "translation": "商户方案包含关于经客户授权聚合并展示多个账户信息的服务的专门部分。",
@@ -4378,7 +4378,7 @@
     {
       "rank": 397,
       "term": "recurring card payment",
-      "ipa": "/ɹɪˈkʌɹɪŋ kɑɹd ˈpeɪmənt/",
+      "ipa": "/ɹɪˈkɝɪŋ kɑɹd ˈpeɪmənt/",
       "definition": "使用保存的银行卡凭证按周期重复扣款",
       "example": "The merchant plan includes a dedicated section on recurring card payment.",
       "translation": "商户方案包含关于使用保存的银行卡凭证按周期重复扣款的专门部分。",
@@ -4400,7 +4400,7 @@
     {
       "rank": 399,
       "term": "deferred payment",
-      "ipa": "/dɪˈfʌɹd ˈpeɪmənt/",
+      "ipa": "/dɪˈfɝd ˈpeɪmənt/",
       "definition": "客户先获得商品服务、在约定未来日期付款的方式",
       "example": "Clear guidance on deferred payment reduced support contacts.",
       "translation": "关于客户先获得商品服务、在约定未来日期付款的方式的清晰指引减少了客服咨询。",
@@ -4554,7 +4554,7 @@
     {
       "rank": 413,
       "term": "interchange-plus pricing",
-      "ipa": "/ˌɪnəɹˈtʃeɪndʒ pləs ˈpɹaɪsɪŋ/",
+      "ipa": "/ˌɪnəɹˈtʃeɪndʒ plʌs ˈpɹaɪsɪŋ/",
       "definition": "按实际交换费和卡组织费再加服务商加价的定价",
       "example": "We compared interchange-plus pricing across providers before negotiating the price.",
       "translation": "议价前，我们比较了各服务商的按实际交换费和卡组织费再加服务商加价的定价。",
@@ -4752,7 +4752,7 @@
     {
       "rank": 431,
       "term": "contribution margin per transaction",
-      "ipa": "/ˌkɑntɹəˈbjuʃən ˈmɑɹdʒən pəɹ tɹænˈzækʃən/",
+      "ipa": "/ˌkɑntɹəˈbjuʃən ˈmɑɹdʒən pɝ tɹænˈzækʃən/",
       "definition": "每笔交易收入扣除可变成本后的贡献金额",
       "example": "We compared contribution margin per transaction across providers before negotiating the price.",
       "translation": "议价前，我们比较了各服务商的每笔交易收入扣除可变成本后的贡献金额。",
@@ -4785,7 +4785,7 @@
     {
       "rank": 434,
       "term": "foreign exchange (FX)",
-      "ipa": "/ˈfɔɹən ɪksˈtʃeɪndʒ/",
+      "ipa": "/ˈfɔɹən ɪksˈtʃeɪndʒ, ˌɛf ˈɛks/",
       "definition": "一种货币兑换为另一种货币的交易和市场",
       "example": "We compared foreign exchange (FX) across providers before negotiating the price.",
       "translation": "议价前，我们比较了各服务商的一种货币兑换为另一种货币的交易和市场。",
@@ -4818,7 +4818,7 @@
     {
       "rank": 437,
       "term": "currency conversion",
-      "ipa": "/ˈkʌɹənsi kənˈvʌɹʒən/",
+      "ipa": "/ˈkɝənsi kənˈvɝʒən/",
       "definition": "按适用汇率把金额从一种货币换算为另一种货币",
       "example": "We compared currency conversion across providers before negotiating the price.",
       "translation": "议价前，我们比较了各服务商的按适用汇率把金额从一种货币换算为另一种货币。",
@@ -4829,7 +4829,7 @@
     {
       "rank": 438,
       "term": "dynamic currency conversion (DCC)",
-      "ipa": "/daɪˈnæmɪk ˈkʌɹənsi kənˈvʌɹʒən/",
+      "ipa": "/daɪˈnæmɪk ˈkɝənsi kənˈvɝʒən, ˌdiː siː ˈsiː/",
       "definition": "让持卡人在境外收银台选择用本币计价的服务",
       "example": "The proposal explains how dynamic currency conversion (DCC) affects merchant margin.",
       "translation": "方案解释了让持卡人在境外收银台选择用本币计价的服务如何影响商户利润。",
@@ -4840,7 +4840,7 @@
     {
       "rank": 439,
       "term": "settlement currency",
-      "ipa": "/ˈsɛtəlmənt ˈkʌɹənsi/",
+      "ipa": "/ˈsɛtəlmənt ˈkɝənsi/",
       "definition": "参与方最终接收或支付结算资金的货币",
       "example": "The business case includes settlement currency in the profitability model.",
       "translation": "商业论证在盈利模型中纳入了参与方最终接收或支付结算资金的货币。",
@@ -4851,7 +4851,7 @@
     {
       "rank": 440,
       "term": "transaction currency",
-      "ipa": "/tɹænˈzækʃən ˈkʌɹənsi/",
+      "ipa": "/tɹænˈzækʃən ˈkɝənsi/",
       "definition": "商品价格和原始交易金额所使用的货币",
       "example": "We compared transaction currency across providers before negotiating the price.",
       "translation": "议价前，我们比较了各服务商的商品价格和原始交易金额所使用的货币。",
@@ -4862,7 +4862,7 @@
     {
       "rank": 441,
       "term": "multi-currency pricing",
-      "ipa": "/ˈmʌlti ˈkʌɹənsi ˈpɹaɪsɪŋ/",
+      "ipa": "/ˈmʌlti ˈkɝənsi ˈpɹaɪsɪŋ/",
       "definition": "商户同时以多种货币向不同客户展示价格",
       "example": "The proposal explains how multi-currency pricing affects merchant margin.",
       "translation": "方案解释了商户同时以多种货币向不同客户展示价格如何影响商户利润。",
@@ -4873,7 +4873,7 @@
     {
       "rank": 442,
       "term": "local currency pricing",
-      "ipa": "/ˈloʊkəl ˈkʌɹənsi ˈpɹaɪsɪŋ/",
+      "ipa": "/ˈloʊkəl ˈkɝənsi ˈpɹaɪsɪŋ/",
       "definition": "在目标市场使用客户熟悉的当地货币定价",
       "example": "The business case includes local currency pricing in the profitability model.",
       "translation": "商业论证在盈利模型中纳入了在目标市场使用客户熟悉的当地货币定价。",
@@ -4917,7 +4917,7 @@
     {
       "rank": 446,
       "term": "working capital",
-      "ipa": "/ˈwʌɹkɪŋ ˈkæpɪtəl/",
+      "ipa": "/ˈwɝkɪŋ ˈkæpɪtəl/",
       "definition": "支持日常经营的流动资产减流动负债后的净额",
       "example": "The strategy memo sets out the assumptions behind the use of working capital.",
       "translation": "策略备忘录列出了采用支持日常经营的流动资产减流动负债后的净额所依据的假设。",
@@ -4972,7 +4972,7 @@
     {
       "rank": 451,
       "term": "reserve fund",
-      "ipa": "/ɹɪˈzʌɹv fənd/",
+      "ipa": "/ɹɪˈzɝv fʌnd/",
       "definition": "为覆盖退款、争议或意外损失专门留存的资金",
       "example": "Leaders discussed reserve fund before making the investment decision.",
       "translation": "管理层在作出投资决策前讨论了为覆盖退款、争议或意外损失专门留存的资金。",
@@ -5049,7 +5049,7 @@
     {
       "rank": 458,
       "term": "currency risk",
-      "ipa": "/ˈkʌɹənsi ɹɪsk/",
+      "ipa": "/ˈkɝənsi ɹɪsk/",
       "definition": "汇率变化导致收入、成本或资产价值波动的风险",
       "example": "The strategy memo sets out the assumptions behind the use of currency risk.",
       "translation": "策略备忘录列出了采用汇率变化导致收入、成本或资产价值波动的风险所依据的假设。",
@@ -5126,7 +5126,7 @@
     {
       "rank": 465,
       "term": "request for proposal (RFP)",
-      "ipa": "/ɹɪkˈwɛst fəɹ pɹəˈpoʊzəl/",
+      "ipa": "/ɹɪkˈwɛst fəɹ pɹəˈpoʊzəl, ˌɑɹ ɛf ˈpiː/",
       "definition": "邀请供应商按统一要求提交解决方案和报价的文件",
       "example": "The plan assigns an owner to work related to request for proposal (RFP).",
       "translation": "方案为与邀请供应商按统一要求提交解决方案和报价的文件相关的工作明确了负责人。",
@@ -5192,7 +5192,7 @@
     {
       "rank": 471,
       "term": "total addressable market (TAM)",
-      "ipa": "/ˈtoʊtəl æˈdɹɛsəbəl ˈmɑɹkɪt/",
+      "ipa": "/ˈtoʊtəl æˈdɹɛsəbəl ˈmɑɹkɪt, ˌtiː eɪ ˈɛm/",
       "definition": "不考虑现实限制时产品可服务的全部市场规模",
       "example": "The plan assigns an owner to work related to total addressable market (TAM).",
       "translation": "方案为与不考虑现实限制时产品可服务的全部市场规模相关的工作明确了负责人。",
@@ -5203,7 +5203,7 @@
     {
       "rank": 472,
       "term": "serviceable addressable market (SAM)",
-      "ipa": "/ˈsʌɹvəsəbəl æˈdɹɛsəbəl ˈmɑɹkɪt/",
+      "ipa": "/ˈsɝvəsəbəl æˈdɹɛsəbəl ˈmɑɹkɪt, ˌɛs eɪ ˈɛm/",
       "definition": "在产品和地域范围内实际能够服务的市场规模",
       "example": "Leaders discussed serviceable addressable market (SAM) before making the investment decision.",
       "translation": "管理层在作出投资决策前讨论了在产品和地域范围内实际能够服务的市场规模。",
@@ -5324,7 +5324,7 @@
     {
       "rank": 483,
       "term": "rollback threshold",
-      "ipa": "/ˈɹoʊlˌbæk θˈɹɛˌʃoʊld/",
+      "ipa": "/ˈɹoʊlˌbæk ˈθɹɛˌʃoʊld/",
       "definition": "指标达到后必须执行回滚的明确触发条件",
       "example": "The plan assigns an owner to work related to rollback threshold.",
       "translation": "方案为与指标达到后必须执行回滚的明确触发条件相关的工作明确了负责人。",
@@ -5456,7 +5456,7 @@
     {
       "rank": 495,
       "term": "risk-adjusted return",
-      "ipa": "/ɹɪsk əˈdʒʌstɪd ɹɪˈtʌɹn/",
+      "ipa": "/ɹɪsk əˈdʒʌstɪd ɹɪˈtɝn/",
       "definition": "把预期收益与承担的风险结合后的回报水平",
       "example": "The plan assigns an owner to work related to risk-adjusted return.",
       "translation": "方案为与把预期收益与承担的风险结合后的回报水平相关的工作明确了负责人。",
@@ -5500,7 +5500,7 @@
     {
       "rank": 499,
       "term": "commercial term",
-      "ipa": "/kəˈmʌɹʃəl təɹm/",
+      "ipa": "/kəˈmɝʃəl tɝm/",
       "definition": "合同中关于价格、期限、服务和责任的商务条款",
       "example": "Leaders discussed commercial term before making the investment decision.",
       "translation": "管理层在作出投资决策前讨论了合同中关于价格、期限、服务和责任的商务条款。",

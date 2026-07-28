@@ -6,6 +6,7 @@
   "story": "按工作中的常用程度排序，通过遮盖、揭示和掌握标记进行自我考察。",
   "defaultPage": "challengeGlossary",
   "glossary": {
+    "version": 4,
     "count": 500,
     "title": "支付业务英语词汇表",
     "file": "challenges/core-vocabulary/glossary.json"

@@ -75,10 +75,24 @@ assert.deepEqual(
   new Set([...challengePackBySkill.keys(), coreVocabularyManifest.skillId]),
 );
 assert.equal(coreVocabulary.count, 500);
+assert.equal(coreVocabulary.version, coreVocabularyManifest.glossary.version);
 assert.equal(coreVocabulary.entries.length, 500);
 assert.ok(coreVocabulary.entries.every((entry) => /^\/.+\/$/.test(entry.ipa)));
+const vocabularyByTerm = new Map(coreVocabulary.entries.map((entry) => [entry.term, entry]));
+assert.equal(vocabularyByTerm.get("merchant").ipa, "/ˈmɝtʃənt/");
+assert.equal(vocabularyByTerm.get("cut-off time").ipa, "/kʌt ɔf taɪm/");
+assert.equal(vocabularyByTerm.get("month over month").ipa, "/mʌnθ ˈoʊvəɹ mʌnθ/");
+assert.equal(vocabularyByTerm.get("impact").ipa, "/ˈɪmpækt/");
+assert.equal(vocabularyByTerm.get("segment").ipa, "/ˈsɛɡmənt/");
+assert.equal(vocabularyByTerm.get("routing").ipa, "/ˈɹutɪŋ/");
+assert.equal(vocabularyByTerm.get("PAN").ipa, "/pæn/");
+assert.equal(vocabularyByTerm.get("BIN").ipa, "/bɪn/");
+assert.match(vocabularyByTerm.get("payment service provider (PSP)").ipa, /, .*piː.*ɛs.*piː\/$/);
 assert.equal(coreVocabularyAudioManifest.expectedCount, coreVocabulary.count * 3);
 assert.equal(coreVocabularyAudioManifest.completedCount, coreVocabularyAudioManifest.expectedCount);
+assert.equal(coreVocabularyAudioManifest.version, 2);
+assert.equal(coreVocabularyAudioManifest.glossaryVersion, coreVocabulary.version);
+assert.equal(coreVocabularyAudioManifest.wordPhonemeSource, "challenges/core-vocabulary/glossary.json#ipa");
 coreVocabulary.entries.forEach((entry) => {
   ["word", "example", "interview"].forEach((kind) => {
     const filename = `${String(entry.rank).padStart(3, "0")}-${kind}.mp3`;
@@ -491,12 +505,13 @@ async function checkGlossaryReadAloud(browser) {
 
   const wordButton = page.locator(".glossary-entry").first().locator(".glossary-entry-header .glossary-speak-button");
   const wordResponsePromise = page.waitForResponse((response) => (
-    response.url().endsWith("/audio/core-vocabulary/001-word.mp3")
+    new URL(response.url()).pathname.endsWith("/audio/core-vocabulary/001-word.mp3")
   ));
   await wordButton.click();
   const wordResponse = await wordResponsePromise;
   assert.ok([200, 206].includes(wordResponse.status()));
   assert.match(wordResponse.headers()["content-type"], /^audio\/(?:mpeg|mp3)/);
+  assert.equal(new URL(wordResponse.url()).searchParams.get("v"), String(coreVocabulary.version));
 
   const interviewButton = page.locator(".glossary-entry").first()
     .locator(".glossary-interview-practice .glossary-speak-button");

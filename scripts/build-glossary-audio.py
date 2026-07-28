@@ -41,6 +41,20 @@ NUMBER_WORDS = {
     "9": "nine",
 }
 ACRONYM_PATTERN = re.compile(r"\b(?:[A-Z]{2,}[A-Z0-9]*|[A-Z]\d[A-Z0-9]+|\d[A-Z]{1,})\b")
+KOKORO_VOWELS = frozenset("AIOWYiuæɑɔəɛɜɪʊʌ")
+KOKORO_PHONEMES = frozenset("AIOWYbdfhijklmnpstuvwzæðŋɑɔəɛɜɡɪɹʃʊʌʒʤʧˈˌθ ,.")
+WEAK_PHONEME_WORDS = frozenset({"ænd", "ənd", "əɹ", "əv", "fɔɹ", "fəɹ", "tɪ", "tə"})
+IPA_TO_KOKORO = (
+    ("eɪ", "A"),
+    ("aɪ", "I"),
+    ("oʊ", "O"),
+    ("aʊ", "W"),
+    ("ɔɪ", "Y"),
+    ("dʒ", "ʤ"),
+    ("tʃ", "ʧ"),
+    ("ɝ", "ɜɹ"),
+    ("ɚ", "əɹ"),
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -75,6 +89,46 @@ def prepare_text(text: str, kind: str) -> str:
     if kind == "word" and text[-1:] not in ".!?":
         text += "."
     return text
+
+
+def ipa_to_kokoro_phonemes(ipa: str) -> str:
+    if not re.fullmatch(r"/.+/", ipa):
+        raise ValueError(f"Invalid glossary IPA: {ipa}")
+
+    phonemes = ipa[1:-1]
+    for ipa_value, kokoro_value in IPA_TO_KOKORO:
+        phonemes = phonemes.replace(ipa_value, kokoro_value)
+    phonemes = phonemes.replace("ː", "")
+
+    shifted = []
+    pending_stress = None
+    for char in phonemes:
+        if char in "ˈˌ":
+            if pending_stress is not None:
+                raise ValueError(f"Consecutive stress marks in glossary IPA: {ipa}")
+            pending_stress = char
+            continue
+        if pending_stress is not None and char in KOKORO_VOWELS:
+            shifted.append(pending_stress)
+            pending_stress = None
+        shifted.append(char)
+    if pending_stress is not None:
+        raise ValueError(f"Stress mark has no following vowel in glossary IPA: {ipa}")
+
+    phonemes = "".join(shifted)
+    if not any(stress in phonemes for stress in "ˈˌ"):
+        parts = re.split(r"([ ,]+)", phonemes)
+        for index, part in enumerate(parts):
+            vowels = [position for position, char in enumerate(part) if char in KOKORO_VOWELS]
+            if len(vowels) == 1 and part not in WEAK_PHONEME_WORDS:
+                position = vowels[0]
+                parts[index] = f"{part[:position]}ˈ{part[position:]}"
+        phonemes = "".join(parts)
+    phonemes += "."
+    unsupported = sorted(set(phonemes) - KOKORO_PHONEMES)
+    if unsupported:
+        raise ValueError(f"Unsupported Kokoro phonemes {unsupported} converted from: {ipa}")
+    return phonemes
 
 
 def clip_audio(audio: np.ndarray) -> np.ndarray:
@@ -132,6 +186,21 @@ def generate_audio(pipeline: KPipeline, text: str, voice: str, speed: float) -> 
     return np.concatenate(chunks)
 
 
+def generate_audio_from_phonemes(
+    pipeline: KPipeline,
+    phonemes: str,
+    voice: str,
+    speed: float,
+) -> np.ndarray:
+    chunks = []
+    for result in pipeline.generate_from_tokens(phonemes, voice=voice, speed=speed):
+        audio = result.audio if hasattr(result, "audio") else result[2]
+        chunks.append(audio.detach().cpu().numpy() if hasattr(audio, "detach") else np.asarray(audio))
+    if not chunks:
+        raise RuntimeError(f"Kokoro returned no audio for phonemes: {phonemes}")
+    return np.concatenate(chunks)
+
+
 def write_manifest(glossary: dict, voice: str) -> None:
     expected = [
         f"{entry['rank']:03d}-{kind}.mp3"
@@ -143,13 +212,15 @@ def write_manifest(glossary: dict, voice: str) -> None:
         if (OUTPUT_DIR / name).exists() and (OUTPUT_DIR / name).stat().st_size > 0
     ]
     manifest = {
-        "version": 1,
+        "version": 2,
         "model": "hexgrad/Kokoro-82M",
         "voice": voice,
         "language": "en-US",
         "sampleRate": SAMPLE_RATE,
         "format": "MP3 mono 48 kbps",
         "pathPattern": "{rank:03d}-{word|example|interview}.mp3",
+        "wordPhonemeSource": "challenges/core-vocabulary/glossary.json#ipa",
+        "glossaryVersion": glossary["version"],
         "expectedCount": len(expected),
         "completedCount": len(completed),
     }
@@ -163,6 +234,10 @@ def write_manifest(glossary: dict, voice: str) -> None:
 def main() -> None:
     args = parse_args()
     glossary = json.loads(GLOSSARY_PATH.read_text(encoding="utf-8"))
+    word_phonemes = {
+        entry["rank"]: ipa_to_kokoro_phonemes(entry["ipa"])
+        for entry in glossary["entries"]
+    }
     if args.manifest_only:
         write_manifest(glossary, args.voice)
         return
@@ -191,8 +266,12 @@ def main() -> None:
             if destination.exists() and destination.stat().st_size > 0 and not args.force:
                 skipped += 1
                 continue
-            speech_text = prepare_text(entry[field], kind)
-            audio = generate_audio(pipeline, speech_text, args.voice, speed)
+            if kind == "word":
+                phonemes = word_phonemes[entry["rank"]]
+                audio = generate_audio_from_phonemes(pipeline, phonemes, args.voice, speed)
+            else:
+                speech_text = prepare_text(entry[field], kind)
+                audio = generate_audio(pipeline, speech_text, args.voice, speed)
             encode_mp3(audio, destination, ffmpeg)
             generated += 1
             elapsed = time.monotonic() - started_at

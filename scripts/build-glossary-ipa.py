@@ -13,7 +13,9 @@ import eng_to_ipa
 ROOT = Path(__file__).resolve().parents[1]
 GLOSSARY_PATH = ROOT / "challenges" / "core-vocabulary" / "glossary.json"
 TOKEN_PATTERN = re.compile(r"[A-Za-z0-9]+|[,/]")
-PARENTHETICAL_ABBREVIATION = re.compile(r"\s*\([A-Za-z0-9]+\)")
+PARENTHETICAL_ABBREVIATION = re.compile(r"^(.*?)\s*\(([A-Za-z0-9]+)\)$")
+IPA_NUCLEUS_PATTERN = re.compile(r"eɪ|aɪ|oʊ|aʊ|ɔɪ|[aeiouæɑɔəɛɜɪʊʌɚɝ]")
+WEAK_MONOSYLLABLES = {"a", "an", "and", "for", "of", "or", "the", "to"}
 
 LETTER_IPA = {
     "A": "eɪ", "B": "biː", "C": "siː", "D": "diː", "E": "iː",
@@ -34,6 +36,7 @@ MANUAL_IPA = {
     "exit": "ˈɛɡzɪt",
     "idempotency": "ˌaɪdəmˈpoʊtənsi",
     "integration": "ˌɪntəˈɡɹeɪʃən",
+    "impact": "ˈɪmpækt",
     "numerator": "ˈnuːməˌɹeɪtəɹ",
     "onboarding": "ˈɑnˌbɔɹdɪŋ",
     "pan": "pæn",
@@ -42,6 +45,7 @@ MANUAL_IPA = {
     "prefunding": "pɹiːˈfʌndɪŋ",
     "representment": "ˌɹiːpɹɪˈzɛntmənt",
     "roadmap": "ˈɹoʊdˌmæp",
+    "segment": "ˈsɛɡmənt",
     "target": "ˈtɑɹɡət",
     "tokenization": "ˌtoʊkənəˈzeɪʃən",
     "updater": "ˈʌpˌdeɪtəɹ",
@@ -68,14 +72,21 @@ def initialism_ipa(token: str) -> str:
     return add_initialism_stress(sounds)
 
 
-def normalize_ipa(value: str) -> str:
+def normalize_ipa(value: str, token: str) -> str:
     normalized = (
         value.replace("ʧ", "tʃ")
         .replace("ʤ", "dʒ")
         .replace("r", "ɹ")
         .replace("g", "ɡ")
     )
-    return re.sub(r"([ˈˌ][^aeiouæɑɔɛɪʊʌəɚɝ]*)ə", r"\1ʌ", normalized)
+    vowels = "aeiouæɑɔɛɪʊʌəɚɝ"
+    normalized = re.sub(rf"([ˈˌ][^{vowels}]*)əɹ", r"\1ɝ", normalized)
+    normalized = re.sub(rf"([ˈˌ][^{vowels}]*)ə", r"\1ʌ", normalized)
+    normalized = re.sub(rf"^([^{vowels}ˈˌ]*)([ˈˌ])", r"\2\1", normalized)
+
+    if token.lower() not in WEAK_MONOSYLLABLES and len(IPA_NUCLEUS_PATTERN.findall(normalized)) == 1:
+        normalized = normalized.replace("əɹ", "ɝ").replace("ə", "ʌ")
+    return normalized
 
 
 def token_ipa(token: str) -> str:
@@ -87,13 +98,12 @@ def token_ipa(token: str) -> str:
     converted = eng_to_ipa.convert(token.lower(), stress_marks="both")
     if converted.endswith("*"):
         raise ValueError(f"No American IPA entry for: {token}")
-    return normalize_ipa(converted)
+    return normalize_ipa(converted, token)
 
 
-def term_ipa(term: str) -> str:
-    spoken_term = PARENTHETICAL_ABBREVIATION.sub("", term)
+def phrase_ipa(phrase: str) -> str:
     parts: list[str] = []
-    for token in TOKEN_PATTERN.findall(spoken_term):
+    for token in TOKEN_PATTERN.findall(phrase):
         if token == ",":
             if parts:
                 parts[-1] += ","
@@ -102,8 +112,16 @@ def term_ipa(term: str) -> str:
             continue
         parts.append(token_ipa(token))
     if not parts:
-        raise ValueError(f"No pronunciation tokens for: {term}")
-    return f"/{' '.join(parts)}/"
+        raise ValueError(f"No pronunciation tokens for: {phrase}")
+    return " ".join(parts)
+
+
+def term_ipa(term: str) -> str:
+    parenthetical = PARENTHETICAL_ABBREVIATION.fullmatch(term)
+    if parenthetical:
+        main_term, abbreviation = parenthetical.groups()
+        return f"/{phrase_ipa(main_term)}, {phrase_ipa(abbreviation)}/"
+    return f"/{phrase_ipa(term)}/"
 
 
 def main() -> None:
@@ -118,7 +136,7 @@ def main() -> None:
             if key == "term":
                 updated["ipa"] = term_ipa(value)
         updated_entries.append(updated)
-    glossary["version"] = 3
+    glossary["version"] = 4
     glossary["entries"] = updated_entries
     GLOSSARY_PATH.write_text(
         json.dumps(glossary, ensure_ascii=False, indent=2) + "\n",
