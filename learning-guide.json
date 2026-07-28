@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "updatedAt": "2026-07-28",
   "source": "A档岗位能力提升完整指南.md",
   "title": "A 档能力提升计划",
@@ -41,7 +41,7 @@
   "skills": [
     {
       "id": "data-diagnosis",
-      "number": 1,
+      "number": 2,
       "group": "p0",
       "priority": "P0",
       "title": "数据分析与经营诊断",
@@ -77,7 +77,7 @@
     },
     {
       "id": "lifecycle-growth",
-      "number": 2,
+      "number": 3,
       "group": "p0",
       "priority": "P0",
       "title": "增长策略与生命周期运营",
@@ -111,7 +111,7 @@
     },
     {
       "id": "project-delivery",
-      "number": 3,
+      "number": 4,
       "group": "p0",
       "priority": "P0",
       "title": "跨团队项目与产品数据协作",
@@ -146,7 +146,7 @@
     },
     {
       "id": "payments-fintech",
-      "number": 4,
+      "number": 5,
       "group": "p0",
       "priority": "P0",
       "title": "支付与金融科技业务",
@@ -178,7 +178,7 @@
     },
     {
       "id": "business-english",
-      "number": 5,
+      "number": 6,
       "group": "p0",
       "priority": "P0",
       "title": "业务英语",
@@ -208,7 +208,7 @@
     },
     {
       "id": "core-vocabulary",
-      "number": 6,
+      "number": 1,
       "group": "p0",
       "priority": "P0",
       "title": "核心词汇",

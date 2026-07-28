@@ -652,7 +652,9 @@ function makeSkillOverviewCard(skill) {
 function renderSkillOverview() {
   elements.skillOverviewGroups.replaceChildren();
   state.guide.groups.forEach((group) => {
-    const skills = state.guide.skills.filter((skill) => skill.group === group.id);
+    const skills = state.guide.skills
+      .filter((skill) => skill.group === group.id)
+      .sort((left, right) => left.number - right.number);
     const section = document.createElement("section");
     section.className = "skill-overview-group";
     const header = document.createElement("header");
@@ -2011,22 +2013,25 @@ function renderLearningSidebar() {
     const title = document.createElement("h3");
     title.textContent = group.label;
     section.append(title);
-    state.guide.skills.filter((skill) => skill.group === group.id).forEach((skill) => {
-      const level = Number(state.skillLevels[skill.id]) || 0;
-      const pack = state.challengePacks.get(skill.id);
-      const isGlossary = skill.challenge?.defaultPage === "challengeGlossary";
-      const challengeMeta = isGlossary
-        ? `${getGlossaryMastery(skill.id).size}/${skill.challenge.glossary}`
-        : pack
-          ? `${getChallengeProgress(skill.id).size}/${challengeQuestions(pack).length}`
-          : "闯关";
-      section.append(makeLearningNavButton(
-        skill.title,
-        skill.challenge ? challengeMeta : `${level}级`,
-        ["detail", "challengeLevel", "challengeQuestion", "challengeGlossary"].includes(state.learningTab) && state.selectedSkill === skill.id,
-        () => navigateLearning(skillLandingPage(skill), skill.id),
-      ));
-    });
+    state.guide.skills
+      .filter((skill) => skill.group === group.id)
+      .sort((left, right) => left.number - right.number)
+      .forEach((skill) => {
+        const level = Number(state.skillLevels[skill.id]) || 0;
+        const pack = state.challengePacks.get(skill.id);
+        const isGlossary = skill.challenge?.defaultPage === "challengeGlossary";
+        const challengeMeta = isGlossary
+          ? `${getGlossaryMastery(skill.id).size}/${skill.challenge.glossary}`
+          : pack
+            ? `${getChallengeProgress(skill.id).size}/${challengeQuestions(pack).length}`
+            : "闯关";
+        section.append(makeLearningNavButton(
+          skill.title,
+          skill.challenge ? challengeMeta : `${level}级`,
+          ["detail", "challengeLevel", "challengeQuestion", "challengeGlossary"].includes(state.learningTab) && state.selectedSkill === skill.id,
+          () => navigateLearning(skillLandingPage(skill), skill.id),
+        ));
+      });
     elements.learningSkillNav.append(section);
   });
 }
