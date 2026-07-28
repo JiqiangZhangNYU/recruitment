@@ -100,6 +100,7 @@ const state = {
   glossaryQuery: "",
   glossaryCategory: "all",
   glossaryFrequency: "all",
+  glossarySort: "frequency",
   glossaryUnmasteredOnly: false,
   glossaryPage: 1,
   glossaryMasks: { definition: false, example: false, translation: false },
@@ -1375,8 +1376,9 @@ function renderChallengeGlossary(pack, glossary) {
   const header = document.createElement("header");
   header.className = "challenge-hero glossary-hero";
   const copy = document.createElement("div");
+  const glossaryKicker = makeTextElement("span", "section-kicker", "按工作常用程度排序 · 500 词");
   copy.append(
-    makeTextElement("span", "section-kicker", "按工作常用程度排序 · 500 词"),
+    glossaryKicker,
     makeTextElement("h2", "", glossary.title),
     makeTextElement("p", "", glossary.summary),
   );
@@ -1423,13 +1425,28 @@ function renderChallengeGlossary(pack, glossary) {
   frequency.value = state.glossaryFrequency;
   frequencyLabel.append(frequency);
 
+  const sortLabel = document.createElement("label");
+  sortLabel.append(makeTextElement("span", "", "排序方式"));
+  const sort = document.createElement("select");
+  [
+    ["frequency", "常用程度"],
+    ["alphabetical", "字母 A-Z"],
+  ].forEach(([value, label]) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    sort.append(option);
+  });
+  sort.value = state.glossarySort;
+  sortLabel.append(sort);
+
   const unmasteredLabel = document.createElement("label");
   unmasteredLabel.className = "glossary-check-control";
   const unmastered = document.createElement("input");
   unmastered.type = "checkbox";
   unmastered.checked = state.glossaryUnmasteredOnly;
   unmasteredLabel.append(unmastered, makeTextElement("span", "", "只看未掌握"));
-  filters.append(searchLabel, categoryLabel, frequencyLabel, unmasteredLabel);
+  filters.append(searchLabel, categoryLabel, frequencyLabel, sortLabel, unmasteredLabel);
 
   const masks = document.createElement("fieldset");
   masks.className = "glossary-mask-controls";
@@ -1482,7 +1499,7 @@ function renderChallengeGlossary(pack, glossary) {
 
   const filteredEntries = () => {
     const query = state.glossaryQuery.toLocaleLowerCase("zh-CN");
-    return glossary.entries.filter((entry) => {
+    const filtered = glossary.entries.filter((entry) => {
       if (state.glossaryCategory !== "all" && entry.category !== state.glossaryCategory) return false;
       if (state.glossaryFrequency !== "all" && entry.frequency !== state.glossaryFrequency) return false;
       if (state.glossaryUnmasteredOnly && mastery.has(entry.term)) return false;
@@ -1490,6 +1507,9 @@ function renderChallengeGlossary(pack, glossary) {
       return [entry.term, entry.definition, entry.example, entry.translation]
         .some((value) => value.toLocaleLowerCase("zh-CN").includes(query));
     });
+    return filtered.sort((left, right) => state.glossarySort === "alphabetical"
+      ? left.term.localeCompare(right.term, "en", { sensitivity: "base", numeric: true })
+      : left.rank - right.rank);
   };
 
   function renderEntries() {
@@ -1561,8 +1581,10 @@ function renderChallengeGlossary(pack, glossary) {
     }
 
     resultCount.textContent = `${filtered.length} 个词条`;
+    const sortDescription = state.glossarySort === "alphabetical" ? "按字母 A-Z 排序" : "按常用程度排序";
+    glossaryKicker.textContent = `${sortDescription} · ${glossary.count} 词`;
     resultRange.textContent = filtered.length
-      ? `显示 ${start + 1}-${Math.min(start + GLOSSARY_PAGE_SIZE, filtered.length)} · 按常用程度排序`
+      ? `显示 ${start + 1}-${Math.min(start + GLOSSARY_PAGE_SIZE, filtered.length)} · ${sortDescription}`
       : "当前筛选无结果";
     pagePosition.textContent = `第 ${state.glossaryPage} / ${totalPages} 页`;
     previous.disabled = state.glossaryPage === 1;
@@ -1584,6 +1606,10 @@ function renderChallengeGlossary(pack, glossary) {
   });
   frequency.addEventListener("change", () => {
     state.glossaryFrequency = frequency.value;
+    resetPageAndRender();
+  });
+  sort.addEventListener("change", () => {
+    state.glossarySort = sort.value;
     resetPageAndRender();
   });
   unmastered.addEventListener("change", () => {
