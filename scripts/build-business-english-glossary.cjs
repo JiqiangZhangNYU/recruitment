@@ -576,6 +576,44 @@ const exampleTemplates = {
   ],
 };
 
+const interviewTemplates = {
+  "核心概念": [
+    (term) => `In my previous role, I analyzed the role of ${term} to understand its impact on payment performance and customer experience.`,
+    (term) => `I worked with product and operations to clarify how ${term} affected the merchant journey and the team's priorities.`,
+    (term) => `When evaluating ${term}, I focused on the business impact, the operational risk, and the metric that defined success.`,
+  ],
+  "支付链路": [
+    (term) => `I mapped ${term} across the end-to-end payment flow, identified the main failure point, and coordinated the fix with our provider.`,
+    (term) => `Before launch, I reviewed ${term} with product and engineering, clarified ownership, and added monitoring for the key failure modes.`,
+    (term) => `My approach to ${term} was to quantify the failure pattern, isolate the root cause, and test the smallest reliable improvement.`,
+  ],
+  "数据经营": [
+    (term) => `I used an analysis of ${term} to separate signal from noise, explain the performance gap, and recommend a measurable next step.`,
+    (term) => `In a weekly business review, I analyzed ${term}, validated the data definition, and translated the finding into a clear decision.`,
+    (term) => `I evaluated ${term} against a stable baseline, segmented the results, and checked whether the change was commercially meaningful.`,
+  ],
+  "风险合规": [
+    (term) => `I partnered with risk and compliance to assess ${term}, define a practical control, and protect conversion while meeting policy requirements.`,
+    (term) => `When ${term} became a concern, I quantified the exposure, aligned the owner, and set a clear threshold for escalation.`,
+    (term) => `I balanced the risk associated with ${term} against customer impact and proposed a control that operations could execute.`,
+  ],
+  "商户产品": [
+    (term) => `I gathered merchant feedback on ${term}, translated the pain point into product requirements, and validated the solution with a pilot.`,
+    (term) => `To improve adoption, I simplified ${term}, aligned the support process, and tracked the effect on merchant satisfaction.`,
+    (term) => `I prioritized ${term} by comparing merchant value, implementation effort, and the expected impact on payment performance.`,
+  ],
+  "定价外汇": [
+    (term) => `I included ${term} in the unit-economics model, tested the key assumptions, and used the result to support our pricing recommendation.`,
+    (term) => `When negotiating with a provider, I compared ${term} across options and focused the discussion on total economic value.`,
+    (term) => `I analyzed how ${term} affected merchant margin and recommended a structure that balanced competitiveness with sustainable economics.`,
+  ],
+  "策略治理": [
+    (term) => `I considered ${term} when building the business case, clarified the trade-offs, and recommended a phased decision.`,
+    (term) => `I used my assessment of ${term} to align stakeholders on the strategic priority, the accountable owner, and the evidence required to proceed.`,
+    (term) => `Before scaling the initiative, I assessed ${term}, defined the guardrails, and established a clear go/no-go decision.`,
+  ],
+};
+
 if (entries.length !== 500) throw new Error(`Expected 500 glossary entries, received ${entries.length}`);
 const normalizedTerms = entries.map((entry) => entry.term.toLocaleLowerCase("en-US"));
 if (new Set(normalizedTerms).size !== entries.length) throw new Error("Glossary terms must be unique");
@@ -584,19 +622,25 @@ const glossary = entries.map((entry, index) => {
   const rank = index + 1;
   const templates = exampleTemplates[entry.category];
   const [makeExample, makeTranslation] = templates[index % templates.length];
+  const categoryInterviewTemplates = interviewTemplates[entry.category];
   return {
     rank,
     term: entry.term,
     definition: entry.definition,
     example: makeExample(entry.term),
     translation: makeTranslation(entry.definition),
+    interviewExpression: categoryInterviewTemplates[index % categoryInterviewTemplates.length](entry.term),
     category: entry.category,
     frequency: rank <= 100 ? "高频核心" : rank <= 250 ? "工作常用" : rank <= 400 ? "专业常用" : "策略进阶",
   };
 });
 
+if (!glossary.every((entry) => entry.interviewExpression.includes(entry.term))) {
+  throw new Error("Every interview expression must include its glossary term");
+}
+
 const payload = {
-  version: 1,
+  version: 2,
   title: "支付业务英语词汇表",
   summary: "从现有业务英语题库覆盖的支付、经营、风控、定价与策略场景中整理 500 个词条，并按工作中的常用程度排序。",
   count: glossary.length,

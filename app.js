@@ -1366,12 +1366,212 @@ function makeGlossaryCoveredField(label, text, covered) {
   return section;
 }
 
+function formatGlossaryRecordingTime(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+
 function renderChallengeGlossary(pack, glossary) {
   setChallengeDetailChrome();
   const mastery = getGlossaryMastery(pack.skillId);
   const article = document.createElement("article");
   article.className = "challenge-page glossary-page";
   article.dataset.skillId = pack.skillId;
+  const recordings = new Map();
+  const recordingSupported = Boolean(navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
+  let activeRecording = null;
+
+  const setRecordButtonsDisabled = (disabled) => {
+    article.querySelectorAll(".glossary-record-button").forEach((button) => {
+      button.disabled = disabled || !recordingSupported;
+    });
+  };
+
+  const finishActiveRecording = (discard = false) => {
+    if (!activeRecording) return;
+    activeRecording.discarded ||= discard;
+    clearInterval(activeRecording.timer);
+    if (activeRecording.recorder.state !== "inactive") activeRecording.recorder.stop();
+    activeRecording.stream.getTracks().forEach((track) => track.stop());
+  };
+
+  const cleanupRecordings = () => {
+    finishActiveRecording(true);
+    recordings.forEach(({ url }) => URL.revokeObjectURL(url));
+    recordings.clear();
+  };
+  window.addEventListener("hashchange", cleanupRecordings, { once: true });
+
+  const makeInterviewPractice = (entry) => {
+    const section = document.createElement("section");
+    section.className = "glossary-interview-practice";
+
+    const copy = document.createElement("div");
+    copy.className = "glossary-interview-copy";
+    copy.append(
+      makeTextElement("span", "glossary-field-label", "面试表达"),
+      makeTextElement("p", "glossary-interview-expression", entry.interviewExpression),
+    );
+
+    const recorderPanel = document.createElement("div");
+    recorderPanel.className = "glossary-recorder";
+    const actions = document.createElement("div");
+    actions.className = "glossary-recorder-actions";
+    const recordButton = document.createElement("button");
+    recordButton.type = "button";
+    recordButton.className = "glossary-record-button";
+    recordButton.textContent = recordingSupported ? "开始录音" : "录音不可用";
+    recordButton.disabled = !recordingSupported;
+    const stopButton = document.createElement("button");
+    stopButton.type = "button";
+    stopButton.className = "glossary-stop-button";
+    stopButton.textContent = "停止录音";
+    stopButton.disabled = true;
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "glossary-delete-recording";
+    deleteButton.textContent = "删除录音";
+    deleteButton.disabled = true;
+    actions.append(recordButton, stopButton, deleteButton);
+
+    const status = makeTextElement(
+      "span",
+      "glossary-recording-status",
+      recordingSupported ? "未录音" : "当前浏览器不支持麦克风录音",
+    );
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+    const audio = document.createElement("audio");
+    audio.className = "glossary-recording-playback";
+    audio.controls = true;
+    audio.preload = "metadata";
+    audio.hidden = true;
+    audio.setAttribute("aria-label", `${entry.term} 的口语录音`);
+    recorderPanel.append(actions, status, audio);
+
+    const savedRecording = recordings.get(entry.term);
+    if (savedRecording) {
+      audio.src = savedRecording.url;
+      audio.hidden = false;
+      recordButton.textContent = "重新录音";
+      deleteButton.disabled = false;
+      status.textContent = `录音完成 · ${formatGlossaryRecordingTime(savedRecording.duration)}`;
+    }
+
+    recordButton.addEventListener("click", async () => {
+      if (activeRecording) return;
+      setRecordButtonsDisabled(true);
+      status.textContent = "正在请求麦克风权限...";
+      let stream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        if (!section.isConnected) {
+          stream.getTracks().forEach((track) => track.stop());
+          return;
+        }
+        const preferredTypes = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"];
+        const mimeType = typeof MediaRecorder.isTypeSupported === "function"
+          ? preferredTypes.find((type) => MediaRecorder.isTypeSupported(type))
+          : undefined;
+        const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+        const chunks = [];
+        const session = {
+          term: entry.term,
+          recorder,
+          stream,
+          timer: null,
+          startedAt: Date.now(),
+          discarded: false,
+          failed: false,
+        };
+        activeRecording = session;
+
+        recorder.addEventListener("dataavailable", (event) => {
+          if (event.data.size) chunks.push(event.data);
+        });
+        recorder.addEventListener("error", () => {
+          session.failed = true;
+          status.textContent = "录音失败，请重试";
+          finishActiveRecording(true);
+        });
+        recorder.addEventListener("stop", () => {
+          clearInterval(session.timer);
+          stream.getTracks().forEach((track) => track.stop());
+          if (activeRecording === session) activeRecording = null;
+          setRecordButtonsDisabled(false);
+          stopButton.disabled = true;
+
+          if (session.discarded || session.failed) {
+            deleteButton.disabled = !recordings.has(entry.term);
+            return;
+          }
+          const blob = new Blob(chunks, { type: recorder.mimeType || mimeType || "audio/webm" });
+          if (!blob.size) {
+            status.textContent = "没有录到声音，请重试";
+            deleteButton.disabled = !recordings.has(entry.term);
+            return;
+          }
+          const existing = recordings.get(entry.term);
+          if (existing) URL.revokeObjectURL(existing.url);
+          const url = URL.createObjectURL(blob);
+          const duration = Math.max(1, Math.round((Date.now() - session.startedAt) / 1000));
+          recordings.set(entry.term, { url, duration });
+          audio.src = url;
+          audio.hidden = false;
+          deleteButton.disabled = false;
+          recordButton.textContent = "重新录音";
+          status.textContent = `录音完成 · ${formatGlossaryRecordingTime(duration)}`;
+        });
+
+        audio.pause();
+        recorder.start(250);
+        stopButton.disabled = false;
+        deleteButton.disabled = true;
+        status.textContent = "录音中 00:00 / 01:00";
+        session.timer = setInterval(() => {
+          const elapsed = Math.min(60, Math.floor((Date.now() - session.startedAt) / 1000));
+          status.textContent = `录音中 ${formatGlossaryRecordingTime(elapsed)} / 01:00`;
+          if (elapsed >= 60) finishActiveRecording();
+        }, 500);
+      } catch (error) {
+        stream?.getTracks().forEach((track) => track.stop());
+        if (activeRecording?.term === entry.term) {
+          clearInterval(activeRecording.timer);
+          activeRecording = null;
+        }
+        setRecordButtonsDisabled(false);
+        stopButton.disabled = true;
+        status.textContent = error.name === "NotAllowedError"
+          ? "未获得麦克风权限，请在浏览器中允许后重试"
+          : "无法启动录音，请检查麦克风后重试";
+      }
+    });
+
+    stopButton.addEventListener("click", () => {
+      if (!activeRecording || activeRecording.term !== entry.term) return;
+      stopButton.disabled = true;
+      status.textContent = "正在保存录音...";
+      finishActiveRecording();
+    });
+
+    deleteButton.addEventListener("click", () => {
+      const recording = recordings.get(entry.term);
+      if (!recording) return;
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+      audio.hidden = true;
+      URL.revokeObjectURL(recording.url);
+      recordings.delete(entry.term);
+      deleteButton.disabled = true;
+      recordButton.textContent = "开始录音";
+      status.textContent = "未录音";
+    });
+
+    section.append(copy, recorderPanel);
+    return section;
+  };
 
   const header = document.createElement("header");
   header.className = "challenge-hero glossary-hero";
@@ -1509,7 +1709,7 @@ function renderChallengeGlossary(pack, glossary) {
       if (state.glossaryFrequency !== "all" && entry.frequency !== state.glossaryFrequency) return false;
       if (state.glossaryUnmasteredOnly && mastery.has(entry.term)) return false;
       if (!query) return true;
-      return [entry.term, entry.definition, entry.example, entry.translation]
+      return [entry.term, entry.definition, entry.example, entry.translation, entry.interviewExpression]
         .some((value) => value.toLocaleLowerCase("zh-CN").includes(query));
     });
     return filtered.sort((left, right) => state.glossarySort === "alphabetical"
@@ -1518,6 +1718,7 @@ function renderChallengeGlossary(pack, glossary) {
   };
 
   function renderEntries() {
+    finishActiveRecording(true);
     const filtered = filteredEntries();
     const totalPages = Math.max(1, Math.ceil(filtered.length / GLOSSARY_PAGE_SIZE));
     state.glossaryPage = Math.min(Math.max(1, state.glossaryPage), totalPages);
@@ -1571,7 +1772,7 @@ function renderChallengeGlossary(pack, glossary) {
         makeGlossaryCoveredField("英文例句", entry.example, state.glossaryMasks.example),
         makeGlossaryCoveredField("中文翻译", entry.translation, state.glossaryMasks.translation),
       );
-      row.append(entryHeader, body);
+      row.append(entryHeader, body, makeInterviewPractice(entry));
       list.append(row);
     });
 
@@ -2150,6 +2351,9 @@ async function ensureChallengeGlossary(skillId, pack) {
       .then((glossary) => {
         if (!Array.isArray(glossary.entries) || glossary.entries.length !== pack.glossary.count) {
           throw new Error("词汇表格式或数量不正确");
+        }
+        if (glossary.entries.some((entry) => typeof entry.interviewExpression !== "string" || !entry.interviewExpression.trim())) {
+          throw new Error("词汇表缺少面试表达");
         }
         const ranks = glossary.entries.map((entry) => entry.rank);
         const terms = glossary.entries.map((entry) => entry.term.toLocaleLowerCase("en-US"));
