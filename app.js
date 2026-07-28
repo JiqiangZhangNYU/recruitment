@@ -1340,7 +1340,7 @@ function renderChallengeHub(pack) {
   elements.skillDetailContainer.replaceChildren(article);
 }
 
-const GLOSSARY_PAGE_SIZE = 50;
+const GLOSSARY_PAGE_SIZE = 20;
 
 function makeGlossaryCoveredField(label, text, covered) {
   const section = document.createElement("section");
