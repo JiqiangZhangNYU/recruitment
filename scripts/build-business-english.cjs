@@ -691,6 +691,11 @@ const manifest = {
   summary: pack.summary,
   story: pack.story,
   ui: pack.ui,
+  glossary: {
+    count: 500,
+    title: "支付业务英语词汇表",
+    file: "challenges/business-english/glossary.json",
+  },
   chunked: true,
   levels: runtimeLevels.map((level) => ({
     id: level.id,

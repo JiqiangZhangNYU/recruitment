@@ -10,6 +10,10 @@ function readStoredJSON(key, fallback) {
 function learningRouteFromHash(hash) {
   if (hash === "#skills") return { page: "overview", skillId: null };
   if (hash === "#roadmap" || hash === "#portfolio") return { page: "overview", skillId: null };
+  if (hash.startsWith("#glossary/")) {
+    const skillId = decodeURIComponent(hash.slice(10));
+    if (skillId) return { page: "challengeGlossary", skillId, levelId: null, questionId: null };
+  }
   if (hash.startsWith("#challenge/")) {
     const [skillId, levelId, questionId] = hash.slice(11).split("/").map((part) => decodeURIComponent(part || ""));
     if (skillId && levelId && questionId) return { page: "challengeQuestion", skillId, levelId, questionId };
@@ -71,7 +75,10 @@ const state = {
   challengePromises: new Map(),
   challengeLevels: new Map(),
   challengeLevelPromises: new Map(),
+  challengeGlossaries: new Map(),
+  challengeGlossaryPromises: new Map(),
   challengeProgress: new Map(),
+  glossaryMastery: new Map(),
   challengeDrafts: new Map(),
   practiceDays: new Map(),
   view: initialLearningRoute ? "skills" : "jobs",
@@ -89,6 +96,12 @@ const state = {
   selectedSkill: initialLearningRoute?.skillId || null,
   selectedLevel: initialLearningRoute?.levelId || null,
   selectedQuestion: initialLearningRoute?.questionId || null,
+  glossaryQuery: "",
+  glossaryCategory: "all",
+  glossaryFrequency: "all",
+  glossaryUnmasteredOnly: false,
+  glossaryPage: 1,
+  glossaryMasks: { definition: false, example: false, translation: false },
   skillLevels: storedSkillLevels,
   renderedLearningViews: new Set(),
   jobsPromise: null,
@@ -197,7 +210,9 @@ function setView(view, updateURL = true) {
   if (updateURL) {
     const url = new URL(location.href);
     if (state.view === "skills") {
-      if (state.learningTab === "challengeQuestion" && state.selectedSkill && state.selectedLevel && state.selectedQuestion) {
+      if (state.learningTab === "challengeGlossary" && state.selectedSkill) {
+        url.hash = `glossary/${encodeURIComponent(state.selectedSkill)}`;
+      } else if (state.learningTab === "challengeQuestion" && state.selectedSkill && state.selectedLevel && state.selectedQuestion) {
         url.hash = `challenge/${encodeURIComponent(state.selectedSkill)}/${encodeURIComponent(state.selectedLevel)}/${encodeURIComponent(state.selectedQuestion)}`;
       } else if (state.learningTab === "challengeLevel" && state.selectedSkill && state.selectedLevel) {
         url.hash = `challenge/${encodeURIComponent(state.selectedSkill)}/${encodeURIComponent(state.selectedLevel)}`;
@@ -214,7 +229,7 @@ function setView(view, updateURL = true) {
 }
 
 async function navigateLearning(page, skillId = null, updateURL = true, levelId = null, questionId = null) {
-  const detailPages = ["detail", "challengeLevel", "challengeQuestion"];
+  const detailPages = ["detail", "challengeLevel", "challengeQuestion", "challengeGlossary"];
   state.learningTab = ["overview", ...detailPages].includes(page) ? page : "overview";
   state.selectedSkill = detailPages.includes(state.learningTab) ? skillId : null;
   state.selectedLevel = ["challengeLevel", "challengeQuestion"].includes(state.learningTab) ? levelId : null;
@@ -250,6 +265,7 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
     const selectedSkill = state.guide.skills.find((skill) => skill.id === state.selectedSkill);
     const isChallenge = Boolean(selectedSkill?.challenge) && detailPages.includes(state.learningTab);
     let challengePack = null;
+    let challengeGlossary = null;
     if (isChallenge) {
       elements.guideLoading.hidden = false;
       elements.guideLoading.querySelector("strong").textContent = selectedSkill.challenge.loadingLabel || "正在加载互动关卡";
@@ -260,6 +276,11 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
         || requestedLevel !== state.selectedLevel
         || requestedQuestion !== state.selectedQuestion
       ) return;
+      if (state.learningTab === "challengeGlossary") {
+        elements.guideLoading.querySelector("strong").textContent = "正在加载支付业务英语词汇表";
+        challengeGlossary = await ensureChallengeGlossary(state.selectedSkill, challengePack);
+        if (requestedPage !== state.learningTab || requestedSkill !== state.selectedSkill) return;
+      }
       if (["challengeLevel", "challengeQuestion"].includes(state.learningTab)) {
         let level = challengePack.levels.find((item) => item.id === state.selectedLevel);
         if (!level) {
@@ -297,6 +318,7 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
     else if (state.learningTab === "detail") renderSkillDetail(state.selectedSkill);
     if (state.learningTab === "challengeLevel") renderChallengeLevel(challengePack, state.selectedLevel);
     if (state.learningTab === "challengeQuestion") renderChallengeQuestion(challengePack, state.selectedLevel, state.selectedQuestion);
+    if (state.learningTab === "challengeGlossary") renderChallengeGlossary(challengePack, challengeGlossary);
     renderLearningSidebar();
     if (updateURL) window.scrollTo({ top: 0, behavior: "auto" });
   } catch (error) {
@@ -687,6 +709,21 @@ function persistChallengeProgress(skillId) {
   persistLearningChecklist(challengeStorageKey(skillId), getChallengeProgress(skillId));
 }
 
+function glossaryMasteryStorageKey(skillId) {
+  return `recruitment-glossary-mastered-${skillId}`;
+}
+
+function getGlossaryMastery(skillId) {
+  if (!state.glossaryMastery.has(skillId)) {
+    state.glossaryMastery.set(skillId, new Set(storedArray(glossaryMasteryStorageKey(skillId))));
+  }
+  return state.glossaryMastery.get(skillId);
+}
+
+function persistGlossaryMastery(skillId) {
+  persistLearningChecklist(glossaryMasteryStorageKey(skillId), getGlossaryMastery(skillId));
+}
+
 function challengeDraftStorageKey(skillId) {
   return `recruitment-challenge-drafts-${skillId}`;
 }
@@ -918,6 +955,28 @@ function makeChallengeBreadcrumb(pack, level = null) {
 function setChallengeDetailChrome() {
   elements.detailBreadcrumb.hidden = true;
   elements.detailPagination.hidden = true;
+}
+
+function makeChallengeModuleTabs(pack, activeModule) {
+  const nav = document.createElement("nav");
+  nav.className = "challenge-module-tabs";
+  nav.setAttribute("aria-label", "业务英语训练模块");
+  [
+    { id: "questions", label: "互动题库", meta: `${challengeQuestions(pack).length} 题`, page: "detail" },
+    { id: "glossary", label: "核心词汇", meta: `${pack.glossary?.count || 0} 词`, page: "challengeGlossary" },
+  ].filter((item) => item.id !== "glossary" || pack.glossary).forEach((item) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.classList.toggle("active", item.id === activeModule);
+    button.setAttribute("aria-pressed", String(item.id === activeModule));
+    button.append(
+      makeTextElement("strong", "", item.label),
+      makeTextElement("span", "", item.meta),
+    );
+    button.addEventListener("click", () => navigateLearning(item.page, pack.skillId));
+    nav.append(button);
+  });
+  return nav;
 }
 
 function makeDailyMission(pack) {
@@ -1278,10 +1337,284 @@ function renderChallengeHub(pack) {
   });
 
   const reference = makeChallengeReference(pack);
-  article.append(makeChallengeBreadcrumb(pack), header);
+  article.append(makeChallengeBreadcrumb(pack), makeChallengeModuleTabs(pack, "questions"), header);
   if (reference) article.append(reference);
   article.append(makeDailyMission(pack), intro, grid);
   elements.skillDetailContainer.replaceChildren(article);
+}
+
+const GLOSSARY_PAGE_SIZE = 50;
+
+function makeGlossaryCoveredField(label, text, covered) {
+  const section = document.createElement("section");
+  section.className = "glossary-field";
+  section.append(makeTextElement("span", "glossary-field-label", label));
+  if (!covered) {
+    section.append(makeTextElement("p", "glossary-field-value", text));
+    return section;
+  }
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "glossary-covered-value";
+  button.textContent = `点击显示${label}`;
+  button.setAttribute("aria-expanded", "false");
+  button.addEventListener("click", () => {
+    const reveal = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(reveal));
+    button.classList.toggle("revealed", reveal);
+    button.textContent = reveal ? text : `点击显示${label}`;
+  });
+  section.append(button);
+  return section;
+}
+
+function renderChallengeGlossary(pack, glossary) {
+  setChallengeDetailChrome();
+  const mastery = getGlossaryMastery(pack.skillId);
+  const article = document.createElement("article");
+  article.className = "challenge-page glossary-page";
+  article.dataset.skillId = pack.skillId;
+
+  const header = document.createElement("header");
+  header.className = "challenge-hero glossary-hero";
+  const copy = document.createElement("div");
+  copy.append(
+    makeTextElement("span", "section-kicker", "按工作常用程度排序 · 500 词"),
+    makeTextElement("h2", "", glossary.title),
+    makeTextElement("p", "", glossary.summary),
+  );
+  const masteryProgress = makeChallengeProgress(mastery.size, glossary.count, "已掌握词汇");
+  header.append(copy, masteryProgress);
+
+  const controls = document.createElement("section");
+  controls.className = "glossary-controls";
+  controls.setAttribute("aria-label", "词汇表筛选和自测设置");
+
+  const filters = document.createElement("div");
+  filters.className = "glossary-filters";
+  const searchLabel = document.createElement("label");
+  searchLabel.className = "glossary-search";
+  searchLabel.append(makeTextElement("span", "", "搜索词汇"));
+  const search = document.createElement("input");
+  search.type = "search";
+  search.placeholder = "英文词条或中文释义";
+  search.autocomplete = "off";
+  search.value = state.glossaryQuery;
+  searchLabel.append(search);
+
+  const categoryLabel = document.createElement("label");
+  categoryLabel.append(makeTextElement("span", "", "业务分类"));
+  const category = document.createElement("select");
+  [["all", "全部分类"], ...glossary.categories.map((value) => [value, value])].forEach(([value, label]) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    category.append(option);
+  });
+  category.value = state.glossaryCategory;
+  categoryLabel.append(category);
+
+  const frequencyLabel = document.createElement("label");
+  frequencyLabel.append(makeTextElement("span", "", "常用程度"));
+  const frequency = document.createElement("select");
+  [["all", "全部词汇"], ...glossary.frequencyTiers.map((value) => [value, value])].forEach(([value, label]) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    frequency.append(option);
+  });
+  frequency.value = state.glossaryFrequency;
+  frequencyLabel.append(frequency);
+
+  const unmasteredLabel = document.createElement("label");
+  unmasteredLabel.className = "glossary-check-control";
+  const unmastered = document.createElement("input");
+  unmastered.type = "checkbox";
+  unmastered.checked = state.glossaryUnmasteredOnly;
+  unmasteredLabel.append(unmastered, makeTextElement("span", "", "只看未掌握"));
+  filters.append(searchLabel, categoryLabel, frequencyLabel, unmasteredLabel);
+
+  const masks = document.createElement("fieldset");
+  masks.className = "glossary-mask-controls";
+  masks.append(makeTextElement("legend", "", "遮盖自测"));
+  [
+    ["definition", "中文释义"],
+    ["example", "英文例句"],
+    ["translation", "中文翻译"],
+  ].forEach(([key, label]) => {
+    const control = document.createElement("label");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = state.glossaryMasks[key];
+    checkbox.addEventListener("change", () => {
+      state.glossaryMasks[key] = checkbox.checked;
+      renderEntries();
+    });
+    control.append(checkbox, makeTextElement("span", "", label));
+    masks.append(control);
+  });
+  controls.append(filters, masks);
+
+  const resultHead = document.createElement("div");
+  resultHead.className = "glossary-result-head";
+  const resultCount = makeTextElement("strong", "", "");
+  const resultRange = makeTextElement("span", "", "");
+  resultHead.append(resultCount, resultRange);
+
+  const list = document.createElement("div");
+  list.className = "glossary-list";
+  list.setAttribute("aria-live", "polite");
+
+  const pagination = document.createElement("nav");
+  pagination.className = "glossary-pagination";
+  pagination.setAttribute("aria-label", "词汇表分页");
+  const previous = document.createElement("button");
+  previous.type = "button";
+  previous.textContent = "← 上一页";
+  const pagePosition = makeTextElement("span", "", "");
+  const next = document.createElement("button");
+  next.type = "button";
+  next.textContent = "下一页 →";
+  pagination.append(previous, pagePosition, next);
+
+  const updateMasteryProgress = () => {
+    masteryProgress.querySelector("strong").textContent = `${mastery.size} / ${glossary.count}`;
+    masteryProgress.querySelector(".challenge-progress-track").setAttribute("aria-valuenow", String(mastery.size));
+    masteryProgress.querySelector(".challenge-progress-track span").style.width = `${mastery.size / glossary.count * 100}%`;
+  };
+
+  const filteredEntries = () => {
+    const query = state.glossaryQuery.toLocaleLowerCase("zh-CN");
+    return glossary.entries.filter((entry) => {
+      if (state.glossaryCategory !== "all" && entry.category !== state.glossaryCategory) return false;
+      if (state.glossaryFrequency !== "all" && entry.frequency !== state.glossaryFrequency) return false;
+      if (state.glossaryUnmasteredOnly && mastery.has(entry.term)) return false;
+      if (!query) return true;
+      return [entry.term, entry.definition, entry.example, entry.translation]
+        .some((value) => value.toLocaleLowerCase("zh-CN").includes(query));
+    });
+  };
+
+  function renderEntries() {
+    const filtered = filteredEntries();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / GLOSSARY_PAGE_SIZE));
+    state.glossaryPage = Math.min(Math.max(1, state.glossaryPage), totalPages);
+    const start = (state.glossaryPage - 1) * GLOSSARY_PAGE_SIZE;
+    const visible = filtered.slice(start, start + GLOSSARY_PAGE_SIZE);
+    list.replaceChildren();
+
+    visible.forEach((entry) => {
+      const row = document.createElement("article");
+      row.className = "glossary-entry";
+      row.classList.toggle("mastered", mastery.has(entry.term));
+      row.dataset.rank = entry.rank;
+
+      const entryHeader = document.createElement("header");
+      entryHeader.className = "glossary-entry-header";
+      const rank = makeTextElement("span", "glossary-rank", String(entry.rank).padStart(3, "0"));
+      const title = document.createElement("div");
+      title.append(
+        makeTextElement("h3", "", entry.term),
+        makeTextElement("span", "glossary-category", entry.category),
+        makeTextElement("span", "glossary-frequency", entry.frequency),
+      );
+      const masteredButton = document.createElement("button");
+      masteredButton.type = "button";
+      masteredButton.className = "glossary-mastery-button";
+      const setMasteryButton = () => {
+        const isMastered = mastery.has(entry.term);
+        masteredButton.classList.toggle("active", isMastered);
+        masteredButton.setAttribute("aria-pressed", String(isMastered));
+        masteredButton.textContent = isMastered ? "✓ 已掌握" : "标记掌握";
+      };
+      setMasteryButton();
+      masteredButton.addEventListener("click", () => {
+        if (mastery.has(entry.term)) mastery.delete(entry.term);
+        else mastery.add(entry.term);
+        persistGlossaryMastery(pack.skillId);
+        updateMasteryProgress();
+        if (state.glossaryUnmasteredOnly) renderEntries();
+        else {
+          row.classList.toggle("mastered", mastery.has(entry.term));
+          setMasteryButton();
+        }
+      });
+      entryHeader.append(rank, title, masteredButton);
+
+      const body = document.createElement("div");
+      body.className = "glossary-entry-body";
+      body.append(
+        makeGlossaryCoveredField("中文释义", entry.definition, state.glossaryMasks.definition),
+        makeGlossaryCoveredField("英文例句", entry.example, state.glossaryMasks.example),
+        makeGlossaryCoveredField("中文翻译", entry.translation, state.glossaryMasks.translation),
+      );
+      row.append(entryHeader, body);
+      list.append(row);
+    });
+
+    if (!visible.length) {
+      const empty = document.createElement("div");
+      empty.className = "glossary-empty";
+      empty.append(
+        makeTextElement("strong", "", "没有符合当前条件的词汇"),
+        makeTextElement("span", "", "调整搜索、分类或掌握状态后再试。"),
+      );
+      list.append(empty);
+    }
+
+    resultCount.textContent = `${filtered.length} 个词条`;
+    resultRange.textContent = filtered.length
+      ? `显示 ${start + 1}-${Math.min(start + GLOSSARY_PAGE_SIZE, filtered.length)} · 按常用程度排序`
+      : "当前筛选无结果";
+    pagePosition.textContent = `第 ${state.glossaryPage} / ${totalPages} 页`;
+    previous.disabled = state.glossaryPage === 1;
+    next.disabled = state.glossaryPage === totalPages;
+    pagination.hidden = filtered.length <= GLOSSARY_PAGE_SIZE;
+  }
+
+  const resetPageAndRender = () => {
+    state.glossaryPage = 1;
+    renderEntries();
+  };
+  search.addEventListener("input", () => {
+    state.glossaryQuery = search.value.trim();
+    resetPageAndRender();
+  });
+  category.addEventListener("change", () => {
+    state.glossaryCategory = category.value;
+    resetPageAndRender();
+  });
+  frequency.addEventListener("change", () => {
+    state.glossaryFrequency = frequency.value;
+    resetPageAndRender();
+  });
+  unmastered.addEventListener("change", () => {
+    state.glossaryUnmasteredOnly = unmastered.checked;
+    resetPageAndRender();
+  });
+  previous.addEventListener("click", () => {
+    state.glossaryPage -= 1;
+    renderEntries();
+    resultHead.scrollIntoView({ block: "start", behavior: "smooth" });
+  });
+  next.addEventListener("click", () => {
+    state.glossaryPage += 1;
+    renderEntries();
+    resultHead.scrollIntoView({ block: "start", behavior: "smooth" });
+  });
+
+  article.append(
+    makeChallengeBreadcrumb(pack),
+    makeChallengeModuleTabs(pack, "glossary"),
+    header,
+    controls,
+    resultHead,
+    list,
+    pagination,
+  );
+  elements.skillDetailContainer.replaceChildren(article);
+  renderEntries();
 }
 
 function renderChallengeLevel(pack, levelId) {
@@ -1693,7 +2026,7 @@ function renderLearningSidebar() {
       section.append(makeLearningNavButton(
         skill.title,
         skill.challenge ? challengeMeta : `${level}级`,
-        ["detail", "challengeLevel", "challengeQuestion"].includes(state.learningTab) && state.selectedSkill === skill.id,
+        ["detail", "challengeLevel", "challengeQuestion", "challengeGlossary"].includes(state.learningTab) && state.selectedSkill === skill.id,
         () => navigateLearning("detail", skill.id),
       ));
     });
@@ -1758,6 +2091,42 @@ async function ensureChallengePack(skillId) {
     state.challengePromises.set(skillId, request);
   }
   return state.challengePromises.get(skillId);
+}
+
+async function ensureChallengeGlossary(skillId, pack) {
+  if (state.challengeGlossaries.has(skillId)) return state.challengeGlossaries.get(skillId);
+  if (!pack.glossary?.file) throw new Error("该题库尚未配置词汇表");
+  if (!state.challengeGlossaryPromises.has(skillId)) {
+    const request = fetch(pack.glossary.file)
+      .then((response) => {
+        if (!response.ok) throw new Error(`词汇表 HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((glossary) => {
+        if (!Array.isArray(glossary.entries) || glossary.entries.length !== pack.glossary.count) {
+          throw new Error("词汇表格式或数量不正确");
+        }
+        const ranks = glossary.entries.map((entry) => entry.rank);
+        const terms = glossary.entries.map((entry) => entry.term.toLocaleLowerCase("en-US"));
+        if (ranks.some((rank, index) => rank !== index + 1) || new Set(terms).size !== terms.length) {
+          throw new Error("词汇表排序或词条不正确");
+        }
+        const mastery = getGlossaryMastery(skillId);
+        const validTerms = new Set(glossary.entries.map((entry) => entry.term));
+        [...mastery].forEach((term) => {
+          if (!validTerms.has(term)) mastery.delete(term);
+        });
+        persistGlossaryMastery(skillId);
+        state.challengeGlossaries.set(skillId, glossary);
+        return glossary;
+      })
+      .catch((error) => {
+        state.challengeGlossaryPromises.delete(skillId);
+        throw error;
+      });
+    state.challengeGlossaryPromises.set(skillId, request);
+  }
+  return state.challengeGlossaryPromises.get(skillId);
 }
 
 async function ensureChallengeLevel(skillId, levelId, pack) {
