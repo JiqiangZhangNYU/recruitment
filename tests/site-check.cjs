@@ -1,5 +1,6 @@
 const { chromium } = require("playwright-core");
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
 const path = require("node:path");
 const guide = require("../learning-guide.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
@@ -10,6 +11,9 @@ const lifecycleGrowth = require("../challenges/lifecycle-growth.json");
 const projectDelivery = require("../challenges/project-delivery.json");
 const paymentsFintech = require("../challenges/payments-fintech.json");
 const internationalCollaboration = require("../challenges/international-collaboration.json");
+const coreVocabulary = require("../challenges/core-vocabulary/glossary.json");
+const coreVocabularyManifest = require("../challenges/core-vocabulary/manifest.json");
+const coreVocabularyAudioManifest = require("../audio/core-vocabulary/manifest.json");
 
 const executablePath = "/home/zjq/.cache/ms-playwright/chromium-1187/chrome-linux/chrome";
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
@@ -67,9 +71,19 @@ newP0ChallengePacks.forEach((pack) => {
   });
 });
 assert.deepEqual(
-  guide.skills.filter((skill) => skill.priority === "P0").map((skill) => skill.id),
-  [...challengePackBySkill.keys()],
+  new Set(guide.skills.filter((skill) => skill.priority === "P0").map((skill) => skill.id)),
+  new Set([...challengePackBySkill.keys(), coreVocabularyManifest.skillId]),
 );
+assert.equal(coreVocabulary.count, 500);
+assert.equal(coreVocabulary.entries.length, 500);
+assert.equal(coreVocabularyAudioManifest.expectedCount, coreVocabulary.count * 3);
+assert.equal(coreVocabularyAudioManifest.completedCount, coreVocabularyAudioManifest.expectedCount);
+coreVocabulary.entries.forEach((entry) => {
+  ["word", "example", "interview"].forEach((kind) => {
+    const filename = `${String(entry.rank).padStart(3, "0")}-${kind}.mp3`;
+    assert.ok(fs.statSync(path.join(__dirname, "..", "audio", "core-vocabulary", filename)).size > 0);
+  });
+});
 assert.ok(businessEnglish.levels.flatMap((level) => level.questions)
   .every((question) => question.answer.translation?.length >= 20));
 assert.ok(businessEnglish.levels.every((level) => level.questions.length === 50));
@@ -168,10 +182,16 @@ async function checkPage(browser, viewport, screenshotPath) {
   });
   assert.equal(await page.locator(".skill-overview-card").count(), guide.skills.length);
   assert.equal(await page.locator(".skill-overview-group").count(), guide.groups.length);
-  assert.equal(await page.locator(".skill-overview-group").nth(0).locator(".skill-overview-card").count(), 6);
-  assert.equal(await page.locator(".skill-overview-group").nth(1).locator(".skill-overview-card").count(), 3);
+  assert.equal(
+    await page.locator(".skill-overview-group").nth(0).locator(".skill-overview-card").count(),
+    guide.skills.filter((skill) => skill.group === guide.groups[0].id).length,
+  );
+  assert.equal(
+    await page.locator(".skill-overview-group").nth(1).locator(".skill-overview-card").count(),
+    guide.skills.filter((skill) => skill.group === guide.groups[1].id).length,
+  );
   assert.equal(await page.locator("#learning-skill-nav button").count(), guide.skills.length);
-  assert.match(await page.locator("#ability-panel h2").textContent(), /九项技能/);
+  assert.equal(await page.locator("#ability-panel h2").textContent(), "技能总览");
   assert.equal(await page.locator("#learning-view-nav").count(), 0);
   assert.equal(await page.locator("#roadmap-panel").count(), 0);
   assert.equal(await page.locator("#portfolio-panel").count(), 0);
@@ -180,9 +200,15 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.equal(await page.locator("#portfolio-list .checklist-item").count(), 0);
   assert.equal(await page.locator("#skill-job-count").textContent(), String(guide.sample.totalJobs));
   assert.match(await page.locator("#skills-view").textContent(), new RegExp(guide.skills[0].title));
-  assert.equal(await page.locator(".skill-overview-card.challenge-enabled").count(), 6);
+  assert.equal(
+    await page.locator(".skill-overview-card.challenge-enabled").count(),
+    guide.skills.filter((skill) => skill.challenge && skill.challenge.defaultPage !== "challengeGlossary").length,
+  );
+  assert.equal(await page.locator(".skill-overview-card.glossary-enabled").count(), 1);
 
-  await page.locator(".skill-overview-card").first().click();
+  await page.locator(".skill-overview-card")
+    .filter({ hasText: dataDiagnosis.title.replace("闯关", "") })
+    .click();
   await page.locator(".challenge-level-card").first().waitFor();
   assert.equal(requestedURLs.filter((url) => url.includes("challenges/data-diagnosis.json")).length, 1);
   [...challengePackBySkill.values()].filter((pack) => pack.skillId !== dataDiagnosis.skillId).forEach((pack) => {
@@ -435,6 +461,49 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.close();
 }
 
+async function checkGlossaryReadAloud(browser) {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const requestedURLs = [];
+  const errors = [];
+  page.on("request", (request) => requestedURLs.push(request.url()));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  page.on("pageerror", (error) => errors.push(error.message));
+
+  await page.goto(`${baseURL}/#glossary/core-vocabulary`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.locator(".glossary-entry").first().waitFor();
+  assert.equal(await page.locator(".glossary-entry").count(), 20);
+  assert.equal(await page.locator(".glossary-page-picker option").count(), 25);
+  assert.equal(requestedURLs.filter((url) => url.includes("/audio/core-vocabulary/")).length, 0);
+
+  const wordButton = page.locator(".glossary-entry").first().locator(".glossary-entry-header .glossary-speak-button");
+  const wordResponsePromise = page.waitForResponse((response) => (
+    response.url().endsWith("/audio/core-vocabulary/001-word.mp3")
+  ));
+  await wordButton.click();
+  const wordResponse = await wordResponsePromise;
+  assert.equal(wordResponse.status(), 200);
+  assert.match(wordResponse.headers()["content-type"], /^audio\/mpeg/);
+
+  const interviewButton = page.locator(".glossary-entry").first()
+    .locator(".glossary-interview-practice .glossary-speak-button");
+  const interviewResponsePromise = page.waitForResponse((response) => (
+    response.url().endsWith("/audio/core-vocabulary/001-interview.mp3")
+  ));
+  await interviewButton.click();
+  const interviewResponse = await interviewResponsePromise;
+  assert.equal(interviewResponse.status(), 200);
+  assert.equal(await interviewButton.getAttribute("aria-pressed"), "true");
+
+  await page.locator(".glossary-pagination button").last().click();
+  assert.equal(await page.locator(".glossary-rank").first().textContent(), "021");
+  assert.equal(await page.locator(".glossary-speak-button.speaking").count(), 0);
+  assert.equal(requestedURLs.filter((url) => url.includes("/audio/core-vocabulary/")).length, 2);
+  assert.deepEqual(errors, []);
+  await page.close();
+}
+
 async function checkSkillLevelMigration(browser) {
   const page = await browser.newPage();
   const requestedURLs = [];
@@ -497,6 +566,7 @@ async function checkBusinessEnglishProgressMigration(browser) {
   try {
     await checkSkillLevelMigration(browser);
     await checkBusinessEnglishProgressMigration(browser);
+    await checkGlossaryReadAloud(browser);
     await checkPage(
       browser,
       { width: 1440, height: 1000 },

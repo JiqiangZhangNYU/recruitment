@@ -1394,62 +1394,99 @@ function renderChallengeGlossary(pack, glossary) {
   const recordings = new Map();
   const recordingSupported = Boolean(navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
   const speechSupported = Boolean(window.speechSynthesis && window.SpeechSynthesisUtterance);
+  const readAloudAudio = document.createElement("audio");
+  const generatedSpeechSupported = Boolean(readAloudAudio.canPlayType("audio/mpeg"));
+  const readAloudSupported = generatedSpeechSupported || speechSupported;
+  readAloudAudio.preload = "none";
   let activeRecording = null;
-  let activeSpeechButton = null;
+  let activeSpeech = null;
+
+  const finishSpeech = (request) => {
+    if (!request || activeSpeech !== request) return;
+    request.button.classList.remove("speaking");
+    request.button.setAttribute("aria-pressed", "false");
+    activeSpeech = null;
+  };
+
+  const speakWithBrowserVoice = (request) => {
+    if (!request || activeSpeech !== request || request.fallbackStarted) return;
+    request.fallbackStarted = true;
+    readAloudAudio.pause();
+    if (!speechSupported) {
+      finishSpeech(request);
+      return;
+    }
+    const utterance = new SpeechSynthesisUtterance(request.text);
+    utterance.lang = "en-US";
+    utterance.rate = 0.88;
+    utterance.pitch = 1;
+    const voices = speechSynthesis.getVoices();
+    utterance.voice = voices.find((voice) => voice.lang === "en-US" && voice.localService)
+      || voices.find((voice) => voice.lang === "en-US")
+      || voices.find((voice) => voice.lang.startsWith("en"))
+      || null;
+    utterance.addEventListener("end", () => finishSpeech(request));
+    utterance.addEventListener("error", () => finishSpeech(request));
+    speechSynthesis.speak(utterance);
+  };
+
+  readAloudAudio.addEventListener("ended", () => finishSpeech(activeSpeech));
+  readAloudAudio.addEventListener("error", () => speakWithBrowserVoice(activeSpeech));
 
   const stopSpeech = () => {
-    if (!speechSupported) return;
-    speechSynthesis.cancel();
-    if (!activeSpeechButton) return;
-    activeSpeechButton.classList.remove("speaking");
-    activeSpeechButton.setAttribute("aria-pressed", "false");
-    activeSpeechButton = null;
+    const request = activeSpeech;
+    activeSpeech = null;
+    if (speechSupported) speechSynthesis.cancel();
+    readAloudAudio.pause();
+    readAloudAudio.removeAttribute("src");
+    readAloudAudio.load();
+    if (!request) return;
+    request.button.classList.remove("speaking");
+    request.button.setAttribute("aria-pressed", "false");
   };
 
   const setSpeakButtonsDisabled = (disabled) => {
     article.querySelectorAll(".glossary-speak-button").forEach((button) => {
-      button.disabled = disabled || !speechSupported;
+      button.disabled = disabled || !readAloudSupported;
     });
   };
 
-  const makeSpeakButton = (text, label) => {
+  const makeSpeakButton = (text, label, audioPath) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "glossary-speak-button";
-    button.textContent = speechSupported ? "AI 朗读" : "朗读不可用";
-    button.disabled = !speechSupported;
+    button.textContent = readAloudSupported ? "AI 朗读" : "朗读不可用";
+    button.disabled = !readAloudSupported;
     button.setAttribute("aria-label", label);
     button.setAttribute("aria-pressed", "false");
     button.addEventListener("click", () => {
-      if (activeSpeechButton === button) {
+      if (activeSpeech?.button === button) {
         stopSpeech();
         return;
       }
       stopSpeech();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-US";
-      utterance.rate = 0.88;
-      utterance.pitch = 1;
-      const voices = speechSynthesis.getVoices();
-      utterance.voice = voices.find((voice) => voice.lang === "en-US" && voice.localService)
-        || voices.find((voice) => voice.lang === "en-US")
-        || voices.find((voice) => voice.lang.startsWith("en"))
-        || null;
-      const finish = () => {
-        if (activeSpeechButton !== button) return;
-        button.classList.remove("speaking");
-        button.setAttribute("aria-pressed", "false");
-        activeSpeechButton = null;
-      };
-      utterance.addEventListener("end", finish);
-      utterance.addEventListener("error", finish);
-      activeSpeechButton = button;
+      const request = { button, text, fallbackStarted: false };
+      activeSpeech = request;
       button.classList.add("speaking");
       button.setAttribute("aria-pressed", "true");
-      speechSynthesis.speak(utterance);
+      if (!generatedSpeechSupported) {
+        speakWithBrowserVoice(request);
+        return;
+      }
+      readAloudAudio.src = audioPath;
+      const playback = readAloudAudio.play();
+      if (playback?.catch) {
+        playback.catch(() => speakWithBrowserVoice(request));
+      } else if (readAloudAudio.paused) {
+        speakWithBrowserVoice(request);
+      }
     });
     return button;
   };
+
+  const glossaryAudioPath = (entry, kind) => (
+    `audio/core-vocabulary/${String(entry.rank).padStart(3, "0")}-${kind}.mp3`
+  );
 
   const setRecordButtonsDisabled = (disabled) => {
     article.querySelectorAll(".glossary-record-button").forEach((button) => {
@@ -1483,7 +1520,11 @@ function renderChallengeGlossary(pack, glossary) {
     copyHeading.className = "glossary-field-heading";
     copyHeading.append(
       makeTextElement("span", "glossary-field-label", "面试表达"),
-      makeSpeakButton(entry.interviewExpression, `朗读 ${entry.term} 的面试表达`),
+      makeSpeakButton(
+        entry.interviewExpression,
+        `朗读 ${entry.term} 的面试表达`,
+        glossaryAudioPath(entry, "interview"),
+      ),
     );
     copy.append(copyHeading, makeTextElement("p", "glossary-interview-expression", entry.interviewExpression));
 
@@ -1795,6 +1836,7 @@ function renderChallengeGlossary(pack, glossary) {
   };
 
   function renderEntries() {
+    stopSpeech();
     finishActiveRecording(true);
     const filtered = filteredEntries();
     const totalPages = Math.max(1, Math.ceil(filtered.length / GLOSSARY_PAGE_SIZE));
@@ -1815,7 +1857,7 @@ function renderChallengeGlossary(pack, glossary) {
       const title = document.createElement("div");
       title.append(
         makeTextElement("h3", "", entry.term),
-        makeSpeakButton(entry.term, `朗读单词 ${entry.term}`),
+        makeSpeakButton(entry.term, `朗读单词 ${entry.term}`, glossaryAudioPath(entry, "word")),
         makeTextElement("span", "glossary-category", entry.category),
         makeTextElement("span", "glossary-frequency", entry.frequency),
       );
@@ -1851,7 +1893,11 @@ function renderChallengeGlossary(pack, glossary) {
           "英文例句",
           entry.example,
           state.glossaryMasks.example,
-          makeSpeakButton(entry.example, `朗读 ${entry.term} 的英文例句`),
+          makeSpeakButton(
+            entry.example,
+            `朗读 ${entry.term} 的英文例句`,
+            glossaryAudioPath(entry, "example"),
+          ),
         ),
         makeGlossaryCoveredField("中文翻译", entry.translation, state.glossaryMasks.translation),
       );

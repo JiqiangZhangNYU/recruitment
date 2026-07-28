@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "model": "hexgrad/Kokoro-82M",
+  "voice": "af_heart",
+  "language": "en-US",
+  "sampleRate": 24000,
+  "format": "MP3 mono 48 kbps",
+  "pathPattern": "{rank:03d}-{word|example|interview}.mp3",
+  "expectedCount": 1500,
+  "completedCount": 1500
+}
