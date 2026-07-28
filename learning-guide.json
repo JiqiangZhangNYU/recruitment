@@ -1,9 +1,9 @@
 {
-  "version": 6,
-  "updatedAt": "2026-07-23",
+  "version": 7,
+  "updatedAt": "2026-07-28",
   "source": "A档岗位能力提升完整指南.md",
   "title": "A 档能力提升计划",
-  "summary": "面向上海支付策略、增长、商户、收入、支付绩效与方案商业化岗位，以 9 个边界清晰的技能域组织训练，形成可用于工作、简历和面试的能力证据。",
+  "summary": "面向上海支付策略、增长、商户、收入、支付绩效与方案商业化岗位，以边界清晰的技能域组织训练，形成可用于工作、简历和面试的能力证据。",
   "sample": {
     "totalJobs": 68,
     "aPlus": 6,
@@ -187,7 +187,7 @@
       "coverageLabel": "37/68；A+ 5/6",
       "goal": "围绕读 JD、写邮件、开会、汇报数据、解释策略和处理异议训练准确、简洁、可行动的工作英语。",
       "boundary": "训练英文工作表达，不重复国际市场分析、支付知识或项目管理方法。",
-      "challenge": { "levels": 10, "questions": 500, "glossary": 500, "label": "10 关 · 500 题 + 500 词", "loadingLabel": "正在加载业务英语关卡目录", "manifest": "challenges/business-english/manifest.json" },
+      "challenge": { "levels": 10, "questions": 500, "label": "10 关 · 500 题闯关", "loadingLabel": "正在加载业务英语关卡目录", "manifest": "challenges/business-english/manifest.json" },
       "path": [
         { "title": "输入与写作", "points": ["每周精读一份英文 JD 与一篇支付官方资料", "建立增长、指标、支付、风险和项目术语库", "使用 BLUF 写背景、结论、请求、负责人和时间"] },
         { "title": "口语与会议", "points": ["每周录制 3-5 分钟项目更新", "练习澄清、不同意、追问、总结和行动确认", "用短句和清晰结构替代背稿"] }
@@ -207,8 +207,29 @@
       "acceptance": ["听众 30 秒内知道结论与请求", "数字表达包含基线、变化、时间窗和限制", "能确认 owner 与 deadline", "语言错误不影响业务含义"]
     },
     {
-      "id": "international-collaboration",
+      "id": "core-vocabulary",
       "number": 6,
+      "group": "p0",
+      "priority": "P0",
+      "title": "核心词汇",
+      "coverageCount": 500,
+      "coverageTotal": 500,
+      "coverageLabel": "支付策划与业务运营 500 词",
+      "goal": "掌握支付链路、数据经营、风险合规、商户产品、定价外汇和策略治理中的高频英文词汇。",
+      "boundary": "专注术语识别、释义和语境记忆，不替代业务英语表达训练或支付方法论学习。",
+      "challenge": { "levels": 0, "questions": 0, "glossary": 500, "label": "500 词 · 遮盖自测", "loadingLabel": "正在加载核心词汇", "manifest": "challenges/core-vocabulary/manifest.json", "defaultPage": "challengeGlossary" },
+      "path": [
+        { "title": "高频识别", "points": ["按工作常用程度学习 500 个词条", "先看英文回忆中文释义", "结合支付业务语境理解词义"] },
+        { "title": "遮盖自测", "points": ["分别遮盖中文释义、英文例句和中文翻译", "点击揭示并即时核对", "标记掌握状态并优先复习未掌握词汇"] }
+      ],
+      "resources": [],
+      "exercises": ["每日按顺序复习 20 个词条", "只显示英文词条并口头解释中文含义", "遮盖中文翻译并复述英文例句", "筛选未掌握词汇进行二次复习"],
+      "deliverable": "支付业务核心词汇掌握清单。",
+      "acceptance": ["看到英文词条能准确解释中文含义", "能理解词条在支付业务例句中的使用方式", "500 个词条均完成至少一次自测"]
+    },
+    {
+      "id": "international-collaboration",
+      "number": 7,
       "group": "p0",
       "priority": "P0",
       "title": "国际市场与本地化",
@@ -238,7 +259,7 @@
     },
     {
       "id": "ecommerce-merchants",
-      "number": 7,
+      "number": 8,
       "group": "p1",
       "priority": "P1",
       "title": "电商与商家经营",
@@ -267,7 +288,7 @@
     },
     {
       "id": "research-insight",
-      "number": 8,
+      "number": 9,
       "group": "p1",
       "priority": "P1",
       "title": "用户与市场研究",
@@ -295,7 +316,7 @@
     },
     {
       "id": "experimentation",
-      "number": 9,
+      "number": 10,
       "group": "p1",
       "priority": "P1",
       "title": "实验与因果验证",

@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const repoRoot = path.join(__dirname, "..");
-const outputPath = path.join(repoRoot, "challenges", "business-english", "glossary.json");
+const outputPath = path.join(repoRoot, "challenges", "core-vocabulary", "glossary.json");
 const entries = [];
 
 function addEntries(category, source) {
@@ -605,5 +605,6 @@ const payload = {
   entries: glossary,
 };
 
+fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, `${JSON.stringify(payload, null, 2)}\n`);
 console.log(`Generated ${glossary.length} glossary entries at ${path.relative(repoRoot, outputPath)}.`);

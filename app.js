@@ -11,7 +11,8 @@ function learningRouteFromHash(hash) {
   if (hash === "#skills") return { page: "overview", skillId: null };
   if (hash === "#roadmap" || hash === "#portfolio") return { page: "overview", skillId: null };
   if (hash.startsWith("#glossary/")) {
-    const skillId = decodeURIComponent(hash.slice(10));
+    const requestedSkillId = decodeURIComponent(hash.slice(10));
+    const skillId = requestedSkillId === "business-english" ? "core-vocabulary" : requestedSkillId;
     if (skillId) return { page: "challengeGlossary", skillId, levelId: null, questionId: null };
   }
   if (hash.startsWith("#challenge/")) {
@@ -197,9 +198,9 @@ function setView(view, updateURL = true) {
   elements.appShell.dataset.view = state.view;
   const isSkills = state.view === "skills";
   elements.pageEyebrow.textContent = isSkills ? "A 档岗位共性技能 · 互动训练" : "上海硬性 · 大厂/支付官网 + BOSS";
-  elements.pageTitle.textContent = isSkills ? "九项技能提升" : "支付与策略运营岗位筛选";
+  elements.pageTitle.textContent = isSkills ? "技能提升" : "支付与策略运营岗位筛选";
   elements.profileSummary.textContent = isSkills
-    ? "从九项技能总览或左侧目录进入训练，学习进度自动保存在当前浏览器。"
+    ? "从技能总览或左侧目录进入训练，学习进度自动保存在当前浏览器。"
     : state.data?.profile.summary || "加载岗位数据中...";
   if (isSkills && !state.data) elements.sourceTime.textContent = "岗位数据按需加载";
   elements.viewButtons.forEach((button) => {
@@ -263,6 +264,10 @@ async function navigateLearning(page, skillId = null, updateURL = true, levelId 
     }
 
     const selectedSkill = state.guide.skills.find((skill) => skill.id === state.selectedSkill);
+    if (state.learningTab === "detail" && selectedSkill?.challenge?.defaultPage) {
+      await navigateLearning(selectedSkill.challenge.defaultPage, selectedSkill.id, updateURL);
+      return;
+    }
     const isChallenge = Boolean(selectedSkill?.challenge) && detailPages.includes(state.learningTab);
     let challengePack = null;
     let challengeGlossary = null;
@@ -597,14 +602,21 @@ function makePriorityBadge(skill) {
   return badge;
 }
 
+function skillLandingPage(skill) {
+  return skill.challenge?.defaultPage || "detail";
+}
+
 function makeSkillOverviewCard(skill) {
   const level = Number(state.skillLevels[skill.id]) || 0;
+  const isGlossary = skill.challenge?.defaultPage === "challengeGlossary";
+  const glossaryMastery = isGlossary ? getGlossaryMastery(skill.id).size : 0;
   const button = document.createElement("button");
   button.type = "button";
   button.className = `skill-overview-card skill-group-${skill.group}`;
   button.dataset.skillId = skill.id;
-  button.classList.toggle("mastered", level >= state.guide.targetLevel);
-  button.classList.toggle("challenge-enabled", Boolean(skill.challenge));
+  button.classList.toggle("mastered", isGlossary ? glossaryMastery === skill.challenge.glossary : level >= state.guide.targetLevel);
+  button.classList.toggle("challenge-enabled", Boolean(skill.challenge) && !isGlossary);
+  button.classList.toggle("glossary-enabled", isGlossary);
 
   const top = document.createElement("span");
   top.className = "overview-card-top";
@@ -616,7 +628,7 @@ function makeSkillOverviewCard(skill) {
   badges.append(makePriorityBadge(skill), coverage);
   const levelLabel = document.createElement("span");
   levelLabel.className = "overview-level";
-  levelLabel.textContent = `${level} 级`;
+  levelLabel.textContent = isGlossary ? `${glossaryMastery} / ${skill.challenge.glossary}` : `${level} 级`;
   top.append(badges, levelLabel);
 
   const title = document.createElement("strong");
@@ -633,7 +645,7 @@ function makeSkillOverviewCard(skill) {
   arrow.textContent = "→";
   meta.append(exerciseCount, arrow);
   button.append(top, title, goal, meta);
-  button.addEventListener("click", () => navigateLearning("detail", skill.id));
+  button.addEventListener("click", () => navigateLearning(skillLandingPage(skill), skill.id));
   return button;
 }
 
@@ -715,7 +727,11 @@ function glossaryMasteryStorageKey(skillId) {
 
 function getGlossaryMastery(skillId) {
   if (!state.glossaryMastery.has(skillId)) {
-    state.glossaryMastery.set(skillId, new Set(storedArray(glossaryMasteryStorageKey(skillId))));
+    const stored = storedArray(glossaryMasteryStorageKey(skillId));
+    if (skillId === "core-vocabulary" && !stored.length) {
+      stored.push(...storedArray(glossaryMasteryStorageKey("business-english")));
+    }
+    state.glossaryMastery.set(skillId, new Set(stored));
   }
   return state.glossaryMastery.get(skillId);
 }
@@ -941,12 +957,12 @@ function makeChallengeBreadcrumb(pack, level = null) {
   nav.setAttribute("aria-label", `${pack.title}导航`);
   const overview = document.createElement("button");
   overview.type = "button";
-  overview.textContent = "九项技能";
+  overview.textContent = "技能总览";
   overview.addEventListener("click", () => navigateLearning("overview"));
   const hub = document.createElement("button");
   hub.type = "button";
   hub.textContent = pack.title;
-  hub.addEventListener("click", () => navigateLearning("detail", pack.skillId));
+  hub.addEventListener("click", () => navigateLearning(pack.defaultPage || "detail", pack.skillId));
   nav.append(overview, makeTextElement("span", "", "/"), hub);
   if (level) nav.append(makeTextElement("span", "", "/"), makeTextElement("strong", "", level.title));
   return nav;
@@ -955,28 +971,6 @@ function makeChallengeBreadcrumb(pack, level = null) {
 function setChallengeDetailChrome() {
   elements.detailBreadcrumb.hidden = true;
   elements.detailPagination.hidden = true;
-}
-
-function makeChallengeModuleTabs(pack, activeModule) {
-  const nav = document.createElement("nav");
-  nav.className = "challenge-module-tabs";
-  nav.setAttribute("aria-label", "业务英语训练模块");
-  [
-    { id: "questions", label: "互动题库", meta: `${challengeQuestions(pack).length} 题`, page: "detail" },
-    { id: "glossary", label: "核心词汇", meta: `${pack.glossary?.count || 0} 词`, page: "challengeGlossary" },
-  ].filter((item) => item.id !== "glossary" || pack.glossary).forEach((item) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.classList.toggle("active", item.id === activeModule);
-    button.setAttribute("aria-pressed", String(item.id === activeModule));
-    button.append(
-      makeTextElement("strong", "", item.label),
-      makeTextElement("span", "", item.meta),
-    );
-    button.addEventListener("click", () => navigateLearning(item.page, pack.skillId));
-    nav.append(button);
-  });
-  return nav;
 }
 
 function makeDailyMission(pack) {
@@ -1337,7 +1331,7 @@ function renderChallengeHub(pack) {
   });
 
   const reference = makeChallengeReference(pack);
-  article.append(makeChallengeBreadcrumb(pack), makeChallengeModuleTabs(pack, "questions"), header);
+  article.append(makeChallengeBreadcrumb(pack), header);
   if (reference) article.append(reference);
   article.append(makeDailyMission(pack), intro, grid);
   elements.skillDetailContainer.replaceChildren(article);
@@ -1533,6 +1527,7 @@ function renderChallengeGlossary(pack, glossary) {
         if (mastery.has(entry.term)) mastery.delete(entry.term);
         else mastery.add(entry.term);
         persistGlossaryMastery(pack.skillId);
+        renderLearningSidebar();
         updateMasteryProgress();
         if (state.glossaryUnmasteredOnly) renderEntries();
         else {
@@ -1606,7 +1601,6 @@ function renderChallengeGlossary(pack, glossary) {
 
   article.append(
     makeChallengeBreadcrumb(pack),
-    makeChallengeModuleTabs(pack, "glossary"),
     header,
     controls,
     resultHead,
@@ -2020,14 +2014,17 @@ function renderLearningSidebar() {
     state.guide.skills.filter((skill) => skill.group === group.id).forEach((skill) => {
       const level = Number(state.skillLevels[skill.id]) || 0;
       const pack = state.challengePacks.get(skill.id);
-      const challengeMeta = pack
-        ? `${getChallengeProgress(skill.id).size}/${challengeQuestions(pack).length}`
-        : "闯关";
+      const isGlossary = skill.challenge?.defaultPage === "challengeGlossary";
+      const challengeMeta = isGlossary
+        ? `${getGlossaryMastery(skill.id).size}/${skill.challenge.glossary}`
+        : pack
+          ? `${getChallengeProgress(skill.id).size}/${challengeQuestions(pack).length}`
+          : "闯关";
       section.append(makeLearningNavButton(
         skill.title,
         skill.challenge ? challengeMeta : `${level}级`,
         ["detail", "challengeLevel", "challengeQuestion", "challengeGlossary"].includes(state.learningTab) && state.selectedSkill === skill.id,
-        () => navigateLearning("detail", skill.id),
+        () => navigateLearning(skillLandingPage(skill), skill.id),
       ));
     });
     elements.learningSkillNav.append(section);

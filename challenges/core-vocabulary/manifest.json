@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "skillId": "core-vocabulary",
+  "title": "核心词汇",
+  "summary": "500 个支付策划与业务运营高频词条，覆盖支付链路、数据经营、风险合规、商户产品、定价外汇和策略治理。",
+  "story": "按工作中的常用程度排序，通过遮盖、揭示和掌握标记进行自我考察。",
+  "defaultPage": "challengeGlossary",
+  "glossary": {
+    "count": 500,
+    "title": "支付业务英语词汇表",
+    "file": "challenges/core-vocabulary/glossary.json"
+  },
+  "levels": []
+}

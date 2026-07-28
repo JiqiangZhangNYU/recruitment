@@ -517,8 +517,9 @@ select {
 .skill-overview-card.skill-group-p1::before { background: var(--b); }
 .skill-overview-card:hover { border-color: var(--accent); transform: translateY(-1px); }
 .skill-overview-card.mastered { border-color: color-mix(in srgb, var(--a) 55%, var(--line)); }
-.skill-overview-card.challenge-enabled { border-color: color-mix(in srgb, var(--accent) 48%, var(--line)); }
+.skill-overview-card.challenge-enabled, .skill-overview-card.glossary-enabled { border-color: color-mix(in srgb, var(--accent) 48%, var(--line)); }
 .skill-overview-card.challenge-enabled::after { position: absolute; top: 0; right: 14px; padding: 3px 7px; color: #fff; background: var(--accent); border-radius: 0 0 4px 4px; content: "闯关模式"; font: 700 8px var(--mono); }
+.skill-overview-card.glossary-enabled::after { position: absolute; top: 0; right: 14px; padding: 3px 7px; color: #fff; background: var(--accent); border-radius: 0 0 4px 4px; content: "词汇自测"; font: 700 8px var(--mono); }
 .overview-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .skill-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 18px; }
 .skill-priority { padding: 2px 6px; border-radius: 4px; font: 700 9px var(--mono); }
@@ -732,13 +733,7 @@ select {
 .challenge-question-navigation button:disabled { color: var(--muted); cursor: default; opacity: 0.55; }
 .challenge-question-navigation .challenge-home-button { color: var(--accent); }
 
-/* business English glossary */
-.challenge-module-tabs { display: flex; width: max-content; max-width: 100%; margin-bottom: 18px; padding: 3px; background: var(--surface-muted); border: 1px solid var(--line); border-radius: 6px; }
-.challenge-module-tabs button { display: flex; align-items: baseline; gap: 8px; min-width: 156px; padding: 7px 12px; color: var(--muted); background: transparent; border: 0; border-radius: 4px; text-align: left; }
-.challenge-module-tabs button:hover { color: var(--ink); }
-.challenge-module-tabs button.active { color: #fff; background: var(--accent); }
-.challenge-module-tabs strong { font-size: 11px; }
-.challenge-module-tabs span { margin-left: auto; font: 9px var(--mono); }
+/* core vocabulary */
 .glossary-page { width: min(100%, 1180px); }
 .glossary-controls { margin-top: 18px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 7px; box-shadow: var(--shadow); }
 .glossary-filters { display: grid; grid-template-columns: minmax(220px, 1.7fr) minmax(130px, 0.8fr) minmax(130px, 0.8fr) auto; align-items: end; gap: 10px; padding: 14px 15px; }
@@ -981,8 +976,6 @@ dialog li { margin: 6px 0; padding-left: 5px; }
   .challenge-reward-mark { top: 20px; left: 17px; }
   .challenge-question-navigation { grid-template-columns: 1fr; }
   .challenge-question-navigation button { white-space: normal; }
-  .challenge-module-tabs { width: 100%; margin-bottom: 14px; }
-  .challenge-module-tabs button { min-width: 0; flex: 1; padding: 7px 9px; }
   .glossary-hero { gap: 15px; }
   .glossary-controls { margin-top: 14px; }
   .glossary-filters { grid-template-columns: 1fr 1fr; padding: 12px; }
