@@ -4,6 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const guide = require("../learning-guide.json");
 const interviewPlan = require("../interview-plan.json");
+const interviewQuestionBank = require("../interview-question-bank.json");
 const jobsData = require("../jobs.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
 const businessEnglishManifest = require("../challenges/business-english/manifest.json");
@@ -24,22 +25,74 @@ assert.equal(interviewPlan.questions.length, 12);
 assert.equal(new Set(interviewPlan.questions.map((question) => question.id)).size, interviewPlan.questions.length);
 assert.equal(new Set(interviewPlan.categories.map((category) => category.id)).size, interviewPlan.categories.length);
 const interviewCategoryIds = new Set(interviewPlan.categories.map((category) => category.id));
+
+function validInterviewCheck(check) {
+  if (!(check.id && check.label && check.kind && check.problem && check.improvement && check.followUp)) return false;
+  if (check.kind === "keywordGroups") {
+    return check.groups?.length
+      && check.groups.every((group) => Array.isArray(group) && group.length)
+      && Number.isInteger(check.minGroups)
+      && check.minGroups > 0;
+  }
+  if (check.kind === "regexCount") return Boolean(check.pattern) && Number.isInteger(check.min) && check.min > 0;
+  if (["charRange", "wordRange"].includes(check.kind)) {
+    return Number.isFinite(check.min) && Number.isFinite(check.max) && check.max >= check.min;
+  }
+  return check.kind === "targetSpecificity";
+}
+
 assert.ok(interviewPlan.questions.every((question) => (
   interviewCategoryIds.has(question.category)
   && question.title
   && question.prompt
   && question.intent
+  && question.duration
+  && Array.isArray(question.dimensions)
   && question.framework.length >= 4
   && question.checks.length === 5
-  && question.checks.every((check) => (
-    check.id
-    && check.label
-    && check.kind
-    && check.problem
-    && check.improvement
-    && check.followUp
-  ))
+  && question.checks.every(validInterviewCheck)
 )));
+assert.equal(interviewQuestionBank.questions.length, 19);
+assert.ok(interviewQuestionBank.methodSources.length >= 5);
+assert.ok(interviewQuestionBank.methodSources.every((source) => (
+  source.name && source.focus && /^https:\/\//.test(source.url)
+)));
+assert.equal(Object.keys(interviewQuestionBank.answerGuides).length, interviewPlan.questions.length);
+assert.deepEqual(
+  new Set(Object.keys(interviewQuestionBank.answerGuides)),
+  new Set(interviewPlan.questions.map((question) => question.id)),
+);
+const allInterviewQuestionIds = [
+  ...interviewPlan.questions.map((question) => question.id),
+  ...interviewQuestionBank.questions.map((question) => question.id),
+];
+assert.equal(new Set(allInterviewQuestionIds).size, allInterviewQuestionIds.length);
+assert.ok(interviewQuestionBank.questions.every((question) => (
+  interviewCategoryIds.has(question.category)
+  && ["high", "medium", "supplementary"].includes(question.priority)
+  && question.formats?.length
+  && question.stages?.length
+  && question.roleFamilies?.length
+  && question.duration
+  && Array.isArray(question.dimensions)
+  && question.framework?.length >= 4
+  && question.answerEdge
+  && question.evidence?.length >= 3
+  && question.followUps?.length >= 3
+  && question.pitfalls?.length >= 2
+  && interviewQuestionBank.checkProfiles[question.checkProfile]?.length === 5
+)));
+assert.ok(Object.values(interviewQuestionBank.checkProfiles).every((checks) => (
+  checks.length === 5
+  && checks.every(validInterviewCheck)
+)));
+assert.ok(interviewPlan.questions.every((question) => {
+  const answerGuide = interviewQuestionBank.answerGuides[question.id];
+  return answerGuide.answerEdge
+    && answerGuide.evidence.length >= 3
+    && answerGuide.followUps.length >= 3
+    && answerGuide.pitfalls.length >= 2;
+}));
 
 function checkChallengePackData(pack, expectedLevels, expectedQuestions) {
   assert.equal(pack.levels.length, expectedLevels);
@@ -519,8 +572,18 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-a-count").textContent(), String(aJobs.length));
   assert.equal(await page.locator("#interview-question-title").textContent(), "支付成功率突降诊断");
   assert.equal(await page.locator("#interview-framework-list li").count(), 5);
+  assert.equal(await page.locator("#interview-evidence-list li").count(), 3);
+  assert.equal(await page.locator("#interview-prep-followup-list li").count(), 3);
+  assert.equal(await page.locator("#interview-pitfall-list li").count(), 2);
+  assert.equal(await page.locator("#interview-evidence-heading").textContent(), "必须准备的事实");
+  assert.match(await page.locator("#interview-guide-note").textContent(), /不要补造数字/);
+  assert.equal(await page.locator("#interview-core-mode").getAttribute("aria-selected"), "true");
+  assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "false");
+  assert.equal(await page.locator("#interview-bank-browser").isHidden(), true);
+  assert.equal(await page.locator("#interview-bank-count").textContent(), String(interviewQuestionBank.questions.length));
   assert.equal(await page.locator("#interview-feedback").isHidden(), true);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-plan.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-question-bank.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("jobs.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
 
@@ -570,11 +633,70 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.locator("#interview-panel").waitFor();
     assert.match(await page.locator("#interview-answer").inputValue(), /8 年国际支付/);
     assert.match(page.url(), /#interview\/fit-introduction$/);
+
+    await page.locator("#interview-bank-mode").click();
+    assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "true");
+    assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
+    assert.equal(await page.locator("#interview-question-select option").count(), interviewQuestionBank.questions.length);
+    assert.equal(await page.locator(".interview-bank-item").count(), interviewQuestionBank.questions.length);
+    assert.equal(await page.locator("#interview-bank-relevant").isDisabled(), false);
+    await page.locator("#interview-bank-relevant").check();
+    const relevantQuestionCount = await page.locator(".interview-bank-item").count();
+    assert.ok(relevantQuestionCount > 0 && relevantQuestionCount < interviewQuestionBank.questions.length);
+    await page.locator("#interview-bank-relevant").uncheck();
+    await page.locator("#interview-bank-search").fill("供给结构");
+    assert.equal(await page.locator(".interview-bank-item").count(), 1);
+    assert.equal(await page.locator("#interview-bank-result-count").textContent(), "1 题 · 已检查 0");
+    await page.locator(".interview-bank-item").click();
+    assert.equal(await page.locator("#interview-question-title").textContent(), "供给结构与商家生态诊断");
+    assert.match(await page.locator("#interview-answer-edge").textContent(), /招商|需求侧/);
+    assert.equal(await page.locator("#interview-evidence-heading").textContent(), "回答前先明确");
+    assert.match(await page.locator("#interview-guide-note").textContent(), /明确假设|未知结果/);
+    assert.match(page.url(), /#interview\/merchant-supply-structure$/);
+
+    const bankAnswer = [
+      "我的判断是先按品类和价格带定义需求缺口，不会直接扩大招商数量。",
+      "我会拆解新老商家队列、生命周期漏斗和头部集中度，用数据验证问题来自招商质量、冷启动还是流量机制。",
+      "优先选择高需求但有效供给不足的品类做试点，为潜力商家设计成长干预，同时设置 GMV、活跃供给、60 天留存、投诉和 ROI 护栏。",
+      "试点复盘后，只有增量成立且供给质量稳定才扩展；无效商家进入清退机制。",
+    ].join("");
+    await page.locator("#interview-answer").fill(bankAnswer);
+    await page.locator("#interview-analyze-answer").click();
+    await page.locator("#interview-feedback").waitFor();
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `1 / ${interviewPlan.questions.length}`);
+    assert.match(await page.locator(".interview-bank-item").textContent(), /已检查/);
+    assert.equal(await page.locator(".interview-bank-arrow").textContent(), "✓");
+    assert.deepEqual(
+      new Set(await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1")))),
+      new Set(["fit-introduction", "merchant-supply-structure"]),
+    );
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.locator("#interview-panel").waitFor();
+    assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "true");
+    assert.match(await page.locator("#interview-answer").inputValue(), /需求缺口/);
+    assert.match(page.url(), /#interview\/merchant-supply-structure$/);
+
+    await page.evaluate(() => { location.hash = "#interview"; });
+    await page.locator("#interview-panel").waitFor();
+    await page.waitForFunction(() => document.querySelector("#interview-question-title")?.textContent === "两分钟自我介绍与岗位匹配");
+    assert.equal(await page.locator("#interview-core-mode").getAttribute("aria-selected"), "true");
+    assert.match(page.url(), /#interview$/);
+    await page.evaluate(() => { location.hash = "#interview/not-a-real-question"; });
+    await page.waitForURL(/#interview\/fit-introduction$/);
+    assert.equal(await page.locator("#interview-question-title").textContent(), "两分钟自我介绍与岗位匹配");
   } else {
     assert.equal(await page.locator(".interview-navigation").isHidden(), true);
     await page.locator("#interview-analyze-answer").click();
     assert.equal(await page.locator("#interview-feedback").isHidden(), true);
     assert.match(await page.locator("#interview-input-message").textContent(), /至少 40 个/);
+    await page.locator("#interview-bank-mode").click();
+    assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
+    assert.equal(await page.locator("#interview-bank-relevant").isDisabled(), true);
+    await page.locator("#interview-bank-search").fill("不存在的题目关键词");
+    assert.equal(await page.locator(".interview-bank-item").count(), 0);
+    assert.equal(await page.locator("#interview-bank-empty").isVisible(), true);
+    await page.locator("#interview-bank-search").fill("");
+    assert.equal(await page.locator(".interview-bank-item").count(), interviewQuestionBank.questions.length);
   }
 
   const layout = await page.evaluate(() => ({
@@ -587,6 +709,29 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.ok(layout.overflow <= 1, `interview horizontal overflow: ${layout.overflow}px (${layout.offenders.join(", ")})`);
   assert.deepEqual(errors, []);
   if (screenshotPath) await page.screenshot({ path: screenshotPath, fullPage: false });
+  await page.close();
+}
+
+async function checkInterviewBankFallback(browser) {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const errors = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.route("**/interview-question-bank.json", (route) => route.fulfill({
+    status: 404,
+    contentType: "application/json",
+    body: JSON.stringify({ error: "not found" }),
+  }));
+  await page.goto(`${baseURL}/#interview/payment-drop-diagnosis`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.locator("#interview-panel").waitFor();
+  assert.equal(await page.locator("#interview-question-title").textContent(), "支付成功率突降诊断");
+  assert.equal(await page.locator("#interview-question-select option").count(), interviewPlan.questions.length);
+  assert.equal(await page.locator("#interview-bank-mode").isDisabled(), true);
+  assert.equal(await page.locator("#interview-bank-count").textContent(), "0");
+  assert.equal(await page.locator("#interview-evidence-list li").count(), 3);
+  assert.ok(errors.every((message) => /Failed to load resource:.*404/.test(message)));
   await page.close();
 }
 
@@ -713,6 +858,7 @@ async function checkBusinessEnglishProgressMigration(browser) {
     await checkSkillLevelMigration(browser);
     await checkBusinessEnglishProgressMigration(browser);
     await checkGlossaryReadAloud(browser);
+    await checkInterviewBankFallback(browser);
     await checkInterviewPractice(
       browser,
       { width: 1440, height: 1000 },

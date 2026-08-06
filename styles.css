@@ -900,6 +900,12 @@ select {
 .interview-progress-summary strong { color: var(--accent); font: 700 16px var(--mono); }
 .interview-progress-track { height: 6px; margin-top: 8px; overflow: hidden; background: var(--line); border-radius: 3px; }
 .interview-progress-track span { display: block; width: 0; height: 100%; background: var(--accent); border-radius: inherit; transition: width 0.18s ease; }
+.interview-mode-switch { display: inline-grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 5px; }
+.interview-mode-switch button { min-height: 38px; padding: 7px 15px; color: var(--ink-soft); background: var(--surface); border: 0; font-size: 11px; font-weight: 700; }
+.interview-mode-switch button + button { border-left: 1px solid var(--line-strong); }
+.interview-mode-switch button.active { color: #fff; background: var(--accent); }
+.interview-mode-switch button:disabled { color: var(--muted); background: var(--surface-muted); cursor: not-allowed; }
+.interview-mode-switch span { margin-left: 5px; font: 700 9px var(--mono); opacity: 0.8; }
 .interview-controls {
   display: grid;
   grid-template-columns: minmax(240px, 0.9fr) minmax(280px, 1.1fr);
@@ -908,6 +914,32 @@ select {
 }
 .interview-controls label { display: grid; gap: 6px; color: var(--muted); font-size: 10px; font-weight: 700; }
 .interview-controls select { height: 38px; background: var(--surface); }
+.interview-bank-browser { margin: 0 0 16px; padding: 17px 0 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line-strong); }
+.interview-bank-browser[hidden] { display: none; }
+.interview-bank-browser > header { display: flex; align-items: end; justify-content: space-between; gap: 18px; }
+.interview-bank-browser > header span { color: var(--accent); font: 700 9px var(--mono); }
+.interview-bank-browser > header h3 { margin: 3px 0 0; font-size: 16px; }
+.interview-bank-browser > header > strong { color: var(--muted); font: 700 10px var(--mono); }
+.interview-bank-filters { display: grid; grid-template-columns: minmax(220px, 1.25fr) minmax(160px, 0.75fr) max-content; gap: 10px; margin-top: 14px; }
+.interview-bank-filters > label:not(.interview-bank-relevant-control) { display: grid; gap: 5px; color: var(--muted); font-size: 10px; font-weight: 700; }
+.interview-bank-filters input[type="search"],
+.interview-bank-filters select { width: 100%; min-width: 0; height: 39px; padding: 8px 10px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; font-size: 12px; }
+.interview-bank-relevant-control { display: flex; align-items: center; align-self: end; min-height: 39px; gap: 7px; padding: 0 10px; color: var(--ink-soft); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; font-size: 11px; }
+.interview-bank-relevant-control:has(input:disabled) { color: var(--muted); cursor: not-allowed; opacity: 0.7; }
+.interview-bank-relevant-control input { width: 15px; height: 15px; margin: 0; accent-color: var(--accent); }
+.interview-bank-list { max-height: 315px; margin-top: 13px; overflow-y: auto; border-top: 1px solid var(--line); }
+.interview-bank-item { display: grid; grid-template-columns: minmax(0, 1fr) 18px; width: 100%; gap: 12px; padding: 11px 9px; color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--line); text-align: left; }
+.interview-bank-item:hover, .interview-bank-item.active { background: var(--surface-muted); }
+.interview-bank-item.active { box-shadow: inset 3px 0 0 var(--accent); }
+.interview-bank-item > span:first-child,
+.interview-bank-item strong,
+.interview-bank-item > span:first-child > span { display: block; min-width: 0; }
+.interview-bank-item strong { font-size: 12px; overflow-wrap: anywhere; }
+.interview-bank-item > span:first-child > span { margin-top: 3px; color: var(--muted); font-size: 9px; line-height: 1.5; }
+.interview-bank-arrow { align-self: center; color: var(--muted); font-size: 20px; line-height: 1; }
+.interview-bank-item.active .interview-bank-arrow,
+.interview-bank-item.reviewed .interview-bank-arrow { color: var(--accent); }
+.interview-bank-empty { margin: 14px 0 0; color: var(--muted); font-size: 11px; }
 .interview-workbench {
   overflow: hidden;
   background: var(--surface);
@@ -956,6 +988,17 @@ select {
 .interview-framework-list span { display: block; }
 .interview-framework-list strong { color: var(--ink); font-size: 11px; }
 .interview-framework-list span { margin-top: 3px; color: var(--ink-soft); font-size: 11px; line-height: 1.55; }
+.interview-guide-step { background: var(--surface); }
+.interview-answer-edge { margin: 15px 0 0; padding: 12px 14px; color: var(--ink); background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 12px; font-weight: 600; line-height: 1.7; }
+.interview-guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 17px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.interview-guide-grid > section { min-width: 0; padding: 14px 18px 15px 0; }
+.interview-guide-grid > section + section { padding-left: 18px; border-left: 1px solid var(--line); }
+.interview-guide-grid h4 { margin: 0 0 8px; color: var(--ink); font-size: 11px; }
+.interview-guide-grid ul { margin: 0; padding-left: 17px; }
+.interview-guide-grid li { margin: 6px 0; color: var(--ink-soft); font-size: 10px; line-height: 1.6; overflow-wrap: anywhere; }
+.interview-guide-grid > section:nth-child(2) h4 { color: var(--b); }
+.interview-guide-grid > section:nth-child(3) h4 { color: var(--danger); }
+.interview-guide-note { margin: 11px 0 0; color: var(--muted); font-size: 9px; line-height: 1.6; }
 .interview-answer-label { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 #interview-answer {
   display: block;
@@ -1122,8 +1165,18 @@ dialog li { margin: 6px 0; padding-left: 5px; }
   .interview-plan-header h2 { font-size: 19px; }
   .interview-plan-header > div:first-child > p:last-child { font-size: 12px; line-height: 1.65; }
   .interview-progress-summary { width: 100%; flex-basis: auto; }
+  .interview-mode-switch { display: grid; width: 100%; margin-top: 13px; }
+  .interview-mode-switch button { min-height: 42px; padding: 8px; }
   .interview-controls { grid-template-columns: 1fr; gap: 10px; padding: 13px 0; }
   .interview-controls select { height: 42px; font-size: 13px; }
+  .interview-bank-browser { margin-bottom: 13px; padding: 14px 0; }
+  .interview-bank-browser > header { align-items: flex-start; }
+  .interview-bank-browser > header h3 { font-size: 15px; }
+  .interview-bank-filters { grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+  .interview-bank-filters input[type="search"], .interview-bank-filters select { height: 44px; font-size: 13px; }
+  .interview-bank-relevant-control { align-self: stretch; min-height: 44px; }
+  .interview-bank-list { max-height: 350px; }
+  .interview-bank-item { padding: 12px 8px; }
   .interview-step { grid-template-columns: 1fr; gap: 12px; padding: 18px 15px 20px; }
   .interview-step-number { width: 32px; height: 27px; }
   .interview-question-heading { gap: 10px; }
@@ -1134,6 +1187,11 @@ dialog li { margin: 6px 0; padding-left: 5px; }
   .interview-section-heading .secondary-button { width: 100%; min-height: 40px; }
   .interview-framework-list { grid-template-columns: 1fr; gap: 0; margin-top: 13px; }
   .interview-framework-list li { min-height: 54px; }
+  .interview-answer-edge { margin-top: 13px; padding: 11px 12px; }
+  .interview-guide-grid { grid-template-columns: 1fr; margin-top: 14px; }
+  .interview-guide-grid > section { padding: 13px 0; }
+  .interview-guide-grid > section + section { padding: 13px 0; border-top: 1px solid var(--line); border-left: 0; }
+  .interview-guide-grid li { font-size: 11px; }
   #interview-answer { min-height: 300px; margin-top: 13px; padding: 13px; font-size: 14px; }
   .interview-answer-footer { align-items: stretch; flex-direction: column; gap: 9px; }
   .interview-answer-footer > div { display: grid; grid-template-columns: 0.7fr 1.3fr; }

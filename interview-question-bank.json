@@ -1,0 +1,341 @@
+{
+  "version": 1,
+  "title": "A 档运营岗位高频题库",
+  "description": "根据当前 A 档岗位职责与通用运营面试方法整理。重点不是背标准答案，而是准备可复用的真实事实、清晰判断和可追问证据。",
+  "methodSources": [
+    { "name": "Mastercard Interview Tips", "url": "https://careers.mastercard.com/us/en/interview-tips", "focus": "行为问题、问题解决、岗位动机与熟悉个人经历" },
+    { "name": "Amazon Program Manager Interview Prep", "url": "https://amazon.jobs/content/en/how-we-hire/program-manager-interview-prep", "focus": "STAR、个人行动、量化结果与项目管理" },
+    { "name": "McKinsey Interviewing", "url": "https://www.mckinsey.com/careers/interviewing/en", "focus": "个人经历深挖、结构化分析、事实与结论" },
+    { "name": "Microsoft Interview Tips", "url": "https://careers.microsoft.com/v2/global/en/hiring-tips/interview-tips.html", "focus": "能力证据、思考过程、澄清与协作" },
+    { "name": "Adyen Formula", "url": "https://careers.adyen.com/formula", "focus": "客户长期价值、快速迭代、直接沟通与跨文化协作" },
+    { "name": "MIT STAR Method", "url": "https://capd.mit.edu/resources/the-star-method-for-behavioral-interviews/", "focus": "行为面试的情境、任务、行动与结果结构" }
+  ],
+  "answerGuides": {
+    "fit-introduction": {
+      "answerEdge": "不要按时间复述简历。先给出一个职业标签，再用两项最匹配目标岗位的结果证明，最后说明为什么此刻选择这类业务。",
+      "evidence": ["一句能被记住的职业定位", "一至两项最强成果的可靠证据与个人责任", "目标 JD 最重要的要求及对应经历"],
+      "followUps": ["如果只能记住你一个标签，应该是什么？", "哪一项经历与这个岗位最直接相关？", "为什么是现在，而不是一年前或一年后？"],
+      "pitfalls": ["从毕业经历开始逐段复述简历", "只说自己经验丰富，却没有数字和岗位映射"]
+    },
+    "signature-project": {
+      "answerEdge": "把行动讲成一条因果链：你根据什么证据作出什么关键判断，推动了谁做什么，结果为何可以归因于这些动作。",
+      "evidence": ["项目目标、基线、周期和约束", "本人作出的关键判断及三个具体动作", "主指标、商业结果、护栏和归因证据"],
+      "followUps": ["哪个决策最能体现你的判断力？", "如果没有你的参与，项目最可能卡在哪里？", "结果中有多少来自外部环境而不是你的动作？"],
+      "pitfalls": ["背景铺陈过长，行动只有一句", "通篇使用“我们”，面试官无法识别个人贡献"]
+    },
+    "setback-reflection": {
+      "answerEdge": "失败题的优势不在于把结果说轻，而在于主动认责、准确拆因，并证明复盘真正改变了后续行为。",
+      "evidence": ["原目标与实际结果的明确差距", "自己当时判断错误或执行不足的部分", "复盘后改变的机制及下一次结果"],
+      "followUps": ["你最早在哪个信号出现时就该调整？", "撇开外部因素，你本人应承担什么？", "如何证明这次复盘不是一句空话？"],
+      "pitfalls": ["把失败包装成无关痛痒的优点", "主要归因于资源不足或其他团队不配合"]
+    },
+    "merchant-wallet-growth-case": {
+      "answerEdge": "先按商户阶段和价值分层，再找到一个最窄的关键阻力；方案必须同时说明增长收益、商户体验和风险护栏。",
+      "evidence": ["商户分层、漏斗和流失节点数据", "所选动作相对其他方案的优先级依据", "首笔、留存、交易额与投诉或风险指标"],
+      "followUps": ["为什么先做这一层商户？", "增长来自补贴还是产品价值？", "停止激励后效果还能保留多少？"],
+      "pitfalls": ["一上来就发券或做活动，没有诊断", "只报交易增长，不看成本、留存和风险"]
+    },
+    "international-bnpl-growth": {
+      "answerEdge": "把增长与信贷约束放在同一张决策表中：选择高潜且风险可控的人群，从小规模验证单位经济性后再扩量。",
+      "evidence": ["国家、人群和生命周期分层依据", "转化、复借、收益与坏账护栏", "实验样本、周期、增量与扩量条件"],
+      "followUps": ["为什么这个市场值得优先投入？", "转化提升但逾期也上升时怎么决策？", "如何区分真实增量与提前透支需求？"],
+      "pitfalls": ["只讲增长，不讲风险和合规", "直接复制中国经验，忽略当地支付习惯与监管"]
+    },
+    "merchant-segmentation": {
+      "answerEdge": "分层不是贴标签，而是为差异化动作服务。先定义价值与潜力，再为每层匹配目标、权益、触达和退出规则。",
+      "evidence": ["分层变量、阈值和数据口径", "每一层不同的运营动作及成本", "迁移率、增量价值和分层稳定性"],
+      "followUps": ["为什么不用交易额单一分层？", "新商户没有历史数据时如何归类？", "多久重算一次，如何处理层级迁移？"],
+      "pitfalls": ["只列高、中、低三层，没有差异化动作", "指标很多但无法解释为何与业务价值相关"]
+    },
+    "payment-drop-diagnosis": {
+      "answerEdge": "先止损和确认口径，再沿支付链路定位变化点。没有证据前不武断归因，结尾给出验证顺序和恢复判断。",
+      "evidence": ["时间、地区、通道、卡组、错误码等切片", "故障前后变更与对照组", "业务损失、恢复指标和长期预防机制"],
+      "followUps": ["前 30 分钟你具体看哪三张表？", "如何判断是通道问题还是商户流量结构变化？", "恢复后怎样防止同类问题复发？"],
+      "pitfalls": ["罗列十种可能原因却没有排查顺序", "只做分析，不说明止损、沟通和恢复机制"]
+    },
+    "ab-incentive-design": {
+      "answerEdge": "先写清假设和真正增量，再设计可执行的随机化、主指标与护栏；最后说明何时放量、停止或继续实验。",
+      "evidence": ["实验假设、目标人群和随机化单元", "样本量、周期、主指标和护栏", "显著性、增量 ROI 与长期效果"],
+      "followUps": ["实验组之间会不会互相污染？", "短期转化上升但 30 天留存下降怎么办？", "结果不显著时你会得出什么结论？"],
+      "pitfalls": ["把上线前后对比当成 A/B 实验", "只看点击或转化，不看成本与长期护栏"]
+    },
+    "transfer-solutions-gtm": {
+      "answerEdge": "从客户场景和价值主张出发，而不是从功能清单出发；用一个可衡量的试点证明价值，再建立销售与交付复制机制。",
+      "evidence": ["目标行业、买方角色和核心痛点", "价值主张、竞争差异与定价逻辑", "试点成功标准、漏斗和收入结果"],
+      "followUps": ["客户为什么现在必须解决这个问题？", "销售最常见的异议是什么？", "从一个试点复制到十个客户的瓶颈是什么？"],
+      "pitfalls": ["只讲产品功能，没有客户价值和购买路径", "把发布当成成功，没有采用率和收入证据"]
+    },
+    "cross-functional-conflict": {
+      "answerEdge": "不要把冲突答案讲成“多沟通”。先复述双方合理目标，再说明你如何用共同指标、选项和决策机制推动取舍。",
+      "evidence": ["双方目标、分歧点和真实约束", "本人提出的数据、选项和决策机制", "最终决定、关系变化和业务结果"],
+      "followUps": ["对方最合理的担忧是什么？", "你做了什么让对方改变判断？", "如果仍无法达成一致，谁在何时作最终决定？"],
+      "pitfalls": ["把对方描述成不专业或不配合", "只说反复沟通，没有决策依据和结果"]
+    },
+    "english-project-retrospective": {
+      "answerEdge": "英语表达以清晰为先：一句话总结项目，再用短句讲个人行动、结果和反思；业务词准确比复杂句式更重要。",
+      "evidence": ["90 秒英文版项目摘要", "关键个人动作与可靠的业务证据", "一个风险或不足及后续改变"],
+      "followUps": ["What was the hardest decision you made?", "How did you measure incremental impact?", "What would you do differently next time?"],
+      "pitfalls": ["背诵长句，追问后无法自然展开", "使用很多抽象形容词，却缺少动作和指标"]
+    },
+    "why-role-90-days": {
+      "answerEdge": "动机必须同时回答 Why role、Why this company、Why me；90 天计划先发现问题，再试点验证，避免不了解内部情况就承诺夸张结果。",
+      "evidence": ["公司业务与岗位职责的具体吸引点", "三项 JD 要求对应的真实成果", "30、60、90 天各自的可见产物"],
+      "followUps": ["把公司名换掉后答案还成立吗？", "前 30 天最需要验证哪个假设？", "90 天时团队能看到什么具体产物？"],
+      "pitfalls": ["只说平台大、前景好、想学习", "计划全是学习和沟通，或直接承诺无法依据的数据"]
+    }
+  },
+  "checkProfiles": {
+    "behavioral": [
+      { "id": "context", "label": "情境与目标", "kind": "keywordGroups", "groups": [["背景", "当时", "阶段", "问题"], ["目标", "任务", "期限", "基线"]], "minGroups": 2, "problem": "情境或任务边界不够清楚。", "improvement": "用两句话交代业务背景、目标、基线、期限和约束。", "followUp": "你当时被要求交付的具体结果是什么？" },
+      { "id": "ownership", "label": "个人贡献", "kind": "keywordGroups", "groups": [["我负责", "我主导", "我决定", "我设计"], ["我分析", "我推动", "我协调", "我提出"]], "minGroups": 2, "problem": "个人责任和关键动作不够可辨认。", "improvement": "把团队叙述拆成你亲自作出的判断和推动的动作。", "followUp": "其中哪一个关键决定由你本人作出？" },
+      { "id": "action", "label": "行动有方法", "kind": "keywordGroups", "groups": [["分析", "访谈", "拆解", "定位"], ["方案", "机制", "试点", "推动"]], "minGroups": 2, "problem": "行动仍像过程概述，缺少方法。", "improvement": "按证据、判断、动作和协作对象讲清行动链。", "followUp": "你先做了什么，为什么按这个顺序？" },
+      { "id": "evidence", "label": "结果有证据", "kind": "keywordGroups", "groups": [["结果", "变化", "达成", "采纳", "上线"], ["基线", "范围", "趋势", "反馈", "周期"]], "minGroups": 2, "problem": "结果缺少可核验的变化、范围或反馈。", "improvement": "提供真实数字、范围、前后对比或可核验反馈；没有可靠数字时不要补造。", "followUp": "哪项事实最能证明结果确实发生？" },
+      { "id": "reflection", "label": "反思有变化", "kind": "keywordGroups", "groups": [["不足", "反思", "复盘", "学到"], ["后来", "此后", "再次", "调整"]], "minGroups": 2, "problem": "回答尚未证明经历带来了行为改变。", "improvement": "说明一个具体不足，以及后来新增或改变的动作机制。", "followUp": "这次经历之后，你具体改变了什么做法？" }
+    ],
+    "strategy": [
+      { "id": "conclusion", "label": "结论先行", "kind": "keywordGroups", "groups": [["我的判断", "我会优先", "核心问题", "优先选择"], ["因为", "依据", "原因"]], "minGroups": 2, "problem": "回答还没有先给出明确主张和依据。", "improvement": "第一段先说选择什么、为什么，以及暂时不做什么。", "followUp": "请用一句话给出你的建议。" },
+      { "id": "diagnosis", "label": "拆解有逻辑", "kind": "keywordGroups", "groups": [["分层", "漏斗", "拆解", "基线"], ["数据", "访谈", "对照", "验证"]], "minGroups": 2, "problem": "方案缺少从问题到证据的诊断过程。", "improvement": "先拆人群、环节或市场，再说需要哪些数据验证假设。", "followUp": "你最先验证的假设是什么？" },
+      { "id": "priority", "label": "优先级与取舍", "kind": "keywordGroups", "groups": [["优先级", "取舍", "暂不", "放弃"], ["影响", "成本", "可行性", "时效"]], "minGroups": 2, "problem": "列出了很多动作，却没有选择标准。", "improvement": "用影响、成本、可行性和时效明确排序，并指出不做项。", "followUp": "资源减半时你保留哪一项？" },
+      { "id": "evidence", "label": "指标与假设", "kind": "keywordGroups", "groups": [["指标", "口径", "基线", "目标"], ["假设", "区间", "数据", "取数"]], "minGroups": 2, "problem": "决策依据缺少指标口径或待验证假设。", "improvement": "说明要看什么指标、采用什么口径，以及信息不足时先验证哪个假设；不要编造未知数字。", "followUp": "哪个指标或假设决定继续或停止？" },
+      { "id": "validation", "label": "验证与护栏", "kind": "keywordGroups", "groups": [["试点", "实验", "验证", "里程碑"], ["护栏", "风险", "退出", "复盘"]], "minGroups": 2, "problem": "方案缺少低成本验证和风险边界。", "improvement": "写清试点范围、成功标准、护栏和扩展或停止条件。", "followUp": "什么结果会让你推翻当前建议？" }
+    ],
+    "operations": [
+      { "id": "baseline", "label": "现状可量化", "kind": "keywordGroups", "groups": [["基线", "现状", "口径", "流程"], ["指标", "时效", "错误率", "转化"]], "minGroups": 2, "problem": "现状和问题严重程度还不具体。", "improvement": "说明当前流程、指标基线、影响范围和最痛的环节。", "followUp": "改造前最核心的基线指标是什么？" },
+      { "id": "diagnosis", "label": "根因清楚", "kind": "keywordGroups", "groups": [["根因", "拆解", "定位", "异常"], ["数据", "访谈", "抽样", "日志"]], "minGroups": 2, "problem": "回答直接跳到方案，缺少根因证据。", "improvement": "结合数据和一线反馈定位根因，并区分症状与原因。", "followUp": "你如何证明这不是表面症状？" },
+      { "id": "mechanism", "label": "机制能复用", "kind": "keywordGroups", "groups": [["SOP", "机制", "看板", "预警"], ["责任人", "质检", "复盘", "自动化"]], "minGroups": 2, "problem": "方案仍是一次性救火，缺少长期机制。", "improvement": "补充标准、责任人、质检、预警和复盘闭环。", "followUp": "怎样让团队离开你也能稳定运行？" },
+      { "id": "ownership", "label": "推进有责任", "kind": "keywordGroups", "groups": [["我负责", "我主导", "我设计", "我推动"], ["产品", "技术", "销售", "区域", "风控"]], "minGroups": 2, "problem": "本人如何推动协作还不清楚。", "improvement": "说明你负责的决策、协作对象和解决阻力的动作。", "followUp": "最难推动的团队是谁，你做了什么？" },
+      { "id": "evidence", "label": "效果可验证", "kind": "keywordGroups", "groups": [["效率", "时效", "采用率", "转化"], ["质量", "错误率", "投诉", "护栏"], ["基线", "目标", "结果", "复盘"]], "minGroups": 2, "problem": "缺少效率、质量或业务结果的验证口径。", "improvement": "明确基线、目标指标和质量护栏；讲真实项目时再补充实际数字。", "followUp": "效率提升是否牺牲了质量？" }
+    ],
+    "commercial": [
+      { "id": "customer", "label": "客户价值明确", "kind": "keywordGroups", "groups": [["客户", "商户", "伙伴", "用户"], ["痛点", "需求", "价值", "场景"]], "minGroups": 2, "problem": "回答从内部目标出发，没有说明客户为什么买单或配合。", "improvement": "先定义客户场景、痛点、替代方案和可量化价值。", "followUp": "客户为什么现在要解决这个问题？" },
+      { "id": "economics", "label": "商业账算清", "kind": "keywordGroups", "groups": [["收入", "利润", "成本", "ROI", "LTV"], ["定价", "回收期", "增量", "预算"]], "minGroups": 2, "problem": "方案缺少单位经济性或商业结果判断。", "improvement": "补充收入、成本、增量和回收期，说明业务是否值得做。", "followUp": "这项方案的单位经济性如何？" },
+      { "id": "segmentation", "label": "分层与选择", "kind": "keywordGroups", "groups": [["分层", "优先", "高价值", "潜力"], ["标准", "阈值", "画像", "场景"]], "minGroups": 2, "problem": "客户范围太宽，没有明确先服务谁。", "improvement": "按价值、潜力和需求紧迫度分层，选择首批对象。", "followUp": "为什么优先这一类客户？" },
+      { "id": "tradeoff", "label": "谈判与取舍", "kind": "keywordGroups", "groups": [["取舍", "底线", "交换", "选项"], ["长期", "复用", "风险", "护栏"]], "minGroups": 2, "problem": "方案只有满足或拒绝，缺少可谈判选项。", "improvement": "说明底线、可交换条件、替代方案和长期影响。", "followUp": "你的底线是什么，可以交换什么？" },
+      { "id": "evidence", "label": "商业证据", "kind": "keywordGroups", "groups": [["客户价值", "交易量", "收入", "转化"], ["成本", "利润", "回收期", "风险"], ["基线", "假设", "口径", "结果"]], "minGroups": 2, "problem": "商业判断缺少价值、成本或结果口径。", "improvement": "说明至少一项价值指标和一项成本或风险指标；未知数据写成待验证假设。", "followUp": "最终产生了多少可归因的价值？" }
+    ],
+    "communication": [
+      { "id": "audience", "label": "面向听众", "kind": "keywordGroups", "groups": [["听众", "管理层", "业务", "非技术"], ["关心", "决策", "结论", "建议"]], "minGroups": 2, "problem": "表达没有围绕听众的决策需要组织。", "improvement": "先说听众要做什么决定，再给结论和最少必要证据。", "followUp": "听完汇报后，对方需要作出什么决定？" },
+      { "id": "structure", "label": "结构清楚", "kind": "keywordGroups", "groups": [["结论", "首先", "其次", "最后"], ["原因", "证据", "建议", "下一步"]], "minGroups": 2, "problem": "信息较多但主线不突出。", "improvement": "使用结论、三条证据、风险和请求的固定结构。", "followUp": "能否在 30 秒内说清结论和请求？" },
+      { "id": "evidence", "label": "证据适量", "kind": "keywordGroups", "groups": [["数据", "指标", "证据", "对照"], ["口径", "趋势", "影响", "不确定"]], "minGroups": 2, "problem": "观点缺少能支持决策的关键证据。", "improvement": "只保留最能改变决策的数据或事实，并解释口径与不确定性。", "followUp": "哪一项证据最能支持你的结论？" },
+      { "id": "ownership", "label": "推动动作", "kind": "keywordGroups", "groups": [["我分析", "我整理", "我提出", "我推动"], ["讨论", "对齐", "决策", "落地"]], "minGroups": 2, "problem": "还没有说明表达如何转化为行动。", "improvement": "补充你如何处理异议、促成决策并跟进执行。", "followUp": "对方最初不同意什么，你如何回应？" },
+      { "id": "outcome", "label": "决策结果", "kind": "keywordGroups", "groups": [["决定", "采纳", "批准", "调整"], ["结果", "提升", "下降", "复盘"]], "minGroups": 2, "problem": "汇报结束后发生了什么还不清楚。", "improvement": "说明最终决策、后续动作、结果和反馈闭环。", "followUp": "这次表达具体改变了什么？" }
+    ],
+    "growth": [
+      { "id": "diagnosis", "label": "先拆原因", "kind": "keywordGroups", "groups": [["队列", "分层", "渠道", "人群"], ["漏斗", "基线", "结构", "趋势"]], "minGroups": 2, "problem": "回答直接进入动作，没有先区分用户结构和体验变化。", "improvement": "先按队列、人群、渠道和关键行为拆解，再定位变化环节。", "followUp": "你最先切哪一个维度，为什么？" },
+      { "id": "hypothesis", "label": "假设可验证", "kind": "keywordGroups", "groups": [["假设", "原因", "根因", "信号"], ["数据", "访谈", "对照", "验证"]], "minGroups": 2, "problem": "原因判断缺少验证路径。", "improvement": "写清最可能的两项假设，以及分别需要什么数据推翻或支持。", "followUp": "什么证据会让你改变当前判断？" },
+      { "id": "action", "label": "分层动作", "kind": "keywordGroups", "groups": [["分层", "优先", "高价值", "关键时刻"], ["干预", "激活", "触达", "体验"]], "minGroups": 2, "problem": "动作面向所有人，缺少人群与场景差异。", "improvement": "选择一个高价值人群和关键时刻，给出最小干预方案。", "followUp": "为什么先服务这一类用户？" },
+      { "id": "metrics", "label": "增长质量", "kind": "keywordGroups", "groups": [["转化", "留存", "活跃", "收入"], ["成本", "LTV", "投诉", "退订", "护栏"]], "minGroups": 2, "problem": "只看短期增长，没有成本、长期价值或体验护栏。", "improvement": "同时定义主指标与成本、留存或体验护栏。", "followUp": "短期转化上升但长期价值下降怎么办？" },
+      { "id": "validation", "label": "验证后扩展", "kind": "keywordGroups", "groups": [["试点", "实验", "对照", "增量"], ["停止", "扩展", "复盘", "条件"]], "minGroups": 2, "problem": "方案缺少增量验证和扩展条件。", "improvement": "说明试点范围、增量判断、停止标准和扩展条件。", "followUp": "怎样证明效果来自你的动作而不是自然回升？" }
+    ],
+    "insight": [
+      { "id": "context", "label": "反馈有场景", "kind": "keywordGroups", "groups": [["用户", "客户", "商户", "人群"], ["场景", "环节", "任务", "阶段"]], "minGroups": 2, "problem": "反馈脱离了具体人群和使用场景。", "improvement": "先说明谁在什么场景下遇到什么阻力。", "followUp": "这条反馈来自哪类用户和哪个关键场景？" },
+      { "id": "triangulation", "label": "多源校验", "kind": "keywordGroups", "groups": [["访谈", "投诉", "问卷", "反馈"], ["日志", "行为", "漏斗", "数据"], ["样本", "偏差", "对照", "验证"]], "minGroups": 2, "problem": "只依赖单一信息源，无法解释冲突信号。", "improvement": "把定性反馈、行为数据和样本偏差放在一起校验。", "followUp": "三个来源冲突时，你按什么原则判断？" },
+      { "id": "problem", "label": "问题而非诉求", "kind": "keywordGroups", "groups": [["根因", "问题定义", "真实需求", "用户任务"], ["不是", "区分", "转化", "假设"]], "minGroups": 2, "problem": "把用户提出的功能直接当成了问题答案。", "improvement": "把原话翻译成用户任务、阻力和待验证问题。", "followUp": "如果不做用户要求的功能，还有什么办法解决？" },
+      { "id": "priority", "label": "优先级明确", "kind": "keywordGroups", "groups": [["频率", "严重度", "影响", "价值"], ["成本", "优先级", "取舍", "范围"]], "minGroups": 2, "problem": "没有说明为何先解决这项问题。", "improvement": "结合频率、严重度、客户价值和成本进行排序。", "followUp": "声音最大的问题为什么不一定最优先？" },
+      { "id": "loop", "label": "验证闭环", "kind": "keywordGroups", "groups": [["试点", "验证", "回访", "上线"], ["行为", "满意度", "采用", "复盘"]], "minGroups": 2, "problem": "需求交给产品后就结束，缺少验证闭环。", "improvement": "说明上线或试点后如何同时验证行为变化和主观反馈。", "followUp": "怎样确认你解决了问题而不是只交付功能？" }
+    ],
+    "delivery": [
+      { "id": "impact", "label": "影响与关键路径", "kind": "keywordGroups", "groups": [["关键路径", "依赖", "缓冲", "里程碑"], ["范围", "时限", "影响", "不可逆"]], "minGroups": 2, "problem": "尚未识别真正影响交付的路径和边界。", "improvement": "先重算关键路径、不可逆节点和受影响范围。", "followUp": "哪个节点决定最终交付日期？" },
+      { "id": "options", "label": "选项与取舍", "kind": "keywordGroups", "groups": [["选项", "替代", "并行", "分阶段"], ["取舍", "暂停", "缩减", "优先级"]], "minGroups": 2, "problem": "只有一个追赶方案，缺少可比较选项。", "improvement": "至少比较范围、时点、替代依赖或分阶段方案。", "followUp": "你明确决定不做什么？" },
+      { "id": "governance", "label": "责任与治理", "kind": "keywordGroups", "groups": [["责任人", "决策权", "负责人", "授权"], ["同步", "节奏", "里程碑", "看板"]], "minGroups": 2, "problem": "推进仍依赖本人盯细节，责任和治理不清。", "improvement": "明确负责人、决策权、检查节奏和升级边界。", "followUp": "哪些事情必须由你亲自处理？" },
+      { "id": "risk", "label": "风险透明", "kind": "keywordGroups", "groups": [["风险", "质量", "合规", "回滚"], ["升级", "预警", "阈值", "截止"]], "minGroups": 2, "problem": "风险或升级时点不够清楚。", "improvement": "定义质量护栏、预警阈值和最晚决策时间。", "followUp": "什么情况下你会立即升级？" },
+      { "id": "decision", "label": "推动决策", "kind": "keywordGroups", "groups": [["建议", "决定", "请求", "选择"], ["依据", "代价", "下一步", "复盘"]], "minGroups": 2, "problem": "只汇报状态，没有形成明确建议和下一步。", "improvement": "带着推荐方案、代价和明确请求推动决策。", "followUp": "你需要谁在什么时候作出什么决定？" }
+    ],
+    "motivation": [
+      { "id": "neutral", "label": "事实中性", "kind": "keywordGroups", "groups": [["原因", "变化", "调整", "重组", "职责", "地点", "阶段"], ["客观", "事实", "结束", "完成", "选择", "不匹配"]], "minGroups": 2, "problem": "离开原因带有情绪归咎，或没有交代客观变化。", "improvement": "可以如实说明重组、岗位变化、地点、职责或发展瓶颈，但保持事实中性，不攻击个人。", "followUp": "请把离开原因压缩成不归咎任何人的两句话。" },
+      { "id": "direction", "label": "下一步清楚", "kind": "keywordGroups", "groups": [["下一阶段", "长期", "希望", "想要"], ["深化", "扩大", "承担", "方向"]], "minGroups": 2, "problem": "职业变化缺少主动而连贯的方向。", "improvement": "说明下一阶段希望承担哪类更深或更大的业务问题。", "followUp": "你未来三年希望形成什么核心能力？" },
+      { "id": "specificity", "label": "目标岗位具体", "kind": "targetSpecificity", "problem": "动机仍适用于很多公司和岗位。", "improvement": "引用目标公司的具体业务或岗位职责，并连接自己的方向。", "followUp": "把公司名换掉后，这段答案还成立吗？" },
+      { "id": "evidence", "label": "选择有依据", "kind": "keywordGroups", "groups": [["我负责", "我主导", "我推动", "我完成"], ["项目", "业务", "客户", "结果"]], "minGroups": 2, "problem": "动机像临时想法，没有经历证据支持。", "improvement": "用一段真实经历证明你已经在向这个方向投入。", "followUp": "哪段经历证明这不是临时起意？" },
+      { "id": "future", "label": "能贡献什么", "kind": "keywordGroups", "groups": [["贡献", "上手", "带来", "解决"], ["经验", "能力", "方法", "资源"]], "minGroups": 2, "problem": "只讲自己想获得什么，没有说明能贡献什么。", "improvement": "结尾说明入职后最先能解决的问题和可迁移能力。", "followUp": "入职后你最先能为团队创造什么价值？" }
+    ],
+    "selfAwareness": [
+      { "id": "strength", "label": "优势可观察", "kind": "keywordGroups", "groups": [["优势", "擅长", "能力", "特点"], ["分析", "推动", "判断", "设计", "解决"]], "minGroups": 2, "problem": "优势仍是抽象形容词。", "improvement": "把优势改写成在特定场景下反复出现的可观察行为。", "followUp": "同事在哪种场景下最常找你帮忙？" },
+      { "id": "proof", "label": "优势有事实", "kind": "keywordGroups", "groups": [["例如", "一次", "项目", "当时"], ["我负责", "我主导", "我分析", "我推动"], ["结果", "改善", "达成", "反馈"]], "minGroups": 2, "problem": "优势缺少真实场景证明。", "improvement": "用一个具体项目说明你如何使用这项优势并产生结果。", "followUp": "哪一个事实最能证明这项优势？" },
+      { "id": "development", "label": "发展项真实", "kind": "keywordGroups", "groups": [["不足", "短板", "发展项", "需要提升"], ["曾经", "影响", "导致", "限制"]], "minGroups": 2, "problem": "发展项太安全，或没有承认真实影响。", "improvement": "选择真实、可改善且不击穿岗位核心能力的发展项，并说明影响。", "followUp": "这个问题最近一次带来了什么影响？" },
+      { "id": "action", "label": "改善有行动", "kind": "keywordGroups", "groups": [["现在", "开始", "调整", "练习"], ["机制", "反馈", "记录", "复盘", "习惯"]], "minGroups": 2, "problem": "改善停留在意愿层面。", "improvement": "说明一个已经持续执行的具体机制或习惯。", "followUp": "你每周具体做什么来改善？" },
+      { "id": "progress", "label": "进展可证明", "kind": "keywordGroups", "groups": [["后来", "近期", "变化", "进展"], ["反馈", "结果", "减少", "提升", "仍然"]], "minGroups": 2, "problem": "没有证据说明改善已经发生。", "improvement": "补充后续反馈、行为变化或结果，同时承认仍需继续改善。", "followUp": "谁能证明你已经有所改变？" }
+    ],
+    "feedback": [
+      { "id": "specific", "label": "反馈具体", "kind": "keywordGroups", "groups": [["反馈", "指出", "评价", "批评"], ["行为", "场景", "例子", "影响"]], "minGroups": 2, "problem": "反馈内容过于抽象。", "improvement": "说明谁在什么场景下指出了哪项可观察行为及影响。", "followUp": "对方当时引用了哪个具体例子？" },
+      { "id": "reaction", "label": "回应成熟", "kind": "keywordGroups", "groups": [["不舒服", "意外", "不同意", "第一反应"], ["倾听", "没有反驳", "冷静", "感谢"]], "minGroups": 2, "problem": "没有呈现真实反应或成熟处理方式。", "improvement": "克制地承认当时感受，并说明如何避免立即防御。", "followUp": "你当时最想反驳的是什么？" },
+      { "id": "verify", "label": "主动验证", "kind": "keywordGroups", "groups": [["追问", "例子", "确认", "验证"], ["同事", "数据", "观察", "事实"]], "minGroups": 2, "problem": "只是口头接受，没有验证反馈。", "improvement": "说明如何追问例子、听取其他视角或观察真实影响。", "followUp": "你怎么判断这条反馈是准确的？" },
+      { "id": "change", "label": "行为改变", "kind": "keywordGroups", "groups": [["后来", "此后", "改变", "调整"], ["机制", "习惯", "流程", "检查"]], "minGroups": 2, "problem": "没有说清反馈如何改变行为。", "improvement": "给出一个持续执行的新习惯、机制或检查动作。", "followUp": "第二天开始你具体做了什么不同的事？" },
+      { "id": "proof", "label": "改变有证据", "kind": "keywordGroups", "groups": [["后续反馈", "再次", "结果", "变化"], ["改善", "减少", "认可", "仍需"]], "minGroups": 2, "problem": "缺少后续证据证明改变有效。", "improvement": "补充后续评价、行为结果或仍然存在的不足。", "followUp": "对方后来如何评价你的变化？" }
+    ],
+    "budget": [
+      { "id": "objective", "label": "目标与约束", "kind": "keywordGroups", "groups": [["目标", "约束", "预算", "削减"], ["收入", "利润", "有效用户", "回收期"]], "minGroups": 2, "problem": "没有先明确预算要优化的业务结果。", "improvement": "先确认预算约束和本季度优先优化的收入、利润或有效用户目标。", "followUp": "这次分配最终只对哪一个结果负责？" },
+      { "id": "incrementality", "label": "增量与归因", "kind": "keywordGroups", "groups": [["增量", "自然转化", "归因", "蚕食"], ["对照", "实验", "归因窗口", "溢出"]], "minGroups": 2, "problem": "直接使用表面 ROI，尚未剔除自然转化或归因偏差。", "improvement": "说明如何估计增量、处理归因窗口和渠道间溢出。", "followUp": "没有这个渠道时，有多少转化仍会自然发生？" },
+      { "id": "marginal", "label": "边际回报", "kind": "keywordGroups", "groups": [["CAC", "ROI", "LTV", "回收期"], ["边际", "饱和", "曲线", "递减"]], "minGroups": 2, "problem": "只比较历史平均回报，没有考虑追加或削减后的边际效率。", "improvement": "比较各渠道的单位经济性和边际回报曲线。", "followUp": "再增加一元预算，哪个渠道的增量回报最高？" },
+      { "id": "allocation", "label": "分配有取舍", "kind": "keywordGroups", "groups": [["保留", "削减", "追加", "暂停"], ["取舍", "基本盘", "探索", "应急"]], "minGroups": 2, "problem": "仍是平均缩减，没有作真实选择。", "improvement": "明确哪些预算保留、削减或暂停，并保留适量探索空间。", "followUp": "你会先砍哪一项，为什么？" },
+      { "id": "reallocation", "label": "动态再分配", "kind": "keywordGroups", "groups": [["周度", "领先指标", "阈值", "观察窗口"], ["再分配", "调整", "停止", "复盘"]], "minGroups": 2, "problem": "预算一旦分完就固定，缺少动态调整机制。", "improvement": "设置观察窗口、领先指标和重新分配阈值。", "followUp": "两周后什么信号会触发你移动预算？" }
+    ],
+    "incentive": [
+      { "id": "goal", "label": "激励目标", "kind": "keywordGroups", "groups": [["目标", "签约", "激活", "交易", "收入"], ["客户价值", "有效", "增量", "周期"]], "minGroups": 2, "problem": "没有明确激励要推动到漏斗哪一层。", "improvement": "把奖励点放在客户产生真实价值的阶段，并明确增量目标。", "followUp": "为什么奖励这个行为而不是签约数量？" },
+      { "id": "alignment", "label": "规则激励相容", "kind": "keywordGroups", "groups": [["计分", "权重", "阶梯", "封顶"], ["分层", "难度", "潜力", "区域"]], "minGroups": 2, "problem": "规则没有反映客户质量、市场难度或边际价值。", "improvement": "说明计分、分层、阶梯和封顶如何引导正确行为。", "followUp": "销售怎样才能在不伤害客户的前提下获得更多奖励？" },
+      { "id": "guardrail", "label": "质量护栏", "kind": "keywordGroups", "groups": [["激活率", "有效交易", "留存", "收入"], ["退款", "投诉", "坏账", "风险", "护栏"]], "minGroups": 2, "problem": "只奖励规模，没有质量或风险护栏。", "improvement": "同时设置激活、留存或收入质量指标，以及退款、投诉或风险护栏。", "followUp": "签约上升但激活下降时如何结算？" },
+      { "id": "gaming", "label": "防止刷量", "kind": "keywordGroups", "groups": [["刷量", "重复", "异常", "套利"], ["质检", "追溯", "取消", "抽查", "申诉"]], "minGroups": 2, "problem": "没有识别规则可能被怎样利用。", "improvement": "预判刷量方式，并设计质检、追溯、取消奖励和申诉机制。", "followUp": "最容易出现的三种规则套利是什么？" },
+      { "id": "operations", "label": "运营闭环", "kind": "keywordGroups", "groups": [["培训", "看板", "答疑", "口径"], ["周度", "复盘", "试点", "迭代"]], "minGroups": 2, "problem": "方案停留在规则设计，没有落地运营。", "improvement": "补充试点、培训、看板、答疑和周度复盘。", "followUp": "如何让销售理解并信任这套规则？" }
+    ],
+    "supply": [
+      { "id": "gap", "label": "供需缺口", "kind": "keywordGroups", "groups": [["需求", "供给", "缺口", "品类"], ["价格带", "区域", "场景", "质量"]], "minGroups": 2, "problem": "直接谈招商，没有定义需求侧缺少什么供给。", "improvement": "先按品类、价格带、区域或场景定位供需缺口。", "followUp": "用户真正缺少的是商家数量还是有效商品？" },
+      { "id": "structure", "label": "结构与生命周期", "kind": "keywordGroups", "groups": [["头部", "腰部", "中小", "新老商家"], ["引入", "冷启动", "成长", "留存", "清退"]], "minGroups": 2, "problem": "没有拆解商家结构和生命周期阶段。", "improvement": "比较不同商家层级及引入、冷启动、成长、留存和清退环节。", "followUp": "问题主要发生在哪类商家和哪个阶段？" },
+      { "id": "cause", "label": "根因可验证", "kind": "keywordGroups", "groups": [["招商质量", "商品力", "流量", "服务", "规则"], ["假设", "数据", "访谈", "对照", "验证"]], "minGroups": 2, "problem": "尚未区分商家能力、平台机制和服务问题。", "improvement": "提出根因假设，并用数据与商家反馈分别验证。", "followUp": "怎样区分商家能力不足和平台分发问题？" },
+      { "id": "portfolio", "label": "组合策略", "kind": "keywordGroups", "groups": [["招商", "成长", "激励", "服务", "清退"], ["分层", "优先级", "资源", "取舍"]], "minGroups": 2, "problem": "只有单一动作，缺少商家组合策略和资源取舍。", "improvement": "按商家层级配置招商、成长、激励、服务与清退动作，并说明资源优先级。", "followUp": "资源有限时你优先扶持哪类商家？" },
+      { "id": "health", "label": "生态健康", "kind": "keywordGroups", "groups": [["GMV", "活跃供给", "留存", "集中度"], ["质量", "投诉", "ROI", "护栏"]], "minGroups": 2, "problem": "只看短期 GMV，没有生态质量和资源效率。", "improvement": "同时定义规模、活跃供给、留存、集中度、质量和 ROI 指标。", "followUp": "GMV 增长但集中度继续上升时怎么决策？" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "operations-system-0to1", "category": "business", "title": "从 0 到 1 搭建运营机制", "prompt": "团队目前靠多人表格和口头同步运营，定义不一致、交接频繁出错。请设计一套能在 90 天内落地的运营机制。", "intent": "检验能否把一次性救火转化为可规模化的流程、数据标准、责任机制和持续改进。", "duration": "5 分钟", "priority": "high", "formats": ["case", "operations"], "stages": ["业务面", "终面"], "dimensions": ["数据分析", "策略设计", "跨团队推进", "商业结果"], "roleFamilies": ["delivery"], "checkProfile": "operations",
+      "framework": ["定义问题：画出现有流程，量化错误、时效和影响。", "诊断根因：区分口径、工具、权限、能力和责任问题。", "设计机制：统一标准、SOP、责任人、质检、看板与预警。", "分步落地：先在高频高损环节试点，再培训并推广。", "衡量迭代：同时看效率、质量、采用率和业务护栏。"],
+      "answerEdge": "最有优势的答案不是“上一个系统”，而是先统一业务口径和责任，再用工具固化；同时给出试点范围、采用率和退出旧流程的时间点。",
+      "evidence": ["需要确认的当前错误率、交接时长和影响范围", "可借用的真实 SOP、看板、预警或质检经验", "计划验证的效率、质量、采用率与退出旧流程条件"],
+      "followUps": ["员工继续使用旧表格怎么办？", "哪些步骤值得自动化，哪些不值得？", "90 天资源不足时最小可交付是什么？"],
+      "pitfalls": ["把买工具当作解决问题", "流程写得很全，却没有责任人、采用率和质量护栏"]
+    },
+    {
+      "id": "business-review-anomaly", "category": "data", "title": "GMV 上升但利润与留存下降", "prompt": "月度经营复盘发现 GMV 同比增长 25%，但利润率下降 4 个百分点，30 天留存也下降 8 个百分点。你如何诊断并向管理层建议行动？", "intent": "检验经营分析、指标口径、归因、优先级和面向决策者的表达。", "duration": "6 分钟", "priority": "high", "formats": ["case", "data"], "stages": ["业务面", "终面"], "dimensions": ["数据分析", "策略设计", "商业结果", "用户/行业洞察"], "roleFamilies": ["strategy", "commercial"], "checkProfile": "strategy",
+      "framework": ["确认口径：拆清同比、活动期、利润和留存定义。", "建立指标树：GMV = 流量 × 转化 × 客单，利润继续拆收入与变动成本。", "定位贡献：按渠道、地区、新老客、品类和活动做贡献分析。", "提出取舍：停止低质量增长，保留高增量人群与渠道。", "验证行动：用分组试点观察利润、留存和 GMV 护栏。"],
+      "answerEdge": "不要被 GMV 的正增长带走。先判断增长质量，量化是谁贡献了 GMV、谁消耗了利润和留存，再给出一个“继续、调整、停止”清单。",
+      "evidence": ["GMV、毛利或贡献利润、留存的统一口径", "渠道、人群、地区或品类的贡献拆解", "停止低质增长后的利润回收和 GMV 护栏"],
+      "followUps": ["如果只能再要三张表，你要什么？", "如何区分促销吸引来的低质用户与产品问题？", "管理层只看 GMV 时你怎样说服？"],
+      "pitfalls": ["平均值上继续分析，不做分层和贡献拆解", "给出十项建议，却不说明先停什么"]
+    },
+    {
+      "id": "channel-budget-reallocation", "category": "data", "title": "预算削减 30% 后如何重分配", "prompt": "下季度获客预算被削减 30%，你需要在品牌、付费投放、渠道伙伴和老客激活之间重新分配。你会怎么做？", "intent": "检验增量思维、单位经济性、渠道归因和资源取舍。", "duration": "5 分钟", "priority": "high", "formats": ["case", "growth"], "stages": ["业务面", "终面"], "dimensions": ["数据分析", "增长/生命周期", "策略设计", "商业结果"], "roleFamilies": ["growth", "commercial"], "checkProfile": "budget",
+      "framework": ["统一目标：明确收入、有效用户或利润优先。", "评估增量：比较各渠道增量 CAC、LTV、回收期和边际效率。", "划分预算：保留确定性基本盘、增长试验和应急空间。", "说明取舍：指出削减、保留与追加的具体条件。", "动态复盘：设置周度领先指标和月度再分配门槛。"],
+      "answerEdge": "不能直接按历史 ROI 等比例缩水。先剔除自然转化和归因偏差，再按边际增量回报分配，并保留小额探索预算避免只吃存量。",
+      "evidence": ["各渠道增量 CAC、LTV 和回收期", "预算变化下的边际效率曲线", "归因窗口、品牌溢出和留存质量"],
+      "followUps": ["品牌渠道无法直接归因时怎么办？", "哪个渠道你会先砍，依据是什么？", "两周后结果偏离预期如何调整？"],
+      "pitfalls": ["只看表面 ROI，不区分自然转化和增量", "平均削减所有渠道，回避真实取舍"]
+    },
+    {
+      "id": "retention-recovery", "category": "business", "title": "获客达标但 30 天留存下滑", "prompt": "新增用户连续两月达标，但 30 天留存下降。请给出诊断和恢复计划。", "intent": "检验生命周期视角、队列分析、体验诊断和从短期获客向长期价值的转向。", "duration": "5 分钟", "priority": "high", "formats": ["case", "growth"], "stages": ["业务面"], "dimensions": ["数据分析", "增长/生命周期", "策略设计", "商业结果"], "roleFamilies": ["growth"], "checkProfile": "growth",
+      "framework": ["确认变化：按获客队列统一留存定义和观察窗口。", "定位人群：按渠道、地区、首个行为和价值分层。", "拆关键时刻：找到首次价值体验前后的流失点。", "设计干预：分别处理渠道质量、产品阻力与触达问题。", "验证恢复：看留存、活跃、收入、投诉与干预成本。"],
+      "answerEdge": "先判断是用户结构变差还是同类用户体验变差。围绕“首次价值时刻”设计干预，不要把留存问题简单变成多发消息。",
+      "evidence": ["分渠道和首个行为的 cohort 留存", "流失前的关键行为、投诉或体验信号", "干预组增量留存、LTV 与触达成本"],
+      "followUps": ["如何证明不是季节性？", "哪个领先指标能更早预警 30 天留存？", "触达频率提高导致退订怎么办？"],
+      "pitfalls": ["只做整体留存趋势，不做 cohort 和人群分层", "默认增加 push、短信或优惠就是解决方案"]
+    },
+    {
+      "id": "strategy-resource-tradeoff", "category": "delivery", "title": "三个增长机会只能支持一个", "prompt": "你同时发现三个增长机会：高价值商户激活、跨境新市场和支付成功率优化，但本季度只能支持一个。你如何选择？", "intent": "检验战略判断、资源配置、明确放弃和决策可逆性。", "duration": "5 分钟", "priority": "high", "formats": ["case", "strategy"], "stages": ["终面"], "dimensions": ["数据分析", "策略设计", "跨团队推进", "商业结果"], "roleFamilies": ["strategy"], "checkProfile": "strategy",
+      "framework": ["对齐目标：明确本季度最重要的公司级结果。", "建立标准：比较影响、确定性、时效、资源和战略协同。", "量化选项：写出关键假设、收益区间和前置依赖。", "作出选择：说明支持什么、暂不做什么及机会成本。", "保留选择权：为未选机会设置轻量验证和重启信号。"],
+      "answerEdge": "高分点是敢于选一个并讲清不选另外两个的理由。用统一评分框架，但不要让打分表替代业务判断。",
+      "evidence": ["三个机会的可比收益区间与资源需求", "公司目标、关键依赖和时间窗口", "未选项目的机会成本与重新评估信号"],
+      "followUps": ["CEO 明确偏好另一个项目怎么办？", "你的收益估计最脆弱的假设是什么？", "两周能做什么来降低不确定性？"],
+      "pitfalls": ["三个都重要，建议同时小步推进", "给出精确评分，却说不清关键假设和机会成本"]
+    },
+    {
+      "id": "customer-customization-tradeoff", "category": "business", "title": "大客户要求高成本定制", "prompt": "一个重要客户威胁流失，并要求一个研发成本高、难以复用的定制功能。你会如何处理？", "intent": "检验客户价值判断、商业测算、谈判、产品边界和长期可扩展性。", "duration": "5 分钟", "priority": "high", "formats": ["case", "commercial"], "stages": ["业务面", "终面"], "dimensions": ["商业结果", "电商/商家", "跨团队推进", "策略设计"], "roleFamilies": ["merchant", "commercial"], "checkProfile": "commercial",
+      "framework": ["澄清需求：区分表面功能与真实业务结果。", "评估价值：计算客户价值、流失概率、成本和复用潜力。", "形成选项：配置替代、有限试点、共同投入或产品化。", "设定底线：明确安全、合规、架构和机会成本边界。", "达成闭环：记录承诺、里程碑、续约条件和复盘。"],
+      "answerEdge": "不要立刻答应或拒绝。把定制请求改写为业务问题，给出三个可谈选项，并让客户用期限、承诺或共同投入交换优先级。",
+      "evidence": ["需要向销售或客户确认的收入、期限、服务成本与流失信号", "需要估算并声明假设的复用潜力、研发量级和战略价值", "谈判前应明确的选项、交换条件、底线和成功标准"],
+      "followUps": ["销售已提前承诺了功能怎么办？", "客户价值很高但需求违反产品方向呢？", "怎样判断对方真的会流失？"],
+      "pitfalls": ["“客户第一”所以无条件满足", "只从研发成本拒绝，不理解客户真实目标"]
+    },
+    {
+      "id": "voc-to-product-loop", "category": "business", "title": "冲突信号如何转化为产品需求", "prompt": "客户投诉、访谈反馈和行为日志给出了互相矛盾的信号。你如何判断真正问题，并推动产品改进？", "intent": "检验定性与定量结合、需求优先级、产品协作和效果闭环。", "duration": "5 分钟", "priority": "high", "formats": ["case", "customer"], "stages": ["业务面"], "dimensions": ["用户/行业洞察", "数据分析", "跨团队推进", "电商/商家"], "roleFamilies": ["merchant", "insight"], "checkProfile": "insight",
+      "framework": ["统一对象：明确反馈来自谁、处于哪个场景和流程节点。", "校验证据：比较样本偏差、行为数据和投诉严重度。", "定义问题：把诉求翻译成用户任务与可量化阻力。", "排列优先级：综合频率、影响、战略价值和解决成本。", "验证闭环：试点改进并回访，看行为和满意度是否同时变化。"],
+      "answerEdge": "不要投票选声音最大的需求。把“谁说了什么”与“谁做了什么”放在一起，解释信号为何冲突，再定义可验证的问题陈述。",
+      "evidence": ["反馈来源、样本结构与场景分布", "日志、漏斗、投诉严重度和客户价值", "改进后的行为指标、满意度和复访证据"],
+      "followUps": ["头部客户的反馈与大多数用户相反怎么办？", "访谈说喜欢但实际不用，信哪个？", "产品团队拒绝排期时怎样推进？"],
+      "pitfalls": ["把客户原话直接写成产品需求", "只看反馈数量，不看样本偏差和影响程度"]
+    },
+    {
+      "id": "project-delay-recovery", "category": "delivery", "title": "关键依赖晚两周但发布日期不变", "prompt": "项目的关键依赖项预计延期两周交付，但发布日期不能变。作为项目负责人，你如何恢复计划？", "intent": "检验关键路径、范围取舍、风险透明度和在压力下的交付判断。", "duration": "4 分钟", "priority": "high", "formats": ["situational", "delivery"], "stages": ["业务面", "终面"], "dimensions": ["跨团队推进", "策略设计", "商业结果"], "roleFamilies": ["delivery"], "checkProfile": "delivery",
+      "framework": ["确认影响：重算关键路径、缓冲和受影响交付物。", "形成选项：压缩范围、并行工作、替代依赖或分阶段发布。", "评估风险：比较时间、质量、客户和合规代价。", "推动决策：带选项、建议和最后决策点升级。", "强化控制：每日风险、责任人、里程碑和回滚标准。"],
+      "answerEdge": "不要用加班作为第一方案。先保护不可妥协的质量与合规，再缩范围或分阶段，向决策者呈现代价而不是只报告延误。",
+      "evidence": ["需要确认的关键路径、缓冲和不可压缩任务", "可砍范围、替代方案和各自风险", "重排后的里程碑、质量护栏、回滚与验收标准"],
+      "followUps": ["领导要求范围也不能减怎么办？", "什么时候升级，而不是继续自己协调？", "并行推进如何防止返工？"],
+      "pitfalls": ["默认团队加班追赶，没有范围取舍", "只汇报风险，不带建议、成本和决策期限"]
+    },
+    {
+      "id": "sales-incentive-operations", "category": "business", "title": "销售激励方案如何避免刷量", "prompt": "公司要通过新激励方案推动销售推广一项支付产品。你如何设计目标、规则和运营机制，同时避免只冲短期签约？", "intent": "检验目标分解、激励相容、质量护栏和销售运营闭环。", "duration": "5 分钟", "priority": "medium", "formats": ["case", "commercial"], "stages": ["业务面"], "dimensions": ["商业结果", "策略设计", "跨团队推进", "支付业务"], "roleFamilies": ["commercial", "payment"], "checkProfile": "incentive",
+      "framework": ["对齐目标：明确签约、激活、交易还是收入。", "设计指标：结果指标搭配过程指标和质量护栏。", "确定规则：分层目标、计分、封顶、追溯和例外。", "运营落地：培训、看板、答疑、质检与周度复盘。", "迭代验证：比较增量、行为扭曲和单位经济性。"],
+      "answerEdge": "把奖励点放在客户获得真实价值之后，而不是仅在签约时；同时设计可解释、可核对且不容易被游戏化的规则。",
+      "evidence": ["销售漏斗各阶段转化和周期", "激活、有效交易、收入与退款或投诉护栏", "激励成本、增量收入和行为异常"],
+      "followUps": ["销售认为规则太复杂怎么办？", "签约上升但激活下降怎么调？", "如何判断增长不是把未来订单提前？"],
+      "pitfalls": ["只奖励签约数量，诱发低质量客户", "指标过多且规则频繁变化，销售无法理解"]
+    },
+    {
+      "id": "localized-growth-plan", "category": "international", "title": "为海外市场制定本地化增长计划", "prompt": "同一增长打法在中国有效，但在一个海外重点市场表现一般。你会如何制定本地化增长计划？", "intent": "检验跨市场洞察、假设验证、本地协作和避免经验照搬的能力。", "duration": "5 分钟", "priority": "medium", "formats": ["case", "international"], "stages": ["业务面"], "dimensions": ["国际化", "增长/生命周期", "用户/行业洞察", "策略设计"], "roleFamilies": ["international", "growth"], "checkProfile": "strategy",
+      "framework": ["比较差异：支付习惯、渠道、用户任务、竞争和监管。", "定位阻力：用本地数据和访谈验证最关键假设。", "选择人群：从需求强且可触达的细分市场开始。", "共同设计：与本地团队明确决策权、翻译与适配边界。", "小步验证：看增量转化、留存、成本和风险后再扩张。"],
+      "answerEdge": "本地化不是翻译文案。先明确哪些是全球不变的价值主张，哪些必须按当地用户行为、渠道和监管重做。",
+      "evidence": ["目标市场支付习惯、渠道与竞争数据", "本地用户或商户访谈中的关键差异", "试点的转化、留存、CAC 和合规护栏"],
+      "followUps": ["本地团队与总部判断相反时听谁的？", "样本很少时如何避免过度本地化？", "哪个指标说明打法可以复制到第二个市场？"],
+      "pitfalls": ["直接复制国内方案再翻译", "把文化差异当成无法验证的万能解释"]
+    },
+    {
+      "id": "market-entry-business-case", "category": "international", "title": "是否进入一个新市场", "prompt": "管理层考虑进入一个新的跨境支付市场，请你在信息不完整时给出是否进入的商业建议。", "intent": "检验市场规模、竞争、监管、单位经济性和不确定性管理。", "duration": "6 分钟", "priority": "medium", "formats": ["case", "strategy"], "stages": ["终面"], "dimensions": ["国际化", "用户/行业洞察", "数据分析", "商业结果"], "roleFamilies": ["international", "strategy"], "checkProfile": "strategy",
+      "framework": ["定义成功：明确客户、产品边界和战略目的。", "评估吸引力：规模、增速、利润池、痛点和竞争。", "评估可赢性：能力差异、渠道、牌照、风险与进入成本。", "建立模型：写出收入、成本、时间和敏感性假设。", "给出建议：进入、不进入或分阶段试点，并列触发条件。"],
+      "answerEdge": "信息不完整时也要给暂定建议，但把事实、假设和未知分开；用可逆的小试点购买信息，而不是伪造精确预测。",
+      "evidence": ["TAM、可服务市场与首批目标客户", "牌照、支付网络、竞争和进入成本", "收入、毛利、回收期和关键敏感性"],
+      "followUps": ["只有两周调研时间，你先验证什么？", "最大未知数是什么，如何降低？", "什么结果会让你决定不进入？"],
+      "pitfalls": ["堆很多市场数据却不给明确建议", "用看似精确的市场份额掩盖关键假设"]
+    },
+    {
+      "id": "partner-negotiation", "category": "international", "title": "与渠道伙伴谈判资源与承诺", "prompt": "一个关键渠道伙伴愿意合作，但要求更低费率和排他条款，同时不愿承诺交易量。你如何谈判？", "intent": "检验价值交换、底线设计、长期伙伴关系和商业风险判断。", "duration": "5 分钟", "priority": "medium", "formats": ["situational", "commercial"], "stages": ["业务面", "终面"], "dimensions": ["国际化", "商业结果", "跨团队推进", "策略设计"], "roleFamilies": ["international", "commercial"], "checkProfile": "commercial",
+      "framework": ["准备目标：明确双方利益、替代方案和谈判底线。", "量化价值：测算费率、交易量、获客和机会成本。", "设计交换：阶梯费率换量、有限排他换期限或联合投入。", "管理风险：设置里程碑、审查点、退出和合规条款。", "确认执行：形成书面责任、数据共享和复盘机制。"],
+      "answerEdge": "不要逐条讨价还价。把费率、排他、交易量、期限和资源支持组合成多个方案，让每一次让步都换回可衡量承诺。",
+      "evidence": ["BATNA、底线和各条款的测算逻辑", "需要验证而非默认成立的增量客户或交易量假设", "阶梯条件、里程碑、数据共享和退出标准"],
+      "followUps": ["对方声称竞争者条件更低怎么办？", "排他条款什么情况下可以接受？", "谈判陷入僵局时你先动哪一项？"],
+      "pitfalls": ["为了拿下合作单方面降价", "只谈关系，不准备替代方案和量化底线"]
+    },
+    {
+      "id": "multi-project-prioritization", "category": "delivery", "title": "五个项目同时进入关键期", "prompt": "五个跨团队项目同时进入关键期，你无法亲自跟进所有细节。如何排优先级并保证交付？", "intent": "检验项目组合管理、授权、风险预警和管理注意力分配。", "duration": "4 分钟", "priority": "medium", "formats": ["situational", "delivery"], "stages": ["业务面", "终面"], "dimensions": ["跨团队推进", "策略设计", "商业结果"], "roleFamilies": ["delivery"], "checkProfile": "delivery",
+      "framework": ["建立全景：列出价值、时限、依赖、风险和不可逆点。", "划分层级：确定亲自负责、授权跟进和暂停的项目。", "设置治理：每项明确负责人、里程碑、决策权和升级规则。", "集中注意：只跟关键路径、异常和需要决策的事项。", "动态调整：按领先指标和业务变化重新排序。"],
+      "answerEdge": "高分答案会明确“我不亲自做什么”。用机制让正常项目自动推进，把本人时间留给不可逆决策和跨项目冲突。",
+      "evidence": ["项目组合的价值、风险和时限比较", "责任人、关键路径和升级阈值", "过去多项目交付的准时率或风险结果"],
+      "followUps": ["两个项目都被 CEO 标成 P0 怎么办？", "如何判断授权对象准备好了？", "哪些信号会触发重新排序？"],
+      "pitfalls": ["所有项目都是高优先级", "用更多会议代替责任、里程碑和升级机制"]
+    },
+    {
+      "id": "executive-decision-update", "category": "delivery", "title": "五分钟向管理层请求决策", "prompt": "一个重要项目出现偏差，你只有五分钟向管理层汇报并请求决策。你会怎么组织？", "intent": "检验结论先行、信息压缩、风险透明和明确提出决策请求。", "duration": "5 分钟", "priority": "medium", "formats": ["situational", "communication"], "stages": ["终面"], "dimensions": ["跨团队推进", "数据分析", "商业结果"], "roleFamilies": ["delivery", "strategy"], "checkProfile": "communication",
+      "framework": ["一句结论：当前状态、影响和需要的决定。", "三项证据：计划偏差、根因和业务影响。", "呈现选项：每项的收益、代价、风险和最后决策点。", "给出建议：明确推荐及其依据。", "确认行动：决策人、责任人、时间和下次更新。"],
+      "answerEdge": "汇报不是完整复盘。第一句话先给状态、影响、建议和请求；细节只为决策服务，不能让管理层猜你想要什么。",
+      "evidence": ["计划与实际偏差及业务影响", "两个或三个可执行选项与代价", "明确建议、决策截止时间和责任人"],
+      "followUps": ["管理层质疑你的根因判断怎么办？", "坏消息什么时候应该提前升级？", "如果对方不作决定，你如何收口？"],
+      "pitfalls": ["按时间顺序汇报所有过程", "只报告问题，没有建议和明确决策请求"]
+    },
+    {
+      "id": "career-transition-motivation", "category": "core", "title": "为什么现在考虑新机会", "prompt": "你为什么离开上一份工作，并在现在考虑{{targetRole}}？", "intent": "检验职业选择是否主动、连贯，动机是否与岗位具体业务相连，而不是逃离现状。", "duration": "2 分钟", "priority": "medium", "formats": ["motivation", "behavioral"], "stages": ["HR 面", "终面"], "dimensions": ["国际化", "商业结果", "策略设计"], "coverage": "all", "roleFamilies": ["all"], "checkProfile": "motivation",
+      "framework": ["事实交代：中性说明重组、职责、地点、阶段完成或其他真实变化。", "解释选择：说明自己如何评估并决定寻找新机会。", "连接岗位：指出该岗位的具体业务问题与长期方向。", "证明准备：用真实经历说明不是临时起意。", "控制边界：可以说明合理瓶颈，但不情绪化归咎个人。"],
+      "answerEdge": "离职原因可以真实，包括重组、岗位变化、地点或合理的发展瓶颈；优势在于事实中性，并讲清自己如何决策、下一步要承担什么、为什么这个岗位匹配。",
+      "evidence": ["上一阶段的真实积累或导致变化的客观事实", "下一阶段想扩大的一类责任或业务问题", "目标公司和岗位的具体连接点"],
+      "followUps": ["现公司内部为什么不能满足？", "你这次选择最看重什么？", "如果新岗位也有相同困难怎么办？"],
+      "pitfalls": ["情绪化归咎某位管理者、同事或公司", "使用“平台更大、发展更好”之类通用理由"]
+    },
+    {
+      "id": "strength-development-area", "category": "core", "title": "最强能力与真实发展项", "prompt": "你最突出的优势是什么？当前最需要发展的能力又是什么？请各用一个事实说明。", "intent": "检验自我认知、岗位匹配、诚实边界和持续成长。", "duration": "3 分钟", "priority": "medium", "formats": ["behavioral", "motivation"], "stages": ["HR 面", "业务面"], "dimensions": ["数据分析", "跨团队推进", "策略设计"], "coverage": "all", "roleFamilies": ["all"], "checkProfile": "selfAwareness",
+      "framework": ["定义优势：用一句可观察的行为描述，不用形容词。", "证明优势：讲一个高难度场景、动作和结果。", "选择发展项：真实但不击穿岗位核心胜任力。", "说明影响：承认它曾带来的具体限制。", "证明改变：给出机制、反馈和近期进展。"],
+      "answerEdge": "优势要能被结果验证；发展项要真实、可改善且已经在行动。不要说“过于追求完美”，也不要选择岗位的核心能力缺陷。",
+      "evidence": ["优势对应的一项高难度成果", "发展项曾造成的具体影响", "正在执行的改善动作和可见变化"],
+      "followUps": ["同事会同意你的自我评价吗？", "这个短板最近一次造成了什么问题？", "如何证明改善已经发生？"],
+      "pitfalls": ["用责任心强、学习能力强等空泛词", "把优点包装成缺点，或声称没有明显短板"]
+    },
+    {
+      "id": "feedback-behavior-change", "category": "core", "title": "最有价值的一次负面反馈", "prompt": "讲一次让你不舒服但最终很有价值的反馈。你如何回应，之后改变了什么？", "intent": "检验开放度、情绪成熟度、学习能力和实际行为改变。", "duration": "3 分钟", "priority": "medium", "formats": ["behavioral"], "stages": ["HR 面", "终面"], "dimensions": ["跨团队推进", "策略设计"], "coverage": "all", "roleFamilies": ["all"], "checkProfile": "feedback",
+      "framework": ["反馈场景：谁在什么情境下指出什么可观察行为。", "第一反应：诚实但克制地描述当时感受。", "验证理解：如何追问例子并区分事实和判断。", "采取行动：具体改变了哪些习惯或机制。", "证明结果：后续反馈、业务结果和仍需改进之处。"],
+      "answerEdge": "不要挑一条容易接受的表扬式反馈。承认真实的不适，再用后续行为和他人反馈证明你不是口头接受。",
+      "evidence": ["反馈针对的具体行为及影响", "你主动获取的例子和验证", "改变后的新机制、后续评价或结果"],
+      "followUps": ["你当时是否认为对方错了？", "为什么以前没有意识到？", "现在这个问题还会出现吗？"],
+      "pitfalls": ["选择完全不痛不痒的反馈", "只说虚心接受，没有具体行为改变"]
+    },
+    {
+      "id": "data-story-nontechnical", "category": "data", "title": "把复杂分析讲给非数据同事", "prompt": "讲一次你把复杂数据分析转化为非数据同事能理解的建议，并促成决策或行动。", "intent": "检验数据解释、听众意识、影响力和从洞察到结果的完整闭环。", "duration": "4 分钟", "priority": "medium", "formats": ["behavioral", "communication"], "stages": ["业务面", "终面"], "dimensions": ["数据分析", "跨团队推进", "商业结果"], "roleFamilies": ["data"], "checkProfile": "communication",
+      "framework": ["决策背景：听众是谁，需要决定什么。", "分析结论：用一句业务语言说明发现，不先讲方法。", "精选证据：用两到三项数字、对照或可视化支撑。", "处理异议：说明对方担忧及你的回应。", "促成行动：最终决定、执行结果和后续复盘。"],
+      "answerEdge": "从对方要作的决定开始，而不是从 SQL、模型或分析过程开始。只保留会改变决策的数字，并用业务后果解释。",
+      "evidence": ["听众、原有判断和待决策问题", "最关键的两到三项数据与口径", "最终被采纳的行动和业务结果"],
+      "followUps": ["你删掉了哪些分析细节？", "对方最初为什么不相信？", "如果数据不确定，你如何表达置信度？"],
+      "pitfalls": ["炫耀工具和技术细节，忘记业务问题", "把发出一份报告当成影响力结果"]
+    },
+    {
+      "id": "merchant-supply-structure", "category": "business", "title": "供给结构与商家生态诊断", "prompt": "某业务 GMV 仍在增长，但优质供给不足、头部商家集中度上升，中小商家 60 天留存持续下降。你如何诊断并制定商家生态策略？", "intent": "检验品类与供给结构分析、商家生命周期运营、资源配置和兼顾规模与生态质量的能力。", "duration": "6 分钟", "priority": "high", "formats": ["case", "merchant"], "stages": ["业务面", "终面"], "dimensions": ["电商/商家", "数据分析", "增长/生命周期", "策略设计", "商业结果"], "roleFamilies": ["merchant", "commercial"], "checkProfile": "supply",
+      "framework": ["定义健康供给：按品类、价格带、区域和需求缺口确定目标。", "拆商家结构：比较头腰尾部、新老商家、供给质量与生命周期转化。", "定位根因：区分招商质量、冷启动、商品力、流量机制和服务问题。", "设计组合：明确招商、成长、激励、服务、清退和资源倾斜的优先级。", "验证生态：同时看 GMV、活跃供给、留存、集中度、质量和 ROI。"],
+      "answerEdge": "不要把商家运营等同于招商或发流量。先定义需求侧缺什么供给，再判断问题在引入、冷启动、成长还是淘汰，并说明资源为何给到特定商家。",
+      "evidence": ["品类、价格带、区域的需求与供给缺口", "商家分层、生命周期漏斗和头部集中度", "GMV、活跃供给、留存、质量、投诉与资源 ROI"],
+      "followUps": ["头部商家效率最高，为什么还要扶持中小商家？", "如何区分商家能力不足和平台流量机制问题？", "招商数量达标但有效供给不增时先改什么？"],
+      "pitfalls": ["只讲招商数量和活动资源，不讲需求缺口", "只追求短期 GMV，忽略集中度、供给质量和商家留存"]
+    }
+  ]
+}

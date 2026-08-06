@@ -239,6 +239,15 @@
               </div>
             </header>
 
+            <div class="interview-mode-switch" role="tablist" aria-label="训练模式">
+              <button id="interview-core-mode" type="button" role="tab" aria-selected="true">
+                核心训练 <span id="interview-core-count">12</span>
+              </button>
+              <button id="interview-bank-mode" type="button" role="tab" aria-selected="false">
+                高频题库 <span id="interview-bank-count">19</span>
+              </button>
+            </div>
+
             <div class="interview-controls" aria-label="面试训练选择器">
               <label>目标岗位
                 <select id="interview-target-select">
@@ -249,6 +258,32 @@
                 <select id="interview-question-select"></select>
               </label>
             </div>
+
+            <section id="interview-bank-browser" class="interview-bank-browser" aria-labelledby="interview-bank-heading" hidden>
+              <header>
+                <div>
+                  <span>按面试场景补缺</span>
+                  <h3 id="interview-bank-heading">A 档运营岗位高频题库</h3>
+                </div>
+                <strong id="interview-bank-result-count">19 题 · 已检查 0</strong>
+              </header>
+              <div class="interview-bank-filters">
+                <label>搜索题目
+                  <input id="interview-bank-search" type="search" autocomplete="off" placeholder="例如：留存、预算、客户、项目延期">
+                </label>
+                <label>题目方向
+                  <select id="interview-bank-category">
+                    <option value="all">全部方向</option>
+                  </select>
+                </label>
+                <label class="interview-bank-relevant-control">
+                  <input id="interview-bank-relevant" type="checkbox">
+                  <span>只看当前岗位相关</span>
+                </label>
+              </div>
+              <div id="interview-bank-list" class="interview-bank-list"></div>
+              <p id="interview-bank-empty" class="interview-bank-empty" hidden>没有匹配题目，请调整关键词或筛选条件。</p>
+            </section>
 
             <article class="interview-workbench" aria-labelledby="interview-question-title">
               <section class="interview-step interview-question-step">
@@ -289,8 +324,36 @@
                 </div>
               </section>
 
-              <section class="interview-step interview-answer-step">
+              <section class="interview-step interview-guide-step">
                 <div class="interview-step-number" aria-hidden="true">03</div>
+                <div class="interview-step-body">
+                  <div class="interview-section-heading">
+                    <div>
+                      <span>优势答法</span>
+                      <h3>让面试官听见判断、证据和取舍</h3>
+                    </div>
+                  </div>
+                  <p id="interview-answer-edge" class="interview-answer-edge"></p>
+                  <div class="interview-guide-grid">
+                    <section>
+                      <h4 id="interview-evidence-heading">必须准备的事实</h4>
+                      <ul id="interview-evidence-list"></ul>
+                    </section>
+                    <section>
+                      <h4>常见追问</h4>
+                      <ul id="interview-prep-followup-list"></ul>
+                    </section>
+                    <section>
+                      <h4>容易失分</h4>
+                      <ul id="interview-pitfall-list"></ul>
+                    </section>
+                  </div>
+                  <p id="interview-guide-note" class="interview-guide-note"></p>
+                </div>
+              </section>
+
+              <section class="interview-step interview-answer-step">
+                <div class="interview-step-number" aria-hidden="true">04</div>
                 <div class="interview-step-body">
                   <div class="interview-section-heading">
                     <div>
@@ -313,19 +376,19 @@
               </section>
 
               <section id="interview-feedback" class="interview-step interview-feedback-step" aria-live="polite" hidden>
-                <div class="interview-step-number" aria-hidden="true">04</div>
+                <div class="interview-step-number" aria-hidden="true">05</div>
                 <div class="interview-step-body">
                   <header class="interview-feedback-header">
                     <div>
-                      <span>本地结构诊断</span>
-                      <h3>回答完整度 <strong id="interview-coverage-score">0 / 5</strong></h3>
+                      <span>本地结构提示</span>
+                      <h3>检测到线索 <strong id="interview-coverage-score">0 / 5</strong></h3>
                     </div>
                     <p id="interview-feedback-summary"></p>
                   </header>
                   <div id="interview-check-list" class="interview-check-list"></div>
                   <div class="interview-feedback-grid">
                     <section>
-                      <h4>已经说清楚</h4>
+                      <h4>已检测到的线索</h4>
                       <ul id="interview-strength-list"></ul>
                     </section>
                     <section>
@@ -337,7 +400,7 @@
                     <span>面试官可能追问</span>
                     <p id="interview-follow-up-question"></p>
                   </section>
-                  <p class="interview-diagnostic-note">本地规则只检查结构和证据线索，不能判断经历真伪、业务逻辑是否完全正确，也不代表最终录用概率。</p>
+                  <p class="interview-diagnostic-note">关键词命中只是一种弱提示，不代表回答正确或质量高。不要为了通过检查堆术语或编数字；本地规则不能判断经历真伪、因果逻辑和录用概率。</p>
                 </div>
               </section>
             </article>
