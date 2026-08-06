@@ -1455,6 +1455,7 @@ function renderChallengeHub(pack) {
 
 const GLOSSARY_PAGE_SIZE = 20;
 const CORE_VOCABULARY_GLOSSARY_VERSION = 4;
+const CORE_VOCABULARY_AUDIO_BASE = "https://cdn.jsdelivr.net/gh/JiqiangZhangNYU/recruitment@dfd6263d429c18d6f5e626a170eec8e5f36af416/audio/core-vocabulary";
 
 function makeGlossaryCoveredField(label, text, covered, action = null) {
   const section = document.createElement("section");
@@ -1657,7 +1658,7 @@ function renderChallengeGlossary(pack, glossary) {
   };
 
   const glossaryAudioPath = (entry, kind) => (
-    `audio/core-vocabulary/${String(entry.rank).padStart(3, "0")}-${kind}.mp3${kind === "word" ? `?v=${glossary.version}` : ""}`
+    `${CORE_VOCABULARY_AUDIO_BASE}/${String(entry.rank).padStart(3, "0")}-${kind}.mp3${kind === "word" ? `?v=${glossary.version}` : ""}`
   );
 
   const setRecordButtonsDisabled = (disabled) => {

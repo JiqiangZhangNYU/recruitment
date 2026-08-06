@@ -28,6 +28,8 @@ python scripts/build-glossary-audio.py
 
 输出位于 `audio/core-vocabulary/`，共 1500 个按需加载的单声道 MP3。可以使用 `--start-rank` 和 `--end-rank` 分段并行生成，全部完成后运行 `python scripts/build-glossary-audio.py --manifest-only` 更新清单。
 
+线上页面通过 jsDelivr 从固定 Git 提交按需读取这些音频，读取失败时回退到浏览器朗读。Pages 工作流只上传约 3 MB 的网页与题库文件，不重复打包音频，以避免大量小文件触发 GitHub Pages 的 10 分钟部署上限；本地运行仍保留全部音频源文件。
+
 ## 量化职业子站
 
 商品期货量化研究员的职业画像、岗位方向和能力地图发布在 `quant/` 子目录，线上地址为 `https://jiqiangzhangnyu.github.io/recruitment/quant/`。源文件维护在 `/mnt/Data/jiqiang/job_quant/`，通过该目录下的 `scripts/sync-to-recruitment.cjs` 同步，不直接在发布副本中编辑。

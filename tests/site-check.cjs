@@ -20,6 +20,7 @@ const coreVocabularyAudioManifest = require("../audio/core-vocabulary/manifest.j
 
 const executablePath = "/home/zjq/.cache/ms-playwright/chromium-1187/chrome-linux/chrome";
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
+const coreVocabularyAudioBase = "https://cdn.jsdelivr.net/gh/JiqiangZhangNYU/recruitment@dfd6263d429c18d6f5e626a170eec8e5f36af416/audio/core-vocabulary";
 
 assert.equal(interviewPlan.questions.length, 12);
 assert.equal(new Set(interviewPlan.questions.map((question) => question.id)).size, interviewPlan.questions.length);
@@ -753,6 +754,14 @@ async function checkGlossaryReadAloud(browser) {
     if (message.type() === "error") errors.push(message.text());
   });
   page.on("pageerror", (error) => errors.push(error.message));
+  await page.route(`${coreVocabularyAudioBase}/**`, async (route) => {
+    const filename = path.basename(new URL(route.request().url()).pathname);
+    await route.fulfill({
+      status: 200,
+      contentType: "audio/mpeg",
+      path: path.join(__dirname, "..", "audio", "core-vocabulary", filename),
+    });
+  });
 
   await page.goto(`${baseURL}/#glossary/core-vocabulary`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator(".glossary-entry").first().waitFor();
@@ -770,6 +779,7 @@ async function checkGlossaryReadAloud(browser) {
   const wordResponse = await wordResponsePromise;
   assert.ok([200, 206].includes(wordResponse.status()));
   assert.match(wordResponse.headers()["content-type"], /^audio\/(?:mpeg|mp3)/);
+  assert.equal(new URL(wordResponse.url()).origin, "https://cdn.jsdelivr.net");
   assert.equal(new URL(wordResponse.url()).searchParams.get("v"), String(coreVocabulary.version));
 
   const interviewButton = page.locator(".glossary-entry").first()
