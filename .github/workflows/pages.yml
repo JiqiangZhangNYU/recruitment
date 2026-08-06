@@ -61,7 +61,7 @@ jobs:
               exit 1
             fi
             deployment_status=$(jq --raw-output '.status' "${response_file}")
-            if [[ "${deployment_status}" == 'queued' || "${deployment_status}" == 'in_progress' ]]; then
+            if [[ "${deployment_status}" != 'succeed' ]]; then
               cancel_code=$(curl --silent --show-error --output "${response_file}" --write-out '%{http_code}' \
                 --request POST \
                 "${api_headers[@]}" \
@@ -135,7 +135,7 @@ jobs:
             fi
 
             deployment_status=$(jq --raw-output '.status' "${response_file}")
-            if [[ "${deployment_status}" == 'queued' || "${deployment_status}" == 'in_progress' ]]; then
+            if [[ "${deployment_status}" != 'succeed' ]]; then
               cancel_code=$(curl --silent --show-error --output "${response_file}" --write-out '%{http_code}' \
                 --request POST \
                 "${api_headers[@]}" \
