@@ -103,10 +103,26 @@ jobs:
             --header 'X-GitHub-Api-Version: 2026-03-10'
           )
           response_file="${RUNNER_TEMP}/pages-deployment.json"
-          oidc_response=$(curl --silent --show-error --fail \
+          if [[ ! "${ARTIFACT_ID}" =~ ^[0-9]+$ ]]; then
+            echo '::error::The Pages artifact ID is missing or invalid.'
+            exit 1
+          fi
+          if [[ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" || -z "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ]]; then
+            echo '::error::GitHub did not provide the OIDC request environment.'
+            exit 1
+          fi
+          oidc_code=$(curl --silent --show-error --output "${response_file}" --write-out '%{http_code}' \
             --header "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
             "${ACTIONS_ID_TOKEN_REQUEST_URL}")
-          oidc_token=$(jq --exit-status --raw-output '.value' <<<"${oidc_response}")
+          if [[ "${oidc_code}" != '200' ]]; then
+            echo "::error title=OIDC request failed::$(jq --compact-output . "${response_file}")"
+            exit 1
+          fi
+          oidc_token=$(jq --raw-output '.value // empty' "${response_file}")
+          if [[ -z "${oidc_token}" ]]; then
+            echo '::error::GitHub returned an empty OIDC token.'
+            exit 1
+          fi
           build_version=$(printf '%s' "${GITHUB_SHA}-${GITHUB_RUN_ID}" | sha1sum | cut --delimiter=' ' --fields=1)
           payload=$(jq --compact-output --null-input \
             --argjson artifact_id "${ARTIFACT_ID}" \
