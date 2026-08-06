@@ -19,13 +19,13 @@ concurrency:
 
 jobs:
   build:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.head_branch == 'main'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.conclusion != 'success')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -54,6 +54,50 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Cancel stale Pages deployment
+        if: github.event_name == 'workflow_run'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TRIGGER_SHA: ${{ github.event.workflow_run.head_sha }}
+          KNOWN_STALE_SHA: f1e8fd3038de421b92e34bf17b8fea32b34a5f3a
+        run: |
+          set -euo pipefail
+          declare -A checked=()
+          for deployment_sha in "${KNOWN_STALE_SHA}" "${TRIGGER_SHA}" "${GITHUB_SHA}"; do
+            if [[ -z "${deployment_sha}" || -n "${checked[${deployment_sha}]:-}" ]]; then
+              continue
+            fi
+            checked["${deployment_sha}"]=1
+            response_file="${RUNNER_TEMP}/pages-deployment-${deployment_sha}.json"
+            status_code=$(curl --silent --show-error --output "${response_file}" --write-out '%{http_code}' \
+              --header 'Accept: application/vnd.github+json' \
+              --header "Authorization: Bearer ${GH_TOKEN}" \
+              --header 'X-GitHub-Api-Version: 2026-03-10' \
+              "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pages/deployments/${deployment_sha}")
+            if [[ "${status_code}" == '404' ]]; then
+              continue
+            fi
+            if [[ "${status_code}" != '200' ]]; then
+              cat "${response_file}"
+              exit 1
+            fi
+            deployment_status=$(jq --raw-output '.status' "${response_file}")
+            if [[ "${deployment_status}" != 'queued' && "${deployment_status}" != 'in_progress' ]]; then
+              continue
+            fi
+            cancel_code=$(curl --silent --show-error --output "${response_file}" --write-out '%{http_code}' \
+              --request POST \
+              --header 'Accept: application/vnd.github+json' \
+              --header "Authorization: Bearer ${GH_TOKEN}" \
+              --header 'X-GitHub-Api-Version: 2026-03-10' \
+              "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pages/deployments/${deployment_sha}/cancel")
+            if [[ "${cancel_code}" != '204' ]]; then
+              cat "${response_file}"
+              exit 1
+            fi
+            echo "Cancelled stale Pages deployment ${deployment_sha}."
+          done
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
