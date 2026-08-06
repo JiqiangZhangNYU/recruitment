@@ -246,6 +246,11 @@ const elements = {
   interviewClearAnswer: document.querySelector("#interview-clear-answer"),
   interviewAnalyzeAnswer: document.querySelector("#interview-analyze-answer"),
   interviewInputMessage: document.querySelector("#interview-input-message"),
+  interviewRecordAnswer: document.querySelector("#interview-record-answer"),
+  interviewStopRecording: document.querySelector("#interview-stop-recording"),
+  interviewDeleteRecording: document.querySelector("#interview-delete-recording"),
+  interviewRecordingStatus: document.querySelector("#interview-recording-status"),
+  interviewRecordingPlayback: document.querySelector("#interview-recording-playback"),
   interviewFeedback: document.querySelector("#interview-feedback"),
   interviewCoverageScore: document.querySelector("#interview-coverage-score"),
   interviewFeedbackSummary: document.querySelector("#interview-feedback-summary"),
@@ -253,9 +258,18 @@ const elements = {
   interviewStrengthList: document.querySelector("#interview-strength-list"),
   interviewImprovementList: document.querySelector("#interview-improvement-list"),
   interviewFollowUpQuestion: document.querySelector("#interview-follow-up-question"),
+  interviewSampleStep: document.querySelector("#interview-sample-step"),
+  interviewSampleAnswer: document.querySelector("#interview-sample-answer"),
+  interviewSampleNote: document.querySelector("#interview-sample-note"),
+  interviewSampleSources: document.querySelector("#interview-sample-sources"),
+  interviewSampleAnswerText: document.querySelector("#interview-sample-answer-text"),
+  interviewSampleRisk: document.querySelector("#interview-sample-risk"),
   previousInterviewQuestion: document.querySelector("#previous-interview-question"),
   nextInterviewQuestion: document.querySelector("#next-interview-question"),
 };
+
+const interviewRecordings = new Map();
+let activeInterviewRecording = null;
 
 const tierNames = {
   all: "全部",
@@ -289,6 +303,10 @@ function normalizeLearningProgress() {
 
 function setView(view, updateURL = true) {
   state.view = ["jobs", "skills", "interview"].includes(view) ? view : "jobs";
+  if (state.view !== "interview") {
+    if (activeInterviewRecording) finishInterviewRecording(true);
+    elements.interviewRecordingPlayback?.pause();
+  }
   elements.jobsView.hidden = state.view !== "jobs";
   elements.skillsView.hidden = state.view !== "skills";
   elements.interviewView.hidden = state.view !== "interview";
@@ -1488,7 +1506,7 @@ function makeGlossaryCoveredField(label, text, covered, action = null) {
   return section;
 }
 
-function formatGlossaryRecordingTime(totalSeconds) {
+function formatRecordingTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
   return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
@@ -1746,7 +1764,7 @@ function renderChallengeGlossary(pack, glossary) {
       audio.hidden = false;
       recordButton.textContent = "重新录音";
       deleteButton.disabled = false;
-      status.textContent = `录音完成 · ${formatGlossaryRecordingTime(savedRecording.duration)}`;
+      status.textContent = `录音完成 · ${formatRecordingTime(savedRecording.duration)}`;
     }
 
     recordButton.addEventListener("click", async () => {
@@ -1814,7 +1832,7 @@ function renderChallengeGlossary(pack, glossary) {
           audio.hidden = false;
           deleteButton.disabled = false;
           recordButton.textContent = "重新录音";
-          status.textContent = `录音完成 · ${formatGlossaryRecordingTime(duration)}`;
+          status.textContent = `录音完成 · ${formatRecordingTime(duration)}`;
         });
 
         audio.pause();
@@ -1824,7 +1842,7 @@ function renderChallengeGlossary(pack, glossary) {
         status.textContent = "录音中 00:00 / 01:00";
         session.timer = setInterval(() => {
           const elapsed = Math.min(60, Math.floor((Date.now() - session.startedAt) / 1000));
-          status.textContent = `录音中 ${formatGlossaryRecordingTime(elapsed)} / 01:00`;
+          status.textContent = `录音中 ${formatRecordingTime(elapsed)} / 01:00`;
           if (elapsed >= 60) finishActiveRecording();
         }, 500);
       } catch (error) {
@@ -2820,6 +2838,38 @@ function emptyInterviewQuestionBank(loadError = "") {
   };
 }
 
+function emptyInterviewSamples(loadError = "") {
+  return {
+    version: 0,
+    persona: {},
+    sources: [],
+    answers: {},
+    unavailable: true,
+    loadError,
+  };
+}
+
+function validateInterviewSamples(samples, questions) {
+  if (!samples?.persona?.role || !samples.persona.usageNote || !Array.isArray(samples.sources)) {
+    throw new Error("参考范文格式不正确");
+  }
+  if (samples.sources.length < 3 || !samples.sources.every((source) => {
+    if (!(source.name && source.url && source.focus)) return false;
+    try {
+      return new URL(source.url).protocol === "https:";
+    } catch {
+      return false;
+    }
+  })) throw new Error("参考范文缺少公开业务依据");
+  const answers = samples.answers || {};
+  const complete = questions.every((question) => {
+    const sample = answers[question.id];
+    return sample?.answer?.trim().length >= 180 && sample.riskNote?.trim();
+  });
+  if (!complete) throw new Error("参考范文没有覆盖全部面试题");
+  return samples;
+}
+
 function validateInterviewPlan(plan, questionBank = null) {
   if (!plan || !Array.isArray(plan.categories) || !Array.isArray(plan.questions) || !plan.questions.length) {
     throw new Error("面试计划格式不正确");
@@ -2892,23 +2942,44 @@ async function ensureInterviewPlanLoaded() {
         if (!response.ok) throw new Error(`面试题库 HTTP ${response.status}`);
         return response.json();
       }).catch((error) => ({ loadError: error.message })),
+      fetch("interview-sample-answers.json").then((response) => {
+        if (!response.ok) throw new Error(`参考范文 HTTP ${response.status}`);
+        return response.json();
+      }).catch((error) => ({ loadError: error.message })),
     ])
-      .then(([plan, questionBank]) => {
+      .then(([plan, questionBank, samples]) => {
         const corePlan = validateInterviewPlan(plan);
+        let validatedPlan;
         if (!questionBank || questionBank.loadError) {
           const loadError = questionBank?.loadError || "题库内容为空";
           console.warn(`面试题库加载失败，已降级为核心训练：${loadError}`);
           corePlan.questionBank = emptyInterviewQuestionBank(loadError);
-          state.interviewPlan = corePlan;
-          return state.interviewPlan;
+          validatedPlan = corePlan;
+        } else {
+          try {
+            validatedPlan = validateInterviewPlan(plan, questionBank);
+          } catch (error) {
+            console.warn(`面试题库校验失败，已降级为核心训练：${error.message}`);
+            corePlan.questionBank = emptyInterviewQuestionBank(error.message);
+            validatedPlan = corePlan;
+          }
         }
-        try {
-          state.interviewPlan = validateInterviewPlan(plan, questionBank);
-        } catch (error) {
-          console.warn(`面试题库校验失败，已降级为核心训练：${error.message}`);
-          corePlan.questionBank = emptyInterviewQuestionBank(error.message);
-          state.interviewPlan = corePlan;
+        if (!samples || samples.loadError) {
+          const loadError = samples?.loadError || "范文内容为空";
+          console.warn(`参考范文加载失败：${loadError}`);
+          validatedPlan.sampleAnswers = emptyInterviewSamples(loadError);
+        } else {
+          try {
+            validatedPlan.sampleAnswers = validateInterviewSamples(samples, [
+              ...validatedPlan.questions,
+              ...validatedPlan.questionBank.questions,
+            ]);
+          } catch (error) {
+            console.warn(`参考范文校验失败：${error.message}`);
+            validatedPlan.sampleAnswers = emptyInterviewSamples(error.message);
+          }
         }
+        state.interviewPlan = validatedPlan;
         return state.interviewPlan;
       })
       .catch((error) => {
@@ -3313,6 +3384,225 @@ function renderInterviewMethodSources() {
   });
 }
 
+function interviewRecordingLimit(question) {
+  const minutes = Number.parseInt(question?.duration, 10);
+  return Math.min(600, Math.max(60, (Number.isFinite(minutes) ? minutes : 3) * 60));
+}
+
+function stopInterviewRecordingStream(session) {
+  session?.stream?.getTracks().forEach((track) => track.stop());
+}
+
+function renderInterviewRecorder(question = currentInterviewQuestion()) {
+  if (!question) return;
+  const supported = Boolean(
+    navigator.mediaDevices?.getUserMedia
+    && window.MediaRecorder
+    && window.URL?.createObjectURL
+    && window.URL?.revokeObjectURL,
+  );
+  const saved = interviewRecordings.get(question.id);
+  const active = activeInterviewRecording?.questionId === question.id
+    ? activeInterviewRecording
+    : null;
+
+  elements.interviewRecordAnswer.disabled = !supported || Boolean(activeInterviewRecording);
+  elements.interviewRecordAnswer.textContent = supported
+    ? saved ? "重新录音" : "开始录音"
+    : "录音不可用";
+  elements.interviewStopRecording.disabled = !active?.recorder
+    || active.recorder.state === "inactive";
+  elements.interviewDeleteRecording.disabled = Boolean(active) || !saved;
+
+  elements.interviewRecordingPlayback.pause();
+  if (saved) {
+    if (elements.interviewRecordingPlayback.src !== saved.url) {
+      elements.interviewRecordingPlayback.src = saved.url;
+    }
+    elements.interviewRecordingPlayback.hidden = false;
+  } else {
+    elements.interviewRecordingPlayback.removeAttribute("src");
+    elements.interviewRecordingPlayback.hidden = true;
+  }
+
+  if (!supported) {
+    elements.interviewRecordingStatus.textContent = "当前浏览器不支持麦克风录音";
+  } else if (active?.pending) {
+    elements.interviewRecordingStatus.textContent = "正在请求麦克风权限...";
+  } else if (active?.recorder?.state === "recording") {
+    const elapsed = Math.floor((Date.now() - active.startedAt) / 1000);
+    elements.interviewRecordingStatus.textContent = `录音中 ${formatRecordingTime(elapsed)} / ${formatRecordingTime(active.limit)}`;
+  } else if (saved) {
+    elements.interviewRecordingStatus.textContent = `录音完成 · ${formatRecordingTime(saved.duration)}`;
+  } else {
+    elements.interviewRecordingStatus.textContent = "未录音";
+  }
+}
+
+function finishInterviewRecording(discard = false) {
+  const session = activeInterviewRecording;
+  if (!session) return;
+  session.discarded ||= discard;
+  clearInterval(session.timer);
+  if (session.pending) {
+    session.cancelled = true;
+    activeInterviewRecording = null;
+    renderInterviewRecorder();
+    return;
+  }
+  if (session.recorder?.state !== "inactive") session.recorder.stop();
+  stopInterviewRecordingStream(session);
+}
+
+async function startInterviewRecording() {
+  const question = currentInterviewQuestion();
+  if (!question || activeInterviewRecording) return;
+  const session = {
+    questionId: question.id,
+    pending: true,
+    cancelled: false,
+    discarded: false,
+    failed: false,
+    stream: null,
+    recorder: null,
+    chunks: [],
+    timer: null,
+    startedAt: 0,
+    limit: interviewRecordingLimit(question),
+  };
+  activeInterviewRecording = session;
+  renderInterviewRecorder(question);
+
+  try {
+    session.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    if (session.cancelled || activeInterviewRecording !== session) {
+      stopInterviewRecordingStream(session);
+      return;
+    }
+    const preferredTypes = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"];
+    const mimeType = typeof MediaRecorder.isTypeSupported === "function"
+      ? preferredTypes.find((type) => MediaRecorder.isTypeSupported(type))
+      : undefined;
+    session.recorder = new MediaRecorder(session.stream, mimeType ? { mimeType } : undefined);
+    session.pending = false;
+    session.startedAt = Date.now();
+
+    session.recorder.addEventListener("dataavailable", (event) => {
+      if (event.data.size) session.chunks.push(event.data);
+    });
+    session.recorder.addEventListener("error", () => {
+      session.failed = true;
+      finishInterviewRecording(true);
+    });
+    session.recorder.addEventListener("stop", () => {
+      clearInterval(session.timer);
+      stopInterviewRecordingStream(session);
+      if (activeInterviewRecording === session) activeInterviewRecording = null;
+      const stillCurrent = currentInterviewQuestion()?.id === session.questionId;
+      if (session.discarded || session.failed) {
+        renderInterviewRecorder();
+        if (stillCurrent) {
+          elements.interviewRecordingStatus.textContent = session.failed ? "录音失败，请重试" : "未录音";
+        }
+        return;
+      }
+      const recordedType = session.chunks.find((chunk) => chunk.type)?.type
+        || session.recorder.mimeType
+        || mimeType
+        || "";
+      const blob = new Blob(session.chunks, { type: recordedType });
+      if (!blob.size) {
+        renderInterviewRecorder();
+        if (stillCurrent) {
+          elements.interviewRecordingStatus.textContent = "没有录到声音，请重试";
+        }
+        return;
+      }
+      const existing = interviewRecordings.get(session.questionId);
+      if (existing) URL.revokeObjectURL(existing.url);
+      const recording = {
+        url: URL.createObjectURL(blob),
+        duration: Math.max(1, Math.round((Date.now() - session.startedAt) / 1000)),
+      };
+      interviewRecordings.set(session.questionId, recording);
+      renderInterviewRecorder();
+    });
+
+    session.stream.getTracks().forEach((track) => {
+      track.addEventListener?.("ended", () => {
+        if (activeInterviewRecording === session) finishInterviewRecording();
+      }, { once: true });
+    });
+    elements.interviewRecordingPlayback.pause();
+    session.recorder.start(250);
+    renderInterviewRecorder(question);
+    session.timer = setInterval(() => {
+      if (activeInterviewRecording !== session) return;
+      const elapsed = Math.floor((Date.now() - session.startedAt) / 1000);
+      elements.interviewRecordingStatus.textContent = `录音中 ${formatRecordingTime(elapsed)} / ${formatRecordingTime(session.limit)}`;
+      if (elapsed >= session.limit) finishInterviewRecording();
+    }, 500);
+  } catch (error) {
+    stopInterviewRecordingStream(session);
+    if (session.cancelled || activeInterviewRecording !== session) return;
+    if (activeInterviewRecording === session) activeInterviewRecording = null;
+    renderInterviewRecorder();
+    const messages = {
+      NotAllowedError: "未获得麦克风权限，请在浏览器中允许后重试",
+      SecurityError: "当前页面无法请求麦克风权限",
+      NotFoundError: "没有找到可用的麦克风",
+      NotReadableError: "麦克风正被占用，请关闭其他录音应用后重试",
+      AbortError: "麦克风启动失败，请重试",
+    };
+    elements.interviewRecordingStatus.textContent = messages[error.name]
+      || "无法启动录音，请检查麦克风后重试";
+  }
+}
+
+function deleteInterviewRecording() {
+  const question = currentInterviewQuestion();
+  const recording = question && interviewRecordings.get(question.id);
+  if (!recording) return;
+  elements.interviewRecordingPlayback.pause();
+  elements.interviewRecordingPlayback.removeAttribute("src");
+  elements.interviewRecordingPlayback.load();
+  URL.revokeObjectURL(recording.url);
+  interviewRecordings.delete(question.id);
+  renderInterviewRecorder(question);
+}
+
+function cleanupInterviewRecordings() {
+  finishInterviewRecording(true);
+  elements.interviewRecordingPlayback.pause();
+  elements.interviewRecordingPlayback.removeAttribute("src");
+  elements.interviewRecordingPlayback.load();
+  elements.interviewRecordingPlayback.hidden = true;
+  interviewRecordings.forEach(({ url }) => URL.revokeObjectURL(url));
+  interviewRecordings.clear();
+  renderInterviewRecorder();
+}
+
+function renderInterviewSample(question) {
+  const samples = state.interviewPlan?.sampleAnswers;
+  const sample = samples?.answers?.[question.id];
+  elements.interviewSampleStep.hidden = !sample;
+  if (!sample) return;
+  elements.interviewSampleAnswer.open = false;
+  elements.interviewSampleNote.textContent = samples.persona.usageNote;
+  elements.interviewSampleSources.replaceChildren();
+  samples.sources.forEach((source) => {
+    const link = document.createElement("a");
+    link.href = source.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = source.name;
+    link.title = source.focus;
+    elements.interviewSampleSources.append(link);
+  });
+  elements.interviewSampleAnswerText.textContent = sample.answer;
+  elements.interviewSampleRisk.textContent = `改写提醒：${sample.riskNote}`;
+}
+
 function renderInterviewQuestion() {
   const question = currentInterviewQuestion();
   if (!question) return;
@@ -3380,6 +3670,11 @@ function renderInterviewQuestion() {
   elements.interviewAnswer.value = state.interviewDrafts[question.id] || "";
   elements.interviewInputMessage.hidden = true;
   elements.interviewFeedback.hidden = true;
+  if (activeInterviewRecording && activeInterviewRecording.questionId !== question.id) {
+    finishInterviewRecording(true);
+  }
+  renderInterviewRecorder(question);
+  renderInterviewSample(question);
   updateInterviewAnswerMeta();
   elements.previousInterviewQuestion.disabled = index === 0;
   elements.previousInterviewQuestion.textContent = index ? `← ${questions[index - 1].title}` : "已经是第一题";
@@ -3503,6 +3798,7 @@ function analyzeInterviewAnswer(answer, question) {
   }
   const failed = checks.filter((check) => !check.passed);
   return {
+    hasAnswer: Boolean(normalized),
     checks,
     passed: checks.filter((check) => check.passed),
     failed,
@@ -3543,7 +3839,11 @@ function renderInterviewFeedback(result) {
   if (result.passed.length) {
     result.passed.forEach((check) => appendInterviewListItem(elements.interviewStrengthList, check.label));
   } else {
-    appendInterviewListItem(elements.interviewStrengthList, "已形成第一版回答", "下一步从一项真实证据开始补充。");
+    appendInterviewListItem(
+      elements.interviewStrengthList,
+      result.hasAnswer ? "已形成第一版回答" : "尚未检测到回答线索",
+      "下一步从一项真实证据开始补充。",
+    );
   }
 
   elements.interviewImprovementList.replaceChildren();
@@ -3568,14 +3868,6 @@ function renderInterviewFeedback(result) {
 function runInterviewAnalysis() {
   const question = currentInterviewQuestion();
   const answer = elements.interviewAnswer.value.trim();
-  const usableLength = normalizeInterviewAnswer(answer, question).replace(/\s/g, "").length;
-  if (usableLength < 40) {
-    elements.interviewInputMessage.textContent = "先写下至少 40 个有效字符，再检查结构和证据线索。";
-    elements.interviewInputMessage.hidden = false;
-    elements.interviewFeedback.hidden = true;
-    elements.interviewAnswer.focus();
-    return;
-  }
   elements.interviewInputMessage.hidden = true;
   const result = analyzeInterviewAnswer(answer, question);
   renderInterviewFeedback(result);
@@ -3709,6 +4001,13 @@ function bindControls() {
     elements.interviewAnswer.focus();
   });
   elements.interviewAnalyzeAnswer.addEventListener("click", runInterviewAnalysis);
+  elements.interviewRecordAnswer.addEventListener("click", startInterviewRecording);
+  elements.interviewStopRecording.addEventListener("click", () => finishInterviewRecording());
+  elements.interviewDeleteRecording.addEventListener("click", deleteInterviewRecording);
+  window.addEventListener("pagehide", cleanupInterviewRecordings);
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) renderInterviewRecorder();
+  });
 
   elements.searchInput.addEventListener("input", (event) => { state.query = event.target.value.trim(); renderJobs(); });
   elements.directionSelect.addEventListener("change", (event) => { state.direction = event.target.value; render(); });

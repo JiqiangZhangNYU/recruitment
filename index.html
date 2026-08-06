@@ -381,6 +381,19 @@
                       <button id="interview-analyze-answer" class="primary-button" type="button">检查回答</button>
                     </div>
                   </div>
+                  <section class="interview-recorder" aria-labelledby="interview-recorder-heading">
+                    <div class="interview-recorder-copy">
+                      <strong id="interview-recorder-heading">口述练习</strong>
+                      <span id="interview-recording-status" role="status" aria-live="polite">未录音</span>
+                    </div>
+                    <div class="interview-recorder-actions">
+                      <button id="interview-record-answer" class="secondary-button" type="button">开始录音</button>
+                      <button id="interview-stop-recording" class="secondary-button" type="button" disabled>停止录音</button>
+                      <button id="interview-delete-recording" class="secondary-button" type="button" disabled>删除录音</button>
+                    </div>
+                    <audio id="interview-recording-playback" controls preload="metadata" aria-label="当前面试题的模拟回答录音" hidden></audio>
+                    <p>录音只保留在本次页面会话，不上传；刷新或关闭页面后清除。</p>
+                  </section>
                   <p id="interview-input-message" class="interview-input-message" role="alert" hidden></p>
                 </div>
               </section>
@@ -411,6 +424,28 @@
                     <p id="interview-follow-up-question"></p>
                   </section>
                   <p class="interview-diagnostic-note">关键词命中只是一种弱提示，不代表回答正确或质量高。不要为了通过检查堆术语或编数字；本地规则不能判断经历真伪、因果逻辑和录用概率。</p>
+                </div>
+              </section>
+
+              <section id="interview-sample-step" class="interview-step interview-sample-step" hidden>
+                <div class="interview-step-number interview-sample-label" aria-hidden="true">参考</div>
+                <div class="interview-step-body">
+                  <details id="interview-sample-answer" class="interview-sample-answer">
+                    <summary>
+                      <span>
+                        <span>口语示例</span>
+                        <strong>WorldTrade 支付增长运营参考范文</strong>
+                      </span>
+                      <span>展开阅读</span>
+                    </summary>
+                    <div class="interview-sample-content">
+                      <p id="interview-sample-note" class="interview-sample-note"></p>
+                      <p class="interview-sample-source-note">以下官网资料仅用于核对公开产品边界，不为范文中的经历、假设或内部策略背书。</p>
+                      <nav id="interview-sample-sources" class="interview-sample-sources" aria-label="WorldTrade 公开产品资料"></nav>
+                      <div id="interview-sample-answer-text" class="interview-sample-answer-text"></div>
+                      <p id="interview-sample-risk" class="interview-sample-risk"></p>
+                    </div>
+                  </details>
                 </div>
               </section>
             </article>

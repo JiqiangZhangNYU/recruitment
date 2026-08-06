@@ -5,6 +5,7 @@ const path = require("node:path");
 const guide = require("../learning-guide.json");
 const interviewPlan = require("../interview-plan.json");
 const interviewQuestionBank = require("../interview-question-bank.json");
+const interviewSampleAnswers = require("../interview-sample-answers.json");
 const jobsData = require("../jobs.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
 const businessEnglishManifest = require("../challenges/business-english/manifest.json");
@@ -75,6 +76,23 @@ const allInterviewQuestionIds = [
   ...interviewQuestionBank.questions.map((question) => question.id),
 ];
 assert.equal(new Set(allInterviewQuestionIds).size, allInterviewQuestionIds.length);
+assert.match(interviewSampleAnswers.persona.role, /WorldTrade.*目标岗位/);
+assert.match(interviewSampleAnswers.persona.usageNote, /可核验|不要照背/);
+assert.equal(interviewSampleAnswers.sources.length, 3);
+assert.equal(new Set(interviewSampleAnswers.sources.map((source) => source.url)).size, 3);
+assert.ok(interviewSampleAnswers.sources.every((source) => (
+  source.name?.trim()
+  && source.focus?.trim()
+  && new URL(source.url).protocol === "https:"
+)));
+assert.deepEqual(new Set(Object.keys(interviewSampleAnswers.answers)), new Set(allInterviewQuestionIds));
+assert.ok(Object.values(interviewSampleAnswers.answers).every((sample) => (
+  sample.answer?.trim().length >= 180
+  && sample.riskNote?.trim().length >= 20
+)));
+assert.ok(Object.values(interviewSampleAnswers.answers).every((sample) => (
+  !/我(?:目前)?在.{0,24}WorldTrade.{0,24}(?:负责|任职|工作)/i.test(sample.answer)
+)));
 assert.ok(interviewQuestionBank.questions.every((question) => (
   interviewCategoryIds.has(question.category)
   && ["high", "medium", "supplementary"].includes(question.priority)
@@ -614,8 +632,34 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-bank-browser").isHidden(), true);
   assert.equal(await page.locator("#interview-bank-count").textContent(), String(interviewQuestionBank.questions.length));
   assert.equal(await page.locator("#interview-feedback").isHidden(), true);
+  assert.equal(await page.locator("#interview-sample-step").isVisible(), true);
+  assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), null);
+  await page.locator("#interview-sample-answer > summary").click();
+  assert.match(await page.locator("#interview-sample-answer-text").textContent(), /Route B|5\.5 个百分点/);
+  assert.match(await page.locator("#interview-sample-note").textContent(), /方括号.*可核验/);
+  assert.match(await page.locator(".interview-sample-source-note").textContent(), /仅用于核对公开产品边界.*不为.*背书/);
+  const sampleSourceLinks = page.locator("#interview-sample-sources a");
+  assert.equal(await sampleSourceLinks.count(), interviewSampleAnswers.sources.length);
+  for (const [index, source] of interviewSampleAnswers.sources.entries()) {
+    assert.equal(await sampleSourceLinks.nth(index).getAttribute("href"), source.url);
+    assert.equal(await sampleSourceLinks.nth(index).getAttribute("target"), "_blank");
+  }
+  assert.equal(
+    requestedURLs.filter((url) => interviewSampleAnswers.sources.some((source) => source.url === url)).length,
+    0,
+  );
+  const sampleScores = await page.evaluate((answers) => Object.entries(answers).map(([id, sample]) => {
+    const question = findInterviewQuestion(id);
+    const result = analyzeInterviewAnswer(sample.answer, question);
+    return { id, score: result.passed.length };
+  }), interviewSampleAnswers.answers);
+  assert.ok(
+    sampleScores.every(({ score }) => score >= 4),
+    `reference samples below 4 / 5: ${sampleScores.filter(({ score }) => score < 4).map(({ id, score }) => `${id}=${score}`).join(", ")}`,
+  );
   assert.equal(requestedURLs.filter((url) => url.includes("interview-plan.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-question-bank.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("jobs.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
 
@@ -628,6 +672,9 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.match(await page.locator("#interview-question-prompt").textContent(), new RegExp(target.company));
 
     await page.locator("#interview-question-select").selectOption("fit-introduction");
+    assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), null);
+    await page.locator("#interview-sample-answer > summary").click();
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
     await page.locator("#interview-use-template").click();
     assert.match(await page.locator("#interview-answer").inputValue(), /^现在：/);
     assert.match(
@@ -685,6 +732,8 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.match(await page.locator("#interview-answer-edge").textContent(), /招商|需求侧/);
     assert.equal(await page.locator("#interview-evidence-heading").textContent(), "回答前先明确");
     assert.match(await page.locator("#interview-guide-note").textContent(), /明确假设|未知结果/);
+    await page.locator("#interview-sample-answer > summary").click();
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
     assert.match(page.url(), /#interview\/merchant-supply-structure$/);
 
     const bankAnswer = [
@@ -720,8 +769,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   } else {
     assert.equal(await page.locator(".interview-navigation").isHidden(), true);
     await page.locator("#interview-analyze-answer").click();
-    assert.equal(await page.locator("#interview-feedback").isHidden(), true);
-    assert.match(await page.locator("#interview-input-message").textContent(), /至少 40 个/);
+    assert.equal(await page.locator("#interview-feedback").isVisible(), true);
+    assert.equal(await page.locator("#interview-coverage-score").textContent(), "0 / 5");
+    assert.match(await page.locator("#interview-strength-list").textContent(), /尚未检测到回答线索/);
+    assert.equal(await page.locator("#interview-input-message").isHidden(), true);
     await page.locator("#interview-bank-mode").click();
     assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
     assert.equal(await page.locator("#interview-bank-relevant").isDisabled(), true);
@@ -765,7 +816,180 @@ async function checkInterviewBankFallback(browser) {
   assert.equal(await page.locator("#interview-bank-count").textContent(), "0");
   assert.equal(await page.locator("#interview-evidence-list li").count(), 3);
   assert.equal(await page.locator("#interview-method-resources").isHidden(), true);
+  assert.equal(await page.locator("#interview-sample-step").isVisible(), true);
   assert.ok(errors.every((message) => /Failed to load resource:.*404/.test(message)));
+  await page.close();
+}
+
+async function checkInterviewRecording(browser) {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const requestedURLs = [];
+  const errors = [];
+  page.on("request", (request) => requestedURLs.push(request.url()));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.addInitScript(() => {
+    window.__interviewTrackStops = 0;
+    window.__interviewURLRevokes = 0;
+    const revokeObjectURL = URL.revokeObjectURL.bind(URL);
+    URL.revokeObjectURL = (url) => {
+      window.__interviewURLRevokes += 1;
+      revokeObjectURL(url);
+    };
+    class FakeMediaRecorder extends EventTarget {
+      constructor(stream, options = {}) {
+        super();
+        this.stream = stream;
+        this.mimeType = options.mimeType || "audio/mp4";
+        this.state = "inactive";
+      }
+
+      start() {
+        this.state = "recording";
+      }
+
+      stop() {
+        if (this.state === "inactive") return;
+        this.state = "inactive";
+        queueMicrotask(() => {
+          const dataEvent = new Event("dataavailable");
+          Object.defineProperty(dataEvent, "data", {
+            value: new Blob(["recorded interview answer"], { type: this.mimeType }),
+          });
+          this.dispatchEvent(dataEvent);
+          this.dispatchEvent(new Event("stop"));
+        });
+      }
+
+      static isTypeSupported(type) {
+        return type === "audio/mp4";
+      }
+    }
+    window.__interviewGrantMicrophone = async () => {
+      const track = new EventTarget();
+      track.stop = () => { window.__interviewTrackStops += 1; };
+      return { getTracks: () => [track] };
+    };
+    Object.defineProperty(window, "MediaRecorder", { configurable: true, value: FakeMediaRecorder });
+    Object.defineProperty(navigator, "mediaDevices", {
+      configurable: true,
+      value: { getUserMedia: window.__interviewGrantMicrophone },
+    });
+  });
+
+  await page.goto(`${baseURL}/#interview/fit-introduction`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.locator("#interview-panel").waitFor();
+  assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+  assert.equal(await page.locator("#interview-stop-recording").isEnabled(), true);
+  assert.equal(await page.locator("#interview-record-answer").isDisabled(), true);
+  await page.locator("#interview-stop-recording").click();
+  await page.locator("#interview-recording-playback").waitFor({ state: "visible" });
+  assert.match(await page.locator("#interview-recording-status").textContent(), /录音完成/);
+  assert.equal(await page.locator("#interview-record-answer").textContent(), "重新录音");
+  assert.ok(await page.evaluate(() => window.__interviewTrackStops >= 1));
+
+  await page.locator("#interview-question-select").selectOption("signature-project");
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  await page.locator("#interview-question-select").selectOption("fit-introduction");
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+
+  await page.evaluate(() => {
+    navigator.mediaDevices.getUserMedia = () => new Promise((resolve, reject) => {
+      window.__rejectInterviewMicrophone = () => {
+        const error = new Error("permission denied after navigation");
+        error.name = "NotAllowedError";
+        reject(error);
+      };
+    });
+  });
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("正在请求"));
+  await page.locator("#interview-question-select").selectOption("signature-project");
+  await page.evaluate(() => window.__rejectInterviewMicrophone());
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent === "未录音");
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  assert.equal(await page.locator("#interview-record-answer").textContent(), "开始录音");
+  await page.locator("#interview-question-select").selectOption("fit-introduction");
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+
+  await page.evaluate(() => { navigator.mediaDevices.getUserMedia = window.__interviewGrantMicrophone; });
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+  await page.locator("#interview-question-select").selectOption("signature-project");
+  await page.waitForFunction(() => !document.querySelector("#interview-record-answer")?.disabled);
+  await page.locator("#interview-question-select").selectOption("fit-introduction");
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+  assert.equal(await page.locator("#interview-record-answer").textContent(), "重新录音");
+
+  await page.locator("#interview-delete-recording").click();
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  assert.equal(await page.locator("#interview-recording-status").textContent(), "未录音");
+
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+  await page.locator("#interview-question-select").selectOption("signature-project");
+  await page.waitForFunction(() => !document.querySelector("#interview-record-answer")?.disabled);
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  await page.locator("#interview-question-select").selectOption("fit-introduction");
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+
+  for (let cycle = 0; cycle < 2; cycle += 1) {
+    await page.locator("#interview-record-answer").click();
+    await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+    await page.locator("#interview-stop-recording").click();
+    await page.locator("#interview-recording-playback").waitFor({ state: "visible" });
+    await page.evaluate(() => {
+      const pagehide = new Event("pagehide");
+      Object.defineProperty(pagehide, "persisted", { value: true });
+      window.dispatchEvent(pagehide);
+      const pageshow = new Event("pageshow");
+      Object.defineProperty(pageshow, "persisted", { value: true });
+      window.dispatchEvent(pageshow);
+    });
+    assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+    assert.equal(await page.locator("#interview-recording-status").textContent(), "未录音");
+  }
+  assert.ok(await page.evaluate(() => window.__interviewURLRevokes >= 2));
+
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+  await page.locator("#interview-stop-recording").click();
+  await page.locator("#interview-recording-playback").waitFor({ state: "visible" });
+  await page.evaluate(() => {
+    const audio = document.querySelector("#interview-recording-playback");
+    const pause = audio.pause.bind(audio);
+    window.__interviewPlaybackPauses = 0;
+    audio.pause = () => {
+      window.__interviewPlaybackPauses += 1;
+      pause();
+    };
+  });
+  await page.locator('.primary-nav button[data-view="jobs"]').click();
+  assert.ok(await page.evaluate(() => window.__interviewPlaybackPauses >= 1));
+  await page.locator('.primary-nav button[data-view="interview"]').click();
+  await page.locator("#interview-panel").waitFor();
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.locator("#interview-panel").waitFor();
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  await page.evaluate(() => {
+    navigator.mediaDevices.getUserMedia = async () => {
+      const error = new Error("permission denied");
+      error.name = "NotAllowedError";
+      throw error;
+    };
+  });
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("麦克风权限"));
+  assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 2);
+  assert.deepEqual(errors, []);
   await page.close();
 }
 
@@ -902,6 +1126,7 @@ async function checkBusinessEnglishProgressMigration(browser) {
     await checkBusinessEnglishProgressMigration(browser);
     await checkGlossaryReadAloud(browser);
     await checkInterviewBankFallback(browser);
+    await checkInterviewRecording(browser);
     await checkInterviewPractice(
       browser,
       { width: 1440, height: 1000 },
