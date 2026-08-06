@@ -37,11 +37,14 @@
       </div>
 
       <nav class="primary-nav" aria-label="主要视图">
-        <button type="button" data-view="jobs" class="active" aria-pressed="true">
-          <span aria-hidden="true">▤</span><span>岗位清单</span>
+        <button type="button" data-view="jobs" class="active" aria-pressed="true" title="岗位清单">
+          <span aria-hidden="true">▤</span><span>岗位</span>
         </button>
-        <button type="button" data-view="skills" aria-pressed="false">
-          <span aria-hidden="true">✓</span><span>提升计划</span>
+        <button type="button" data-view="skills" aria-pressed="false" title="技能提升">
+          <span aria-hidden="true">✓</span><span>技能</span>
+        </button>
+        <button type="button" data-view="interview" aria-pressed="false" title="面试提升">
+          <span aria-hidden="true">◎</span><span>面试</span>
         </button>
       </nav>
 
@@ -65,6 +68,14 @@
         <div id="learning-skill-nav" class="learning-skill-nav">
           <span class="side-loading">进入提升计划后加载</span>
         </div>
+      </section>
+
+      <section class="side-section interview-navigation" aria-labelledby="interview-question-heading">
+        <h2 id="interview-question-heading">面试题目</h2>
+        <div id="interview-side-progress" class="interview-side-progress">
+          <span class="side-loading">进入面试页后加载</span>
+        </div>
+        <div id="interview-question-nav" class="interview-question-nav"></div>
       </section>
 
       <div class="sidebar-footer">
@@ -205,6 +216,137 @@
             </nav>
           </section>
 
+        </section>
+
+        <section id="interview-view" class="view-panel interview-view" hidden>
+          <div id="interview-loading" class="guide-loading" role="status">
+            <span></span>
+            <strong>正在加载面试计划</strong>
+          </div>
+
+          <section id="interview-panel" hidden>
+            <header class="interview-plan-header">
+              <div>
+                <p class="eyebrow">当前 <span id="interview-a-count">--</span> 个 A 档岗位 · 一次只练一题</p>
+                <h2>面试提升计划</h2>
+                <p>先把真实经历讲清楚，再逐项补足证据。回答和诊断记录只保存在当前浏览器。</p>
+              </div>
+              <div class="interview-progress-summary" aria-label="面试训练进度">
+                <div><span>已完成诊断</span><strong id="interview-reviewed-count">0 / 12</strong></div>
+                <div class="interview-progress-track" role="progressbar" aria-label="已完成诊断题目" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0">
+                  <span id="interview-progress-fill"></span>
+                </div>
+              </div>
+            </header>
+
+            <div class="interview-controls" aria-label="面试训练选择器">
+              <label>目标岗位
+                <select id="interview-target-select">
+                  <option value="all">综合 A 档岗位要求</option>
+                </select>
+              </label>
+              <label>当前题目
+                <select id="interview-question-select"></select>
+              </label>
+            </div>
+
+            <article class="interview-workbench" aria-labelledby="interview-question-title">
+              <section class="interview-step interview-question-step">
+                <div class="interview-step-number" aria-hidden="true">01</div>
+                <div class="interview-step-body">
+                  <div class="interview-question-heading">
+                    <div>
+                      <div class="interview-question-meta">
+                        <span id="interview-question-position"></span>
+                        <span id="interview-question-category"></span>
+                        <span id="interview-question-duration"></span>
+                      </div>
+                      <h3 id="interview-question-title">面试题目</h3>
+                    </div>
+                    <span id="interview-tier-focus" class="interview-tier-focus" hidden></span>
+                  </div>
+                  <p id="interview-question-prompt" class="interview-question-prompt"></p>
+                  <p id="interview-question-intent" class="interview-question-intent"></p>
+                  <div class="interview-evidence">
+                    <strong id="interview-coverage"></strong>
+                    <div id="interview-dimension-list" class="interview-dimension-list"></div>
+                    <p id="interview-job-examples"></p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="interview-step interview-framework-step">
+                <div class="interview-step-number" aria-hidden="true">02</div>
+                <div class="interview-step-body">
+                  <div class="interview-section-heading">
+                    <div>
+                      <span>回答框架</span>
+                      <h3>先搭骨架，再填事实</h3>
+                    </div>
+                    <button id="interview-use-template" class="secondary-button" type="button">填入空白框架</button>
+                  </div>
+                  <ol id="interview-framework-list" class="interview-framework-list"></ol>
+                </div>
+              </section>
+
+              <section class="interview-step interview-answer-step">
+                <div class="interview-step-number" aria-hidden="true">03</div>
+                <div class="interview-step-body">
+                  <div class="interview-section-heading">
+                    <div>
+                      <span>模拟回答</span>
+                      <h3>写下准备在面试中说的话</h3>
+                    </div>
+                    <span id="interview-save-status" class="interview-save-status">尚未输入</span>
+                  </div>
+                  <label class="interview-answer-label" for="interview-answer">回答内容</label>
+                  <textarea id="interview-answer" rows="12" placeholder="从结论开始，使用真实且可脱敏的经历。不要填写客户姓名、内部系统名或未公开商业数据。"></textarea>
+                  <div class="interview-answer-footer">
+                    <span id="interview-answer-count">0 字</span>
+                    <div>
+                      <button id="interview-clear-answer" class="secondary-button" type="button">清空</button>
+                      <button id="interview-analyze-answer" class="primary-button" type="button">检查回答</button>
+                    </div>
+                  </div>
+                  <p id="interview-input-message" class="interview-input-message" role="alert" hidden></p>
+                </div>
+              </section>
+
+              <section id="interview-feedback" class="interview-step interview-feedback-step" aria-live="polite" hidden>
+                <div class="interview-step-number" aria-hidden="true">04</div>
+                <div class="interview-step-body">
+                  <header class="interview-feedback-header">
+                    <div>
+                      <span>本地结构诊断</span>
+                      <h3>回答完整度 <strong id="interview-coverage-score">0 / 5</strong></h3>
+                    </div>
+                    <p id="interview-feedback-summary"></p>
+                  </header>
+                  <div id="interview-check-list" class="interview-check-list"></div>
+                  <div class="interview-feedback-grid">
+                    <section>
+                      <h4>已经说清楚</h4>
+                      <ul id="interview-strength-list"></ul>
+                    </section>
+                    <section>
+                      <h4>下一版优先补强</h4>
+                      <ol id="interview-improvement-list"></ol>
+                    </section>
+                  </div>
+                  <section class="interview-follow-up">
+                    <span>面试官可能追问</span>
+                    <p id="interview-follow-up-question"></p>
+                  </section>
+                  <p class="interview-diagnostic-note">本地规则只检查结构和证据线索，不能判断经历真伪、业务逻辑是否完全正确，也不代表最终录用概率。</p>
+                </div>
+              </section>
+            </article>
+
+            <nav class="interview-pagination" aria-label="上一道或下一道面试题">
+              <button id="previous-interview-question" type="button"></button>
+              <button id="next-interview-question" type="button"></button>
+            </nav>
+          </section>
         </section>
       </div>
     </main>

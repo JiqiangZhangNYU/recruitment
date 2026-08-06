@@ -1,0 +1,841 @@
+{
+  "version": 1,
+  "title": "A 档岗位面试提升计划",
+  "description": "围绕当前 A+ 与 A- 岗位的共性要求，练习把真实经历讲成可验证、可追问的能力证据。",
+  "categories": [
+    { "id": "core", "label": "核心必答", "shortLabel": "必答" },
+    { "id": "business", "label": "增长与商家", "shortLabel": "增长" },
+    { "id": "data", "label": "数据与支付", "shortLabel": "数据" },
+    { "id": "delivery", "label": "商业化与推进", "shortLabel": "推进" },
+    { "id": "international", "label": "国际化与动机", "shortLabel": "国际" }
+  ],
+  "questions": [
+    {
+      "id": "fit-introduction",
+      "category": "core",
+      "title": "两分钟自我介绍与岗位匹配",
+      "prompt": "请用两分钟介绍自己，并说明你为什么适合{{targetRole}}。不要复述简历，请用事实证明匹配度。",
+      "intent": "检验定位是否清晰，能否把头部国际支付经历映射到岗位的增长、数据、策略和协作要求。",
+      "duration": "2 分钟",
+      "coverage": "all",
+      "dimensions": [],
+      "framework": [
+        "现在：我是谁、经验年限，以及最核心的业务标签。",
+        "过去：选择两项与岗位最相关的成果，各用一个动作和一组数字概括。",
+        "匹配：逐一对应这个岗位最重要的三项要求。",
+        "动机：为什么是这类业务，以及入职后首先能贡献什么。"
+      ],
+      "checks": [
+        {
+          "id": "focus",
+          "label": "定位清晰",
+          "kind": "keywordGroups",
+          "groups": [["支付", "金融科技", "钱包", "收单", "跨境"], ["增长", "生命周期", "商户运营", "策略运营"]],
+          "minGroups": 2,
+          "problem": "开场还没有形成一个容易被记住的职业标签。",
+          "improvement": "首句改成“经验年限 + 业务领域 + 核心能力 + 代表结果”，不要从毕业经历讲起。",
+          "followUp": "如果面试官只能记住你一个标签，你希望是什么？"
+        },
+        {
+          "id": "evidence",
+          "label": "有量化证据",
+          "kind": "regexCount",
+          "pattern": "NUMBER",
+          "min": 2,
+          "problem": "成果证据偏抽象，面试官难以判断影响大小。",
+          "improvement": "把“效果很好”改成“指标从 X 到 Y，周期 Z，我负责 A”。",
+          "followUp": "最能证明能力的两个结果，基线和最终值分别是多少？"
+        },
+        {
+          "id": "jobMatch",
+          "label": "明确映射岗位",
+          "kind": "keywordGroups",
+          "groups": [["岗位", "职位", "JD", "职责"], ["匹配", "适合", "对应", "贡献"]],
+          "minGroups": 2,
+          "problem": "经历和目标岗位之间的对应关系还不够直接。",
+          "improvement": "结尾明确写出三条岗位要求与三段经历的一一对应。",
+          "followUp": "这份 JD 最重要的三项要求是什么，你分别有什么证据？"
+        },
+        {
+          "id": "dataAction",
+          "label": "方法与行动",
+          "kind": "keywordGroups",
+          "groups": [["数据", "漏斗", "分析", "实验"], ["主导", "推动", "设计", "落地"]],
+          "minGroups": 2,
+          "problem": "回答提到了经历，但还没有展示你解决问题的方法。",
+          "improvement": "选择一项成果，补上你如何分析、判断并推动落地。",
+          "followUp": "这个结果中，哪个关键判断是你亲自作出的？"
+        },
+        {
+          "id": "length",
+          "label": "两分钟篇幅",
+          "kind": "charRange",
+          "min": 180,
+          "max": 520,
+          "problem": "当前篇幅不适合两分钟口述，可能过短而缺证据，或过长而失去重点。",
+          "improvement": "控制在约 180 至 520 个字符，只保留定位、两项证据、岗位匹配和动机。",
+          "followUp": "删掉哪一段后，核心说服力仍然不变？"
+        }
+      ]
+    },
+    {
+      "id": "signature-project",
+      "category": "core",
+      "title": "最有代表性的支付增长项目",
+      "prompt": "讲一个你最有代表性的国际支付、商家钱包或用户增长项目。你本人做了什么，结果如何？",
+      "intent": "检验真实项目深度、个人所有权、数据方法、业务结果和复盘能力。",
+      "duration": "3 分钟",
+      "dimensions": ["数据分析", "增长/生命周期", "策略设计", "跨团队推进", "商业结果", "支付业务"],
+      "framework": [
+        "S：业务阶段、目标用户或商户，以及具体问题。",
+        "T：目标、基线、期限、约束，以及你的职责。",
+        "A：诊断证据、关键决策、三项行动和跨团队推进。",
+        "R：核心指标、商业结果和护栏变化。",
+        "L：不足、学到什么，以及再次执行会怎样调整。"
+      ],
+      "checks": [
+        {
+          "id": "star",
+          "label": "STAR-L 完整",
+          "kind": "keywordGroups",
+          "groups": [["背景", "当时", "业务阶段"], ["目标", "任务", "基线"], ["我负责", "我主导", "我推动", "我设计"], ["结果", "提升", "降低", "达成"], ["复盘", "学到", "如果重来"]],
+          "minGroups": 4,
+          "problem": "案例的背景、目标、行动、结果和复盘还没有连成完整证据链。",
+          "improvement": "按 STAR-L 顺序补齐缺失段，每段只承担一个任务。",
+          "followUp": "如果重做一次，你会提前改变什么？"
+        },
+        {
+          "id": "numbers",
+          "label": "指标充分",
+          "kind": "regexCount",
+          "pattern": "NUMBER",
+          "min": 3,
+          "problem": "目标、基线、结果或周期缺少可核验数字。",
+          "improvement": "至少给出两组前后对比，并说明时间范围和统计口径。",
+          "followUp": "目标、基线、结果和周期分别是什么？"
+        },
+        {
+          "id": "ownership",
+          "label": "个人贡献清楚",
+          "kind": "regexCount",
+          "pattern": "我(?:负责|主导|决定|设计|推动|发现|协调|提出)",
+          "min": 2,
+          "problem": "团队动作较多，但你的个人判断和贡献不够清楚。",
+          "improvement": "减少连续使用“我们”，准确补上你分析、决策和推动的动作。",
+          "followUp": "其中哪一个判断或动作是你亲自作出的？"
+        },
+        {
+          "id": "method",
+          "label": "方法可信",
+          "kind": "keywordGroups",
+          "groups": [["漏斗", "分层", "归因", "数据分析"], ["A/B", "实验", "对照组"], ["跨团队", "产品", "技术", "风控", "合规"]],
+          "minGroups": 2,
+          "problem": "行动有描述，但诊断方法或协作路径还不够具体。",
+          "improvement": "补一项关键分析方法，以及它如何改变后续决策。",
+          "followUp": "你排除了哪些替代原因，为什么选择这个方案？"
+        },
+        {
+          "id": "businessResult",
+          "label": "业务结果完整",
+          "kind": "keywordGroups",
+          "groups": [["转化", "留存", "成功率", "GMV", "收入", "成本", "ROI"], ["风险", "投诉", "拒付", "护栏"]],
+          "minGroups": 2,
+          "problem": "结果只覆盖增长指标，还没有说明商业价值或副作用。",
+          "improvement": "同时写主指标、商业结果和至少一个风险或体验护栏。",
+          "followUp": "这个增长是否以成本、风险或体验恶化为代价？"
+        }
+      ]
+    },
+    {
+      "id": "setback-reflection",
+      "category": "core",
+      "title": "一次没有达标的项目",
+      "prompt": "讲一次你负责但最终没有达到目标的项目。哪里判断错了，你如何处理，后来改变了什么？",
+      "intent": "检验抗压、事实意识、责任承担和学习闭环；重点不是项目结果大小，而是能否诚实复盘。",
+      "duration": "3 分钟",
+      "dimensions": ["跨团队推进", "商业结果", "策略设计"],
+      "framework": [
+        "预期与实际：目标、基线和实际差距。",
+        "早期信号：什么时候发现，依据是什么。",
+        "根因：区分事实、假设和外部约束。",
+        "责任与纠偏：自己的错误，以及采取的止损和修正。",
+        "结果与机制：后续结果，以及如何防止重演。"
+      ],
+      "checks": [
+        {
+          "id": "gapEvidence",
+          "label": "差距事实具体",
+          "kind": "regexCount",
+          "pattern": "NUMBER",
+          "min": 2,
+          "problem": "预期与实际差距还没有被量化。",
+          "improvement": "写清目标、实际结果、周期和影响范围。",
+          "followUp": "目标差了多少，什么时候确认已经无法按原计划达成？"
+        },
+        {
+          "id": "ownership",
+          "label": "主动承担责任",
+          "kind": "keywordGroups",
+          "groups": [["我判断错", "我低估", "我忽略", "我的责任", "我没有"], ["我调整", "我停止", "我补充", "我推动"]],
+          "minGroups": 2,
+          "problem": "回答还没有明确你的判断偏差和可控责任。",
+          "improvement": "用一句话承认具体判断偏差，再说明依据为何不足和你如何纠偏。",
+          "followUp": "撇开外部因素，你自己的哪个判断最需要改？"
+        },
+        {
+          "id": "rootCause",
+          "label": "根因有证据",
+          "kind": "keywordGroups",
+          "groups": [["根因", "原因", "假设"], ["数据", "访谈", "日志", "验证", "对照"]],
+          "minGroups": 2,
+          "problem": "原因像结论，还缺少验证它的证据。",
+          "improvement": "补充数据切片、访谈、日志或对照证据，并标明哪些仍是假设。",
+          "followUp": "如何证明这是根因，而不是时间上恰好同时发生？"
+        },
+        {
+          "id": "correction",
+          "label": "有纠偏闭环",
+          "kind": "keywordGroups",
+          "groups": [["止损", "回滚", "调整", "纠偏"], ["结果", "恢复", "降低", "后续"]],
+          "minGroups": 2,
+          "problem": "发现问题后的止损动作和后续结果没有说完整。",
+          "improvement": "说明何时调整、改了什么，以及调整后的结果。",
+          "followUp": "为什么当时没有更早停止或切换方案？"
+        },
+        {
+          "id": "learning",
+          "label": "形成机制",
+          "kind": "keywordGroups",
+          "groups": [["复盘", "学到", "如果重来"], ["机制", "检查点", "预警", "护栏"]],
+          "minGroups": 2,
+          "problem": "复盘停留在个人感受，还没有沉淀成可复用机制。",
+          "improvement": "给出后来采用的预警指标、评审节点或停止规则。",
+          "followUp": "这次经验后来变成了什么固定机制？"
+        }
+      ],
+      "warnings": [
+        {
+          "pattern": "都是.*(?:产品|技术|同事|领导)|他们没有",
+          "message": "有一段表述容易听成归责他人；先说明自己的决策责任和可控动作。"
+        }
+      ]
+    },
+    {
+      "id": "merchant-wallet-growth-case",
+      "category": "business",
+      "title": "商家钱包首笔增长",
+      "prompt": "一家跨境商家钱包每月有 2 万商家完成 KYB，14 天有效首笔率为 28%，目标是在一个季度提升到 38%。35% 开始配置、24% 完成配置、20% 完成测试，但总体首笔也来自销售协助等其他路径；高意愿商家占 25%，其首笔率为 57%。团队只有 2 名工程师、3 名运营。请给出方案。",
+      "intent": "对应 A+ 商家钱包岗位，检验口径核验、生命周期分层、优先级、实验和资源取舍。",
+      "duration": "8 分钟",
+      "tierFocus": "A+",
+      "dimensions": ["增长/生命周期", "数据分析", "策略设计", "电商/商家", "支付业务"],
+      "framework": [
+        "澄清：有效首笔、分母、漏斗是否同批用户、目标和风险边界。",
+        "分层：高意愿、已配置失败、无关键行为，并估算机会。",
+        "诊断：找出配置或测试的集中阻力，不把相关性当根因。",
+        "选择：只选两个高影响项目，明确暂时不做什么。",
+        "验证：主指标、过程指标、护栏、试点节奏和无效后的调整。"
+      ],
+      "checks": [
+        {
+          "id": "definition",
+          "label": "先核验口径",
+          "kind": "keywordGroups",
+          "groups": [["分母", "口径", "有效首笔"], ["同一批", "多条路径", "核验"]],
+          "minGroups": 2,
+          "problem": "直接进入方案，尚未处理题目里可能不一致的统计口径。",
+          "improvement": "先声明总体首笔来自多条路径，核验每个比例的分母后再计算机会。",
+          "followUp": "28% 首笔率和 20% 测试率为什么可能同时成立？"
+        },
+        {
+          "id": "segmentation",
+          "label": "形成可行动分层",
+          "kind": "keywordGroups",
+          "groups": [["高意愿", "已配置", "失败", "无行为"], ["分层", "生命周期", "人群"]],
+          "minGroups": 2,
+          "problem": "方案还没有把不同阻力的商家拆成可行动人群。",
+          "improvement": "按意愿和关键行为形成互斥分层，每层只匹配一个主要问题。",
+          "followUp": "哪个人群会成为第一批试点，为什么？"
+        },
+        {
+          "id": "priority",
+          "label": "有资源取舍",
+          "kind": "keywordGroups",
+          "groups": [["优先", "影响", "信心", "成本"], ["两个项目", "不做", "延期", "资源"]],
+          "minGroups": 2,
+          "problem": "动作较多，但在有限工程和运营资源下没有明确取舍。",
+          "improvement": "用影响、信心、成本、速度和风险排序，明确两个优先项及延期项。",
+          "followUp": "如果只能做两个项目，你砍掉什么，为什么？"
+        },
+        {
+          "id": "measurement",
+          "label": "指标与实验",
+          "kind": "keywordGroups",
+          "groups": [["首笔率", "配置完成率", "测试成功率"], ["A/B", "对照", "试点", "增量"]],
+          "minGroups": 2,
+          "problem": "指标有目标，但还没有证明新增首笔来自方案。",
+          "improvement": "加入对照、增量口径、观察周期和扩大或停止规则。",
+          "followUp": "如何排除自然增长和销售协助带来的首笔？"
+        },
+        {
+          "id": "guardrail",
+          "label": "风险护栏",
+          "kind": "keywordGroups",
+          "groups": [["风险损失", "退款", "套利", "合规"], ["投诉", "客服", "工单", "护栏"]],
+          "minGroups": 2,
+          "problem": "增长方案还没有定义不可牺牲的风险与体验边界。",
+          "improvement": "至少加入风险损失和投诉或工单两个护栏，并写清停止阈值。",
+          "followUp": "首笔率达标但退款和投诉上升时，是否扩量？"
+        }
+      ]
+    },
+    {
+      "id": "international-bnpl-growth",
+      "category": "business",
+      "title": "新市场 BNPL 增长策略",
+      "prompt": "国际 BNPL 业务进入一个新市场，季度目标是 GMV 增长 40%。历史数据有限，同时必须控制授信风险、补贴成本和投诉。你会如何制定增长策略？",
+      "intent": "检验本地洞察、生命周期、经营效率与风险平衡。",
+      "duration": "8 分钟",
+      "dimensions": ["增长/生命周期", "策略设计", "国际化", "支付业务", "商业结果"],
+      "framework": [
+        "目标：把 GMV 拆成准入、授信、首次支用、频次和客单，并定义护栏。",
+        "洞察：市场、用户、商家、渠道和竞品，标出已知与待验证假设。",
+        "策略：选择目标人群和生命周期阶段，设计产品、渠道、商家与权益组合。",
+        "验证：小范围 A/B 或分阶段试点，测增量与单位经济。",
+        "扩展：本地化、跨团队责任、风控合规条件和扩量门槛。"
+      ],
+      "checks": [
+        {
+          "id": "lifecycle",
+          "label": "拆解 BNPL 生命周期",
+          "kind": "keywordGroups",
+          "groups": [["准入", "授信"], ["支用", "首单", "首笔"], ["复购", "提频", "留存"]],
+          "minGroups": 3,
+          "problem": "GMV 目标还没有拆到可操作的生命周期环节。",
+          "improvement": "拆成准入、授信、首用、复购和客单，定位最主要的增长杠杆。",
+          "followUp": "40% 增长中，哪一部分由用户量、频次和客单贡献？"
+        },
+        {
+          "id": "economics",
+          "label": "不只追 GMV",
+          "kind": "keywordGroups",
+          "groups": [["GMV", "用户量"], ["ROI", "收入", "利润", "补贴成本", "LTV", "CAC"]],
+          "minGroups": 2,
+          "problem": "策略主要追求规模，还没有证明增长的经营质量。",
+          "improvement": "补充风险调整后净收入、补贴成本、LTV/CAC 或回收期。",
+          "followUp": "GMV 增长 40% 后，业务可能反而更差吗？"
+        },
+        {
+          "id": "localInsight",
+          "label": "有市场洞察",
+          "kind": "keywordGroups",
+          "groups": [["本地化", "当地", "市场", "文化"], ["用户洞察", "商家", "渠道", "竞品"]],
+          "minGroups": 2,
+          "problem": "新市场策略还没有区分已知事实和本地待验证假设。",
+          "improvement": "列出市场假设及其数据、访谈或小样本验证方式。",
+          "followUp": "哪些结论是已知事实，哪些必须先在当地验证？"
+        },
+        {
+          "id": "test",
+          "label": "策略可验证",
+          "kind": "keywordGroups",
+          "groups": [["A/B", "对照", "试点"], ["增量", "样本", "周期", "决策规则"]],
+          "minGroups": 2,
+          "problem": "策略动作较完整，但验证路径和决策门槛不清楚。",
+          "improvement": "给出试点人群、对照方式、周期和扩量或停止规则。",
+          "followUp": "首轮试点用什么证据决定继续、调整或停止？"
+        },
+        {
+          "id": "risk",
+          "label": "风险边界明确",
+          "kind": "keywordGroups",
+          "groups": [["授信风险", "逾期", "坏账", "欺诈"], ["投诉", "合规", "风控", "护栏"]],
+          "minGroups": 2,
+          "problem": "增长动作还没有明确一票否决或停止扩量的风险条件。",
+          "improvement": "给出可量化的坏账、欺诈、投诉和合规 Go/No-Go 条件。",
+          "followUp": "什么情况下一票否决或停止扩量？"
+        }
+      ]
+    },
+    {
+      "id": "merchant-segmentation",
+      "category": "business",
+      "title": "商家分层与生命周期运营",
+      "prompt": "请为跨境商家钱包设计一套可执行的商家分层。每层采取什么动作，如何判断商家进入和退出该层？",
+      "intent": "检验分层是否真正改变运营动作，而不是堆砌标签。",
+      "duration": "6 分钟",
+      "dimensions": ["电商/商家", "增长/生命周期", "数据分析", "策略设计"],
+      "framework": [
+        "先定目标：激活、提频、收入、体验或召回。",
+        "生命周期：注册、KYB、配置、首笔、成长、成熟、沉默或流失。",
+        "第二维度：价值、意愿、需求、风险中只选最有行动意义的一至两项。",
+        "动作：每层触点、内容、频次、负责人和退出条件。",
+        "度量：阶段跃迁、增量结果、成本和风险或体验护栏。"
+      ],
+      "checks": [
+        {
+          "id": "stages",
+          "label": "阶段互斥可计算",
+          "kind": "keywordGroups",
+          "groups": [["注册", "KYB"], ["配置", "首笔"], ["成长", "成熟"], ["沉默", "流失"]],
+          "minGroups": 3,
+          "problem": "生命周期阶段覆盖不足，或各层可能互相重叠。",
+          "improvement": "为关键阶段定义互斥规则、时间窗和优先级。",
+          "followUp": "同一商家能否同时落入两个生命周期层？"
+        },
+        {
+          "id": "dimensions",
+          "label": "分层维度有业务意义",
+          "kind": "keywordGroups",
+          "groups": [["价值", "GMV", "收入"], ["意愿", "行为"], ["需求", "场景"], ["风险", "合规"]],
+          "minGroups": 2,
+          "problem": "分层标签较单一，还不能解释为什么采取不同动作。",
+          "improvement": "在生命周期外只增加会改变动作的价值、意愿、需求或风险维度。",
+          "followUp": "如果两个标签对应同一动作，还有必要拆开吗？"
+        },
+        {
+          "id": "actions",
+          "label": "动作有差异",
+          "kind": "keywordGroups",
+          "groups": [["触达", "辅导", "权益", "客户经理"], ["频次", "时机", "渠道"]],
+          "minGroups": 2,
+          "problem": "各层定义了名称，但运营动作的内容、时机或渠道还不够具体。",
+          "improvement": "为每层写清触点、时机、频次和唯一主要动作。",
+          "followUp": "高价值沉默商家和低价值新商家为什么不能用同一套触达？"
+        },
+        {
+          "id": "transition",
+          "label": "有进入退出条件",
+          "kind": "keywordGroups",
+          "groups": [["进入条件", "退出条件", "跃迁"], ["天内", "连续", "阈值"]],
+          "minGroups": 2,
+          "problem": "商家何时进入、退出或跃迁还无法用数据计算。",
+          "improvement": "每层增加事件、时间窗和阈值，并定义成功、无响应及风险退出。",
+          "followUp": "商家何时退出召回流程？"
+        },
+        {
+          "id": "measurement",
+          "label": "结果与护栏",
+          "kind": "keywordGroups",
+          "groups": [["首笔率", "留存", "频次", "净收入"], ["投诉", "退款", "风险", "成本"]],
+          "minGroups": 2,
+          "problem": "分层运营的成效与副作用还没有共同衡量。",
+          "improvement": "每层绑定一个主指标和至少一个成本、风险或体验护栏。",
+          "followUp": "如何判断分层本身有价值，而不是增加了运营复杂度？"
+        }
+      ]
+    },
+    {
+      "id": "payment-drop-diagnosis",
+      "category": "data",
+      "title": "支付成功率突降诊断",
+      "prompt": "德国卡支付成功率从 92.2% 降到 86.7%。同期 Route B 流量从 20% 提到 55%，其 technical_error 从 0.4% 升到 4.8%，平均时延从 1.2 秒升到 4.6 秒，issuer_decline 基本不变。你会怎样诊断、止损并同步团队？",
+      "intent": "检验贡献分析、因果谨慎、可逆处置和事故沟通。",
+      "duration": "6 分钟",
+      "tierFocus": "A+",
+      "dimensions": ["数据分析", "支付业务", "跨团队推进"],
+      "framework": [
+        "验证指标：粒度、去重、时区、分母和数据延迟。",
+        "量化影响：按路由流量权重估算损失成功笔数。",
+        "定位证据：路由、发卡行或 BIN、3DS、失败码、设备和变更日志。",
+        "立即止损：回滚或降低 Route B 流量，同时保留对照并设恢复阈值。",
+        "沟通闭环：已知、未知、负责人、下次更新时间和长期修复。"
+      ],
+      "checks": [
+        {
+          "id": "quality",
+          "label": "先验证数据",
+          "kind": "keywordGroups",
+          "groups": [["口径", "分母", "去重", "时区"], ["数据延迟", "完整性", "粒度"]],
+          "minGroups": 2,
+          "problem": "还没有先排除埋点、口径或数据完整性问题。",
+          "improvement": "把粒度、去重、时区、分母和数据延迟列为第一步。",
+          "followUp": "怎样排除埋点或口径变化？"
+        },
+        {
+          "id": "contribution",
+          "label": "量化业务影响",
+          "kind": "keywordGroups",
+          "groups": [["流量权重", "贡献", "损失笔数"], ["92.2", "86.7", "Route B"]],
+          "minGroups": 2,
+          "problem": "识别到关联信号，但还没有估算 Route B 对总体下降的贡献。",
+          "improvement": "按流量权重估算影响，同时把因果表述为待验证的强假设。",
+          "followUp": "Route B 与下降同时发生，足以证明因果吗？"
+        },
+        {
+          "id": "drilldown",
+          "label": "下钻维度充分",
+          "kind": "keywordGroups",
+          "groups": [["路由", "PSP"], ["BIN", "发卡行"], ["3DS", "失败码", "technical_error"], ["设备", "版本", "变更日志"]],
+          "minGroups": 3,
+          "problem": "诊断维度较少，可能无法定位集中发生的位置和最近变更。",
+          "improvement": "至少按路由、BIN 或发卡行、失败码和版本变更下钻。",
+          "followUp": "哪个切片最能区分路由故障和发卡行拒绝？"
+        },
+        {
+          "id": "mitigation",
+          "label": "止损可逆",
+          "kind": "keywordGroups",
+          "groups": [["回滚", "降流量", "熔断"], ["阈值", "观察", "对照", "恢复"]],
+          "minGroups": 2,
+          "problem": "提出了处理动作，但可逆性、观察窗口和恢复标准不清楚。",
+          "improvement": "给出降流量或回滚动作，并写明监控、恢复和再次熔断阈值。",
+          "followUp": "为什么不是立刻把 Route B 流量全部切走？"
+        },
+        {
+          "id": "communication",
+          "label": "事故沟通完整",
+          "kind": "keywordGroups",
+          "groups": [["已知", "未知", "假设"], ["负责人", "更新时间", "下一步"]],
+          "minGroups": 2,
+          "problem": "诊断有内容，但事故同步缺少明确负责人和更新时间。",
+          "improvement": "按影响、已知、未知、止损、负责人和下次更新时间组织同步。",
+          "followUp": "在 30 分钟事故会上，你会先说哪五句话？"
+        }
+      ]
+    },
+    {
+      "id": "ab-incentive-design",
+      "category": "data",
+      "title": "首笔奖励 A/B 实验",
+      "prompt": "团队提议给所有完成 KYB 但未首笔的商家发 30 美元奖励。请设计实验，判断奖励是否带来真实增量。",
+      "intent": "检验实验设计、因果判断、单位经济和伪增长识别。",
+      "duration": "6 分钟",
+      "dimensions": ["数据分析", "增长/生命周期", "策略设计", "商业结果", "电商/商家"],
+      "framework": [
+        "假设：奖励影响谁、改变哪一步，以及为什么。",
+        "样本：资格条件、随机单位、对照组、分层和污染风险。",
+        "指标：主要指标、过程指标、护栏和观察窗口。",
+        "规模：基线、最小可检测提升、样本量和周期。",
+        "决策：增量净价值，以及扩量、迭代或停止规则。"
+      ],
+      "checks": [
+        {
+          "id": "causal",
+          "label": "有增量思维",
+          "kind": "keywordGroups",
+          "groups": [["随机", "对照组", "实验组"], ["增量", "因果", "自然转化"]],
+          "minGroups": 2,
+          "problem": "实验组结果还不能与自然转化区分。",
+          "improvement": "明确随机分配、对照组和分层平衡检查。",
+          "followUp": "实验组首笔率更高，怎样确认不是人群本来就更有意愿？"
+        },
+        {
+          "id": "population",
+          "label": "样本定义清楚",
+          "kind": "keywordGroups",
+          "groups": [["资格", "纳入", "排除"], ["随机单位", "分层", "污染"]],
+          "minGroups": 2,
+          "problem": "谁进入实验、如何随机以及如何防止污染还不清楚。",
+          "improvement": "写清纳入排除、随机单位、分层变量和跨组污染风险。",
+          "followUp": "同一企业有多个账号时，随机单位应该是什么？"
+        },
+        {
+          "id": "metrics",
+          "label": "指标完整",
+          "kind": "keywordGroups",
+          "groups": [["有效首笔率", "30天留存", "重复交易"], ["退款", "套利", "风险损失", "投诉"]],
+          "minGroups": 2,
+          "problem": "只观察首笔可能把退款、套利或一次性行为误认为成功。",
+          "improvement": "定义有效首笔，并加入退款、套利、投诉和后续留存窗口。",
+          "followUp": "奖励带来一笔后立刻退款，算成功吗？"
+        },
+        {
+          "id": "power",
+          "label": "实验可执行",
+          "kind": "keywordGroups",
+          "groups": [["基线", "样本量", "显著性"], ["周期", "最小可检测", "置信"]],
+          "minGroups": 2,
+          "problem": "实验周期和样本规模还没有与基线及目标提升关联。",
+          "improvement": "补上基线、最小可检测提升、样本量思路和完整观察周期。",
+          "followUp": "样本量不足时，你会延长实验还是接受更大的不确定性？"
+        },
+        {
+          "id": "economics",
+          "label": "单位经济成立",
+          "kind": "keywordGroups",
+          "groups": [["奖励成本", "增量成本", "ROI"], ["收入", "毛利", "LTV", "回收期"]],
+          "minGroups": 2,
+          "problem": "统计结果还没有转成是否值得投入的经营判断。",
+          "improvement": "预先写出增量净收入、ROI 或回收期门槛。",
+          "followUp": "统计显著但亏钱时是否扩量？"
+        }
+      ]
+    },
+    {
+      "id": "transfer-solutions-gtm",
+      "category": "delivery",
+      "title": "跨境转账方案 GTM",
+      "prompt": "一项新的跨境转账解决方案准备进入中国市场。你如何选择首批客户、制定价值主张并推动从试点到商业化？",
+      "intent": "对应支付方案商业化和收入策略岗位，检验市场选择、价值主张、GTM 与经营结果。",
+      "duration": "8 分钟",
+      "tierFocus": "A+",
+      "dimensions": ["国际化", "支付业务", "商业结果", "策略设计", "跨团队推进"],
+      "framework": [
+        "市场与客户：目标场景、痛点、规模和现有替代方案。",
+        "价值主张：速度、覆盖、成功率、成本、体验和合规能力的可证实差异。",
+        "商业模式：客户分层、定价、渠道、销售材料和合作伙伴。",
+        "试点：客户资格、最小能力、里程碑、成功指标和反馈闭环。",
+        "扩展：单位经济、运营能力、风险合规待确认项和 Go/No-Go。"
+      ],
+      "checks": [
+        {
+          "id": "segment",
+          "label": "客户与场景聚焦",
+          "kind": "keywordGroups",
+          "groups": [["客户分层", "首批客户", "目标客户"], ["场景", "痛点", "替代方案"]],
+          "minGroups": 2,
+          "problem": "首批客户范围仍然较宽，无法解释为什么从这里开始。",
+          "improvement": "用痛点强度、可服务规模、销售周期和交付复杂度筛选首批客户。",
+          "followUp": "为什么先选这类客户，而不是覆盖所有跨境场景？"
+        },
+        {
+          "id": "value",
+          "label": "价值主张可量化",
+          "kind": "keywordGroups",
+          "groups": [["成功率", "时效", "覆盖"], ["成本", "费率", "体验"]],
+          "minGroups": 2,
+          "problem": "价值主张较泛，客户难以验证方案是否更好。",
+          "improvement": "把卖点改成成功率、时效、覆盖或总成本的可验证差异。",
+          "followUp": "客户凭什么相信你的方案更好？"
+        },
+        {
+          "id": "gtm",
+          "label": "GTM 路径完整",
+          "kind": "keywordGroups",
+          "groups": [["定价", "渠道", "销售"], ["合作伙伴", "商机", "转化"]],
+          "minGroups": 2,
+          "problem": "产品价值已有描述，但获客、定价和销售转化路径不完整。",
+          "improvement": "补齐客户分层、定价、渠道、销售材料和合作伙伴。",
+          "followUp": "从首次接触到签约上线，哪个环节最可能阻塞？"
+        },
+        {
+          "id": "pilot",
+          "label": "试点有门槛",
+          "kind": "keywordGroups",
+          "groups": [["试点", "首批", "里程碑"], ["基线", "成功标准", "反馈"]],
+          "minGroups": 2,
+          "problem": "从试点到商业化的里程碑和成功标准不清楚。",
+          "improvement": "定义试点客户资格、基线、阶段里程碑和退出条件。",
+          "followUp": "试点客户成功，但交付成本过高时是否扩展？"
+        },
+        {
+          "id": "governance",
+          "label": "经营与风险平衡",
+          "kind": "keywordGroups",
+          "groups": [["收入", "利润", "单位经济"], ["风险", "合规", "法务", "Go/No-Go"]],
+          "minGroups": 2,
+          "problem": "商业结果和必须确认的风险合规边界没有同时呈现。",
+          "improvement": "补充单位经济，以及需要专业团队确认的准入、数据、资金和合作边界。",
+          "followUp": "哪些中国市场要求仍需合规或法务确认？"
+        }
+      ]
+    },
+    {
+      "id": "cross-functional-conflict",
+      "category": "delivery",
+      "title": "跨团队分歧与项目推进",
+      "prompt": "讲一次增长目标很紧，但产品、研发、风控或合规对方案有明显分歧的经历。你如何推动团队作出决定并落地？",
+      "intent": "检验无职权影响、取舍、项目治理和结果。",
+      "duration": "3 分钟",
+      "dimensions": ["跨团队推进", "策略设计", "商业结果"],
+      "framework": [
+        "共同目标、期限、约束和具体分歧。",
+        "分别还原各方利益与不可妥协项。",
+        "用数据提出两个以上选项及收益、成本和风险。",
+        "明确决策人、RACI、里程碑、升级和异常机制。",
+        "结果、关系变化和复盘。"
+      ],
+      "checks": [
+        {
+          "id": "conflict",
+          "label": "分歧具体",
+          "kind": "keywordGroups",
+          "groups": [["分歧", "反对", "冲突"], ["产品", "研发", "风控", "合规", "数据"]],
+          "minGroups": 2,
+          "problem": "分歧仍停留在“沟通不足”，没有还原具体决策和参与方。",
+          "improvement": "说明争议的具体方案、各方利益和不可妥协边界。",
+          "followUp": "各方真正不同意的是什么？"
+        },
+        {
+          "id": "tradeoff",
+          "label": "看见多方取舍",
+          "kind": "keywordGroups",
+          "groups": [["共同目标", "诉求", "约束"], ["收益", "成本", "风险", "选项"]],
+          "minGroups": 2,
+          "problem": "回答强调协调过程，但还没有展示如何做业务取舍。",
+          "improvement": "围绕共同目标列出至少两个选项及收益、成本和风险。",
+          "followUp": "你放弃了哪个方案，为什么？"
+        },
+        {
+          "id": "ownership",
+          "label": "个人推动动作",
+          "kind": "regexCount",
+          "pattern": "我(?:组织|推动|提出|协调|拆解|升级|决定)",
+          "min": 2,
+          "problem": "团队如何推进说得较多，你的无职权影响动作还不够明确。",
+          "improvement": "补上你建立共同口径、提供选项、争取决策和跟踪承诺的动作。",
+          "followUp": "没有管理权限时，你靠什么推动？"
+        },
+        {
+          "id": "governance",
+          "label": "项目机制完整",
+          "kind": "keywordGroups",
+          "groups": [["负责人", "RACI", "决策人"], ["里程碑", "排期", "升级", "验收"]],
+          "minGroups": 2,
+          "problem": "达成共识之后，负责人、期限和异常升级机制还不清楚。",
+          "improvement": "明确唯一决策人、负责人、截止时间、验收和升级条件。",
+          "followUp": "讨论后如何避免没人负责？"
+        },
+        {
+          "id": "outcome",
+          "label": "结果可验证",
+          "kind": "regexCount",
+          "pattern": "NUMBER",
+          "min": 2,
+          "problem": "协作案例还缺少交付结果、周期或业务影响证据。",
+          "improvement": "补至少两项数字，覆盖交付周期和业务或质量结果。",
+          "followUp": "这次推进最终改变了什么结果？"
+        }
+      ]
+    },
+    {
+      "id": "english-project-retrospective",
+      "category": "international",
+      "title": "英文项目复盘",
+      "prompt": "Please describe a payment or growth project you led. What was the problem, what did you personally do, what was the measurable outcome, and what did you learn?",
+      "intent": "检验能否用简洁业务英语讲事实、个人贡献和结果，而不是复杂词汇。",
+      "duration": "2 分钟",
+      "requiresEnglish": true,
+      "dimensions": ["国际化", "支付业务", "商业结果"],
+      "framework": [
+        "Headline: The problem was ... and the outcome was ...",
+        "Context and goal: baseline, target, timeline, and constraints.",
+        "My actions: I analyzed ..., decided ..., aligned ..., and delivered ...",
+        "Result: metric movement, business impact, and guardrails.",
+        "Learning: the limitation and what I would change next time."
+      ],
+      "checks": [
+        {
+          "id": "language",
+          "label": "英文且篇幅合适",
+          "kind": "wordRange",
+          "language": "en",
+          "min": 120,
+          "max": 260,
+          "problem": "当前英文词数不适合两分钟回答，或中文内容仍然较多。",
+          "improvement": "控制在 120 至 260 个英文单词，用短句表达，每句只承载一个事实。",
+          "followUp": "Can you give the answer in under two minutes, starting with the outcome?"
+        },
+        {
+          "id": "star",
+          "label": "结构完整",
+          "kind": "keywordGroups",
+          "groups": [["problem", "context", "baseline"], ["goal", "target"], ["I analyzed", "I led", "I decided", "I worked"], ["result", "increased", "reduced", "improved"], ["learned", "next time", "would"]],
+          "minGroups": 4,
+          "problem": "英文回答还没有完整覆盖问题、目标、个人动作、结果和学习。",
+          "improvement": "按 Headline、Context、Actions、Result、Learning 五段补齐，每段用一至三句。",
+          "followUp": "What was the hardest decision in that project?"
+        },
+        {
+          "id": "numbers",
+          "label": "有量化结果",
+          "kind": "regexCount",
+          "pattern": "NUMBER",
+          "min": 2,
+          "problem": "英文案例缺少基线、结果或时间范围的数字证据。",
+          "improvement": "Add two numerical comparisons and define what each metric means.",
+          "followUp": "What was the baseline, target, result, and timeline?"
+        },
+        {
+          "id": "ownership",
+          "label": "个人贡献",
+          "kind": "regexCount",
+          "pattern": "\\bI\\s+(?:led|analyzed|designed|decided|aligned|delivered|identified|recommended)",
+          "flags": "i",
+          "min": 2,
+          "problem": "英文表达中团队动作较多，个人贡献还不够鲜明。",
+          "improvement": "Replace repeated “we” with accurate “I analyzed / I recommended / I coordinated” statements.",
+          "followUp": "What did you personally decide or change?"
+        },
+        {
+          "id": "domain",
+          "label": "业务词汇准确",
+          "kind": "keywordGroups",
+          "groups": [["payment", "wallet", "merchant", "cross-border"], ["conversion", "retention", "approval rate", "revenue", "ROI"], ["risk", "compliance", "guardrail", "experiment"]],
+          "minGroups": 2,
+          "problem": "英文表达能描述项目，但支付、经营或风险语境还不够具体。",
+          "improvement": "补充准确的业务指标和一个风险或实验术语，不需要使用生僻词。",
+          "followUp": "Which business metric best represents the impact, and why?"
+        }
+      ]
+    },
+    {
+      "id": "why-role-90-days",
+      "category": "international",
+      "title": "为什么是这个岗位，以及前 90 天计划",
+      "prompt": "为什么选择{{targetRole}}？如果入职，你前 30、60、90 天分别会做什么？",
+      "intent": "检验动机是否具体、是否理解 JD，以及能否在不了解内部事实时提出克制且可验证的入职计划。",
+      "duration": "4 分钟",
+      "coverage": "all",
+      "dimensions": [],
+      "framework": [
+        "Why role：岗位的业务问题与自己的长期方向。",
+        "Why me：用三段证据对应三项 JD 要求。",
+        "0-30 天：理解目标、数据口径、客户或用户、流程和利益相关者。",
+        "31-60 天：完成诊断，选择一个小试点并定义基线和护栏。",
+        "61-90 天：交付首轮结果、复盘、沉淀机制，并在证据成立时扩展。"
+      ],
+      "checks": [
+        {
+          "id": "specificity",
+          "label": "公司岗位具体",
+          "kind": "targetSpecificity",
+          "problem": "动机仍然适用于很多公司和岗位，缺少对目标业务的具体理解。",
+          "improvement": "引用目标岗位的具体业务、客户或职责，并连接自己的证据。",
+          "followUp": "把公司名换掉后，这段答案仍然成立吗？"
+        },
+        {
+          "id": "evidence",
+          "label": "能力有证据",
+          "kind": "regexCount",
+          "pattern": "NUMBER",
+          "min": 2,
+          "problem": "Why me 部分偏判断，尚未用结果证明能力。",
+          "improvement": "用至少两项数字，把三项 JD 要求与真实经历对应起来。",
+          "followUp": "哪一项结果最能证明你可以缩短上手时间？"
+        },
+        {
+          "id": "phases",
+          "label": "阶段清楚",
+          "kind": "keywordGroups",
+          "groups": [["30天", "第一个月"], ["60天", "第二个月"], ["90天", "第三个月"]],
+          "minGroups": 3,
+          "problem": "90 天计划还没有拆成逐步增加承诺的三个阶段。",
+          "improvement": "明确 30、60、90 天各自的目标、动作和可见产物。",
+          "followUp": "30 天和 90 天的交付物有什么本质区别？"
+        },
+        {
+          "id": "discovery",
+          "label": "先理解再承诺",
+          "kind": "keywordGroups",
+          "groups": [["数据口径", "基线", "流程"], ["用户", "商户", "客户"], ["产品", "技术", "风控", "合规", "利益相关者"]],
+          "minGroups": 2,
+          "problem": "计划直接承诺结果，但还没有先理解内部基线和关键约束。",
+          "improvement": "前 30 天先建立数据基线、流程地图和利益相关者共识。",
+          "followUp": "还不知道内部数据时，为什么能直接承诺某个增长数字？"
+        },
+        {
+          "id": "delivery",
+          "label": "有可验证交付",
+          "kind": "keywordGroups",
+          "groups": [["诊断", "试点", "实验"], ["指标", "护栏", "复盘", "扩展条件"]],
+          "minGroups": 2,
+          "problem": "计划描述了学习和沟通，但 90 天时的具体产物不够清楚。",
+          "improvement": "写清诊断、看板或口径、小试点、复盘和下一阶段决策。",
+          "followUp": "90 天时团队能看到什么具体产物？"
+        }
+      ]
+    }
+  ]
+}

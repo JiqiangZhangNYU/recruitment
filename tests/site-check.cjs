@@ -3,6 +3,8 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const guide = require("../learning-guide.json");
+const interviewPlan = require("../interview-plan.json");
+const jobsData = require("../jobs.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
 const businessEnglishManifest = require("../challenges/business-english/manifest.json");
 const businessEnglishLevels = businessEnglishManifest.levels.map((level) => require(`../${level.file}`));
@@ -17,6 +19,27 @@ const coreVocabularyAudioManifest = require("../audio/core-vocabulary/manifest.j
 
 const executablePath = "/home/zjq/.cache/ms-playwright/chromium-1187/chrome-linux/chrome";
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
+
+assert.equal(interviewPlan.questions.length, 12);
+assert.equal(new Set(interviewPlan.questions.map((question) => question.id)).size, interviewPlan.questions.length);
+assert.equal(new Set(interviewPlan.categories.map((category) => category.id)).size, interviewPlan.categories.length);
+const interviewCategoryIds = new Set(interviewPlan.categories.map((category) => category.id));
+assert.ok(interviewPlan.questions.every((question) => (
+  interviewCategoryIds.has(question.category)
+  && question.title
+  && question.prompt
+  && question.intent
+  && question.framework.length >= 4
+  && question.checks.length === 5
+  && question.checks.every((check) => (
+    check.id
+    && check.label
+    && check.kind
+    && check.problem
+    && check.improvement
+    && check.followUp
+  ))
+)));
 
 function checkChallengePackData(pack, expectedLevels, expectedQuestions) {
   assert.equal(pack.levels.length, expectedLevels);
@@ -476,6 +499,97 @@ async function checkPage(browser, viewport, screenshotPath) {
   await page.close();
 }
 
+async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlow = false) {
+  const page = await browser.newPage({ viewport });
+  const errors = [];
+  const requestedURLs = [];
+  page.on("request", (request) => requestedURLs.push(request.url()));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  page.on("pageerror", (error) => errors.push(error.message));
+
+  await page.goto(`${baseURL}/#interview/payment-drop-diagnosis`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.locator("#interview-panel").waitFor();
+  const aJobs = jobsData.jobs.filter((job) => ["A+", "A-"].includes(job.tier));
+  assert.equal(await page.locator(".primary-nav button").count(), 3);
+  assert.equal(await page.locator('.primary-nav button[data-view="interview"]').getAttribute("aria-pressed"), "true");
+  assert.equal(await page.locator("#interview-question-select option").count(), interviewPlan.questions.length);
+  assert.equal(await page.locator("#interview-target-select option").count(), aJobs.length + 1);
+  assert.equal(await page.locator("#interview-a-count").textContent(), String(aJobs.length));
+  assert.equal(await page.locator("#interview-question-title").textContent(), "支付成功率突降诊断");
+  assert.equal(await page.locator("#interview-framework-list li").count(), 5);
+  assert.equal(await page.locator("#interview-feedback").isHidden(), true);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-plan.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("jobs.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
+
+  if (fullFlow) {
+    const targetOption = page.locator("#interview-target-select option").nth(1);
+    const targetId = await targetOption.getAttribute("value");
+    const target = aJobs.find((job) => job.id === targetId);
+    await page.locator("#interview-target-select").selectOption(targetId);
+    await page.locator("#interview-question-select").selectOption("why-role-90-days");
+    assert.match(await page.locator("#interview-question-prompt").textContent(), new RegExp(target.company));
+
+    await page.locator("#interview-question-select").selectOption("fit-introduction");
+    await page.locator("#interview-use-template").click();
+    assert.match(await page.locator("#interview-answer").inputValue(), /^现在：/);
+    assert.match(
+      await page.evaluate(() => localStorage.getItem("recruitment-interview-drafts-v1")),
+      /fit-introduction/,
+    );
+
+    const weakAnswer = "我负责过一个支付增长项目。我们做了很多分析，也积极推动产品上线，最后效果比较好。项目没有达到最初目标，我后来做了复盘。";
+    await page.locator("#interview-answer").fill(weakAnswer);
+    await page.locator("#interview-analyze-answer").click();
+    await page.locator("#interview-feedback").waitFor();
+    assert.notEqual(await page.locator("#interview-coverage-score").textContent(), "5 / 5");
+    assert.equal(await page.locator("#interview-improvement-list li").count(), 2);
+    assert.match(await page.locator("#interview-improvement-list").textContent(), /模糊|基线|数字/);
+
+    const strongAnswer = [
+      "我有 8 年国际支付和增长策略运营经验，核心标签是用数据诊断跨境商家转化问题并推动产品落地。",
+      "过去一年我主导商家钱包首笔增长项目，通过漏斗分析定位配置环节阻力，并协调产品和技术完成流程改造；3 个月内有效首笔率从 28% 提升到 38%，投诉率保持在 0.5% 以下。",
+      "另一个项目中，我设计分层实验并推动区域团队执行，使支付成功率提高 2.3 个百分点，季度净收入增长 12%。",
+      "这些经历与目标岗位 JD 中的数据分析、增长策略和跨团队推进职责直接匹配。我选择这个岗位，是因为希望继续深耕国际支付，并能在入职后先贡献支付漏斗诊断和商业化落地经验。",
+    ].join("");
+    await page.locator("#interview-answer").fill(strongAnswer);
+    await page.locator("#interview-analyze-answer").click();
+    assert.equal(await page.locator("#interview-coverage-score").textContent(), "5 / 5");
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `1 / ${interviewPlan.questions.length}`);
+    assert.deepEqual(
+      await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1"))),
+      ["fit-introduction"],
+    );
+    await page.locator("#interview-answer").fill(`${strongAnswer}。`);
+    assert.equal(await page.locator("#interview-feedback").isHidden(), true);
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `0 / ${interviewPlan.questions.length}`);
+    await page.locator("#interview-analyze-answer").click();
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.locator("#interview-panel").waitFor();
+    assert.match(await page.locator("#interview-answer").inputValue(), /8 年国际支付/);
+    assert.match(page.url(), /#interview\/fit-introduction$/);
+  } else {
+    assert.equal(await page.locator(".interview-navigation").isHidden(), true);
+    await page.locator("#interview-analyze-answer").click();
+    assert.equal(await page.locator("#interview-feedback").isHidden(), true);
+    assert.match(await page.locator("#interview-input-message").textContent(), /至少 40 个/);
+  }
+
+  const layout = await page.evaluate(() => ({
+    overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    offenders: [...document.querySelectorAll("body *")]
+      .filter((element) => element.getBoundingClientRect().right > document.documentElement.clientWidth + 1)
+      .slice(0, 8)
+      .map((element) => `${element.tagName.toLowerCase()}.${element.className}`),
+  }));
+  assert.ok(layout.overflow <= 1, `interview horizontal overflow: ${layout.overflow}px (${layout.offenders.join(", ")})`);
+  assert.deepEqual(errors, []);
+  if (screenshotPath) await page.screenshot({ path: screenshotPath, fullPage: false });
+  await page.close();
+}
+
 async function checkGlossaryReadAloud(browser) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   const requestedURLs = [];
@@ -599,6 +713,17 @@ async function checkBusinessEnglishProgressMigration(browser) {
     await checkSkillLevelMigration(browser);
     await checkBusinessEnglishProgressMigration(browser);
     await checkGlossaryReadAloud(browser);
+    await checkInterviewPractice(
+      browser,
+      { width: 1440, height: 1000 },
+      screenshotDir ? path.join(screenshotDir, "interview-desktop.png") : null,
+      true,
+    );
+    await checkInterviewPractice(
+      browser,
+      { width: 390, height: 844 },
+      screenshotDir ? path.join(screenshotDir, "interview-mobile.png") : null,
+    );
     await checkPage(
       browser,
       { width: 1440, height: 1000 },

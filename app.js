@@ -25,7 +25,17 @@ function learningRouteFromHash(hash) {
   return null;
 }
 
-const initialLearningRoute = learningRouteFromHash(location.hash);
+function interviewRouteFromHash(hash) {
+  if (hash === "#interview") return { questionId: null };
+  if (hash.startsWith("#interview/")) {
+    const questionId = decodeURIComponent(hash.slice(11));
+    return { questionId: questionId || null };
+  }
+  return null;
+}
+
+const initialInterviewRoute = interviewRouteFromHash(location.hash);
+const initialLearningRoute = initialInterviewRoute ? null : learningRouteFromHash(location.hash);
 const directLearningAssets = {
   "core-vocabulary": {
     manifest: "challenges/core-vocabulary/manifest.json",
@@ -72,6 +82,14 @@ Object.entries(mergedSkillIds).forEach(([targetId, sourceIds]) => {
   if (levels.length) storedSkillLevels[targetId] = Math.max(...levels);
 });
 
+const storedInterviewDraftsValue = readStoredJSON("recruitment-interview-drafts-v1", {});
+const storedInterviewDrafts = storedInterviewDraftsValue
+  && typeof storedInterviewDraftsValue === "object"
+  && !Array.isArray(storedInterviewDraftsValue)
+  ? storedInterviewDraftsValue
+  : {};
+const storedInterviewTarget = localStorage.getItem("recruitment-interview-target-v1") || "all";
+
 function storedArray(key) {
   const value = readStoredJSON(key, []);
   return Array.isArray(value) ? value : [];
@@ -91,7 +109,7 @@ const state = {
   glossaryMastery: new Map(),
   challengeDrafts: new Map(),
   practiceDays: new Map(),
-  view: initialLearningRoute ? "skills" : "jobs",
+  view: initialInterviewRoute ? "interview" : initialLearningRoute ? "skills" : "jobs",
   query: "",
   tier: "all",
   direction: "all",
@@ -116,6 +134,12 @@ const state = {
   skillLevels: storedSkillLevels,
   renderedLearningViews: new Set(),
   jobsPromise: null,
+  interviewPlan: null,
+  interviewPlanPromise: null,
+  interviewQuestion: initialInterviewRoute?.questionId || null,
+  interviewTarget: storedInterviewTarget,
+  interviewDrafts: storedInterviewDrafts,
+  interviewReviewed: new Set(storedArray("recruitment-interview-reviewed-v1")),
 };
 
 const elements = {
@@ -123,6 +147,7 @@ const elements = {
   viewButtons: [...document.querySelectorAll(".primary-nav button[data-view]")],
   jobsView: document.querySelector("#jobs-view"),
   skillsView: document.querySelector("#skills-view"),
+  interviewView: document.querySelector("#interview-view"),
   tierNav: document.querySelector("#tier-nav"),
   directionNav: document.querySelector("#direction-nav"),
   tierBars: document.querySelector("#tier-bars"),
@@ -169,6 +194,43 @@ const elements = {
   detailPosition: document.querySelector("#detail-position"),
   previousSkill: document.querySelector("#previous-skill"),
   nextSkill: document.querySelector("#next-skill"),
+  interviewLoading: document.querySelector("#interview-loading"),
+  interviewPanel: document.querySelector("#interview-panel"),
+  interviewACount: document.querySelector("#interview-a-count"),
+  interviewReviewedCount: document.querySelector("#interview-reviewed-count"),
+  interviewProgressTrack: document.querySelector(".interview-progress-track"),
+  interviewProgressFill: document.querySelector("#interview-progress-fill"),
+  interviewTargetSelect: document.querySelector("#interview-target-select"),
+  interviewQuestionSelect: document.querySelector("#interview-question-select"),
+  interviewSideProgress: document.querySelector("#interview-side-progress"),
+  interviewQuestionNav: document.querySelector("#interview-question-nav"),
+  interviewQuestionPosition: document.querySelector("#interview-question-position"),
+  interviewQuestionCategory: document.querySelector("#interview-question-category"),
+  interviewQuestionDuration: document.querySelector("#interview-question-duration"),
+  interviewQuestionTitle: document.querySelector("#interview-question-title"),
+  interviewTierFocus: document.querySelector("#interview-tier-focus"),
+  interviewQuestionPrompt: document.querySelector("#interview-question-prompt"),
+  interviewQuestionIntent: document.querySelector("#interview-question-intent"),
+  interviewCoverage: document.querySelector("#interview-coverage"),
+  interviewDimensionList: document.querySelector("#interview-dimension-list"),
+  interviewJobExamples: document.querySelector("#interview-job-examples"),
+  interviewFrameworkList: document.querySelector("#interview-framework-list"),
+  interviewUseTemplate: document.querySelector("#interview-use-template"),
+  interviewAnswer: document.querySelector("#interview-answer"),
+  interviewSaveStatus: document.querySelector("#interview-save-status"),
+  interviewAnswerCount: document.querySelector("#interview-answer-count"),
+  interviewClearAnswer: document.querySelector("#interview-clear-answer"),
+  interviewAnalyzeAnswer: document.querySelector("#interview-analyze-answer"),
+  interviewInputMessage: document.querySelector("#interview-input-message"),
+  interviewFeedback: document.querySelector("#interview-feedback"),
+  interviewCoverageScore: document.querySelector("#interview-coverage-score"),
+  interviewFeedbackSummary: document.querySelector("#interview-feedback-summary"),
+  interviewCheckList: document.querySelector("#interview-check-list"),
+  interviewStrengthList: document.querySelector("#interview-strength-list"),
+  interviewImprovementList: document.querySelector("#interview-improvement-list"),
+  interviewFollowUpQuestion: document.querySelector("#interview-follow-up-question"),
+  previousInterviewQuestion: document.querySelector("#previous-interview-question"),
+  nextInterviewQuestion: document.querySelector("#next-interview-question"),
 };
 
 const tierNames = {
@@ -202,17 +264,34 @@ function normalizeLearningProgress() {
 }
 
 function setView(view, updateURL = true) {
-  state.view = view === "skills" ? "skills" : "jobs";
+  state.view = ["jobs", "skills", "interview"].includes(view) ? view : "jobs";
   elements.jobsView.hidden = state.view !== "jobs";
   elements.skillsView.hidden = state.view !== "skills";
+  elements.interviewView.hidden = state.view !== "interview";
   elements.appShell.dataset.view = state.view;
   const isSkills = state.view === "skills";
-  elements.pageEyebrow.textContent = isSkills ? "A 档岗位共性技能 · 互动训练" : "上海硬性 · 大厂/支付官网 + BOSS";
-  elements.pageTitle.textContent = isSkills ? "技能提升" : "支付与策略运营岗位筛选";
-  elements.profileSummary.textContent = isSkills
-    ? "从技能总览或左侧目录进入训练，学习进度自动保存在当前浏览器。"
-    : state.data?.profile.summary || "加载岗位数据中...";
-  if (isSkills && !state.data) elements.sourceTime.textContent = "岗位数据按需加载";
+  const isInterview = state.view === "interview";
+  if (isSkills) {
+    elements.pageEyebrow.textContent = "A 档岗位共性技能 · 互动训练";
+    elements.pageTitle.textContent = "技能提升";
+    elements.profileSummary.textContent = "从技能总览或左侧目录进入训练，学习进度自动保存在当前浏览器。";
+  } else if (isInterview) {
+    elements.pageEyebrow.textContent = "A 档岗位需求 · 真实回答演练";
+    elements.pageTitle.textContent = "面试提升";
+    elements.profileSummary.textContent = "一次只练一道题；先说清事实，再补足个人贡献、数据证据和复盘。";
+  } else {
+    elements.pageEyebrow.textContent = "上海硬性 · 大厂/支付官网 + BOSS";
+    elements.pageTitle.textContent = "支付与策略运营岗位筛选";
+    elements.profileSummary.textContent = state.data?.profile.summary || "加载岗位数据中...";
+  }
+  if ((isSkills || isInterview) && !state.data) elements.sourceTime.textContent = "岗位数据按需加载";
+  if (isInterview && state.data) {
+    elements.sourceTime.textContent = formatTime(
+      state.data.officialSourceGeneratedAt
+      || state.data.sourceGeneratedAt
+      || state.data.generatedAt,
+    );
+  }
   elements.viewButtons.forEach((button) => {
     const active = button.dataset.view === state.view;
     button.classList.toggle("active", active);
@@ -220,7 +299,11 @@ function setView(view, updateURL = true) {
   });
   if (updateURL) {
     const url = new URL(location.href);
-    if (state.view === "skills") {
+    if (state.view === "interview") {
+      url.hash = state.interviewQuestion
+        ? `interview/${encodeURIComponent(state.interviewQuestion)}`
+        : "interview";
+    } else if (state.view === "skills") {
       if (state.learningTab === "challengeGlossary" && state.selectedSkill) {
         url.hash = `glossary/${encodeURIComponent(state.selectedSkill)}`;
       } else if (state.learningTab === "challengeQuestion" && state.selectedSkill && state.selectedLevel && state.selectedQuestion) {
@@ -2667,6 +2750,482 @@ async function ensureChallengeLevel(skillId, levelId, pack) {
   return state.challengeLevelPromises.get(cacheKey);
 }
 
+function validateInterviewPlan(plan) {
+  if (!plan || !Array.isArray(plan.categories) || !Array.isArray(plan.questions) || !plan.questions.length) {
+    throw new Error("面试计划格式不正确");
+  }
+  const categoryIds = new Set(plan.categories.map((category) => category.id));
+  const questionIds = plan.questions.map((question) => question.id);
+  if (new Set(questionIds).size !== questionIds.length) throw new Error("面试题 ID 重复");
+  const valid = plan.questions.every((question) => (
+    question.id
+    && categoryIds.has(question.category)
+    && question.title
+    && question.prompt
+    && question.intent
+    && Array.isArray(question.framework)
+    && question.framework.length >= 4
+    && Array.isArray(question.checks)
+    && question.checks.length === 5
+    && question.checks.every((check) => (
+      check.id && check.label && check.kind && check.problem && check.improvement && check.followUp
+    ))
+  ));
+  if (!valid) throw new Error("面试题缺少框架或检查项");
+  return plan;
+}
+
+async function ensureInterviewPlanLoaded() {
+  if (state.interviewPlan) return state.interviewPlan;
+  if (!state.interviewPlanPromise) {
+    state.interviewPlanPromise = fetch("interview-plan.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`面试计划 HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((plan) => {
+        state.interviewPlan = validateInterviewPlan(plan);
+        return state.interviewPlan;
+      })
+      .catch((error) => {
+        state.interviewPlanPromise = null;
+        throw error;
+      });
+  }
+  return state.interviewPlanPromise;
+}
+
+function interviewAJobs() {
+  return state.data?.jobs.filter((job) => ["A+", "A-"].includes(job.tier)) || [];
+}
+
+function currentInterviewTarget() {
+  if (state.interviewTarget === "all") return null;
+  return interviewAJobs().find((job) => job.id === state.interviewTarget) || null;
+}
+
+function currentInterviewQuestion() {
+  return state.interviewPlan?.questions.find((question) => question.id === state.interviewQuestion) || null;
+}
+
+function interviewTextContext() {
+  const target = currentInterviewTarget();
+  return {
+    company: target?.company || "目标公司",
+    jobTitle: target?.title || "目标岗位",
+    targetRole: target ? `${target.company} 的“${target.title}”岗位` : "当前选择的 A 档岗位",
+  };
+}
+
+function interpolateInterviewText(value) {
+  const context = interviewTextContext();
+  return String(value).replace(/\{\{(company|jobTitle|targetRole)\}\}/g, (_, key) => context[key]);
+}
+
+function persistInterviewDrafts() {
+  localStorage.setItem("recruitment-interview-drafts-v1", JSON.stringify(state.interviewDrafts));
+}
+
+function persistInterviewReviewed() {
+  localStorage.setItem("recruitment-interview-reviewed-v1", JSON.stringify([...state.interviewReviewed]));
+}
+
+function interviewQuestionCoverage(question) {
+  const jobs = interviewAJobs();
+  if (question.coverage === "all") return jobs;
+  if (question.requiresEnglish) return jobs.filter((job) => job.requiresEnglish);
+  return jobs.filter((job) => question.dimensions.some((dimension) => job.dimensions.includes(dimension)));
+}
+
+function renderInterviewProgress() {
+  const questions = state.interviewPlan.questions;
+  const validIds = new Set(questions.map((question) => question.id));
+  [...state.interviewReviewed].forEach((id) => {
+    if (!validIds.has(id)) state.interviewReviewed.delete(id);
+  });
+  persistInterviewReviewed();
+  const reviewed = state.interviewReviewed.size;
+  const total = questions.length;
+  elements.interviewReviewedCount.textContent = `${reviewed} / ${total}`;
+  elements.interviewProgressTrack.setAttribute("aria-valuemax", String(total));
+  elements.interviewProgressTrack.setAttribute("aria-valuenow", String(reviewed));
+  elements.interviewProgressFill.style.width = `${total ? reviewed / total * 100 : 0}%`;
+  elements.interviewSideProgress.replaceChildren();
+  const label = document.createElement("span");
+  label.textContent = `已诊断 ${reviewed} / ${total}`;
+  const track = document.createElement("span");
+  track.className = "interview-side-progress-track";
+  const fill = document.createElement("span");
+  fill.style.width = `${total ? reviewed / total * 100 : 0}%`;
+  track.append(fill);
+  elements.interviewSideProgress.append(label, track);
+}
+
+function renderInterviewSidebar() {
+  elements.interviewQuestionNav.replaceChildren();
+  state.interviewPlan.categories.forEach((category) => {
+    const section = document.createElement("section");
+    section.className = "interview-side-group";
+    const heading = document.createElement("h3");
+    heading.textContent = category.label;
+    section.append(heading);
+    state.interviewPlan.questions
+      .filter((question) => question.category === category.id)
+      .forEach((question) => {
+        const index = state.interviewPlan.questions.indexOf(question) + 1;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.classList.toggle("active", question.id === state.interviewQuestion);
+        button.classList.toggle("reviewed", state.interviewReviewed.has(question.id));
+        button.setAttribute("aria-pressed", String(question.id === state.interviewQuestion));
+        const number = document.createElement("span");
+        number.className = "interview-nav-number";
+        number.textContent = state.interviewReviewed.has(question.id) ? "✓" : String(index).padStart(2, "0");
+        const title = document.createElement("span");
+        title.textContent = question.title;
+        button.append(number, title);
+        button.addEventListener("click", () => selectInterviewQuestion(question.id));
+        section.append(button);
+      });
+    elements.interviewQuestionNav.append(section);
+  });
+}
+
+function renderInterviewTargetOptions() {
+  const jobs = interviewAJobs();
+  const validTarget = state.interviewTarget === "all" || jobs.some((job) => job.id === state.interviewTarget);
+  if (!validTarget) state.interviewTarget = "all";
+  elements.interviewTargetSelect.replaceChildren();
+  const all = document.createElement("option");
+  all.value = "all";
+  all.textContent = "综合 A 档岗位要求";
+  elements.interviewTargetSelect.append(all);
+  ["A+", "A-"].forEach((tier) => {
+    const group = document.createElement("optgroup");
+    group.label = `${tier} 岗位`;
+    jobs.filter((job) => job.tier === tier).forEach((job) => {
+      const option = document.createElement("option");
+      option.value = job.id;
+      option.textContent = `${job.company} · ${job.title}`;
+      group.append(option);
+    });
+    elements.interviewTargetSelect.append(group);
+  });
+  elements.interviewTargetSelect.value = state.interviewTarget;
+}
+
+function renderInterviewQuestionOptions() {
+  elements.interviewQuestionSelect.replaceChildren();
+  state.interviewPlan.categories.forEach((category) => {
+    const group = document.createElement("optgroup");
+    group.label = category.label;
+    state.interviewPlan.questions
+      .filter((question) => question.category === category.id)
+      .forEach((question) => {
+        const index = state.interviewPlan.questions.indexOf(question) + 1;
+        const option = document.createElement("option");
+        option.value = question.id;
+        option.textContent = `${String(index).padStart(2, "0")} · ${question.title}`;
+        group.append(option);
+      });
+    elements.interviewQuestionSelect.append(group);
+  });
+  elements.interviewQuestionSelect.value = state.interviewQuestion;
+}
+
+function interviewFrameworkTemplate(question) {
+  const separator = question.requiresEnglish ? ":" : "：";
+  return question.framework.map((step) => {
+    const label = step.split(/[：:]/, 1)[0];
+    return `${label}${separator}\n`;
+  }).join("\n");
+}
+
+function updateInterviewAnswerMeta() {
+  const question = currentInterviewQuestion();
+  const value = elements.interviewAnswer.value;
+  const compactLength = value.replace(/\s/g, "").length;
+  const words = value.trim() ? (value.match(/[A-Za-z]+(?:[-'][A-Za-z]+)*/g) || []).length : 0;
+  elements.interviewAnswerCount.textContent = question?.requiresEnglish
+    ? `${words} words · ${compactLength} 字符`
+    : compactLength
+      ? `${compactLength} 字 · 约 ${Math.max(1, Math.ceil(compactLength / 240))} 分钟`
+      : "0 字";
+  elements.interviewSaveStatus.textContent = value.trim() ? "已保存在当前浏览器" : "尚未输入";
+}
+
+function renderInterviewQuestion() {
+  const question = currentInterviewQuestion();
+  if (!question) return;
+  const questions = state.interviewPlan.questions;
+  const index = questions.indexOf(question);
+  const category = state.interviewPlan.categories.find((item) => item.id === question.category);
+  const target = currentInterviewTarget();
+  const coveredJobs = interviewQuestionCoverage(question);
+  const relevantDimensions = target
+    ? question.dimensions.filter((dimension) => target.dimensions.includes(dimension))
+    : question.dimensions;
+
+  elements.interviewQuestionPosition.textContent = `${String(index + 1).padStart(2, "0")} / ${questions.length}`;
+  elements.interviewQuestionCategory.textContent = category?.label || "面试题";
+  elements.interviewQuestionDuration.textContent = question.duration;
+  elements.interviewQuestionTitle.textContent = question.title;
+  elements.interviewQuestionPrompt.textContent = interpolateInterviewText(question.prompt);
+  elements.interviewQuestionIntent.textContent = `面试官在看什么：${question.intent}`;
+  elements.interviewTierFocus.hidden = !question.tierFocus;
+  elements.interviewTierFocus.textContent = question.tierFocus ? `${question.tierFocus} 重点` : "";
+  elements.interviewCoverage.textContent = target
+    ? relevantDimensions.length
+      ? `与目标岗位的 ${relevantDimensions.length} 项要求直接相关`
+      : "通用必答题，适用于当前目标岗位"
+    : `覆盖当前 ${interviewAJobs().length} 个 A 档岗位中的 ${coveredJobs.length} 个`;
+  elements.interviewDimensionList.replaceChildren();
+  appendSpans(
+    elements.interviewDimensionList,
+    target && relevantDimensions.length ? relevantDimensions : question.dimensions,
+  );
+  if (target) {
+    elements.interviewJobExamples.textContent = `${target.tier} · ${target.company} · ${target.title}`;
+  } else {
+    const examples = coveredJobs.slice(0, 3).map((job) => `${job.company}「${job.title}」`);
+    elements.interviewJobExamples.textContent = examples.length ? `岗位样本：${examples.join("、")}` : "适用于全部 A 档岗位";
+  }
+
+  elements.interviewFrameworkList.replaceChildren();
+  question.framework.forEach((step) => {
+    const item = document.createElement("li");
+    const parts = step.split(/[：:]/);
+    const label = document.createElement("strong");
+    label.textContent = parts.shift();
+    const detail = document.createElement("span");
+    detail.textContent = parts.join("：").trim();
+    item.append(label, detail);
+    elements.interviewFrameworkList.append(item);
+  });
+
+  elements.interviewAnswer.value = state.interviewDrafts[question.id] || "";
+  elements.interviewInputMessage.hidden = true;
+  elements.interviewFeedback.hidden = true;
+  updateInterviewAnswerMeta();
+  elements.previousInterviewQuestion.disabled = index === 0;
+  elements.previousInterviewQuestion.textContent = index ? `← ${questions[index - 1].title}` : "已经是第一题";
+  elements.nextInterviewQuestion.disabled = index === questions.length - 1;
+  elements.nextInterviewQuestion.textContent = index < questions.length - 1 ? `${questions[index + 1].title} →` : "已经是最后一题";
+  elements.previousInterviewQuestion.onclick = () => index && selectInterviewQuestion(questions[index - 1].id);
+  elements.nextInterviewQuestion.onclick = () => index < questions.length - 1 && selectInterviewQuestion(questions[index + 1].id);
+  renderInterviewQuestionOptions();
+  renderInterviewProgress();
+  renderInterviewSidebar();
+}
+
+function selectInterviewQuestion(questionId, updateURL = true) {
+  const question = state.interviewPlan?.questions.find((item) => item.id === questionId)
+    || state.interviewPlan?.questions[0];
+  if (!question) return;
+  state.interviewQuestion = question.id;
+  renderInterviewQuestion();
+  setView("interview", updateURL);
+}
+
+function normalizeInterviewAnswer(answer, question) {
+  let normalized = answer;
+  question.framework.forEach((step) => {
+    const label = step.split(/[：:]/, 1)[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    normalized = normalized.replace(new RegExp(`^\\s*${label}\\s*[：:]?`, "gim"), "");
+  });
+  return normalized.replace(/\[[^\]]*(?:填写|补充|替换)[^\]]*\]/g, "").trim();
+}
+
+function countRegexMatches(text, pattern, flags = "") {
+  const numberPattern = "\\d+(?:\\.\\d+)?\\s*(?:%|万|亿|元|天|周|月|年|人|个|笔|bps|GMV|TPV|ROI)?";
+  const source = pattern === "NUMBER" ? numberPattern : pattern;
+  try {
+    return (text.match(new RegExp(source, flags.includes("g") ? flags : `${flags}g`)) || []).length;
+  } catch {
+    return 0;
+  }
+}
+
+function evaluateInterviewCheck(check, answer) {
+  const lower = answer.toLocaleLowerCase();
+  if (check.kind === "keywordGroups") {
+    const matchedGroups = check.groups.filter((group) => group.some((keyword) => (
+      lower.includes(interpolateInterviewText(keyword).toLocaleLowerCase())
+    ))).length;
+    return matchedGroups >= check.minGroups;
+  }
+  if (check.kind === "regexCount") return countRegexMatches(answer, check.pattern, check.flags || "") >= check.min;
+  if (check.kind === "charRange") {
+    const length = answer.replace(/\s/g, "").length;
+    return length >= check.min && length <= check.max;
+  }
+  if (check.kind === "wordRange") {
+    const words = answer.match(/[A-Za-z]+(?:[-'][A-Za-z]+)*/g) || [];
+    const chineseCharacters = answer.match(/[\u3400-\u9fff]/g) || [];
+    return words.length >= check.min && words.length <= check.max && chineseCharacters.length < 20;
+  }
+  if (check.kind === "targetSpecificity") {
+    const target = currentInterviewTarget();
+    const businessTerms = ["支付", "国际化", "跨境", "增长", "商户", "商业化", "策略", "数据"];
+    const motivationTerms = ["选择", "因为", "匹配", "适合", "贡献", "希望"];
+    if (!businessTerms.some((term) => answer.includes(term)) || !motivationTerms.some((term) => answer.includes(term))) return false;
+    if (!target) return ["岗位", "职责", "JD"].some((term) => answer.includes(term));
+    const companyMentioned = answer.toLocaleLowerCase().includes(target.company.toLocaleLowerCase());
+    const titleTerms = target.title.split(/[\s,，/·()（）-]+/).filter((term) => term.length >= 3);
+    return companyMentioned || titleTerms.some((term) => lower.includes(term.toLocaleLowerCase()));
+  }
+  return false;
+}
+
+function analyzeInterviewAnswer(answer, question) {
+  const normalized = normalizeInterviewAnswer(answer, question);
+  const checks = question.checks.map((check) => ({ ...check, passed: evaluateInterviewCheck(check, normalized) }));
+  const warnings = [];
+  const placeholders = (answer.match(/\[[^\]]+\]|\{\{[^}]+\}\}/g) || []).length;
+  if (placeholders) {
+    warnings.push({
+      label: "仍有空白占位",
+      problem: `回答中还有 ${placeholders} 处占位内容未替换。`,
+      improvement: "先用真实且可脱敏的事实替换所有占位内容，再进行口述压缩。",
+      followUp: "这里缺少的事实证据具体是什么？",
+    });
+  }
+  const vagueTerms = [...new Set(normalized.match(/很多|比较好|大幅|显著(?:提升|下降)?|效果(?:不错|很好)|全面负责|积极推动/g) || [])];
+  if (vagueTerms.length) {
+    warnings.push({
+      label: "存在模糊表述",
+      problem: `“${vagueTerms.slice(0, 3).join("、")}”缺少可核验的基线、变化或范围。`,
+      improvement: "把模糊形容词替换为基线、变化、周期和影响范围；无法公开时使用比例或指数。",
+      followUp: "你说的改善，具体从多少变到多少，持续了多久？",
+    });
+  }
+  (question.warnings || []).forEach((warning) => {
+    if (!countRegexMatches(normalized, warning.pattern)) return;
+    warnings.push({
+      label: "责任表达需要调整",
+      problem: warning.message,
+      improvement: "先说明自己的决策责任，再区分外部约束和后续可控动作。",
+      followUp: "撇开其他团队，你当时可以更早做什么？",
+    });
+  });
+  const personalCheck = checks.find((check) => check.id === "ownership");
+  const teamMentions = countRegexMatches(normalized, "我们|团队");
+  const personalMentions = countRegexMatches(normalized, "我(?:负责|主导|决定|设计|推动|发现|协调|提出|组织|分析|调整)");
+  if (personalCheck && !personalCheck.passed && teamMentions > personalMentions) {
+    warnings.push({
+      label: "个人贡献偏少",
+      problem: "团队动作多于个人动作，面试官可能无法判断你的实际职责。",
+      improvement: "保留团队背景，但把关键句改为“我分析 / 我建议 / 我推动 / 我交付”。",
+      followUp: "这个项目中，哪两个动作只有你能负责说明？",
+    });
+  }
+  const failed = checks.filter((check) => !check.passed);
+  return {
+    checks,
+    passed: checks.filter((check) => check.passed),
+    failed,
+    priorities: [...warnings, ...failed].slice(0, 2),
+  };
+}
+
+function appendInterviewListItem(list, primary, secondary = "") {
+  const item = document.createElement("li");
+  const strong = document.createElement("strong");
+  strong.textContent = primary;
+  item.append(strong);
+  if (secondary) {
+    const span = document.createElement("span");
+    span.textContent = secondary;
+    item.append(span);
+  }
+  list.append(item);
+}
+
+function renderInterviewFeedback(result) {
+  const total = result.checks.length;
+  const count = result.passed.length;
+  elements.interviewCoverageScore.textContent = `${count} / ${total}`;
+  elements.interviewFeedbackSummary.textContent = result.priorities.length
+    ? `已覆盖 ${count} 项。下一版先补“${result.priorities.map((item) => item.label).join("”和“")}”。`
+    : `已覆盖全部 ${total} 项结构与证据线索，下一轮用追问检验逻辑和事实。`;
+
+  elements.interviewCheckList.replaceChildren();
+  result.checks.forEach((check) => {
+    const item = document.createElement("span");
+    item.className = check.passed ? "covered" : "missing";
+    item.textContent = `${check.passed ? "✓" : "○"} ${check.label}`;
+    elements.interviewCheckList.append(item);
+  });
+
+  elements.interviewStrengthList.replaceChildren();
+  if (result.passed.length) {
+    result.passed.forEach((check) => appendInterviewListItem(elements.interviewStrengthList, check.label));
+  } else {
+    appendInterviewListItem(elements.interviewStrengthList, "已形成第一版回答", "下一步从一项真实证据开始补充。");
+  }
+
+  elements.interviewImprovementList.replaceChildren();
+  if (result.priorities.length) {
+    result.priorities.forEach((item) => appendInterviewListItem(
+      elements.interviewImprovementList,
+      item.problem,
+      item.improvement,
+    ));
+  } else {
+    appendInterviewListItem(
+      elements.interviewImprovementList,
+      "把完整回答录音一次",
+      "检查是否能在目标时长内自然说完，并准备每项证据的数据口径。",
+    );
+  }
+  elements.interviewFollowUpQuestion.textContent = result.priorities[0]?.followUp
+    || currentInterviewQuestion().checks[0].followUp;
+  elements.interviewFeedback.hidden = false;
+}
+
+function runInterviewAnalysis() {
+  const question = currentInterviewQuestion();
+  const answer = elements.interviewAnswer.value.trim();
+  const usableLength = normalizeInterviewAnswer(answer, question).replace(/\s/g, "").length;
+  if (usableLength < 40) {
+    elements.interviewInputMessage.textContent = "先写下至少 40 个有效字符，再检查结构和证据线索。";
+    elements.interviewInputMessage.hidden = false;
+    elements.interviewFeedback.hidden = true;
+    elements.interviewAnswer.focus();
+    return;
+  }
+  elements.interviewInputMessage.hidden = true;
+  const result = analyzeInterviewAnswer(answer, question);
+  renderInterviewFeedback(result);
+  state.interviewReviewed.add(question.id);
+  persistInterviewReviewed();
+  renderInterviewProgress();
+  renderInterviewSidebar();
+  elements.interviewFeedback.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function navigateInterview(questionId = null, updateURL = true) {
+  setView("interview", false);
+  elements.interviewLoading.hidden = false;
+  elements.interviewPanel.hidden = true;
+  try {
+    await Promise.all([ensureInterviewPlanLoaded(), ensureJobsLoaded()]);
+    const requested = state.interviewPlan.questions.find((question) => question.id === questionId);
+    const existing = state.interviewPlan.questions.find((question) => question.id === state.interviewQuestion);
+    state.interviewQuestion = requested?.id || existing?.id || state.interviewPlan.questions[0].id;
+    const validTarget = state.interviewTarget === "all" || interviewAJobs().some((job) => job.id === state.interviewTarget);
+    if (!validTarget) state.interviewTarget = "all";
+    elements.interviewACount.textContent = interviewAJobs().length;
+    renderInterviewTargetOptions();
+    renderInterviewQuestion();
+    elements.interviewLoading.hidden = true;
+    elements.interviewPanel.hidden = false;
+    setView("interview", updateURL);
+  } catch (error) {
+    elements.interviewLoading.querySelector("strong").textContent = `面试计划加载失败：${error.message}`;
+  }
+}
+
 function resetFilters() {
   Object.assign(state, { query: "", tier: "all", direction: "all", experience: "all", salary: 0, risk: "all", bonus: "all", sort: "score", savedOnly: false });
   elements.searchInput.value = "";
@@ -2684,15 +3243,63 @@ function bindControls() {
   elements.viewButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (button.dataset.view === "skills") navigateLearning("overview");
+      else if (button.dataset.view === "interview") navigateInterview(state.interviewQuestion);
       else navigateJobs();
     });
   });
   elements.backToOverview.addEventListener("click", () => navigateLearning("overview"));
   window.addEventListener("hashchange", () => {
+    const interviewRoute = interviewRouteFromHash(location.hash);
     const route = learningRouteFromHash(location.hash);
-    if (route) navigateLearning(route.page, route.skillId, false, route.levelId, route.questionId);
+    if (interviewRoute) navigateInterview(interviewRoute.questionId, false);
+    else if (route) navigateLearning(route.page, route.skillId, false, route.levelId, route.questionId);
     else navigateJobs(false);
   });
+
+  elements.interviewTargetSelect.addEventListener("change", (event) => {
+    state.interviewTarget = event.target.value;
+    localStorage.setItem("recruitment-interview-target-v1", state.interviewTarget);
+    renderInterviewQuestion();
+  });
+  elements.interviewQuestionSelect.addEventListener("change", (event) => selectInterviewQuestion(event.target.value));
+  elements.interviewAnswer.addEventListener("input", () => {
+    const question = currentInterviewQuestion();
+    if (!question) return;
+    const answer = elements.interviewAnswer.value;
+    if (answer) state.interviewDrafts[question.id] = answer;
+    else delete state.interviewDrafts[question.id];
+    persistInterviewDrafts();
+    if (state.interviewReviewed.delete(question.id)) {
+      persistInterviewReviewed();
+      renderInterviewProgress();
+      renderInterviewSidebar();
+    }
+    elements.interviewFeedback.hidden = true;
+    elements.interviewInputMessage.hidden = true;
+    updateInterviewAnswerMeta();
+  });
+  elements.interviewUseTemplate.addEventListener("click", () => {
+    const question = currentInterviewQuestion();
+    if (!question) return;
+    if (elements.interviewAnswer.value.trim()) {
+      elements.interviewInputMessage.textContent = "回答框已有内容，空白框架未覆盖现有草稿。";
+      elements.interviewInputMessage.hidden = false;
+      elements.interviewAnswer.focus();
+      return;
+    }
+    elements.interviewAnswer.value = interviewFrameworkTemplate(question);
+    elements.interviewAnswer.dispatchEvent(new Event("input", { bubbles: true }));
+    elements.interviewAnswer.focus();
+  });
+  elements.interviewClearAnswer.addEventListener("click", () => {
+    const question = currentInterviewQuestion();
+    if (!question || !elements.interviewAnswer.value) return;
+    if (!window.confirm("清空这道题保存在当前浏览器中的回答？")) return;
+    elements.interviewAnswer.value = "";
+    elements.interviewAnswer.dispatchEvent(new Event("input", { bubbles: true }));
+    elements.interviewAnswer.focus();
+  });
+  elements.interviewAnalyzeAnswer.addEventListener("click", runInterviewAnalysis);
 
   elements.searchInput.addEventListener("input", (event) => { state.query = event.target.value.trim(); renderJobs(); });
   elements.directionSelect.addEventListener("change", (event) => { state.direction = event.target.value; render(); });
@@ -2792,7 +3399,9 @@ async function init() {
   const theme = localStorage.getItem("recruitment-theme");
   if (theme) document.documentElement.dataset.theme = theme;
   bindControls();
-  if (initialLearningRoute) {
+  if (initialInterviewRoute) {
+    await navigateInterview(initialInterviewRoute.questionId, false);
+  } else if (initialLearningRoute) {
     setView("skills", false);
     const assets = directLearningAssets[initialLearningRoute.skillId];
     if (initialLearningRoute.page === "challengeGlossary" && assets) {
