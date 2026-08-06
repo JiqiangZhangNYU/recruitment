@@ -28,7 +28,7 @@ python scripts/build-glossary-audio.py
 
 输出位于 `audio/core-vocabulary/`，共 1500 个按需加载的单声道 MP3。可以使用 `--start-rank` 和 `--end-rank` 分段并行生成，全部完成后运行 `python scripts/build-glossary-audio.py --manifest-only` 更新清单。
 
-线上页面通过 jsDelivr 从固定 Git 提交按需读取这些音频，读取失败时回退到浏览器朗读。轻量 Pages 工作流会在 GitHub 自带的分支构建结束后串行运行，只上传约 3 MB 的网页与题库文件，不重复打包音频，以避免大量小文件触发 GitHub Pages 的 10 分钟部署上限；本地运行仍保留全部音频源文件。
+线上页面通过 jsDelivr 从固定 Git 提交按需读取这些音频，读取失败时回退到浏览器朗读。轻量 Pages 工作流会取消同一提交自动触发的整仓部署，改用唯一版本号上传约 3 MB 的网页与题库文件；它不重复打包音频，以避免大量小文件触发 GitHub Pages 的 10 分钟部署上限。本地运行仍保留全部音频源文件。
 
 ## 量化职业子站
 
