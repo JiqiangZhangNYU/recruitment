@@ -236,6 +236,9 @@ const elements = {
   interviewPrepFollowUpList: document.querySelector("#interview-prep-followup-list"),
   interviewPitfallList: document.querySelector("#interview-pitfall-list"),
   interviewGuideNote: document.querySelector("#interview-guide-note"),
+  interviewMethodResources: document.querySelector("#interview-method-resources"),
+  interviewMethodResourceCount: document.querySelector("#interview-method-resource-count"),
+  interviewMethodResourceList: document.querySelector("#interview-method-resource-list"),
   interviewUseTemplate: document.querySelector("#interview-use-template"),
   interviewAnswer: document.querySelector("#interview-answer"),
   interviewSaveStatus: document.querySelector("#interview-save-status"),
@@ -2810,6 +2813,7 @@ function emptyInterviewQuestionBank(loadError = "") {
     description: "核心训练仍可正常使用。",
     answerGuides: {},
     checkProfiles: {},
+    methodSources: [],
     questions: [],
     unavailable: true,
     loadError,
@@ -3263,6 +3267,52 @@ function renderInterviewGuideList(element, values) {
   });
 }
 
+function validInterviewMethodSource(source) {
+  if (!(source?.name && source.provider && source.focus && ["priority", "role"].includes(source.group))) return false;
+  try {
+    return new URL(source.url).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function renderInterviewMethodSources() {
+  const sources = (state.interviewPlan?.questionBank.methodSources || []).filter(validInterviewMethodSource);
+  elements.interviewMethodResourceList.replaceChildren();
+  elements.interviewMethodResourceCount.textContent = String(sources.length);
+  elements.interviewMethodResources.hidden = !sources.length;
+  if (!sources.length) return;
+
+  const groupLabels = {
+    priority: "优先学习",
+    role: "岗位补充",
+  };
+  sources.forEach((source) => {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    link.className = "interview-method-resource-link";
+    link.href = source.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", `打开${source.name}（新标签页）`);
+
+    const meta = document.createElement("span");
+    meta.className = "interview-method-resource-meta";
+    meta.textContent = `${groupLabels[source.group]} · ${source.provider}`;
+    const title = document.createElement("strong");
+    title.textContent = source.name;
+    const focus = document.createElement("p");
+    focus.textContent = source.focus;
+    const arrow = document.createElement("span");
+    arrow.className = "interview-method-resource-arrow";
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "↗";
+    link.append(meta, title, focus, arrow);
+    item.append(link);
+    elements.interviewMethodResourceList.append(item);
+  });
+}
+
 function renderInterviewQuestion() {
   const question = currentInterviewQuestion();
   if (!question) return;
@@ -3552,6 +3602,7 @@ async function navigateInterview(questionId = null, updateURL = true) {
     const validTarget = state.interviewTarget === "all" || interviewAJobs().some((job) => job.id === state.interviewTarget);
     if (!validTarget) state.interviewTarget = "all";
     elements.interviewACount.textContent = interviewAJobs().length;
+    renderInterviewMethodSources();
     renderInterviewTargetOptions();
     renderInterviewQuestion();
     elements.interviewLoading.hidden = true;

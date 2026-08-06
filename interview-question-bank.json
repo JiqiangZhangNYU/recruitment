@@ -3,12 +3,12 @@
   "title": "A 档运营岗位高频题库",
   "description": "根据当前 A 档岗位职责与通用运营面试方法整理。重点不是背标准答案，而是准备可复用的真实事实、清晰判断和可追问证据。",
   "methodSources": [
-    { "name": "Mastercard Interview Tips", "url": "https://careers.mastercard.com/us/en/interview-tips", "focus": "行为问题、问题解决、岗位动机与熟悉个人经历" },
-    { "name": "Amazon Program Manager Interview Prep", "url": "https://amazon.jobs/content/en/how-we-hire/program-manager-interview-prep", "focus": "STAR、个人行动、量化结果与项目管理" },
-    { "name": "McKinsey Interviewing", "url": "https://www.mckinsey.com/careers/interviewing/en", "focus": "个人经历深挖、结构化分析、事实与结论" },
-    { "name": "Microsoft Interview Tips", "url": "https://careers.microsoft.com/v2/global/en/hiring-tips/interview-tips.html", "focus": "能力证据、思考过程、澄清与协作" },
-    { "name": "Adyen Formula", "url": "https://careers.adyen.com/formula", "focus": "客户长期价值、快速迭代、直接沟通与跨文化协作" },
-    { "name": "MIT STAR Method", "url": "https://capd.mit.edu/resources/the-star-method-for-behavioral-interviews/", "focus": "行为面试的情境、任务、行动与结果结构" }
+    { "name": "Amazon 项目经理面试准备", "provider": "Amazon Jobs", "group": "priority", "url": "https://amazon.jobs/content/en/how-we-hire/program-manager-interview-prep", "focus": "STAR、具体经历、项目与利益相关者管理、数据和风险判断" },
+    { "name": "Microsoft 通用岗位面试建议", "provider": "Microsoft Careers", "group": "priority", "url": "https://careers.microsoft.com/v2/global/en/hiring-tips/interview-tips.html", "focus": "能力证据、思考过程、澄清假设、跨团队协作与复盘" },
+    { "name": "MIT STAR 行为面试法", "provider": "MIT CAPD", "group": "priority", "url": "https://capd.mit.edu/resources/the-star-method-for-behavioral-interviews/", "focus": "用情境、任务、个人行动和结果组织可复用的真实故事" },
+    { "name": "Mastercard 面试参考", "provider": "Mastercard Careers", "group": "role", "url": "https://careers.mastercard.com/us/en/interview-tips", "focus": "支付行业行为题、问题解决、岗位动机和简历经历深挖" },
+    { "name": "McKinsey 面试与案例准备", "provider": "McKinsey Careers", "group": "role", "url": "https://www.mckinsey.com/careers/interviewing/en", "focus": "个人经历深挖、个人行动、案例拆解与结构化分析思路" },
+    { "name": "Adyen 文化与价值观", "provider": "Adyen Careers", "group": "role", "url": "https://careers.adyen.com/formula", "focus": "支付业务中的客户长期价值、快速迭代、直接沟通与跨文化协作" }
   ],
   "answerGuides": {
     "fit-introduction": {

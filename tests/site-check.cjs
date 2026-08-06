@@ -55,9 +55,16 @@ assert.ok(interviewPlan.questions.every((question) => (
 )));
 assert.equal(interviewQuestionBank.questions.length, 19);
 assert.ok(interviewQuestionBank.methodSources.length >= 5);
+assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.name)).size, interviewQuestionBank.methodSources.length);
+assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.url)).size, interviewQuestionBank.methodSources.length);
 assert.ok(interviewQuestionBank.methodSources.every((source) => (
-  source.name && source.focus && /^https:\/\//.test(source.url)
+  source.name.trim()
+  && source.provider?.trim()
+  && source.focus.trim()
+  && ["priority", "role"].includes(source.group)
+  && new URL(source.url).protocol === "https:"
 )));
+assert.equal(interviewQuestionBank.methodSources.filter((source) => source.group === "priority").length, 3);
 assert.equal(Object.keys(interviewQuestionBank.answerGuides).length, interviewPlan.questions.length);
 assert.deepEqual(
   new Set(Object.keys(interviewQuestionBank.answerGuides)),
@@ -578,6 +585,30 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-pitfall-list li").count(), 2);
   assert.equal(await page.locator("#interview-evidence-heading").textContent(), "必须准备的事实");
   assert.match(await page.locator("#interview-guide-note").textContent(), /不要补造数字/);
+  assert.equal(await page.locator("#interview-method-resources").isVisible(), true);
+  assert.equal(await page.locator("#interview-method-resources").getAttribute("open"), null);
+  assert.equal(
+    await page.locator("#interview-method-resource-count").textContent(),
+    String(interviewQuestionBank.methodSources.length),
+  );
+  const methodResourceLinks = page.locator(".interview-method-resource-link");
+  assert.equal(await methodResourceLinks.count(), interviewQuestionBank.methodSources.length);
+  await page.locator("#interview-method-resources > summary").click();
+  assert.equal(await methodResourceLinks.first().isVisible(), true);
+  for (const [index, source] of interviewQuestionBank.methodSources.entries()) {
+    const link = methodResourceLinks.nth(index);
+    assert.match(await link.textContent(), new RegExp(source.name));
+    assert.match(await link.textContent(), new RegExp(source.provider));
+    assert.match(await link.textContent(), new RegExp(source.focus));
+    assert.equal(await link.getAttribute("href"), source.url);
+    assert.equal(await link.getAttribute("target"), "_blank");
+    const rel = new Set((await link.getAttribute("rel")).split(/\s+/));
+    assert.ok(rel.has("noopener") && rel.has("noreferrer"));
+  }
+  assert.equal(
+    requestedURLs.filter((url) => interviewQuestionBank.methodSources.some((source) => url === source.url)).length,
+    0,
+  );
   assert.equal(await page.locator("#interview-core-mode").getAttribute("aria-selected"), "true");
   assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "false");
   assert.equal(await page.locator("#interview-bank-browser").isHidden(), true);
@@ -637,6 +668,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
 
     await page.locator("#interview-bank-mode").click();
     assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "true");
+    assert.equal(await page.locator(".interview-method-resource-link").count(), interviewQuestionBank.methodSources.length);
     assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
     assert.equal(await page.locator("#interview-question-select option").count(), interviewQuestionBank.questions.length);
     assert.equal(await page.locator(".interview-bank-item").count(), interviewQuestionBank.questions.length);
@@ -732,6 +764,7 @@ async function checkInterviewBankFallback(browser) {
   assert.equal(await page.locator("#interview-bank-mode").isDisabled(), true);
   assert.equal(await page.locator("#interview-bank-count").textContent(), "0");
   assert.equal(await page.locator("#interview-evidence-list li").count(), 3);
+  assert.equal(await page.locator("#interview-method-resources").isHidden(), true);
   assert.ok(errors.every((message) => /Failed to load resource:.*404/.test(message)));
   await page.close();
 }
