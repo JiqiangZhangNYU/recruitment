@@ -107,7 +107,7 @@ jobs:
             --header "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
             "${ACTIONS_ID_TOKEN_REQUEST_URL}")
           oidc_token=$(jq --exit-status --raw-output '.value' <<<"${oidc_response}")
-          build_version="${GITHUB_SHA}-${GITHUB_RUN_ID}"
+          build_version=$(printf '%s' "${GITHUB_SHA}-${GITHUB_RUN_ID}" | sha1sum | cut --delimiter=' ' --fields=1)
           payload=$(jq --compact-output --null-input \
             --argjson artifact_id "${ARTIFACT_ID}" \
             --arg pages_build_version "${build_version}" \
@@ -126,22 +126,22 @@ jobs:
             conflict_sha=$(jq --raw-output '.message // empty' "${response_file}" \
               | sed -n 's/.*Please cancel \([0-9a-f]\{40\}\) first.*/\1/p')
             if [[ "${create_code}" != '400' || -z "${conflict_sha}" ]]; then
-              cat "${response_file}"
+              echo "::error title=Pages deployment request failed::$(jq --compact-output . "${response_file}")"
               exit 1
             fi
             cancel_code=$(curl --silent --show-error --output "${response_file}" --write-out '%{http_code}' \
               --request POST \
               "${api_headers[@]}" \
               "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pages/deployments/${conflict_sha}/cancel")
-            if [[ "${cancel_code}" != '204' ]]; then
-              cat "${response_file}"
+            if [[ "${cancel_code}" != '204' && "${cancel_code}" != '404' ]]; then
+              echo "::error title=Pages cancellation failed::$(jq --compact-output . "${response_file}")"
               exit 1
             fi
             echo "Cancelled conflicting Pages deployment ${conflict_sha}."
-            sleep 2
+            sleep 5
           done
           if [[ "${create_code}" != '200' ]]; then
-            echo 'Unable to create a Pages deployment after clearing five conflicts.'
+            echo '::error::Unable to create a Pages deployment after clearing five conflicts.'
             exit 1
           fi
           deployment_id=$(jq --exit-status --raw-output '.id // (.status_url | split("/") | last)' "${response_file}")
