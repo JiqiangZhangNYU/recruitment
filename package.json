@@ -1,0 +1,11 @@
+{
+  "name": "recruitment-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/site-check.cjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.55.0"
+  }
+}

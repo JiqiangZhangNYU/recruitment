@@ -1,6 +1,7 @@
 const { chromium } = require("playwright-core");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 const guide = require("../learning-guide.json");
 const interviewPlan = require("../interview-plan.json");
@@ -19,7 +20,41 @@ const coreVocabulary = require("../challenges/core-vocabulary/glossary.json");
 const coreVocabularyManifest = require("../challenges/core-vocabulary/manifest.json");
 const coreVocabularyAudioManifest = require("../audio/core-vocabulary/manifest.json");
 
-const executablePath = "/home/zjq/.cache/ms-playwright/chromium-1187/chrome-linux/chrome";
+function resolveChromiumExecutable() {
+  const configured = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
+    || process.env.CHROMIUM_EXECUTABLE_PATH
+    || process.env.BROWSER_EXECUTABLE_PATH;
+  if (configured) {
+    assert.ok(fs.existsSync(configured), `Configured Chromium executable does not exist: ${configured}`);
+    return configured;
+  }
+
+  const candidates = [];
+  try {
+    candidates.push(chromium.executablePath());
+  } catch {
+    // playwright-core may not have a bundled browser; local cache and system paths follow.
+  }
+  const cacheRoot = path.join(os.homedir(), ".cache", "ms-playwright");
+  if (fs.existsSync(cacheRoot)) {
+    fs.readdirSync(cacheRoot, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && /^chromium-\d+$/.test(entry.name))
+      .sort((left, right) => Number(right.name.split("-")[1]) - Number(left.name.split("-")[1]))
+      .forEach((entry) => {
+        candidates.push(path.join(cacheRoot, entry.name, "chrome-linux", "chrome"));
+        candidates.push(path.join(cacheRoot, entry.name, "chrome-linux64", "chrome"));
+      });
+  }
+  candidates.push(
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
+    "/usr/bin/google-chrome",
+    "/usr/bin/google-chrome-stable",
+  );
+  return candidates.find((candidate) => candidate && fs.existsSync(candidate));
+}
+
+const executablePath = resolveChromiumExecutable();
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:4173";
 const coreVocabularyAudioBase = "https://cdn.jsdelivr.net/gh/JiqiangZhangNYU/recruitment@dfd6263d429c18d6f5e626a170eec8e5f36af416/audio/core-vocabulary";
 
@@ -582,6 +617,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   const page = await browser.newPage({ viewport });
   const errors = [];
   const requestedURLs = [];
+  const totalQuestions = interviewPlan.questions.length + interviewQuestionBank.questions.length;
   page.on("request", (request) => requestedURLs.push(request.url()));
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
@@ -594,7 +630,9 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator(".primary-nav button").count(), 3);
   assert.equal(await page.locator('.primary-nav button[data-view="interview"]').getAttribute("aria-pressed"), "true");
   assert.equal(await page.locator("#interview-question-select option").count(), interviewPlan.questions.length);
-  assert.equal(await page.locator("#interview-target-select option").count(), aJobs.length + 1);
+  assert.equal(await page.locator("#interview-target-select option").count(), aJobs.length + 2);
+  assert.equal(await page.locator("#interview-target-select").inputValue(), "worldtrade");
+  assert.match(await page.locator("#interview-target-select option:checked").textContent(), /WorldTrade/);
   assert.equal(await page.locator("#interview-a-count").textContent(), String(aJobs.length));
   assert.equal(await page.locator("#interview-question-title").textContent(), "支付成功率突降诊断");
   assert.equal(await page.locator("#interview-framework-list li").count(), 5);
@@ -603,6 +641,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-pitfall-list li").count(), 2);
   assert.equal(await page.locator("#interview-evidence-heading").textContent(), "必须准备的事实");
   assert.match(await page.locator("#interview-guide-note").textContent(), /不要补造数字/);
+  await page.locator("#interview-guidance > summary").click();
   assert.equal(await page.locator("#interview-method-resources").isVisible(), true);
   assert.equal(await page.locator("#interview-method-resources").getAttribute("open"), null);
   assert.equal(
@@ -627,6 +666,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     requestedURLs.filter((url) => interviewQuestionBank.methodSources.some((source) => url === source.url)).length,
     0,
   );
+  await page.locator("#interview-guidance > summary").click();
   assert.equal(await page.locator("#interview-core-mode").getAttribute("aria-selected"), "true");
   assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "false");
   assert.equal(await page.locator("#interview-bank-browser").isHidden(), true);
@@ -635,7 +675,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-sample-step").isVisible(), true);
   assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), null);
   await page.locator("#interview-sample-answer > summary").click();
-  assert.match(await page.locator("#interview-sample-answer-text").textContent(), /Route B|5\.5 个百分点/);
+  assert.equal(await page.locator("#interview-sample-lock").isVisible(), true);
+  assert.match(await page.locator("#interview-sample-lock").textContent(), /完成一版有效回答/);
+  assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
+  assert.equal(await page.locator("#interview-sample-outline li").count(), 5);
   assert.match(await page.locator("#interview-sample-note").textContent(), /方括号.*可核验/);
   assert.match(await page.locator(".interview-sample-source-note").textContent(), /仅用于核对公开产品边界.*不为.*背书/);
   const sampleSourceLinks = page.locator("#interview-sample-sources a");
@@ -664,17 +707,36 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
 
   if (fullFlow) {
-    const targetOption = page.locator("#interview-target-select option").nth(1);
-    const targetId = await targetOption.getAttribute("value");
-    const target = aJobs.find((job) => job.id === targetId);
-    await page.locator("#interview-target-select").selectOption(targetId);
+    const target = aJobs[0];
+    await page.locator("#interview-target-select").selectOption(target.id);
     await page.locator("#interview-question-select").selectOption("why-role-90-days");
     assert.match(await page.locator("#interview-question-prompt").textContent(), new RegExp(target.company));
+    await page.locator("#interview-target-select").selectOption("worldtrade");
 
     await page.locator("#interview-question-select").selectOption("fit-introduction");
+    await page.locator("#interview-story-bank > summary").click();
+    await page.locator("#interview-story-title").fill("商家首笔激活项目");
+    await page.locator("#interview-story-situation").fill("跨境商家开户后首笔转化偏低，需要在一个季度内定位阻力。");
+    await page.locator("#interview-story-ownership").fill("我负责漏斗诊断、方案取舍与跨团队推进。");
+    await page.locator("#interview-story-action").fill("我拆分商家队列，定位配置环节，并推动产品和技术改造流程。");
+    await page.locator("#interview-story-result").fill("三个月内有效首笔率从 28% 提升到 38%。");
+    await page.locator("#interview-story-reflection").fill("后续增加灰度护栏和投诉率复盘。");
+    await page.locator("#interview-story-boundary").fill("不公开客户名和内部系统名。");
+    await page.locator("#interview-bind-story").click();
+    assert.equal(await page.locator("#interview-bound-story").isVisible(), true);
+    assert.match(await page.locator("#interview-bound-story").textContent(), /商家首笔激活项目.*漏斗诊断/);
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.locator("#interview-panel").waitFor();
+    assert.equal(await page.locator("#interview-story-title").inputValue(), "商家首笔激活项目");
+    assert.match(await page.locator("#interview-story-result").inputValue(), /28%.*38%/);
+    assert.equal(await page.locator("#interview-bound-story").isVisible(), true);
+    assert.match(await page.locator("#interview-bound-story").textContent(), /商家首笔激活项目/);
+
     assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), null);
     await page.locator("#interview-sample-answer > summary").click();
-    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
+    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
+    assert.match(await page.locator("#interview-sample-lock").textContent(), /完成一版有效回答/);
+    await page.locator("#interview-guidance > summary").click();
     await page.locator("#interview-use-template").click();
     assert.match(await page.locator("#interview-answer").inputValue(), /^现在：/);
     assert.match(
@@ -686,9 +748,31 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.locator("#interview-answer").fill(weakAnswer);
     await page.locator("#interview-analyze-answer").click();
     await page.locator("#interview-feedback").waitFor();
-    assert.notEqual(await page.locator("#interview-coverage-score").textContent(), "5 / 5");
-    assert.equal(await page.locator("#interview-improvement-list li").count(), 2);
+    assert.equal(await page.locator("#interview-feedback-title").textContent(), "第一版已完成");
+    assert.match(await page.locator("#interview-save-status").textContent(), /已尝试/);
+    assert.notEqual(await page.locator("#interview-coverage-score").textContent(), "5 项线索");
+    assert.equal(await page.locator("#interview-improvement-list li").count(), 1);
     assert.match(await page.locator("#interview-improvement-list").textContent(), /模糊|基线|数字/);
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `1 / ${totalQuestions}`);
+    assert.equal(await page.locator("#interview-progress-detail").textContent(), "已复练 0 · 待复查 0");
+    const firstAttempt = await page.evaluate(() => (
+      JSON.parse(localStorage.getItem("recruitment-interview-attempts-v2"))["fit-introduction"]
+    ));
+    assert.equal(firstAttempt.status, "attempted");
+    assert.equal(firstAttempt.checkCount, 1);
+    assert.equal(firstAttempt.first.text, weakAnswer);
+    assert.equal(firstAttempt.latest.text, weakAnswer);
+
+    await page.locator("#interview-sample-answer > summary").click();
+    assert.equal(await page.locator("#interview-sample-lock").isHidden(), true);
+    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
+    await page.locator("#interview-sample-full > summary").click();
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
+
+    const followUpAnswer = "我会先核对分母和商家队列，再用同口径的前后数据解释提升。";
+    await page.locator("#interview-follow-up-answer").fill(followUpAnswer);
+    await page.locator("#interview-complete-follow-up").click();
+    assert.equal(await page.locator("#interview-follow-up-status").textContent(), "追问回答已记录在本机");
 
     const strongAnswer = [
       "我有 8 年国际支付和增长策略运营经验，核心标签是用数据诊断跨境商家转化问题并推动产品落地。",
@@ -697,21 +781,49 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
       "这些经历与目标岗位 JD 中的数据分析、增长策略和跨团队推进职责直接匹配。我选择这个岗位，是因为希望继续深耕国际支付，并能在入职后先贡献支付漏斗诊断和商业化落地经验。",
     ].join("");
     await page.locator("#interview-answer").fill(strongAnswer);
-    await page.locator("#interview-analyze-answer").click();
-    assert.equal(await page.locator("#interview-coverage-score").textContent(), "5 / 5");
-    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `1 / ${interviewPlan.questions.length}`);
-    assert.deepEqual(
-      await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1"))),
-      ["fit-introduction"],
+    assert.equal(await page.locator("#interview-feedback").isVisible(), true);
+    assert.equal(await page.locator("#interview-feedback-title").textContent(), "回答已修改，等待复查");
+    assert.equal(await page.locator("#interview-feedback-state").textContent(), "基于上一版的本地提示");
+    assert.match(await page.locator("#interview-save-status").textContent(), /待复查/);
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `1 / ${totalQuestions}`);
+    assert.equal(await page.locator("#interview-progress-detail").textContent(), "已复练 0 · 待复查 1");
+    assert.equal(await page.locator("#interview-version-comparison").isHidden(), true);
+    assert.equal(
+      await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-attempts-v2"))["fit-introduction"].latest.text),
+      weakAnswer,
     );
-    await page.locator("#interview-answer").fill(`${strongAnswer}。`);
-    assert.equal(await page.locator("#interview-feedback").isHidden(), true);
-    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `0 / ${interviewPlan.questions.length}`);
-    await page.locator("#interview-analyze-answer").click();
     await page.reload({ waitUntil: "domcontentloaded" });
     await page.locator("#interview-panel").waitFor();
     assert.match(await page.locator("#interview-answer").inputValue(), /8 年国际支付/);
     assert.match(page.url(), /#interview\/fit-introduction$/);
+    assert.equal(await page.locator("#interview-feedback").isVisible(), true);
+    assert.equal(await page.locator("#interview-feedback-title").textContent(), "回答已修改，等待复查");
+    assert.equal(await page.locator("#interview-follow-up-answer").inputValue(), followUpAnswer);
+    assert.equal(await page.locator("#interview-follow-up-status").textContent(), "追问回答已记录在本机");
+    await page.locator("#interview-recheck-answer").click();
+    assert.equal(await page.locator("#interview-feedback-title").textContent(), "复练版已保存");
+    assert.equal(await page.locator("#interview-coverage-score").textContent(), "5 项线索");
+    assert.match(await page.locator("#interview-save-status").textContent(), /已复练/);
+    assert.equal(await page.locator("#interview-progress-detail").textContent(), "已复练 1 · 待复查 0");
+    assert.equal(await page.locator("#interview-version-comparison").isVisible(), true);
+    assert.match(await page.locator("#interview-version-summary").textContent(), /补上了|两版已经保存/);
+    assert.match(await page.locator("#interview-version-first").textContent(), /效果比较好/);
+    assert.match(await page.locator("#interview-version-latest").textContent(), /8 年国际支付/);
+    const repracticedAttempt = await page.evaluate(() => (
+      JSON.parse(localStorage.getItem("recruitment-interview-attempts-v2"))["fit-introduction"]
+    ));
+    assert.equal(repracticedAttempt.status, "repracticed");
+    assert.equal(repracticedAttempt.checkCount, 2);
+    assert.equal(repracticedAttempt.first.text, weakAnswer);
+    assert.equal(repracticedAttempt.latest.text, strongAnswer);
+    assert.match(await page.locator("#interview-follow-up-status").textContent(), /上一版主回答/);
+    await page.locator("#interview-complete-follow-up").click();
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.locator("#interview-panel").waitFor();
+    assert.equal(await page.locator("#interview-feedback-title").textContent(), "复练版已保存");
+    assert.equal(await page.locator("#interview-version-comparison").isVisible(), true);
+    assert.equal(await page.locator("#interview-follow-up-answer").inputValue(), followUpAnswer);
+    assert.equal(await page.locator("#interview-follow-up-status").textContent(), "追问回答已记录在本机");
 
     await page.locator("#interview-bank-mode").click();
     assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "true");
@@ -726,14 +838,14 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.locator("#interview-bank-relevant").uncheck();
     await page.locator("#interview-bank-search").fill("供给结构");
     assert.equal(await page.locator(".interview-bank-item").count(), 1);
-    assert.equal(await page.locator("#interview-bank-result-count").textContent(), "1 题 · 已检查 0");
+    assert.equal(await page.locator("#interview-bank-result-count").textContent(), "1 题 · 已练 0");
     await page.locator(".interview-bank-item").click();
     assert.equal(await page.locator("#interview-question-title").textContent(), "供给结构与商家生态诊断");
     assert.match(await page.locator("#interview-answer-edge").textContent(), /招商|需求侧/);
     assert.equal(await page.locator("#interview-evidence-heading").textContent(), "回答前先明确");
     assert.match(await page.locator("#interview-guide-note").textContent(), /明确假设|未知结果/);
     await page.locator("#interview-sample-answer > summary").click();
-    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
+    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
     assert.match(page.url(), /#interview\/merchant-supply-structure$/);
 
     const bankAnswer = [
@@ -745,9 +857,13 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.locator("#interview-answer").fill(bankAnswer);
     await page.locator("#interview-analyze-answer").click();
     await page.locator("#interview-feedback").waitFor();
-    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `1 / ${interviewPlan.questions.length}`);
-    assert.match(await page.locator(".interview-bank-item").textContent(), /已检查/);
-    assert.equal(await page.locator(".interview-bank-arrow").textContent(), "✓");
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `2 / ${totalQuestions}`);
+    assert.match(await page.locator(".interview-bank-item").textContent(), /已尝试/);
+    assert.equal(await page.locator(".interview-bank-arrow").textContent(), "•");
+    await page.locator("#interview-sample-answer > summary").click();
+    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
+    await page.locator("#interview-sample-full > summary").click();
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
     assert.deepEqual(
       new Set(await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1")))),
       new Set(["fit-introduction", "merchant-supply-structure"]),
@@ -766,16 +882,76 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.evaluate(() => { location.hash = "#interview/not-a-real-question"; });
     await page.waitForURL(/#interview\/fit-introduction$/);
     assert.equal(await page.locator("#interview-question-title").textContent(), "两分钟自我介绍与岗位匹配");
+
+    await page.locator("#interview-target-select").selectOption(target.id);
+    await page.locator("#interview-bank-mode").click();
+    await page.locator('#interview-question-select option[value="career-transition-motivation"]').waitFor({ state: "attached" });
+    await page.locator("#interview-question-select").selectOption("career-transition-motivation");
+    const motivationAnswer = "我选择转向跨境支付增长，是因为过去的商家增长项目让我确认，自己的优势是用数据定位转化问题并推动多团队落地。这个岗位要求的数据分析、商业结果和国际协作与我的真实经历直接匹配；入职后我会先梳理商家分层与支付漏斗，用 30、60、90 天验证优先机会。";
+    await page.locator("#interview-answer").fill(motivationAnswer);
+    await page.locator("#interview-analyze-answer").click();
+    await page.locator("#interview-sample-answer > summary").click();
+    assert.match(await page.locator("#interview-sample-note").textContent(), /不是 WorldTrade.*只可借用结构/);
+    assert.match(await page.locator("#interview-sample-lock").textContent(), /固定 WorldTrade 范文不适用.*完整范文已隐藏/);
+    assert.equal(await page.locator("#interview-sample-lock").isVisible(), true);
+    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
+
+    page.once("dialog", (dialog) => dialog.accept());
+    await page.locator("#interview-clear-data").click();
+    await page.waitForFunction(() => document.querySelector("#interview-input-message")?.textContent.includes("本机面试数据已清除"));
+    assert.equal(await page.locator("#interview-target-select").inputValue(), "worldtrade");
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `0 / ${totalQuestions}`);
+    assert.equal(await page.locator("#interview-progress-detail").textContent(), "已复练 0 · 待复查 0");
+    assert.equal(await page.locator("#interview-answer").inputValue(), "");
+    assert.equal(await page.locator("#interview-feedback").isHidden(), true);
+    assert.equal(await page.locator("#interview-story-summary").textContent(), "0 / 5 已填写");
+    assert.equal(await page.locator("#interview-story-title").inputValue(), "代表性增长项目");
+    await page.locator("#interview-core-mode").click();
+    await page.locator("#interview-question-select").selectOption("fit-introduction");
+    assert.equal(await page.locator("#interview-bound-story").isHidden(), true);
+    const clearedTextData = await page.evaluate(() => ({
+      drafts: localStorage.getItem("recruitment-interview-drafts-v1"),
+      attempts: JSON.parse(localStorage.getItem("recruitment-interview-attempts-v2") || "{}"),
+      reviewed: JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1") || "[]"),
+      followUps: localStorage.getItem("recruitment-interview-follow-ups-v1"),
+      stories: localStorage.getItem("recruitment-interview-stories-v1"),
+      bindings: localStorage.getItem("recruitment-interview-story-bindings-v1"),
+      target: localStorage.getItem("recruitment-interview-target-v1"),
+    }));
+    assert.equal(clearedTextData.drafts, null);
+    assert.deepEqual(clearedTextData.attempts, {});
+    assert.deepEqual(clearedTextData.reviewed, []);
+    assert.equal(clearedTextData.followUps, null);
+    assert.equal(clearedTextData.stories, null);
+    assert.equal(clearedTextData.bindings, null);
+    assert.equal(clearedTextData.target, null);
   } else {
     assert.equal(await page.locator(".interview-navigation").isHidden(), true);
+    const mobileAnswerDistance = await page.evaluate(() => {
+      const questionTop = document.querySelector(".interview-question-step").getBoundingClientRect().top;
+      const answerTop = document.querySelector("#interview-answer").getBoundingClientRect().top;
+      return { distance: answerTop - questionTop, viewportHeight: window.innerHeight };
+    });
+    assert.ok(
+      mobileAnswerDistance.distance < mobileAnswerDistance.viewportHeight,
+      `mobile answer entrance is ${mobileAnswerDistance.distance}px below the question (viewport ${mobileAnswerDistance.viewportHeight}px)`,
+    );
     await page.locator("#interview-analyze-answer").click();
     assert.equal(await page.locator("#interview-feedback").isVisible(), true);
-    assert.equal(await page.locator("#interview-coverage-score").textContent(), "0 / 5");
-    assert.match(await page.locator("#interview-strength-list").textContent(), /尚未检测到回答线索/);
+    assert.equal(await page.locator("#interview-feedback-title").textContent(), "还没有形成首版");
+    assert.equal(await page.locator("#interview-coverage-score").textContent(), "0 项线索");
+    assert.match(await page.locator("#interview-feedback-summary").textContent(), /空回答不会计入进度/);
+    assert.equal(await page.locator("#interview-reviewed-count").textContent(), `0 / ${totalQuestions}`);
+    assert.deepEqual(
+      await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1") || "[]")),
+      [],
+    );
     assert.equal(await page.locator("#interview-input-message").isHidden(), true);
+    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
     await page.locator("#interview-bank-mode").click();
     assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
-    assert.equal(await page.locator("#interview-bank-relevant").isDisabled(), true);
+    await page.locator("#interview-bank-browser > summary").click();
+    assert.equal(await page.locator("#interview-bank-relevant").isDisabled(), false);
     await page.locator("#interview-bank-search").fill("不存在的题目关键词");
     assert.equal(await page.locator(".interview-bank-item").count(), 0);
     assert.equal(await page.locator("#interview-bank-empty").isVisible(), true);
@@ -833,6 +1009,7 @@ async function checkInterviewRecording(browser) {
   await page.addInitScript(() => {
     window.__interviewTrackStops = 0;
     window.__interviewURLRevokes = 0;
+    window.__interviewTracks = [];
     const revokeObjectURL = URL.revokeObjectURL.bind(URL);
     URL.revokeObjectURL = (url) => {
       window.__interviewURLRevokes += 1;
@@ -870,6 +1047,7 @@ async function checkInterviewRecording(browser) {
     window.__interviewGrantMicrophone = async () => {
       const track = new EventTarget();
       track.stop = () => { window.__interviewTrackStops += 1; };
+      window.__interviewTracks.push(track);
       return { getTracks: () => [track] };
     };
     Object.defineProperty(window, "MediaRecorder", { configurable: true, value: FakeMediaRecorder });
@@ -879,105 +1057,130 @@ async function checkInterviewRecording(browser) {
     });
   });
 
-  await page.goto(`${baseURL}/#interview/fit-introduction`, { waitUntil: "domcontentloaded", timeout: 60000 });
-  await page.locator("#interview-panel").waitFor();
-  assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
-  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
-  await page.locator("#interview-record-answer").click();
-  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
-  assert.equal(await page.locator("#interview-stop-recording").isEnabled(), true);
-  assert.equal(await page.locator("#interview-record-answer").isDisabled(), true);
-  await page.locator("#interview-stop-recording").click();
-  await page.locator("#interview-recording-playback").waitFor({ state: "visible" });
-  assert.match(await page.locator("#interview-recording-status").textContent(), /录音完成/);
-  assert.equal(await page.locator("#interview-record-answer").textContent(), "重新录音");
-  assert.ok(await page.evaluate(() => window.__interviewTrackStops >= 1));
-
-  await page.locator("#interview-question-select").selectOption("signature-project");
-  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
-  await page.locator("#interview-question-select").selectOption("fit-introduction");
-  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
-
-  await page.evaluate(() => {
-    navigator.mediaDevices.getUserMedia = () => new Promise((resolve, reject) => {
-      window.__rejectInterviewMicrophone = () => {
-        const error = new Error("permission denied after navigation");
-        error.name = "NotAllowedError";
-        reject(error);
-      };
-    });
-  });
-  await page.locator("#interview-record-answer").click();
-  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("正在请求"));
-  await page.locator("#interview-question-select").selectOption("signature-project");
-  await page.evaluate(() => window.__rejectInterviewMicrophone());
-  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent === "未录音");
-  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
-  assert.equal(await page.locator("#interview-record-answer").textContent(), "开始录音");
-  await page.locator("#interview-question-select").selectOption("fit-introduction");
-  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
-
-  await page.evaluate(() => { navigator.mediaDevices.getUserMedia = window.__interviewGrantMicrophone; });
-  await page.locator("#interview-record-answer").click();
-  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
-  await page.locator("#interview-question-select").selectOption("signature-project");
-  await page.waitForFunction(() => !document.querySelector("#interview-record-answer")?.disabled);
-  await page.locator("#interview-question-select").selectOption("fit-introduction");
-  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
-  assert.equal(await page.locator("#interview-record-answer").textContent(), "重新录音");
-
-  await page.locator("#interview-delete-recording").click();
-  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
-  assert.equal(await page.locator("#interview-recording-status").textContent(), "未录音");
-
-  await page.locator("#interview-record-answer").click();
-  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
-  await page.locator("#interview-question-select").selectOption("signature-project");
-  await page.waitForFunction(() => !document.querySelector("#interview-record-answer")?.disabled);
-  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
-  await page.locator("#interview-question-select").selectOption("fit-introduction");
-  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
-
-  for (let cycle = 0; cycle < 2; cycle += 1) {
+  const waitForArchiveCount = async (count) => {
+    await page.waitForFunction((expected) => {
+      const list = document.querySelector("#interview-recording-list");
+      const rows = list?.querySelectorAll(".interview-recording-row").length || 0;
+      if (rows !== expected) return false;
+      return expected > 0 || list?.querySelector(".interview-recording-empty")?.textContent.includes("还没有本机录音");
+    }, count);
+  };
+  const recordOne = async (expectedCount) => {
     await page.locator("#interview-record-answer").click();
     await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+    assert.equal(await page.locator("#interview-stop-recording").isEnabled(), true);
+    assert.equal(await page.locator("#interview-record-answer").isDisabled(), true);
     await page.locator("#interview-stop-recording").click();
-    await page.locator("#interview-recording-playback").waitFor({ state: "visible" });
-    await page.evaluate(() => {
-      const pagehide = new Event("pagehide");
-      Object.defineProperty(pagehide, "persisted", { value: true });
-      window.dispatchEvent(pagehide);
-      const pageshow = new Event("pageshow");
-      Object.defineProperty(pageshow, "persisted", { value: true });
-      window.dispatchEvent(pageshow);
-    });
-    assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
-    assert.equal(await page.locator("#interview-recording-status").textContent(), "未录音");
-  }
-  assert.ok(await page.evaluate(() => window.__interviewURLRevokes >= 2));
+    await waitForArchiveCount(expectedCount);
+    assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+    assert.match(await page.locator("#interview-recording-status").textContent(), /已自动保存到本机|本机已留档/);
+  };
 
-  await page.locator("#interview-record-answer").click();
-  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
-  await page.locator("#interview-stop-recording").click();
-  await page.locator("#interview-recording-playback").waitFor({ state: "visible" });
-  await page.evaluate(() => {
-    const audio = document.querySelector("#interview-recording-playback");
-    const pause = audio.pause.bind(audio);
-    window.__interviewPlaybackPauses = 0;
-    audio.pause = () => {
-      window.__interviewPlaybackPauses += 1;
-      pause();
-    };
-  });
-  await page.locator('.primary-nav button[data-view="jobs"]').click();
-  assert.ok(await page.evaluate(() => window.__interviewPlaybackPauses >= 1));
-  await page.locator('.primary-nav button[data-view="interview"]').click();
+  await page.goto(`${baseURL}/#interview/fit-introduction`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator("#interview-panel").waitFor();
-  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+  await waitForArchiveCount(0);
+  assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  await recordOne(1);
+  assert.equal(await page.locator("#interview-record-answer").textContent(), "再录一版");
+  assert.ok(await page.evaluate(() => window.__interviewTrackStops >= 1));
+  const firstRecording = await page.evaluate(async () => {
+    const records = await window.InterviewRecordingStore.list("fit-introduction");
+    return { count: records.length, size: records[0]?.blob.size, questionId: records[0]?.questionId };
+  });
+  assert.deepEqual(firstRecording, {
+    count: 1,
+    size: new Blob(["recorded interview answer"]).size,
+    questionId: "fit-introduction",
+  });
 
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.locator("#interview-panel").waitFor();
+  await waitForArchiveCount(1);
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+  assert.match(await page.locator("#interview-recording-status").textContent(), /本机已留档 1 条/);
+  await recordOne(2);
+
+  await page.locator("#interview-question-select").selectOption("signature-project");
+  await waitForArchiveCount(0);
   assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  await recordOne(1);
+  await page.locator("#interview-question-select").selectOption("fit-introduction");
+  await waitForArchiveCount(2);
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+  assert.equal(await page.locator(".interview-recording-row").count(), 2);
+
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+  const fitRecordingIds = await page.evaluate(async () => (
+    (await window.InterviewRecordingStore.list("fit-introduction")).map((recording) => recording.id)
+  ));
+  await page.evaluate(() => window.__interviewTracks.at(-1).dispatchEvent(new Event("ended")));
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("设备或系统中断"));
+  await waitForArchiveCount(2);
+  assert.deepEqual(
+    await page.evaluate(async () => (
+      (await window.InterviewRecordingStore.list("fit-introduction")).map((recording) => recording.id)
+    )),
+    fitRecordingIds,
+  );
+
+  await page.locator("#interview-record-answer").click();
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
+  await page.evaluate(() => {
+    window.__interviewVisibilityState = "hidden";
+    Object.defineProperty(document, "visibilityState", {
+      configurable: true,
+      get: () => window.__interviewVisibilityState,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("切换后台中断"));
+  await waitForArchiveCount(2);
+  assert.deepEqual(
+    await page.evaluate(async () => (
+      (await window.InterviewRecordingStore.list("fit-introduction")).map((recording) => recording.id)
+    )),
+    fitRecordingIds,
+  );
+  await page.evaluate(() => {
+    window.__interviewVisibilityState = "visible";
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.locator("#interview-panel").waitFor();
+  await waitForArchiveCount(2);
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+  await page.locator("#interview-question-select").selectOption("signature-project");
+  await waitForArchiveCount(1);
+  assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
+  assert.equal(
+    await page.evaluate(async () => (await window.InterviewRecordingStore.list("signature-project")).length),
+    1,
+  );
+  await page.locator("#interview-question-select").selectOption("fit-introduction");
+  await waitForArchiveCount(2);
+
+  await page.locator("#interview-answer").fill("我负责跨境商家增长项目，通过漏斗分析定位首笔转化阻力，并推动产品和技术落地改造，三个月内首笔率从 28% 提升到 38%。");
+  await page.locator("#interview-analyze-answer").click();
+  await page.locator("#interview-follow-up-answer").fill("我会先核对同口径分母，再说明实验组和对照组差异。");
+  await page.locator("#interview-complete-follow-up").click();
+  await page.locator("#interview-story-bank > summary").click();
+  await page.locator("#interview-story-title").fill("清除前的经历卡");
+  await page.locator("#interview-story-action").fill("用于验证统一清除入口。");
+  await page.locator("#interview-bind-story").click();
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.locator("#interview-clear-data").click();
+  await page.waitForFunction(() => document.querySelector("#interview-input-message")?.textContent.includes("本机面试数据已清除"));
+  await waitForArchiveCount(0);
+  assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
+  assert.deepEqual(await page.evaluate(async () => window.InterviewRecordingStore.list()), []);
+  assert.equal(await page.locator("#interview-answer").inputValue(), "");
+  assert.equal(await page.locator("#interview-feedback").isHidden(), true);
+  assert.equal(await page.locator("#interview-story-title").inputValue(), "代表性增长项目");
+  assert.equal(await page.locator("#interview-bound-story").isHidden(), true);
+
   await page.evaluate(() => {
     navigator.mediaDevices.getUserMedia = async () => {
       const error = new Error("permission denied");
@@ -988,7 +1191,7 @@ async function checkInterviewRecording(browser) {
   await page.locator("#interview-record-answer").click();
   await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("麦克风权限"));
   assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
-  assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 2);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 3);
   assert.deepEqual(errors, []);
   await page.close();
 }
@@ -1119,7 +1322,10 @@ async function checkBusinessEnglishProgressMigration(browser) {
 }
 
 (async () => {
-  const browser = await chromium.launch({ executablePath, headless: true });
+  const browser = await chromium.launch({
+    ...(executablePath ? { executablePath } : {}),
+    headless: true,
+  });
   const screenshotDir = process.env.SCREENSHOT_DIR;
   try {
     await checkSkillLevelMigration(browser);
