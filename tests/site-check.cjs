@@ -633,7 +633,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-target-select option").count(), aJobs.length + 2);
   assert.equal(await page.locator("#interview-target-select").inputValue(), "worldtrade");
   assert.match(await page.locator("#interview-target-select option:checked").textContent(), /WorldTrade/);
-  assert.equal(await page.locator("#interview-a-count").textContent(), String(aJobs.length));
+  assert.equal(await page.locator(".interview-daily").count(), 0);
+  assert.equal(await page.locator("#interview-bank-relevant").count(), 0);
+  assert.equal(await page.locator(".interview-step-number").count(), 0);
+  assert.equal(await page.locator(".interview-evidence").count(), 0);
   assert.equal(await page.locator("#interview-question-title").textContent(), "支付成功率突降诊断");
   assert.equal(await page.locator("#interview-framework-list li").count(), 5);
   assert.equal(await page.locator("#interview-evidence-list li").count(), 3);
@@ -672,12 +675,15 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-bank-browser").isHidden(), true);
   assert.equal(await page.locator("#interview-bank-count").textContent(), String(interviewQuestionBank.questions.length));
   assert.equal(await page.locator("#interview-feedback").isHidden(), true);
+  assert.equal(await page.locator("#interview-recording-details").getAttribute("open"), null);
+  assert.equal(await page.locator(".interview-recorder").isHidden(), true);
   assert.equal(await page.locator("#interview-sample-step").isVisible(), true);
-  assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), "");
+  assert.equal(await page.locator("#interview-sample-answer").isVisible(), true);
   assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-  assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
   assert.match(await page.locator("#interview-sample-answer-text").textContent(), /Route B|technical_error/);
   assert.equal(await page.locator("#interview-sample-outline li").count(), 5);
+  assert.equal(await page.locator(".interview-sample-outline").getAttribute("open"), null);
+  assert.equal(await page.locator("#interview-sample-outline").isHidden(), true);
   assert.match(await page.locator("#interview-sample-note").textContent(), /方括号.*可核验/);
   assert.match(await page.locator(".interview-sample-source-note").textContent(), /仅用于核对公开产品边界.*不为.*背书/);
   const sampleSourceLinks = page.locator("#interview-sample-sources a");
@@ -731,9 +737,8 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-bound-story").isVisible(), true);
     assert.match(await page.locator("#interview-bound-story").textContent(), /商家首笔激活项目/);
 
-    assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), "");
+    assert.equal(await page.locator("#interview-sample-answer").isVisible(), true);
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
     assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
     await page.locator("#interview-guidance > summary").click();
     await page.locator("#interview-use-template").click();
@@ -825,13 +830,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "true");
     assert.equal(await page.locator(".interview-method-resource-link").count(), interviewQuestionBank.methodSources.length);
     assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
+    assert.equal(await page.locator("#interview-bank-browser").getAttribute("open"), null);
     assert.equal(await page.locator("#interview-question-select option").count(), interviewQuestionBank.questions.length);
     assert.equal(await page.locator(".interview-bank-item").count(), interviewQuestionBank.questions.length);
-    assert.equal(await page.locator("#interview-bank-relevant").isDisabled(), false);
-    await page.locator("#interview-bank-relevant").check();
-    const relevantQuestionCount = await page.locator(".interview-bank-item").count();
-    assert.ok(relevantQuestionCount > 0 && relevantQuestionCount < interviewQuestionBank.questions.length);
-    await page.locator("#interview-bank-relevant").uncheck();
+    await page.locator("#interview-bank-browser > summary").click();
     await page.locator("#interview-bank-search").fill("供给结构");
     assert.equal(await page.locator(".interview-bank-item").count(), 1);
     assert.equal(await page.locator("#interview-bank-result-count").textContent(), "1 题 · 已练 0");
@@ -841,7 +843,6 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-evidence-heading").textContent(), "回答前先明确");
     assert.match(await page.locator("#interview-guide-note").textContent(), /明确假设|未知结果/);
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
     assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
     assert.match(page.url(), /#interview\/merchant-supply-structure$/);
 
@@ -887,7 +888,6 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.locator("#interview-analyze-answer").click();
     assert.match(await page.locator("#interview-sample-note").textContent(), /不是 WorldTrade.*只可借用结构/);
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
     assert.ok((await page.locator("#interview-sample-answer-text").textContent()).trim().length > 180);
 
     page.once("dialog", (dialog) => dialog.accept());
@@ -945,7 +945,6 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.locator("#interview-bank-mode").click();
     assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
     await page.locator("#interview-bank-browser > summary").click();
-    assert.equal(await page.locator("#interview-bank-relevant").isDisabled(), false);
     await page.locator("#interview-bank-search").fill("不存在的题目关键词");
     assert.equal(await page.locator(".interview-bank-item").count(), 0);
     assert.equal(await page.locator("#interview-bank-empty").isVisible(), true);
@@ -1059,6 +1058,11 @@ async function checkInterviewRecording(browser) {
       return expected > 0 || list?.querySelector(".interview-recording-empty")?.textContent.includes("还没有本机录音");
     }, count);
   };
+  const openRecorder = async () => {
+    if (await page.locator("#interview-recording-details").getAttribute("open") === null) {
+      await page.locator("#interview-recording-details > summary").click();
+    }
+  };
   const recordOne = async (expectedCount) => {
     await page.locator("#interview-record-answer").click();
     await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.startsWith("录音中"));
@@ -1073,6 +1077,8 @@ async function checkInterviewRecording(browser) {
   await page.goto(`${baseURL}/#interview/fit-introduction`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator("#interview-panel").waitFor();
   await waitForArchiveCount(0);
+  assert.equal(await page.locator("#interview-recording-details").getAttribute("open"), null);
+  await openRecorder();
   assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
   assert.equal(await page.locator("#interview-recording-playback").isHidden(), true);
   await recordOne(1);
@@ -1091,6 +1097,7 @@ async function checkInterviewRecording(browser) {
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.locator("#interview-panel").waitFor();
   await waitForArchiveCount(1);
+  await openRecorder();
   assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
   assert.match(await page.locator("#interview-recording-status").textContent(), /本机已留档 1 条/);
   await recordOne(2);
@@ -1145,6 +1152,7 @@ async function checkInterviewRecording(browser) {
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.locator("#interview-panel").waitFor();
   await waitForArchiveCount(2);
+  await openRecorder();
   assert.equal(await page.locator("#interview-recording-playback").isVisible(), true);
   await page.locator("#interview-question-select").selectOption("signature-project");
   await waitForArchiveCount(1);

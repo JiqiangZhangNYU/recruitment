@@ -197,10 +197,6 @@ const INTERVIEW_QUESTION_RELEVANCE = {
     "business-review-anomaly", "channel-budget-reallocation", "market-entry-business-case", "merchant-supply-structure",
   ]),
 };
-const INTERVIEW_DAILY_QUESTIONS = [
-  "fit-introduction", "why-role-90-days", "career-transition-motivation", "signature-project",
-  "cross-functional-conflict", "setback-reflection", "merchant-segmentation",
-];
 const state = {
   data: null,
   guide: null,
@@ -246,7 +242,6 @@ const state = {
   interviewMode: "core",
   interviewBankQuery: "",
   interviewBankCategory: "all",
-  interviewBankRelevantOnly: false,
   interviewTarget: storedInterviewTarget,
   interviewDrafts: storedInterviewDrafts,
   interviewAttempts: storedInterviewAttempts,
@@ -254,7 +249,6 @@ const state = {
   interviewStoryCards: normalizeInterviewStories(readStoredJSON("recruitment-interview-stories-v1", null)),
   interviewStoryBindings: storedObject("recruitment-interview-story-bindings-v1"),
   interviewStory: null,
-  interviewDailyOffset: Number(readStoredString("recruitment-interview-daily-offset-v1", "0")) || 0,
 };
 state.interviewStory = state.interviewStoryCards[0]?.id || null;
 
@@ -312,16 +306,11 @@ const elements = {
   nextSkill: document.querySelector("#next-skill"),
   interviewLoading: document.querySelector("#interview-loading"),
   interviewPanel: document.querySelector("#interview-panel"),
-  interviewACount: document.querySelector("#interview-a-count"),
   interviewReviewedCount: document.querySelector("#interview-reviewed-count"),
   interviewProgressDetail: document.querySelector("#interview-progress-detail"),
   interviewClearData: document.querySelector("#interview-clear-data"),
   interviewProgressTrack: document.querySelector(".interview-progress-track"),
   interviewProgressFill: document.querySelector("#interview-progress-fill"),
-  interviewDailyTitle: document.querySelector("#interview-daily-title"),
-  interviewDailyStatus: document.querySelector("#interview-daily-status"),
-  interviewStartDaily: document.querySelector("#interview-start-daily"),
-  interviewChangeDaily: document.querySelector("#interview-change-daily"),
   interviewTargetSelect: document.querySelector("#interview-target-select"),
   interviewQuestionSelect: document.querySelector("#interview-question-select"),
   interviewCoreMode: document.querySelector("#interview-core-mode"),
@@ -331,7 +320,6 @@ const elements = {
   interviewBankBrowser: document.querySelector("#interview-bank-browser"),
   interviewBankSearch: document.querySelector("#interview-bank-search"),
   interviewBankCategory: document.querySelector("#interview-bank-category"),
-  interviewBankRelevant: document.querySelector("#interview-bank-relevant"),
   interviewBankResultCount: document.querySelector("#interview-bank-result-count"),
   interviewBankList: document.querySelector("#interview-bank-list"),
   interviewBankEmpty: document.querySelector("#interview-bank-empty"),
@@ -354,12 +342,8 @@ const elements = {
   interviewQuestionCategory: document.querySelector("#interview-question-category"),
   interviewQuestionDuration: document.querySelector("#interview-question-duration"),
   interviewQuestionTitle: document.querySelector("#interview-question-title"),
-  interviewTierFocus: document.querySelector("#interview-tier-focus"),
   interviewQuestionPrompt: document.querySelector("#interview-question-prompt"),
   interviewQuestionIntent: document.querySelector("#interview-question-intent"),
-  interviewCoverage: document.querySelector("#interview-coverage"),
-  interviewDimensionList: document.querySelector("#interview-dimension-list"),
-  interviewJobExamples: document.querySelector("#interview-job-examples"),
   interviewFrameworkList: document.querySelector("#interview-framework-list"),
   interviewAnswerEdge: document.querySelector("#interview-answer-edge"),
   interviewEvidenceHeading: document.querySelector("#interview-evidence-heading"),
@@ -405,11 +389,8 @@ const elements = {
   interviewFollowUpStatus: document.querySelector("#interview-follow-up-status"),
   interviewCompleteFollowUp: document.querySelector("#interview-complete-follow-up"),
   interviewSampleStep: document.querySelector("#interview-sample-step"),
-  interviewSampleAnswer: document.querySelector("#interview-sample-answer"),
-  interviewSampleRelevance: document.querySelector("#interview-sample-relevance"),
   interviewSampleNote: document.querySelector("#interview-sample-note"),
   interviewSampleOutline: document.querySelector("#interview-sample-outline"),
-  interviewSampleFull: document.querySelector("#interview-sample-full"),
   interviewSampleSources: document.querySelector("#interview-sample-sources"),
   interviewSampleAnswerText: document.querySelector("#interview-sample-answer-text"),
   interviewSampleRisk: document.querySelector("#interview-sample-risk"),
@@ -3252,33 +3233,6 @@ function interviewHasAttempt(questionId) {
   return Boolean(interviewAttempt(questionId)?.first?.text);
 }
 
-function interviewDailyQuestion() {
-  if (!state.interviewPlan) return null;
-  const date = new Date();
-  const daySeed = Number(`${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, "0")}${String(date.getDate()).padStart(2, "0")}`);
-  const start = (daySeed + state.interviewDailyOffset) % INTERVIEW_DAILY_QUESTIONS.length;
-  for (let offset = 0; offset < INTERVIEW_DAILY_QUESTIONS.length; offset += 1) {
-    const question = findInterviewQuestion(INTERVIEW_DAILY_QUESTIONS[(start + offset) % INTERVIEW_DAILY_QUESTIONS.length]);
-    if (question) return question;
-  }
-  return state.interviewPlan.questions[0] || null;
-}
-
-function renderInterviewDaily() {
-  const question = interviewDailyQuestion();
-  if (!question) return;
-  const status = interviewPracticeStatus(question);
-  elements.interviewDailyTitle.textContent = question.title;
-  elements.interviewDailyStatus.textContent = status === "repracticed"
-    ? "这道题已经完成复练。可以回听录音，或者换一道题。"
-    : status === "pending"
-      ? "草稿已经修改，再检查一次并录下口述即可完成复练。"
-      : status === "attempted"
-        ? "首版已经完成。只修改一个优先问题，再检查并口述一遍。"
-        : "完成首版、修改一处、再口述一遍即可结束今天的练习。";
-  elements.interviewStartDaily.textContent = status === "repracticed" ? "查看练习" : "开始练习";
-}
-
 function selectedInterviewStory() {
   return state.interviewStoryCards.find((story) => story.id === state.interviewStory)
     || state.interviewStoryCards[0]
@@ -3422,14 +3376,6 @@ function bindInterviewStory() {
   elements.interviewAnswer.focus();
 }
 
-function interviewQuestionCoverage(question) {
-  const jobs = interviewAJobs();
-  if (question.coverage === "all") return jobs;
-  if (question.requiresEnglish) return jobs.filter((job) => job.requiresEnglish);
-  const minimumMatches = question.dimensions.length >= 4 ? 2 : 1;
-  return jobs.filter((job) => question.dimensions.filter((dimension) => job.dimensions.includes(dimension)).length >= minimumMatches);
-}
-
 function renderInterviewProgress() {
   const questions = allInterviewQuestions();
   const validIds = new Set(allInterviewQuestions().map((question) => question.id));
@@ -3461,7 +3407,6 @@ function renderInterviewProgress() {
   fill.style.width = `${modeQuestions.length ? modeAttempted / modeQuestions.length * 100 : 0}%`;
   track.append(fill);
   elements.interviewSideProgress.append(label, track);
-  renderInterviewDaily();
 }
 
 function renderInterviewSidebar() {
@@ -3544,14 +3489,6 @@ function renderInterviewQuestionOptions() {
   elements.interviewQuestionSelect.value = state.interviewQuestion;
 }
 
-function interviewQuestionMatchesTarget(question) {
-  const target = currentInterviewTarget();
-  if (!target || question.coverage === "all" || question.roleFamilies.includes("all")) return true;
-  if (state.interviewTarget === "worldtrade") return !INTERVIEW_QUESTION_RELEVANCE.transfer.has(question.id);
-  const targetFamilies = interviewTargetRoleFamilies(target);
-  return question.roleFamilies.some((family) => targetFamilies.has(family));
-}
-
 function interviewTargetRoleFamilies(target) {
   if (target.id === "worldtrade") {
     return new Set(["data", "delivery", "growth", "merchant", "international", "payment", "insight", "strategy", "commercial"]);
@@ -3574,7 +3511,6 @@ function filteredInterviewBankQuestions() {
   const priorityOrder = { high: 0, medium: 1, supplementary: 2 };
   return interviewBankQuestions()
     .filter((question) => state.interviewBankCategory === "all" || question.category === state.interviewBankCategory)
-    .filter((question) => !state.interviewBankRelevantOnly || interviewQuestionMatchesTarget(question))
     .filter((question) => {
       if (!query) return true;
       return [
@@ -3616,7 +3552,7 @@ function renderInterviewMode() {
   elements.interviewBankMode.title = hasBank ? "" : "题库暂时加载失败，核心训练仍可使用";
   elements.interviewBankBrowser.hidden = !isBank;
   if (isBank && !elements.interviewBankBrowser.dataset.initialized) {
-    elements.interviewBankBrowser.open = !window.matchMedia("(max-width: 760px)").matches;
+    elements.interviewBankBrowser.open = false;
     elements.interviewBankBrowser.dataset.initialized = "true";
   }
   elements.interviewCoreCount.textContent = state.interviewPlan.questions.length;
@@ -3624,7 +3560,6 @@ function renderInterviewMode() {
 }
 
 function renderInterviewBankBrowser() {
-  const target = currentInterviewTarget();
   const categories = new Set(interviewBankQuestions().map((question) => question.category));
   if (state.interviewBankCategory !== "all" && !categories.has(state.interviewBankCategory)) {
     state.interviewBankCategory = "all";
@@ -3644,9 +3579,6 @@ function renderInterviewBankBrowser() {
     });
   elements.interviewBankCategory.value = state.interviewBankCategory;
   elements.interviewBankSearch.value = state.interviewBankQuery;
-  elements.interviewBankRelevant.checked = state.interviewBankRelevantOnly;
-  elements.interviewBankRelevant.disabled = !target;
-  elements.interviewBankRelevant.parentElement.title = target ? "" : "先选择一个具体目标岗位";
 
   const questions = filteredInterviewBankQuestions();
   const attempted = interviewBankQuestions().filter((question) => interviewHasAttempt(question.id)).length;
@@ -3666,14 +3598,10 @@ function renderInterviewBankBrowser() {
     const title = document.createElement("strong");
     title.textContent = question.title;
     const meta = document.createElement("span");
-    const relevance = target
-      ? question.roleFamilies.filter((family) => interviewTargetRoleFamilies(target).has(family)).length
-      : 0;
     const priority = question.priority === "high" ? "优先准备" : "高频补充";
     meta.textContent = [
       status === "new" ? priority : interviewStatusLabel(status),
       category?.label,
-      relevance ? `匹配 ${relevance} 类岗位场景` : question.stages.join(" / "),
     ]
       .filter(Boolean)
       .join(" · ");
@@ -4148,19 +4076,10 @@ function renderInterviewSample(question) {
   const sample = samples?.answers?.[question.id];
   elements.interviewSampleStep.hidden = !sample;
   if (!sample) return;
-  elements.interviewSampleAnswer.open = true;
-  elements.interviewSampleFull.open = true;
   const targetIsWorldTrade = state.interviewTarget === "worldtrade";
-  const relevance = INTERVIEW_QUESTION_RELEVANCE.direct.has(question.id)
-    ? "WorldTrade 直接相关"
-    : INTERVIEW_QUESTION_RELEVANCE.transfer.has(question.id)
-      ? "能力迁移示例"
-      : "通用核心题";
-  elements.interviewSampleRelevance.textContent = relevance;
   elements.interviewSampleNote.textContent = targetIsWorldTrade
     ? samples.persona.usageNote
     : "当前题目参考岗位不是 WorldTrade。下面只可借用结构和表达方式，岗位动机、公司名称与业务事实必须按当前岗位重写。";
-  elements.interviewSampleFull.hidden = false;
   elements.interviewSampleOutline.replaceChildren();
   question.framework.forEach((step) => {
     const item = document.createElement("li");
@@ -4198,13 +4117,8 @@ function renderInterviewQuestion() {
   const questions = interviewQuestionsForMode();
   const index = questions.indexOf(question);
   const category = state.interviewPlan.categories.find((item) => item.id === question.category);
-  const target = currentInterviewTarget();
-  const coveredJobs = interviewQuestionCoverage(question);
   const guide = currentInterviewGuide(question);
   const isHypothetical = question.formats?.some((format) => ["case", "situational"].includes(format));
-  const relevantDimensions = target
-    ? question.dimensions.filter((dimension) => target.dimensions.includes(dimension))
-    : question.dimensions;
 
   elements.interviewQuestionPosition.textContent = `${String(index + 1).padStart(2, "0")} / ${questions.length}`;
   elements.interviewQuestionCategory.textContent = category?.label || "面试题";
@@ -4212,36 +4126,6 @@ function renderInterviewQuestion() {
   elements.interviewQuestionTitle.textContent = question.title;
   elements.interviewQuestionPrompt.textContent = interpolateInterviewText(question.prompt);
   elements.interviewQuestionIntent.textContent = `面试官在看什么：${question.intent}`;
-  const focus = question.tierFocus
-    ? `${question.tierFocus} 重点`
-    : state.interviewMode === "bank"
-      ? question.priority === "high" ? "优先准备" : "高频补充"
-      : "";
-  elements.interviewTierFocus.hidden = !focus;
-  elements.interviewTierFocus.textContent = focus;
-  const relevanceLabel = INTERVIEW_QUESTION_RELEVANCE.direct.has(question.id)
-    ? "可直接用于 WorldTrade 场景"
-    : INTERVIEW_QUESTION_RELEVANCE.transfer.has(question.id)
-      ? "能力迁移题，先回答原题再说明迁移"
-      : "通用核心题";
-  elements.interviewCoverage.textContent = target
-    ? state.interviewTarget === "worldtrade"
-      ? `${relevanceLabel} · 匹配 ${relevantDimensions.length || question.dimensions.length} 项能力要求`
-      : relevantDimensions.length
-        ? `与当前参考岗位的 ${relevantDimensions.length} 项要求相关`
-        : "通用必答题，适用于当前参考岗位"
-    : `覆盖当前 ${interviewAJobs().length} 个 A 档岗位中的 ${coveredJobs.length} 个`;
-  elements.interviewDimensionList.replaceChildren();
-  appendSpans(
-    elements.interviewDimensionList,
-    target && relevantDimensions.length ? relevantDimensions : question.dimensions,
-  );
-  if (target) {
-    elements.interviewJobExamples.textContent = `${target.tier} · ${target.company} · ${target.title}`;
-  } else {
-    const examples = coveredJobs.slice(0, 3).map((job) => `${job.company}「${job.title}」`);
-    elements.interviewJobExamples.textContent = examples.length ? `岗位样本：${examples.join("、")}` : "适用于全部 A 档岗位";
-  }
 
   elements.interviewFrameworkList.replaceChildren();
   question.framework.forEach((step) => {
@@ -4301,7 +4185,6 @@ function selectInterviewQuestion(questionId, updateURL = true) {
   if (isBankQuestion && !filteredInterviewBankQuestions().some((item) => item.id === question.id)) {
     state.interviewBankQuery = "";
     state.interviewBankCategory = "all";
-    state.interviewBankRelevantOnly = false;
   }
   state.interviewQuestion = question.id;
   renderInterviewQuestion();
@@ -4658,7 +4541,6 @@ async function navigateInterview(questionId = null, updateURL = true) {
     const validTarget = ["worldtrade", "all"].includes(state.interviewTarget)
       || interviewAJobs().some((job) => job.id === state.interviewTarget);
     if (!validTarget) state.interviewTarget = "worldtrade";
-    elements.interviewACount.textContent = interviewAJobs().length;
     renderInterviewMethodSources();
     renderInterviewTargetOptions();
     renderInterviewQuestion();
@@ -4706,7 +4588,6 @@ async function clearAllInterviewData() {
     "recruitment-interview-stories-v1",
     "recruitment-interview-story-bindings-v1",
     "recruitment-interview-target-v1",
-    "recruitment-interview-daily-offset-v1",
   ].forEach(removeStoredValue);
   state.interviewDrafts = {};
   state.interviewAttempts = {};
@@ -4715,7 +4596,6 @@ async function clearAllInterviewData() {
   state.interviewStoryBindings = {};
   state.interviewStory = state.interviewStoryCards[0].id;
   state.interviewTarget = "worldtrade";
-  state.interviewDailyOffset = 0;
   releaseAllInterviewRecordingURLs();
   interviewRecordingArchives.clear();
   selectedInterviewRecordingId = null;
@@ -4777,15 +4657,6 @@ function bindControls() {
     writeStoredString("recruitment-interview-target-v1", state.interviewTarget);
     renderInterviewQuestion();
   });
-  elements.interviewStartDaily.addEventListener("click", () => {
-    const question = interviewDailyQuestion();
-    if (question) selectInterviewQuestion(question.id);
-  });
-  elements.interviewChangeDaily.addEventListener("click", () => {
-    state.interviewDailyOffset = (state.interviewDailyOffset + 1) % INTERVIEW_DAILY_QUESTIONS.length;
-    writeStoredString("recruitment-interview-daily-offset-v1", state.interviewDailyOffset);
-    renderInterviewDaily();
-  });
   elements.interviewClearData.addEventListener("click", clearAllInterviewData);
   elements.interviewCoreMode.addEventListener("click", () => setInterviewMode("core"));
   elements.interviewBankMode.addEventListener("click", () => setInterviewMode("bank"));
@@ -4795,10 +4666,6 @@ function bindControls() {
   });
   elements.interviewBankCategory.addEventListener("change", (event) => {
     state.interviewBankCategory = event.target.value;
-    applyInterviewBankFilter();
-  });
-  elements.interviewBankRelevant.addEventListener("change", (event) => {
-    state.interviewBankRelevantOnly = event.target.checked;
     applyInterviewBankFilter();
   });
   elements.interviewQuestionSelect.addEventListener("change", (event) => selectInterviewQuestion(event.target.value));

@@ -226,13 +226,8 @@
 
           <section id="interview-panel" hidden>
             <header class="interview-plan-header">
-              <div>
-                <p class="eyebrow">当前 <span id="interview-a-count">--</span> 个 A 档岗位 · 一次只练一题</p>
-                <h2>面试提升计划</h2>
-                <p>先完成一版真实回答，再根据一项提示复练。文字、经历卡和录音只保存在当前浏览器。</p>
-              </div>
               <div class="interview-progress-summary" aria-label="面试训练进度">
-                <div><span>已完成首版</span><strong id="interview-reviewed-count">0 / 31</strong></div>
+                <div><span>练习进度</span><strong id="interview-reviewed-count">0 / 31</strong></div>
                 <div class="interview-progress-track" role="progressbar" aria-label="已完成首版练习题目" aria-valuemin="0" aria-valuemax="31" aria-valuenow="0">
                   <span id="interview-progress-fill"></span>
                 </div>
@@ -242,18 +237,6 @@
                 </div>
               </div>
             </header>
-
-            <section class="interview-daily" aria-labelledby="interview-daily-title">
-              <div>
-                <span>今日一题</span>
-                <strong id="interview-daily-title">两分钟自我介绍与岗位匹配</strong>
-                <p id="interview-daily-status">完成首版、修改一处、再口述一遍即可结束今天的练习。</p>
-              </div>
-              <div>
-                <button id="interview-start-daily" class="primary-button" type="button">开始练习</button>
-                <button id="interview-change-daily" class="secondary-button" type="button">换一题</button>
-              </div>
-            </section>
 
             <div class="interview-mode-switch" role="tablist" aria-label="训练模式">
               <button id="interview-core-mode" type="button" role="tab" aria-selected="true">
@@ -265,50 +248,20 @@
             </div>
 
             <div class="interview-controls" aria-label="面试训练选择器">
-              <label>题目参考岗位
+              <label>参考岗位
                 <select id="interview-target-select">
                   <option value="worldtrade">专项 · WorldTrade 支付增长运营</option>
                 </select>
               </label>
-              <label>当前题目
+              <label>题目
                 <select id="interview-question-select"></select>
               </label>
             </div>
 
-            <details id="interview-story-bank" class="interview-story-bank">
-              <summary>
-                <span><span>本机素材</span><strong>我的真实经历卡</strong></span>
-                <span id="interview-story-summary">0 / 5 已填写</span>
-              </summary>
-              <div class="interview-story-content">
-                <div class="interview-story-toolbar">
-                  <label>当前经历卡
-                    <select id="interview-story-select"></select>
-                  </label>
-                  <div>
-                    <button id="interview-add-story" class="secondary-button" type="button">新增</button>
-                    <button id="interview-delete-story" class="secondary-button" type="button">删除</button>
-                    <button id="interview-bind-story" class="primary-button" type="button">用于当前题</button>
-                  </div>
-                </div>
-                <div class="interview-story-form">
-                  <label>经历名称<input id="interview-story-title" type="text" maxlength="60" placeholder="例如：商家首笔激活项目"></label>
-                  <label>情境与目标<textarea id="interview-story-situation" rows="3" placeholder="业务阶段、目标人群、基线和目标"></textarea></label>
-                  <label>本人责任<textarea id="interview-story-ownership" rows="3" placeholder="你负责判断、设计或推动什么"></textarea></label>
-                  <label>关键行动<textarea id="interview-story-action" rows="3" placeholder="分析、取舍、协作和落地动作"></textarea></label>
-                  <label>结果与证据<textarea id="interview-story-result" rows="3" placeholder="真实数字、范围、前后对比或可核验反馈"></textarea></label>
-                  <label>复盘与改变<textarea id="interview-story-reflection" rows="3" placeholder="不足、纠偏，以及后来改变的机制"></textarea></label>
-                  <label>可公开边界<textarea id="interview-story-boundary" rows="2" placeholder="不能出现的客户名、系统名或内部数据"></textarea></label>
-                </div>
-                <p>自动保存在本机。可以写范围或前后对比，不要为了完整编造数字，也不要填写客户姓名和未公开数据。</p>
-              </div>
-            </details>
-
             <details id="interview-bank-browser" class="interview-bank-browser" hidden>
               <summary>
                 <div>
-                  <span>按面试场景补缺</span>
-                  <h3 id="interview-bank-heading">A 档运营岗位高频题库</h3>
+                  <h3 id="interview-bank-heading">筛选高频题</h3>
                 </div>
                 <strong id="interview-bank-result-count">19 题 · 已检查 0</strong>
               </summary>
@@ -322,10 +275,6 @@
                       <option value="all">全部方向</option>
                     </select>
                   </label>
-                  <label class="interview-bank-relevant-control">
-                    <input id="interview-bank-relevant" type="checkbox">
-                    <span>只看当前岗位相关</span>
-                  </label>
                 </div>
                 <div id="interview-bank-list" class="interview-bank-list"></div>
                 <p id="interview-bank-empty" class="interview-bank-empty" hidden>没有匹配题目，请调整关键词或筛选条件。</p>
@@ -334,7 +283,6 @@
 
             <article class="interview-workbench" aria-labelledby="interview-question-title">
               <section class="interview-step interview-question-step">
-                <div class="interview-step-number" aria-hidden="true">01</div>
                 <div class="interview-step-body">
                   <div class="interview-question-heading">
                     <div>
@@ -345,25 +293,17 @@
                       </div>
                       <h3 id="interview-question-title">面试题目</h3>
                     </div>
-                    <span id="interview-tier-focus" class="interview-tier-focus" hidden></span>
                   </div>
                   <p id="interview-question-prompt" class="interview-question-prompt"></p>
                   <p id="interview-question-intent" class="interview-question-intent"></p>
-                  <div class="interview-evidence">
-                    <strong id="interview-coverage"></strong>
-                    <div id="interview-dimension-list" class="interview-dimension-list"></div>
-                    <p id="interview-job-examples"></p>
-                  </div>
                 </div>
               </section>
 
               <section class="interview-step interview-answer-step">
-                <div class="interview-step-number" aria-hidden="true">02</div>
                 <div class="interview-step-body">
                   <div class="interview-section-heading">
                     <div>
-                      <span>模拟回答</span>
-                      <h3>先说自己的第一版</h3>
+                      <h3>我的回答</h3>
                     </div>
                     <span id="interview-save-status" class="interview-save-status">尚未输入</span>
                   </div>
@@ -378,11 +318,38 @@
                     </div>
                   </div>
                   <p id="interview-input-message" class="interview-input-message" role="alert" hidden></p>
+                  <details id="interview-story-bank" class="interview-story-bank">
+                    <summary>
+                      <span><strong>使用真实经历卡</strong></span>
+                      <span id="interview-story-summary">0 / 5 已填写</span>
+                    </summary>
+                    <div class="interview-story-content">
+                      <div class="interview-story-toolbar">
+                        <label>当前经历卡
+                          <select id="interview-story-select"></select>
+                        </label>
+                        <div>
+                          <button id="interview-add-story" class="secondary-button" type="button">新增</button>
+                          <button id="interview-delete-story" class="secondary-button" type="button">删除</button>
+                          <button id="interview-bind-story" class="primary-button" type="button">用于当前题</button>
+                        </div>
+                      </div>
+                      <div class="interview-story-form">
+                        <label>经历名称<input id="interview-story-title" type="text" maxlength="60" placeholder="例如：商家首笔激活项目"></label>
+                        <label>情境与目标<textarea id="interview-story-situation" rows="3" placeholder="业务阶段、目标人群、基线和目标"></textarea></label>
+                        <label>本人责任<textarea id="interview-story-ownership" rows="3" placeholder="你负责判断、设计或推动什么"></textarea></label>
+                        <label>关键行动<textarea id="interview-story-action" rows="3" placeholder="分析、取舍、协作和落地动作"></textarea></label>
+                        <label>结果与证据<textarea id="interview-story-result" rows="3" placeholder="真实数字、范围、前后对比或可核验反馈"></textarea></label>
+                        <label>复盘与改变<textarea id="interview-story-reflection" rows="3" placeholder="不足、纠偏，以及后来改变的机制"></textarea></label>
+                        <label>可公开边界<textarea id="interview-story-boundary" rows="2" placeholder="不能出现的客户名、系统名或内部数据"></textarea></label>
+                      </div>
+                      <p>自动保存在本机。不要填写客户姓名或未公开数据。</p>
+                    </div>
+                  </details>
                 </div>
               </section>
 
               <section class="interview-step interview-guidance-step">
-                <div class="interview-step-number" aria-hidden="true">03</div>
                 <div class="interview-step-body">
                   <details id="interview-guidance" class="interview-guidance">
                     <summary>
@@ -430,7 +397,6 @@
               </section>
 
               <section id="interview-feedback" class="interview-step interview-feedback-step" aria-live="polite" hidden>
-                <div class="interview-step-number" aria-hidden="true">04</div>
                 <div class="interview-step-body">
                   <header class="interview-feedback-header">
                     <div>
@@ -484,59 +450,47 @@
               </section>
 
               <section class="interview-step interview-recording-step">
-                <div class="interview-step-number" aria-hidden="true">05</div>
                 <div class="interview-step-body">
-                  <div class="interview-section-heading">
-                    <div>
-                      <span>脱稿复练</span>
-                      <h3 id="interview-recorder-heading">录下口述并回听</h3>
-                    </div>
-                    <span id="interview-recording-status" class="interview-recording-status">未录音</span>
+                  <details id="interview-recording-details" class="interview-recording-details">
+                    <summary>
+                      <strong id="interview-recorder-heading">录音复练</strong>
+                      <span id="interview-recording-status" class="interview-recording-status">未录音</span>
+                    </summary>
                     <span id="interview-recording-live" class="visually-hidden" role="status" aria-live="polite"></span>
-                  </div>
-                  <section class="interview-recorder" aria-labelledby="interview-recorder-heading">
-                    <div class="interview-recorder-actions">
-                      <button id="interview-record-answer" class="secondary-button" type="button">开始录音</button>
-                      <button id="interview-stop-recording" class="secondary-button" type="button" disabled>停止录音</button>
-                    </div>
-                    <audio id="interview-recording-playback" controls preload="metadata" aria-label="当前选中的模拟回答录音" hidden></audio>
-                    <div id="interview-recording-list" class="interview-recording-list"></div>
-                    <p>完成后自动保存到当前浏览器，刷新或重新打开仍可回放；每题保留最近 3 条，全站最多 30 条，不上传。</p>
-                  </section>
+                    <section class="interview-recorder" aria-labelledby="interview-recorder-heading">
+                      <div class="interview-recorder-actions">
+                        <button id="interview-record-answer" class="secondary-button" type="button">开始录音</button>
+                        <button id="interview-stop-recording" class="secondary-button" type="button" disabled>停止录音</button>
+                      </div>
+                      <audio id="interview-recording-playback" controls preload="metadata" aria-label="当前选中的模拟回答录音" hidden></audio>
+                      <div id="interview-recording-list" class="interview-recording-list"></div>
+                      <p>录音只保存在当前浏览器，每题保留最近 3 条。</p>
+                    </section>
+                  </details>
                 </div>
               </section>
 
               <section id="interview-sample-step" class="interview-step interview-sample-step" hidden>
-                <div class="interview-step-number interview-sample-label" aria-hidden="true">06</div>
                 <div class="interview-step-body">
-                  <details id="interview-sample-answer" class="interview-sample-answer" open>
-                    <summary>
-                      <span>
-                        <span id="interview-sample-relevance">结构示例</span>
-                        <strong>一种 WorldTrade 支付增长运营答法</strong>
-                      </span>
-                      <span>参考范文</span>
-                    </summary>
+                  <section id="interview-sample-answer" class="interview-sample-answer">
+                    <header class="interview-sample-heading"><h3>参考范文</h3></header>
                     <div class="interview-sample-content">
                       <p id="interview-sample-note" class="interview-sample-note"></p>
-                      <section class="interview-sample-outline">
-                        <span>口述骨架</span>
+                      <div id="interview-sample-full" class="interview-sample-full">
+                        <div id="interview-sample-answer-text" class="interview-sample-answer-text"></div>
+                        <p id="interview-sample-risk" class="interview-sample-risk"></p>
+                      </div>
+                      <details class="interview-sample-outline">
+                        <summary>回答结构</summary>
                         <ol id="interview-sample-outline"></ol>
-                      </section>
-                      <details id="interview-sample-full" class="interview-sample-full" open>
-                        <summary>完整口语范文</summary>
-                        <div>
-                          <div id="interview-sample-answer-text" class="interview-sample-answer-text"></div>
-                          <p id="interview-sample-risk" class="interview-sample-risk"></p>
-                          <details class="interview-sample-products">
-                            <summary>核对 WorldTrade 公开产品资料</summary>
-                            <p class="interview-sample-source-note">以下官网资料仅用于核对公开产品边界，不为范文中的经历、假设或内部策略背书。</p>
-                            <nav id="interview-sample-sources" class="interview-sample-sources" aria-label="WorldTrade 公开产品资料"></nav>
-                          </details>
-                        </div>
+                      </details>
+                      <details class="interview-sample-products">
+                        <summary>WorldTrade 公开产品资料</summary>
+                        <p class="interview-sample-source-note">以下官网资料仅用于核对公开产品边界，不为范文中的经历、假设或内部策略背书。</p>
+                        <nav id="interview-sample-sources" class="interview-sample-sources" aria-label="WorldTrade 公开产品资料"></nav>
                       </details>
                     </div>
-                  </details>
+                  </section>
                 </div>
               </section>
             </article>
