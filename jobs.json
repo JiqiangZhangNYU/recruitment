@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T06:22:07+08:00",
+  "generatedAt": "2026-08-08T06:22:05+08:00",
   "sourceGeneratedAt": "2026-07-22T14:31:20.529Z",
-  "officialSourceGeneratedAt": "2026-08-06T22:22:04.363Z",
+  "officialSourceGeneratedAt": "2026-08-07T22:22:02.741Z",
   "officialSources": [
     {
       "id": "bytedance",
@@ -32,9 +32,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 886,
-      "previous_count": 905,
-      "fetched_at": "2026-08-06T22:16:19.171Z"
+      "candidate_count": 884,
+      "previous_count": 886,
+      "fetched_at": "2026-08-07T22:16:18.139Z"
     },
     {
       "id": "ant",
@@ -63,9 +63,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 68,
-      "previous_count": 12,
-      "fetched_at": "2026-08-06T22:16:56.434Z"
+      "candidate_count": 66,
+      "previous_count": 68,
+      "fetched_at": "2026-08-07T22:16:51.067Z"
     },
     {
       "id": "alibaba",
@@ -95,8 +95,8 @@
         "汇款"
       ],
       "candidate_count": 30,
-      "previous_count": 31,
-      "fetched_at": "2026-08-06T22:17:07.700Z"
+      "previous_count": 30,
+      "fetched_at": "2026-08-07T22:17:02.708Z"
     },
     {
       "id": "tencent",
@@ -125,8 +125,8 @@
         "汇款"
       ],
       "candidate_count": 1,
-      "previous_count": 2,
-      "fetched_at": "2026-08-06T22:17:21.925Z"
+      "previous_count": 1,
+      "fetched_at": "2026-08-07T22:17:16.906Z"
     },
     {
       "id": "meituan",
@@ -156,8 +156,8 @@
         "汇款"
       ],
       "candidate_count": 251,
-      "previous_count": 235,
-      "fetched_at": "2026-08-06T22:17:40.204Z"
+      "previous_count": 251,
+      "fetched_at": "2026-08-07T22:17:35.405Z"
     },
     {
       "id": "jd",
@@ -187,7 +187,7 @@
       ],
       "candidate_count": 2,
       "previous_count": 2,
-      "fetched_at": "2026-08-06T22:17:41.406Z"
+      "fetched_at": "2026-08-07T22:17:36.549Z"
     },
     {
       "id": "xiaohongshu",
@@ -216,9 +216,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 125,
-      "previous_count": 115,
-      "fetched_at": "2026-08-06T22:17:55.180Z"
+      "candidate_count": 124,
+      "previous_count": 125,
+      "fetched_at": "2026-08-07T22:17:51.406Z"
     },
     {
       "id": "ctrip",
@@ -247,9 +247,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 48,
-      "previous_count": 47,
-      "fetched_at": "2026-08-06T22:18:09.819Z"
+      "candidate_count": 46,
+      "previous_count": 48,
+      "fetched_at": "2026-08-07T22:18:07.018Z"
     },
     {
       "id": "didi",
@@ -261,7 +261,7 @@
       ],
       "candidate_count": 16,
       "previous_count": 16,
-      "fetched_at": "2026-08-06T22:18:23.052Z"
+      "fetched_at": "2026-08-07T22:18:20.217Z"
     },
     {
       "id": "baidu",
@@ -272,8 +272,8 @@
         "上海社招全量"
       ],
       "candidate_count": 195,
-      "previous_count": 186,
-      "fetched_at": "2026-08-06T22:18:31.432Z"
+      "previous_count": 195,
+      "fetched_at": "2026-08-07T22:18:28.548Z"
     },
     {
       "id": "kuaishou",
@@ -284,8 +284,8 @@
         "上海社招全量"
       ],
       "candidate_count": 61,
-      "previous_count": 63,
-      "fetched_at": "2026-08-06T22:18:33.785Z"
+      "previous_count": 61,
+      "fetched_at": "2026-08-07T22:18:29.874Z"
     },
     {
       "id": "bilibili",
@@ -314,9 +314,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 24,
-      "previous_count": 22,
-      "fetched_at": "2026-08-06T22:18:49.656Z"
+      "candidate_count": 25,
+      "previous_count": 24,
+      "fetched_at": "2026-08-07T22:18:45.851Z"
     },
     {
       "id": "dewu",
@@ -347,7 +347,7 @@
       ],
       "candidate_count": 128,
       "previous_count": 128,
-      "fetched_at": "2026-08-06T22:19:40.628Z"
+      "fetched_at": "2026-08-07T22:19:36.852Z"
     },
     {
       "id": "pdd",
@@ -363,10 +363,10 @@
         "用户运营",
         "行业运营"
       ],
-      "candidate_count": 36,
-      "previous_count": 22,
+      "candidate_count": 38,
+      "previous_count": 36,
       "error": "拼多多风控 54001: 请求失败",
-      "fetched_at": "2026-08-06T22:21:22.291Z"
+      "fetched_at": "2026-08-07T22:21:18.993Z"
     },
     {
       "id": "airwallex",
@@ -377,8 +377,8 @@
         "上海全量"
       ],
       "candidate_count": 32,
-      "previous_count": 27,
-      "fetched_at": "2026-08-06T22:21:23.798Z"
+      "previous_count": 32,
+      "fetched_at": "2026-08-07T22:21:21.233Z"
     },
     {
       "id": "mastercard",
@@ -388,9 +388,9 @@
       "queries": [
         "上海全量"
       ],
-      "candidate_count": 10,
+      "candidate_count": 8,
       "previous_count": 10,
-      "fetched_at": "2026-08-06T22:21:38.972Z"
+      "fetched_at": "2026-08-07T22:21:35.371Z"
     },
     {
       "id": "adyen",
@@ -402,7 +402,7 @@
       ],
       "candidate_count": 7,
       "previous_count": 7,
-      "fetched_at": "2026-08-06T22:21:48.926Z"
+      "fetched_at": "2026-08-07T22:21:46.593Z"
     },
     {
       "id": "worldpay",
@@ -412,21 +412,21 @@
       "queries": [
         "上海全量"
       ],
-      "candidate_count": 7,
-      "previous_count": 6,
-      "fetched_at": "2026-08-06T22:22:00.495Z"
+      "candidate_count": 6,
+      "previous_count": 7,
+      "fetched_at": "2026-08-07T22:21:57.231Z"
     },
     {
       "id": "huifu",
       "label": "汇付天下官网",
       "company": "汇付天下",
-      "status": "ok",
+      "status": "stale",
       "queries": [
         "上海全量"
       ],
       "candidate_count": 9,
-      "previous_count": 10,
-      "fetched_at": "2026-08-06T22:22:01.775Z"
+      "error": "https://huifu.zhiye.com/api/Jobad/GetJobAdPageList: HTTP 405",
+      "fetched_at": null
     },
     {
       "id": "yeepay",
@@ -437,12 +437,12 @@
         "上海全量"
       ],
       "candidate_count": 18,
-      "previous_count": 17,
-      "fetched_at": "2026-08-06T22:22:04.362Z"
+      "previous_count": 18,
+      "fetched_at": "2026-08-07T22:22:02.739Z"
     }
   ],
-  "poolSize": 2456,
-  "eligibleSize": 419,
+  "poolSize": 2449,
+  "eligibleSize": 416,
   "displayedSize": 90,
   "counts": {
     "A+": 7,
