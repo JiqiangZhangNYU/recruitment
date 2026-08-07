@@ -7,6 +7,7 @@ const guide = require("../learning-guide.json");
 const interviewPlan = require("../interview-plan.json");
 const interviewQuestionBank = require("../interview-question-bank.json");
 const interviewSampleAnswers = require("../interview-sample-answers.json");
+const interviewWorldTradeExtension = require("../interview-worldtrade-extension.json");
 const jobsData = require("../jobs.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
 const businessEnglishManifest = require("../challenges/business-english/manifest.json");
@@ -90,6 +91,36 @@ assert.ok(interviewPlan.questions.every((question) => (
   && question.checks.every(validInterviewCheck)
 )));
 assert.equal(interviewQuestionBank.questions.length, 19);
+assert.equal(interviewWorldTradeExtension.questions.length, 50);
+const interviewBankQuestions = [
+  ...interviewQuestionBank.questions,
+  ...interviewWorldTradeExtension.questions,
+];
+const interviewAnswers = {
+  ...interviewSampleAnswers.answers,
+  ...interviewWorldTradeExtension.answers,
+};
+const interviewCheckProfiles = {
+  ...interviewQuestionBank.checkProfiles,
+  ...interviewWorldTradeExtension.checkProfiles,
+};
+assert.equal(interviewBankQuestions.length, 69);
+assert.equal(interviewWorldTradeExtension.sources.length, 12);
+assert.equal(new Set(interviewWorldTradeExtension.sources.map((source) => source.id)).size, 12);
+assert.ok(interviewWorldTradeExtension.sources.every((source) => (
+  source.id?.trim()
+  && source.name?.trim()
+  && source.focus?.trim()
+  && ["interview-report", "official"].includes(source.type)
+  && new URL(source.url).protocol === "https:"
+)));
+const interviewResearchSourceIds = new Set(interviewWorldTradeExtension.sources.map((source) => source.id));
+assert.equal(interviewWorldTradeExtension.questions.filter((question) => question.origin === "interview-report").length, 12);
+assert.ok(interviewWorldTradeExtension.questions.every((question) => (
+  ["interview-report", "official-scenario"].includes(question.origin)
+  && question.sourceRefs?.length
+  && question.sourceRefs.every((sourceId) => interviewResearchSourceIds.has(sourceId))
+)));
 assert.ok(interviewQuestionBank.methodSources.length >= 5);
 assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.name)).size, interviewQuestionBank.methodSources.length);
 assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.url)).size, interviewQuestionBank.methodSources.length);
@@ -108,7 +139,7 @@ assert.deepEqual(
 );
 const allInterviewQuestionIds = [
   ...interviewPlan.questions.map((question) => question.id),
-  ...interviewQuestionBank.questions.map((question) => question.id),
+  ...interviewBankQuestions.map((question) => question.id),
 ];
 assert.equal(new Set(allInterviewQuestionIds).size, allInterviewQuestionIds.length);
 assert.match(interviewSampleAnswers.persona.role, /WorldTrade.*目标岗位/);
@@ -120,15 +151,15 @@ assert.ok(interviewSampleAnswers.sources.every((source) => (
   && source.focus?.trim()
   && new URL(source.url).protocol === "https:"
 )));
-assert.deepEqual(new Set(Object.keys(interviewSampleAnswers.answers)), new Set(allInterviewQuestionIds));
-assert.ok(Object.values(interviewSampleAnswers.answers).every((sample) => (
+assert.deepEqual(new Set(Object.keys(interviewAnswers)), new Set(allInterviewQuestionIds));
+assert.ok(Object.values(interviewAnswers).every((sample) => (
   sample.answer?.trim().length >= 180
   && sample.riskNote?.trim().length >= 20
 )));
-assert.ok(Object.values(interviewSampleAnswers.answers).every((sample) => (
+assert.ok(Object.values(interviewAnswers).every((sample) => (
   !/我(?:目前)?在.{0,24}WorldTrade.{0,24}(?:负责|任职|工作)/i.test(sample.answer)
 )));
-assert.ok(interviewQuestionBank.questions.every((question) => (
+assert.ok(interviewBankQuestions.every((question) => (
   interviewCategoryIds.has(question.category)
   && ["high", "medium", "supplementary"].includes(question.priority)
   && question.formats?.length
@@ -141,9 +172,9 @@ assert.ok(interviewQuestionBank.questions.every((question) => (
   && question.evidence?.length >= 3
   && question.followUps?.length >= 3
   && question.pitfalls?.length >= 2
-  && interviewQuestionBank.checkProfiles[question.checkProfile]?.length === 5
+  && interviewCheckProfiles[question.checkProfile]?.length === 5
 )));
-assert.ok(Object.values(interviewQuestionBank.checkProfiles).every((checks) => (
+assert.ok(Object.values(interviewCheckProfiles).every((checks) => (
   checks.length === 5
   && checks.every(validInterviewCheck)
 )));
@@ -617,7 +648,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   const page = await browser.newPage({ viewport });
   const errors = [];
   const requestedURLs = [];
-  const totalQuestions = interviewPlan.questions.length + interviewQuestionBank.questions.length;
+  const totalQuestions = interviewPlan.questions.length + interviewBankQuestions.length;
   page.on("request", (request) => requestedURLs.push(request.url()));
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
@@ -673,7 +704,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-core-mode").getAttribute("aria-selected"), "true");
   assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "false");
   assert.equal(await page.locator("#interview-bank-browser").isHidden(), true);
-  assert.equal(await page.locator("#interview-bank-count").textContent(), String(interviewQuestionBank.questions.length));
+  assert.equal(await page.locator("#interview-bank-count").textContent(), String(interviewBankQuestions.length));
   assert.equal(await page.locator("#interview-feedback").isHidden(), true);
   assert.equal(await page.locator("#interview-recording-details").getAttribute("open"), null);
   assert.equal(await page.locator(".interview-recorder").isHidden(), true);
@@ -700,7 +731,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     const question = findInterviewQuestion(id);
     const result = analyzeInterviewAnswer(sample.answer, question);
     return { id, score: result.passed.length };
-  }), interviewSampleAnswers.answers);
+  }), interviewAnswers);
   assert.ok(
     sampleScores.every(({ score }) => score >= 4),
     `reference samples below 4 / 5: ${sampleScores.filter(({ score }) => score < 4).map(({ id, score }) => `${id}=${score}`).join(", ")}`,
@@ -708,6 +739,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(requestedURLs.filter((url) => url.includes("interview-plan.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-question-bank.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-worldtrade-extension.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("jobs.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
 
@@ -831,8 +863,12 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator(".interview-method-resource-link").count(), interviewQuestionBank.methodSources.length);
     assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
     assert.equal(await page.locator("#interview-bank-browser").getAttribute("open"), null);
-    assert.equal(await page.locator("#interview-question-select option").count(), interviewQuestionBank.questions.length);
-    assert.equal(await page.locator(".interview-bank-item").count(), interviewQuestionBank.questions.length);
+    assert.equal(await page.locator("#interview-question-select option").count(), interviewBankQuestions.length);
+    assert.equal(await page.locator(".interview-bank-item").count(), interviewBankQuestions.length);
+    await page.locator("#interview-question-select").selectOption("payment-status-timeout-consistency");
+    assert.equal(await page.locator("#interview-question-title").textContent(), "支付超时后如何确认最终状态");
+    assert.match(await page.locator("#interview-guide-note").textContent(), /公开面经脱敏转写.*不是原帖答案/);
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /状态未知.*网络超时/);
     await page.locator("#interview-bank-browser > summary").click();
     await page.locator("#interview-bank-search").fill("供给结构");
     assert.equal(await page.locator(".interview-bank-item").count(), 1);
@@ -949,7 +985,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator(".interview-bank-item").count(), 0);
     assert.equal(await page.locator("#interview-bank-empty").isVisible(), true);
     await page.locator("#interview-bank-search").fill("");
-    assert.equal(await page.locator(".interview-bank-item").count(), interviewQuestionBank.questions.length);
+    assert.equal(await page.locator(".interview-bank-item").count(), interviewBankQuestions.length);
   }
 
   const layout = await page.evaluate(() => ({
@@ -1194,6 +1230,7 @@ async function checkInterviewRecording(browser) {
   await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("麦克风权限"));
   assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 3);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-worldtrade-extension.json")).length, 3);
   assert.deepEqual(errors, []);
   await page.close();
 }

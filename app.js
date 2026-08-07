@@ -3003,6 +3003,46 @@ function validateInterviewSamples(samples, questions) {
   return samples;
 }
 
+function mergeInterviewRoleExtension(questionBank, samples, extension) {
+  if (!extension || extension.loadError) throw new Error(extension?.loadError || "专项题库内容为空");
+  const sources = extension.sources || [];
+  const sourceIds = new Set(sources.map((source) => source.id));
+  if (
+    extension.questions?.length !== 50
+    || sourceIds.size !== sources.length
+    || !sources.every((source) => (
+      source.id
+      && ["interview-report", "official"].includes(source.type)
+      && source.name
+      && source.focus
+      && new URL(source.url).protocol === "https:"
+    ))
+  ) throw new Error("专项题库缺少题目或公开来源");
+  const extensionProfiles = extension.checkProfiles || {};
+  if (!Object.values(extensionProfiles).every((checks) => (
+    checks.length === 5 && checks.every(validInterviewCheck)
+  ))) throw new Error("专项题库检查项格式不正确");
+  if (!extension.questions.every((question) => (
+    ["interview-report", "official-scenario"].includes(question.origin)
+    && question.sourceRefs?.length
+    && question.sourceRefs.every((sourceId) => sourceIds.has(sourceId))
+    && extension.answers?.[question.id]?.answer?.trim().length >= 180
+    && extension.answers[question.id].riskNote?.trim()
+  ))) throw new Error("专项题库缺少题源或范文");
+  return {
+    questionBank: {
+      ...questionBank,
+      checkProfiles: { ...questionBank.checkProfiles, ...extensionProfiles },
+      researchSources: sources,
+      questions: [...questionBank.questions, ...extension.questions],
+    },
+    samples: {
+      ...samples,
+      answers: { ...samples.answers, ...extension.answers },
+    },
+  };
+}
+
 function validateInterviewPlan(plan, questionBank = null) {
   if (!plan || !Array.isArray(plan.categories) || !Array.isArray(plan.questions) || !plan.questions.length) {
     throw new Error("面试计划格式不正确");
@@ -3079,10 +3119,23 @@ async function ensureInterviewPlanLoaded() {
         if (!response.ok) throw new Error(`参考范文 HTTP ${response.status}`);
         return response.json();
       }).catch((error) => ({ loadError: error.message })),
+      fetch("interview-worldtrade-extension.json").then((response) => {
+        if (!response.ok) throw new Error(`WorldTrade 专项题库 HTTP ${response.status}`);
+        return response.json();
+      }).catch((error) => ({ loadError: error.message })),
     ])
-      .then(([plan, questionBank, samples]) => {
+      .then(([plan, questionBank, samples, roleExtension]) => {
         const corePlan = validateInterviewPlan(plan);
         let validatedPlan;
+        if (!questionBank?.loadError && !samples?.loadError) {
+          try {
+            const merged = mergeInterviewRoleExtension(questionBank, samples, roleExtension);
+            questionBank = merged.questionBank;
+            samples = merged.samples;
+          } catch (error) {
+            console.warn(`WorldTrade 专项题库加载失败，保留原题库：${error.message}`);
+          }
+        }
         if (!questionBank || questionBank.loadError) {
           const loadError = questionBank?.loadError || "题库内容为空";
           console.warn(`面试题库加载失败，已降级为核心训练：${loadError}`);
@@ -3525,6 +3578,8 @@ function filteredInterviewBankQuestions() {
       if (state.interviewTarget === "worldtrade") {
         const relevanceScore = (question) => INTERVIEW_QUESTION_RELEVANCE.direct.has(question.id)
           ? 2
+          : question.sourceRefs?.length
+            ? 2
           : INTERVIEW_QUESTION_RELEVANCE.transfer.has(question.id)
             ? 0
             : 1;
@@ -3598,7 +3653,11 @@ function renderInterviewBankBrowser() {
     const title = document.createElement("strong");
     title.textContent = question.title;
     const meta = document.createElement("span");
-    const priority = question.priority === "high" ? "优先准备" : "高频补充";
+    const priority = question.origin === "interview-report"
+      ? "公开面经"
+      : question.origin === "official-scenario"
+        ? "岗位情境"
+        : question.priority === "high" ? "优先准备" : "高频补充";
     meta.textContent = [
       status === "new" ? priority : interviewStatusLabel(status),
       category?.label,
@@ -4143,9 +4202,15 @@ function renderInterviewQuestion() {
   renderInterviewGuideList(elements.interviewEvidenceList, guide.evidence);
   renderInterviewGuideList(elements.interviewPrepFollowUpList, guide.followUps);
   renderInterviewGuideList(elements.interviewPitfallList, guide.pitfalls);
-  elements.interviewGuideNote.textContent = isHypothetical
+  const guidanceNote = isHypothetical
     ? "题设未给的数据要写成待确认信息或明确假设；可以引用相似真实案例，但不要把未知结果说成已经发生。"
     : "只使用真实且可脱敏的经历。没有可靠数字时，用范围、前后对比或可核验反馈，不要补造数字。";
+  const sourceNote = question.origin === "interview-report"
+    ? "题目由公开面经脱敏转写；参考范文为本站重新组织，不是原帖答案。"
+    : question.origin === "official-scenario"
+      ? "题目依据 WorldTrade 公开产品边界设计，不代表官方内部题库。"
+      : "";
+  elements.interviewGuideNote.textContent = [guidanceNote, sourceNote].filter(Boolean).join(" ");
 
   elements.interviewAnswer.value = state.interviewDrafts[question.id] || "";
   elements.interviewInputMessage.hidden = true;
