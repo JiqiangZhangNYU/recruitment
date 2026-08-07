@@ -201,10 +201,6 @@ const INTERVIEW_DAILY_QUESTIONS = [
   "fit-introduction", "why-role-90-days", "career-transition-motivation", "signature-project",
   "cross-functional-conflict", "setback-reflection", "merchant-segmentation",
 ];
-const WORLDTRADE_SAMPLE_TARGET_ONLY = new Set([
-  "fit-introduction", "why-role-90-days", "career-transition-motivation", "strength-development-area",
-]);
-
 const state = {
   data: null,
   guide: null,
@@ -411,7 +407,6 @@ const elements = {
   interviewSampleStep: document.querySelector("#interview-sample-step"),
   interviewSampleAnswer: document.querySelector("#interview-sample-answer"),
   interviewSampleRelevance: document.querySelector("#interview-sample-relevance"),
-  interviewSampleLock: document.querySelector("#interview-sample-lock"),
   interviewSampleNote: document.querySelector("#interview-sample-note"),
   interviewSampleOutline: document.querySelector("#interview-sample-outline"),
   interviewSampleFull: document.querySelector("#interview-sample-full"),
@@ -4153,11 +4148,9 @@ function renderInterviewSample(question) {
   const sample = samples?.answers?.[question.id];
   elements.interviewSampleStep.hidden = !sample;
   if (!sample) return;
-  elements.interviewSampleAnswer.open = false;
-  elements.interviewSampleFull.open = false;
+  elements.interviewSampleAnswer.open = true;
+  elements.interviewSampleFull.open = true;
   const targetIsWorldTrade = state.interviewTarget === "worldtrade";
-  const targetOnly = WORLDTRADE_SAMPLE_TARGET_ONLY.has(question.id);
-  const unlocked = interviewHasAttempt(question.id);
   const relevance = INTERVIEW_QUESTION_RELEVANCE.direct.has(question.id)
     ? "WorldTrade 直接相关"
     : INTERVIEW_QUESTION_RELEVANCE.transfer.has(question.id)
@@ -4167,12 +4160,7 @@ function renderInterviewSample(question) {
   elements.interviewSampleNote.textContent = targetIsWorldTrade
     ? samples.persona.usageNote
     : "当前题目参考岗位不是 WorldTrade。下面只可借用结构和表达方式，岗位动机、公司名称与业务事实必须按当前岗位重写。";
-  const blockForOtherTarget = !targetIsWorldTrade && targetOnly;
-  elements.interviewSampleLock.hidden = unlocked && !blockForOtherTarget;
-  elements.interviewSampleLock.textContent = blockForOtherTarget
-    ? "这道题直接涉及公司或岗位动机，固定 WorldTrade 范文不适用于当前目标，完整范文已隐藏。"
-    : "完成一版有效回答并检查后，开放完整范文。现在先参考结构提纲。";
-  elements.interviewSampleFull.hidden = !unlocked || blockForOtherTarget;
+  elements.interviewSampleFull.hidden = false;
   elements.interviewSampleOutline.replaceChildren();
   question.framework.forEach((step) => {
     const item = document.createElement("li");

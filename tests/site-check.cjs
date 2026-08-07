@@ -673,11 +673,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-bank-count").textContent(), String(interviewQuestionBank.questions.length));
   assert.equal(await page.locator("#interview-feedback").isHidden(), true);
   assert.equal(await page.locator("#interview-sample-step").isVisible(), true);
-  assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), null);
-  await page.locator("#interview-sample-answer > summary").click();
-  assert.equal(await page.locator("#interview-sample-lock").isVisible(), true);
-  assert.match(await page.locator("#interview-sample-lock").textContent(), /完成一版有效回答/);
-  assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
+  assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), "");
+  assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
+  assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
+  assert.match(await page.locator("#interview-sample-answer-text").textContent(), /Route B|technical_error/);
   assert.equal(await page.locator("#interview-sample-outline li").count(), 5);
   assert.match(await page.locator("#interview-sample-note").textContent(), /方括号.*可核验/);
   assert.match(await page.locator(".interview-sample-source-note").textContent(), /仅用于核对公开产品边界.*不为.*背书/);
@@ -732,10 +731,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-bound-story").isVisible(), true);
     assert.match(await page.locator("#interview-bound-story").textContent(), /商家首笔激活项目/);
 
-    assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), null);
-    await page.locator("#interview-sample-answer > summary").click();
-    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
-    assert.match(await page.locator("#interview-sample-lock").textContent(), /完成一版有效回答/);
+    assert.equal(await page.locator("#interview-sample-answer").getAttribute("open"), "");
+    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
+    assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
     await page.locator("#interview-guidance > summary").click();
     await page.locator("#interview-use-template").click();
     assert.match(await page.locator("#interview-answer").inputValue(), /^现在：/);
@@ -763,10 +762,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(firstAttempt.first.text, weakAnswer);
     assert.equal(firstAttempt.latest.text, weakAnswer);
 
-    await page.locator("#interview-sample-answer > summary").click();
-    assert.equal(await page.locator("#interview-sample-lock").isHidden(), true);
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    await page.locator("#interview-sample-full > summary").click();
     assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
 
     const followUpAnswer = "我会先核对分母和商家队列，再用同口径的前后数据解释提升。";
@@ -844,8 +840,9 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.match(await page.locator("#interview-answer-edge").textContent(), /招商|需求侧/);
     assert.equal(await page.locator("#interview-evidence-heading").textContent(), "回答前先明确");
     assert.match(await page.locator("#interview-guide-note").textContent(), /明确假设|未知结果/);
-    await page.locator("#interview-sample-answer > summary").click();
-    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
+    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
+    assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
     assert.match(page.url(), /#interview\/merchant-supply-structure$/);
 
     const bankAnswer = [
@@ -860,9 +857,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-reviewed-count").textContent(), `2 / ${totalQuestions}`);
     assert.match(await page.locator(".interview-bank-item").textContent(), /已尝试/);
     assert.equal(await page.locator(".interview-bank-arrow").textContent(), "•");
-    await page.locator("#interview-sample-answer > summary").click();
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    await page.locator("#interview-sample-full > summary").click();
     assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
     assert.deepEqual(
       new Set(await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1")))),
@@ -890,11 +885,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     const motivationAnswer = "我选择转向跨境支付增长，是因为过去的商家增长项目让我确认，自己的优势是用数据定位转化问题并推动多团队落地。这个岗位要求的数据分析、商业结果和国际协作与我的真实经历直接匹配；入职后我会先梳理商家分层与支付漏斗，用 30、60、90 天验证优先机会。";
     await page.locator("#interview-answer").fill(motivationAnswer);
     await page.locator("#interview-analyze-answer").click();
-    await page.locator("#interview-sample-answer > summary").click();
     assert.match(await page.locator("#interview-sample-note").textContent(), /不是 WorldTrade.*只可借用结构/);
-    assert.match(await page.locator("#interview-sample-lock").textContent(), /固定 WorldTrade 范文不适用.*完整范文已隐藏/);
-    assert.equal(await page.locator("#interview-sample-lock").isVisible(), true);
-    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
+    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
+    assert.equal(await page.locator("#interview-sample-full").getAttribute("open"), "");
+    assert.ok((await page.locator("#interview-sample-answer-text").textContent()).trim().length > 180);
 
     page.once("dialog", (dialog) => dialog.accept());
     await page.locator("#interview-clear-data").click();
@@ -947,7 +941,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
       [],
     );
     assert.equal(await page.locator("#interview-input-message").isHidden(), true);
-    assert.equal(await page.locator("#interview-sample-full").isHidden(), true);
+    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
     await page.locator("#interview-bank-mode").click();
     assert.equal(await page.locator("#interview-bank-browser").isVisible(), true);
     await page.locator("#interview-bank-browser > summary").click();
