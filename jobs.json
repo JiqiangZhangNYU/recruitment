@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T06:22:44+08:00",
+  "generatedAt": "2026-08-13T06:21:57+08:00",
   "sourceGeneratedAt": "2026-07-22T14:31:20.529Z",
-  "officialSourceGeneratedAt": "2026-08-11T22:22:41.567Z",
+  "officialSourceGeneratedAt": "2026-08-12T22:21:54.410Z",
   "officialSources": [
     {
       "id": "bytedance",
@@ -32,9 +32,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 886,
-      "previous_count": 884,
-      "fetched_at": "2026-08-11T22:16:16.624Z"
+      "candidate_count": 884,
+      "previous_count": 886,
+      "fetched_at": "2026-08-12T22:16:16.546Z"
     },
     {
       "id": "ant",
@@ -63,9 +63,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 62,
-      "previous_count": 64,
-      "fetched_at": "2026-08-11T22:16:53.616Z"
+      "candidate_count": 65,
+      "previous_count": 62,
+      "fetched_at": "2026-08-12T22:16:53.506Z"
     },
     {
       "id": "alibaba",
@@ -94,9 +94,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 29,
+      "candidate_count": 28,
       "previous_count": 29,
-      "fetched_at": "2026-08-11T22:17:06.046Z"
+      "fetched_at": "2026-08-12T22:17:05.752Z"
     },
     {
       "id": "tencent",
@@ -126,7 +126,7 @@
       ],
       "candidate_count": 1,
       "previous_count": 1,
-      "fetched_at": "2026-08-11T22:17:20.344Z"
+      "fetched_at": "2026-08-12T22:17:20.005Z"
     },
     {
       "id": "meituan",
@@ -156,8 +156,8 @@
         "汇款"
       ],
       "candidate_count": 252,
-      "previous_count": 251,
-      "fetched_at": "2026-08-11T22:17:38.708Z"
+      "previous_count": 252,
+      "fetched_at": "2026-08-12T22:17:38.465Z"
     },
     {
       "id": "jd",
@@ -187,7 +187,7 @@
       ],
       "candidate_count": 2,
       "previous_count": 2,
-      "fetched_at": "2026-08-11T22:17:39.925Z"
+      "fetched_at": "2026-08-12T22:17:39.609Z"
     },
     {
       "id": "xiaohongshu",
@@ -217,8 +217,8 @@
         "汇款"
       ],
       "candidate_count": 124,
-      "previous_count": 123,
-      "fetched_at": "2026-08-11T22:17:53.750Z"
+      "previous_count": 124,
+      "fetched_at": "2026-08-12T22:17:53.436Z"
     },
     {
       "id": "ctrip",
@@ -248,8 +248,8 @@
         "汇款"
       ],
       "candidate_count": 49,
-      "previous_count": 47,
-      "fetched_at": "2026-08-11T22:18:08.545Z"
+      "previous_count": 49,
+      "fetched_at": "2026-08-12T22:18:08.939Z"
     },
     {
       "id": "didi",
@@ -261,7 +261,7 @@
       ],
       "candidate_count": 16,
       "previous_count": 16,
-      "fetched_at": "2026-08-11T22:18:20.994Z"
+      "fetched_at": "2026-08-12T22:18:21.138Z"
     },
     {
       "id": "baidu",
@@ -271,9 +271,9 @@
       "queries": [
         "上海社招全量"
       ],
-      "candidate_count": 198,
-      "previous_count": 197,
-      "fetched_at": "2026-08-11T22:18:30.068Z"
+      "candidate_count": 204,
+      "previous_count": 198,
+      "fetched_at": "2026-08-12T22:18:30.245Z"
     },
     {
       "id": "kuaishou",
@@ -283,9 +283,9 @@
       "queries": [
         "上海社招全量"
       ],
-      "candidate_count": 62,
-      "previous_count": 63,
-      "fetched_at": "2026-08-11T22:18:32.379Z"
+      "candidate_count": 63,
+      "previous_count": 62,
+      "fetched_at": "2026-08-12T22:18:32.575Z"
     },
     {
       "id": "bilibili",
@@ -316,7 +316,7 @@
       ],
       "candidate_count": 24,
       "previous_count": 24,
-      "fetched_at": "2026-08-11T22:18:48.143Z"
+      "fetched_at": "2026-08-12T22:18:48.579Z"
     },
     {
       "id": "dewu",
@@ -345,9 +345,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 129,
-      "previous_count": 128,
-      "fetched_at": "2026-08-11T22:19:39.705Z"
+      "candidate_count": 130,
+      "previous_count": 129,
+      "fetched_at": "2026-08-12T22:19:38.620Z"
     },
     {
       "id": "pdd",
@@ -364,9 +364,9 @@
         "行业运营"
       ],
       "candidate_count": 39,
-      "previous_count": 38,
+      "previous_count": 39,
       "error": "拼多多风控 54001: 请求失败",
-      "fetched_at": "2026-08-11T22:21:17.889Z"
+      "fetched_at": "2026-08-12T22:21:17.052Z"
     },
     {
       "id": "airwallex",
@@ -378,7 +378,7 @@
       ],
       "candidate_count": 33,
       "previous_count": 33,
-      "fetched_at": "2026-08-11T22:21:20.189Z"
+      "fetched_at": "2026-08-12T22:21:18.332Z"
     },
     {
       "id": "mastercard",
@@ -390,7 +390,7 @@
       ],
       "candidate_count": 8,
       "previous_count": 8,
-      "fetched_at": "2026-08-11T22:22:16.814Z"
+      "fetched_at": "2026-08-12T22:21:32.287Z"
     },
     {
       "id": "adyen",
@@ -402,7 +402,7 @@
       ],
       "candidate_count": 7,
       "previous_count": 7,
-      "fetched_at": "2026-08-11T22:22:28.942Z"
+      "fetched_at": "2026-08-12T22:21:41.209Z"
     },
     {
       "id": "worldpay",
@@ -414,7 +414,7 @@
       ],
       "candidate_count": 6,
       "previous_count": 6,
-      "fetched_at": "2026-08-11T22:22:37.684Z"
+      "fetched_at": "2026-08-12T22:21:51.696Z"
     },
     {
       "id": "huifu",
@@ -426,7 +426,7 @@
       ],
       "candidate_count": 9,
       "previous_count": 9,
-      "fetched_at": "2026-08-11T22:22:37.936Z"
+      "fetched_at": "2026-08-12T22:21:51.911Z"
     },
     {
       "id": "yeepay",
@@ -438,11 +438,11 @@
       ],
       "candidate_count": 18,
       "previous_count": 18,
-      "fetched_at": "2026-08-11T22:22:41.565Z"
+      "fetched_at": "2026-08-12T22:21:54.408Z"
     }
   ],
-  "poolSize": 2456,
-  "eligibleSize": 423,
+  "poolSize": 2464,
+  "eligibleSize": 425,
   "displayedSize": 90,
   "counts": {
     "A+": 7,
@@ -511,10 +511,10 @@
           "渠道归因、ROI、CAC、LTV、GMV 和利润基础口径"
         ],
         "practice": "搭建一张增长指标树和转化漏斗，指出三个问题环节及对应运营动作。",
-        "jobCount": 61,
+        "jobCount": 60,
         "totalJobs": 90,
         "relatedCount": null,
-        "evidence": "61/90 个岗位正文明确涉及"
+        "evidence": "60/90 个岗位正文明确涉及"
       },
       {
         "id": "lifecycle",
@@ -579,10 +579,10 @@
           "输出机会点、证据、影响范围和建议优先级"
         ],
         "practice": "访谈 5 名目标用户，结合一份行为数据写出洞察、证据和三项机会点。",
-        "jobCount": 43,
+        "jobCount": 44,
         "totalJobs": 90,
         "relatedCount": null,
-        "evidence": "43/90 个岗位正文明确涉及"
+        "evidence": "44/90 个岗位正文明确涉及"
       },
       {
         "id": "experimentation",
@@ -3111,8 +3111,64 @@
       "url": "https://jobs.bytedance.com/experienced/position/7651505165478349061/detail"
     },
     {
-      "id": "job-01695e57f8ffbf10",
+      "id": "job-e01529e0ef5928e6",
       "rank": 45,
+      "title": "东南亚商品中台策略运营-TikTok Shop",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 98,
+      "tier": "A-",
+      "tierLabel": "A- 接近标准",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "paymentNative": false,
+      "paymentLeader": false,
+      "internationalPaymentFit": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1779436152828,
+      "sourceJobId": "7642619849676867893",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "国际化",
+        "电商/商家"
+      ],
+      "responsibilities": [
+        "负责东南亚电商业务的商品运营工作，主要包括： 1）策略分析； 2）落地路径设计与搭建； 3）推动业务团队完成商品运营相关优化动作，拿到正向结果",
+        "在策略分析上，结合全球业务商品供给情况及东南亚电商的流量逻辑，分析商品生命周期各环节的规模和效率，找到问题和机会点，持续追踪电商行业及商品域AI技术发展趋势，并针对性设计相应的提升策略",
+        "在落地路径设计与搭建上，协同各国运营团队、产品、搜索、推荐、频道、治理等产品及运营团队，为商家端、行业端搭建不同视角下的运营链路，以及对应的数据监控体系"
+      ],
+      "requirements": "本科及以上学历，3年及电商相关工作经验；具备丰富商品经验者优先，熟悉电商流量运营逻辑，熟悉国际化市场情况或有对应国际化学习、生活、工作经验者优先",
+      "notes": [
+        "未发现明显硬性风险，仍需核对完整任职要求"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7642619849676867893/detail"
+    },
+    {
+      "id": "job-01695e57f8ffbf10",
+      "rank": 46,
       "title": "菲律宾货品策略运营-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3168,7 +3224,7 @@
     },
     {
       "id": "job-68c78a002bdb4843",
-      "rank": 46,
+      "rank": 47,
       "title": "用户产品运营（推荐方向）-抖音生活服务",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3223,7 +3279,7 @@
     },
     {
       "id": "job-91c09d17cd681b83",
-      "rank": 47,
+      "rank": 48,
       "title": "欧美商城策略运营-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3279,7 +3335,7 @@
     },
     {
       "id": "job-c18d4e8e7ffa9a95",
-      "rank": 48,
+      "rank": 49,
       "title": "服饰行业商家运营（欧洲/日本市场）-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3335,7 +3391,7 @@
     },
     {
       "id": "job-7a2d3fcab0404002",
-      "rank": 49,
+      "rank": 50,
       "title": "印尼达人策略运营-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3391,7 +3447,7 @@
     },
     {
       "id": "job-c7f221338b38ac58",
-      "rank": 50,
+      "rank": 51,
       "title": "商家运营（运动潮奢）-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3447,7 +3503,7 @@
     },
     {
       "id": "job-fe1a1f6b2019c946",
-      "rank": 51,
+      "rank": 52,
       "title": "用户产品运营（多人音视频方向）-TikTok直播",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3502,7 +3558,7 @@
     },
     {
       "id": "job-e386c4ecccc6710c",
-      "rank": 52,
+      "rank": 53,
       "title": "国际化广告策略运营（北美市场-策略分析方向）-Global Business Solutions",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3558,7 +3614,7 @@
     },
     {
       "id": "job-e755b5d7f417c710",
-      "rank": 53,
+      "rank": 54,
       "title": "国际化策略运营（马来西亚）(MJ035908)",
       "company": "携程",
       "salary": "未提取",
@@ -3615,7 +3671,7 @@
     },
     {
       "id": "job-f00d747a55ad1a26",
-      "rank": 54,
+      "rank": 55,
       "title": "国际化产品运营（客户/代理方向） - 国际化广告创意与品牌",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3671,7 +3727,7 @@
     },
     {
       "id": "job-b87a99da4061dcbb",
-      "rank": 55,
+      "rank": 56,
       "title": "用户增长投放策略运营 - 抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3722,62 +3778,6 @@
       "agency": false,
       "sensitive": false,
       "url": "https://jobs.bytedance.com/experienced/position/7663009277235579141/detail"
-    },
-    {
-      "id": "job-1143bf5f73455537",
-      "rank": 56,
-      "title": "越南平台策略产品运营-TikTok Shop",
-      "company": "字节跳动",
-      "salary": "未提取",
-      "salaryFloor": null,
-      "city": "上海",
-      "experience": "未提取",
-      "education": "本科",
-      "score": 96,
-      "tier": "A-",
-      "tierLabel": "A- 接近标准",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "paymentNative": false,
-      "paymentLeader": false,
-      "internationalPaymentFit": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "source": "bytedance",
-      "sourceLabel": "字节跳动官网",
-      "officialSource": true,
-      "postedAt": 1781704678609,
-      "sourceJobId": "7652360219037714693",
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "商业结果",
-        "策略设计",
-        "跨团队推进",
-        "国际化",
-        "电商/商家"
-      ],
-      "responsibilities": [
-        "围绕平台B端商家经营场景，负责商家商品侧产品运营工作，持续推动商家在店铺经营与商品经营关键链路中的体验优化与效率提升",
-        "协同产品、研发、行业运营、治理、数仓等团队，推动商家产品与商品产品能力的落地和持续迭代，结合商家分层、行业特征及经营链路识别关键问题并输出策略方案，提升商家经营效率、平台供给质量与产品渗透效果；",
-        "持续学习行业内优秀AI服务产品实践，围绕AI产品在平台、私域等不同渠道下对商家及行业运营的服务场景，支持AI能力在商家和运营侧的渗透与扩展"
-      ],
-      "requirements": "本科及以上学历，具备电商平台、B端产品运营、商家运营、策略运营或相关岗位经验；具备良好的数据分析能力和结构化思考能力，能够独立搭建业务指标体系，通过数据分析定位问题、从复杂现象中提炼关键矛盾，形成清晰的策略判断和运营方案",
-      "notes": [
-        "需要英语能力"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://jobs.bytedance.com/experienced/position/7652360219037714693/detail"
     },
     {
       "id": "job-600b0b9993cd9a19",
