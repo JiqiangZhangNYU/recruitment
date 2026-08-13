@@ -356,6 +356,35 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(bJobs.every((job) => job.strategyRelevant && job.applicationRecommended));
   assert.ok(cJobs.length <= 10);
   assert.ok(cJobs.every((job) => !job.applicationRecommended && (job.closed || job.isReference)));
+  const tierBounds = {
+    "A+": [90, 100],
+    "A-": [75, 89],
+    B: [45, 74],
+    C: [0, 44],
+  };
+  Object.entries(tierBounds).forEach(([tier, [minimum, maximum]]) => {
+    assert.ok(
+      dataset.jobs.filter((job) => job.tier === tier)
+        .every((job) => job.score >= minimum && job.score <= maximum),
+      `${tier} score outside ${minimum}-${maximum}`,
+    );
+  });
+  for (const higherTier of [["A+", "A-"], ["A-", "B"], ["B", "C"]]) {
+    const higher = dataset.jobs.filter((job) => job.tier === higherTier[0]);
+    const lower = dataset.jobs.filter((job) => job.tier === higherTier[1]);
+    if (higher.length && lower.length) {
+      assert.ok(
+        Math.min(...higher.map((job) => job.score)) > Math.max(...lower.map((job) => job.score)),
+        `${higherTier[0]} scores must exceed ${higherTier[1]} scores`,
+      );
+    }
+  }
+  const displayedScores = await page.locator(".score-block strong").allTextContents();
+  assert.deepEqual(
+    displayedScores.map(Number),
+    [...dataset.jobs].sort((left, right) => right.score - left.score || left.rank - right.rank)
+      .map((job) => job.score),
+  );
 
   await page.locator('.primary-nav button[data-view="skills"]').click();
   await page.locator(".skill-overview-card").first().waitFor();
