@@ -2941,7 +2941,7 @@ function validInterviewQuestion(question, categoryIds) {
 function emptyInterviewQuestionBank(loadError = "") {
   return {
     version: 0,
-    title: "高频题库暂时不可用",
+    title: "加练题库暂时不可用",
     description: "核心训练仍可正常使用。",
     answerGuides: {},
     checkProfiles: {},
@@ -3084,7 +3084,10 @@ async function ensureInterviewPlanLoaded() {
           validatedPlan.sampleAnswers = emptyInterviewSamples(loadError);
         } else {
           try {
-            validatedPlan.sampleAnswers = validateInterviewSamples(samples, validatedPlan.questions);
+            validatedPlan.sampleAnswers = validateInterviewSamples(samples, [
+              ...validatedPlan.questions,
+              ...validatedPlan.questionBank.questions.filter((question) => question.origin === "resume"),
+            ]);
           } catch (error) {
             console.warn(`参考范文校验失败：${error.message}`);
             validatedPlan.sampleAnswers = emptyInterviewSamples(error.message);
@@ -3492,6 +3495,8 @@ function filteredInterviewBankQuestions() {
       ].join(" ").toLocaleLowerCase().includes(query);
     })
     .sort((left, right) => {
+      const resumeDelta = Number(right.origin === "resume") - Number(left.origin === "resume");
+      if (resumeDelta) return resumeDelta;
       const priorityDelta = priorityOrder[left.priority] - priorityOrder[right.priority];
       if (priorityDelta) return priorityDelta;
       if (!target) return 0;
@@ -4100,9 +4105,11 @@ function renderInterviewQuestion() {
   const guidanceNote = isHypothetical
     ? "题设未给的数据要写成待确认信息或明确假设；可以引用相似真实案例，但不要把未知结果说成已经发生。"
     : "只使用真实且可脱敏的经历。没有可靠数字时，用范围、前后对比或可核验反馈，不要补造数字。";
-  const sourceNote = question.origin === "interview-report"
-    ? "题目由公开面经脱敏转写；参考范文为本站重新组织，不是原帖答案。"
-    : "";
+  const sourceNote = question.origin === "resume"
+    ? "题目由当前简历表述拆解；范文只组织已有证据，方括号和风险提醒中的事实必须由本人补齐。"
+    : question.origin === "interview-report"
+      ? "题目由公开面经脱敏转写；参考范文为本站重新组织，不是原帖答案。"
+      : "";
   elements.interviewGuideNote.textContent = [guidanceNote, sourceNote].filter(Boolean).join(" ");
 
   elements.interviewAnswer.value = state.interviewDrafts[question.id] || "";

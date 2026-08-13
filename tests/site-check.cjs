@@ -89,10 +89,13 @@ assert.ok(interviewPlan.questions.every((question) => (
   && question.checks.length === 5
   && question.checks.every(validInterviewCheck)
 )));
-assert.equal(interviewQuestionBank.questions.length, 16);
+assert.equal(interviewQuestionBank.questions.length, 30);
 const interviewBankQuestions = interviewQuestionBank.questions;
 const interviewAnswers = interviewSampleAnswers.answers;
 const interviewCheckProfiles = interviewQuestionBank.checkProfiles;
+const resumeInterviewQuestions = interviewBankQuestions.filter((question) => question.origin === "resume");
+assert.equal(resumeInterviewQuestions.length, 14);
+assert.deepEqual(interviewBankQuestions.slice(0, 14), resumeInterviewQuestions);
 assert.ok(interviewQuestionBank.methodSources.length >= 5);
 assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.name)).size, interviewQuestionBank.methodSources.length);
 assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.url)).size, interviewQuestionBank.methodSources.length);
@@ -119,13 +122,20 @@ assert.match(interviewSampleAnswers.persona.usageNote, /可核验|不要照背/)
 assert.equal(interviewSampleAnswers.sources.length, 0);
 assert.deepEqual(
   new Set(Object.keys(interviewAnswers)),
-  new Set(interviewPlan.questions.map((question) => question.id)),
+  new Set([
+    ...interviewPlan.questions.map((question) => question.id),
+    ...resumeInterviewQuestions.map((question) => question.id),
+  ]),
 );
 assert.ok(Object.values(interviewAnswers).every((sample) => (
   sample.answer?.trim().length >= 180
   && sample.riskNote?.trim().length >= 20
 )));
 assert.ok(Object.values(interviewAnswers).every((sample) => !/WorldTrade|BNPL|Route B/i.test(sample.answer)));
+assert.ok(resumeInterviewQuestions.every((question) => (
+  interviewAnswers[question.id]?.answer?.trim().length >= 180
+  && interviewAnswers[question.id]?.riskNote?.trim().length >= 20
+)));
 assert.ok(interviewBankQuestions.every((question) => (
   interviewCategoryIds.has(question.category)
   && ["high", "medium", "supplementary"].includes(question.priority)
@@ -860,6 +870,10 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-bank-browser").getAttribute("open"), null);
     assert.equal(await page.locator("#interview-question-select option").count(), interviewBankQuestions.length);
     assert.equal(await page.locator(".interview-bank-item").count(), interviewBankQuestions.length);
+    assert.equal(await page.locator("#interview-question-title").textContent(), "4000 万美元与 5.23 倍增长拆解");
+    assert.equal(await page.locator("#interview-sample-step").isVisible(), true);
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /4000 万美元.*5\.23 倍.*新客.*存量/);
+    assert.match(await page.locator("#interview-guide-note").textContent(), /当前简历表述拆解.*本人补齐/);
     await page.locator("#interview-question-select").selectOption("voc-to-product-loop");
     assert.equal(await page.locator("#interview-question-title").textContent(), "冲突信号如何转化为产品需求");
     assert.equal(await page.locator("#interview-sample-step").isHidden(), true);
