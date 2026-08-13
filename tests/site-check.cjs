@@ -621,7 +621,12 @@ async function checkPage(browser, viewport, screenshotPath) {
   }
   await page.locator("#reset-button").click();
 
-  await page.locator("#search-input").fill("淘宝闪购-商家供给策略运营-运营中心");
+  const searchableJob = dataset.jobs.find((job) => (
+    job.applicationRecommended
+    && dataset.jobs.filter((candidate) => candidate.title === job.title).length === 1
+  ));
+  assert.ok(searchableJob, "expected at least one uniquely titled application-ready job");
+  await page.locator("#search-input").fill(searchableJob.title);
   assert.equal(await page.locator(".job-card").count(), 1);
   await page.locator(".detail-toggle").click();
   assert.equal(await page.locator(".job-detail").isVisible(), true);
@@ -808,9 +813,9 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-follow-up-status").textContent(), "追问回答已记录在本机");
 
     const strongAnswer = [
-      "我有 8 年国际支付和增长策略运营经验，核心标签是用数据诊断跨境商家转化问题并推动产品落地。",
-      "过去一年我主导商家钱包首笔增长项目，通过漏斗分析定位配置环节阻力，并协调产品和技术完成流程改造；3 个月内有效首笔率从 28% 提升到 38%，投诉率保持在 0.5% 以下。",
-      "另一个项目中，我设计分层实验并推动区域团队执行，使支付成功率提高 2.3 个百分点，季度净收入增长 12%。",
+      "我有 5 年支付行业 B 端产品和行业运营经验，核心标签是用数据诊断商户转化问题并推动产品落地。",
+      "过去一年我梳理商户开户至首单链路，搭建权益与服务结合的新手期运营 SOP；全年动销商户同比增长 3.45 倍，贡献平台 20%的新增商户。",
+      "另一个项目中，我通过 A/B 实验迭代新客权益，商家首单转化率相对提升 47%，次月留存提升 10 个百分点，平均 LTV 提升 26%。",
       "这些经历与目标岗位 JD 中的数据分析、增长策略和跨团队推进职责直接匹配。我选择这个岗位，是因为希望继续深耕国际支付，并能在入职后先贡献支付漏斗诊断和商业化落地经验。",
     ].join("");
     await page.locator("#interview-answer").fill(strongAnswer);
@@ -827,7 +832,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     );
     await page.reload({ waitUntil: "domcontentloaded" });
     await page.locator("#interview-panel").waitFor();
-    assert.match(await page.locator("#interview-answer").inputValue(), /8 年国际支付/);
+    assert.match(await page.locator("#interview-answer").inputValue(), /5 年支付行业 B 端/);
     assert.match(page.url(), /#interview\/fit-introduction$/);
     assert.equal(await page.locator("#interview-feedback").isVisible(), true);
     assert.equal(await page.locator("#interview-feedback-title").textContent(), "回答已修改，等待复查");
@@ -841,7 +846,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-version-comparison").isVisible(), true);
     assert.match(await page.locator("#interview-version-summary").textContent(), /补上了|两版已经保存/);
     assert.match(await page.locator("#interview-version-first").textContent(), /效果比较好/);
-    assert.match(await page.locator("#interview-version-latest").textContent(), /8 年国际支付/);
+    assert.match(await page.locator("#interview-version-latest").textContent(), /5 年支付行业 B 端/);
     const repracticedAttempt = await page.evaluate(() => (
       JSON.parse(localStorage.getItem("recruitment-interview-attempts-v2"))["fit-introduction"]
     ));

@@ -406,9 +406,9 @@ let interviewInputRenderTimer = null;
 
 const tierNames = {
   all: "全部",
-  "A+": "支付大厂",
-  "A-": "接近标准",
-  B: "策略匹配",
+  "A+": "简历直配",
+  "A-": "能力迁移",
+  B: "部分匹配",
   C: "仅供参考",
 };
 const tierClasses = { "A+": "tier-A-plus", "A-": "tier-A-minus", B: "tier-B", C: "tier-C" };
@@ -755,11 +755,11 @@ function makeJobCard(job) {
   const bonuses = [];
   if (job.isReference) bonuses.push("原始标杆");
   if (job.officialSource) bonuses.push(job.sourceLabel);
-  if (job.paymentBonus) bonuses.push("支付业务 +14");
+  if (job.paymentBonus) bonuses.push("支付经验匹配");
   if (job.internationalPaymentFit) bonuses.push("国际支付经验匹配");
   if (job.paymentLeader) bonuses.push("头部支付机构");
   else if (job.paymentNative) bonuses.push("支付公司");
-  if (job.majorCompany) bonuses.push("大平台 +10");
+  if (job.majorCompany) bonuses.push("大平台经历可迁移");
   if (!job.applicationRecommended) bonuses.push("仅供方向参考 · 不建议投递");
   appendSpans(fragment.querySelector(".bonus-list"), bonuses);
   appendSpans(fragment.querySelector(".dimension-list"), job.dimensions);
@@ -769,14 +769,15 @@ function makeJobCard(job) {
   appendSpans(riskLine, risks.length ? risks : ["未发现明显硬性风险"], risks.length ? "" : "clear-risk");
 
   const link = fragment.querySelector(".external-button");
+  const sourceAction = job.officialSource ? "官网" : job.source === "boss" ? "BOSS" : job.sourceLabel;
   link.href = job.url;
   link.textContent = job.applicationRecommended
-    ? `${job.officialSource ? "官网" : "BOSS"} ↗`
+    ? `${sourceAction} ↗`
     : "参考 JD ↗";
   link.setAttribute(
     "aria-label",
     job.applicationRecommended
-      ? `在${job.officialSource ? job.sourceLabel : "BOSS 直聘"}查看 ${job.title}`
+      ? `在${job.sourceLabel}查看 ${job.title}`
       : `查看仅供参考的岗位描述：${job.title}`,
   );
 
