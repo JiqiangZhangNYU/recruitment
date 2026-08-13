@@ -338,8 +338,9 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(aPlusJobs.length > 0);
   assert.ok(aPlusJobs.every((job) => (
     job.city === "上海"
-    && job.paymentBonus
-    && job.majorCompany
+    && job.directResumeFit
+    && !job.functionGap
+    && !job.seniorityGap
     && !job.frequentTravel
     && job.applicationRecommended
   )));
@@ -347,7 +348,7 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(aMinusJobs.every((job) => (
     job.city === "上海"
     && job.strategyRelevant
-    && (job.paymentBonus || job.majorCompany)
+    && (job.directResumeFit || job.transferableResumeFit)
     && !job.frequentTravel
     && !job.agency
     && !job.sensitive
@@ -358,8 +359,8 @@ async function checkPage(browser, viewport, screenshotPath) {
   assert.ok(cJobs.every((job) => !job.applicationRecommended && (job.closed || job.isReference)));
   const tierBounds = {
     "A+": [90, 100],
-    "A-": [75, 89],
-    B: [45, 74],
+    "A-": [70, 89],
+    B: [45, 69],
     C: [0, 44],
   };
   Object.entries(tierBounds).forEach(([tier, [minimum, maximum]]) => {
@@ -368,6 +369,10 @@ async function checkPage(browser, viewport, screenshotPath) {
         .every((job) => job.score >= minimum && job.score <= maximum),
       `${tier} score outside ${minimum}-${maximum}`,
     );
+  });
+  dataset.jobs.forEach((job) => {
+    const expectedTier = job.score >= 90 ? "A+" : job.score >= 70 ? "A-" : job.score >= 45 ? "B" : "C";
+    assert.equal(job.tier, expectedTier, `${job.title}: score ${job.score} must derive tier ${expectedTier}`);
   });
   for (const higherTier of [["A+", "A-"], ["A-", "B"], ["B", "C"]]) {
     const higher = dataset.jobs.filter((job) => job.tier === higherTier[0]);
