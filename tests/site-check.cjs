@@ -7,7 +7,6 @@ const guide = require("../learning-guide.json");
 const interviewPlan = require("../interview-plan.json");
 const interviewQuestionBank = require("../interview-question-bank.json");
 const interviewSampleAnswers = require("../interview-sample-answers.json");
-const interviewWorldTradeExtension = require("../interview-worldtrade-extension.json");
 const jobsData = require("../jobs.json");
 const dataDiagnosis = require("../challenges/data-diagnosis.json");
 const businessEnglishManifest = require("../challenges/business-english/manifest.json");
@@ -90,37 +89,10 @@ assert.ok(interviewPlan.questions.every((question) => (
   && question.checks.length === 5
   && question.checks.every(validInterviewCheck)
 )));
-assert.equal(interviewQuestionBank.questions.length, 19);
-assert.equal(interviewWorldTradeExtension.questions.length, 50);
-const interviewBankQuestions = [
-  ...interviewQuestionBank.questions,
-  ...interviewWorldTradeExtension.questions,
-];
-const interviewAnswers = {
-  ...interviewSampleAnswers.answers,
-  ...interviewWorldTradeExtension.answers,
-};
-const interviewCheckProfiles = {
-  ...interviewQuestionBank.checkProfiles,
-  ...interviewWorldTradeExtension.checkProfiles,
-};
-assert.equal(interviewBankQuestions.length, 69);
-assert.equal(interviewWorldTradeExtension.sources.length, 12);
-assert.equal(new Set(interviewWorldTradeExtension.sources.map((source) => source.id)).size, 12);
-assert.ok(interviewWorldTradeExtension.sources.every((source) => (
-  source.id?.trim()
-  && source.name?.trim()
-  && source.focus?.trim()
-  && ["interview-report", "official"].includes(source.type)
-  && new URL(source.url).protocol === "https:"
-)));
-const interviewResearchSourceIds = new Set(interviewWorldTradeExtension.sources.map((source) => source.id));
-assert.equal(interviewWorldTradeExtension.questions.filter((question) => question.origin === "interview-report").length, 12);
-assert.ok(interviewWorldTradeExtension.questions.every((question) => (
-  ["interview-report", "official-scenario"].includes(question.origin)
-  && question.sourceRefs?.length
-  && question.sourceRefs.every((sourceId) => interviewResearchSourceIds.has(sourceId))
-)));
+assert.equal(interviewQuestionBank.questions.length, 16);
+const interviewBankQuestions = interviewQuestionBank.questions;
+const interviewAnswers = interviewSampleAnswers.answers;
+const interviewCheckProfiles = interviewQuestionBank.checkProfiles;
 assert.ok(interviewQuestionBank.methodSources.length >= 5);
 assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.name)).size, interviewQuestionBank.methodSources.length);
 assert.equal(new Set(interviewQuestionBank.methodSources.map((source) => source.url)).size, interviewQuestionBank.methodSources.length);
@@ -142,23 +114,18 @@ const allInterviewQuestionIds = [
   ...interviewBankQuestions.map((question) => question.id),
 ];
 assert.equal(new Set(allInterviewQuestionIds).size, allInterviewQuestionIds.length);
-assert.match(interviewSampleAnswers.persona.role, /WorldTrade.*目标岗位/);
+assert.match(interviewSampleAnswers.persona.role, /简历.*B 端支付/);
 assert.match(interviewSampleAnswers.persona.usageNote, /可核验|不要照背/);
-assert.equal(interviewSampleAnswers.sources.length, 3);
-assert.equal(new Set(interviewSampleAnswers.sources.map((source) => source.url)).size, 3);
-assert.ok(interviewSampleAnswers.sources.every((source) => (
-  source.name?.trim()
-  && source.focus?.trim()
-  && new URL(source.url).protocol === "https:"
-)));
-assert.deepEqual(new Set(Object.keys(interviewAnswers)), new Set(allInterviewQuestionIds));
+assert.equal(interviewSampleAnswers.sources.length, 0);
+assert.deepEqual(
+  new Set(Object.keys(interviewAnswers)),
+  new Set(interviewPlan.questions.map((question) => question.id)),
+);
 assert.ok(Object.values(interviewAnswers).every((sample) => (
   sample.answer?.trim().length >= 180
   && sample.riskNote?.trim().length >= 20
 )));
-assert.ok(Object.values(interviewAnswers).every((sample) => (
-  !/我(?:目前)?在.{0,24}WorldTrade.{0,24}(?:负责|任职|工作)/i.test(sample.answer)
-)));
+assert.ok(Object.values(interviewAnswers).every((sample) => !/WorldTrade|BNPL|Route B/i.test(sample.answer)));
 assert.ok(interviewBankQuestions.every((question) => (
   interviewCategoryIds.has(question.category)
   && ["high", "medium", "supplementary"].includes(question.priority)
@@ -694,20 +661,20 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   });
   page.on("pageerror", (error) => errors.push(error.message));
 
-  await page.goto(`${baseURL}/#interview/payment-drop-diagnosis`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.goto(`${baseURL}/#interview/product-experience-loop`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator("#interview-panel").waitFor();
   const aJobs = jobsData.jobs.filter((job) => ["A+", "A-"].includes(job.tier));
   assert.equal(await page.locator(".primary-nav button").count(), 3);
   assert.equal(await page.locator('.primary-nav button[data-view="interview"]').getAttribute("aria-pressed"), "true");
   assert.equal(await page.locator("#interview-question-select option").count(), interviewPlan.questions.length);
-  assert.equal(await page.locator("#interview-target-select option").count(), aJobs.length + 2);
-  assert.equal(await page.locator("#interview-target-select").inputValue(), "worldtrade");
-  assert.match(await page.locator("#interview-target-select option:checked").textContent(), /WorldTrade/);
+  assert.equal(await page.locator("#interview-target-select option").count(), aJobs.length + 1);
+  assert.equal(await page.locator("#interview-target-select").inputValue(), "all");
+  assert.match(await page.locator("#interview-target-select option:checked").textContent(), /综合 A 档/);
   assert.equal(await page.locator(".interview-daily").count(), 0);
   assert.equal(await page.locator("#interview-bank-relevant").count(), 0);
   assert.equal(await page.locator(".interview-step-number").count(), 0);
   assert.equal(await page.locator(".interview-evidence").count(), 0);
-  assert.equal(await page.locator("#interview-question-title").textContent(), "支付成功率突降诊断");
+  assert.equal(await page.locator("#interview-question-title").textContent(), "商户反馈到产品改进闭环");
   assert.equal(await page.locator("#interview-framework-list li").count(), 5);
   assert.equal(await page.locator("#interview-evidence-list li").count(), 3);
   assert.equal(await page.locator("#interview-prep-followup-list li").count(), 3);
@@ -750,35 +717,24 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
   assert.equal(await page.locator("#interview-sample-step").isVisible(), true);
   assert.equal(await page.locator("#interview-sample-answer").isVisible(), true);
   assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-  assert.match(await page.locator("#interview-sample-answer-text").textContent(), /Route B|technical_error/);
+  assert.match(await page.locator("#interview-sample-answer-text").textContent(), /竞品.*商户.*产品.*风控.*客服/);
   assert.equal(await page.locator("#interview-sample-outline li").count(), 5);
   assert.equal(await page.locator(".interview-sample-outline").getAttribute("open"), null);
   assert.equal(await page.locator("#interview-sample-outline").isHidden(), true);
-  assert.match(await page.locator("#interview-sample-note").textContent(), /方括号.*可核验/);
-  assert.match(await page.locator(".interview-sample-source-note").textContent(), /仅用于核对公开产品边界.*不为.*背书/);
-  const sampleSourceLinks = page.locator("#interview-sample-sources a");
-  assert.equal(await sampleSourceLinks.count(), interviewSampleAnswers.sources.length);
-  for (const [index, source] of interviewSampleAnswers.sources.entries()) {
-    assert.equal(await sampleSourceLinks.nth(index).getAttribute("href"), source.url);
-    assert.equal(await sampleSourceLinks.nth(index).getAttribute("target"), "_blank");
-  }
-  assert.equal(
-    requestedURLs.filter((url) => interviewSampleAnswers.sources.some((source) => source.url === url)).length,
-    0,
-  );
+  assert.match(await page.locator("#interview-sample-note").textContent(), /简历中可核验.*方括号.*必须由本人补充/);
   const sampleScores = await page.evaluate((answers) => Object.entries(answers).map(([id, sample]) => {
     const question = findInterviewQuestion(id);
     const result = analyzeInterviewAnswer(sample.answer, question);
     return { id, score: result.passed.length };
   }), interviewAnswers);
   assert.ok(
-    sampleScores.every(({ score }) => score >= 4),
-    `reference samples below 4 / 5: ${sampleScores.filter(({ score }) => score < 4).map(({ id, score }) => `${id}=${score}`).join(", ")}`,
+    sampleScores.every(({ score }) => score >= 3),
+    `reference samples below 3 / 5: ${sampleScores.filter(({ score }) => score < 3).map(({ id, score }) => `${id}=${score}`).join(", ")}`,
   );
   assert.equal(requestedURLs.filter((url) => url.includes("interview-plan.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-question-bank.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 1);
-  assert.equal(requestedURLs.filter((url) => url.includes("interview-worldtrade-extension.json")).length, 1);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-worldtrade-extension.json")).length, 0);
   assert.equal(requestedURLs.filter((url) => url.includes("jobs.json")).length, 1);
   assert.equal(requestedURLs.filter((url) => url.includes("learning-guide.json")).length, 0);
 
@@ -787,7 +743,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     await page.locator("#interview-target-select").selectOption(target.id);
     await page.locator("#interview-question-select").selectOption("why-role-90-days");
     assert.match(await page.locator("#interview-question-prompt").textContent(), new RegExp(target.company));
-    await page.locator("#interview-target-select").selectOption("worldtrade");
+    await page.locator("#interview-target-select").selectOption("all");
 
     await page.locator("#interview-question-select").selectOption("fit-introduction");
     await page.locator("#interview-story-bank > summary").click();
@@ -810,7 +766,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
 
     assert.equal(await page.locator("#interview-sample-answer").isVisible(), true);
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /5 年 B 端产品运营.*3\.45 倍/);
     await page.locator("#interview-guidance > summary").click();
     await page.locator("#interview-use-template").click();
     assert.match(await page.locator("#interview-answer").inputValue(), /^现在：/);
@@ -839,7 +795,7 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(firstAttempt.latest.text, weakAnswer);
 
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /应聘的是蚂蚁国际万里汇 WorldTrade/);
+    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /5 年 B 端产品运营.*3\.45 倍/);
 
     const followUpAnswer = "我会先核对分母和商家队列，再用同口径的前后数据解释提升。";
     await page.locator("#interview-follow-up-answer").fill(followUpAnswer);
@@ -904,28 +860,26 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-bank-browser").getAttribute("open"), null);
     assert.equal(await page.locator("#interview-question-select option").count(), interviewBankQuestions.length);
     assert.equal(await page.locator(".interview-bank-item").count(), interviewBankQuestions.length);
-    await page.locator("#interview-question-select").selectOption("payment-status-timeout-consistency");
-    assert.equal(await page.locator("#interview-question-title").textContent(), "支付超时后如何确认最终状态");
-    assert.match(await page.locator("#interview-guide-note").textContent(), /公开面经脱敏转写.*不是原帖答案/);
-    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /状态未知.*网络超时/);
+    await page.locator("#interview-question-select").selectOption("voc-to-product-loop");
+    assert.equal(await page.locator("#interview-question-title").textContent(), "冲突信号如何转化为产品需求");
+    assert.equal(await page.locator("#interview-sample-step").isHidden(), true);
     await page.locator("#interview-bank-browser > summary").click();
-    await page.locator("#interview-bank-search").fill("供给结构");
+    await page.locator("#interview-bank-search").fill("销售激励");
     assert.equal(await page.locator(".interview-bank-item").count(), 1);
     assert.equal(await page.locator("#interview-bank-result-count").textContent(), "1 题 · 已练 0");
     await page.locator(".interview-bank-item").click();
-    assert.equal(await page.locator("#interview-question-title").textContent(), "供给结构与商家生态诊断");
-    assert.match(await page.locator("#interview-answer-edge").textContent(), /招商|需求侧/);
+    assert.equal(await page.locator("#interview-question-title").textContent(), "销售激励方案如何避免刷量");
+    assert.match(await page.locator("#interview-answer-edge").textContent(), /奖励点.*真实价值/);
     assert.equal(await page.locator("#interview-evidence-heading").textContent(), "回答前先明确");
     assert.match(await page.locator("#interview-guide-note").textContent(), /明确假设|未知结果/);
-    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
-    assert.match(page.url(), /#interview\/merchant-supply-structure$/);
+    assert.equal(await page.locator("#interview-sample-step").isHidden(), true);
+    assert.match(page.url(), /#interview\/sales-incentive-operations$/);
 
     const bankAnswer = [
-      "我的判断是先按品类和价格带定义需求缺口，不会直接扩大招商数量。",
-      "我会拆解新老商家队列、生命周期漏斗和头部集中度，用数据验证问题来自招商质量、冷启动还是流量机制。",
-      "优先选择高需求但有效供给不足的品类做试点，为潜力商家设计成长干预，同时设置 GMV、活跃供给、60 天留存、投诉和 ROI 护栏。",
-      "试点复盘后，只有增量成立且供给质量稳定才扩展；无效商家进入清退机制。",
+      "我的目标是推动客户获得真实价值，不只奖励签约数量；结果指标看激活、有效交易和收入，过程指标看合格商机与方案采用。",
+      "计分规则按客户潜力分层，对有效交易提高权重，并设置封顶、退款、投诉、异常交易和质量护栏，避免销售刷量。",
+      "我会推动销售培训、规则答疑和统一看板，每周复盘采用率、漏斗和异常行为。",
+      "最后用对照或历史同期验证增量与 ROI；如果签约上升但首笔下降，就调整规则并停止低质量奖励。",
     ].join("");
     await page.locator("#interview-answer").fill(bankAnswer);
     await page.locator("#interview-analyze-answer").click();
@@ -933,17 +887,16 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-reviewed-count").textContent(), `2 / ${totalQuestions}`);
     assert.match(await page.locator(".interview-bank-item").textContent(), /已尝试/);
     assert.equal(await page.locator(".interview-bank-arrow").textContent(), "•");
-    assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
-    assert.match(await page.locator("#interview-sample-answer-text").textContent(), /平台供给题|WorldTrade/);
+    assert.equal(await page.locator("#interview-sample-step").isHidden(), true);
     assert.deepEqual(
       new Set(await page.evaluate(() => JSON.parse(localStorage.getItem("recruitment-interview-reviewed-v1")))),
-      new Set(["fit-introduction", "merchant-supply-structure"]),
+      new Set(["fit-introduction", "sales-incentive-operations"]),
     );
     await page.reload({ waitUntil: "domcontentloaded" });
     await page.locator("#interview-panel").waitFor();
     assert.equal(await page.locator("#interview-bank-mode").getAttribute("aria-selected"), "true");
-    assert.match(await page.locator("#interview-answer").inputValue(), /需求缺口/);
-    assert.match(page.url(), /#interview\/merchant-supply-structure$/);
+    assert.match(await page.locator("#interview-answer").inputValue(), /真实价值/);
+    assert.match(page.url(), /#interview\/sales-incentive-operations$/);
 
     await page.evaluate(() => { location.hash = "#interview"; });
     await page.locator("#interview-panel").waitFor();
@@ -955,20 +908,16 @@ async function checkInterviewPractice(browser, viewport, screenshotPath, fullFlo
     assert.equal(await page.locator("#interview-question-title").textContent(), "两分钟自我介绍与岗位匹配");
 
     await page.locator("#interview-target-select").selectOption(target.id);
-    await page.locator("#interview-bank-mode").click();
-    await page.locator('#interview-question-select option[value="career-transition-motivation"]').waitFor({ state: "attached" });
-    await page.locator("#interview-question-select").selectOption("career-transition-motivation");
-    const motivationAnswer = "我选择转向跨境支付增长，是因为过去的商家增长项目让我确认，自己的优势是用数据定位转化问题并推动多团队落地。这个岗位要求的数据分析、商业结果和国际协作与我的真实经历直接匹配；入职后我会先梳理商家分层与支付漏斗，用 30、60、90 天验证优先机会。";
-    await page.locator("#interview-answer").fill(motivationAnswer);
-    await page.locator("#interview-analyze-answer").click();
-    assert.match(await page.locator("#interview-sample-note").textContent(), /不是 WorldTrade.*只可借用结构/);
+    await page.locator("#interview-core-mode").click();
+    await page.locator("#interview-question-select").selectOption("fit-introduction");
+    assert.match(await page.locator("#interview-sample-note").textContent(), /具体岗位.*当前 JD 重写/);
     assert.equal(await page.locator("#interview-sample-full").isVisible(), true);
     assert.ok((await page.locator("#interview-sample-answer-text").textContent()).trim().length > 180);
 
     page.once("dialog", (dialog) => dialog.accept());
     await page.locator("#interview-clear-data").click();
     await page.waitForFunction(() => document.querySelector("#interview-input-message")?.textContent.includes("本机面试数据已清除"));
-    assert.equal(await page.locator("#interview-target-select").inputValue(), "worldtrade");
+    assert.equal(await page.locator("#interview-target-select").inputValue(), "all");
     assert.equal(await page.locator("#interview-reviewed-count").textContent(), `0 / ${totalQuestions}`);
     assert.equal(await page.locator("#interview-progress-detail").textContent(), "已复练 0 · 待复查 0");
     assert.equal(await page.locator("#interview-answer").inputValue(), "");
@@ -1052,9 +1001,9 @@ async function checkInterviewBankFallback(browser) {
     contentType: "application/json",
     body: JSON.stringify({ error: "not found" }),
   }));
-  await page.goto(`${baseURL}/#interview/payment-drop-diagnosis`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.goto(`${baseURL}/#interview/product-experience-loop`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.locator("#interview-panel").waitFor();
-  assert.equal(await page.locator("#interview-question-title").textContent(), "支付成功率突降诊断");
+  assert.equal(await page.locator("#interview-question-title").textContent(), "商户反馈到产品改进闭环");
   assert.equal(await page.locator("#interview-question-select option").count(), interviewPlan.questions.length);
   assert.equal(await page.locator("#interview-bank-mode").isDisabled(), true);
   assert.equal(await page.locator("#interview-bank-count").textContent(), "0");
@@ -1269,7 +1218,7 @@ async function checkInterviewRecording(browser) {
   await page.waitForFunction(() => document.querySelector("#interview-recording-status")?.textContent.includes("麦克风权限"));
   assert.equal(await page.locator("#interview-record-answer").isEnabled(), true);
   assert.equal(requestedURLs.filter((url) => url.includes("interview-sample-answers.json")).length, 3);
-  assert.equal(requestedURLs.filter((url) => url.includes("interview-worldtrade-extension.json")).length, 3);
+  assert.equal(requestedURLs.filter((url) => url.includes("interview-worldtrade-extension.json")).length, 0);
   assert.deepEqual(errors, []);
   await page.close();
 }

@@ -122,7 +122,8 @@ const storedInterviewDrafts = storedInterviewDraftsValue
   && !Array.isArray(storedInterviewDraftsValue)
   ? storedInterviewDraftsValue
   : {};
-const storedInterviewTarget = readStoredString("recruitment-interview-target-v1", "worldtrade");
+const storedInterviewTargetValue = readStoredString("recruitment-interview-target-v1", "all");
+const storedInterviewTarget = storedInterviewTargetValue === "worldtrade" ? "all" : storedInterviewTargetValue;
 
 function storedArray(key) {
   const value = readStoredJSON(key, []);
@@ -177,26 +178,6 @@ storedArray("recruitment-interview-reviewed-v1").forEach((questionId) => {
   };
 });
 
-const WORLDTRADE_TARGET = {
-  id: "worldtrade",
-  tier: "专项",
-  company: "蚂蚁国际万里汇",
-  title: "WorldTrade 支付增长运营",
-  dimensions: ["增长/生命周期", "数据分析", "商业结果", "策略设计", "跨团队推进", "国际化", "支付业务", "电商/商家"],
-  requiresEnglish: true,
-};
-
-const INTERVIEW_QUESTION_RELEVANCE = {
-  direct: new Set([
-    "merchant-segmentation", "payment-drop-diagnosis", "operations-system-0to1", "retention-recovery",
-    "customer-customization-tradeoff", "voc-to-product-loop", "sales-incentive-operations",
-    "localized-growth-plan", "partner-negotiation",
-  ]),
-  transfer: new Set([
-    "merchant-wallet-growth-case", "international-bnpl-growth", "ab-incentive-design", "transfer-solutions-gtm",
-    "business-review-anomaly", "channel-budget-reallocation", "market-entry-business-case", "merchant-supply-structure",
-  ]),
-};
 const state = {
   data: null,
   guide: null,
@@ -391,7 +372,6 @@ const elements = {
   interviewSampleStep: document.querySelector("#interview-sample-step"),
   interviewSampleNote: document.querySelector("#interview-sample-note"),
   interviewSampleOutline: document.querySelector("#interview-sample-outline"),
-  interviewSampleSources: document.querySelector("#interview-sample-sources"),
   interviewSampleAnswerText: document.querySelector("#interview-sample-answer-text"),
   interviewSampleRisk: document.querySelector("#interview-sample-risk"),
   previousInterviewQuestion: document.querySelector("#previous-interview-question"),
@@ -2987,61 +2967,21 @@ function validateInterviewSamples(samples, questions) {
   if (!samples?.persona?.role || !samples.persona.usageNote || !Array.isArray(samples.sources)) {
     throw new Error("参考范文格式不正确");
   }
-  if (samples.sources.length < 3 || !samples.sources.every((source) => {
+  if (!samples.sources.every((source) => {
     if (!(source.name && source.url && source.focus)) return false;
     try {
       return new URL(source.url).protocol === "https:";
     } catch {
       return false;
     }
-  })) throw new Error("参考范文缺少公开业务依据");
+  })) throw new Error("参考范文来源格式不正确");
   const answers = samples.answers || {};
   const complete = questions.every((question) => {
     const sample = answers[question.id];
     return sample?.answer?.trim().length >= 180 && sample.riskNote?.trim();
   });
-  if (!complete) throw new Error("参考范文没有覆盖全部面试题");
+  if (!complete) throw new Error("参考范文没有覆盖全部核心题");
   return samples;
-}
-
-function mergeInterviewRoleExtension(questionBank, samples, extension) {
-  if (!extension || extension.loadError) throw new Error(extension?.loadError || "专项题库内容为空");
-  const sources = extension.sources || [];
-  const sourceIds = new Set(sources.map((source) => source.id));
-  if (
-    extension.questions?.length !== 50
-    || sourceIds.size !== sources.length
-    || !sources.every((source) => (
-      source.id
-      && ["interview-report", "official"].includes(source.type)
-      && source.name
-      && source.focus
-      && new URL(source.url).protocol === "https:"
-    ))
-  ) throw new Error("专项题库缺少题目或公开来源");
-  const extensionProfiles = extension.checkProfiles || {};
-  if (!Object.values(extensionProfiles).every((checks) => (
-    checks.length === 5 && checks.every(validInterviewCheck)
-  ))) throw new Error("专项题库检查项格式不正确");
-  if (!extension.questions.every((question) => (
-    ["interview-report", "official-scenario"].includes(question.origin)
-    && question.sourceRefs?.length
-    && question.sourceRefs.every((sourceId) => sourceIds.has(sourceId))
-    && extension.answers?.[question.id]?.answer?.trim().length >= 180
-    && extension.answers[question.id].riskNote?.trim()
-  ))) throw new Error("专项题库缺少题源或范文");
-  return {
-    questionBank: {
-      ...questionBank,
-      checkProfiles: { ...questionBank.checkProfiles, ...extensionProfiles },
-      researchSources: sources,
-      questions: [...questionBank.questions, ...extension.questions],
-    },
-    samples: {
-      ...samples,
-      answers: { ...samples.answers, ...extension.answers },
-    },
-  };
 }
 
 function validateInterviewPlan(plan, questionBank = null) {
@@ -3120,23 +3060,10 @@ async function ensureInterviewPlanLoaded() {
         if (!response.ok) throw new Error(`参考范文 HTTP ${response.status}`);
         return response.json();
       }).catch((error) => ({ loadError: error.message })),
-      fetch("interview-worldtrade-extension.json").then((response) => {
-        if (!response.ok) throw new Error(`WorldTrade 专项题库 HTTP ${response.status}`);
-        return response.json();
-      }).catch((error) => ({ loadError: error.message })),
     ])
-      .then(([plan, questionBank, samples, roleExtension]) => {
+      .then(([plan, questionBank, samples]) => {
         const corePlan = validateInterviewPlan(plan);
         let validatedPlan;
-        if (!questionBank?.loadError && !samples?.loadError) {
-          try {
-            const merged = mergeInterviewRoleExtension(questionBank, samples, roleExtension);
-            questionBank = merged.questionBank;
-            samples = merged.samples;
-          } catch (error) {
-            console.warn(`WorldTrade 专项题库加载失败，保留原题库：${error.message}`);
-          }
-        }
         if (!questionBank || questionBank.loadError) {
           const loadError = questionBank?.loadError || "题库内容为空";
           console.warn(`面试题库加载失败，已降级为核心训练：${loadError}`);
@@ -3157,10 +3084,7 @@ async function ensureInterviewPlanLoaded() {
           validatedPlan.sampleAnswers = emptyInterviewSamples(loadError);
         } else {
           try {
-            validatedPlan.sampleAnswers = validateInterviewSamples(samples, [
-              ...validatedPlan.questions,
-              ...validatedPlan.questionBank.questions,
-            ]);
+            validatedPlan.sampleAnswers = validateInterviewSamples(samples, validatedPlan.questions);
           } catch (error) {
             console.warn(`参考范文校验失败：${error.message}`);
             validatedPlan.sampleAnswers = emptyInterviewSamples(error.message);
@@ -3182,7 +3106,6 @@ function interviewAJobs() {
 }
 
 function currentInterviewTarget() {
-  if (state.interviewTarget === "worldtrade") return WORLDTRADE_TARGET;
   if (state.interviewTarget === "all") return null;
   return interviewAJobs().find((job) => job.id === state.interviewTarget) || null;
 }
@@ -3497,17 +3420,13 @@ function renderInterviewSidebar() {
 
 function renderInterviewTargetOptions() {
   const jobs = interviewAJobs();
-  const validTarget = ["worldtrade", "all"].includes(state.interviewTarget)
+  const validTarget = state.interviewTarget === "all"
     || jobs.some((job) => job.id === state.interviewTarget);
-  if (!validTarget) state.interviewTarget = "worldtrade";
+  if (!validTarget) state.interviewTarget = "all";
   elements.interviewTargetSelect.replaceChildren();
-  const worldtrade = document.createElement("option");
-  worldtrade.value = "worldtrade";
-  worldtrade.textContent = "专项 · WorldTrade 支付增长运营";
-  elements.interviewTargetSelect.append(worldtrade);
   const all = document.createElement("option");
   all.value = "all";
-  all.textContent = "综合 A 档岗位要求";
+  all.textContent = "综合 A 档岗位要求（默认）";
   elements.interviewTargetSelect.append(all);
   ["A+", "A-"].forEach((tier) => {
     const group = document.createElement("optgroup");
@@ -3544,9 +3463,6 @@ function renderInterviewQuestionOptions() {
 }
 
 function interviewTargetRoleFamilies(target) {
-  if (target.id === "worldtrade") {
-    return new Set(["data", "delivery", "growth", "merchant", "international", "payment", "insight", "strategy", "commercial"]);
-  }
   const families = new Set(["data", "delivery"]);
   const title = target.title.toLocaleLowerCase();
   if (/增长|用户|营销|投放|补贴|裂变|提频|会员|收入|growth|marketing/.test(title)) families.add("growth");
@@ -3576,17 +3492,6 @@ function filteredInterviewBankQuestions() {
       ].join(" ").toLocaleLowerCase().includes(query);
     })
     .sort((left, right) => {
-      if (state.interviewTarget === "worldtrade") {
-        const relevanceScore = (question) => INTERVIEW_QUESTION_RELEVANCE.direct.has(question.id)
-          ? 2
-          : question.sourceRefs?.length
-            ? 2
-          : INTERVIEW_QUESTION_RELEVANCE.transfer.has(question.id)
-            ? 0
-            : 1;
-        const relevanceDelta = relevanceScore(right) - relevanceScore(left);
-        if (relevanceDelta) return relevanceDelta;
-      }
       const priorityDelta = priorityOrder[left.priority] - priorityOrder[right.priority];
       if (priorityDelta) return priorityDelta;
       if (!target) return 0;
@@ -4136,25 +4041,14 @@ function renderInterviewSample(question) {
   const sample = samples?.answers?.[question.id];
   elements.interviewSampleStep.hidden = !sample;
   if (!sample) return;
-  const targetIsWorldTrade = state.interviewTarget === "worldtrade";
-  elements.interviewSampleNote.textContent = targetIsWorldTrade
+  elements.interviewSampleNote.textContent = state.interviewTarget === "all"
     ? samples.persona.usageNote
-    : "当前题目参考岗位不是 WorldTrade。下面只可借用结构和表达方式，岗位动机、公司名称与业务事实必须按当前岗位重写。";
+    : "当前选择了具体岗位。下面只可借用简历事实的组织方式；公司、岗位动机和能力映射必须按当前 JD 重写。";
   elements.interviewSampleOutline.replaceChildren();
   question.framework.forEach((step) => {
     const item = document.createElement("li");
     item.textContent = step;
     elements.interviewSampleOutline.append(item);
-  });
-  elements.interviewSampleSources.replaceChildren();
-  samples.sources.forEach((source) => {
-    const link = document.createElement("a");
-    link.href = source.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = source.name;
-    link.title = source.focus;
-    elements.interviewSampleSources.append(link);
   });
   elements.interviewSampleAnswerText.replaceChildren();
   const sentences = sample.answer.match(/[^。！？.!?]+[。！？.!?]?/g) || [sample.answer];
@@ -4208,9 +4102,7 @@ function renderInterviewQuestion() {
     : "只使用真实且可脱敏的经历。没有可靠数字时，用范围、前后对比或可核验反馈，不要补造数字。";
   const sourceNote = question.origin === "interview-report"
     ? "题目由公开面经脱敏转写；参考范文为本站重新组织，不是原帖答案。"
-    : question.origin === "official-scenario"
-      ? "题目依据 WorldTrade 公开产品边界设计，不代表官方内部题库。"
-      : "";
+    : "";
   elements.interviewGuideNote.textContent = [guidanceNote, sourceNote].filter(Boolean).join(" ");
 
   elements.interviewAnswer.value = state.interviewDrafts[question.id] || "";
@@ -4604,9 +4496,9 @@ async function navigateInterview(questionId = null, updateURL = true) {
     state.interviewMode = interviewBankQuestions().some((question) => question.id === state.interviewQuestion)
       ? "bank"
       : "core";
-    const validTarget = ["worldtrade", "all"].includes(state.interviewTarget)
+    const validTarget = state.interviewTarget === "all"
       || interviewAJobs().some((job) => job.id === state.interviewTarget);
-    if (!validTarget) state.interviewTarget = "worldtrade";
+    if (!validTarget) state.interviewTarget = "all";
     renderInterviewMethodSources();
     renderInterviewTargetOptions();
     renderInterviewQuestion();
@@ -4661,7 +4553,7 @@ async function clearAllInterviewData() {
   state.interviewStoryCards = DEFAULT_INTERVIEW_STORIES.map((story) => ({ ...story }));
   state.interviewStoryBindings = {};
   state.interviewStory = state.interviewStoryCards[0].id;
-  state.interviewTarget = "worldtrade";
+  state.interviewTarget = "all";
   releaseAllInterviewRecordingURLs();
   interviewRecordingArchives.clear();
   selectedInterviewRecordingId = null;
