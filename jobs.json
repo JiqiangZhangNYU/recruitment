@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T06:24:01+08:00",
+  "generatedAt": "2026-08-27T06:23:50+08:00",
   "sourceGeneratedAt": "2026-07-22T14:31:20.529Z",
-  "officialSourceGeneratedAt": "2026-08-25T22:23:50.866Z",
+  "officialSourceGeneratedAt": "2026-08-26T22:23:44.953Z",
   "officialSources": [
     {
       "id": "bytedance",
@@ -45,9 +45,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 1045,
-      "previous_count": 1046,
-      "fetched_at": "2026-08-25T22:16:36.622Z"
+      "candidate_count": 1044,
+      "previous_count": 1045,
+      "fetched_at": "2026-08-26T22:16:39.900Z"
     },
     {
       "id": "ant",
@@ -90,9 +90,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 85,
-      "previous_count": 83,
-      "fetched_at": "2026-08-25T22:17:27.755Z"
+      "candidate_count": 88,
+      "previous_count": 85,
+      "fetched_at": "2026-08-26T22:17:28.011Z"
     },
     {
       "id": "alibaba",
@@ -134,9 +134,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 35,
-      "previous_count": 32,
-      "fetched_at": "2026-08-25T22:17:40.801Z"
+      "candidate_count": 33,
+      "previous_count": 35,
+      "fetched_at": "2026-08-26T22:17:40.460Z"
     },
     {
       "id": "tencent",
@@ -179,7 +179,7 @@
       ],
       "candidate_count": 6,
       "previous_count": 6,
-      "fetched_at": "2026-08-25T22:18:07.758Z"
+      "fetched_at": "2026-08-26T22:18:07.401Z"
     },
     {
       "id": "meituan",
@@ -221,9 +221,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 384,
-      "previous_count": 382,
-      "fetched_at": "2026-08-25T22:18:42.999Z"
+      "candidate_count": 385,
+      "previous_count": 384,
+      "fetched_at": "2026-08-26T22:18:43.395Z"
     },
     {
       "id": "jd",
@@ -266,7 +266,7 @@
       ],
       "candidate_count": 2,
       "previous_count": 2,
-      "fetched_at": "2026-08-25T22:18:45.065Z"
+      "fetched_at": "2026-08-26T22:18:44.969Z"
     },
     {
       "id": "xiaohongshu",
@@ -308,9 +308,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 134,
+      "candidate_count": 136,
       "previous_count": 134,
-      "fetched_at": "2026-08-25T22:19:07.627Z"
+      "fetched_at": "2026-08-26T22:19:07.567Z"
     },
     {
       "id": "ctrip",
@@ -352,9 +352,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 136,
-      "previous_count": 134,
-      "fetched_at": "2026-08-25T22:19:35.827Z"
+      "candidate_count": 135,
+      "previous_count": 136,
+      "fetched_at": "2026-08-26T22:19:35.988Z"
     },
     {
       "id": "didi",
@@ -365,8 +365,8 @@
         "上海运营"
       ],
       "candidate_count": 16,
-      "previous_count": 14,
-      "fetched_at": "2026-08-25T22:19:47.994Z"
+      "previous_count": 16,
+      "fetched_at": "2026-08-26T22:19:48.140Z"
     },
     {
       "id": "baidu",
@@ -376,9 +376,9 @@
       "queries": [
         "上海社招全量"
       ],
-      "candidate_count": 210,
-      "previous_count": 209,
-      "fetched_at": "2026-08-25T22:19:56.972Z"
+      "candidate_count": 217,
+      "previous_count": 210,
+      "fetched_at": "2026-08-26T22:19:57.166Z"
     },
     {
       "id": "kuaishou",
@@ -390,7 +390,7 @@
       ],
       "candidate_count": 57,
       "previous_count": 57,
-      "fetched_at": "2026-08-25T22:19:58.384Z"
+      "fetched_at": "2026-08-26T22:19:58.455Z"
     },
     {
       "id": "bilibili",
@@ -432,9 +432,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 24,
+      "candidate_count": 25,
       "previous_count": 24,
-      "fetched_at": "2026-08-25T22:20:24.745Z"
+      "fetched_at": "2026-08-26T22:20:24.108Z"
     },
     {
       "id": "dewu",
@@ -476,9 +476,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 155,
+      "candidate_count": 158,
       "previous_count": 155,
-      "fetched_at": "2026-08-25T22:21:35.795Z"
+      "fetched_at": "2026-08-26T22:21:36.058Z"
     },
     {
       "id": "pdd",
@@ -497,7 +497,7 @@
       "candidate_count": 40,
       "previous_count": 40,
       "error": "拼多多风控 54001: 请求失败",
-      "fetched_at": "2026-08-25T22:23:15.247Z"
+      "fetched_at": "2026-08-26T22:23:13.029Z"
     },
     {
       "id": "airwallex",
@@ -509,7 +509,7 @@
       ],
       "candidate_count": 32,
       "previous_count": 32,
-      "fetched_at": "2026-08-25T22:23:18.482Z"
+      "fetched_at": "2026-08-26T22:23:15.647Z"
     },
     {
       "id": "mastercard",
@@ -521,7 +521,7 @@
       ],
       "candidate_count": 7,
       "previous_count": 7,
-      "fetched_at": "2026-08-25T22:23:33.782Z"
+      "fetched_at": "2026-08-26T22:23:29.189Z"
     },
     {
       "id": "adyen",
@@ -531,9 +531,9 @@
       "queries": [
         "上海全量"
       ],
-      "candidate_count": 4,
+      "candidate_count": 3,
       "previous_count": 4,
-      "fetched_at": "2026-08-25T22:23:38.217Z"
+      "fetched_at": "2026-08-26T22:23:33.890Z"
     },
     {
       "id": "worldpay",
@@ -545,7 +545,7 @@
       ],
       "candidate_count": 4,
       "previous_count": 4,
-      "fetched_at": "2026-08-25T22:23:48.018Z"
+      "fetched_at": "2026-08-26T22:23:40.794Z"
     },
     {
       "id": "huifu",
@@ -557,7 +557,7 @@
       ],
       "candidate_count": 9,
       "previous_count": 9,
-      "fetched_at": "2026-08-25T22:23:48.328Z"
+      "fetched_at": "2026-08-26T22:23:41.187Z"
     },
     {
       "id": "yeepay",
@@ -569,13 +569,13 @@
       ],
       "candidate_count": 18,
       "previous_count": 18,
-      "fetched_at": "2026-08-25T22:23:50.865Z"
+      "fetched_at": "2026-08-26T22:23:44.952Z"
     }
   ],
   "platformSourceGeneratedAt": null,
   "platformSources": [],
-  "poolSize": 2905,
-  "eligibleSize": 172,
+  "poolSize": 2917,
+  "eligibleSize": 174,
   "displayedSize": 90,
   "counts": {
     "A+": 2,
@@ -634,10 +634,10 @@
           "理解表粒度、指标口径、空值异常与数据质量检查"
         ],
         "practice": "用模拟用户行为表完成新增、激活、7 日留存和付费转化分析，输出一页结论。",
-        "jobCount": 1,
+        "jobCount": 0,
         "totalJobs": 90,
         "relatedCount": 90,
-        "evidence": "90/90 个岗位涉及数据分析；1 个明确点名 SQL/Excel"
+        "evidence": "90/90 个岗位涉及数据分析；0 个明确点名 SQL/Excel"
       },
       {
         "id": "metrics-funnel",
@@ -651,10 +651,10 @@
           "渠道归因、ROI、CAC、LTV、GMV 和利润基础口径"
         ],
         "practice": "搭建一张增长指标树和转化漏斗，指出三个问题环节及对应运营动作。",
-        "jobCount": 35,
+        "jobCount": 36,
         "totalJobs": 90,
         "relatedCount": null,
-        "evidence": "35/90 个岗位正文明确涉及"
+        "evidence": "36/90 个岗位正文明确涉及"
       },
       {
         "id": "lifecycle",
@@ -685,10 +685,10 @@
           "优先级、资源测算、风险预案和复盘迭代"
         ],
         "practice": "写一份 3 页增长方案：业务诊断、策略设计、执行排期与量化目标。",
-        "jobCount": 69,
+        "jobCount": 68,
         "totalJobs": 90,
         "relatedCount": null,
-        "evidence": "69/90 个岗位正文明确涉及"
+        "evidence": "68/90 个岗位正文明确涉及"
       },
       {
         "id": "project",
@@ -719,10 +719,10 @@
           "输出机会点、证据、影响范围和建议优先级"
         ],
         "practice": "访谈 5 名目标用户，结合一份行为数据写出洞察、证据和三项机会点。",
-        "jobCount": 27,
+        "jobCount": 26,
         "totalJobs": 90,
         "relatedCount": null,
-        "evidence": "27/90 个岗位正文明确涉及"
+        "evidence": "26/90 个岗位正文明确涉及"
       },
       {
         "id": "experimentation",
@@ -771,10 +771,10 @@
           "供给结构、品类运营、营销活动和商家激励"
         ],
         "practice": "为一个品类制定商家分层与供给增长方案，明确 GMV 拆解和周度指标。",
-        "jobCount": 73,
+        "jobCount": 74,
         "totalJobs": 90,
         "relatedCount": null,
-        "evidence": "73/90 个岗位正文明确涉及"
+        "evidence": "74/90 个岗位正文明确涉及"
       },
       {
         "id": "english",
@@ -788,10 +788,10 @@
           "用英语说明业务背景、个人贡献、结果和复盘"
         ],
         "practice": "准备一份英文项目复盘并完成 5 分钟口述，覆盖目标、动作、数据和结果。",
-        "jobCount": 15,
+        "jobCount": 13,
         "totalJobs": 90,
         "relatedCount": null,
-        "evidence": "15/90 个岗位正文明确涉及"
+        "evidence": "13/90 个岗位正文明确涉及"
       }
     ]
   },
@@ -2381,8 +2381,68 @@
       "url": "https://careers.dewu.com/index/position/7356542130318526771/detail"
     },
     {
-      "id": "job-a8dc28a2ac43b271",
+      "id": "job-8ab2662943de133e",
       "rank": 27,
+      "title": "闪电仓CKA商家运营-东部",
+      "company": "美团",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "3年以上",
+      "education": "本科",
+      "score": 69,
+      "tier": "B",
+      "tierLabel": "B 有部分匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "paymentNative": false,
+      "paymentLeader": false,
+      "internationalPaymentFit": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "directResumeFit": true,
+      "transferableResumeFit": true,
+      "seniorityGap": false,
+      "functionGap": false,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "meituan",
+      "sourceLabel": "美团官网",
+      "officialSource": true,
+      "postedAt": 1787710687000,
+      "sourceJobId": "4711626275",
+      "directions": [
+        "用户增长",
+        "商家电商"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "策略设计",
+        "跨团队推进",
+        "B端商户/行业",
+        "产品运营/体验"
+      ],
+      "responsibilities": [
+        "经营分析诊断。能够识别品牌优劣势，并以货盘-品类-商品的视角洞察机会点与问题点",
+        "业务策略制定。擅长品类运营，以商品为最小策略单元，共建品牌策略方案，驱动品牌GMV增长与经营改善",
+        "多方资源整合。清晰了解品牌、门店、上游厂商、平台的资源空间，并依托业务策略及产品工具整合营销方案。"
+      ],
+      "requirements": "本科及以上学历，3年以上零售行业经验。；懂数据：熟练使用BI工具进行经营分析，能独立完成从数据-洞察-策略全链路工作",
+      "notes": [
+        "简历没有电商平台、商品供给或类目运营履历",
+        "可能涉及出差或驻外"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://zhaopin.meituan.com/web/position/detail?highlightType=social&jobShareType=1&jobUnionId=4711626275"
+    },
+    {
+      "id": "job-a8dc28a2ac43b271",
+      "rank": 28,
       "title": "互联网行业策略专家",
       "company": "小红书",
       "salary": "未提取",
@@ -2439,7 +2499,7 @@
     },
     {
       "id": "job-ed35ccc7199ad385",
-      "rank": 28,
+      "rank": 29,
       "title": "酒店民宿商业化高级产品运营",
       "company": "美团",
       "salary": "未提取",
@@ -2498,7 +2558,7 @@
     },
     {
       "id": "job-e77eeb378b4dc1c1",
-      "rank": 29,
+      "rank": 30,
       "title": "评价产品运营专家-抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -2558,7 +2618,7 @@
     },
     {
       "id": "job-9dc1ec757fd78bd9",
-      "rank": 30,
+      "rank": 31,
       "title": "丽人行业运营",
       "company": "美团",
       "salary": "未提取",
@@ -2617,7 +2677,7 @@
     },
     {
       "id": "job-06b8f1f96a78eb85",
-      "rank": 31,
+      "rank": 32,
       "title": "淘宝闪购-行业保险产品运营专家-商流保险产品方案",
       "company": "阿里巴巴",
       "salary": "未提取",
@@ -2676,7 +2736,7 @@
     },
     {
       "id": "job-649f3998d69726a5",
-      "rank": 32,
+      "rank": 33,
       "title": "腾讯云-智慧零售-行业解决方案架构师（零售AI方向-FDE Consultant）-商超便利/零食渠道/营养保健滋补等方向",
       "company": "腾讯",
       "salary": "未提取",
@@ -2737,7 +2797,7 @@
     },
     {
       "id": "job-8539f2edcfcdc39a",
-      "rank": 33,
+      "rank": 34,
       "title": "腾讯云-智慧零售-行业解决方案-（AI数智化方向-FDE Consultant）-深圳",
       "company": "腾讯",
       "salary": "未提取",
@@ -2798,7 +2858,7 @@
     },
     {
       "id": "job-39fcf8469f2ab314",
-      "rank": 34,
+      "rank": 35,
       "title": "策略运营",
       "company": "JCtrans",
       "salary": "12-15K",
@@ -2859,7 +2919,7 @@
     },
     {
       "id": "job-8f5ee12298e7b849",
-      "rank": 35,
+      "rank": 36,
       "title": "休闲娱乐行业运营-抖音生活服务",
       "company": "字节跳动",
       "salary": "未提取",
@@ -2917,7 +2977,7 @@
     },
     {
       "id": "job-3ea8c2fbe180d7c8",
-      "rank": 36,
+      "rank": 37,
       "title": "用户运营专家（货品补贴方向）-抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -2975,7 +3035,7 @@
     },
     {
       "id": "job-d72dbc4979c0415b",
-      "rank": 37,
+      "rank": 38,
       "title": "电商行业运营-鞋靴箱包",
       "company": "小红书",
       "salary": "未提取",
@@ -3033,7 +3093,7 @@
     },
     {
       "id": "job-d89d4c3ff0497174",
-      "rank": 38,
+      "rank": 39,
       "title": "盒马-生活服务商家运营-总部",
       "company": "阿里巴巴",
       "salary": "未提取",
@@ -3091,7 +3151,7 @@
     },
     {
       "id": "job-1d323fed2839a9c6",
-      "rank": 39,
+      "rank": 40,
       "title": "用户增长运营（联合用增方向）-抖音电商",
       "company": "字节跳动",
       "salary": "25-50K·15薪",
@@ -3149,7 +3209,7 @@
     },
     {
       "id": "job-68c78a002bdb4843",
-      "rank": 40,
+      "rank": 41,
       "title": "用户产品运营（推荐方向）-抖音生活服务",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3210,7 +3270,7 @@
     },
     {
       "id": "job-d4840640a1e96ae2",
-      "rank": 41,
+      "rank": 42,
       "title": "欧美商家产品运营-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -3269,68 +3329,6 @@
       "agency": false,
       "sensitive": false,
       "url": "https://jobs.bytedance.com/experienced/position/7613698587528481029/detail"
-    },
-    {
-      "id": "job-88b610856e26971c",
-      "rank": 42,
-      "title": "平台与体验运营（用户增长激励业务） - TikTok用户增长",
-      "company": "字节跳动",
-      "salary": "未提取",
-      "salaryFloor": null,
-      "city": "上海",
-      "experience": "未提取",
-      "education": "本科",
-      "score": 66,
-      "tier": "B",
-      "tierLabel": "B 有部分匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "paymentNative": false,
-      "paymentLeader": false,
-      "internationalPaymentFit": false,
-      "majorCompany": true,
-      "strategyRelevant": true,
-      "directResumeFit": false,
-      "transferableResumeFit": true,
-      "seniorityGap": false,
-      "functionGap": false,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "source": "bytedance",
-      "sourceLabel": "字节跳动官网",
-      "officialSource": true,
-      "postedAt": 1783317843314,
-      "sourceJobId": "7659291575515662597",
-      "directions": [
-        "用户增长",
-        "商家电商",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "策略设计",
-        "跨团队推进",
-        "国际化",
-        "B端商户/行业",
-        "产品运营/体验"
-      ],
-      "responsibilities": [
-        "负责激励业务平台能力共建、能力验证、需求对接和C端用户反馈机制建设，主动规划内部平台迭代方向，推动运营效率提升与产品体验优化",
-        "深入理解激励业务运营流程与平台能力现状，主动识别配置体验、功能缺失、链路断点等平台问题，规划平台能力迭代方向与优先级，推动产品、研发落地，持续提升运营效率与平台可用性",
-        "主导触达与分发平台（异形卡、挂件、EDM、Pushlink等）能力的运营侧规划与共建，从业务需求出发提出产品能力诉求、参与方案设计、完成上线验证，并沉淀配置规范与使用SOP，推动新能力在全区域规模化应用与持续迭代"
-      ],
-      "requirements": "本科及以上学历，具备平台运营、产品运营、用户运营或体验运营相关经验，有增长、激励玩法相关经验优先；英语能力强，可作为工作语言，具备国际化学习经历者优先。 加分项",
-      "notes": [
-        "雅思 6.5 不能直接证明流利商务英语",
-        "需要英语能力",
-        "岗位主职能不在支付运营、B 端产品 GTM 或商户生命周期主线"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://jobs.bytedance.com/experienced/position/7659291575515662597/detail"
     },
     {
       "id": "job-3ff951d526ed2a21",
@@ -4312,8 +4310,69 @@
       "url": "https://jobs.bilibili.com/social/positions/29307"
     },
     {
-      "id": "job-34ae552fa8b1d161",
+      "id": "job-88b610856e26971c",
       "rank": 60,
+      "title": "平台与体验运营（用户增长激励业务） - TikTok用户增长",
+      "company": "字节跳动",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 62,
+      "tier": "B",
+      "tierLabel": "B 有部分匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "paymentNative": false,
+      "paymentLeader": false,
+      "internationalPaymentFit": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "directResumeFit": false,
+      "transferableResumeFit": true,
+      "seniorityGap": false,
+      "functionGap": false,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "bytedance",
+      "sourceLabel": "字节跳动官网",
+      "officialSource": true,
+      "postedAt": 1783317843314,
+      "sourceJobId": "7659291575515662597",
+      "directions": [
+        "用户增长",
+        "商家电商",
+        "海外跨境"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "跨团队推进",
+        "国际化",
+        "B端商户/行业",
+        "产品运营/体验"
+      ],
+      "responsibilities": [
+        "深入理解激励业务运营流程与平台能力现状，主动识别配置体验、功能缺失、链路断点等平台问题，规划平台能力迭代方向与优先级，推动产品、研发落地，持续提升运营效率与平台可用性",
+        "主导触达与分发平台（异形卡、挂件、EDM、Pushlink等）能力的运营侧规划与共建，从业务需求出发提出产品能力诉求、参与方案设计、完成上线验证，并沉淀配置规范与使用SOP，推动新能力在全区域规模化应用与持续迭代",
+        "搭建C端用户反馈驱动产品迭代的机制，完善反馈标签体系、问题复盘节奏与指标追踪，推动高频问题的识别、归因和产品侧修复落地"
+      ],
+      "requirements": "本科及以上学历，具备平台运营、产品运营、用户运营或体验运营相关经验，有增长、激励玩法相关经验优先；英语能力强，可作为工作语言，具备国际化学习经历者优先。 加分项",
+      "notes": [
+        "雅思 6.5 不能直接证明流利商务英语",
+        "需要英语能力",
+        "岗位主职能不在支付运营、B 端产品 GTM 或商户生命周期主线"
+      ],
+      "requiresEnglish": true,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://jobs.bytedance.com/experienced/position/7659291575515662597/detail"
+    },
+    {
+      "id": "job-34ae552fa8b1d161",
+      "rank": 61,
       "title": "高德销服科技-GSKA商家运营（交易方向）-上海",
       "company": "阿里巴巴",
       "salary": "未提取",
@@ -4372,7 +4431,7 @@
     },
     {
       "id": "job-45e614787cd43bcc",
-      "rank": 61,
+      "rank": 62,
       "title": "东南亚跨境策略运营-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -4433,7 +4492,7 @@
     },
     {
       "id": "job-61b3bbe1b30c0406",
-      "rank": 62,
+      "rank": 63,
       "title": "用户增长运营专家-抖音生活服务",
       "company": "字节跳动",
       "salary": "30-60K·15薪",
@@ -4490,7 +4549,7 @@
     },
     {
       "id": "job-197c514fdbf8d507",
-      "rank": 63,
+      "rank": 64,
       "title": "用户增长运营专家-生活服务",
       "company": "字节跳动",
       "salary": "30-55K·15薪",
@@ -4547,7 +4606,7 @@
     },
     {
       "id": "job-f175efabd11b874c",
-      "rank": 64,
+      "rank": 65,
       "title": "产业带家具行业运营-抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -4603,7 +4662,7 @@
     },
     {
       "id": "job-a86e682d317f9a74",
-      "rank": 65,
+      "rank": 66,
       "title": "小家电行业运营-抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -4659,7 +4718,7 @@
     },
     {
       "id": "job-8c118c68dfec82fb",
-      "rank": 66,
+      "rank": 67,
       "title": "大家电行业运营-抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -4715,7 +4774,7 @@
     },
     {
       "id": "job-e6405b3e49ddde81",
-      "rank": 67,
+      "rank": 68,
       "title": "手机行业运营-抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -4771,7 +4830,7 @@
     },
     {
       "id": "job-7604b752d6825deb",
-      "rank": 68,
+      "rank": 69,
       "title": "增长运营经理（卡支付产品）",
       "company": "北京中利博冠网络科技",
       "salary": "25-50K",
@@ -4833,7 +4892,7 @@
     },
     {
       "id": "job-600b0b9993cd9a19",
-      "rank": 69,
+      "rank": 70,
       "title": "用户增长渠道拓展专家(MJ027978)",
       "company": "携程",
       "salary": "未提取",
@@ -4892,7 +4951,7 @@
     },
     {
       "id": "job-dd26cda3efa60a17",
-      "rank": 70,
+      "rank": 71,
       "title": "用户运营岗",
       "company": "得物",
       "salary": "未提取",
@@ -4949,7 +5008,7 @@
     },
     {
       "id": "job-aaaecd1b8cb4be53",
-      "rank": 71,
+      "rank": 72,
       "title": "费率策略运营专家",
       "company": "得物",
       "salary": "未提取",
@@ -5003,7 +5062,7 @@
     },
     {
       "id": "job-5fed80073675dc39",
-      "rank": 72,
+      "rank": 73,
       "title": "家纺布艺行业运营 - 抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5059,7 +5118,7 @@
     },
     {
       "id": "job-cf9bc383a04e6d81",
-      "rank": 73,
+      "rank": 74,
       "title": "巴西货品策略运营-TikTok Shop",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5115,7 +5174,7 @@
     },
     {
       "id": "job-3c4d71a18a8e6368",
-      "rank": 74,
+      "rank": 75,
       "title": "电影行业运营-抖音生活服务",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5171,7 +5230,7 @@
     },
     {
       "id": "job-afd91378b639ee07",
-      "rank": 75,
+      "rank": 76,
       "title": "商业化经营策略-经营政策",
       "company": "小红书",
       "salary": "20-40K",
@@ -5228,7 +5287,7 @@
     },
     {
       "id": "job-072b86e00dea82c2",
-      "rank": 76,
+      "rank": 77,
       "title": "商家/达人增长运营-国际支付",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5295,7 +5354,7 @@
     },
     {
       "id": "job-e799c772869e5a72",
-      "rank": 77,
+      "rank": 78,
       "title": "用户增长策略运营 - 国际化商业安全",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5355,7 +5414,7 @@
     },
     {
       "id": "job-ec54f245a9f30367",
-      "rank": 78,
+      "rank": 79,
       "title": "用户运营-95分",
       "company": "得物",
       "salary": "未提取",
@@ -5410,7 +5469,7 @@
     },
     {
       "id": "job-d368ad7ba8f3e748",
-      "rank": 79,
+      "rank": 80,
       "title": "中小买手-策略运营",
       "company": "小红书",
       "salary": "未提取",
@@ -5467,7 +5526,7 @@
     },
     {
       "id": "job-40d7637e582abf7a",
-      "rank": 80,
+      "rank": 81,
       "title": "补贴策略运营",
       "company": "得物",
       "salary": "未提取",
@@ -5523,8 +5582,67 @@
       "url": "https://careers.dewu.com/index/position/7316816041877997836/detail"
     },
     {
+      "id": "job-9d1cb5bf386696cf",
+      "rank": 82,
+      "title": "产品运营岗",
+      "company": "美团",
+      "salary": "未提取",
+      "salaryFloor": null,
+      "city": "上海",
+      "experience": "未提取",
+      "education": "本科",
+      "score": 58,
+      "tier": "B",
+      "tierLabel": "B 有部分匹配",
+      "isReference": false,
+      "closed": false,
+      "paymentBonus": false,
+      "paymentNative": false,
+      "paymentLeader": false,
+      "internationalPaymentFit": false,
+      "majorCompany": true,
+      "strategyRelevant": true,
+      "directResumeFit": false,
+      "transferableResumeFit": true,
+      "seniorityGap": false,
+      "functionGap": false,
+      "frequentTravel": false,
+      "applicationRecommended": true,
+      "source": "meituan",
+      "sourceLabel": "美团官网",
+      "officialSource": true,
+      "postedAt": 1786960981000,
+      "sourceJobId": "4696454382",
+      "directions": [
+        "用户增长"
+      ],
+      "dimensions": [
+        "增长/生命周期",
+        "数据分析",
+        "商业结果",
+        "用户/行业洞察",
+        "策略设计",
+        "跨团队推进",
+        "产品运营/体验"
+      ],
+      "responsibilities": [
+        "用户运营：以用户为中心，遵循用户的需求设置运营活动与规则，制定运营策略与运营目标，并能够做好全过程的项目推进，目标管理，进度管理和执行落地，通过数据对效果进行评估。持续增加用户洞察、为用户创造更多价值的方式实现用户健康增长。",
+        "商家及供给运营：以商家/骑手/司机/供应商为运营主体，通过对行业和市场的理解，运用科学合理的方式制定相应策略，传递公司和平台的价值主张，实现业务渗透、规模增长、结构优化、生态治理等，同时提升商家/骑手/司机/供应商的活跃度、经营效率、服务水平与经营收益。",
+        "内容运营：以内容/信息/数据的生产、消费、业务应用为核心，开展UGC、PGC、POI运营管理、新媒体运营，搭建良性生产循环，持续提升所在业务关键维度的指标，如内容数量、浏览量、内容互动数、内容传播数、信息及数据的质量等。"
+      ],
+      "requirements": "对用户侧信息有充分的敏感度，最懂他们的心；喜欢O2O行业，善于思考富有创意",
+      "notes": [
+        "简历没有 SQL/Python 等取数工具证据",
+        "岗位主职能不在支付运营、B 端产品 GTM 或商户生命周期主线"
+      ],
+      "requiresEnglish": false,
+      "agency": false,
+      "sensitive": false,
+      "url": "https://zhaopin.meituan.com/web/position/detail?highlightType=social&jobShareType=1&jobUnionId=4696454382"
+    },
+    {
       "id": "job-41fd5d3e2107136f",
-      "rank": 81,
+      "rank": 83,
       "title": "抖音商城APP用户增长运营-抖音电商",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5579,7 +5697,7 @@
     },
     {
       "id": "job-b66d8e4c368e7c83",
-      "rank": 82,
+      "rank": 84,
       "title": "餐饮行业运营-抖音生活服务（北京/上海）",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5634,7 +5752,7 @@
     },
     {
       "id": "job-d933dbd5576b1ee0",
-      "rank": 83,
+      "rank": 85,
       "title": "行业运营-抖音生活服务（北京/上海）",
       "company": "字节跳动",
       "salary": "未提取",
@@ -5686,130 +5804,6 @@
       "agency": false,
       "sensitive": false,
       "url": "https://jobs.bytedance.com/experienced/position/7173484810907322631/detail"
-    },
-    {
-      "id": "job-909774e11524d3d8",
-      "rank": 84,
-      "title": "海外用户增长运营",
-      "company": "井英科技",
-      "salary": "30-50K·13薪",
-      "salaryFloor": 30,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "本科",
-      "score": 58,
-      "tier": "B",
-      "tierLabel": "B 有部分匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "paymentNative": false,
-      "paymentLeader": false,
-      "internationalPaymentFit": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "directResumeFit": false,
-      "transferableResumeFit": true,
-      "seniorityGap": false,
-      "functionGap": false,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "source": "boss",
-      "sourceLabel": "BOSS 直聘",
-      "officialSource": false,
-      "postedAt": null,
-      "sourceJobId": "",
-      "directions": [
-        "用户增长",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "国际化",
-        "产品运营/体验",
-        "实验/精细化运营"
-      ],
-      "responsibilities": [
-        "从0到1搭建海外私域用户社群，包括但不限于Discord、WhatsApp、Telegram、Facebook Group等平台制定社群运营策略与规则，设计社群矩阵架构，提升用户活跃度和粘性负责多账号矩阵的搭建与安全管理，熟悉海外社群管理工具及多账号管理方案",
-        "以获客为导向，策划并执⾏各类线上营销活动，包括裂变增长、专题促销、新客激励等，整合站外社交媒体、内容平台、电商店铺等渠道资源，将公域流量引流⾄私域流量池，拓展私域⽤户规模，优化从流量到产品激活的转化漏斗，通过本地化的产品引导与激励机制提升新用户激活率",
-        "建⽴基于用户生命周期的分层运营机制，针对不同活跃度用户设计个性化留存方案，搭建自动化触达策略，通过EDM、Push、社群推送等渠道提升新用户转化、老用户留存及流失用户召回，设计符合海外用户偏好的游戏化任务体系与成就系统，提升用户粘性与复购率"
-      ],
-      "requirements": "1本科及以上学历，3年以上互联网用户运营/增长运营经验，有海外项目经验 2:深度熟悉海外主流社媒及社群平台（Meta/WhatsApp/TikTok/YouTube/Discord等）的运营规则与增长玩法 3:具备增长黑客方法论，有从0到1搭建私域流量池或规模化增长的成功案例 4:对数据敏感，擅长通过用户画像、转化漏斗等数据分析驱动决策 5:英语可作为...",
-      "notes": [
-        "雅思 6.5 不能直接证明流利商务英语",
-        "需要英语能力",
-        "岗位主职能不在支付运营、B 端产品 GTM 或商户生命周期主线"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/883aa5bd0aba912a0nF40ty9ElFX.html"
-    },
-    {
-      "id": "job-e2c167ad56458ac4",
-      "rank": 85,
-      "title": "高级用户运营",
-      "company": "数佑文化",
-      "salary": "20-40K",
-      "salaryFloor": 20,
-      "city": "上海",
-      "experience": "3-5年",
-      "education": "大专",
-      "score": 58,
-      "tier": "B",
-      "tierLabel": "B 有部分匹配",
-      "isReference": false,
-      "closed": false,
-      "paymentBonus": false,
-      "paymentNative": false,
-      "paymentLeader": false,
-      "internationalPaymentFit": false,
-      "majorCompany": false,
-      "strategyRelevant": true,
-      "directResumeFit": false,
-      "transferableResumeFit": true,
-      "seniorityGap": false,
-      "functionGap": false,
-      "frequentTravel": false,
-      "applicationRecommended": true,
-      "source": "boss",
-      "sourceLabel": "BOSS 直聘",
-      "officialSource": false,
-      "postedAt": null,
-      "sourceJobId": "",
-      "directions": [
-        "用户增长",
-        "海外跨境"
-      ],
-      "dimensions": [
-        "增长/生命周期",
-        "数据分析",
-        "用户/行业洞察",
-        "策略设计",
-        "跨团队推进",
-        "国际化",
-        "产品运营/体验",
-        "实验/精细化运营"
-      ],
-      "responsibilities": [
-        "用户生命周期管理：制定并执行全面的⽤户⽣命周期策略，涵盖从新⽤户获取、激活，到老用户留存、复购以及流失⽤户召回的全流程管理，以提升用户在各阶段的活跃度与忠诚度",
-        "新客转化率提升：通过市场调研、用户行为分析等手段，深入了解海外市场和用户需求，制定针对性的新用户获取和转化策略。优化新用户注册流程、新客专享活动策划与执行，有效提升新客转化率",
-        "老客留存复购：建立并完善老用户留存和复购体系，包括会员制度设计、老用户专属活动策划等。通过数据分析挖掘老用户潜在需求，实现精准营销，提高老用户留存率和复购率"
-      ],
-      "requirements": "用户运营经验：3年以上用户运营相关实操经验，对海外市场有深入的了解和敏锐的市场洞察力。具备丰富的用户生命周期管理经验，在新客转化、老客留存复购等方面有成功案例。具有优秀的逻辑思维、数据分析能力，熟练掌握用户运营的各种策略和方法，能够运用数据分析工具（如 Excel、SQL 等）进行用户数据分析和运营效果评估；；语言能力：工作语言为英语，具备流利的英语口语和书面表达能力。",
-      "notes": [
-        "雅思 6.5 不能直接证明流利商务英语",
-        "需要英语能力",
-        "岗位主职能不在支付运营、B 端产品 GTM 或商户生命周期主线"
-      ],
-      "requiresEnglish": true,
-      "agency": false,
-      "sensitive": false,
-      "url": "https://www.zhipin.com/job_detail/67ffcc2433e519150nV-2dy6F1RY.html"
     },
     {
       "id": "job-a0e53ab52f7297bf",
