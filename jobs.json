@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-13T06:23:44+08:00",
+  "generatedAt": "2026-09-14T06:24:49+08:00",
   "sourceGeneratedAt": "2026-07-22T14:31:20.529Z",
-  "officialSourceGeneratedAt": "2026-09-12T22:23:38.522Z",
+  "officialSourceGeneratedAt": "2026-09-13T22:23:54.338Z",
   "officialSources": [
     {
       "id": "bytedance",
@@ -45,9 +45,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 1070,
+      "candidate_count": 1065,
       "previous_count": 1070,
-      "fetched_at": "2026-09-12T22:16:37.787Z"
+      "fetched_at": "2026-09-13T22:16:45.515Z"
     },
     {
       "id": "ant",
@@ -91,8 +91,8 @@
         "汇款"
       ],
       "candidate_count": 86,
-      "previous_count": 88,
-      "fetched_at": "2026-09-12T22:17:25.191Z"
+      "previous_count": 86,
+      "fetched_at": "2026-09-13T22:17:33.697Z"
     },
     {
       "id": "alibaba",
@@ -136,7 +136,7 @@
       ],
       "candidate_count": 33,
       "previous_count": 33,
-      "fetched_at": "2026-09-12T22:17:37.553Z"
+      "fetched_at": "2026-09-13T22:17:46.147Z"
     },
     {
       "id": "tencent",
@@ -179,7 +179,7 @@
       ],
       "candidate_count": 8,
       "previous_count": 8,
-      "fetched_at": "2026-09-12T22:18:05.777Z"
+      "fetched_at": "2026-09-13T22:18:14.427Z"
     },
     {
       "id": "meituan",
@@ -223,7 +223,7 @@
       ],
       "candidate_count": 406,
       "previous_count": 406,
-      "fetched_at": "2026-09-12T22:18:40.549Z"
+      "fetched_at": "2026-09-13T22:18:49.720Z"
     },
     {
       "id": "jd",
@@ -264,9 +264,9 @@
         "跨境转账",
         "汇款"
       ],
-      "candidate_count": 2,
+      "candidate_count": 1,
       "previous_count": 2,
-      "fetched_at": "2026-09-12T22:18:42.223Z"
+      "fetched_at": "2026-09-13T22:18:51.416Z"
     },
     {
       "id": "xiaohongshu",
@@ -310,7 +310,7 @@
       ],
       "candidate_count": 136,
       "previous_count": 136,
-      "fetched_at": "2026-09-12T22:19:04.842Z"
+      "fetched_at": "2026-09-13T22:19:14.059Z"
     },
     {
       "id": "ctrip",
@@ -354,7 +354,7 @@
       ],
       "candidate_count": 130,
       "previous_count": 130,
-      "fetched_at": "2026-09-12T22:19:33.409Z"
+      "fetched_at": "2026-09-13T22:19:42.490Z"
     },
     {
       "id": "didi",
@@ -365,8 +365,8 @@
         "上海运营"
       ],
       "candidate_count": 15,
-      "previous_count": 16,
-      "fetched_at": "2026-09-12T22:19:44.835Z"
+      "previous_count": 15,
+      "fetched_at": "2026-09-13T22:19:54.069Z"
     },
     {
       "id": "baidu",
@@ -378,7 +378,7 @@
       ],
       "candidate_count": 216,
       "previous_count": 216,
-      "fetched_at": "2026-09-12T22:19:53.828Z"
+      "fetched_at": "2026-09-13T22:20:03.029Z"
     },
     {
       "id": "kuaishou",
@@ -390,7 +390,7 @@
       ],
       "candidate_count": 54,
       "previous_count": 54,
-      "fetched_at": "2026-09-12T22:19:55.101Z"
+      "fetched_at": "2026-09-13T22:20:04.304Z"
     },
     {
       "id": "bilibili",
@@ -434,7 +434,7 @@
       ],
       "candidate_count": 22,
       "previous_count": 22,
-      "fetched_at": "2026-09-12T22:20:20.549Z"
+      "fetched_at": "2026-09-13T22:20:29.545Z"
     },
     {
       "id": "dewu",
@@ -478,7 +478,7 @@
       ],
       "candidate_count": 162,
       "previous_count": 162,
-      "fetched_at": "2026-09-12T22:21:34.680Z"
+      "fetched_at": "2026-09-13T22:21:50.570Z"
     },
     {
       "id": "pdd",
@@ -497,7 +497,7 @@
       "candidate_count": 43,
       "previous_count": 43,
       "error": "拼多多风控 54001: 请求失败",
-      "fetched_at": "2026-09-12T22:23:12.884Z"
+      "fetched_at": "2026-09-13T22:23:28.820Z"
     },
     {
       "id": "airwallex",
@@ -509,7 +509,7 @@
       ],
       "candidate_count": 28,
       "previous_count": 28,
-      "fetched_at": "2026-09-12T22:23:14.122Z"
+      "fetched_at": "2026-09-13T22:23:30.070Z"
     },
     {
       "id": "mastercard",
@@ -521,7 +521,7 @@
       ],
       "candidate_count": 5,
       "previous_count": 5,
-      "fetched_at": "2026-09-12T22:23:22.729Z"
+      "fetched_at": "2026-09-13T22:23:38.756Z"
     },
     {
       "id": "adyen",
@@ -533,7 +533,7 @@
       ],
       "candidate_count": 3,
       "previous_count": 3,
-      "fetched_at": "2026-09-12T22:23:26.080Z"
+      "fetched_at": "2026-09-13T22:23:42.340Z"
     },
     {
       "id": "worldpay",
@@ -545,7 +545,7 @@
       ],
       "candidate_count": 6,
       "previous_count": 6,
-      "fetched_at": "2026-09-12T22:23:35.531Z"
+      "fetched_at": "2026-09-13T22:23:51.386Z"
     },
     {
       "id": "huifu",
@@ -557,7 +557,7 @@
       ],
       "candidate_count": 8,
       "previous_count": 8,
-      "fetched_at": "2026-09-12T22:23:35.811Z"
+      "fetched_at": "2026-09-13T22:23:51.676Z"
     },
     {
       "id": "yeepay",
@@ -569,12 +569,12 @@
       ],
       "candidate_count": 18,
       "previous_count": 18,
-      "fetched_at": "2026-09-12T22:23:38.521Z"
+      "fetched_at": "2026-09-13T22:23:54.336Z"
     }
   ],
   "platformSourceGeneratedAt": null,
   "platformSources": [],
-  "poolSize": 2953,
+  "poolSize": 2947,
   "eligibleSize": 180,
   "displayedSize": 90,
   "counts": {
